@@ -1,4 +1,4 @@
-# BAD GIT
+# GITTER [Github Threat Extended Recon]
 Crawling github for malicious repositories
 <img src="https://github.com/cas1m1r/GITTER/blob/main/assets/comfort.gif?raw=true" width="100%"> 
 
