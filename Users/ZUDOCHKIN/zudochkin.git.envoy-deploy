@@ -1,0 +1,344 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 69355d72449d7319c9529aaf2988674602328d53
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Aug 7 21:00:11 2019 +0100
+
+    Removed comment
+    
+    Removed date / folder comment from previous PR
+
+commit be28f47744083d58ab9b45a89642a4077261bbf5
+Author: Wolfgang Tom <wtom@users.noreply.github.com>
+Date:   Sun Apr 28 11:45:55 2019 +0200
+
+    phpdotenv version 3.3 (#13)
+
+commit 1a4abfb398f3514e92e8e8c77595c01f3a9c5639
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sat May 19 16:34:04 2018 +0100
+
+    - Fixed deploy_cleanup story (wrong tasks)
+    - Moved queue restart to deployment_finish (from deployment_cache)
+
+commit f1203612e71964c47fe855abfb1a95bf44d86230
+Author: David Rushton <david@papertank.co.uk>
+Date:   Thu May 3 20:08:59 2018 +0100
+
+    Updated readme.md
+
+commit db0e6a56db12e408cac9a564805a5659023a6f85
+Author: David Rushton <david@papertank.co.uk>
+Date:   Thu May 3 20:08:05 2018 +0100
+
+    Updated readme.md
+
+commit 1bfd507cb41917d9d707720810a03a29f20cee92
+Author: David Rushton <david@papertank.co.uk>
+Date:   Thu May 3 19:08:41 2018 +0100
+
+    Tidy up / health check fix when not set.
+
+commit a2612012342427f720d402bcacbbb35df2f88cac
+Author: Jordi Puigdellívol <jordi@gloobus.net>
+Date:   Thu May 3 19:52:25 2018 +0200
+
+    Optimize command updated (#11)
+    
+    * In new laravel version the optimize command is not necessary anymore, but you can use it in the composer install. I also added the --prefer-dist flag as it will download the dist files if available instead of all the sources and it makes it faster
+    
+    * Update Envoy.blade.php
+    
+    * Added health check task
+    
+    So we can make sure the page still returns a 200, and if not, do an automatic rollback
+    
+    (the automatic rollback is not done yet)
+    
+    * updated the cleanup to keep the last 4 deploys and not depending on date so we make sure there is always one to rollback
+    
+    * Updated readme with new changes
+    
+    * PR updated following David's indications
+    
+    * PR updated following David's indications
+
+commit 214600185ff820c58e6f443477617f8c12d18f36
+Author: mallchin <mallchin@mac.com>
+Date:   Fri Sep 15 20:49:34 2017 +0100
+
+    Typo (#8)
+
+commit d5a1175c42a23592d9d3675dd14668c03bd1d869
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Sep 10 14:23:55 2017 +0100
+
+    Fixing tabs
+
+commit 8e345e119c1f7959e213ffb3507d626f4604bab2
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Sep 10 14:19:44 2017 +0100
+
+    - Updated init task to only initialize (rather than deploy)
+    - Removed semi-colons (#7)
+    - Updated readme
+
+commit 49d25059bb1875b4d8402746bb01d9a220847457
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Jan 29 17:06:57 2017 +0000
+
+    Fixed typo in readme
+
+commit 66ad077d265b6924a2a466e51766c42cbe64e68b
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Jan 29 13:10:12 2017 +0000
+
+    Version 2.0 (#5)
+
+commit 756868a64d8f805ba31f5ee711354bc46ab54028
+Merge: dab29a4 6ee94d7
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Jan 5 11:03:05 2016 +0000
+
+    Merge pull request #2 from whoan/master
+    
+    Fixed typo
+
+commit 6ee94d76c69dcbab1cb1482270354a3163c6a29d
+Author: Juan Eugenio Abadie <abadiejuan@hotmail.com>
+Date:   Wed Dec 30 11:00:34 2015 -0300
+
+    Fixed typo
+
+commit dab29a4dd27f77be279302b04f4fe7d53b8036e2
+Author: David Rushton <david@papertank.co.uk>
+Date:   Fri Oct 23 09:55:20 2015 +0100
+
+    Added cleanup task with updated cleanup command. Added new deploy_cleanup macro and removed cleanup from deploy task.
+
+commit 0f7ff2880a9d76dcd31365d192b7a961fffc28b8
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:46:49 2015 +0000
+
+    Updated readme with credits.
+
+commit 2d5982af4f3a110b88eec9e9d1875c08bc0b58af
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:45:10 2015 +0000
+
+    Added --depth=1 to clone command to just get HEAD.
+
+commit da5ae4c69be83b3a3b575cd49f9149a5fc5f153c
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:41:24 2015 +0000
+
+    Fixed indentation.
+
+commit cc8a029b5c24bf19a726c162d85310853d78628d
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:36:19 2015 +0000
+
+    Added cleanup command thanks - credit to https://laracasts.com/@deringer.
+
+commit 2b15af6c7a83ce12929cc4d273b4b0cdfd2fe461
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 21:39:00 2015 +0000
+
+    Moved ssh login str to envoy.config.php.
+
+commit fed2d51caf28c1f2c87e029df4edfc359326ce5d
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:44:29 2015 +0000
+
+    Updated how it works deployment folder readme.
+
+commit 097431696c80adf450db57c07da7762ec8358888
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:42:54 2015 +0000
+
+    Updated deploy section in readme.
+
+commit c15ecc0e4ef93f635b9290822b16e38ab28aa50c
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:41:27 2015 +0000
+
+    First stab at envoy deployment script.
+
+commit 31af9d77799de4e2f2636ed8f2795731cc12a1fb
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:08:53 2015 +0000
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 69355d72449d7319c9529aaf2988674602328d53
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Aug 7 21:00:11 2019 +0100
+
+    Removed comment
+    
+    Removed date / folder comment from previous PR
+
+commit be28f47744083d58ab9b45a89642a4077261bbf5
+Author: Wolfgang Tom <wtom@users.noreply.github.com>
+Date:   Sun Apr 28 11:45:55 2019 +0200
+
+    phpdotenv version 3.3 (#13)
+
+commit 1a4abfb398f3514e92e8e8c77595c01f3a9c5639
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sat May 19 16:34:04 2018 +0100
+
+    - Fixed deploy_cleanup story (wrong tasks)
+    - Moved queue restart to deployment_finish (from deployment_cache)
+
+commit f1203612e71964c47fe855abfb1a95bf44d86230
+Author: David Rushton <david@papertank.co.uk>
+Date:   Thu May 3 20:08:59 2018 +0100
+
+    Updated readme.md
+
+commit db0e6a56db12e408cac9a564805a5659023a6f85
+Author: David Rushton <david@papertank.co.uk>
+Date:   Thu May 3 20:08:05 2018 +0100
+
+    Updated readme.md
+
+commit 1bfd507cb41917d9d707720810a03a29f20cee92
+Author: David Rushton <david@papertank.co.uk>
+Date:   Thu May 3 19:08:41 2018 +0100
+
+    Tidy up / health check fix when not set.
+
+commit a2612012342427f720d402bcacbbb35df2f88cac
+Author: Jordi Puigdellívol <jordi@gloobus.net>
+Date:   Thu May 3 19:52:25 2018 +0200
+
+    Optimize command updated (#11)
+    
+    * In new laravel version the optimize command is not necessary anymore, but you can use it in the composer install. I also added the --prefer-dist flag as it will download the dist files if available instead of all the sources and it makes it faster
+    
+    * Update Envoy.blade.php
+    
+    * Added health check task
+    
+    So we can make sure the page still returns a 200, and if not, do an automatic rollback
+    
+    (the automatic rollback is not done yet)
+    
+    * updated the cleanup to keep the last 4 deploys and not depending on date so we make sure there is always one to rollback
+    
+    * Updated readme with new changes
+    
+    * PR updated following David's indications
+    
+    * PR updated following David's indications
+
+commit 214600185ff820c58e6f443477617f8c12d18f36
+Author: mallchin <mallchin@mac.com>
+Date:   Fri Sep 15 20:49:34 2017 +0100
+
+    Typo (#8)
+
+commit d5a1175c42a23592d9d3675dd14668c03bd1d869
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Sep 10 14:23:55 2017 +0100
+
+    Fixing tabs
+
+commit 8e345e119c1f7959e213ffb3507d626f4604bab2
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Sep 10 14:19:44 2017 +0100
+
+    - Updated init task to only initialize (rather than deploy)
+    - Removed semi-colons (#7)
+    - Updated readme
+
+commit 49d25059bb1875b4d8402746bb01d9a220847457
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Jan 29 17:06:57 2017 +0000
+
+    Fixed typo in readme
+
+commit 66ad077d265b6924a2a466e51766c42cbe64e68b
+Author: David Rushton <david@papertank.co.uk>
+Date:   Sun Jan 29 13:10:12 2017 +0000
+
+    Version 2.0 (#5)
+
+commit 756868a64d8f805ba31f5ee711354bc46ab54028
+Merge: dab29a4 6ee94d7
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Jan 5 11:03:05 2016 +0000
+
+    Merge pull request #2 from whoan/master
+    
+    Fixed typo
+
+commit 6ee94d76c69dcbab1cb1482270354a3163c6a29d
+Author: Juan Eugenio Abadie <abadiejuan@hotmail.com>
+Date:   Wed Dec 30 11:00:34 2015 -0300
+
+    Fixed typo
+
+commit dab29a4dd27f77be279302b04f4fe7d53b8036e2
+Author: David Rushton <david@papertank.co.uk>
+Date:   Fri Oct 23 09:55:20 2015 +0100
+
+    Added cleanup task with updated cleanup command. Added new deploy_cleanup macro and removed cleanup from deploy task.
+
+commit 0f7ff2880a9d76dcd31365d192b7a961fffc28b8
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:46:49 2015 +0000
+
+    Updated readme with credits.
+
+commit 2d5982af4f3a110b88eec9e9d1875c08bc0b58af
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:45:10 2015 +0000
+
+    Added --depth=1 to clone command to just get HEAD.
+
+commit da5ae4c69be83b3a3b575cd49f9149a5fc5f153c
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:41:24 2015 +0000
+
+    Fixed indentation.
+
+commit cc8a029b5c24bf19a726c162d85310853d78628d
+Author: David Rushton <david@papertank.co.uk>
+Date:   Wed Mar 18 08:36:19 2015 +0000
+
+    Added cleanup command thanks - credit to https://laracasts.com/@deringer.
+
+commit 2b15af6c7a83ce12929cc4d273b4b0cdfd2fe461
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 21:39:00 2015 +0000
+
+    Moved ssh login str to envoy.config.php.
+
+commit fed2d51caf28c1f2c87e029df4edfc359326ce5d
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:44:29 2015 +0000
+
+    Updated how it works deployment folder readme.
+
+commit 097431696c80adf450db57c07da7762ec8358888
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:42:54 2015 +0000
+
+    Updated deploy section in readme.
+
+commit c15ecc0e4ef93f635b9290822b16e38ab28aa50c
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:41:27 2015 +0000
+
+    First stab at envoy deployment script.
+
+commit 31af9d77799de4e2f2636ed8f2795731cc12a1fb
+Author: David Rushton <david@papertank.co.uk>
+Date:   Tue Mar 17 20:08:53 2015 +0000
+
+    Initial commit

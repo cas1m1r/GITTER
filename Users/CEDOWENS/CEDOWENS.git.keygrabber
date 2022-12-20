@@ -1,0 +1,102 @@
+======================: FILES :======================
+.
+├── keygrabber.py
+├── keygrabber.sh
+├── LICENSE
+└── README.md
+
+0 directories, 4 files
+======================: README CONTENT :======================
+# keygrabber
+
+Automation for grabbing keys from a Linux host. This can be helpful during red team exercises when you gain access to a Linux host and want to quickly see what other accesses that host can lead to. You can use either the python2/python3 compatible script or the shell script included in this repo.
+
+Once you gain access to a Linux host, upload this script on the host and run it and it will grab the following:
+
+- ~/.aws/ contents
+- ~/.ssh/ contents
+- ~/.azure/ contents
+- ~/.config/gcloud/credentials.db
+- ~/.bashrc
+- ~/.bash_history
+- env
+- gcp and aws metadata service query
+
+## Usage
+> chmod +x keygrabber.sh
+
+OR
+
+> chmod +x keygrabber.py
+
+----------
+> python keygrabber.py
+
+OR
+
+> python3 keygrabber.py
+
+OR
+
+> ./keygrabber.sh
+====================== GIT HISTORY: ======================
+d7ab7b4 HEAD@{0}: clone: from https://github.com/cedowens/keygrabber
+commit d7ab7b4d91145554959a83f8f4716de22c9fe5a0
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 23:07:35 2021 -0500
+
+    Update README.md
+
+commit abaca26d5be0568bcccd705ebca5a176deb0e5b5
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 23:05:25 2021 -0500
+
+    Update keygrabber.py
+
+commit e16884547d019e9a6d2bc2246f9d12dafc0c5ab0
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 23:04:02 2021 -0500
+
+    Update README.md
+
+commit dbf0d0ef42c43ee1f6b531dfb9f5cafc31d97504
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 23:01:13 2021 -0500
+
+    Update README.md
+
+commit 5ecae17a8d2f797cee6aad2d2b17e110a2205d50
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 22:59:11 2021 -0500
+
+    Update README.md
+
+commit 4c945ab92d6f8cf60e7bd1e343527bbd5ead2794
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 22:55:57 2021 -0500
+
+    Add files via upload
+
+commit e6171301f8bc9ed522e0e0d87b66a834d701cfae
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 13:20:31 2021 -0500
+
+    Update README.md
+
+commit b9f30a3d01ee81f329fa6f1c06a4f69366670f83
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 13:19:34 2021 -0500
+
+    Add files via upload
+
+commit c2803d2ee25fcfe6b4a7e52fb5a362b9fb735817
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 13:08:17 2021 -0500
+
+    Update README.md
+
+commit 611b9777f3d87bc55e439f19744a1e9665937664
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu May 6 13:04:53 2021 -0500
+
+    Initial commit

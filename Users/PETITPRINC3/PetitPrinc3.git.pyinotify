@@ -1,0 +1,3438 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 0f3f8950d12e4a6534320153eed1a90a778da4ae
+Merge: 2d716e5 387e544
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 19:18:00 2015 +0200
+
+    Merge pull request #102 from blueyed/sync-versions-for-python2-3
+    
+    Sync whitespace / comments between Python 2 and 3 versions
+
+commit 387e5445468b88f6c97c7af66da5da2833caf34e
+Author: Daniel Hahler <git@thequod.de>
+Date:   Mon Mar 16 21:58:39 2015 +0100
+
+    Sync whitespace / comments between Python 2 and 3 versions
+
+commit 2d716e5ceef8ade1a60eff0bac30de939afb2b8d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 17:28:48 2015 +0200
+
+    Bump version
+
+commit e3e578310c4135212d4892b5a39807e31af3c91f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 17:26:05 2015 +0200
+
+    Fix doc indent
+
+commit 5ef42e0e70fcd0b5a5830929c151958c1547b00d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 15:42:00 2015 +0200
+
+    Improve documentation
+    
+    Close #101
+
+commit 7da6df4a4f7d99ef03445ecd3b738a535d9315f6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 15:23:17 2015 +0200
+
+    Only close a valid file descriptor
+    
+    Idea contributed by @blueyed
+    
+    Close #93
+
+commit b142abf409fc206d8acd5a021574f5b326022f84
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 15:10:27 2015 +0200
+
+    Access /proc/sys instead of using sysctl to access inotify's attributes
+    
+    Close #84 #99
+
+commit 976b33553f349d7c345c52e16aeaa8720f2da64b
+Merge: f3ee9bb 44ce9f1
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Wed Jun 3 09:15:54 2015 +0200
+
+    Merge pull request #100 from johnktims/patch-1
+    
+    Fix documentation typo
+
+commit 44ce9f1dd7495542ad7ea47216a77710737d23ea
+Author: John Tims <john.k.tims@gmail.com>
+Date:   Tue Jun 2 16:26:09 2015 -0400
+
+    Fix documentation typo
+
+commit f3ee9bb651654930f034d6001ffa9ba5f5c43b3d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 9 22:15:58 2015 +0100
+
+    Release Pyinotify 0.9.5
+
+commit 859c834e111b28f0fd68686c826606bdb43e778c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 17:44:48 2014 +0100
+
+    Implement stop method in AsyncioNotifier
+
+commit 1da0c1c8608e3cc3a735b4db14931762ddaef033
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 17:01:34 2014 +0100
+
+    Remove extra lines, fix indents
+
+commit 799285ef35036f193c953e4c0b47cc1d97c2934f
+Merge: af50b62 5b86996
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 16:58:34 2014 +0100
+
+    Merge pull request #88 from apenwarr/master
+    
+    Allow TornadoAsyncNotifier.stop() to clean up all hanging refs.
+
+commit af50b62ae18605a95cfe659b62133be411794666
+Merge: 73a7346 6e77a4c
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 16:44:55 2014 +0100
+
+    Merge pull request #85 from dano/master
+    
+    Add asyncio-compatible Notifier sub-class.
+
+commit 73a734695e9f9fcfc978ee9b72ccf29b5501c3b1
+Merge: a51277d 885b195
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 16:38:42 2014 +0100
+
+    Merge pull request #89 from bootandy/patch-1
+    
+    Update pyinotify.py
+
+commit 885b195e574276c85e6ae0512b9f9f46f27daf69
+Author: andy boot <bootandy@gmail.com>
+Date:   Fri Dec 5 15:25:31 2014 +0000
+
+    Update pyinotify.py
+    
+    fix link in comment
+
+commit 5b8699693956fec9693330613592aa5f87892511
+Author: Avery Pennarun <apenwarr@gmail.com>
+Date:   Wed Nov 26 03:04:54 2014 -0500
+
+    Allow TornadoAsyncNotifier.stop() to clean up all hanging refs.
+    
+    Without this, the TornadoAsyncNotifier and thus WatchManager instances are
+    never freed, because tornado is still holding a refernce to the handler.
+
+commit 6e77a4c8d001971cec6c98c6af8e553872a121d4
+Author: dano <oreilldf@gmail.com>
+Date:   Thu Oct 16 19:44:55 2014 -0400
+
+    doc update
+
+commit c297e50a2ae0c1cdd2380a395a3ed37199580506
+Author: dano <oreilldf@gmail.com>
+Date:   Thu Oct 16 19:43:52 2014 -0400
+
+    Add asyncio example
+
+commit b1da9d65979ed50eca42d68814fd99badece1de3
+Author: dano <oreilldf@gmail.com>
+Date:   Thu Oct 16 19:40:49 2014 -0400
+
+    Add asyncio Notifier adapter
+
+commit a51277db95321eae90656e1fbc4ef8b11584735f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Aug 16 18:49:59 2014 +0200
+
+    Fix ExcludeFilter docstring examples.
+    
+    Closes #81
+
+commit cd9574199c585f7dc9d7ac9bac03be180ed63c0b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 13 09:14:26 2014 +0200
+
+    Add new classifiers.
+    
+    Closes #79
+
+commit a52442de1b19b59d5f6144f2d60c2fd2b010a353
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jul 10 20:51:47 2014 +0200
+
+    Typo.
+
+commit d2b201ea12e60ec9daee083ee886d1537e751a4b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jul 10 20:14:14 2014 +0200
+
+    Improve example daemon.py.
+    
+    Closes #77
+
+commit 12cf58b82bd81624fd8d87239697474cadf73c3a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 18:12:58 2014 +0200
+
+    Stub support for Pyinotify on FreeBSD.
+    
+    I don't have any FreeBSD system, so test it and report any issue
+    with this code.
+    
+    Closes #64
+
+commit 8e190d29cc7f70a25e30b9b798e27a1c997fe7f5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 14:39:48 2014 +0200
+
+    Add WatchManager attribute to ignore events.
+    
+    A new boolean attribute ignore_events (False by default) can be set
+    to True in order to ignore reported events. Note that Watch descriptors
+    are still valid and events are still received but there are ignored
+    and not processed. Processing is resumed by re-assigning False to this
+    attribute.
+    
+    Closes #44
+
+commit 499a975f651495c35f2616f829e946213a5454f9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 13:19:39 2014 +0200
+
+    Fix /proc inotify interfaces.
+    
+    There was a bug preventing the variables to be assigned a new
+    value.
+    
+    The operations accessing (get and set) these interfaces now return
+    an OSError exception on failure.
+    
+    Closes #73
+
+commit 33725288abd029ff53d0d8de4841808359e0d4a9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 10:51:12 2014 +0200
+
+    Update Travis conf.
+    
+    Closes #74
+
+commit a479834f84cdb4d52134275932f033ee5c04c35b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jul 5 22:30:53 2014 +0200
+
+    Handle OSError exception in process_IN_CREATE.
+    
+    close #76
+
+commit b59a48b05cf851d9f47b16f3a3a3a8eba7e8ddac
+Merge: e037340 df6118d
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 23 03:59:03 2013 -0800
+
+    Merge pull request #62 from grooverdan/travis
+    
+    py-2.5 removed from travis
+
+commit e0373400336c8e0da891acfba0c5a992a08df65e
+Merge: 51aa5bd a9a07cd
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 23 03:58:22 2013 -0800
+
+    Merge pull request #61 from grooverdan/glob
+    
+    add glob option to command line
+
+commit df6118dbf9aee995599865043c7a22bb49d8153a
+Author: Daniel Black <grooverdan@users.sourceforge.net>
+Date:   Mon Dec 23 10:22:49 2013 +0000
+
+    Add python-3.3 to travis
+
+commit 956a0352efb9ab1ad6430ebe9e08465bed39aee3
+Author: Daniel Black <grooverdan@users.sourceforge.net>
+Date:   Mon Dec 23 10:19:43 2013 +0000
+
+    py-2.5 removed as per http://about.travis-ci.org/blog/2013-11-18-upcoming-build-environment-updates/
+
+commit a9a07cd3879ce165c2ac01fa242ad93f40a6ac6b
+Author: Daniel Black <grooverdan@users.sourceforge.net>
+Date:   Mon Dec 23 10:13:20 2013 +0000
+
+    add glob option to command line
+
+commit 51aa5bd8c22c5ff8c730f97178f000b55cb02f0f
+Merge: b828a12 9905931
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 19 05:29:42 2013 -0800
+
+    Merge pull request #58 from jdswinbank/glob
+    
+    Fall back to glob.glob() on Python 2.4
+
+commit 99059317f3cbfd25aeb7a03394ff6713ddbb451a
+Author: John Swinbank <john@swinbank.org>
+Date:   Tue Nov 19 14:16:14 2013 +0100
+
+    Fall back to glob.glob() on Python 2.4
+    
+    glob.iglob() was introduced with Python 2.5, but pyinotify claims
+    compatibility with Python 2.4. Here, we fall back to glob.glob() if iglob()
+    isn't available.
+
+commit b828a124bcf2310df7e2e7683b0902fcd78a08bf
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Nov 15 19:39:22 2012 +0100
+
+    Released Pyinotify 0.9.4
+
+commit 11ba54ff2e1d6c00d8827eda35e2af28292b106d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 4 12:28:24 2012 +0200
+
+    Typos.
+
+commit aea39987fa5f3efaad15c2fa4fe2597996393327
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 4 12:18:04 2012 +0200
+
+    Improved Tornado's notifier.
+
+commit 75f63f3f63ed1105b5cad98e1121dc55e5043cba
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 4 00:45:11 2012 +0200
+
+    Ported TornadoAsyncNotifier to Python3.
+    
+    Assuming Tornado works the same way under Python3... I must say
+    I don't use Tornado myself I didn't test it.
+
+commit 8599f88bf9c4217861ebac681362b96d98c2c000
+Merge: 66c3954 0bd8d6f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Oct 3 15:26:12 2012 -0700
+
+    Merge pull request #46 from Flyguy/master
+    
+    Added tornado ioloop support
+
+commit 0bd8d6fa0ccf7faebcde813a1f6d60c7fca482d6
+Author: LE0N <flyguy.by@gmail.com>
+Date:   Wed Oct 3 22:45:19 2012 +0300
+
+    Add tornado ioloop support
+
+commit 66c395418d52e1506678e077dfa51a062c7f3735
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 30 07:36:39 2012 +0200
+
+    Add support for IN_EXCL_UNLINK flag (Python 3 branch).
+
+commit d7ab4701970da20cc7c58ee444d9c5949f84bfe3
+Merge: 9a418c9 26bec33
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Aug 29 22:28:08 2012 -0700
+
+    Merge pull request #42 from quiver/IN_EXCL_UNLINK
+    
+    Add support for IN_EXCL_UNLINK flag
+
+commit 26bec33f9d65becb208460de5867150c297b3970
+Author: quiver <george@alpamayo.(none)>
+Date:   Mon Aug 27 22:08:37 2012 +0900
+
+    add support for IN_EXCL_UNLINK flag
+
+commit 9a418c9c684ce7f4e8078c32fdfb2a7b90d03ca0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Aug 6 13:55:11 2012 +0200
+
+    Fixed namespace issue.
+
+commit ef6c7e71cf3a6262a4626cd7979cf9a5e86414f5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 7 22:28:23 2012 +0200
+
+    Cleaned-up Readme file a bit.
+
+commit 439565e3a378ed891c03efb0ac181cf9509c99fc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 7 00:11:35 2012 +0200
+
+    Don't check for existing watch when setting up watches
+    
+    This check had prohibitive cost and was useless to some extent
+    because adding a watch for an already watched path will result
+    in assigning the same watch descriptor therefore only updating
+    it. There won't be any dangling watch descriptor left into the
+    watch manager dictionary.
+    
+    Issue reported by Jan Knudsen https://github.com/Shne
+
+commit 2a9cc459d0abb7f519e6cc6c25caaa19a6f4446b
+Merge: d12e76a 80f5b90
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun May 6 04:42:50 2012 -0700
+
+    Merge pull request #35 from pmertens/patch-1
+    
+    fixed pip command
+
+commit 80f5b90a627070a694d21416c16c5c6e123f7e29
+Author: Philip Mertens <personalforward@gmail.com>
+Date:   Sat Apr 28 20:44:41 2012 -0700
+
+    fixed pip command
+
+commit d12e76a63a75b96171e72a12dee980899fc7b5a8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Apr 27 10:02:20 2012 +0200
+
+    Updated travis configuration file (again).
+
+commit 977386a7ce565212f50c1d55574d02ee6bedba8f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Apr 27 09:55:37 2012 +0200
+
+    Updated travis configuration.
+
+commit e14fa63bff5d8ae2b7faa16038b5a8e07a638d6d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Apr 27 09:51:14 2012 +0200
+
+    Added travis configuration file.
+
+commit e1cbd40ee41ef27e6f91a8b098cd2a0fd6e736f3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Apr 14 18:12:16 2012 +0200
+
+    Fixed runtime warnings in inotify ctypes' wrapper.
+    
+    Contributed by bdkearns https://github.com/bdkearns
+
+commit 68632f23eac6dd2fbd288616b3e2355be9ad3205
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Mar 20 04:13:50 2012 +0100
+
+    Documented ExcludeFilter shortcomings.
+
+commit f3f89a6266186433b4869e603153396829ce6671
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Mar 11 21:41:04 2012 +0100
+
+    auto_add=True automatically implies oring IN_CREATE with the
+    provided mask value. Misbehavior reported by Maxime Augier
+    https://github.com/maugier.
+
+commit 98c5f41a6e2e90827a63ff1b878596f4080481cc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Mar 11 20:53:05 2012 +0100
+
+    Removed unused code.
+
+commit f5be68205a896cfcc3ccaf72aab29ac3e20d4d31
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 26 07:40:25 2011 +0100
+
+    Added download_url to package's meta-data.
+
+commit d5d471e58dd913c5740103fea53584d09bc80e5d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Dec 20 15:03:31 2011 +0100
+
+    Bumped version number, released Pyinotify 0.9.3.
+
+commit 423a45daec420dd8d916295d39cc2bcffb3e5290
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Dec 20 14:58:56 2011 +0100
+
+    Updated README file.
+
+commit f0b0bd0c7ce2f5c77e44ad77061c55a0f5db3af6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Dec 2 14:19:07 2011 +0100
+
+    Added new command line option --command.
+    
+    This new command permits to run a shell command on each event.
+    
+    Idea and initial patch contributed by Domen Kožar @iElectric domen@dev.si.
+
+commit a2ed5c67db7944ee20dbc5991f7ff779215e89ca
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Dec 2 08:56:11 2011 +0100
+
+    Improve comment.
+
+commit 43f47fed3a28b7cd62cfcf1bcfa948d7499a0407
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Dec 2 00:21:41 2011 +0100
+
+    Correctly handle IN_Q_OVERFLOW events.
+    
+    This commit should fix a regression introduced with commit
+    d334049eed6b1136a9d224a3ca17aa66fea5215a.
+    
+    Issue reported by Tomi Belan @TomiBelan.
+
+commit 6bee47701efa5613605988af10593a3c69682ba3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Nov 17 11:58:10 2011 +0100
+
+    Removed customized unicode logger class.
+    
+    It should be fine without it, pyinotify shouldn't have unicode
+    instances left internally.
+
+commit b55d650cb709cf6487320e90899ad809814b28ed
+Merge: 0b7358b 436dc1a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 15 01:33:40 2011 -0800
+
+    Merge pull request #25 from Flyser/patch-2
+    
+    fix typo "dependancies". @flyser Thanks for your help.
+
+commit 0b7358be43fc3be76f48ecb34e6bcbc0cb60e9c9
+Merge: 92e6abb 55a8f0f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 15 01:32:04 2011 -0800
+
+    Merge pull request #24 from Flyser/patch-1
+    
+    fix IN_DELATE typo
+
+commit 436dc1ab60e483c264be9f94c4a9f3f7950270a5
+Author: Flyser <flyser42@gmx.de>
+Date:   Tue Nov 15 09:55:56 2011 +0100
+
+    fix typo "dependancies"
+
+commit 55a8f0f36196cbea815c791b8c9450ed713ae002
+Author: Flyser <flyser42@gmx.de>
+Date:   Tue Nov 15 09:54:16 2011 +0100
+
+    fix IN_DELATE typo
+
+commit 92e6abb6cd41ba1b9ea2ebe9789bf0cf04708c2b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Oct 11 10:34:47 2011 -0700
+
+    Fixed error message (reported by Jordan Pittier).
+
+commit b8064287ddc14979a7b1b936f6159d956b25da60
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Oct 11 10:21:00 2011 -0700
+
+    Ignore dangling IN_IGNORED events sent after watches are removed.
+
+commit 8184a1806220b305c386e15fae67e6ab2ce3dba3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 15 22:00:17 2011 +0200
+
+    Use setuptools setup method if setuptools package is available
+    (idea contributed by Hunter Blanks hblanks@monetate.com).
+
+commit 2c7e8f8959d2f8528e0d90847df3605b50985cc8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jun 8 11:51:55 2011 +0200
+
+    Properly subclass logging.Logger (contributed by Charles Cazabon
+    charlesc@fatdrop.co.uk).
+
+commit 73f8a2e4fd6ebf7e0bf8e7b1511dddb7e95d2e38
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Apr 19 11:35:59 2011 +0200
+
+    Bumped version number (0.9.2).
+
+commit e6c572746a3791f78fe6033dfc4c5d1992eb00ac
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Apr 5 22:18:26 2011 +0200
+
+    Use PY_MAJOR_VERSION instead of PY_VERSION_HEX in C extension.
+
+commit f4ce646a42b040eb08b0b87dacd594c0ba0df4f9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Apr 5 14:30:16 2011 +0200
+
+    Emit artificial IN_CREATE events on recursive files creations.
+    
+    This commit should help mitigating long standing issue "Missing
+    IN_CREATE events" https://github.com/seb-m/pyinotify/issues#issue/2
+    Note that symlinks are handled as files and that no similar
+    treatment is applied to IN_MOVE_TO events, because even if moved
+    files are new watched items, there aren't newly created per se by
+    the filesystem.
+
+commit fc47e5b47355e2dd1859d05c1f4a6b67976682b8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Mar 22 10:36:12 2011 -0700
+
+    Use __slots__ in Watch class to reduce memory footprint (contributed
+    by Olivier Cortès).
+
+commit 09d7d1614bb019d78ce64a697f9604b3e3d86c91
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Feb 8 00:29:06 2011 +0100
+
+    Few minors renaming.
+
+commit 4ae5bb3216360cb52cab306452e86942c8e5f5c3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Feb 7 16:14:11 2011 +0100
+
+    Fix access to inotify's variables from ctypes.
+
+commit 83a1bab088cf63b6a2b65add6989be87c060f5ff
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Feb 6 19:33:31 2011 +0100
+
+    Disable ctypes when inotify_syscalls is successfully imported.
+
+commit 7afc73252ea1de3c5bb61eb3803126def0048dd0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Feb 2 11:06:13 2011 +0100
+
+    By default use system calls numbers defined in <sys/syscall.h>.
+
+commit 206b35ef39c7b7af4fee42dd25dc5703c9b114ea
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 22:58:45 2011 +0100
+
+    Updated setup.py.
+
+commit 7265eb242b28f86381e125be96fc14026f066e15
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 14:42:36 2011 +0100
+
+    Updated meta files.
+
+commit 2713559801c430e051206f1d65ee8607fbb44e2a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 14:06:36 2011 +0100
+
+    Updated dependencies.
+
+commit eff93539256a4a7f29b24b1faa8e5337e656742c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 14:02:09 2011 +0100
+
+    Updated MANIFEST.in to handle common/.
+
+commit fec920a2146f78802f1a28a7f4c47f5c97426a7e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 13:47:00 2011 +0100
+
+    Added C-coded inotify syscalls interface.
+    
+    - If compile_ext_mod is set to True in setup.py, this extension
+      is explicitly compiled.
+    - If compile_ext_mod is set to False in setup.py (default), this
+      extension is compiled only if no inotify support has been found
+      from ctypes.
+    - Replaced exception type UnsupportedLibcVersionError by
+      InotifyBindingNotFoundError. WatchManager.__init__() may raise
+      this exception on error.
+    - SysCtlINotify (class providing access to inotify /proc variables)
+      is not instanciated (therefore not available) when the C extension
+      is used. It is only available from ctypes.
+
+commit 2900ceda692f590b17a193d1bd97e507abfdc10d
+Merge: ea3e37e c599659
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:33:36 2011 +0100
+
+    Updated setup.py.
+
+commit ea3e37e8098ea8951af9b9efce273078c920dc46
+Merge: c5dc376 51b850c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:30:27 2011 +0100
+
+    Updated setup.py.
+
+commit c599659c3a12c10eba35589c8d1bf84d332967e4
+Merge: c5dc376 51b850c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:30:27 2011 +0100
+
+    README.md
+
+commit c5dc376399d5c527b694944f1dd2a29c5dd364e0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:10:13 2011 +0100
+
+    Updated README.md.
+
+commit 51b850c94df324301e7fa41dfb4c17936f5301b4
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:10:13 2011 +0100
+
+    Updated README.md.
+
+commit 2054c250bc18fb030685278c47d48b03743224d5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jan 22 21:27:48 2011 +0100
+
+    Removed useless code spotted by pyflakes.
+
+commit f6f50b37a585065a2739f0548b9d0cae8baa14ae
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 16 12:55:25 2011 +0100
+
+    Updated setup.py.
+
+commit 7c3903493912664607f847d380d5ddbad99685ef
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 16 12:13:32 2011 +0100
+
+    Added MANIFEST.in.
+
+commit 615e3de57370a6c61da28773d27457421ae528c7
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jan 6 16:15:37 2011 +0100
+
+    Fixed select's error handling (contributed by zjes).
+
+commit df4b84ec315b1f4063f86d21b67628a2c1ea7285
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Oct 18 00:50:12 2010 +0200
+
+    Updated documentation.
+
+commit 5d381ce785cd16fb1f43f53fd255927c1f18d82d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 17 18:52:38 2010 +0200
+
+    Released Pyinotify 0.9.1.
+
+commit a745ca51ff0c7ff7e51a6cc35cc0eb2e4c408309
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 17 18:49:05 2010 +0200
+
+    Moved README to README.md.
+
+commit 095323cb53ec49e7e04b09ddb6908adfbfd2564f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 17 18:43:23 2010 +0200
+
+    Updated README to use markdown syntax.
+
+commit 6a2a526ff2e7c0beb7a7df7bb3ec3f93c0568c6c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 16 00:50:23 2010 +0200
+
+    Updated README.
+
+commit 3c4086c6cacb9bfe5d2662b6fac3d3119e3c0528
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 15 23:00:35 2010 +0200
+
+    Modified project url.
+
+commit 909f985842fcae8a45d9591017112186e68a723d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 15 01:08:07 2010 +0200
+
+    Optionally no pid file is written (pid_file=False) when notifier.loop
+    with daemonize=True is called.
+
+commit 155e2f5d0dfeff210198856b2b03d53d8e810c52
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 15 00:19:49 2010 +0200
+
+    Modified the umask's value set in forked processes, tightened all files
+    creations rights and removed the daemonize option used for killing
+    processes (security issue reported by Adrian thiefmaster@gamesurge.net).
+
+commit 80e1afc95893350e6e59230993e26376e279327c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 9 10:45:50 2010 +0200
+
+    Added new method WatchManager.close() to close inotify's file
+    descriptor when needed (bug reported by jdw@research.att.com).
+
+commit 91e8a9ca4348576220e8268ecb8b3492b2e9c022
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 9 10:19:32 2010 +0200
+
+    Remove watch descriptor from WatchManager's dictionary when a watch
+    is successfully removed (bug reported by jdw@research.att.com).
+
+commit 6d552d2cc8ab42e0bfee58a650d85007cad01525
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Aug 6 15:15:28 2010 +0200
+
+    Updated README.
+
+commit 5fe8449aac44408abdc183289678a3e5d4065980
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jul 30 14:29:47 2010 +0200
+
+    Reverted exception name of libc loading error, back to
+    UnsupportedLibcVersionError.
+
+commit 7d2110a39847512c98533cc5237d3795d31eeb73
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jul 29 10:31:46 2010 +0200
+
+    Fixed exception handling of ctypes.util.find_library() (thanks to
+    przemyslaw.wrzos@calyptech.com).
+
+commit d87b2cdd62c232eef7a669ccc006161aaea66db4
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 16:32:02 2010 +0200
+
+    Modified loading mechanism of the libc (following issues reported
+    by przemyslaw.wrzos@calyptech.com).
+
+commit 2b156d82abad209bbd7470366a9c9ca1564b7659
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 15:34:25 2010 +0200
+
+    Modified logging formatter to output timestamps (idea submitted by
+    hv@tbz-pariv.de).
+
+commit 3fb456af85bdf73ae38b00ebc16a16777a858321
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 15:25:17 2010 +0200
+
+    Flush stdout stream immediately after events or stats are written
+    (idea submitted by hv@tbz-pariv.de).
+
+commit 817169ec933de0eaf0d98793ade01a89aabcc4ce
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 15:04:21 2010 +0200
+
+    Added new option --raw-format (-f) to explicitly disable the
+    enhanced output format when Pyinotify is used from command line
+    (idea submitted by hv@tbz-pariv.de).
+
+commit 3c136cf7123099d4b513d364b0929b5321225a8c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 13:00:08 2010 +0200
+
+    Added new command line option --version (idea submitted by
+    hv@tbz-pariv.de).
+
+commit 77f9641291794db929a8a891137998b982f7585f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 12:40:18 2010 +0200
+
+    Check that loaded libc has needed inotify functions instead of
+    checking for glibc version number (reported by
+    przemyslaw.wrzos@calyptech.com).
+
+commit ec5a9f42c0e79d2017818cc2f522efd61cbc7952
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jun 4 05:24:22 2010 +0200
+
+    Pyinotify 0.9.0
+
+commit 498fa909c3c58902ced1b527cd7ec54a8c8ea3a6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 27 23:46:38 2010 +0200
+
+    Improved new coalescing option, use native __hash__ from string
+    objects.
+
+commit 6842f01438a233aa45d6037aa2ff9fe07f9fe89f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 27 17:50:31 2010 +0200
+
+    Fixed typo.
+
+commit 134f1628ed438995b0367c76ea749d9d11067eb6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 27 17:30:23 2010 +0200
+
+    Added new option for coalescing events (disabled by default). See new example
+    coalesce.py.
+
+commit 722cce1b6b1f953e0a99e6860917e7c0fe93235b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed May 19 15:25:58 2010 +0200
+
+    Reverts previous commit for the following reasons:
+    - Preserve backward compatibility;
+    - Returning a dictionary with all the iterated directories for
+      which ENOSPC was raised gives the information these directories
+      existed and were iterated and something wrong happened, it is
+      useful information;
+    - It is definitively developer's responsibility to check a given
+      subtree is not too deep or that max_user_watches is not large
+      enough before calling add_watch().
+    
+    This reverts commit be91bfbbe7a849952b2fe61a49205d66fb5c850c.
+
+commit be91bfbbe7a849952b2fe61a49205d66fb5c850c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed May 19 14:12:31 2010 +0200
+
+    add_watch() returns immediately on first encountered ENOSPC error even
+    if quiet=True (idea submitted by Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit fc7f2b79d73b25bbf3f1eb3a677c16e449a24564
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue May 18 20:53:15 2010 +0200
+
+    Provide errno information from inotify's system calls when available
+    (Python >=2.6) (reported by Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit e9751bfbaf9a514f76b52ee0290497675e6d67e3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon May 17 21:16:22 2010 +0200
+
+    Fixed previous fix f7510650b8e9950247d14841967eb64d0b2d0294.
+
+commit 4ff4c0f2bb0092da4655f29fb76c5a74c0bf2071
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun May 16 15:27:18 2010 +0200
+
+    Updated examples.
+
+commit b93192b4de7a13b362c326dccd217c08b08b93a6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat May 15 15:16:04 2010 +0200
+
+    Updated ACKS and removed useless TODO.
+
+commit f7510650b8e9950247d14841967eb64d0b2d0294
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 14 17:31:09 2010 +0200
+
+    Modified add_watch() to handle repeated calls on the same path. When
+    this method is called with an already watched path, it is ignored.
+    When option rec=True is used, all the subtree is iterated and
+    watches are only added on paths not already watched. That way
+    existing watches are preserved while enabling new watches to be
+    placed on new subdirectories. To update a watch use update_watch()
+    instead. (reported by Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit 2f2dd6ba0999dbc40e5bfbcc66af2cc676d3046a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 13 22:42:40 2010 +0200
+
+    Updated examples.
+
+commit b18898f9d88319c43a06ad1052c3daa82e9d3022
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 13 19:53:02 2010 +0200
+
+    Fixed auto_add handling in method update_watch (contributed by
+    Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit 4715f25f0019e97f77280a8cec3434400f094f47
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 13 19:49:33 2010 +0200
+
+    Fixed auto_add handling in method update_watch (contributed by
+    Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit a6f14ef16de967cb342057549467feb5a47252ab
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Apr 4 23:25:23 2010 +0200
+
+    Fixed dictionary item deletion on iteration (submitted by knurxs@gmx.de).
+
+commit c3cb39c167234e651ef20b1647161a073c2b9454
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Mar 1 21:55:22 2010 +0100
+
+    Fixed IN_MOVE_SELF renames of overlapping directories names
+    (contributed by Facundo Batista facundo@canonical.com).
+
+commit a3fbdda201166260886f2644f4fe725e5a832fd5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Mar 1 20:16:12 2010 +0100
+
+    Callback function called inside Notifier.loop is now able to stop
+    the loop if it returns True.
+
+commit e9dfb246c72eb373130640ccf3d996af031339dd
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Feb 23 15:05:50 2010 +0100
+
+    - Fixed documentation.
+    - Fixed select error handling (reported by Michal gentoo@mgorny.alt.pl).
+
+commit d334049eed6b1136a9d224a3ca17aa66fea5215a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jan 13 19:38:20 2010 +0100
+
+    Refinement of previous commit implemented with help of patch of
+    Guillermo Gonzalez <guillermo.gonzalez@canonical.com>.
+
+commit c3cdeba1d668eb2f3c3fed3e1c30cbb1235e9196
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jan 13 19:13:39 2010 +0100
+
+    Attempt to mitigate lookups on unexistant Watch objects triggered
+    in presently not well understood contexts. These faulty? events
+    are currently skipped but should be dumped into debug traces.
+
+commit 0aad346a2d6cd8c4b4197c54a28f9acbdf0a0eff
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jan 13 18:48:41 2010 +0100
+
+    Cosmetic changes.
+
+commit 828831b7895d7b5c5dbfef63c56741b837059304
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Jan 4 11:44:33 2010 +0100
+
+    Pyinotify 0.8.9
+
+commit f1cf1ad77a4394cf04888a35d8b74c727e0d2a45
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Jan 4 11:37:38 2010 +0100
+
+    Updated license to 'MIT License'.
+
+commit 7bbd6dab1c317314161567a6088076282100f736
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 3 15:04:28 2010 +0100
+
+    - Removed custom glob functions, uses standard glob module directly.
+    - Modified exclusion filter mechanism, patterns still can be loaded
+      from files but the syntax has changed see exclude.lst for more
+      details. This new method is safer since the external file is not
+      executed anymore, it is only parsed looking for patterns loaded
+      as strings.
+
+commit a8a70eeab092b89471435015196894ffb419bd97
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jan 2 19:16:15 2010 +0100
+
+    Updated examples from tutorial.
+
+commit b4770e259e71e3e9dc17bf8696e7a82cfdaf98f6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 1 11:48:40 2010 +0100
+
+    Updated daemon.py
+
+commit 67b7a507a1694297bb3d739943d2d802308c8f72
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 1 01:00:26 2010 +0100
+
+    Updated ACKS.
+
+commit 1548661e1a355708e59c83e20e22635d58324ba0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 1 00:15:58 2010 +0100
+
+    - Improved daemon.py example
+    - By default assigns an instance of PrintAllEvents() to
+      Notifier.default_proc_fun.
+
+commit cfcd47ef93314595aa50aa28505fa87d4c713fe9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Dec 26 15:59:50 2009 +0100
+
+    Updated README.
+
+commit 68596454008d6bf26f960bdc930ff5044214058a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Dec 26 15:48:44 2009 +0100
+
+    Unified setup.py install for python2 and python3.
+
+commit ff3cbf1b405fcf3d8559c82821b1dc4ca1225c1d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 25 04:07:52 2009 +0100
+
+    Updated doc and acks.
+
+commit b3dc4c39dcb26d9e6863b6457248db4ca69e3332
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 17 02:05:03 2009 +0100
+
+    Modified exclusion filter code (contributed with Matteo Lanza
+    matteo.lanza@gmail.com):
+    - exclude_filter is now checked against auto-added directories
+      (created or moved).
+    - exclude_filter is now transmitted from parent directory to
+      auto-added directories (created or moved).
+    - Monitored transient files are cannot be excluded through
+      exclude_filter.
+    
+    Removed "magic" keyworded arguments from Watch's constructor.
+
+commit a398d07592a7fb7fe9c1a6b0d5bfd9c90d849431
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Nov 16 19:45:32 2009 +0100
+
+    Fixed default pid file basename (contributed by Matteo Lanza
+    matteo.lanza@gmail.com).
+
+commit 8a8c979c7858e04492aea925689a2ddc89ab8703
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Nov 12 19:12:32 2009 +0100
+
+    Added acknowledgements file ACKS.
+
+commit 982496fdfabbb471117b55eaad0934d75d2506d1
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 11 18:24:56 2009 +0100
+
+    Improved handling of not guaranteed event attributes.
+
+commit add26a10a28661d88710c99d10a1cf2065c06d04
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 11 18:13:24 2009 +0100
+
+    Updated examples.
+
+commit 649429ae8af743d9c404c1cc219bd018ae073578
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Nov 7 02:48:51 2009 +0100
+
+    Updated comments.
+
+commit 213ca585c2b0101aa5b8d77bc2708bfaefa38bc3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Nov 6 01:21:27 2009 +0100
+
+    Removed example async_moved_from.py (this not really an example).
+
+commit a307369bed619929c3bb5e97a557054947e246e2
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Nov 6 01:05:18 2009 +0100
+
+    Modified Pyinotify's hierarchy in order to support differents version
+    for Python2 and for Python3.
+
+commit 6141698fa66aab032f83fa367b735975061504a2
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 13:16:20 2009 +0100
+
+    Moved pyinotify3k.py to python3/pyinotify.py.
+
+commit da90af69eeb4a3e5f8f5cae05d3ffee1d53a687a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 06:16:37 2009 +0100
+
+    Initial (and experimental) commit of pyinotify3k.py:
+    - Port of pyinotify.py to Python 3.0
+    - Seems to be difficult (impossible?) to maintain only one code
+      for Python < 3.0 and Python >= 3.0
+    - Maintaining two versions will be painful, thus this commit
+      should be seen more as an experiment than as something
+      definitive and that would be updated at the same pace than
+      pyinotify.py. Actually even the naming 'pyinotify3k' is meant
+      to be temporary. I lack of experience with Python 3.0 so I can't
+      figure out right now what is the right thing to do or not to do.
+    - Anyway test it, report bugs, contribute improvements, especially
+      if you have good understanding of Python 3.0 (and above).
+
+commit 7344d2360a9fd02cb60cae08b2c5f65b2254cde7
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 06:16:10 2009 +0100
+
+    Updated TODO file.
+
+commit 6c4496dbd30061d9d74acffa4e32849bdad3647b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 05:57:07 2009 +0100
+
+    - Fixed issue in stats display.
+    - Made small modifications for Python 3.0.
+
+commit 288efd44da7762dcc6b1ae33328df369491396da
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 3 08:48:22 2009 +0100
+
+    Added README file.
+
+commit 34194208955230dac697f2bc55ffb84308869fd2
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Nov 2 22:00:30 2009 +0100
+
+    Pyinotify 0.8.8
+
+commit 729bcf3910aedabef7396c8f43a3480a43a96afa
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Oct 30 10:28:40 2009 +0100
+
+    Fixed path renaming when a subtree is moved (contributed with
+    Linda Octalina linda_octa@yahoo.com and John Feuerstein
+    john@feurix.com).
+
+commit f2dac0bc86c6ddccef0dbf974847429471c5f283
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 29 20:28:25 2009 +0100
+
+    Automatically watch a non watched tree moved to a watched directory
+    with flag auto_add activated (contributed by John Feuerstein
+    john@feurix.com).
+
+commit eba40b6fde274ee44ad98ad0c5b438def813181a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 29 19:56:05 2009 +0100
+
+    Rename all watched sub directories paths of a given parent
+    directory when this parent directory is moved and is assigned a
+    new pathname (contributed by john@feurix.com).
+
+commit 86e0ee2cb584e232fbff3c6473caca7f46573d65
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 25 02:19:15 2009 +0100
+
+    Updated comments.
+
+commit 3cde3f595cdeb109843a505bf4a115c882c53d62
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 25 01:53:46 2009 +0200
+
+    Updated examples (mostly comments).
+
+commit a4672d66b72cb209ac36dbe2887c22637e0c3714
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Oct 24 18:44:05 2009 +0200
+
+    Implemented few small changes into ProcessEvent.
+    
+    - Added new method ProcessEvent.process_IN_Q_OVERFLOW. This will
+      serve as default method for catching IN_Q_OVERFLOW events. This
+      method has been implemented because it seems to be some
+      confusion when a process_default method from client code
+      receives this event and try to access unknown attributes. By
+      default this method only outputs a warning.
+    - Added new class PrintAllEvents. This class is used from command
+      line for printing received events. Therefore from now
+      ProcessEvent.process_default behavior is updated to do nothing.
+    - Updated examples.
+
+commit 11d9e3aed421d2fbccf097daf6f291510f276856
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Oct 19 12:56:21 2009 +0200
+
+    Fixed compatibility issue between Python 2.4 and UnicodeLogRecord
+    (reported by colin@ximenes.org.uk).
+
+commit fc50a600a6562812311d480ce6b0fe6fa67929ae
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Oct 12 16:39:52 2009 +0200
+
+    Fixed typo treshold -> threshold (reported by stromnov@gmail.com).
+
+commit a251120f310b9dc877d4380175dbbf7684b2476d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Sep 29 12:20:34 2009 +0200
+
+    Added new example autocompile.py: run a specified command each time
+    a file with a given extension is modified.
+
+commit 5752a6f0cd7a93997ea7f3aca14c7cebb06fc795
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 24 16:56:14 2009 +0200
+
+    Pyinotify 0.8.7
+
+commit 4343e273d455ca91fb615d1179f9591972ec9697
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 16:16:24 2009 +0200
+
+    Modified Makefile.
+
+commit c5cd892a3289a18f0527a33224b44dd2b26048b0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 16:10:52 2009 +0200
+
+    Removed docstrings/ directory from index.
+
+commit 0457728e8c75c91a22ac800e54a3b1286d0d55a1
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 03:52:43 2009 +0200
+
+    Added a new attribute 'src_pathname' to IN_MOVED_TO events. This
+    string attribute is present when an association were found with a
+    previously caught IN_MOVED_FROM event (they share the same cookie).
+    That imply that IN_MOVED_FROM events need to be watched too in
+    order to successfully provide that information. src_pathname
+    represents the source pathname from where the file/directory
+    'pathname' was moved from. Idea contributed and initially
+    implemented by cruxic@gmail.com.
+
+commit 2ffe966ffcf6e2128176235e9f911ec139eef675
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 02:36:05 2009 +0200
+
+    Renamed ChangeLog.
+
+commit a75000aa1afe511ce4452f7e7480077f8a8c0f5a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 02:32:50 2009 +0200
+
+    Updated comments and documentation.
+
+commit 5554734940f8ec44b5272102f6a03069de8f507e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Aug 28 11:36:48 2009 +0200
+
+    Minors improvements.
+
+commit 7c75e9c1e28f8160ac3404df8b7b518bb9f3ae74
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Aug 28 02:54:10 2009 +0200
+
+    Updated comments.
+
+commit bae3683927b2c10879f5659dc37f776d80d7580c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Aug 26 23:05:10 2009 +0200
+
+    Few trivial changes suggested pinpointed by pylint.
+
+commit dc3a97d009fc502ea5c0c6d458d5557693a21107
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 21:59:45 2009 +0200
+
+    Removed Psyco optional import (nobody used this option anyway).
+
+commit 5f5e1dc02b350149a435b03fd2400264b1fb9147
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 15:46:02 2009 +0200
+
+    - Added new notifier AsyncNotifier it relies over asyncore.file_dispatcher for
+      dispatching events (contributed by Guido Trotter ultrotter@quaqua.net).
+    - Fixed issue with compatibility mode.
+    - Updated documentation.
+
+commit 725b9b81594f9bd6d594f98d3337c6a0af0dc2a4
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 04:40:07 2009 +0200
+
+    Updated documentation.
+
+commit eb18455cc294eefb73dc7da91684b422fe454cf5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 04:17:19 2009 +0200
+
+    Added new function compatibility_mode() to turn on the compatibility
+    mode with Pyinotify 0.7.1.
+
+commit 300de168b891cdeabb4fb1115558f25d05ac31c5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 03:45:57 2009 +0200
+
+    - Added a new compatibility option COMPATIBILITY_MODE to improve the
+      backward compatibility with Pyinotify 0.7.1. This option is set to
+      False by default and should be turned to True only for old programs
+      developped for Pyinotify 0.7.1. With this option: 'is_dir',
+      'event_name', 'EventsCodes.IN_*' and 'EventsCodes.ALL_EVENTS' are
+      provided. Refer to http://git.dbzteam.org/?p=pyinotify.git;a=blob;f=NEWS;
+      for the list of incompatibles changes introduced with Pyinotify 0.8.x.
+    - Updated documentation.
+
+commit 17a351fb6e7b1d5a9455d52ab82e02aba2b95091
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jun 16 23:43:46 2009 +0200
+
+    Updated example stats_threaded.py and updated various comments into
+    pyinotify.py
+
+commit 6c5f348a4bd4c452a131da77f898253da9fc8b83
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jun 10 15:38:57 2009 +0200
+
+    Improved error message in method _SysProcessEvent.process_IN_MOVE_SELF
+
+commit 5bcb4658a87fd5ce52232bb8f215bf342ead19e5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jun 6 05:51:58 2009 +0200
+
+    Removed native unicode support for paths, unicode paths are therefore
+    discouraged and are converted to strings if used anyway.
+
+commit 2cfa2fce412bf585367daef2c0f1b5a44899fdd8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jun 5 03:56:04 2009 +0200
+
+    Fixed unicode paths support with ctypes.
+
+commit 6e18f940bcbffe5be9e4382c033ccfb11338e7c9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat May 23 23:11:28 2009 +0200
+
+    Moved examples to dedicated directory.
+
+commit affbbb02dec05dc0d5d75508ff1258587b54d7d1
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 15 12:25:27 2009 +0200
+
+    - Updated documentation.
+    - Fixed libc version check (contributed by Terje Røsten terje.rosten@ntnu.no).
+
+commit d8e42159304f73440f1b05c01f5e4bec00ee506a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 1 22:53:23 2009 +0200
+
+    Updated documentation.
+
+commit 102b4b1a9d5f9b47052318d11c4d103435ed990b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 1 17:26:05 2009 +0200
+
+    Fixed comments related to the option 'quiet' into WatchManager
+    (reported by forest@alittletooquiet.net).
+
+commit e8a9578294329900677de1f9d2401c183bca5fae
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 1 17:17:36 2009 +0200
+
+    Fixed format strings of messages passed to the logging module
+    (reported by Andrey Rahmatullin wrar@altlinux.org).
+
+commit e3897e2207b8ee55e3bd675f9887cfb63d0a89e8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Apr 13 14:56:59 2009 +0200
+
+    - Updated license header.
+
+commit 47486c913d294ebc0c02817752387b14ee9b8bcc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Apr 13 14:16:06 2009 +0200
+
+    - Rewritten Color class.
+    - Updated license to GPLv2+
+
+commit 605a29e09ec6d28bf4f7697a94de5d0165831860
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Mar 6 23:17:18 2009 +0100
+
+    - Fixed SysCtlINotify compatibility with Python 2.6.1 (reported by prologic@shortcircuit.net.au)
+    - Improved ThreadedNotifier polling algorithm
+    - Added warning comment in watch_transient_file(), this function will require to be fixed later (reported by Matt Brown deadguysfrom@gmail.com)
+    - Stop catching exceptions on event loop (problem reported by Jonathan Ballet jonathan.ballet@securactive.net)
+
+commit 5070c603a73ab911703256e7e4a6cb7677308c01
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Feb 23 14:22:16 2009 +0100
+
+    - Fixed chain of classes including ChainIfTrue (reported by Matt Brown
+    deadguysfrom@gmail.com)
+    - Reverted exception handling modifications
+    - Documentation
+
+commit beba6263667d6d5b69d562bedd36d0b3a5961c67
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 30 11:58:58 2009 +0100
+
+    - Improved loop event error handling (contributed by
+    jonathan.ballet@securactive.net)
+    - Turned off implicit psyco import (suggested by stromnov@gmail.com)
+
+commit a17385ae4cd3f952f689cfeee0d6e04841a4325e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jan 6 22:57:58 2009 +0100
+
+    Updated docstrings generated documentation.
+
+commit 46a3dbeab78c0a1848b219fe8d7ff23bfb565889
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jan 6 04:42:40 2009 +0100
+
+    Fixed libc version check on arch 64 bits.
+
+commit 1a3cb2ee0823102ed8b4f799afaee293344ea860
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jan 6 02:39:42 2009 +0100
+
+    - Removed all sys.exit calls, replaced by exceptions
+    - Reverted (temporaly) libc version check (bug on arch 64 bits)
+
+commit 0c76263e0c9fd8dce89e769c0b138bc71f78cecc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Dec 17 03:00:50 2008 +0100
+
+    Check libc version (contributed by Robin Wittler <robin.wittler@credativ.de>).
+
+commit 46a7343c64fa1614dcef1e5044cd6c5caea4599e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 4 12:42:17 2008 +0100
+
+    Removed annoying psyco message (suggested by Henri Tuhola).
+
+commit 146b46fc4ae569d467970e5809ae8a1645c9a3ce
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Sep 29 15:40:23 2008 +0200
+
+    Add examples from tutorial.
+
+commit f7cd60146b00bdffd25b207639d1d2fb326a2174
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sun Aug 10 14:01:36 2008 +0200
+
+    - Documentation updated.
+    - Version 0.8.0t released.
+
+commit 9b325cf5ab4cee13e458d74a2b3766c7690a1d4f
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jul 28 09:57:54 2008 +0200
+
+    Revert "New attribute Notifier.event_queue_size"
+    
+    This reverts commit 8e300b46ed892704a4484e4734c7d9e2c7100877.
+
+commit 8e300b46ed892704a4484e4734c7d9e2c7100877
+Author: Sebastien Martini <root@mars.(none)>
+Date:   Mon Jul 28 09:14:25 2008 +0200
+
+    New attribute Notifier.event_queue_size
+
+commit ca5ddc5f5eea62c76b6be75a1fbdedf663dbcfd0
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Tue Jul 1 07:47:52 2008 +0200
+
+    Flag example files as 'Example'.
+
+commit 4d09d5dc0625b00629eef1303ef550a0540664f9
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 18:26:28 2008 +0200
+
+    Documentation.
+
+commit f1a48fe7fbb952204fba896319389d98da89df23
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 18:16:20 2008 +0200
+
+    TODO updated.
+
+commit 7621606c01c70e28f14a175db2c770d27b14721d
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 18:11:05 2008 +0200
+
+    Update TODO.
+
+commit 70f6c473dd021bcdcc1f0b09c2c74b7cc5e9e509
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 17:28:34 2008 +0200
+
+    Ability to exclude a path from being watched as soons as it has been
+    matched by a given defined regexp pattern.
+
+commit bd593b6775777ec53405244f5b2ae92a64120ac5
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Tue Jun 17 19:05:53 2008 +0200
+
+    TODO file added.
+
+commit 6253a716008486c1864f4416916bb2fe1387498c
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sat Jun 7 00:54:06 2008 +0200
+
+    Documentation.
+
+commit da4f72c38ed31111d447c64efd78cf500beabf73
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sat Jun 7 00:13:03 2008 +0200
+
+    * Fix segmentation fault reported by dougfort@dougfort.com, but not
+      sure if the way it is fixed doesn't introduce limitations on encodings.
+    
+    * event.pathname represents now an absolute path.
+    
+    * Fix display of events.
+
+commit c36bdd432b56f0d9a329c918c0a3a0110d59f5c4
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 20:17:40 2008 +0200
+
+    Version 0.8.0q released.
+
+commit 53d2896aa1f94c5967209749f0d272412496f447
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 19:55:15 2008 +0200
+
+    Documentation (doctrings) updated.
+
+commit 8da69de7c06c68aed453c8a97d49f4e64bd41711
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 19:54:30 2008 +0200
+
+    New parameter 'quiet' for methods add_watch, update_watch
+    and rm_watch.
+
+commit 9b43851fd710e7a621e8b31f157e50c23720cd53
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 04:08:49 2008 +0200
+
+    Cosmetic changes.
+
+commit 9bd63dc25643dc6959ad020de8c665d4698fe705
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 04:03:49 2008 +0200
+
+    Documentation updated.
+
+commit bdcb29b6366db04baf7747d1d0c3c063c2a7829a
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 04:03:03 2008 +0200
+
+    Notifier and ThreadedNotifier accept treshold parameter.
+    loop() parameters and __init__() parameters modified.
+
+commit 8a2a858664a2697dc5838cc251dc19d5d4591130
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 01:14:18 2008 +0200
+
+    * stats.py moved to stats_threaded.py
+    * New implementation of stats.py (non threaded).
+    * Minor modifications into pyinotify.py
+    * Documentation updated.
+
+commit 155e62deff3af7d9f5f0e05301057d10817382c1
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sun Mar 30 21:08:25 2008 +0200
+
+    Change string handling in event dispatch mechanism.
+
+commit f3c573a115db7dc7cfc8e551935db5be280bfd99
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Fri Mar 28 13:45:37 2008 +0100
+
+    Small changes in rm_watch and update_watch.
+    Version 0.8.0p released.
+
+commit a7db68a9040974ad4408ee0ed110f93014120f6f
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 23:45:23 2008 +0100
+
+    Documentation.
+
+commit a637071fadabb2f5167c23fdc26f7922d28cc781
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 23:32:49 2008 +0100
+
+    Documentation.
+
+commit e4fd014d6cbe47ad9cc226890f055cad4bd354f2
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 20:47:43 2008 +0100
+
+    Rename EventsCodes.get_masks() to EventsCodes.maskname()
+
+commit 1565693f88e594abfc342fd36ac2a4b7dc1538b0
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 15:36:53 2008 +0100
+
+    Close file before exiting.
+
+commit 0e582e4c295e50da4abb7b9652b67f8206679784
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 15:28:08 2008 +0100
+
+    pyinotify.py: improve performances of dispatch of events.
+    chain.py: better message.
+
+commit 852f1a559cec123b922438b4e53e3217a4fdca11
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Wed Mar 26 12:43:37 2008 +0100
+
+    New file setup.py
+
+commit d490a8d093a345d880414a2732a31f33e3c7d0b5
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Tue Mar 25 22:23:05 2008 +0100
+
+    Documentation.
+
+commit 5cc710753997b725b324c12729658bdd0d45258d
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Tue Mar 25 00:15:53 2008 +0100
+
+    Add docstrings generated with epydoc.
+
+commit 494601c619e58034cc8b373e6afd9ebe61260dfb
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 20:15:54 2008 +0100
+
+    Version 0.8.0o released.
+
+commit 838c8524618c6cac976cbd530e7edc271e291c46
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 19:42:37 2008 +0100
+
+    COPYING and NEWS files added.
+
+commit 0661caa7dfc598a8b144e2cb2ea8917f299c5a55
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 15:42:42 2008 +0100
+
+    Cosmetic changes.
+
+commit d82238aae6957d20f52ddae97e5707fe4b2796ee
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 15:31:48 2008 +0100
+
+    Simulate IN_CREATE events on mkdir -p /d1/d2/[...]. Contributed by
+    Thomas Kiley <tkiley@cs.uml.edu>.
+
+commit 5a750c19ab9417b184372ad9d3811eec8d69a5e8
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Tue Mar 18 16:54:01 2008 +0100
+
+    Few changes for P3K.
+
+commit 270f7f689302b5de93e4989765f4ff17ed67a5a9
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Sun Mar 16 22:31:35 2008 +0100
+
+    Cosmetic changes.
+
+commit f5b94bfc7073e9121dda5863b9e09d89255abd17
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Tue Mar 11 19:53:30 2008 +0100
+
+    Changed access rights on transient_file.sh
+
+commit e73ce728dad1e0f69255faed1b1982e2cc00d80f
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 10 10:44:20 2008 +0100
+
+    New file transient_file.sh added.
+
+commit 40b9c9e92f9aea27359a2d2176dc5bd45f8c77ae
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 10 10:33:56 2008 +0100
+
+    Access rights on pyinotify.py file modified.
+
+commit 998bc895dd5dad6aa5347e82fc2acaec81d3417e
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 10 10:03:32 2008 +0100
+
+    Initial commit for pyinotify 0.8.0x
+    
+    View details for this version at http://seb.dbzteam.org/pages/pyinotify-dev.html
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 0f3f8950d12e4a6534320153eed1a90a778da4ae
+Merge: 2d716e5 387e544
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 19:18:00 2015 +0200
+
+    Merge pull request #102 from blueyed/sync-versions-for-python2-3
+    
+    Sync whitespace / comments between Python 2 and 3 versions
+
+commit 387e5445468b88f6c97c7af66da5da2833caf34e
+Author: Daniel Hahler <git@thequod.de>
+Date:   Mon Mar 16 21:58:39 2015 +0100
+
+    Sync whitespace / comments between Python 2 and 3 versions
+
+commit 2d716e5ceef8ade1a60eff0bac30de939afb2b8d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 17:28:48 2015 +0200
+
+    Bump version
+
+commit e3e578310c4135212d4892b5a39807e31af3c91f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 17:26:05 2015 +0200
+
+    Fix doc indent
+
+commit 5ef42e0e70fcd0b5a5830929c151958c1547b00d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 15:42:00 2015 +0200
+
+    Improve documentation
+    
+    Close #101
+
+commit 7da6df4a4f7d99ef03445ecd3b738a535d9315f6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 15:23:17 2015 +0200
+
+    Only close a valid file descriptor
+    
+    Idea contributed by @blueyed
+    
+    Close #93
+
+commit b142abf409fc206d8acd5a021574f5b326022f84
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 4 15:10:27 2015 +0200
+
+    Access /proc/sys instead of using sysctl to access inotify's attributes
+    
+    Close #84 #99
+
+commit 976b33553f349d7c345c52e16aeaa8720f2da64b
+Merge: f3ee9bb 44ce9f1
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Wed Jun 3 09:15:54 2015 +0200
+
+    Merge pull request #100 from johnktims/patch-1
+    
+    Fix documentation typo
+
+commit 44ce9f1dd7495542ad7ea47216a77710737d23ea
+Author: John Tims <john.k.tims@gmail.com>
+Date:   Tue Jun 2 16:26:09 2015 -0400
+
+    Fix documentation typo
+
+commit f3ee9bb651654930f034d6001ffa9ba5f5c43b3d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 9 22:15:58 2015 +0100
+
+    Release Pyinotify 0.9.5
+
+commit 859c834e111b28f0fd68686c826606bdb43e778c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 17:44:48 2014 +0100
+
+    Implement stop method in AsyncioNotifier
+
+commit 1da0c1c8608e3cc3a735b4db14931762ddaef033
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 17:01:34 2014 +0100
+
+    Remove extra lines, fix indents
+
+commit 799285ef35036f193c953e4c0b47cc1d97c2934f
+Merge: af50b62 5b86996
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 16:58:34 2014 +0100
+
+    Merge pull request #88 from apenwarr/master
+    
+    Allow TornadoAsyncNotifier.stop() to clean up all hanging refs.
+
+commit af50b62ae18605a95cfe659b62133be411794666
+Merge: 73a7346 6e77a4c
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 16:44:55 2014 +0100
+
+    Merge pull request #85 from dano/master
+    
+    Add asyncio-compatible Notifier sub-class.
+
+commit 73a734695e9f9fcfc978ee9b72ccf29b5501c3b1
+Merge: a51277d 885b195
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 22 16:38:42 2014 +0100
+
+    Merge pull request #89 from bootandy/patch-1
+    
+    Update pyinotify.py
+
+commit 885b195e574276c85e6ae0512b9f9f46f27daf69
+Author: andy boot <bootandy@gmail.com>
+Date:   Fri Dec 5 15:25:31 2014 +0000
+
+    Update pyinotify.py
+    
+    fix link in comment
+
+commit 5b8699693956fec9693330613592aa5f87892511
+Author: Avery Pennarun <apenwarr@gmail.com>
+Date:   Wed Nov 26 03:04:54 2014 -0500
+
+    Allow TornadoAsyncNotifier.stop() to clean up all hanging refs.
+    
+    Without this, the TornadoAsyncNotifier and thus WatchManager instances are
+    never freed, because tornado is still holding a refernce to the handler.
+
+commit 6e77a4c8d001971cec6c98c6af8e553872a121d4
+Author: dano <oreilldf@gmail.com>
+Date:   Thu Oct 16 19:44:55 2014 -0400
+
+    doc update
+
+commit c297e50a2ae0c1cdd2380a395a3ed37199580506
+Author: dano <oreilldf@gmail.com>
+Date:   Thu Oct 16 19:43:52 2014 -0400
+
+    Add asyncio example
+
+commit b1da9d65979ed50eca42d68814fd99badece1de3
+Author: dano <oreilldf@gmail.com>
+Date:   Thu Oct 16 19:40:49 2014 -0400
+
+    Add asyncio Notifier adapter
+
+commit a51277db95321eae90656e1fbc4ef8b11584735f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Aug 16 18:49:59 2014 +0200
+
+    Fix ExcludeFilter docstring examples.
+    
+    Closes #81
+
+commit cd9574199c585f7dc9d7ac9bac03be180ed63c0b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 13 09:14:26 2014 +0200
+
+    Add new classifiers.
+    
+    Closes #79
+
+commit a52442de1b19b59d5f6144f2d60c2fd2b010a353
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jul 10 20:51:47 2014 +0200
+
+    Typo.
+
+commit d2b201ea12e60ec9daee083ee886d1537e751a4b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jul 10 20:14:14 2014 +0200
+
+    Improve example daemon.py.
+    
+    Closes #77
+
+commit 12cf58b82bd81624fd8d87239697474cadf73c3a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 18:12:58 2014 +0200
+
+    Stub support for Pyinotify on FreeBSD.
+    
+    I don't have any FreeBSD system, so test it and report any issue
+    with this code.
+    
+    Closes #64
+
+commit 8e190d29cc7f70a25e30b9b798e27a1c997fe7f5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 14:39:48 2014 +0200
+
+    Add WatchManager attribute to ignore events.
+    
+    A new boolean attribute ignore_events (False by default) can be set
+    to True in order to ignore reported events. Note that Watch descriptors
+    are still valid and events are still received but there are ignored
+    and not processed. Processing is resumed by re-assigning False to this
+    attribute.
+    
+    Closes #44
+
+commit 499a975f651495c35f2616f829e946213a5454f9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 13:19:39 2014 +0200
+
+    Fix /proc inotify interfaces.
+    
+    There was a bug preventing the variables to be assigned a new
+    value.
+    
+    The operations accessing (get and set) these interfaces now return
+    an OSError exception on failure.
+    
+    Closes #73
+
+commit 33725288abd029ff53d0d8de4841808359e0d4a9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jul 6 10:51:12 2014 +0200
+
+    Update Travis conf.
+    
+    Closes #74
+
+commit a479834f84cdb4d52134275932f033ee5c04c35b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jul 5 22:30:53 2014 +0200
+
+    Handle OSError exception in process_IN_CREATE.
+    
+    close #76
+
+commit b59a48b05cf851d9f47b16f3a3a3a8eba7e8ddac
+Merge: e037340 df6118d
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 23 03:59:03 2013 -0800
+
+    Merge pull request #62 from grooverdan/travis
+    
+    py-2.5 removed from travis
+
+commit e0373400336c8e0da891acfba0c5a992a08df65e
+Merge: 51aa5bd a9a07cd
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 23 03:58:22 2013 -0800
+
+    Merge pull request #61 from grooverdan/glob
+    
+    add glob option to command line
+
+commit df6118dbf9aee995599865043c7a22bb49d8153a
+Author: Daniel Black <grooverdan@users.sourceforge.net>
+Date:   Mon Dec 23 10:22:49 2013 +0000
+
+    Add python-3.3 to travis
+
+commit 956a0352efb9ab1ad6430ebe9e08465bed39aee3
+Author: Daniel Black <grooverdan@users.sourceforge.net>
+Date:   Mon Dec 23 10:19:43 2013 +0000
+
+    py-2.5 removed as per http://about.travis-ci.org/blog/2013-11-18-upcoming-build-environment-updates/
+
+commit a9a07cd3879ce165c2ac01fa242ad93f40a6ac6b
+Author: Daniel Black <grooverdan@users.sourceforge.net>
+Date:   Mon Dec 23 10:13:20 2013 +0000
+
+    add glob option to command line
+
+commit 51aa5bd8c22c5ff8c730f97178f000b55cb02f0f
+Merge: b828a12 9905931
+Author: Sébastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 19 05:29:42 2013 -0800
+
+    Merge pull request #58 from jdswinbank/glob
+    
+    Fall back to glob.glob() on Python 2.4
+
+commit 99059317f3cbfd25aeb7a03394ff6713ddbb451a
+Author: John Swinbank <john@swinbank.org>
+Date:   Tue Nov 19 14:16:14 2013 +0100
+
+    Fall back to glob.glob() on Python 2.4
+    
+    glob.iglob() was introduced with Python 2.5, but pyinotify claims
+    compatibility with Python 2.4. Here, we fall back to glob.glob() if iglob()
+    isn't available.
+
+commit b828a124bcf2310df7e2e7683b0902fcd78a08bf
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Nov 15 19:39:22 2012 +0100
+
+    Released Pyinotify 0.9.4
+
+commit 11ba54ff2e1d6c00d8827eda35e2af28292b106d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 4 12:28:24 2012 +0200
+
+    Typos.
+
+commit aea39987fa5f3efaad15c2fa4fe2597996393327
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 4 12:18:04 2012 +0200
+
+    Improved Tornado's notifier.
+
+commit 75f63f3f63ed1105b5cad98e1121dc55e5043cba
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 4 00:45:11 2012 +0200
+
+    Ported TornadoAsyncNotifier to Python3.
+    
+    Assuming Tornado works the same way under Python3... I must say
+    I don't use Tornado myself I didn't test it.
+
+commit 8599f88bf9c4217861ebac681362b96d98c2c000
+Merge: 66c3954 0bd8d6f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Oct 3 15:26:12 2012 -0700
+
+    Merge pull request #46 from Flyguy/master
+    
+    Added tornado ioloop support
+
+commit 0bd8d6fa0ccf7faebcde813a1f6d60c7fca482d6
+Author: LE0N <flyguy.by@gmail.com>
+Date:   Wed Oct 3 22:45:19 2012 +0300
+
+    Add tornado ioloop support
+
+commit 66c395418d52e1506678e077dfa51a062c7f3735
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 30 07:36:39 2012 +0200
+
+    Add support for IN_EXCL_UNLINK flag (Python 3 branch).
+
+commit d7ab4701970da20cc7c58ee444d9c5949f84bfe3
+Merge: 9a418c9 26bec33
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Aug 29 22:28:08 2012 -0700
+
+    Merge pull request #42 from quiver/IN_EXCL_UNLINK
+    
+    Add support for IN_EXCL_UNLINK flag
+
+commit 26bec33f9d65becb208460de5867150c297b3970
+Author: quiver <george@alpamayo.(none)>
+Date:   Mon Aug 27 22:08:37 2012 +0900
+
+    add support for IN_EXCL_UNLINK flag
+
+commit 9a418c9c684ce7f4e8078c32fdfb2a7b90d03ca0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Aug 6 13:55:11 2012 +0200
+
+    Fixed namespace issue.
+
+commit ef6c7e71cf3a6262a4626cd7979cf9a5e86414f5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 7 22:28:23 2012 +0200
+
+    Cleaned-up Readme file a bit.
+
+commit 439565e3a378ed891c03efb0ac181cf9509c99fc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jun 7 00:11:35 2012 +0200
+
+    Don't check for existing watch when setting up watches
+    
+    This check had prohibitive cost and was useless to some extent
+    because adding a watch for an already watched path will result
+    in assigning the same watch descriptor therefore only updating
+    it. There won't be any dangling watch descriptor left into the
+    watch manager dictionary.
+    
+    Issue reported by Jan Knudsen https://github.com/Shne
+
+commit 2a9cc459d0abb7f519e6cc6c25caaa19a6f4446b
+Merge: d12e76a 80f5b90
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun May 6 04:42:50 2012 -0700
+
+    Merge pull request #35 from pmertens/patch-1
+    
+    fixed pip command
+
+commit 80f5b90a627070a694d21416c16c5c6e123f7e29
+Author: Philip Mertens <personalforward@gmail.com>
+Date:   Sat Apr 28 20:44:41 2012 -0700
+
+    fixed pip command
+
+commit d12e76a63a75b96171e72a12dee980899fc7b5a8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Apr 27 10:02:20 2012 +0200
+
+    Updated travis configuration file (again).
+
+commit 977386a7ce565212f50c1d55574d02ee6bedba8f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Apr 27 09:55:37 2012 +0200
+
+    Updated travis configuration.
+
+commit e14fa63bff5d8ae2b7faa16038b5a8e07a638d6d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Apr 27 09:51:14 2012 +0200
+
+    Added travis configuration file.
+
+commit e1cbd40ee41ef27e6f91a8b098cd2a0fd6e736f3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Apr 14 18:12:16 2012 +0200
+
+    Fixed runtime warnings in inotify ctypes' wrapper.
+    
+    Contributed by bdkearns https://github.com/bdkearns
+
+commit 68632f23eac6dd2fbd288616b3e2355be9ad3205
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Mar 20 04:13:50 2012 +0100
+
+    Documented ExcludeFilter shortcomings.
+
+commit f3f89a6266186433b4869e603153396829ce6671
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Mar 11 21:41:04 2012 +0100
+
+    auto_add=True automatically implies oring IN_CREATE with the
+    provided mask value. Misbehavior reported by Maxime Augier
+    https://github.com/maugier.
+
+commit 98c5f41a6e2e90827a63ff1b878596f4080481cc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Mar 11 20:53:05 2012 +0100
+
+    Removed unused code.
+
+commit f5be68205a896cfcc3ccaf72aab29ac3e20d4d31
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Dec 26 07:40:25 2011 +0100
+
+    Added download_url to package's meta-data.
+
+commit d5d471e58dd913c5740103fea53584d09bc80e5d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Dec 20 15:03:31 2011 +0100
+
+    Bumped version number, released Pyinotify 0.9.3.
+
+commit 423a45daec420dd8d916295d39cc2bcffb3e5290
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Dec 20 14:58:56 2011 +0100
+
+    Updated README file.
+
+commit f0b0bd0c7ce2f5c77e44ad77061c55a0f5db3af6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Dec 2 14:19:07 2011 +0100
+
+    Added new command line option --command.
+    
+    This new command permits to run a shell command on each event.
+    
+    Idea and initial patch contributed by Domen Kožar @iElectric domen@dev.si.
+
+commit a2ed5c67db7944ee20dbc5991f7ff779215e89ca
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Dec 2 08:56:11 2011 +0100
+
+    Improve comment.
+
+commit 43f47fed3a28b7cd62cfcf1bcfa948d7499a0407
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Dec 2 00:21:41 2011 +0100
+
+    Correctly handle IN_Q_OVERFLOW events.
+    
+    This commit should fix a regression introduced with commit
+    d334049eed6b1136a9d224a3ca17aa66fea5215a.
+    
+    Issue reported by Tomi Belan @TomiBelan.
+
+commit 6bee47701efa5613605988af10593a3c69682ba3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Nov 17 11:58:10 2011 +0100
+
+    Removed customized unicode logger class.
+    
+    It should be fine without it, pyinotify shouldn't have unicode
+    instances left internally.
+
+commit b55d650cb709cf6487320e90899ad809814b28ed
+Merge: 0b7358b 436dc1a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 15 01:33:40 2011 -0800
+
+    Merge pull request #25 from Flyser/patch-2
+    
+    fix typo "dependancies". @flyser Thanks for your help.
+
+commit 0b7358be43fc3be76f48ecb34e6bcbc0cb60e9c9
+Merge: 92e6abb 55a8f0f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 15 01:32:04 2011 -0800
+
+    Merge pull request #24 from Flyser/patch-1
+    
+    fix IN_DELATE typo
+
+commit 436dc1ab60e483c264be9f94c4a9f3f7950270a5
+Author: Flyser <flyser42@gmx.de>
+Date:   Tue Nov 15 09:55:56 2011 +0100
+
+    fix typo "dependancies"
+
+commit 55a8f0f36196cbea815c791b8c9450ed713ae002
+Author: Flyser <flyser42@gmx.de>
+Date:   Tue Nov 15 09:54:16 2011 +0100
+
+    fix IN_DELATE typo
+
+commit 92e6abb6cd41ba1b9ea2ebe9789bf0cf04708c2b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Oct 11 10:34:47 2011 -0700
+
+    Fixed error message (reported by Jordan Pittier).
+
+commit b8064287ddc14979a7b1b936f6159d956b25da60
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Oct 11 10:21:00 2011 -0700
+
+    Ignore dangling IN_IGNORED events sent after watches are removed.
+
+commit 8184a1806220b305c386e15fae67e6ab2ce3dba3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 15 22:00:17 2011 +0200
+
+    Use setuptools setup method if setuptools package is available
+    (idea contributed by Hunter Blanks hblanks@monetate.com).
+
+commit 2c7e8f8959d2f8528e0d90847df3605b50985cc8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jun 8 11:51:55 2011 +0200
+
+    Properly subclass logging.Logger (contributed by Charles Cazabon
+    charlesc@fatdrop.co.uk).
+
+commit 73f8a2e4fd6ebf7e0bf8e7b1511dddb7e95d2e38
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Apr 19 11:35:59 2011 +0200
+
+    Bumped version number (0.9.2).
+
+commit e6c572746a3791f78fe6033dfc4c5d1992eb00ac
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Apr 5 22:18:26 2011 +0200
+
+    Use PY_MAJOR_VERSION instead of PY_VERSION_HEX in C extension.
+
+commit f4ce646a42b040eb08b0b87dacd594c0ba0df4f9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Apr 5 14:30:16 2011 +0200
+
+    Emit artificial IN_CREATE events on recursive files creations.
+    
+    This commit should help mitigating long standing issue "Missing
+    IN_CREATE events" https://github.com/seb-m/pyinotify/issues#issue/2
+    Note that symlinks are handled as files and that no similar
+    treatment is applied to IN_MOVE_TO events, because even if moved
+    files are new watched items, there aren't newly created per se by
+    the filesystem.
+
+commit fc47e5b47355e2dd1859d05c1f4a6b67976682b8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Mar 22 10:36:12 2011 -0700
+
+    Use __slots__ in Watch class to reduce memory footprint (contributed
+    by Olivier Cortès).
+
+commit 09d7d1614bb019d78ce64a697f9604b3e3d86c91
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Feb 8 00:29:06 2011 +0100
+
+    Few minors renaming.
+
+commit 4ae5bb3216360cb52cab306452e86942c8e5f5c3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Feb 7 16:14:11 2011 +0100
+
+    Fix access to inotify's variables from ctypes.
+
+commit 83a1bab088cf63b6a2b65add6989be87c060f5ff
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Feb 6 19:33:31 2011 +0100
+
+    Disable ctypes when inotify_syscalls is successfully imported.
+
+commit 7afc73252ea1de3c5bb61eb3803126def0048dd0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Feb 2 11:06:13 2011 +0100
+
+    By default use system calls numbers defined in <sys/syscall.h>.
+
+commit 206b35ef39c7b7af4fee42dd25dc5703c9b114ea
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 22:58:45 2011 +0100
+
+    Updated setup.py.
+
+commit 7265eb242b28f86381e125be96fc14026f066e15
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 14:42:36 2011 +0100
+
+    Updated meta files.
+
+commit 2713559801c430e051206f1d65ee8607fbb44e2a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 14:06:36 2011 +0100
+
+    Updated dependencies.
+
+commit eff93539256a4a7f29b24b1faa8e5337e656742c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 14:02:09 2011 +0100
+
+    Updated MANIFEST.in to handle common/.
+
+commit fec920a2146f78802f1a28a7f4c47f5c97426a7e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 28 13:47:00 2011 +0100
+
+    Added C-coded inotify syscalls interface.
+    
+    - If compile_ext_mod is set to True in setup.py, this extension
+      is explicitly compiled.
+    - If compile_ext_mod is set to False in setup.py (default), this
+      extension is compiled only if no inotify support has been found
+      from ctypes.
+    - Replaced exception type UnsupportedLibcVersionError by
+      InotifyBindingNotFoundError. WatchManager.__init__() may raise
+      this exception on error.
+    - SysCtlINotify (class providing access to inotify /proc variables)
+      is not instanciated (therefore not available) when the C extension
+      is used. It is only available from ctypes.
+
+commit 2900ceda692f590b17a193d1bd97e507abfdc10d
+Merge: ea3e37e c599659
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:33:36 2011 +0100
+
+    Updated setup.py.
+
+commit ea3e37e8098ea8951af9b9efce273078c920dc46
+Merge: c5dc376 51b850c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:30:27 2011 +0100
+
+    Updated setup.py.
+
+commit c599659c3a12c10eba35589c8d1bf84d332967e4
+Merge: c5dc376 51b850c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:30:27 2011 +0100
+
+    README.md
+
+commit c5dc376399d5c527b694944f1dd2a29c5dd364e0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:10:13 2011 +0100
+
+    Updated README.md.
+
+commit 51b850c94df324301e7fa41dfb4c17936f5301b4
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 23 18:10:13 2011 +0100
+
+    Updated README.md.
+
+commit 2054c250bc18fb030685278c47d48b03743224d5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jan 22 21:27:48 2011 +0100
+
+    Removed useless code spotted by pyflakes.
+
+commit f6f50b37a585065a2739f0548b9d0cae8baa14ae
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 16 12:55:25 2011 +0100
+
+    Updated setup.py.
+
+commit 7c3903493912664607f847d380d5ddbad99685ef
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 16 12:13:32 2011 +0100
+
+    Added MANIFEST.in.
+
+commit 615e3de57370a6c61da28773d27457421ae528c7
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jan 6 16:15:37 2011 +0100
+
+    Fixed select's error handling (contributed by zjes).
+
+commit df4b84ec315b1f4063f86d21b67628a2c1ea7285
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Oct 18 00:50:12 2010 +0200
+
+    Updated documentation.
+
+commit 5d381ce785cd16fb1f43f53fd255927c1f18d82d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 17 18:52:38 2010 +0200
+
+    Released Pyinotify 0.9.1.
+
+commit a745ca51ff0c7ff7e51a6cc35cc0eb2e4c408309
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 17 18:49:05 2010 +0200
+
+    Moved README to README.md.
+
+commit 095323cb53ec49e7e04b09ddb6908adfbfd2564f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 17 18:43:23 2010 +0200
+
+    Updated README to use markdown syntax.
+
+commit 6a2a526ff2e7c0beb7a7df7bb3ec3f93c0568c6c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 16 00:50:23 2010 +0200
+
+    Updated README.
+
+commit 3c4086c6cacb9bfe5d2662b6fac3d3119e3c0528
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 15 23:00:35 2010 +0200
+
+    Modified project url.
+
+commit 909f985842fcae8a45d9591017112186e68a723d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 15 01:08:07 2010 +0200
+
+    Optionally no pid file is written (pid_file=False) when notifier.loop
+    with daemonize=True is called.
+
+commit 155e2f5d0dfeff210198856b2b03d53d8e810c52
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 15 00:19:49 2010 +0200
+
+    Modified the umask's value set in forked processes, tightened all files
+    creations rights and removed the daemonize option used for killing
+    processes (security issue reported by Adrian thiefmaster@gamesurge.net).
+
+commit 80e1afc95893350e6e59230993e26376e279327c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 9 10:45:50 2010 +0200
+
+    Added new method WatchManager.close() to close inotify's file
+    descriptor when needed (bug reported by jdw@research.att.com).
+
+commit 91e8a9ca4348576220e8268ecb8b3492b2e9c022
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 9 10:19:32 2010 +0200
+
+    Remove watch descriptor from WatchManager's dictionary when a watch
+    is successfully removed (bug reported by jdw@research.att.com).
+
+commit 6d552d2cc8ab42e0bfee58a650d85007cad01525
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Aug 6 15:15:28 2010 +0200
+
+    Updated README.
+
+commit 5fe8449aac44408abdc183289678a3e5d4065980
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jul 30 14:29:47 2010 +0200
+
+    Reverted exception name of libc loading error, back to
+    UnsupportedLibcVersionError.
+
+commit 7d2110a39847512c98533cc5237d3795d31eeb73
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Jul 29 10:31:46 2010 +0200
+
+    Fixed exception handling of ctypes.util.find_library() (thanks to
+    przemyslaw.wrzos@calyptech.com).
+
+commit d87b2cdd62c232eef7a669ccc006161aaea66db4
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 16:32:02 2010 +0200
+
+    Modified loading mechanism of the libc (following issues reported
+    by przemyslaw.wrzos@calyptech.com).
+
+commit 2b156d82abad209bbd7470366a9c9ca1564b7659
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 15:34:25 2010 +0200
+
+    Modified logging formatter to output timestamps (idea submitted by
+    hv@tbz-pariv.de).
+
+commit 3fb456af85bdf73ae38b00ebc16a16777a858321
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 15:25:17 2010 +0200
+
+    Flush stdout stream immediately after events or stats are written
+    (idea submitted by hv@tbz-pariv.de).
+
+commit 817169ec933de0eaf0d98793ade01a89aabcc4ce
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 15:04:21 2010 +0200
+
+    Added new option --raw-format (-f) to explicitly disable the
+    enhanced output format when Pyinotify is used from command line
+    (idea submitted by hv@tbz-pariv.de).
+
+commit 3c136cf7123099d4b513d364b0929b5321225a8c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 13:00:08 2010 +0200
+
+    Added new command line option --version (idea submitted by
+    hv@tbz-pariv.de).
+
+commit 77f9641291794db929a8a891137998b982f7585f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jul 27 12:40:18 2010 +0200
+
+    Check that loaded libc has needed inotify functions instead of
+    checking for glibc version number (reported by
+    przemyslaw.wrzos@calyptech.com).
+
+commit ec5a9f42c0e79d2017818cc2f522efd61cbc7952
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jun 4 05:24:22 2010 +0200
+
+    Pyinotify 0.9.0
+
+commit 498fa909c3c58902ced1b527cd7ec54a8c8ea3a6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 27 23:46:38 2010 +0200
+
+    Improved new coalescing option, use native __hash__ from string
+    objects.
+
+commit 6842f01438a233aa45d6037aa2ff9fe07f9fe89f
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 27 17:50:31 2010 +0200
+
+    Fixed typo.
+
+commit 134f1628ed438995b0367c76ea749d9d11067eb6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 27 17:30:23 2010 +0200
+
+    Added new option for coalescing events (disabled by default). See new example
+    coalesce.py.
+
+commit 722cce1b6b1f953e0a99e6860917e7c0fe93235b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed May 19 15:25:58 2010 +0200
+
+    Reverts previous commit for the following reasons:
+    - Preserve backward compatibility;
+    - Returning a dictionary with all the iterated directories for
+      which ENOSPC was raised gives the information these directories
+      existed and were iterated and something wrong happened, it is
+      useful information;
+    - It is definitively developer's responsibility to check a given
+      subtree is not too deep or that max_user_watches is not large
+      enough before calling add_watch().
+    
+    This reverts commit be91bfbbe7a849952b2fe61a49205d66fb5c850c.
+
+commit be91bfbbe7a849952b2fe61a49205d66fb5c850c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed May 19 14:12:31 2010 +0200
+
+    add_watch() returns immediately on first encountered ENOSPC error even
+    if quiet=True (idea submitted by Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit fc7f2b79d73b25bbf3f1eb3a677c16e449a24564
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue May 18 20:53:15 2010 +0200
+
+    Provide errno information from inotify's system calls when available
+    (Python >=2.6) (reported by Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit e9751bfbaf9a514f76b52ee0290497675e6d67e3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon May 17 21:16:22 2010 +0200
+
+    Fixed previous fix f7510650b8e9950247d14841967eb64d0b2d0294.
+
+commit 4ff4c0f2bb0092da4655f29fb76c5a74c0bf2071
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun May 16 15:27:18 2010 +0200
+
+    Updated examples.
+
+commit b93192b4de7a13b362c326dccd217c08b08b93a6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat May 15 15:16:04 2010 +0200
+
+    Updated ACKS and removed useless TODO.
+
+commit f7510650b8e9950247d14841967eb64d0b2d0294
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 14 17:31:09 2010 +0200
+
+    Modified add_watch() to handle repeated calls on the same path. When
+    this method is called with an already watched path, it is ignored.
+    When option rec=True is used, all the subtree is iterated and
+    watches are only added on paths not already watched. That way
+    existing watches are preserved while enabling new watches to be
+    placed on new subdirectories. To update a watch use update_watch()
+    instead. (reported by Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit 2f2dd6ba0999dbc40e5bfbcc66af2cc676d3046a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 13 22:42:40 2010 +0200
+
+    Updated examples.
+
+commit b18898f9d88319c43a06ad1052c3daa82e9d3022
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 13 19:53:02 2010 +0200
+
+    Fixed auto_add handling in method update_watch (contributed by
+    Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit 4715f25f0019e97f77280a8cec3434400f094f47
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu May 13 19:49:33 2010 +0200
+
+    Fixed auto_add handling in method update_watch (contributed by
+    Matthew Webber Matthew.Webber@diamond.ac.uk).
+
+commit a6f14ef16de967cb342057549467feb5a47252ab
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Apr 4 23:25:23 2010 +0200
+
+    Fixed dictionary item deletion on iteration (submitted by knurxs@gmx.de).
+
+commit c3cb39c167234e651ef20b1647161a073c2b9454
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Mar 1 21:55:22 2010 +0100
+
+    Fixed IN_MOVE_SELF renames of overlapping directories names
+    (contributed by Facundo Batista facundo@canonical.com).
+
+commit a3fbdda201166260886f2644f4fe725e5a832fd5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Mar 1 20:16:12 2010 +0100
+
+    Callback function called inside Notifier.loop is now able to stop
+    the loop if it returns True.
+
+commit e9dfb246c72eb373130640ccf3d996af031339dd
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Feb 23 15:05:50 2010 +0100
+
+    - Fixed documentation.
+    - Fixed select error handling (reported by Michal gentoo@mgorny.alt.pl).
+
+commit d334049eed6b1136a9d224a3ca17aa66fea5215a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jan 13 19:38:20 2010 +0100
+
+    Refinement of previous commit implemented with help of patch of
+    Guillermo Gonzalez <guillermo.gonzalez@canonical.com>.
+
+commit c3cdeba1d668eb2f3c3fed3e1c30cbb1235e9196
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jan 13 19:13:39 2010 +0100
+
+    Attempt to mitigate lookups on unexistant Watch objects triggered
+    in presently not well understood contexts. These faulty? events
+    are currently skipped but should be dumped into debug traces.
+
+commit 0aad346a2d6cd8c4b4197c54a28f9acbdf0a0eff
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jan 13 18:48:41 2010 +0100
+
+    Cosmetic changes.
+
+commit 828831b7895d7b5c5dbfef63c56741b837059304
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Jan 4 11:44:33 2010 +0100
+
+    Pyinotify 0.8.9
+
+commit f1cf1ad77a4394cf04888a35d8b74c727e0d2a45
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Jan 4 11:37:38 2010 +0100
+
+    Updated license to 'MIT License'.
+
+commit 7bbd6dab1c317314161567a6088076282100f736
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Jan 3 15:04:28 2010 +0100
+
+    - Removed custom glob functions, uses standard glob module directly.
+    - Modified exclusion filter mechanism, patterns still can be loaded
+      from files but the syntax has changed see exclude.lst for more
+      details. This new method is safer since the external file is not
+      executed anymore, it is only parsed looking for patterns loaded
+      as strings.
+
+commit a8a70eeab092b89471435015196894ffb419bd97
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jan 2 19:16:15 2010 +0100
+
+    Updated examples from tutorial.
+
+commit b4770e259e71e3e9dc17bf8696e7a82cfdaf98f6
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 1 11:48:40 2010 +0100
+
+    Updated daemon.py
+
+commit 67b7a507a1694297bb3d739943d2d802308c8f72
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 1 01:00:26 2010 +0100
+
+    Updated ACKS.
+
+commit 1548661e1a355708e59c83e20e22635d58324ba0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 1 00:15:58 2010 +0100
+
+    - Improved daemon.py example
+    - By default assigns an instance of PrintAllEvents() to
+      Notifier.default_proc_fun.
+
+commit cfcd47ef93314595aa50aa28505fa87d4c713fe9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Dec 26 15:59:50 2009 +0100
+
+    Updated README.
+
+commit 68596454008d6bf26f960bdc930ff5044214058a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Dec 26 15:48:44 2009 +0100
+
+    Unified setup.py install for python2 and python3.
+
+commit ff3cbf1b405fcf3d8559c82821b1dc4ca1225c1d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 25 04:07:52 2009 +0100
+
+    Updated doc and acks.
+
+commit b3dc4c39dcb26d9e6863b6457248db4ca69e3332
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 17 02:05:03 2009 +0100
+
+    Modified exclusion filter code (contributed with Matteo Lanza
+    matteo.lanza@gmail.com):
+    - exclude_filter is now checked against auto-added directories
+      (created or moved).
+    - exclude_filter is now transmitted from parent directory to
+      auto-added directories (created or moved).
+    - Monitored transient files are cannot be excluded through
+      exclude_filter.
+    
+    Removed "magic" keyworded arguments from Watch's constructor.
+
+commit a398d07592a7fb7fe9c1a6b0d5bfd9c90d849431
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Nov 16 19:45:32 2009 +0100
+
+    Fixed default pid file basename (contributed by Matteo Lanza
+    matteo.lanza@gmail.com).
+
+commit 8a8c979c7858e04492aea925689a2ddc89ab8703
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Nov 12 19:12:32 2009 +0100
+
+    Added acknowledgements file ACKS.
+
+commit 982496fdfabbb471117b55eaad0934d75d2506d1
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 11 18:24:56 2009 +0100
+
+    Improved handling of not guaranteed event attributes.
+
+commit add26a10a28661d88710c99d10a1cf2065c06d04
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 11 18:13:24 2009 +0100
+
+    Updated examples.
+
+commit 649429ae8af743d9c404c1cc219bd018ae073578
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Nov 7 02:48:51 2009 +0100
+
+    Updated comments.
+
+commit 213ca585c2b0101aa5b8d77bc2708bfaefa38bc3
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Nov 6 01:21:27 2009 +0100
+
+    Removed example async_moved_from.py (this not really an example).
+
+commit a307369bed619929c3bb5e97a557054947e246e2
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Nov 6 01:05:18 2009 +0100
+
+    Modified Pyinotify's hierarchy in order to support differents version
+    for Python2 and for Python3.
+
+commit 6141698fa66aab032f83fa367b735975061504a2
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 13:16:20 2009 +0100
+
+    Moved pyinotify3k.py to python3/pyinotify.py.
+
+commit da90af69eeb4a3e5f8f5cae05d3ffee1d53a687a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 06:16:37 2009 +0100
+
+    Initial (and experimental) commit of pyinotify3k.py:
+    - Port of pyinotify.py to Python 3.0
+    - Seems to be difficult (impossible?) to maintain only one code
+      for Python < 3.0 and Python >= 3.0
+    - Maintaining two versions will be painful, thus this commit
+      should be seen more as an experiment than as something
+      definitive and that would be updated at the same pace than
+      pyinotify.py. Actually even the naming 'pyinotify3k' is meant
+      to be temporary. I lack of experience with Python 3.0 so I can't
+      figure out right now what is the right thing to do or not to do.
+    - Anyway test it, report bugs, contribute improvements, especially
+      if you have good understanding of Python 3.0 (and above).
+
+commit 7344d2360a9fd02cb60cae08b2c5f65b2254cde7
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 06:16:10 2009 +0100
+
+    Updated TODO file.
+
+commit 6c4496dbd30061d9d74acffa4e32849bdad3647b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Nov 4 05:57:07 2009 +0100
+
+    - Fixed issue in stats display.
+    - Made small modifications for Python 3.0.
+
+commit 288efd44da7762dcc6b1ae33328df369491396da
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 3 08:48:22 2009 +0100
+
+    Added README file.
+
+commit 34194208955230dac697f2bc55ffb84308869fd2
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Nov 2 22:00:30 2009 +0100
+
+    Pyinotify 0.8.8
+
+commit 729bcf3910aedabef7396c8f43a3480a43a96afa
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Oct 30 10:28:40 2009 +0100
+
+    Fixed path renaming when a subtree is moved (contributed with
+    Linda Octalina linda_octa@yahoo.com and John Feuerstein
+    john@feurix.com).
+
+commit f2dac0bc86c6ddccef0dbf974847429471c5f283
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 29 20:28:25 2009 +0100
+
+    Automatically watch a non watched tree moved to a watched directory
+    with flag auto_add activated (contributed by John Feuerstein
+    john@feurix.com).
+
+commit eba40b6fde274ee44ad98ad0c5b438def813181a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Oct 29 19:56:05 2009 +0100
+
+    Rename all watched sub directories paths of a given parent
+    directory when this parent directory is moved and is assigned a
+    new pathname (contributed by john@feurix.com).
+
+commit 86e0ee2cb584e232fbff3c6473caca7f46573d65
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 25 02:19:15 2009 +0100
+
+    Updated comments.
+
+commit 3cde3f595cdeb109843a505bf4a115c882c53d62
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sun Oct 25 01:53:46 2009 +0200
+
+    Updated examples (mostly comments).
+
+commit a4672d66b72cb209ac36dbe2887c22637e0c3714
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Oct 24 18:44:05 2009 +0200
+
+    Implemented few small changes into ProcessEvent.
+    
+    - Added new method ProcessEvent.process_IN_Q_OVERFLOW. This will
+      serve as default method for catching IN_Q_OVERFLOW events. This
+      method has been implemented because it seems to be some
+      confusion when a process_default method from client code
+      receives this event and try to access unknown attributes. By
+      default this method only outputs a warning.
+    - Added new class PrintAllEvents. This class is used from command
+      line for printing received events. Therefore from now
+      ProcessEvent.process_default behavior is updated to do nothing.
+    - Updated examples.
+
+commit 11d9e3aed421d2fbccf097daf6f291510f276856
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Oct 19 12:56:21 2009 +0200
+
+    Fixed compatibility issue between Python 2.4 and UnicodeLogRecord
+    (reported by colin@ximenes.org.uk).
+
+commit fc50a600a6562812311d480ce6b0fe6fa67929ae
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Oct 12 16:39:52 2009 +0200
+
+    Fixed typo treshold -> threshold (reported by stromnov@gmail.com).
+
+commit a251120f310b9dc877d4380175dbbf7684b2476d
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Sep 29 12:20:34 2009 +0200
+
+    Added new example autocompile.py: run a specified command each time
+    a file with a given extension is modified.
+
+commit 5752a6f0cd7a93997ea7f3aca14c7cebb06fc795
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Sep 24 16:56:14 2009 +0200
+
+    Pyinotify 0.8.7
+
+commit 4343e273d455ca91fb615d1179f9591972ec9697
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 16:16:24 2009 +0200
+
+    Modified Makefile.
+
+commit c5cd892a3289a18f0527a33224b44dd2b26048b0
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 16:10:52 2009 +0200
+
+    Removed docstrings/ directory from index.
+
+commit 0457728e8c75c91a22ac800e54a3b1286d0d55a1
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 03:52:43 2009 +0200
+
+    Added a new attribute 'src_pathname' to IN_MOVED_TO events. This
+    string attribute is present when an association were found with a
+    previously caught IN_MOVED_FROM event (they share the same cookie).
+    That imply that IN_MOVED_FROM events need to be watched too in
+    order to successfully provide that information. src_pathname
+    represents the source pathname from where the file/directory
+    'pathname' was moved from. Idea contributed and initially
+    implemented by cruxic@gmail.com.
+
+commit 2ffe966ffcf6e2128176235e9f911ec139eef675
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 02:36:05 2009 +0200
+
+    Renamed ChangeLog.
+
+commit a75000aa1afe511ce4452f7e7480077f8a8c0f5a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Sep 2 02:32:50 2009 +0200
+
+    Updated comments and documentation.
+
+commit 5554734940f8ec44b5272102f6a03069de8f507e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Aug 28 11:36:48 2009 +0200
+
+    Minors improvements.
+
+commit 7c75e9c1e28f8160ac3404df8b7b518bb9f3ae74
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Aug 28 02:54:10 2009 +0200
+
+    Updated comments.
+
+commit bae3683927b2c10879f5659dc37f776d80d7580c
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Aug 26 23:05:10 2009 +0200
+
+    Few trivial changes suggested pinpointed by pylint.
+
+commit dc3a97d009fc502ea5c0c6d458d5557693a21107
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 21:59:45 2009 +0200
+
+    Removed Psyco optional import (nobody used this option anyway).
+
+commit 5f5e1dc02b350149a435b03fd2400264b1fb9147
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 15:46:02 2009 +0200
+
+    - Added new notifier AsyncNotifier it relies over asyncore.file_dispatcher for
+      dispatching events (contributed by Guido Trotter ultrotter@quaqua.net).
+    - Fixed issue with compatibility mode.
+    - Updated documentation.
+
+commit 725b9b81594f9bd6d594f98d3337c6a0af0dc2a4
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 04:40:07 2009 +0200
+
+    Updated documentation.
+
+commit eb18455cc294eefb73dc7da91684b422fe454cf5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 04:17:19 2009 +0200
+
+    Added new function compatibility_mode() to turn on the compatibility
+    mode with Pyinotify 0.7.1.
+
+commit 300de168b891cdeabb4fb1115558f25d05ac31c5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Thu Aug 6 03:45:57 2009 +0200
+
+    - Added a new compatibility option COMPATIBILITY_MODE to improve the
+      backward compatibility with Pyinotify 0.7.1. This option is set to
+      False by default and should be turned to True only for old programs
+      developped for Pyinotify 0.7.1. With this option: 'is_dir',
+      'event_name', 'EventsCodes.IN_*' and 'EventsCodes.ALL_EVENTS' are
+      provided. Refer to http://git.dbzteam.org/?p=pyinotify.git;a=blob;f=NEWS;
+      for the list of incompatibles changes introduced with Pyinotify 0.8.x.
+    - Updated documentation.
+
+commit 17a351fb6e7b1d5a9455d52ab82e02aba2b95091
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jun 16 23:43:46 2009 +0200
+
+    Updated example stats_threaded.py and updated various comments into
+    pyinotify.py
+
+commit 6c5f348a4bd4c452a131da77f898253da9fc8b83
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Jun 10 15:38:57 2009 +0200
+
+    Improved error message in method _SysProcessEvent.process_IN_MOVE_SELF
+
+commit 5bcb4658a87fd5ce52232bb8f215bf342ead19e5
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat Jun 6 05:51:58 2009 +0200
+
+    Removed native unicode support for paths, unicode paths are therefore
+    discouraged and are converted to strings if used anyway.
+
+commit 2cfa2fce412bf585367daef2c0f1b5a44899fdd8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jun 5 03:56:04 2009 +0200
+
+    Fixed unicode paths support with ctypes.
+
+commit 6e18f940bcbffe5be9e4382c033ccfb11338e7c9
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Sat May 23 23:11:28 2009 +0200
+
+    Moved examples to dedicated directory.
+
+commit affbbb02dec05dc0d5d75508ff1258587b54d7d1
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 15 12:25:27 2009 +0200
+
+    - Updated documentation.
+    - Fixed libc version check (contributed by Terje Røsten terje.rosten@ntnu.no).
+
+commit d8e42159304f73440f1b05c01f5e4bec00ee506a
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 1 22:53:23 2009 +0200
+
+    Updated documentation.
+
+commit 102b4b1a9d5f9b47052318d11c4d103435ed990b
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 1 17:26:05 2009 +0200
+
+    Fixed comments related to the option 'quiet' into WatchManager
+    (reported by forest@alittletooquiet.net).
+
+commit e8a9578294329900677de1f9d2401c183bca5fae
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri May 1 17:17:36 2009 +0200
+
+    Fixed format strings of messages passed to the logging module
+    (reported by Andrey Rahmatullin wrar@altlinux.org).
+
+commit e3897e2207b8ee55e3bd675f9887cfb63d0a89e8
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Apr 13 14:56:59 2009 +0200
+
+    - Updated license header.
+
+commit 47486c913d294ebc0c02817752387b14ee9b8bcc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Apr 13 14:16:06 2009 +0200
+
+    - Rewritten Color class.
+    - Updated license to GPLv2+
+
+commit 605a29e09ec6d28bf4f7697a94de5d0165831860
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Mar 6 23:17:18 2009 +0100
+
+    - Fixed SysCtlINotify compatibility with Python 2.6.1 (reported by prologic@shortcircuit.net.au)
+    - Improved ThreadedNotifier polling algorithm
+    - Added warning comment in watch_transient_file(), this function will require to be fixed later (reported by Matt Brown deadguysfrom@gmail.com)
+    - Stop catching exceptions on event loop (problem reported by Jonathan Ballet jonathan.ballet@securactive.net)
+
+commit 5070c603a73ab911703256e7e4a6cb7677308c01
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Mon Feb 23 14:22:16 2009 +0100
+
+    - Fixed chain of classes including ChainIfTrue (reported by Matt Brown
+    deadguysfrom@gmail.com)
+    - Reverted exception handling modifications
+    - Documentation
+
+commit beba6263667d6d5b69d562bedd36d0b3a5961c67
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Fri Jan 30 11:58:58 2009 +0100
+
+    - Improved loop event error handling (contributed by
+    jonathan.ballet@securactive.net)
+    - Turned off implicit psyco import (suggested by stromnov@gmail.com)
+
+commit a17385ae4cd3f952f689cfeee0d6e04841a4325e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jan 6 22:57:58 2009 +0100
+
+    Updated docstrings generated documentation.
+
+commit 46a3dbeab78c0a1848b219fe8d7ff23bfb565889
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jan 6 04:42:40 2009 +0100
+
+    Fixed libc version check on arch 64 bits.
+
+commit 1a3cb2ee0823102ed8b4f799afaee293344ea860
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Jan 6 02:39:42 2009 +0100
+
+    - Removed all sys.exit calls, replaced by exceptions
+    - Reverted (temporaly) libc version check (bug on arch 64 bits)
+
+commit 0c76263e0c9fd8dce89e769c0b138bc71f78cecc
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Wed Dec 17 03:00:50 2008 +0100
+
+    Check libc version (contributed by Robin Wittler <robin.wittler@credativ.de>).
+
+commit 46a7343c64fa1614dcef1e5044cd6c5caea4599e
+Author: Sebastien Martini <seb@dbzteam.org>
+Date:   Tue Nov 4 12:42:17 2008 +0100
+
+    Removed annoying psyco message (suggested by Henri Tuhola).
+
+commit 146b46fc4ae569d467970e5809ae8a1645c9a3ce
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Sep 29 15:40:23 2008 +0200
+
+    Add examples from tutorial.
+
+commit f7cd60146b00bdffd25b207639d1d2fb326a2174
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sun Aug 10 14:01:36 2008 +0200
+
+    - Documentation updated.
+    - Version 0.8.0t released.
+
+commit 9b325cf5ab4cee13e458d74a2b3766c7690a1d4f
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jul 28 09:57:54 2008 +0200
+
+    Revert "New attribute Notifier.event_queue_size"
+    
+    This reverts commit 8e300b46ed892704a4484e4734c7d9e2c7100877.
+
+commit 8e300b46ed892704a4484e4734c7d9e2c7100877
+Author: Sebastien Martini <root@mars.(none)>
+Date:   Mon Jul 28 09:14:25 2008 +0200
+
+    New attribute Notifier.event_queue_size
+
+commit ca5ddc5f5eea62c76b6be75a1fbdedf663dbcfd0
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Tue Jul 1 07:47:52 2008 +0200
+
+    Flag example files as 'Example'.
+
+commit 4d09d5dc0625b00629eef1303ef550a0540664f9
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 18:26:28 2008 +0200
+
+    Documentation.
+
+commit f1a48fe7fbb952204fba896319389d98da89df23
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 18:16:20 2008 +0200
+
+    TODO updated.
+
+commit 7621606c01c70e28f14a175db2c770d27b14721d
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 18:11:05 2008 +0200
+
+    Update TODO.
+
+commit 70f6c473dd021bcdcc1f0b09c2c74b7cc5e9e509
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Jun 30 17:28:34 2008 +0200
+
+    Ability to exclude a path from being watched as soons as it has been
+    matched by a given defined regexp pattern.
+
+commit bd593b6775777ec53405244f5b2ae92a64120ac5
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Tue Jun 17 19:05:53 2008 +0200
+
+    TODO file added.
+
+commit 6253a716008486c1864f4416916bb2fe1387498c
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sat Jun 7 00:54:06 2008 +0200
+
+    Documentation.
+
+commit da4f72c38ed31111d447c64efd78cf500beabf73
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sat Jun 7 00:13:03 2008 +0200
+
+    * Fix segmentation fault reported by dougfort@dougfort.com, but not
+      sure if the way it is fixed doesn't introduce limitations on encodings.
+    
+    * event.pathname represents now an absolute path.
+    
+    * Fix display of events.
+
+commit c36bdd432b56f0d9a329c918c0a3a0110d59f5c4
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 20:17:40 2008 +0200
+
+    Version 0.8.0q released.
+
+commit 53d2896aa1f94c5967209749f0d272412496f447
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 19:55:15 2008 +0200
+
+    Documentation (doctrings) updated.
+
+commit 8da69de7c06c68aed453c8a97d49f4e64bd41711
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 19:54:30 2008 +0200
+
+    New parameter 'quiet' for methods add_watch, update_watch
+    and rm_watch.
+
+commit 9b43851fd710e7a621e8b31f157e50c23720cd53
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 04:08:49 2008 +0200
+
+    Cosmetic changes.
+
+commit 9bd63dc25643dc6959ad020de8c665d4698fe705
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 04:03:49 2008 +0200
+
+    Documentation updated.
+
+commit bdcb29b6366db04baf7747d1d0c3c063c2a7829a
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 04:03:03 2008 +0200
+
+    Notifier and ThreadedNotifier accept treshold parameter.
+    loop() parameters and __init__() parameters modified.
+
+commit 8a2a858664a2697dc5838cc251dc19d5d4591130
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 31 01:14:18 2008 +0200
+
+    * stats.py moved to stats_threaded.py
+    * New implementation of stats.py (non threaded).
+    * Minor modifications into pyinotify.py
+    * Documentation updated.
+
+commit 155e62deff3af7d9f5f0e05301057d10817382c1
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Sun Mar 30 21:08:25 2008 +0200
+
+    Change string handling in event dispatch mechanism.
+
+commit f3c573a115db7dc7cfc8e551935db5be280bfd99
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Fri Mar 28 13:45:37 2008 +0100
+
+    Small changes in rm_watch and update_watch.
+    Version 0.8.0p released.
+
+commit a7db68a9040974ad4408ee0ed110f93014120f6f
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 23:45:23 2008 +0100
+
+    Documentation.
+
+commit a637071fadabb2f5167c23fdc26f7922d28cc781
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 23:32:49 2008 +0100
+
+    Documentation.
+
+commit e4fd014d6cbe47ad9cc226890f055cad4bd354f2
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 20:47:43 2008 +0100
+
+    Rename EventsCodes.get_masks() to EventsCodes.maskname()
+
+commit 1565693f88e594abfc342fd36ac2a4b7dc1538b0
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 15:36:53 2008 +0100
+
+    Close file before exiting.
+
+commit 0e582e4c295e50da4abb7b9652b67f8206679784
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Thu Mar 27 15:28:08 2008 +0100
+
+    pyinotify.py: improve performances of dispatch of events.
+    chain.py: better message.
+
+commit 852f1a559cec123b922438b4e53e3217a4fdca11
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Wed Mar 26 12:43:37 2008 +0100
+
+    New file setup.py
+
+commit d490a8d093a345d880414a2732a31f33e3c7d0b5
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Tue Mar 25 22:23:05 2008 +0100
+
+    Documentation.
+
+commit 5cc710753997b725b324c12729658bdd0d45258d
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Tue Mar 25 00:15:53 2008 +0100
+
+    Add docstrings generated with epydoc.
+
+commit 494601c619e58034cc8b373e6afd9ebe61260dfb
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 20:15:54 2008 +0100
+
+    Version 0.8.0o released.
+
+commit 838c8524618c6cac976cbd530e7edc271e291c46
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 19:42:37 2008 +0100
+
+    COPYING and NEWS files added.
+
+commit 0661caa7dfc598a8b144e2cb2ea8917f299c5a55
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 15:42:42 2008 +0100
+
+    Cosmetic changes.
+
+commit d82238aae6957d20f52ddae97e5707fe4b2796ee
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Mon Mar 24 15:31:48 2008 +0100
+
+    Simulate IN_CREATE events on mkdir -p /d1/d2/[...]. Contributed by
+    Thomas Kiley <tkiley@cs.uml.edu>.
+
+commit 5a750c19ab9417b184372ad9d3811eec8d69a5e8
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Tue Mar 18 16:54:01 2008 +0100
+
+    Few changes for P3K.
+
+commit 270f7f689302b5de93e4989765f4ff17ed67a5a9
+Author: Sebastien Martini <ookoi@sundae.(none)>
+Date:   Sun Mar 16 22:31:35 2008 +0100
+
+    Cosmetic changes.
+
+commit f5b94bfc7073e9121dda5863b9e09d89255abd17
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Tue Mar 11 19:53:30 2008 +0100
+
+    Changed access rights on transient_file.sh
+
+commit e73ce728dad1e0f69255faed1b1982e2cc00d80f
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 10 10:44:20 2008 +0100
+
+    New file transient_file.sh added.
+
+commit 40b9c9e92f9aea27359a2d2176dc5bd45f8c77ae
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 10 10:33:56 2008 +0100
+
+    Access rights on pyinotify.py file modified.
+
+commit 998bc895dd5dad6aa5347e82fc2acaec81d3417e
+Author: Sebastien Martini <ookoi@mars.(none)>
+Date:   Mon Mar 10 10:03:32 2008 +0100
+
+    Initial commit for pyinotify 0.8.0x
+    
+    View details for this version at http://seb.dbzteam.org/pages/pyinotify-dev.html

@@ -1,0 +1,818 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+======================: FILES :======================
+======================: LOGINFO :======================
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 2a2efe46dce01ae2387d784422992ed1878e4666
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Dec 11 15:24:48 2022 +0100
+
+    uudeview-0.5.20-makefile.patch from Gentoo, use DESTDIR in Makefile.in
+    
+    This makes sure "make DESTDIR=[path] install" works.
+
+commit a044eb3e663a9fe6520825b4b17238eac20b6ef4
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Dec 11 15:17:29 2022 +0100
+
+    031_do_not_force_overwrite.diff from Debian.
+    
+    This makes sure we do not overwrite files in -i mode if -a mode (auto
+    rename) is enabled. This seems logical and the original behavior looks
+    like a bug.
+    
+    Description from Debian:
+    Don't force overwrite mode if auto-rename enabled.
+    Author: Chris Hanson
+    Bug-Debian: https://bugs.debian.org/378076
+
+commit c124dc59c9a14decdec20bfde4876da1d0aac3bd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 10 20:48:57 2022 +0100
+
+    Run uudeview/uuenview we compiled, not the system one
+
+commit cd7edeb92caa24984c6e40fb29547182c5eb9561
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 10 20:43:00 2022 +0100
+
+    Debian patch 028_suspicious_file.patch
+    
+    This patch adds output of the file name when decoding split files,
+    the intention is to allow seeing which file caused a warning.
+    
+    Description from Debian:
+    
+    Add file open information so that if S_DATA_SUSPICIOUS message.occurs,
+    the name of the bad file is printed. There is probablly a better method
+    but I did not see how to obtain the filename from within the function.
+    Author: Peter Muir <iyhi@yahoo.com>
+    Bug-Debian: http://bugs.debian.org/166077
+
+commit a41aa2ad7d28f44f89bdd4faff00c0db199abc1f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 10 20:42:29 2022 +0100
+
+    Add tests that encode (uuenview) and decode (uudeview) data
+
+commit 52fbbf76f4f56ceea8d71cc95d8e7ea7f9a9065a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 9 19:14:59 2022 +0100
+
+    Add some useful output to test script
+
+commit e5469996e06d8ab675e47e37cc1e82c22ffa273e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 9 19:11:52 2022 +0100
+
+    add test cases with dos/windows and old mac line endings
+
+commit f690c7bb8ac2f1954208c37d7e36cdc761278724
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 9 19:04:46 2022 +0100
+
+    Allow full length of uugen_inbuffer for longer headers
+    
+    The manual null terminator is not needed, as fgets makes sure a string
+    is null-terminated.
+    
+    Debian contains a similar patch that indicates a bug with long headers,
+    however I've been unable to reproduce that bug, see:
+    https://sources.debian.org/patches/uudeview/0.5.20-13/019_long_headers.diff/
+
+commit c932bf64e588c4e63e04dc7b3b6675b9c6c0b05f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 8 23:01:21 2022 +0100
+
+    Make sure we do not read past end of string in UUGetFileName
+    
+    Fixes Github issue #11
+
+commit c0583df80742a9c294d43e1268703289d0d99137
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 8 21:36:04 2022 +0100
+
+    test that .fail.msg examples really fail (but don't crash)
+
+commit 67ff24e3e150fee6d37f91f86a99dc80bcdee58c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 8 21:35:12 2022 +0100
+
+    add testcase for filename from ftp url in mail subect
+
+commit 601db8d9bb67a86c0cddee8da73c74b40bf9a1ea
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 21:28:12 2022 +0100
+
+    Avoid uninitialized memory read in ScanData / IsKnownHeader.
+    
+    On failure of the fgets call the variable line points to uninitialized data,
+    later a call to IsKnownHeader tries to read it. To avoid this we
+    make sure line contains an empty string on read failure.
+    Fixes Github issue #15
+
+commit 984f6790509aa74b78d16f0adc9ce3726567b6f3
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:57:23 2022 +0100
+
+    Differentiate between bad inputs that don't contain data (.bad.msg)
+    and that contain broken files that will fail to decode (.fail.msg).
+    In both cases we want to make sure they do not crash.
+
+commit 53357829a8ad05419ce5c647c7cfc4ff86490352
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:45:03 2022 +0100
+
+    Make sure we are only accessing offset -1 of a string if we are
+    not at the beginning.
+    Fixes Github issue #14 - heap oob in ScanData with truncated ybegin lines.
+
+commit 33ae066b8490b333199dc05986948ba9076cb091
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:43:49 2022 +0100
+
+    Make sure we are not reading past the string end by checking
+    that we do not see a null terminator while parsing Content-Type
+    headers.
+    Fixes Github issue #13 - heap oob in ScanData.
+
+commit 3098af15046018d657ab8aff8ab9c4eddfb84255
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:42:41 2022 +0100
+
+    Make sure we only access offset -1 if we are not at the begin
+    of the string.
+    Fixes Github issue #12 - heap oob read in UUGetPartNo.
+
+commit e659ab79e4ae6ba6f10cf9d919bd7860a21854b9
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:38:49 2022 +0100
+
+    Make sure there is valid data to look for a space at index -1.
+    Fixes Heap OOB in ScanData, Github issue #10.
+
+commit 0867cd30672b92bd97ae78976e288e805bdfa508
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:35:31 2022 +0100
+
+    add another bad input sample
+
+commit ee57aa930ebd5542a8b9c96bafbcf3ce573ad5c1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:22:24 2022 +0100
+
+    Add test examples that trigger heap oob bugs found by asan
+
+commit be82c528bc8e64a0440a00595dc536a3ddf66e1c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 11:30:32 2022 +0100
+
+    Allow good and bad test files
+
+commit 1383e10c6ae96dcbde059b78a90fb259ba46adfd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Dec 6 14:17:53 2022 +0100
+
+    add MSAN and UBSAN tests to CI
+
+commit f800764d33e2a42c4fbc16b269d02811a00e41b5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Dec 6 11:43:56 2022 +0100
+
+    017_use_hevea.diff from Debian.
+    
+    This adds an html target for the doc, which is useful.
+    Note: The Debian description of this patch mentions they used hevea
+    instead of latex2html (which they used in older versions) due to
+    latex2html being non-free. This is however no longer the case. Still
+    there is nothing wrong with using hevea (also free and actively maintained),
+    and it creates somewhat compacter HTML docs by default, so stick with it.
+    
+    Description: Use hevea instead of latex2html, now that latter has moved to
+     non-free.
+     0.5.19+beta20030413-2
+    Author: Chris Hanson <cph@debian.org>
+    Bug-Debian: https://bugs.debian.org/221348
+
+commit f74255cf16f5f30f8fc2a983c1e4f5ddb86b1150
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Dec 4 06:02:32 2022 +0100
+
+    check return value of fread to avoid gcc warning
+
+commit 5096010bde28f3c0012f5c6201e3c714c6c1d993
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 3 12:50:00 2022 +0100
+
+    Fix for CVE-2008-2266 and CVE-2004-2265 (also listed as CAN-2004-2265) (#9)
+    
+    This is based on Nico Golde's Debian patch 037_CVE-2008-2266_symlink.diff
+    ("Fixed a classical tempfile symlink attack vulnerability in libuu")
+    with modifications:
+    
+    * We require mkstemp, as it is standardized and widely available and
+      we do not want to support insecure systems.
+    * Use sprintf instead of strcat/strcpy for simplicity.
+    * unlink temp file on fdopen failure also in uudeview.c.
+    * Remove x flag from fdopen calls, this is a leftover from the CAN-2004-2265
+      patch and has no effect. mkstemp automatically uses the O_EXCL flag,
+      so the race issue CAN-2004-2265 is also fixed.
+    
+    Debian bug: http://bugs.debian.org/480972
+
+commit 99246acc9cc0a4924c52dc7a131dd8e8c64609c0
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 2 19:46:58 2022 +0100
+
+    Remove configure scripts generated by autoconf, they should not be kept in the repo
+
+commit 3a22b98cfd4380623bd9439642a726a1494bf9ae
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 20:45:35 2022 +0100
+
+    check return value of system() to avoid compiler warning
+
+commit abab56b939db7e641d51b1c8f15f3df158790d33
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 20:30:58 2022 +0100
+
+    add binhex test case
+
+commit 5eaf3012ad87c957b46e516e6213fababbce2810
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:52:36 2022 +0100
+
+    uudeview-0.5.20-man.patch from Gentoo minus the parts that we already
+    applied earlier.
+    
+    This adds a man page for uuwish and installs it. uuwish.1 is originally
+    from Debian, we use the Gentoo patch because it removed some unneeded
+    whitespaces and modified the configure script to install it.
+    
+    Credit: Roland Rosenfeld and Martin Schulze
+
+commit d44b207ba4dab1d1723ad700aab42b1573fbacf5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:46:13 2022 +0100
+
+    fix another typo
+
+commit e8b527e20daf0fa15c7594b12168496d40fba4bf
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:42:21 2022 +0100
+
+    046_typoes.diff from Debian.
+    
+    Description: Multiple typo fixes, found by lintian.
+    Author: Andreas Metzler <ametzler@debian.org>
+
+commit d32adb091cf4cf11325d2e23f08ae32ddba8d3f3
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:36:30 2022 +0100
+
+    048_improved_doc_for_-a_option.diff from Debian.
+    
+    This does not really do what the name and the description imply,
+    but it is an improvement for the uudeview man page.
+    
+    Author: Andreas Metzler <ametzler@debian.org>
+    Bug-Debian: https://bugs.debian.org/594355
+
+commit dcf7897138c3d376481cdf58824e5026e013880e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 08:44:26 2022 +0100
+
+    Fix wrong types in format strings
+
+commit 10f992d0da673e186b2213f6d3c953366a3c4085
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 08:29:16 2022 +0100
+
+    049_glibc_2.27.diff from Debian.
+    
+    Description: Remove a hack for Sun that causes FTBFS with glibc >= 2.27
+    Author: Adrian Bunk <bunk@debian.org>
+
+commit c54cb38ab71363647577fa98bedf4e0a3759c17b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 22:03:23 2022 +0100
+
+    uudeview-0.5.20-fix-function-definitions-clang16.patch from Gentoo.
+    
+    Clang16 will not allow implicit function declaration, implicit int etc. by default.
+    This patch overhauls the source code to build with clan16 defaults.
+    
+    Bug: https://bugs.gentoo.org/874960
+    
+    Original patch by Pascal Jäger <pascal.jaeger@leimstift.de>,
+    minor adjustments by Hanno Böck.
+
+commit 72a52709ea1c79c8747d2c0face50f03873d2f81
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 22:01:42 2022 +0100
+
+    uudeview-0.5.20-fix-append_signature.patch from Gentoo.
+    
+    [PATCH] Make append_signature() void.
+    
+    If the type specifier is missing, it defaults to int. From the looks of
+    it, the function is meant to be void.
+    Credit: tastytea
+
+commit cacccee54e79747252784a0e6b42c5ae052a55eb
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:53:29 2022 +0100
+
+    uudeview-0.5.20-format-string-warning-inews.patch from Gentoo.
+    
+    Fixes another format string warning.
+
+commit 600027979ace48f416dbe923a943f115ab144c51
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:50:56 2022 +0100
+
+    043_string_format_issue.diff from Debian.
+    
+    Description: Fix potential security issue (arbitrary string being passed
+     as a format string to fprintf).
+    Author: Andrew Shadura <andrewsh@debian.org>
+
+commit 17490db94a0fdbae0eac56599ab92dd56bf0d314
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:48:05 2022 +0100
+
+    Add basic CI test
+
+commit 1d3c86b2887f1fc5ec1c5070fcf694d934300b2c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:17:08 2022 +0100
+
+    Add some preliminary tests
+
+commit 554f3324e82374022989dab1dd91c02ede4308a6
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 08:44:06 2022 +0100
+
+    022_epsfig.sty.diff from Debian, replaces obsolete psfig package in
+    latex doc with compatible epsfig.
+    
+    Description: Fix build problem caused by removal of psfig.sty.
+     0.5.20-2
+    Author: Chris Hanson <cph@debian.org>
+    Bug-Debian: http://bugs.debian.org/266068
+
+commit 8704df4019a380a56ebcc13d3e946a954fca4f97
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 08:27:35 2022 +0100
+
+    016_document_-v.diff from Debian.
+    
+    Description: Add description of -v option to uudeview(1).
+     0.5.19+beta20030413-2
+    Author: Peter Muir <iyhi@yahoo.com>
+    Bug-Debian: http://bugs.debian.org/166079
+
+commit cbfc8c6f9489e18161e051b8431b1b0d425613ac
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 08:19:01 2022 +0100
+
+    013_prefer_rename.diff from Debian, avoids copying files from temp
+    dir if on same partition.
+    
+    Description: Use rename() in preference to copy if possible.
+     See 0.5.19+beta20030413-1.
+    Author: Peter Muir <iyhi@yahoo.com>, Chris Hanson <cph@debian.org>
+    Bug-Debian: https://bugs.debian.org/166040
+
+commit 0e24d7d639a2ad4e3d534bb662b8e0037c7075b8
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Nov 29 13:53:29 2022 +0100
+
+    010_xdeview_global_MIME.diff from Debian.
+    
+    Description: Patch xdeview to know where Debian MIME info is kept.
+    Author: Josip Rodin <joy@cibalia.gkvk.hr>
+    Bug-Debian: https://bugs.debian.org/47561
+
+commit 32d964b4de3ce33689c04b58d6cc0e8cd0f8fe4c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Nov 29 13:51:51 2022 +0100
+
+    The intent of this foreach is to first try MIMELocalTypes and then MIMEGlobalTypes, but the return causes the function to exit if MIMELocalTypes does not exist. Use continue to fix it.
+
+commit 690b4081604393f12698566bd0c3b4aaf63accdb
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Nov 28 16:58:13 2022 +0100
+
+    Initial commit of UUDeview version 0.5.20
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 2a2efe46dce01ae2387d784422992ed1878e4666
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Dec 11 15:24:48 2022 +0100
+
+    uudeview-0.5.20-makefile.patch from Gentoo, use DESTDIR in Makefile.in
+    
+    This makes sure "make DESTDIR=[path] install" works.
+
+commit a044eb3e663a9fe6520825b4b17238eac20b6ef4
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Dec 11 15:17:29 2022 +0100
+
+    031_do_not_force_overwrite.diff from Debian.
+    
+    This makes sure we do not overwrite files in -i mode if -a mode (auto
+    rename) is enabled. This seems logical and the original behavior looks
+    like a bug.
+    
+    Description from Debian:
+    Don't force overwrite mode if auto-rename enabled.
+    Author: Chris Hanson
+    Bug-Debian: https://bugs.debian.org/378076
+
+commit c124dc59c9a14decdec20bfde4876da1d0aac3bd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 10 20:48:57 2022 +0100
+
+    Run uudeview/uuenview we compiled, not the system one
+
+commit cd7edeb92caa24984c6e40fb29547182c5eb9561
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 10 20:43:00 2022 +0100
+
+    Debian patch 028_suspicious_file.patch
+    
+    This patch adds output of the file name when decoding split files,
+    the intention is to allow seeing which file caused a warning.
+    
+    Description from Debian:
+    
+    Add file open information so that if S_DATA_SUSPICIOUS message.occurs,
+    the name of the bad file is printed. There is probablly a better method
+    but I did not see how to obtain the filename from within the function.
+    Author: Peter Muir <iyhi@yahoo.com>
+    Bug-Debian: http://bugs.debian.org/166077
+
+commit a41aa2ad7d28f44f89bdd4faff00c0db199abc1f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 10 20:42:29 2022 +0100
+
+    Add tests that encode (uuenview) and decode (uudeview) data
+
+commit 52fbbf76f4f56ceea8d71cc95d8e7ea7f9a9065a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 9 19:14:59 2022 +0100
+
+    Add some useful output to test script
+
+commit e5469996e06d8ab675e47e37cc1e82c22ffa273e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 9 19:11:52 2022 +0100
+
+    add test cases with dos/windows and old mac line endings
+
+commit f690c7bb8ac2f1954208c37d7e36cdc761278724
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 9 19:04:46 2022 +0100
+
+    Allow full length of uugen_inbuffer for longer headers
+    
+    The manual null terminator is not needed, as fgets makes sure a string
+    is null-terminated.
+    
+    Debian contains a similar patch that indicates a bug with long headers,
+    however I've been unable to reproduce that bug, see:
+    https://sources.debian.org/patches/uudeview/0.5.20-13/019_long_headers.diff/
+
+commit c932bf64e588c4e63e04dc7b3b6675b9c6c0b05f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 8 23:01:21 2022 +0100
+
+    Make sure we do not read past end of string in UUGetFileName
+    
+    Fixes Github issue #11
+
+commit c0583df80742a9c294d43e1268703289d0d99137
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 8 21:36:04 2022 +0100
+
+    test that .fail.msg examples really fail (but don't crash)
+
+commit 67ff24e3e150fee6d37f91f86a99dc80bcdee58c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 8 21:35:12 2022 +0100
+
+    add testcase for filename from ftp url in mail subect
+
+commit 601db8d9bb67a86c0cddee8da73c74b40bf9a1ea
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 21:28:12 2022 +0100
+
+    Avoid uninitialized memory read in ScanData / IsKnownHeader.
+    
+    On failure of the fgets call the variable line points to uninitialized data,
+    later a call to IsKnownHeader tries to read it. To avoid this we
+    make sure line contains an empty string on read failure.
+    Fixes Github issue #15
+
+commit 984f6790509aa74b78d16f0adc9ce3726567b6f3
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:57:23 2022 +0100
+
+    Differentiate between bad inputs that don't contain data (.bad.msg)
+    and that contain broken files that will fail to decode (.fail.msg).
+    In both cases we want to make sure they do not crash.
+
+commit 53357829a8ad05419ce5c647c7cfc4ff86490352
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:45:03 2022 +0100
+
+    Make sure we are only accessing offset -1 of a string if we are
+    not at the beginning.
+    Fixes Github issue #14 - heap oob in ScanData with truncated ybegin lines.
+
+commit 33ae066b8490b333199dc05986948ba9076cb091
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:43:49 2022 +0100
+
+    Make sure we are not reading past the string end by checking
+    that we do not see a null terminator while parsing Content-Type
+    headers.
+    Fixes Github issue #13 - heap oob in ScanData.
+
+commit 3098af15046018d657ab8aff8ab9c4eddfb84255
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:42:41 2022 +0100
+
+    Make sure we only access offset -1 if we are not at the begin
+    of the string.
+    Fixes Github issue #12 - heap oob read in UUGetPartNo.
+
+commit e659ab79e4ae6ba6f10cf9d919bd7860a21854b9
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:38:49 2022 +0100
+
+    Make sure there is valid data to look for a space at index -1.
+    Fixes Heap OOB in ScanData, Github issue #10.
+
+commit 0867cd30672b92bd97ae78976e288e805bdfa508
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:35:31 2022 +0100
+
+    add another bad input sample
+
+commit ee57aa930ebd5542a8b9c96bafbcf3ce573ad5c1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 13:22:24 2022 +0100
+
+    Add test examples that trigger heap oob bugs found by asan
+
+commit be82c528bc8e64a0440a00595dc536a3ddf66e1c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Dec 7 11:30:32 2022 +0100
+
+    Allow good and bad test files
+
+commit 1383e10c6ae96dcbde059b78a90fb259ba46adfd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Dec 6 14:17:53 2022 +0100
+
+    add MSAN and UBSAN tests to CI
+
+commit f800764d33e2a42c4fbc16b269d02811a00e41b5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Dec 6 11:43:56 2022 +0100
+
+    017_use_hevea.diff from Debian.
+    
+    This adds an html target for the doc, which is useful.
+    Note: The Debian description of this patch mentions they used hevea
+    instead of latex2html (which they used in older versions) due to
+    latex2html being non-free. This is however no longer the case. Still
+    there is nothing wrong with using hevea (also free and actively maintained),
+    and it creates somewhat compacter HTML docs by default, so stick with it.
+    
+    Description: Use hevea instead of latex2html, now that latter has moved to
+     non-free.
+     0.5.19+beta20030413-2
+    Author: Chris Hanson <cph@debian.org>
+    Bug-Debian: https://bugs.debian.org/221348
+
+commit f74255cf16f5f30f8fc2a983c1e4f5ddb86b1150
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Dec 4 06:02:32 2022 +0100
+
+    check return value of fread to avoid gcc warning
+
+commit 5096010bde28f3c0012f5c6201e3c714c6c1d993
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 3 12:50:00 2022 +0100
+
+    Fix for CVE-2008-2266 and CVE-2004-2265 (also listed as CAN-2004-2265) (#9)
+    
+    This is based on Nico Golde's Debian patch 037_CVE-2008-2266_symlink.diff
+    ("Fixed a classical tempfile symlink attack vulnerability in libuu")
+    with modifications:
+    
+    * We require mkstemp, as it is standardized and widely available and
+      we do not want to support insecure systems.
+    * Use sprintf instead of strcat/strcpy for simplicity.
+    * unlink temp file on fdopen failure also in uudeview.c.
+    * Remove x flag from fdopen calls, this is a leftover from the CAN-2004-2265
+      patch and has no effect. mkstemp automatically uses the O_EXCL flag,
+      so the race issue CAN-2004-2265 is also fixed.
+    
+    Debian bug: http://bugs.debian.org/480972
+
+commit 99246acc9cc0a4924c52dc7a131dd8e8c64609c0
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 2 19:46:58 2022 +0100
+
+    Remove configure scripts generated by autoconf, they should not be kept in the repo
+
+commit 3a22b98cfd4380623bd9439642a726a1494bf9ae
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 20:45:35 2022 +0100
+
+    check return value of system() to avoid compiler warning
+
+commit abab56b939db7e641d51b1c8f15f3df158790d33
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 20:30:58 2022 +0100
+
+    add binhex test case
+
+commit 5eaf3012ad87c957b46e516e6213fababbce2810
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:52:36 2022 +0100
+
+    uudeview-0.5.20-man.patch from Gentoo minus the parts that we already
+    applied earlier.
+    
+    This adds a man page for uuwish and installs it. uuwish.1 is originally
+    from Debian, we use the Gentoo patch because it removed some unneeded
+    whitespaces and modified the configure script to install it.
+    
+    Credit: Roland Rosenfeld and Martin Schulze
+
+commit d44b207ba4dab1d1723ad700aab42b1573fbacf5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:46:13 2022 +0100
+
+    fix another typo
+
+commit e8b527e20daf0fa15c7594b12168496d40fba4bf
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:42:21 2022 +0100
+
+    046_typoes.diff from Debian.
+    
+    Description: Multiple typo fixes, found by lintian.
+    Author: Andreas Metzler <ametzler@debian.org>
+
+commit d32adb091cf4cf11325d2e23f08ae32ddba8d3f3
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 15:36:30 2022 +0100
+
+    048_improved_doc_for_-a_option.diff from Debian.
+    
+    This does not really do what the name and the description imply,
+    but it is an improvement for the uudeview man page.
+    
+    Author: Andreas Metzler <ametzler@debian.org>
+    Bug-Debian: https://bugs.debian.org/594355
+
+commit dcf7897138c3d376481cdf58824e5026e013880e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 08:44:26 2022 +0100
+
+    Fix wrong types in format strings
+
+commit 10f992d0da673e186b2213f6d3c953366a3c4085
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 1 08:29:16 2022 +0100
+
+    049_glibc_2.27.diff from Debian.
+    
+    Description: Remove a hack for Sun that causes FTBFS with glibc >= 2.27
+    Author: Adrian Bunk <bunk@debian.org>
+
+commit c54cb38ab71363647577fa98bedf4e0a3759c17b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 22:03:23 2022 +0100
+
+    uudeview-0.5.20-fix-function-definitions-clang16.patch from Gentoo.
+    
+    Clang16 will not allow implicit function declaration, implicit int etc. by default.
+    This patch overhauls the source code to build with clan16 defaults.
+    
+    Bug: https://bugs.gentoo.org/874960
+    
+    Original patch by Pascal Jäger <pascal.jaeger@leimstift.de>,
+    minor adjustments by Hanno Böck.
+
+commit 72a52709ea1c79c8747d2c0face50f03873d2f81
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 22:01:42 2022 +0100
+
+    uudeview-0.5.20-fix-append_signature.patch from Gentoo.
+    
+    [PATCH] Make append_signature() void.
+    
+    If the type specifier is missing, it defaults to int. From the looks of
+    it, the function is meant to be void.
+    Credit: tastytea
+
+commit cacccee54e79747252784a0e6b42c5ae052a55eb
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:53:29 2022 +0100
+
+    uudeview-0.5.20-format-string-warning-inews.patch from Gentoo.
+    
+    Fixes another format string warning.
+
+commit 600027979ace48f416dbe923a943f115ab144c51
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:50:56 2022 +0100
+
+    043_string_format_issue.diff from Debian.
+    
+    Description: Fix potential security issue (arbitrary string being passed
+     as a format string to fprintf).
+    Author: Andrew Shadura <andrewsh@debian.org>
+
+commit 17490db94a0fdbae0eac56599ab92dd56bf0d314
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:48:05 2022 +0100
+
+    Add basic CI test
+
+commit 1d3c86b2887f1fc5ec1c5070fcf694d934300b2c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 21:17:08 2022 +0100
+
+    Add some preliminary tests
+
+commit 554f3324e82374022989dab1dd91c02ede4308a6
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 08:44:06 2022 +0100
+
+    022_epsfig.sty.diff from Debian, replaces obsolete psfig package in
+    latex doc with compatible epsfig.
+    
+    Description: Fix build problem caused by removal of psfig.sty.
+     0.5.20-2
+    Author: Chris Hanson <cph@debian.org>
+    Bug-Debian: http://bugs.debian.org/266068
+
+commit 8704df4019a380a56ebcc13d3e946a954fca4f97
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 08:27:35 2022 +0100
+
+    016_document_-v.diff from Debian.
+    
+    Description: Add description of -v option to uudeview(1).
+     0.5.19+beta20030413-2
+    Author: Peter Muir <iyhi@yahoo.com>
+    Bug-Debian: http://bugs.debian.org/166079
+
+commit cbfc8c6f9489e18161e051b8431b1b0d425613ac
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 30 08:19:01 2022 +0100
+
+    013_prefer_rename.diff from Debian, avoids copying files from temp
+    dir if on same partition.
+    
+    Description: Use rename() in preference to copy if possible.
+     See 0.5.19+beta20030413-1.
+    Author: Peter Muir <iyhi@yahoo.com>, Chris Hanson <cph@debian.org>
+    Bug-Debian: https://bugs.debian.org/166040
+
+commit 0e24d7d639a2ad4e3d534bb662b8e0037c7075b8
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Nov 29 13:53:29 2022 +0100
+
+    010_xdeview_global_MIME.diff from Debian.
+    
+    Description: Patch xdeview to know where Debian MIME info is kept.
+    Author: Josip Rodin <joy@cibalia.gkvk.hr>
+    Bug-Debian: https://bugs.debian.org/47561
+
+commit 32d964b4de3ce33689c04b58d6cc0e8cd0f8fe4c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Nov 29 13:51:51 2022 +0100
+
+    The intent of this foreach is to first try MIMELocalTypes and then MIMEGlobalTypes, but the return causes the function to exit if MIMELocalTypes does not exist. Use continue to fix it.
+
+commit 690b4081604393f12698566bd0c3b4aaf63accdb
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Nov 28 16:58:13 2022 +0100
+
+    Initial commit of UUDeview version 0.5.20

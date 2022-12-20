@@ -1,0 +1,1475 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit b4c403f5b18c06407d5610787a2be47adc8f6e60
+Merge: 354deec 0806dad
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Sep 23 13:31:06 2016 +0300
+
+    Merge pull request #122 from devghosh/patch-1
+    
+    remove redundant lookup
+
+commit 0806dad5023568e6f93a4f2f586b0b4ae1016950
+Author: devghosh <devashish.ghosh@jabong.com>
+Date:   Fri Sep 23 15:39:11 2016 +0530
+
+    remove redundant lookup
+    
+    - Once api file has been found, no need to lookup in more paths, just exit
+
+commit 354deecfac081efd8fc7c3c18a8a442f5e43a98d
+Merge: 0afcee1 5d7ba54
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Sep 22 18:56:33 2016 +0300
+
+    Merge pull request #120 from leoswaldo/vendoring
+    
+    Vendoring: prevent from reading hidden (starting with "_") dirs and vendor + upgrade to vendor go 1.7
+
+commit 5d7ba546613e9e3351dea60ec7223282a0446323
+Author: Leoswaldo Macias <leoswaldo.macias@intel.com>
+Date:   Wed Sep 21 09:36:37 2016 -0700
+
+    vendoring: enable native support for go 1.7 and greater
+    
+    Vedoring is supported in a native way in go 1.7 and greater
+    as docummented in https://golang.org/doc/go1.7#cmd/go, this
+    commit will make swagger to always look firt for vendor directory.
+    
+    Signed-off-by: Leoswaldo Macias <leoswaldo.macias@intel.com>
+
+commit a142af0f63e97939df619489183a0dac368ef761
+Author: Leoswaldo Macias <leoswaldo.macias@intel.com>
+Date:   Tue Sep 20 09:30:50 2016 -0700
+
+    vendoring: add flag to specify the vendor directory
+    
+    As today the if we enable vendoring through the GO15VENDOREXPERIMENT
+    variable, swagger will look for the vendor directory from the current
+    working directory, so in case your vendored dependencies are in a
+    different directory than where you are executing it it will not find
+    the, to prevent it, this commit adds the flag vendoringPath so the
+    users can specify the directory of their vendoring even if its outside
+    their project. The tool will keep its default behavior if the
+    vendoringPath flag is not provided.
+    
+    Signed-off-by: Leoswaldo Macias <leoswaldo.macias@intel.com>
+
+commit 4b3158d77522d5b9215a1446de3df5d13f7696e0
+Author: Leoswaldo Macias <leoswaldo.macias@intel.com>
+Date:   Tue Sep 20 09:20:15 2016 -0700
+
+    vendoring: make vendoring to avoid looking into hidden dirs and vendor itself
+    
+    There is a "standard" that allows project to add non pertinent
+    code of the project itself by creating directories with naming convention
+    starting with "_". This directories were being listed during the
+    inspection of import modules, while it should not.
+    
+    This commit has the fix for the previous escenario and also to avoid
+    looking into vendor directory itself.
+    
+    Signed-off-by: Leoswaldo Macias <leoswaldo.macias@intel.com>
+
+commit 0afcee1bd723acfd4e4800150fe7c988021dc8b6
+Merge: f666d50 c5131c9
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Sep 14 22:29:51 2016 +0300
+
+    Merge pull request #119 from artushin/master
+    
+    gopkg format
+
+commit c5131c9dd5aec24a63dc90803a5b893dfcea7555
+Author: artushin <artushin@gmail.com>
+Date:   Wed Sep 14 11:56:47 2016 -0500
+
+    fix instantiation and fmt
+
+commit e2cac0b33079857a90917e2dd31bfb84d937ee54
+Author: artushin <artushin@gmail.com>
+Date:   Wed Sep 14 11:50:05 2016 -0500
+
+    adding gopkg format
+
+commit f666d502bebe7d98cb1398594ad41056b11b37d7
+Merge: 2f0538c de97713
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Sep 13 00:05:59 2016 +0300
+
+    Merge pull request #118 from paulcamper/go1.7-fix
+    
+    Make generator compatible with go1.7
+
+commit de977135b884a958abcf0c28dcb5d60f6ea7deae
+Author: Sergey Yarmonov <sergey.yarmonov@gmail.com>
+Date:   Wed Sep 7 19:20:44 2016 +0700
+
+    Make lib compatible with go1.7
+    
+    Add support of vendoring of 'golang.org/x' by the standard library
+
+commit 2f0538c586872a238c96450f2a9104f64dcafa4c
+Merge: e4860e6 b37f358
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Aug 13 07:20:47 2016 +0300
+
+    Merge pull request #116 from leoswaldo/ciao
+    
+    Add functionalities to disable the "Table of Contents" and "Models" sections
+
+commit b37f35851be1cf79ad37c6c01cc2639b28fcd125
+Author: Leoswaldo Macias <lmaciasm10@gmail.com>
+Date:   Wed Aug 10 11:22:54 2016 -0700
+
+    add documentation for optional parameters 'contentsTable' and 'models'
+    
+    Adding documentation for support of 'contentsTable' and 'models'
+    optional parameters.
+    
+    Signed-off-by: Leoswaldo Macias <lmaciasm10@gmail.com>
+
+commit 869c75079edb45ea604c68c3c14714a819cef672
+Author: Leoswaldo Macias <lmaciasm10@gmail.com>
+Date:   Wed Aug 10 11:04:02 2016 -0700
+
+    implement disable of 'Models' section
+    
+    The section of 'Models' always is created if there is any model
+    used during the Api definition, with this change we enable the
+    tool to not to add this section if the user wants.
+    'models' parameter which default value is true indicates whether
+    you want the models section to be generated or not, if you pass the
+    '-models=false' parameter then the models section will not bee added
+    to the generated output.
+    
+    Signed-off-by: Leoswaldo Macias <lmaciasm10@gmail.com>
+
+commit 49962d8d2c797d7a9ff26cd5ec9a6e977b3666cd
+Author: Leoswaldo Macias <lmaciasm10@gmail.com>
+Date:   Tue Aug 9 13:45:12 2016 -0700
+
+    remove anchors when table of contents is disable
+    
+    Anchors should not be present when the table of contents is not
+    present, in case the 'tableContents=false' parameter is passed then
+    the anchors are not generated.
+    
+    Signed-off-by: Leoswaldo Macias <lmaciasm10@gmail.com>
+
+commit 12ccea2c1f1bb48972e15e6181aaddff96d1018e
+Author: Leoswaldo Macias <lmaciasm10@gmail.com>
+Date:   Tue Aug 9 11:46:18 2016 -0700
+
+    implement disable of Table of Contents
+    
+    The section of 'Table of Contents' always is in the output, in this
+    change we add the functionality to remove this section,
+    'contentsTable' parameter which default value is true, if you pass
+    'contentsTable=false' the section of 'Table of Contents' will no be
+    in the output.
+    
+    Signed-off-by: Leoswaldo Macias <lmaciasm10@gmail.com>
+
+commit 5e97597173930c06ef8ca08ddd9ca53c8d6cd88e
+Author: Leoswaldo Macias <lmaciasm10@gmail.com>
+Date:   Mon Aug 8 11:44:36 2016 -0700
+
+    markup: remove 'Models' label section if not models are define
+    
+    When an output is generated The 'Models' label is always printed,
+    this change will check if there are any models defined, if none then
+    it will not print the label.
+    
+    Signed-off-by: Leoswaldo Macias <lmaciasm10@gmail.com>
+
+commit e4860e64c86be6c9656109108627ca83cfd43392
+Merge: e67b6b8 40e0060
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Aug 5 12:37:06 2016 +0300
+
+    Merge pull request #115 from plutov/master
+    
+    Fixed #112. parser.go checks vendor folder
+
+commit 40e006054cb3672333ca2a3dcd0634ff0a743caf
+Author: Aliaksandr Pliutau <pliutau.aliaksandr@lazada.com>
+Date:   Tue Aug 2 12:14:04 2016 +0700
+
+    Fixed #112. parser.go checks vendor folder
+
+commit e67b6b878351c44cbf6dd50c07c9e0f4cfedcce8
+Merge: eb7d261 3dd39c8
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Jul 8 09:13:17 2016 +0300
+
+    Merge pull request #114 from tianxiaoliang/patch-1
+    
+    Update operation.go
+
+commit 3dd39c83f241b21cb789afac495c18a5889ad8c2
+Author: tianxiaoliang <xiaoliang.tian@gmail.com>
+Date:   Fri Jul 8 10:56:11 2016 +0800
+
+    Update operation.go
+
+commit eb7d261e7c6c975678a41ea0bf60471dceab50ea
+Merge: 061d40c 8097a87
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sun May 22 13:49:48 2016 +0300
+
+    Merge pull request #111 from GhostRussia/fix_tests
+    
+    Fix tests
+
+commit 8097a87c48450829646bb6748bcf22c2d1f3efcb
+Author: Vladislav Fursov <ghostrussian@gmail.com>
+Date:   Tue Apr 26 23:52:42 2016 +0900
+
+    Fix tests
+
+commit 061d40c8b603f9d3e346ff68f013a0ac1bcf2831
+Merge: a0c8edd 5bf2d9d
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Jan 26 14:56:47 2016 +0300
+
+    Merge pull request #106 from hmgle/file-type
+    
+    close #70: support for File data type for file uploads
+
+commit a0c8edd97650a6da860cbbcfbafe2d3843724e8e
+Merge: 1146790 a787d85
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Jan 26 14:55:35 2016 +0300
+
+    Merge pull request #107 from BrianNewsom/patch-1
+    
+    Remove commented out fmt import in web.go-example
+
+commit a787d85e7307644d0d4377cfefbc382314e4b476
+Author: Brian Newsom <Brian.Newsom@Colorado.edu>
+Date:   Sun Jan 24 23:10:15 2016 -0700
+
+    Remove commented out fmt import in web.go-example
+
+commit 5bf2d9d2a0a0ba3a6894a948c22e0865a62a0bc9
+Author: mingang.he <dustgle@gmail.com>
+Date:   Sat Jan 23 17:00:19 2016 +0800
+
+    close #70: support for File data type for file uploads
+
+commit 1146790b3e33cd8f7f771f1822a2a81bab21fdf7
+Merge: 8f22cc9 7b39e72
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sun Oct 18 14:52:55 2015 +0300
+
+    Merge pull request #99 from runner-mei/patch-1
+    
+    add windows support
+
+commit 7b39e7216b65a704d1bbc9c5470588c90b3d9755
+Author: runner <runner.mei@gmail.com>
+Date:   Sun Oct 4 15:48:59 2015 +0800
+
+    add windows support
+    
+    add windows support
+
+commit 8f22cc9fbe584c123be23ca5a9674c21727e8519
+Merge: d1ce134 39a023e
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Sep 12 10:40:20 2015 +0300
+
+    Merge pull request #94 from zasran/default-ignore-to-not-ignore-anything
+    
+    Fixes # 93 default ignore to not ignore anything
+
+commit 39a023e6726adc2a40c16addc39eb11713fd9a8e
+Author: Erik Steffl <erik@zasran.com>
+Date:   Fri Sep 11 17:59:07 2015 -0700
+
+    Fixes # 93 default ignore to not ignore anything
+    
+    Changed the default value of ignore command line argument to not ignore any packages, the new default value for ignore is ^$ which would only match empty package name (and there are no empty package names)
+
+commit d1ce134eb5f190678b6a3a40fa7fbbcceb90a561
+Merge: fdae13f d16edf5
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Sep 11 16:46:47 2015 +0300
+
+    Merge pull request #89 from calavera/parser_ignore
+    
+    Add flag to ignore packages.
+
+commit fdae13f2b30b0389e07f3cd988972e41271e0dbf
+Merge: 20e8232 3430d5b
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Sep 11 16:44:29 2015 +0300
+
+    Merge pull request #88 from boonep/master
+    
+    Allow top level @BasePath declarative comment
+
+commit d16edf5ccfd9b6c97186abf57964c1ea1a75b63b
+Author: David Calavera <david.calavera@gmail.com>
+Date:   Mon Sep 7 18:50:51 2015 -0400
+
+    Add flag to ignore packages.
+    
+    Signed-off-by: David Calavera <david.calavera@gmail.com>
+
+commit 3430d5b14cbeac355b58e11231eac3f702793af6
+Author: Boone Putney <boone@soleer.com>
+Date:   Thu Aug 27 11:15:12 2015 -0500
+
+    Allow top level @BasePath declarative comment (also applied to all subApis), default to '{{.}}' if omitted
+
+commit 20e8232783704b9a9f1a1e1a223f3d28f55f8064
+Merge: 73725d8 6428c5d
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Jul 25 18:57:08 2015 +0300
+
+    Merge pull request #81 from solher/gen-package-fix
+    
+    The generator is now in a separate package FIX.
+
+commit 6428c5d2bbc34aa8cc83a38b787cf3e38d0ee378
+Author: Fabien Herfray <fabien.herfray@me.com>
+Date:   Thu Jul 23 12:41:39 2015 -0700
+
+    The generator is now in a separate package FIX.
+
+commit 73725d80277f3e8f697f698b8e4944d8420ea164
+Merge: d76499f a063b23
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Jul 23 12:17:23 2015 +0300
+
+    Merge pull request #79 from yvasiyarov/revert-77-master
+    
+    Revert "The generator is now in a separate package."
+
+commit a063b23e7f55f8e4bcaaf98e4d9a4030943f0817
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Jul 23 12:17:09 2015 +0300
+
+    Revert "The generator is now in a separate package."
+
+commit d76499feed85656dbc2d32946088703175288562
+Merge: 073f870 bfaa8e2
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Jul 21 10:19:54 2015 +0300
+
+    Merge pull request #77 from solher/master
+    
+    The generator is now in a separate package.
+
+commit bfaa8e2310ed396b55e673c40b39f4c6d8dd0212
+Author: Fabien Herfray <fabien.herfray@me.com>
+Date:   Mon Jul 20 14:22:25 2015 -0700
+
+    References to yvasiyarov packages removed.
+
+commit 45eec765fa067f07c8edfd8ccf2da14efa2b0558
+Author: Fabien Herfray <fabien.herfray@me.com>
+Date:   Mon Jul 13 20:48:35 2015 -0700
+
+    BasePath flag removed from the readme.
+
+commit e6281569fc6915f03253d971adaeb24c8966c88a
+Author: Fabien Herfray <fabien.herfray@me.com>
+Date:   Mon Jul 13 16:09:37 2015 -0700
+
+    The generator is now in a separate package.
+
+commit 073f8709ef761089460ce05491797b75f10cadfb
+Merge: e6b6937 fc3b3c8
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Mon Jul 13 08:45:54 2015 +0300
+
+    Merge pull request #76 from solher/master
+    
+    The generator can now be used as an external dependency.
+
+commit fc3b3c83662dab631ba4c310258654440cb52aa3
+Author: Fabien Herfray <fabien.herfray@me.com>
+Date:   Sun Jul 12 16:43:05 2015 -0700
+
+    The generator can now be used as an external dependency.
+
+commit e6b693757c3dc092e59a518d0d596c913a7e327f
+Merge: 993611a e789361
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Mon Jul 6 08:34:09 2015 +0300
+
+    Merge pull request #74 from serussell/master
+    
+    Replaces hard-coded basePath with one provided on the swagger executa…
+
+commit e789361e9d351a3fc5e6289b2cb2583d2fcace48
+Author: Sean E. Russell <ser@ser1.net>
+Date:   Wed Jul 1 23:42:11 2015 -0400
+
+    Replaces hard-coded basePath with one provided on the swagger executable command line.  Example web.go uses endless for zero-downtime restarts, and mgutz/logxi for logging
+
+commit 993611a11b1d9b08a3767253aa0cea518fde8a81
+Merge: 6a9e6d1 b2c0433
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Jul 1 18:44:15 2015 +0300
+
+    Merge pull request #73 from amoghe/patch-1
+    
+    Update README.md
+
+commit b2c0433d7bb7c06db9a143dfa2b4a87616af960f
+Author: Akshay Moghe <akshay.moghe@gmail.com>
+Date:   Tue Jun 30 17:53:50 2015 -0700
+
+    Update README.md
+    
+    Fix `go get` path so that users can copy-paste it into the terminal.
+
+commit 6a9e6d1cf68a814ebcab98b7405895dd2bc66bd6
+Merge: 062e72b 21dd282
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu May 21 16:53:32 2015 +0300
+
+    Merge pull request #67 from RobertJGabriel/patch-1
+    
+    Section it out and leave the README as just an index and quick start.
+
+commit 21dd2823f93aafbcb2760443a3c5e09fa72b1724
+Author: Robert Gabriel <robert_gabriel@outlook.com>
+Date:   Thu May 21 14:36:20 2015 +0100
+
+    Cleaned up the readme.md file
+    
+    Created Pages in the wiki, which point to the information.
+    Have the quick setup guide on the readme.md only.
+    Created a logo for the document (thanks @Murchu)
+
+commit 062e72b91fa72d120956fa269c41be631a2de0ae
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Fri May 15 22:16:34 2015 +0300
+
+    Remove data file, accidentaly commited
+
+commit 6660b34a833bffd50ac4924ac0b7498fde3cf9b5
+Merge: 3d92e75 2ace159
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu May 14 18:50:48 2015 +0300
+
+    Merge pull request #65 from RobertJGabriel/syntax-error
+    
+    Added Missing Bracket in comment out line
+
+commit 3d92e7569f34f32756476e5076505d1d650340ef
+Merge: d1521d3 336a34a
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu May 14 18:50:08 2015 +0300
+
+    Merge pull request #64 from RobertJGabriel/Cross-DomainExample
+    
+    Cross domain example
+
+commit d1521d3a855114a6e7071a58afe5e7b728c4666d
+Merge: d32e63c 7db635e
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu May 14 18:45:19 2015 +0300
+
+    Merge pull request #58 from drewwells/feature/emptycommentcrash
+    
+    do not crash on empty comments
+
+commit 2ace1599141338ab5485352d2ee6558a49c50ec1
+Author: Robert Gabriel <robert_gabriel@outlook.com>
+Date:   Tue May 12 12:42:53 2015 +0100
+
+    Added Missing Bracket in comment out line
+
+commit 336a34a45e682db89acc64787f7897a65006993f
+Author: Robert Gabriel <robert_gabriel@outlook.com>
+Date:   Tue May 12 12:27:47 2015 +0100
+
+    Update web.go-example-cors
+
+commit 9fa59955a109c870349bfdf04fee3323663194f6
+Author: Robert Gabriel <robert_gabriel@outlook.com>
+Date:   Tue May 12 12:24:53 2015 +0100
+
+    Rename
+
+commit ae570127583907ea08ab6484781a24e77f6e21de
+Author: Robert Gabriel <robert_gabriel@outlook.com>
+Date:   Tue May 12 12:23:20 2015 +0100
+
+    Added an Example to use Cors.
+
+commit 7db635e88dc120390346410f29989eaef2937a4f
+Author: Drew Wells <drew.wells00@gmail.com>
+Date:   Fri Apr 10 15:34:10 2015 -0500
+
+    do not crash on empty comments
+
+commit d32e63c911a6f869278ce91191e2c5c852be5cef
+Merge: b1a6db7 35a6b21
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Mar 19 12:21:38 2015 +0300
+
+    Merge pull request #55 from dorajistyle/master
+    
+    Add appengine relative packages to be ignored.
+
+commit 35a6b21d5dca056d251a9736b2dc55063a38cbf2
+Author: JoongSeob Vito Kim <dorajissanai@nate.com>
+Date:   Thu Mar 19 16:31:24 2015 +0900
+
+    Add appengine relative packages to be ignored.
+    
+    Add appengine relative packages to be ignored.
+
+commit b1a6db775f6c7ee73313ecf93a0d9206257ffce3
+Merge: 8274ce2 d55261b
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Mar 6 17:33:13 2015 +0300
+
+    Merge pull request #54 from gregzuro/master
+    
+    find packages in src/pkg (for compat. with old golang versions.
+
+commit d55261b2d271ecb8a0aa9bd0e324cc906e753194
+Author: gregzuro <greg@zuro.net>
+Date:   Wed Mar 4 16:07:24 2015 -0800
+
+    add a check for system packages in $GOROOT/src/pkg in addition to $GOROOT/src
+
+commit dc7514dffdf749aa9f461b5f5eb48b95e9bf9b3d
+Author: gregzuro <greg@zuro.net>
+Date:   Fri Jan 9 00:10:27 2015 -0800
+
+    fix parsing of api comments, again
+
+commit 7eeab99062cfaf28bb33f2647e75a160a4813d04
+Merge: f4d04a2 8274ce2
+Author: gregzuro <greg@zuro.net>
+Date:   Thu Jan 8 23:33:57 2015 -0800
+
+    Merge remote-tracking branch 'upstream/master'
+
+commit f4d04a2a2fd66ac8a072fa4746a4261bec161c05
+Author: gregzuro <greg@zuro.net>
+Date:   Thu Jan 8 23:30:51 2015 -0800
+
+    start of split of accept and produce
+
+commit 8274ce23174e03badaf457cbb57aecee74d49bf6
+Merge: b4d4c92 ef7e932
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Jan 9 08:20:11 2015 +0300
+
+    Merge pull request #50 from gregzuro/master
+    
+    removed "pkg" from filepath.Join call on GOROOT
+
+commit b4d4c92db2c7d06db2d974f5b0e50a698d4150e7
+Merge: 9396e34 ec05a02
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Jan 9 08:19:01 2015 +0300
+
+    Merge pull request #48 from polyglot-jones/required-keyword
+    
+    Required keyword
+
+commit 9396e349b1f30288bc5af0d3e9dae33b455c3004
+Merge: 854cdb1 57efca6
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Jan 9 08:17:56 2015 +0300
+
+    Merge pull request #47 from polyglot-jones/colorized-markup
+    
+    Colorized markup for AsciiDoc and Confluence
+
+commit ef7e9321b29704f62fe202f70b08e35b3d33db94
+Author: gregzuro <greg@zuro.net>
+Date:   Thu Jan 8 15:18:21 2015 -0800
+
+    add API prefix in README.md; de-dup reference to comment keywords in switch statements
+
+commit f037646a7f67475585574985394c01679278d643
+Author: gregzuro <greg@zuro.net>
+Date:   Thu Jan 8 14:22:30 2015 -0800
+
+    remove log from imports
+
+commit 89126f7cbac920fd14df4b5720881ac7392901de
+Author: gregzuro <greg@zuro.net>
+Date:   Wed Jan 7 23:43:38 2015 -0800
+
+    changed Split to Fields so we can eat tabs, too.
+
+commit 207b7dbb17ab282aeeb69283b99444ff46c46f75
+Author: gregzuro <greg@zuro.net>
+Date:   Wed Jan 7 18:01:59 2015 -0800
+
+    remove default extension from path.Join call
+
+commit accac477f979ee30a2e71fb873959933565d41b6
+Author: gregzuro <greg@zuro.net>
+Date:   Wed Jan 7 17:05:38 2015 -0800
+
+    removed "pkg" from filepath.Join call on GOROOT
+
+commit ec05a023baa1dc082496260b2804b3e96f53ee93
+Author: Craig Jones <craigjones@chiefsimplicityofficer.com>
+Date:   Wed Jan 7 14:26:31 2015 -0800
+
+    1. Fixed the @Param parser to allow dashes in the parameter name (especially important for describing headers). 2. The 4th column of an @Param line that determines whether or not the parameter is required previously only accepted "true" (with anything else being false). It now accepts "true" or "required". Thus, it is now recommended to use "required"/"optional" instead of "true"/"false".
+
+commit 57efca6379a57b6ed9f6249e986b1e0c9d1f3c54
+Merge: 976a10e 854cdb1
+Author: Craig Jones <craigjones@chiefsimplicityofficer.com>
+Date:   Wed Jan 7 10:37:05 2015 -0800
+
+    Merge branch 'master' of https://github.com/yvasiyarov/swagger into colorized-markup
+
+commit 976a10e82190a3d9ba901f4fbb5310ab249bf40f
+Author: Craig Jones <craigjones@chiefsimplicityofficer.com>
+Date:   Wed Jan 7 10:36:29 2015 -0800
+
+    AsciiDoc and Confluence markup is now colorized. (Markdown is not colorized since GitHub flavored Markdown does not support it.)
+
+commit 854cdb171df70df842d1e2eab9571aebd966bc55
+Merge: d6835db 577f483
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Dec 5 17:34:01 2014 +0300
+
+    Merge pull request #45 from thekostya/patch-1
+    
+    Update README.md
+
+commit 577f483a0372f30f92f19a764540dafbb03286f1
+Author: Konstantin Ryabov <thekostya@gmail.com>
+Date:   Fri Dec 5 13:51:19 2014 +0300
+
+    Update README.md
+    
+    fix typo
+
+commit d6835db9c651ec9af10b1f39b691bfffa8e8352b
+Merge: a895538 99a8805
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sun Nov 23 23:20:08 2014 +0300
+
+    Merge pull request #43 from polyglot-jones/readme-2014-11-18
+    
+    Updated README.md to reflect recent changes.
+
+commit a895538c3fc51f9d3cd0b0a6ee6430644e2c7152
+Merge: 9b58d7b db481d7
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sun Nov 23 23:19:46 2014 +0300
+
+    Merge pull request #42 from polyglot-jones/equivalency-typedefs
+    
+    For any direct-equivalency type definitions (i.e. non-struct, e.g. "type foo string"), ...
+
+commit 9b58d7b5cff597776272dac9efdb4a30f4ffcd59
+Merge: c4c4d3e 42098bc
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sun Nov 23 23:18:49 2014 +0300
+
+    Merge pull request #41 from polyglot-jones/param-links
+    
+    When the various markup outputs describe a parameter whose value is a model, ...
+
+commit c4c4d3e68b3e720d53ad0f6f0132acbb8798dbab
+Merge: e64039d cd3e926
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sun Nov 23 23:17:09 2014 +0300
+
+    Merge pull request #40 from polyglot-jones/fix-sub-api-descriptions
+    
+    Fixed the parsing of sub-api descriptions. ...
+
+commit e64039df7fef45ed825f5728b3114f12404675a9
+Merge: 4fa874c f6830bd
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sun Nov 23 23:08:01 2014 +0300
+
+    Merge pull request #44 from hyperworks/master
+    
+    support multiple directories on the GOPATH
+
+commit f6830bd7f2d1597990a531d8903c6cf1063021a6
+Author: Matthew Kanwisher <matt@kanwisher.com>
+Date:   Fri Nov 21 16:00:01 2014 +0700
+
+    support multiple directories on the GOPATH
+
+commit 99a8805844090b9b72b3de594c39dddfdb3f607b
+Author: Craig Jones <craigjones@chiefsimplicityofficer.com>
+Date:   Tue Nov 18 18:06:25 2014 -0800
+
+    Updated README.md to reflect recent changes.
+
+commit db481d70a774ca6cf7d1057cf5426e246d7db3b0
+Author: Craig Jones <craigjones@chiefsimplicityofficer.com>
+Date:   Tue Nov 18 16:38:41 2014 -0800
+
+    For any direct-equivalency type definitions (i.e. non-struct, e.g. "type foo string"), any references to the defined type (foo) will be replaced with the underlying type (string) at parse-time, as if the annotation referred to the underlying type (string) all along. This prevents the model section from being cluttered with empty (foo) definitions.
+
+commit 42098bc230dca718c588a76830829ec02a53e01a
+Author: Craig Jones <craigjones@chiefsimplicityofficer.com>
+Date:   Fri Nov 14 12:12:49 2014 -0800
+
+    When the various markup outputs describe a parameter whose value is a model, the value is now properly shown as a link to the associated model in the models section.
+
+commit cd3e9261e81daed0dad08ddd50effa1366407d42
+Author: Craig Jones <craigjones@chiefsimplicityofficer.com>
+Date:   Thu Nov 13 14:47:07 2014 -0800
+
+    Fixed the parsing of sub-api descriptions. (1) When parsing a @SubApi line, it will now add to the apiRef list if not already there. (Before it was relying on having seen at least one operation first.) (2) When parsing an operation, the operation's description will no longer override the apiRef description if one already exists.
+
+commit 4fa874ca33baaf6dfc5cad4201b6de821afa970b
+Merge: 35b080e 117b153
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Nov 6 23:32:48 2014 +0300
+
+    Merge pull request #38 from kihamo/master
+    
+    Parse not simple type for @Params
+
+commit 117b15312498abf7e79d262b342d86ba49ac2268
+Author: Sergey Fedosenko <sergey.fedosenko@lazada.com>
+Date:   Thu Nov 6 19:17:41 2014 +0300
+
+    Parse not simple type for @Params
+
+commit 35b080eb79c7342dfa8b3f2692fa517f60543052
+Merge: 275df10 732967f
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Nov 6 17:22:29 2014 +0300
+
+    Merge pull request #37 from kihamo/master
+    
+    Import aliases seem to be ignored by parser and small fix
+
+commit 732967f5ac82fb70d911632038396271570076df
+Author: Sergey Fedosenko <sergey.fedosenko@lazada.com>
+Date:   Thu Nov 6 17:17:49 2014 +0300
+
+    #6 Import aliases seem to be ignored by parser
+
+commit c6a1b09521d1c4fc8499eeb2151f5b134ec4d03e
+Author: Sergey Fedosenko <sergey.fedosenko@lazada.com>
+Date:   Thu Nov 6 17:15:10 2014 +0300
+
+    Output for go format
+
+commit 275df107b5d3afd136883200d20d5316f3f9e968
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Fri Oct 10 17:22:40 2014 +0400
+
+    Add appengine package to ignored packages
+
+commit 9f5dd2faa4f95fd3f81da3458cf6e77866d71511
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Fri Sep 12 14:03:17 2014 +0400
+
+    merge pull request #35, changes in generator.go
+
+commit 93583c1a004866f77b2a10ba85bf1661da1c3dfc
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Sep 10 23:25:48 2014 +0400
+
+    merge polyglot-jones-controllerClass-switch
+
+commit 2fb17fc5ad9ddd7b052b778e79b0acd7740145df
+Merge: ad5cacb c8e74bf
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Sep 10 23:13:46 2014 +0400
+
+    Merge pull request #34 from polyglot-jones/simple-build
+    
+    Renamed the web.go file to web.go-example so that it does not clash with...
+
+commit c8e74bf39fec9300afbc71b5ccb9a4914cff0d72
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Sep 9 22:29:30 2014 -0700
+
+    Renamed the web.go file to web.go-example so that it does not clash with building the generator using a simple "go build"/"go install".
+
+commit ad5cacb1585a4d468b50eac98b4710403f726904
+Merge: 90161d5 033c0b8
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Sep 6 10:29:28 2014 +0400
+
+    Merge pull request #28 from polyglot-jones/internal_types
+    
+    Sometimes reflection reports an object as "&{foo Bar}" rather than just ...
+
+commit 90161d5517483e9777c9070c5c885fb47f7a44f5
+Merge: 9f7b536 3400dce
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Sep 6 10:27:54 2014 +0400
+
+    Merge pull request #27 from polyglot-jones/readme_struct_tags
+    
+    Any fields with a json struct tag of "-" will now be suppressed from the...
+
+commit 9f7b53671e5dcf1e63ac3a8ca873c2d6fae5e1df
+Merge: 5612f41 8d7c6dc
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Sep 6 10:26:43 2014 +0400
+
+    Merge pull request #30 from polyglot-jones/asciidoc_proof_of_concept
+    
+    Added Markup Support
+
+commit 8d7c6dc33686b32d841ee236ea3a72c6179cd7d0
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Sep 3 02:22:58 2014 -0700
+
+    Updated README.md
+
+commit 606701a40bb3b82c392936eb873ced23d9118361
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Sep 3 02:19:44 2014 -0700
+
+    Updated README.md
+
+commit cea131c2ccd675b6155d10e9b6daa97afd8e23fb
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Sep 3 02:13:21 2014 -0700
+
+    Updated README.md
+
+commit ce213f2151d1f0f29804d2099ade424536335fc5
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Sep 2 16:51:05 2014 -0700
+
+    Moved markup files to their own package
+
+commit 033c0b80d4ab7e6ea2a73e4b40c1c6cc52e1c714
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Sun Aug 31 22:58:16 2014 -0700
+
+    Sometimes reflection reports an object as "&{foo Bar}" rather than just "foo.Bar". This patch normalizes them to foo.Bar. (Note: Previously, we looked specifically for &{time Time}. Now we look for anything matching the pattern.)
+
+commit 3400dce5d2bdbda9bcedc4765db56bd87be69783
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Sun Aug 31 22:26:06 2014 -0700
+
+    Any fields with a json struct tag of "-" will now be suppressed from the swagger docs. Added a Struct Tags section to the README.md.
+
+commit 0ec8f1f562c0e2595b024cd7fb54ac319701e421
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Thu Aug 28 12:40:37 2014 -0700
+
+    The models are now listed in alphabetical order. The fields within a model are now listed in alphabetical order. Changed the markdown tables from HTML to GitHub-flavored.
+
+commit cbcf5300ab3695377950c4ec2522d6bc176d3260
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Thu Aug 28 11:48:18 2014 -0700
+
+    Added an example shell script for generating markdown.
+
+commit daf81f0e3aab1ce4c28bb795b74f94708cd39d18
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Thu Aug 28 11:43:17 2014 -0700
+
+    Refactored to move the code that uses Markup interface together with the definition.
+
+commit 3175f9a381214a37b79ffcb191d4bfcb46054a5b
+Merge: afc3e68 5612f41
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Thu Aug 28 11:26:18 2014 -0700
+
+    Merge branch 'master' of https://github.com/yvasiyarov/swagger into asciidoc_proof_of_concept
+
+commit afc3e689ac1ce18d45ad9e2bb0dba292153b568e
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Thu Aug 28 11:25:06 2014 -0700
+
+    Added markup implementations for MarkDown and Confluence. Changed the square brackets around the HttpMethod to parens (so that Confluence doesn't interpret them as links).
+
+commit 5612f41b241956571b2b6305a180a72556dc7220
+Merge: 19812af 68e9df5
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Thu Aug 28 17:51:46 2014 +0400
+
+    Merge branch 'polyglot-jones-issue_22_time_fields'
+
+commit 68e9df54527d38e0fececea0699c00605387d3a1
+Merge: 19812af 5ca4159
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Thu Aug 28 17:48:25 2014 +0400
+
+    Merge branch 'issue_22_time_fields' of https://github.com/polyglot-jones/swagger into HEAD
+    Resolve conflicts, fix tests
+    
+    Conflicts:
+            parser/model.go
+
+commit 19812af46ea3356bb8fdb1da6a3cfe54071a4736
+Merge: c887b1a 50c63c5
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Aug 28 11:59:50 2014 +0400
+
+    Merge pull request #25 from polyglot-jones/issue_24_circular_ref
+    
+    Fixed issue 24 (circular reference of parent model).
+
+commit c887b1a106a75a5d0386b4a6cd7865903d376eec
+Merge: c465214 cd37153
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Aug 28 11:55:46 2014 +0400
+
+    Merge pull request #26 from polyglot-jones/issue_21_title
+    
+    Fixed issue #21. Renamed the @Title and @Description annotations for the...
+
+commit cd3715332a6fd2474e80e3ddd654885615695381
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Aug 27 13:48:33 2014 -0700
+
+    Fixed issue #21. Renamed the @Title and @Description annotations for the main API to @ApiTitle and @ApiDescription, respectively, so that they do not conflict with the @Title and @Description annotations of API operations. This is the quickest fix for for https://github.com/yvasiyarov/swagger/issues/21, however it breaks backwards compatibility.
+
+commit 50c63c5d371dd8193aa0e03379e0610ff7fabb11
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Aug 27 13:36:22 2014 -0700
+
+    Fixed https://github.com/yvasiyarov/swagger/issues/24 (circular reference of parent model).
+
+commit dbaf7bb9faa858d0eff17a961e67ff5fcfd21c78
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Aug 27 13:26:49 2014 -0700
+
+    The subApis are now processed in alphabetical order (for consistency in comparing one generation of the markup to the next). [Undoubtedly, more aspects of the markup generation need to be sorted, as well.]
+
+commit 5ca415952b2e6205a641f17fc49566ad0593d168
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Aug 27 02:20:08 2014 -0700
+
+    Fixed issue #22 re: Time fields. Also, simplified an earlier patch regarding treating the "error" interface as a basic type.
+
+commit 6ec6072350f807ba32dd96b1a4d92ae3a3586a4d
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Aug 27 01:24:39 2014 -0700
+
+    Added tables with the model definitions to the end of each sub-Api.
+
+commit dd3286a1550f51f2890c0454fcb5be55395268fa
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 26 14:02:41 2014 -0700
+
+    Fixed up the file name handling for AsciiDoc and MarkDown files.
+
+commit 9ec33ef2b01968885259429c58356571b3fcff66
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Mon Aug 25 23:46:10 2014 -0700
+
+    Continued: Proof of concept for generating the API Swagger docs as simple markup (AsciiDoc to start).
+    - Changed the (short-lived) -swaggerUiPath switch to a pair of switches (-format and -output).
+
+commit a19a1d8e4e67c2ffaf514198ab31dcc56e6618d3
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Mon Aug 25 14:13:07 2014 -0700
+
+    Proof of concept for generating AsciiDoc Markup.
+    TODO: Change the -swaggerUiPath switch to two switches -format=go|swagger|asciidoc|markdown and -output=XXX
+    TODO: Finish converting the body to AsciiDoc (currently dumps JSON as a placeholder).
+    TODO: Write a MarkDown implementation of the Markup interface.
+
+commit c465214dbccdffd3ea00ce50718e7b9d86008e97
+Merge: 8e9d310 fad370d
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Aug 20 14:26:55 2014 +0400
+
+    Merge pull request #19 from polyglot-jones/error_type
+    
+    Correction. An "error" response type is now simply passed along as "error" (not string).
+
+commit 8e9d31028cbaee656753832e3cebc1b135e4f371
+Merge: 6d7c23c 7da2bf6
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Aug 20 13:31:20 2014 +0400
+
+    Merge pull request #18 from polyglot-jones/lowercase_attributes
+    
+    The (main) API attribute names can now also be any case. Also, ...
+
+commit 7da2bf683be47a60094695ae52fc877de613cc28
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Aug 20 02:09:37 2014 -0700
+
+    The (main) API attribute names can now also be any case. Converted both if/then chains to switch statements.
+
+commit fad370db38e56d5c044727d994feb390eff75885
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Wed Aug 20 01:56:04 2014 -0700
+
+    Correction. An "error" response type is now simply passed along as "error" (not string).
+
+commit 6d7c23ce0ae5928db26345e8ad375669a46cb1fd
+Merge: 467b5f4 6bb0ede
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Aug 20 10:53:27 2014 +0400
+
+    Merge pull request #17 from polyglot-jones/error_type
+    
+    The result type of the @Failure attribute can now be specified as "error"...
+
+commit 467b5f4e618fd0e3c51c4a4e9d226993ac6de362
+Merge: bee7e22 5731dff
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Aug 20 10:51:10 2014 +0400
+
+    Merge pull request #16 from polyglot-jones/suppress_force_resource
+    
+    Fixed the temporary ForceResource field...
+
+commit bee7e227ca04671b7e8851c092121be75b6f4803
+Merge: a74b985 35358ec
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Aug 20 10:50:37 2014 +0400
+
+    Merge pull request #15 from polyglot-jones/optional_accept_types
+    
+    The MIME types specified in the @Accept attribute can now be spelled out...
+
+commit a74b985ac584bba343cda2981e7b43a89d826a6f
+Merge: 3f2e865 92d57d1
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Aug 20 10:49:10 2014 +0400
+
+    Merge pull request #14 from polyglot-jones/lowercase_attributes
+    
+    Attribute names can now be any case (@Router, @router, @ROUTER).
+
+commit 35358ecb5aee92aa90e09a216c3890b06a5bbd9b
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 19 22:20:54 2014 -0700
+
+    Corresponding README.md update.
+
+commit 6bb0ede084244eb53f5ef7e3db9e77aaf6f121f9
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 19 22:18:43 2014 -0700
+
+    Corresponding README.md update.
+
+commit 82b6a0a70334340f280f21f50962ad33eadc4d37
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 19 21:58:08 2014 -0700
+
+    The result type of the @Failure attribute can now be specified as "error" even though "error" is not recognized as a BasicType(). It will be treated as a "string".
+
+commit 5731dffdd6b1bb1f27e738029e8081dfb7dfb24b
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 19 21:47:18 2014 -0700
+
+    Fixed the temporary ForceResource field so that it is not persisted to the JSON (`json:"-"`).
+
+commit be6ed2c7d0b6f7eec7145220ece88b0259f3ec55
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 19 21:40:09 2014 -0700
+
+    The MIME types specified in the @Accept attribute can now be spelled out (e.g. "@Accept application/json" vs "@Accept json"). The other alternatives are: "xml" or "text/xml", "plain" or "text/plain", and "html" or "text/html".
+
+commit 92d57d1938589907d0899ff7a252156233167beb
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 19 21:29:26 2014 -0700
+
+    Attribute names can now be any case (@Router, @router, @ROUTER).
+
+commit 3f2e865648ebc5d7a1a033142997aeecfdda71b0
+Merge: d1ac6ba dccae3e
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Thu Aug 14 11:34:57 2014 +0400
+
+    Merge pull request #13 from polyglot-jones/readme2
+    
+    Adjusted README to reflect the latest changes pulled in.
+
+commit dccae3ea13a1c8095e65ebc8a3148c3d26559282
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 12 11:55:48 2014 -0700
+
+    Formatting fix.
+
+commit 9f62df2cb0eb128a60085cf4a61c1f8c639cfabb
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 12 11:47:54 2014 -0700
+
+    Adjusted README to reflect the latest changes pulled in.
+
+commit d1ac6ba33f868468faf4b0ae22bb73f4bfe88036
+Merge: 6991630 554c6fa
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Aug 12 16:13:53 2014 +0400
+
+    Merge pull request #5 from yvasiyarov/feature-look_inside
+    
+    New feature: go through sub folders
+
+commit 69916301722921997e99569764e09a022a891a2d
+Merge: ea04da0 46a70d2
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Aug 12 16:12:19 2014 +0400
+
+    Merge pull request #12 from polyglot-jones/swaggerUiPath_switch
+    
+    Added an optional command-line switch called swaggerUiPath....
+
+commit ea04da0f899bfa4343ebaf4d0b9eae142f330709
+Merge: bcf0cce edcdf90
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Aug 12 16:08:51 2014 +0400
+
+    Merge pull request #11 from polyglot-jones/issue_3
+    
+    An optional "@Resource name" annotation ... (Issue #3)
+
+commit bcf0cce06ceaf5383f6840ead39227acbcdbdb58
+Merge: e3e7407 414fb68
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Aug 12 16:02:00 2014 +0400
+
+    Merge pull request #10 from polyglot-jones/mainApiFile_default
+    
+    If the mainApiFile command-line switch is left blank, then ...
+
+commit e3e74079922d591c15fc40269f9c72d4a405a99d
+Merge: c6eed68 9cb0f4e
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Aug 12 16:00:49 2014 +0400
+
+    Merge pull request #9 from polyglot-jones/subapi_description
+    
+    Fixed the parser for "@SubApi description [/api]" to allow any character...
+
+commit c6eed68f8b4cb71d0310f0fe1ee5941a0937901b
+Merge: 3f8c3b4 3a1ffe2
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Tue Aug 12 15:58:35 2014 +0400
+
+    Merge pull request #8 from polyglot-jones/Issue_7
+    
+    Fixed the parser for "@Success" and "@Failure"...
+
+commit 3f8c3b4c5d7817ca5092e14b4dd45f067c1fd47d
+Merge: 6e7acda d3ffa23
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Tue Aug 12 16:00:21 2014 +0400
+
+    Merge branch 'polyglot-jones-readme'
+
+commit d3ffa23acbb5fc6ecd777a48052171c3601c9892
+Merge: 6e7acda 1a84318
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Tue Aug 12 15:59:44 2014 +0400
+
+    Merge branch 'readme' of https://github.com/polyglot-jones/swagger into polyglot-jones-readme
+    
+    Conflicts:
+            README.md
+
+commit 46a70d200575dbcc6478491a33b9352050560fbf
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 12 00:37:06 2014 -0700
+
+    Added an optional command-line switch called swaggerUiPath. If non-blank, it specifies a base path in which the output should be saved -- as individual JSON files, rather than as a hashmap in a single docs.go file. First the overall API info is saved as index.json in the root of the base path. Then, the API specification for each sub-api is saved as index.json in a sub-folder that matches the sub-api (resource) name. This is all consistent with using a "data" folder with SwaggerUI "out of the box". (No issue number.)
+
+commit edcdf90f03133fb1a96380fba224b4e50219471b
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 12 00:30:46 2014 -0700
+
+    An optional "@Resource name" annotation can be used to force the resource identifier to be something other than the first segment of the route URI. For example, if "@Resource /payment" is specified together with "@Router /invoice/{id}/payments [get]" then this operation will be part of the "payment" sub-api, rather than the "invoice" sub-api. This is also good for when the @Router specifies a path in which the first segment is almost correct, but not quite, e.g. /payments (plural) vs. /payment (singular). A leading slash in the name in the @Resource annotation is optional. So, "@Resource /payment" and "@Resource payment" are the same. (Issue #3)
+
+commit 414fb682e51fc4f8261e809422b9d8dbd334d171
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 12 00:22:48 2014 -0700
+
+    If the mainApiFile command-line switch is left blank, then main.go is assumed (in the location specified by apiPackage). (No issue number.)
+
+commit 9cb0f4eb55f94c7c9bc4cbca7eaced02ccdb672a
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 12 00:18:55 2014 -0700
+
+    Fixed the parser for "@SubApi description [/api]" to allow any character within the description (other than square brackets). (No issue number.)
+
+commit 3a1ffe2c1e200f413e507dd84d876e7ee8d76d5e
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Tue Aug 12 00:14:52 2014 -0700
+
+    Fixed the parser for "@Success" and "@Failure" to allow hyphens in the model names. (Issue #7)
+
+commit 554c6fa92487580528cb6d20af6c541534789af5
+Author: Maksim Naumov <fromyukki@gmail.com>
+Date:   Sat Aug 9 23:02:00 2014 +0400
+
+    Go through sub folders in the package. Is controller check `Controller` receiver.
+
+commit 089af8c3b76fbe5701ba8e42774dbb955f1caea0
+Merge: dcea673 6e7acda
+Author: Maksim Naumov <fromyukki@gmail.com>
+Date:   Sat Aug 9 22:24:04 2014 +0400
+
+    Merge branch 'master' of github.com:yvasiyarov/swagger
+
+commit dcea673656f0335811a0cbb571d33c56d52bde91
+Author: Maksim Naumov <fromyukki@gmail.com>
+Date:   Fri Aug 8 13:35:08 2014 +0400
+
+    Add JetBrains .idea folder to ignore
+
+commit 6e7acdae44587b1b6e1e990bfead616239958105
+Merge: 217ed65 364af48
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Fri Aug 8 13:25:29 2014 +0400
+
+    Merge pull request #4 from yvasiyarov/hotfix-typo_router
+    
+    Fix typo @router to @Router
+
+commit 364af48a811dd4f75ec5f28154f1f0665d4a3c2e
+Author: Maksim Naumov <fromyukki@gmail.com>
+Date:   Fri Aug 8 12:51:29 2014 +0400
+
+    Fix typo @router to @Router. Maintaining the same notation as other parameters.
+
+commit 1a843183836fe52ca7e1410d2ba4ffa584b47854
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Fri Aug 8 00:30:19 2014 -0700
+
+    Some further refinements to the README.md.
+
+commit 3988f1bcd8c9e8a6120eb81c81e1e1283ab5dd21
+Author: Craig Jones <cjones@picsauditing.com>
+Date:   Fri Aug 8 00:15:07 2014 -0700
+
+    Clarified the README documentation.
+
+commit 217ed6584893ffdd0dd479463964881a0b6d9141
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Thu Jul 31 01:36:09 2014 +0700
+
+    Unit tests finished
+
+commit d8be4b77684aed75df3dd11d32bd0b4db409aa3e
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 30 15:56:52 2014 +0700
+
+    Operations check is finished
+
+commit 5e5d3932c83fc4104f6da4fff575e045680c076d
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 30 14:36:33 2014 +0700
+
+    Add more operations to example API
+
+commit 1836dbbc081ead75be15b3af664813c8a7f15274
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 30 11:45:26 2014 +0700
+
+    Fixed 2 bugs, improve parser tests
+
+commit 6011fea0a3375eabef057d77fd5256e1dde6abf5
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 30 00:25:13 2014 +0700
+
+    Start work on parser unit tests
+
+commit 0b0a2f35e6bd1c7606cafcc8e8e51f18a31f9c39
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Tue Jul 29 14:09:07 2014 +0700
+
+    Rename file
+
+commit 800783bd4606abf28bf90e680d19d7e8bc0b4791
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Thu Jul 24 10:47:25 2014 +0700
+
+    Fix bug with model parse in params.
+    Add possibility to have several packages with API
+
+commit 1ae0268e2ed5c6dd8cf45270c102dff5fd93dd88
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 20 19:54:21 2014 +0700
+
+    Add exmaple data structures and model parser
+
+commit fc951d68a6faf62feab4edb8538d8a0e7fdcc3eb
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 20 18:03:24 2014 +0700
+
+    Start working on model tests
+
+commit c181b20a7fef40e2f38f120a29103941fcf5433e
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 20 17:11:32 2014 +0700
+
+    Operation covered by tests
+
+commit fede527788962d330c62fed967ec43f6290451ef
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 20 16:43:51 2014 +0700
+
+    Refactor operations parsing. Add one more test
+
+commit a7884b4f00159cd9aa03faf5434d53878837137d
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 20 15:29:59 2014 +0700
+
+    Add tests for operation
+
+commit b3ac2646e41f4c0bffd806f361bc03fc9b9dc480
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 20 13:44:23 2014 +0700
+
+    Api declaration model covered by tests
+
+commit c1c2562a059c53636d8e3014099b90cd67e268e1
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Jul 19 17:54:03 2014 +0700
+
+    Fix some typos in README
+
+commit c64cae9781687423262d67f7816ddee3abebf086
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Sat Jul 19 17:47:49 2014 +0700
+
+    Update documentation
+
+commit 065dd577290f45a4cd474aaa332166dc3c556cf6
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sat Jul 19 11:25:40 2014 +0700
+
+    Fix bug with map decloration parsing
+
+commit 7195c620a5a73c5226f56c28ee39d476ad1856c8
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Fri Jul 18 10:02:29 2014 +0700
+
+    Fix bugs with operation return type
+
+commit f218947440bd67850d2974468ed5877cb5ce4999
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 16 22:05:15 2014 +0700
+
+    Use regexp to parse any comments
+
+commit 7f101a9631c3ddda47d549f6ed71480176432f68
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 16 21:02:37 2014 +0700
+
+    Refactor code: use regexp to parse params
+
+commit 6cd29cab38b29727a611f621b633dc48ba9644a0
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Tue Jul 15 17:51:10 2014 +0700
+
+    Add array support for model fields
+
+commit e81995fbe8274c133ba37aadc205697b56a5bbb7
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Tue Jul 15 16:53:05 2014 +0700
+
+    Add support for arrays
+
+commit 66f195f0f2f1cbc342c659a32b5c51a267ef7f47
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Tue Jul 15 13:59:28 2014 +0700
+
+    Fix bug with Stats method
+
+commit 395a613fa9915641c4006ab36f5aa92b4f3b61e5
+Author: yvasiyarov <yvasiyarov@coreserv.russia>
+Date:   Mon Jul 14 18:46:40 2014 +0700
+
+    Add "staticPath" options to web client
+
+commit 7a252d37c46c0cc5b4095877793d3393d4d6b1cf
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 19:58:20 2014 +0700
+
+    Add workaround for types, which implement Marshaler/Unmarshaler interface
+
+commit 7e7c816b2d448839682971463bda7922bd9a95f8
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 19:26:46 2014 +0700
+
+    Move controller filter to parser configuration
+
+commit c2f9c250d1beb2355b673494934c12450577e003
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 19:16:20 2014 +0700
+
+    Fix bug with duplicated fields in case of embeded structures
+
+commit 99bfd2d8e970e4ebd5e708df9b18914ad147d471
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 19:03:33 2014 +0700
+
+    Add documentation, fix bug in web.go
+
+commit b504d7799384bbe5a42159bc2b0854b1cebd377d
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 17:37:58 2014 +0700
+
+    Fix crash if we have non-swagger comments
+
+commit 7d28d1508bca018d499f6e97f55c76fae516f7de
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 16:41:51 2014 +0700
+
+    Implement sub api description parsing
+
+commit 819e54f6b42ee6250b7186d2c80a0960252e5d34
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 15:30:59 2014 +0700
+
+    Refactor parser. Its kind of working
+
+commit 4c963409992eb53c8b2de63c626ec93680e881bb
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 15:20:08 2014 +0700
+
+    Update swagger ui
+
+commit e35d0f4c5eaa13fb555ee470269b213097a98811
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 14:42:25 2014 +0700
+
+    Ignore generated file
+
+commit b8460e6d1f1b6621d446cdf59c4aedf7d90b4a76
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sun Jul 13 14:41:14 2014 +0700
+
+    Debugging UI....
+
+commit 887f97382d757cf305c1170e8f08a8598dac9dae
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Sat Jul 12 23:05:03 2014 +0700
+
+    Comment parser finally works as expected
+
+commit 86b72e6f5f38d901f2111f00d37f79b2bc33ced5
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 9 18:21:45 2014 +0700
+
+    Swagger object structure is build now
+
+commit a441945caa5828fe2d9f6a6a76f004b2531c11f8
+Author: Yuriy Vasiyarov <yuriy.vasiyarov@lazada.com>
+Date:   Wed Jul 9 15:08:33 2014 +0700
+
+    Parsing almost work :-)
+
+commit e34776d78ef5c0d34a0f4e1ded5c305aead83347
+Author: Yuriy Vasiyarov <varyous@gmail.com>
+Date:   Wed Jul 9 14:22:17 2014 +0700
+
+    Initial commit

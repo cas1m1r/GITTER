@@ -1,0 +1,746 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 24b710cc61ce37612d65ed759cec8e1030e877a9
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Fri Jan 21 09:06:29 2022 +0100
+
+    Create LICENSE
+
+commit 53859e625b78442ca7d6aec1462df4669dd00aa7
+Author: zugzwang <fvial@protonmail.com>
+Date:   Thu Jun 18 15:38:13 2020 +0200
+
+    Improve style, add 4096 test case
+
+commit 7716ac6b8d70de7eba50d0b5fe991a2993f4661e
+Author: zugzwang <fvial@protonmail.com>
+Date:   Thu May 14 12:29:57 2020 +0200
+
+    Fix string vectors
+    
+    It is not possible to initialize array vectors, and this has
+    unpredictable behavior when passing references from functions. Using
+    vector<string> instead of vector<char*>.
+
+commit c3e9422e7bb9d467982f2818d3203268e2d7c604
+Merge: 3bf2e77 97358c1
+Author: Francisco <fvial@protonmail.com>
+Date:   Thu May 14 09:32:10 2020 +0000
+
+    Merge branch '1-parse-ids-as-char-not-int' into 'master'
+    
+    Resolve "Parse IDs as char*, not int"
+    
+    See merge request crypto/batch-gcd!1
+
+commit 97358c1858da0ff88a79fb7f0311082f980db71d
+Author: zugzwang <fvial@protonmail.com>
+Date:   Thu May 14 11:18:40 2020 +0200
+
+    Parse char* IDs, instead of int
+    
+    Assuming an ID is at most 32 chars.
+
+commit 3bf2e77796dc11746d25384bc96311a74b95ac7e
+Merge: a648ca6 8946369
+Author: zugzwang <fvial@protonmail.com>
+Date:   Fri May 8 11:24:07 2020 +0200
+
+    Solve conflicts
+
+commit a648ca6a17db1239b14c986e66f8ad96ab7c56d7
+Author: zugzwang <fvial@protonmail.com>
+Date:   Fri May 8 11:15:02 2020 +0200
+
+    Refactor scripts, update README
+
+commit dc555ab0a309d70fdd2372b912a5dfd6de8c16bd
+Author: fvial <fvial@protonmail.com>
+Date:   Wed Jan 29 14:20:07 2020 +0000
+
+    Update README.md
+
+commit 8946369f51f8ae67c217a80bd81af0f67b5753e9
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Jan 16 10:03:05 2020 -0300
+
+    Update README.md
+
+commit 9a2bd4f47cdf6a116511f0959db89b76464fa43b
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Dec 17 09:23:03 2019 -0300
+
+    Update README.md
+
+commit 1b5bb915ce6372fc8077920cf34aef8c6d6761be
+Merge: 5c8748b b4dd3cf
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Dec 13 00:05:03 2019 -0300
+
+    Merge pull request #13 from zugzwang/better-memory-part-b
+    
+    Using mpz_t and less variables in partial remainders multithreading
+
+commit b4dd3cf91e41f0b16cc4fd17edd6dc052ed9a4ce
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 12 23:34:36 2019 -0300
+
+    Free intermediate variable in tense part of the algorithm
+
+commit c06f0fe34bba8e3602770dcbbff06d8155a59b9a
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 12 19:01:09 2019 -0300
+
+    Using mpz_t and less variables in partial remainders multithreading
+
+commit 5c8748b2bc518082724659fae1e3c49d9fdc7424
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 12 13:07:32 2019 -0300
+
+    Display threads used in remainders
+
+commit 65d59d968a5970790347452ef1a9856ff95ce19c
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 12 10:38:51 2019 -0300
+
+    Avoid extra allocations when multithreading
+
+commit 554af0f17b437eff9e6e035e3697d5e5fc0ee1cd
+Author: zugzwang <fvial@pm.me>
+Date:   Mon Dec 9 13:16:06 2019 -0300
+
+    Add example_compromised_base16.txt
+
+commit f9da9dda8cb0205887cb9a36e93d6eac5f611fa5
+Merge: 32f53f4 2d058b8
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Dec 7 12:16:53 2019 -0300
+
+    Merge branch 'master' of github.com:zugzwang/c-batchgcd
+
+commit 32f53f487c9ffa7677e27d403a9ed90c27839f46
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Dec 7 12:16:38 2019 -0300
+
+    Correct example_compromised.txt;
+
+commit 2d058b8f9b59e856c71ae67d1506579c0e5e1a27
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Dec 7 12:13:16 2019 -0300
+
+    Update README.md
+
+commit 7b5994819467e35b8729cf7955c7ae62e9505b4b
+Merge: 9665824 1220a0c
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Dec 7 08:54:45 2019 -0300
+
+    Merge pull request #10 from StanGirard/decimal
+    
+    Let user select moduli file in base 10, with `-base10` tag.
+
+commit 1220a0cae7a9f9123123fe7a5a409028e7262738
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Dec 6 16:08:23 2019 -0300
+
+    Use getopt_long_only instead of string scan, update README, correct signature of read_csv_from_file
+
+commit b7699e820176254eb04358fbd1f69b64da0ae9d0
+Author: Stanislas Girard <stan@Beast.local>
+Date:   Fri Dec 6 16:42:55 2019 +0100
+
+    Updated Readme
+
+commit 1981c1252b8c883425594572e13350534a1ee8e9
+Author: Stanislas Girard <stan@Beast.local>
+Date:   Fri Dec 6 16:35:37 2019 +0100
+
+    Read base from params
+
+commit e4e5e5c952982a551e4cfc33c908287d6c92797c
+Author: Stanislas Girard <stan@Beast.local>
+Date:   Fri Dec 6 11:31:29 2019 +0100
+
+    Ubuntu & Debian Compatibility
+
+commit adcd7300abf092e79f24e347acb42ab22af18302
+Author: Stanislas Girard <stan@Beast.local>
+Date:   Fri Dec 6 11:29:02 2019 +0100
+
+    Update Readme Base 10
+
+commit 5c76f1933f399543d1b17e7b9c3eca82d11275e1
+Author: Stanislas Girard <stan@Beast.local>
+Date:   Fri Dec 6 11:24:01 2019 +0100
+
+    Base 10 moduli
+
+commit 9196c9bba595b4955664fa40be4b51658d403097
+Merge: a0f303c 9665824
+Author: Stanislas Girard <stan@Beast.local>
+Date:   Fri Dec 6 10:55:56 2019 +0100
+
+    Merge remote-tracking branch 'upstream/master'
+
+commit 9665824e856bc7b32e32de3ae151cde44aaf8291
+Merge: 06f63a3 8a9bafc
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 5 17:11:50 2019 -0300
+
+    Merge branch 'master' of github.com:zugzwang/c-batchgcd
+
+commit 06f63a3e65005845994180fb283e78d08493534e
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 5 17:11:23 2019 -0300
+
+    Update comment
+
+commit 8a9bafc592a9dbab42d9863d085caaeae4b81d05
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Thu Dec 5 16:27:51 2019 -0300
+
+    Update README.md
+
+commit f395ed841d26aee7f607679c961d8d27d43325bb
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Thu Dec 5 16:26:12 2019 -0300
+
+    Update README.md
+
+commit 6127d7b8303979ff76e052b096a273998060c11f
+Merge: a2e36a8 d4ae65a
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Thu Dec 5 16:25:40 2019 -0300
+
+    Merge pull request #9 from zugzwang/base-16-input
+    
+    Input files in base 16, and dropped bitlen
+
+commit d4ae65a721c9758b791bec6e31681b3cdece7a7b
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 5 16:24:14 2019 -0300
+
+    Input files in base 16, and dropped bitlen
+
+commit a2e36a88b36acd6d91726f2c8ec809d680c0c89e
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Thu Dec 5 15:46:23 2019 -0300
+
+    Update README.md
+
+commit 2081a561b9f1a1f8bbb5ade3c90763cbf4a7b287
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Thu Dec 5 15:42:35 2019 -0300
+
+    Update README.md
+
+commit 601554ac5d7b5dd811d6efb823147f60d1a02ac8
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Thu Dec 5 14:50:12 2019 -0300
+
+    Update README.md
+
+commit 6035baa436bd81c1cae980b24001b8ca48f8687c
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Dec 5 14:48:24 2019 -0300
+
+    Update README.md`
+
+commit a0f303c2f2b1903c7ca39adad8f8035596b5b8cb
+Author: Stanislas Girard <stan@mbpdestanislas-1.home>
+Date:   Wed Dec 4 22:59:42 2019 +0100
+
+    Removed -static
+
+commit 4bd8fa733181c168d5f2b80b5bd79d0e3043c0f1
+Author: Stanislas Girard <stan@mbpdestanislas-1.home>
+Date:   Wed Dec 4 20:39:40 2019 +0100
+
+    Removed -static & added -mt to boost_thread
+
+commit 96c07e271d589f555b65059eac1686d0582aa665
+Merge: 0e88763 ff2f19d
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Dec 1 17:37:30 2019 -0300
+
+    Merge branch 'patch-gmp'
+
+commit ff2f19db1edce018efbb5d427449f40fae9156d9
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Dec 1 17:35:26 2019 -0300
+
+    Update toy.moduli
+
+commit 0e887636668095fb49d9f4ec6b41719be9e5de55
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Dec 1 17:32:55 2019 -0300
+
+    Update README.md
+
+commit 4338dca6c2f22368ddddc5ab7a0e337f18495711
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Dec 1 17:21:17 2019 -0300
+
+    Update README.md
+
+commit 3ff43f63129679d856cfc1bd75e1ffbcb0f4051b
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Dec 1 17:20:45 2019 -0300
+
+    Update README.md
+
+commit 77c4d7b2d0166712f700d77005dd603203f9cccb
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Dec 1 17:20:12 2019 -0300
+
+    Update README.md
+
+commit 2abd4d39b262f2048b9b9350d87fda46c73d0b22
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Dec 1 17:14:56 2019 -0300
+
+    Update README.md
+
+commit 5e6e8e0320df4adb0b0ba3e783ea45636365c9fb
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Dec 1 16:53:04 2019 -0300
+
+    Add make install
+
+commit 9b7d23c18a7810896c8cc6180052047ef6790a3b
+Merge: c410165 910ae0f
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Dec 1 16:48:21 2019 -0300
+
+    Update factorable.net patch for gmp-6.1.2
+    
+    This increases `gmp` binary I/O limit from `2**31` to `2**63` bytes.
+    - Added toy moduli for testing
+    - Dropped CMake (nightmare to link new gmp)
+    - Add a check to see if any of the input moduli is 0 (see #5)
+    - Add an executable to see if patch is working Okay.
+
+commit 910ae0f8f17f4d86b096c01cd82b4deb4dd3a01e
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Dec 1 16:45:02 2019 -0300
+
+    Added modulus == 0 test
+
+commit cb2ac61ad73704599c644b8481331c4de90d785b
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Dec 1 11:44:56 2019 -0300
+
+    Add set of toy moduli
+
+commit 208807b332cb4320f15db2475cd81a2840178166
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Dec 1 11:34:07 2019 -0300
+
+    Provide test for patch
+
+commit c9dd54c7d35f27cb4f0cabef0f2ec0eef91bf0a0
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 20:17:58 2019 -0300
+
+    Fair benchmark
+
+commit ba456dcb9546c4d7083e45bf598c5cbac3e5380a
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 19:37:55 2019 -0300
+
+    Benchmark against factorable.net
+
+commit 66c9e0ab639741f020493682438532aaa39f77c0
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 19:32:37 2019 -0300
+
+    Clean up
+
+commit 0abd702aaa63f63823ac9e14969705dc8384ce2f
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 19:28:13 2019 -0300
+
+    Restructure folders, provide patch, acknowledge factorable.net
+
+commit ed99286a78d6fd044aa5444dd212c2eb65ad951e
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 16:28:25 2019 -0300
+
+    Patch looks OK
+
+commit 95abcd7bd74812c472da5803b64e3f3ed23408d6
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 15:35:06 2019 -0300
+
+    Failed to correctly patch
+
+commit dbdcf0832e58adae5c30d6fd2467fbd416b22d29
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 01:06:03 2019 -0300
+
+    Compiled patched version, WIP fix pthread
+
+commit a2dfb6e4bc68480aa9a90058018b24aa98ae08b8
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 30 00:17:55 2019 -0300
+
+    Create patch file, revert CMake
+
+commit c410165f58cae5bff26d4922e275184e76f54120
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 29 17:12:47 2019 -0300
+
+    Fix old comment
+
+commit 79e5dbb1eff2ba1353960f14dc40d09fcca44f71
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 29 15:58:17 2019 -0300
+
+    Cautionary note about duplicata
+
+commit a585a9d7336ab61bebd8f193503852f81d4b4a54
+Merge: a2d5195 b9bfcfa
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Fri Nov 29 14:43:27 2019 -0300
+
+    Merge pull request #3 from zugzwang/duplicate-moduli
+    
+    Duplicate moduli
+
+commit b9bfcfa316ef8d67b782fd4ae6a61ee7b0451fd3
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 29 14:42:19 2019 -0300
+
+    Square display
+
+commit 84c6b658f12a21fc2768309a834f6b87ea4a5090
+Merge: 52b1b4e a2d5195
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 29 14:25:57 2019 -0300
+
+    Solve conflicts
+
+commit 52b1b4e7ba5c5ac5758fac4f9c583195df17ef4a
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 29 14:24:45 2019 -0300
+
+    Write to compromised.csv and duplicates.csv
+
+commit a2d519576e7bca257feac7dbf8971ffcd65fe0f5
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Fri Nov 29 12:53:33 2019 -0300
+
+    Update README.md
+
+commit 2d21f23b358e76ba5190b71765e87af7601da449
+Merge: 0ab4462 426b02d
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Fri Nov 29 12:51:44 2019 -0300
+
+    Implement multithreads
+    
+    Asks user how many threads do they want for the run. Uses the given amount of threads in each part of the algorithm.
+    
+    When computing next floor in part (A), or computing partial remainders in part (B), thread `j` handles all positions equivalent to `j mod N_THREADS`.
+    
+    Also some other display improvements, and better processing of the csv file.
+
+commit 426b02d6b0eda3806deeae7049e52017bf307742
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 29 12:32:20 2019 -0300
+
+    No memory leaks according to valgrind
+
+commit b2db44c7e3dd47c6464814a53fdf1b1296c9b33e
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 29 12:27:03 2019 -0300
+
+    Implement Multithreading
+
+commit c83025d5282cd2050264aff6d6c07646e017c8c6
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Nov 28 20:29:33 2019 -0300
+
+    WIP multithread
+
+commit 0ab4462e8ceebec3a8d016425b40ebfe010b11fa
+Merge: 4c41480 fa68e6d
+Author: zugzwang <fvial@pm.me>
+Date:   Wed Nov 27 19:33:08 2019 -0300
+
+    Merge branch 'master' of github.com:zugzwang/c-batchgcd
+
+commit 4c4148048a2d1bfcfeeb7241cf8963bb1e6f708c
+Author: zugzwang <fvial@pm.me>
+Date:   Wed Nov 27 19:32:55 2019 -0300
+
+    Update README.md
+
+commit 23bedde49715574ea95ecc3d7cd90e733abee6bd
+Author: zugzwang <fvial@pm.me>
+Date:   Wed Nov 27 19:31:40 2019 -0300
+
+    One file per level
+
+commit fa68e6d856419133f9b97987140178020aeb52cd
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Wed Nov 27 14:36:54 2019 -0300
+
+    Update README.md
+
+commit 8135f39e688e49882aede053aa0ace2bc65df165
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 21:33:57 2019 -0300
+
+    my_mpz_inp_raw
+
+commit 2e39dd7186401f4765cd565b1c7680e157c98412
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 17:50:24 2019 -0300
+
+    Add check for gmp overflow
+
+commit 15fb8c9c25c47c6654d4811c2d43e81dd9a8d796
+Merge: 824879c 6b5f32c
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:48:21 2019 -0300
+
+    Merge branch 'master' of github.com:zugzwang/c-batchgcd
+
+commit 824879c99c3f034eacf6c0a4bdc3d56df23f1b3f
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:48:09 2019 -0300
+
+    Relax Cmake version, add VIM to .gitignore
+
+commit 6b5f32cd23825a1d4489a592d2629b33919aa2b3
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Tue Nov 26 16:44:31 2019 -0300
+
+    Update README.md
+
+commit 3f01290745ea423058f601b6ce203a653d9c5b99
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:37:40 2019 -0300
+
+    Clean build/
+
+commit ccc0dac40dd3e46da5a0da9216a64b10ff30a30a
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:35:17 2019 -0300
+
+    Clean up
+
+commit 005b608c30ec6f3179fdbba3c839a9d3a6f71b49
+Merge: 9c6ebd6 8c9f2ed
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:33:54 2019 -0300
+
+    Merge branch 'master' of github.com:zugzwang/c-batchgcd
+
+commit 9c6ebd6163c88ff393401bded13d51ab069feaab
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:33:45 2019 -0300
+
+    build/.gitignore
+
+commit bd93e0512f53e974c7cee38fa24056b8af179743
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:30:32 2019 -0300
+
+    Update gitignore
+
+commit 8c9f2ed9e184745ef36dbb2d46391196f73ed961
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Tue Nov 26 16:28:53 2019 -0300
+
+    Update README.md
+
+commit 11f7df661c17da7dbdc481530d30cc5fd142d388
+Merge: 296b7ec a842878
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:26:12 2019 -0300
+
+    Merge branch 'master' of github.com:zugzwang/c-batchgcd
+
+commit 296b7ecd6ca18358a62c5fd6d1e40edb4b1cb814
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:26:01 2019 -0300
+
+    Update gitignore (C++, CMake)
+
+commit bda9ba09a1faf8a46dbbabf6ea5e5160487ed2d9
+Author: zugzwang <fvial@pm.me>
+Date:   Tue Nov 26 16:23:03 2019 -0300
+
+    Use CMake
+
+commit a8428786fa0a9a1cef72771e002144c88e2e8a59
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Mon Nov 25 14:35:33 2019 -0300
+
+    Update README.md
+
+commit 51985aac89dff2ecbc067b49259a4c7a6e0edede
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Mon Nov 25 14:35:08 2019 -0300
+
+    Update README.md
+
+commit 7447be03761d7a568455735c18eeb1a32ce1ff3c
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Mon Nov 25 14:33:23 2019 -0300
+
+    Update README.md
+
+commit d65c49416fd16951a27891429e226c158a0f552f
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Mon Nov 25 09:36:57 2019 -0300
+
+    Update README.md
+
+commit 15101430227a4e6fcfaba7856fbff11956ac16d4
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 19:09:21 2019 -0300
+
+    Add R[i] == 0 as a false positive case
+
+commit 52ad4cfb0fac8e39c98ab5879873b3b636fe8ec6
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 18:44:47 2019 -0300
+
+    simple remainders_squares v/s fast remainders_squares
+
+commit 2d49e722fa6df293d8461f2b51a3786f07418eb2
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 18:31:40 2019 -0300
+
+    Experimenting with straightforward partial reminders
+
+commit edbe252be681417d38f2785156c8252fbfd7efa5
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 17:50:44 2019 -0300
+
+    Write compromised IDs to file
+
+commit ef35c7e1ff62fb9cb3873b9812434f7e509be091
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 17:42:40 2019 -0300
+
+    WIP check results and false positives
+
+commit e46e8269168cc87b6e9ab12b332b0f21252af33e
+Merge: f4a05bb 7dffa60
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 15:19:59 2019 -0300
+
+    Merge branch 'master' of github.com:zugzwang/c-batchgcd
+
+commit f4a05bb1c50881b4d7775ff87d3e9f51848b375d
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 15:19:47 2019 -0300
+
+    typo
+
+commit 7dffa60b7299b82d609c6ecbf35dd67c6a5f3cdc
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Nov 24 15:18:47 2019 -0300
+
+    Update README.md
+
+commit 4fd2c8704c115f11ecacbef253bc6c22c6971efd
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Nov 24 15:16:06 2019 -0300
+
+    Update README.md
+
+commit d1c6fc4d6ddbcc08d6607dbffffb509acbd37b09
+Author: zugzwang <aeb3a532e301a373@pm.me>
+Date:   Sun Nov 24 15:14:56 2019 -0300
+
+    Create README.md
+
+commit 4464cdc8c1edcce90513288a0b08616d3341429b
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 14:52:50 2019 -0300
+
+    Cleaner code
+
+commit 7022c6f97ae6f0717f1795fd8bda904d9b109dac
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 13:19:54 2019 -0300
+
+    More verbose time and WIP disclaimer
+
+commit f2fa95db42d4ec30f6b907a71d4a1a1161a18cfe
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 00:20:23 2019 -0300
+
+    Fix message
+
+commit c6bf15f3b4f1a20bd4bc1b4d07472c8581226d80
+Author: zugzwang <fvial@pm.me>
+Date:   Sun Nov 24 00:18:46 2019 -0300
+
+    Read single variables from file in order to optimize memory in part (B)
+
+commit 0dd66973afee96c56c4f255b1869a40b5af49320
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 23 11:32:04 2019 -0300
+
+    Memory checks with Valgrind - OK
+
+commit 0d14726676fb61aed8f078dcdcfbe87021e080be
+Author: zugzwang <fvial@pm.me>
+Date:   Sat Nov 23 09:15:17 2019 -0300
+
+    Free vectors from the heap
+
+commit 0b83dd9832af7c3337f09a2a606b73c2cd711546
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 22 18:34:25 2019 -0300
+
+    Use pointers
+
+commit ffff59fe55f5bef808e59198de69829f60c6e01e
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 22 18:06:38 2019 -0300
+
+    Free leaves when not using
+
+commit 237493a08fb1ee0b2f3408dbe11c93f3707712e0
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 22 16:34:41 2019 -0300
+
+    Free memory between parts of the algo
+
+commit 6d9a37345a273df80f349ed77b75a7040abfc860
+Author: zugzwang <fvial@pm.me>
+Date:   Fri Nov 22 14:26:27 2019 -0300
+
+    Using mpz_out_str and mpz_inp_str for fast write and read
+
+commit c9a58f7e44de9d3d4ffc5532bf4da3e381e40c5c
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Nov 21 19:30:29 2019 -0300
+
+    Add space on verbose gcd results
+
+commit c6b297eb380189c969317bee97f6e5d23c548e46
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Nov 21 17:59:54 2019 -0300
+
+    Verbose console
+
+commit 27310edf32e88af72ce1674f080546019e295a6e
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Nov 21 17:14:19 2019 -0300
+
+    Tested with 1000 keys; OK
+
+commit 30e20244d9717676ea3cd0ce9fc2e21e59a6036a
+Author: zugzwang <fvial@pm.me>
+Date:   Thu Nov 21 15:11:11 2019 -0300
+
+    First commit, working implementation

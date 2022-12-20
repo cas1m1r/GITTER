@@ -1,0 +1,1358 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 48ecde3ab0c7abc9c1acb8c10034a3298338c35d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 26 11:23:50 2022 +0100
+
+    Update to Moodle 4.1
+
+commit f3f4e61f5835f581cecd50a9546a765df47f7281
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Apr 18 17:10:13 2022 +0200
+
+    Update to Moodle 4.0
+
+commit 73d7ff494b494955267aacf13ae535f195e85bd1
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Nov 2 12:58:04 2021 +0100
+
+    Replace anon git references to https (against gitbub)
+    
+    They are completely removing plain-git support and
+    only git over ssh and https will continue working.
+    
+    Ref.: https://github.blog/2021-09-01-improving-git-protocol-security-github
+
+commit b13c1dcb96a8bd5bc4823ae0e0b70cfb578322ca
+Merge: 906be65 f246433
+Author: Víctor Déniz <victor@moodle.com>
+Date:   Tue Oct 26 21:31:10 2021 +0100
+
+    Merge pull request #72 from stronk7/better_memoryused_scrapping
+    
+    Better matcher for memory used scrapping.
+
+commit f2464337689d13aa98b37176a0e71a40b9b24e56
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Oct 26 17:29:50 2021 +0200
+
+    Better matcher for memory used scrapping.
+    
+    Recently (MDL-72643) a change to display_size() was
+    done and now there is some non-breaking space between
+    the memory number and the units.
+    
+    That had caused the performance footer parser to stop working
+    and memory use was not being reported any more.
+    
+    With this change, both the old and the new formats are supported
+    by simply ignoring anything between the digit and the "MB".
+    
+    Already tested on performance servers, memory reports are back.
+
+commit 906be6541d5d452aba17fa933b881e60631e381f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Sep 24 23:44:11 2021 +0200
+
+    Show commit hashes instead of branch names or tags
+
+commit ac53b7aff336142ebc0e1aeaa43024700c1579a0
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 15 19:43:20 2021 +0200
+
+    Update to Moodle 3.11
+
+commit 8d9bb13fbe1451ee1a82aaa5614337e2cc94de22
+Merge: bb00f5c 9442113
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Apr 30 20:09:07 2021 +0200
+
+    Merge pull request #70 from stronk7/dont_hide_individual_reports
+    
+    Don't hide individual problems when reporting global problems
+
+commit 9442113ca354c6e5129e1eea20f40524d041171e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Apr 30 17:08:15 2021 +0200
+
+    Don't hide individual problems when reporting global problems
+    
+    Sometimes we were getting information like:
+    
+    dbreads: increment - All steps data combined, 4.49% worse
+    
+    And then we had to look to details and see which requests were the
+    failing ones, they may be all, one or more...
+    
+    With this change we won't be hidding individual problems when
+    global ones are reported, so it's easier to detect which of the
+    requests and how much (%) is being affected immediately.
+
+commit bb00f5cb9c997f7760d422813536fda892457684
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Apr 12 00:41:40 2021 +0200
+
+    Protect against broken php files
+
+commit c66d37a82b3e0e7e4fbeb4704b9e03a9c502fe3a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 7 19:10:54 2020 +0100
+
+    Update to Moodle 3.10
+
+commit 1d1bccf57cf47df4babb04aa795c5b328e1fa95a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 1 00:20:36 2020 +0100
+
+    Fix trivial PHP undefined variable warning.
+
+commit 7c875f03e52641f69674235a8947131d77691299
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jun 13 23:31:40 2020 +0200
+
+    Update to Moodle 3.9
+
+commit cc3f138d8c0932657f4141259f069fdbc1be6af7
+Merge: 016251e 1a851af
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Jun 5 14:32:44 2020 +0200
+
+    Merge pull request #68 from stronk7/normalize_rundata
+    
+    Add support for normalized calculations
+
+commit 1a851af0e76e274a7772acd6031ee290fa65a312
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Apr 3 10:49:07 2020 +0200
+
+    Add support for normalized calculations
+    
+    To avoid some real noise in indicators we are
+    applying a outlier-detection technique (1.5xIQR)
+    and proceeding to normalize them using a pseudo avg
+    that will fit always within the expected values.
+    
+    Note we don't apply the outlier algorithm recursively
+    neither any other detail. Just 1-pass normalization
+    of noise values.
+    
+    While 1.5 is a generally accepted value, if we detect
+    that too much is being normalized, we can always go up
+    to 2.3 to just normalize "very rare" outliers.
+    
+    By default, it's disabled, so everything continues
+    working 100% the same. Only under demand it will become
+    enabled.
+    
+    You can enable it by adding n=1 or n=true to the url.
+    
+    At the same time, a bunch of rounding errors have been
+    fixed, display is always with 2 decimal digits but all
+    average calculations are performed with full resolution.
+    
+    Other small changes are:
+    - Added support to https.
+    - Improve red/green and signed display.
+    - Fix images overlay.
+
+commit 016251e704e2ef0b790cec5cf00dbbd9ec68e3d4
+Merge: ccf3597 bee82bf
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Mar 26 08:10:12 2020 +0800
+
+    Merge pull request #66 from stronk7/fix_timeused_recorder
+    
+    Fix the "timeused" recorder/scrapper.
+
+commit bee82bf1215c89a94f1d591e743f515948873bcd
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Mar 22 13:52:46 2020 +0100
+
+    Fix the "timeused" recorder/scrapper.
+    
+    Right now it was reporting 0 all the time. That's because at some
+    point some BS classes were added to it:
+    
+    lib/moodlelib.php
+    <li class="timeused col-sm-4">'.$info['realtime'].' secs</li>
+    
+    and the recorder was not matching anymore. This simple change allows
+    the recorder to find it properly, in a BC way (old sites).
+    
+    Not that the "timeused" indication is the most important at all, because
+    can fli-flop a lot... but better we get it back.
+
+commit ccf359787a3f4b33605d49851e983f12d389face
+Merge: ac2cbef ebdf1f7
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Mar 20 13:06:43 2020 +0100
+
+    Merge pull request #65 from stronk7/towards_stable_results
+    
+    Add some settings towards more stable results on performance runs.
+
+commit ebdf1f7826ae39aa248ab52dfa974d1a2e8aedfe
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Feb 18 10:08:45 2020 +0100
+
+    Add some settings towards more stable results on performance runs
+    
+    1. There are some setting that we have had in use in our servers
+       for ages, probed to provide better (more stable) results, so adding
+       them upstream (to avoid surprises when you run the tool elesewhere).
+    2. Also from our servers, set the default home page that is expected
+       for current JMX plan.
+
+commit ac2cbef4a57125603a9fe87d3af0df14ae9aa8c6
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 17 00:04:35 2019 +0100
+
+    Update to Moodle 3.8
+
+commit fd57c0caa3d1b909f64cd3a8685e9d6db0e1d434
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 19 17:58:14 2019 +0200
+
+    Update to Moodle 3.7
+
+commit 1486cb6e9c8aca439a39ff10125e163827aca2b5
+Merge: f9adb30 0fd4cce
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Wed Jan 9 19:10:42 2019 +0800
+
+    Merge pull request #62 from stronk7/disable_fetching_cursors
+    
+    Disable PG cursors per dbreads accounting accuracy
+
+commit 0fd4cce009fdfeec20032bd838aa9fc553f76634
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jan 9 11:58:29 2019 +0100
+
+    Disable PG cursors per dbreads accounting accuracy
+
+commit f9adb30fc406522af653aa2e35d431fcaa190c8e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Dec 2 10:42:05 2018 +0100
+
+    Update to Moodle 3.6
+
+commit 144fea782cd15f35764edc249cdc3e58bcc3b595
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed May 16 23:58:49 2018 +0200
+
+    Update to Moodle 3.5
+
+commit 3cccf9aeb8be50e5f190f3de5dc746a6ff584a99
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 12 04:11:58 2017 +0100
+
+    Update to Moodle 3.4
+
+commit 4fd4526ffd2b26026a4e3bbf1ac4e8692d956133
+Merge: 20aef49 9b11674
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Wed Oct 25 10:20:16 2017 +0200
+
+    Merge pull request #61 from andrewnicols/fix61
+    
+    Failing due to invalid comparison from JSON
+
+commit 9b116745e02dc4b6e7b6cb8121456c78dc7f3191
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Wed Oct 25 08:44:48 2017 +0800
+
+    webapp: Trim instead of stripping non-numbers
+    
+    David's description of the breaking change was:
+    
+    > The change in webapp/classes/properties_reader.php cleans a trailing space
+    
+    Switching this to use `trim` instead.
+    
+    Fixes #61.
+
+commit 20aef49948a7f90a7e095ccc88ee90df7bd31eda
+Merge: 2aa2e76 81a5e04
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Aug 4 15:44:16 2017 +0100
+
+    Merge pull request #60 from dmonllao/fix-sessionsize-detection
+    
+    Improve recorder sessionsize detection
+
+commit 81a5e04e19dd7a9aa01a4819896f37b08543e67b
+Author: David Monllao <david.monllao@gmail.com>
+Date:   Fri Aug 4 13:40:30 2017 +0200
+
+    Improve recorder sessionsize detection
+    
+    Previous code didn't consider that KBs are rounded to 0
+    and returned as an int value, not float so something like
+    12KB is returned from Moodle instead of 12.0KB.
+
+commit 2aa2e76ad4ceb565ff5b1dbb623bc08b8c35527a
+Merge: 973df98 3568f2c
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Aug 4 10:42:36 2017 +0100
+
+    Merge pull request #59 from dmonllao/issue-58
+    
+    Fix non well-formed numeric value with PHP7 issues
+
+commit 3568f2c4b08ebbe4745652ebd7a54f0bb3fc871d
+Author: David Monllao <david.monllao@gmail.com>
+Date:   Tue Aug 1 05:47:39 2017 +0200
+
+    Issue #58 recorder: Cope with reduced sessionsize :)
+
+commit a902b3276bd94397b14d5cbda8c27e4b0a4d4328
+Author: David Monllao <david.monllao@gmail.com>
+Date:   Mon Jul 31 17:37:11 2017 +0200
+
+    Issue #58 webapp: Skip non-numeric values
+
+commit 973df98e881230e7dbf092d17e10495c208a8bcc
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 14 18:08:18 2017 +0200
+
+    Update to Moodle 3.3
+    
+    - Add Moodle 3.3 basecommit
+    - Fix typo in 3.2 comment
+    - Branch MOODLE_33_STABLE
+
+commit 56b2420e6460474774740953b79479a6d66e7568
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Mon Dec 5 06:34:04 2016 +0800
+
+    Update to Moodle 3.2
+
+commit b2fb3af9144427bba3ec57a3f958549a447f4a33
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Mon Jun 13 07:33:07 2016 +0800
+
+    Update to Moodle 3.1
+
+commit f5f34892aedbcd8609b935fa8604294e2027ed89
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Mon Dec 21 08:54:01 2015 +0800
+
+    Update to Moodle 3.0
+
+commit 729f27599b04f723bb117304eff080ccb16e7001
+Merge: 5fe38e1 ebbdcee
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Fri Jun 5 13:17:10 2015 +0800
+
+    Merge pull request #53 from dmonllao/reference-name
+    
+    Exact reference name match
+
+commit ebbdcee084c83e2378a546e91f2ae5cf07f73faf
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Jun 5 11:02:54 2015 +0800
+
+    Exact reference name match
+
+commit 5fe38e1a5a47cbb27bcd4f68b6578a0f0694ccfa
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Mon May 11 11:18:36 2015 +0800
+
+    Update to Moodle 2.9
+
+commit b06c5cef7be41163bdaef453dc39abeeefc1e128
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Tue Oct 28 17:16:46 2014 +0800
+
+    Issue #47 - Moving persmissions to 775
+    
+    We want to clean data from jenkins user
+    setting +w at group it allows us to do it.
+
+commit 6931d9f2efe7d5a20cbac05ed45caab1d1bc9fd2
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Feb 20 10:26:16 2015 +0800
+
+    Issue #47 - Removing sudo
+
+commit 269f63f31b77a6718c1ed93d4852d194b967a4d8
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Wed Oct 29 13:03:53 2014 +0800
+
+    Issue #46 - Fixed rm command in delete_files
+
+commit bdf617344512cb99ee6a83413e49dffc87985a58
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Mon Mar 24 10:25:46 2014 +0800
+
+    Issue #43 - Added time elapsed by the DB engine running DB queries
+
+commit 936084ac9da859913a4335ce0d3ef555511a0ccd
+Author: Rajesh Taneja <rajesh@moodle.com>
+Date:   Tue Mar 18 15:47:16 2014 +0800
+
+    Issue #44 - Show average per users*loopcount in graph
+
+commit 8b4ffd3168fc37bcf5e2764f924d8c58b416136a
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Feb 18 11:04:17 2014 +0800
+
+    Fixing missing dependencies in detect_big_differences.php
+
+commit c1b0ba2fd23484cf731dc3ba2a7e3a4ea76c93ad
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Feb 13 15:06:52 2014 +0800
+
+    Issue #10 - New setting to set readonly web mode
+
+commit 4293ee740b3ad1d6ad02b1c705a4a7af91f6d2ed
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Jan 6 14:38:51 2014 +0800
+
+    Issue #10 - Adding delete runs & download runs capabilities
+    
+    Jquery introduced to confirm deletes.
+
+commit 7b0ff611e92c151976a8bab6ecc398f182d77798
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Jan 15 15:54:35 2014 +0800
+
+    Issue #40 - Checking that the site was properly installed
+
+commit 048ad1cbb0fd37a6788bee5330e573b8136a13a8
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Jan 15 15:54:01 2014 +0800
+
+    Issue #40 - Adding the troubleshooting guide
+
+commit 80e220225bd3a387980cea1eaf41bbd9fc36b800
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Jan 13 18:42:29 2014 +0800
+
+    Issue #42 - Switching to org.apache.commons.lang3.StringUtils as the current StringUtils has been deprecated
+
+commit 8824c0cac833c1887f71aac1b5b74581ff316fbb
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Jan 13 11:36:20 2014 +0800
+
+    Issue #41 - Escaping double quotes
+
+commit b189e78fa24e413fdba04787cbb2737b5f6115f4
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Jan 3 14:44:55 2014 +0800
+
+    Issue #39 - Grep jmeter logs looking for exceptions
+
+commit dc2e6478772f1b63ea776d5d12faecd306c06a31
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Nov 11 11:36:20 2013 +0800
+
+    Issue #20 - Adding a setting to specify compare.sh size
+
+commit cf296c58c2b3e7e9f10927f0bcc1c1a6ae59b048
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Dec 12 15:06:45 2013 +0800
+
+    Error messages to STDERR and other changes to improve readability
+
+commit b48f9c88010967d5efe18c97e8f2de7a88d2f628
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Dec 11 16:31:07 2013 +0800
+
+    Adding a simple test to discard major init setup problems.
+
+commit 8ade36000a7d090f58e21af2ce9bcd066c19fa90
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Dec 5 17:45:34 2013 +0800
+
+    Switch to set -e.
+    
+    Also adding a delete_files function
+    to protect dangerous file deletions.
+
+commit 69a699a23915a6bb69115c523c62eef973a13516
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Dec 4 14:44:11 2013 +0800
+
+    Checking cURL return code and return a nice message if it fails
+
+commit 960d172eb4223bb9a82703717108ba86b0e679ed
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Dec 4 10:17:15 2013 +0800
+
+    Only make executable files which need to be executed.
+    
+    (They show up differently in my ls output, so irritated me a tiny bit
+    having these files showing as executable - and less easy to see the scripts).
+
+commit 82df48ec27e65cf9ce29101b108028c71096842c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Dec 4 11:39:38 2013 +0800
+
+    Chmod doens't accept a -R after the directory on OSX
+
+commit 46a8a828a57e458a9ab41813ff061b227ef6165e
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Nov 27 14:28:13 2013 +0800
+
+    Move the order-timestamps responsability
+    
+    Makes more sense that detect_big_differences.php gets
+    the arguments from the before branch to after (it also
+    accepts N args. so we should move the order by to report::make()
+    which is only called form the web interface.
+
+commit 94a9a14d359686bbd29e2a5e10ac6d9b20cd59a5
+Merge: accbb59 0433a2f
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Fri Nov 22 00:36:08 2013 -0800
+
+    Merge pull request #34 from jfilip/31_readme_fixes_master
+    
+    Fixed test_runner.sh argument order.
+
+commit 0433a2fecafc09b090e975bef96fe7c8f06d7a29
+Author: Justin Filip <jfilip@gmail.com>
+Date:   Thu Nov 21 13:55:52 2013 -0500
+
+    Fixed test_runner.sh argument order.
+
+commit accbb5930168c63aa1e0cdbbbfae4fbf0b22eaf2
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Nov 18 11:36:29 2013 +0800
+
+    Issue #30 - Updating to 2.7
+    
+    Changing the basecommit as MDL-42447 got integrated.
+
+commit e1744d32315e3bed648f8a41886fca7acf7cbe8c
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Nov 15 11:41:20 2013 +0800
+
+    Issue #3 - Using listeners to add the php file headers just once
+
+commit b98d3dda9de025b0a34bca5f94ffa3bf914f8cf0
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Nov 15 10:43:33 2013 +0800
+
+    Issue #5 - Moving MDL_PERF_TEST with to other MDL_PERF vars
+
+commit 53cc6c218d615c5321dcbf6d093aa9a3210d9ceb
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Nov 14 13:19:47 2013 +0800
+
+    Issue #5 - Adding MDL_PERF_TEST constant to the config template
+
+commit 63d7ac6d3f61bb72933b6b773ae88481b9042302
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Nov 8 11:29:02 2013 +0800
+
+    Fix regex that gets the siteversion
+    
+    Getting only the first regex match and including .XX
+    also applying the same 1 line limit to $sitebranch.
+
+commit 964b74cc885e914c8b982f76a4f3dd7e13997630
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Nov 8 16:02:21 2013 +0800
+
+    Fixing re-declaration and wrong comparison
+    
+    Also displaying more feedback when a wrong branch or
+    hash was provided.
+
+commit fde558e5ffd627282de88cfb42f173cd2cbda58e
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Nov 1 12:44:31 2013 +0800
+
+    #14 Allowing multiple remotes
+    
+    To fetch from both origin and integration
+    for example.
+
+commit 0e26b17add22e0b4b34496345267ccef6f07813c
+Merge: 9c34424 8c77f3b
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Fri Nov 8 01:11:38 2013 -0800
+
+    Merge pull request #27 from dmonllao/count_log_writes
+    
+    Include log writes as db writes
+
+commit 8c77f3bee6aae28e17aeb7395d76445fe718f543
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Nov 8 14:18:25 2013 +0800
+
+    Add the option to include log writes as dbwrites
+    
+    Log table writes are not counted as db writes,
+    I've added a setting, enabled by default, to count
+    them.
+
+commit 9c344241981f0ffd7f91d55506c788bb748e162c
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Oct 30 13:26:23 2013 +0800
+
+    Moving threshold vars to jmeter_config.properties
+    
+    From webserver_config.properties to jmeter_config.properties
+    as they are part of the comparison between runs. There was
+    no problem when running jmeter and web server in the same computer,
+    the problem was when running them in different servers.
+
+commit 3b142aa8aa6819154c094cdc85ff3a6856052416
+Merge: b89d3bd 4f41b25
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Tue Oct 29 08:04:45 2013 -0700
+
+    Merge pull request #18 from dmonllao/master
+    
+    Adding differences detection
+
+commit 4f41b2527a6a1f3f2b8d5f92df8f20f038d27c27
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Oct 24 17:48:49 2013 +0800
+
+    Adding runs differences info
+    
+    The patch solved #17, #18 and #19 and contains:
+    - A new section in the web UI to display the differences
+    - A new PHP CLI script to compare runs
+    - New settings to set up thresholds to skip false failures
+    - Refactored code to avoid exitcode checkings so everything
+      works as expected with set -e
+
+commit b89d3bde37d5f6cc5eec9c96430b5d68aad87041
+Merge: d0f9986 a28bac8
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Thu Oct 24 01:51:13 2013 -0700
+
+    Merge pull request #15 from dmonllao/master
+    
+    #12 - Adding a defaults.properties file
+
+commit a28bac8d8942dcef8e1a5f42b898395577067c2e
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Oct 22 15:07:38 2013 +0800
+
+    #12 - Adding a defaults.properties file
+    
+    Also checking that the provided commands works.
+
+commit d0f99860cc39050cc8460eea44567cdc359e88a1
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Oct 21 13:27:02 2013 +0800
+
+    Fix regression introduced by 81110cbe02cb1eacd9b86e273fa7949aa13b61e7
+
+commit 579d35c2528b475a2ce89a5cd89a2745af32fdc7
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 18 19:11:32 2013 +0800
+
+    Replacing the hash for the new one
+    
+    Is the first one where the test plan includes the base moodleversion
+    on it.
+
+commit 81110cbe02cb1eacd9b86e273fa7949aa13b61e7
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 18 19:08:17 2013 +0800
+
+    #6
+
+commit f8089a686adcfafdecc4850969e84182a23c611f
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 18 18:46:18 2013 +0800
+
+    Adding basecommit to the runs attributes
+
+commit 73f9a27a8bbe185a92f3f2e32a50263c41247a9b
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 11 16:19:02 2013 +0800
+
+    Fixing non selected runs
+
+commit e10b44fedb858a8f4ec6d673f1e1b33b0bc95329
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Oct 9 19:25:23 2013 +0800
+
+    Issue #13
+
+commit e0bee11adbca534b932994e79e4fcf8664fb5f6c
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Oct 9 17:26:55 2013 +0800
+
+    Fixing dependencies when jmeter and apache are in different servers
+
+commit fa946032929c2eadcd0f4de6450e44a46875e4a8
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Oct 9 11:30:23 2013 +0800
+
+    Quick fix - hide outputs non hidden by --quiet & --silent when restoring
+
+commit eca5797bbe11823c4b26785b77d4f3e1f3d4e222
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Oct 8 15:42:06 2013 +0800
+
+    Hide most of the outputs and change them for informative messages
+    
+    Also:
+    - Removed debug var
+    - Solved curl issues
+    - Stop execution if something goes wrong
+      in compare.sh
+    - User UI runs properly ordered
+    - Solved issue getting the session size in
+      master (it was not getting info when the
+      session handler was specified
+
+commit 7949b4d80cfa13fadaff2fc14f6cbc48cfdf82c7
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Oct 7 16:34:27 2013 +0800
+
+    Show perf. info only through web access
+
+commit 325d4844f39fa40cae5f2d985f8af911208bcbd4
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Oct 7 15:52:03 2013 +0800
+
+    README - Adding more info about requirements
+
+commit 318d0059a108651c01c43e5aa2d3892c22aaf437
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Oct 7 15:51:06 2013 +0800
+
+    Switching from wget to curl as the former one is not included in OSx by default
+    
+    Also adding an option to specify
+    an alternative php command.
+
+commit 3b46b2d2644da4da59d24e4b8c158a242318af7d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Oct 7 01:58:53 2013 +0200
+
+    Some little details for better cross-os
+    
+    - Better mysql & postgres support.
+    - Associative arrays are evil in bash.
+    - Better launch of browser for macosx.
+
+commit d6974011e4c9864827e1aa218f1e0e74daaa16c7
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Fri Oct 4 15:53:28 2013 +0800
+
+    README - Updating according to compare.sh changes (lol)
+
+commit aba700abe098bb2a3b5a6d3455711a0ab1623209
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Fri Oct 4 15:51:47 2013 +0800
+
+    README - Updating according to compare.sh changes
+
+commit 931df903cd424efb772433eef8105477cf3b594b
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 4 15:19:58 2013 +0800
+
+    Moving the new graph-based UI to index.php
+
+commit 7d7081e28dee36f79e5fb1a4e803cbce2cf5ff35
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 4 13:56:15 2013 +0800
+
+    Adding runs filters
+
+commit bfe9ad75279a4d9460b0728fd3b8d8d7d076e248
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 4 11:51:27 2013 +0800
+
+    Alternative UI
+
+commit 1cc92807729824a99c790600d006fa5e42104eed
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Oct 4 11:50:46 2013 +0800
+
+    New set of classes for alternative comparison UI
+
+commit 7a5b65e9c25bf4496519ab6c3ab6d309f6a71b2d
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Oct 2 11:02:38 2013 +0800
+
+    Escape single quotes from descriptions to avoid php syntax issues
+
+commit a0ee565cd4978fb24fdd5534d40319e1ddb3588b
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Oct 1 18:55:15 2013 +0800
+
+    Make compare.sh as simple as possible
+    
+    Removing the option to specify a size as
+    using S size and 5 loops is enough to have
+    consistent results, so everybody can just
+    ./compare.sh and wait for a while to, at
+    least, have an overall idea of what is
+    going on
+
+commit d79504d638cdeb8c362d68fc1dec05729a7b6ae1
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Oct 1 15:29:24 2013 +0800
+
+    Restore calcs
+
+commit 3253e6b7a7abe15666cada90ac87c6a61bb9df74
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 30 14:35:14 2013 +0800
+
+    Remove custom setting to avoid session timemodified update
+
+commit 1fab8d00838c2914ead06a2c983121f09ef5f0b0
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 30 14:34:10 2013 +0800
+
+    Avoid sessions/* in the dataroot backup
+
+commit ee4c4438246698718e64cba0c5d3088dba3f5302
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 30 11:45:11 2013 +0800
+
+    Adding browser var
+    
+    To specify a command to open the results
+    comparison web interface after finishing
+    compare.sh
+
+commit 2ea1e0c5e1cb66030fb66234d8c0777de7f64274
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 30 11:41:33 2013 +0800
+
+    Fixing branch rebase
+    
+    Was failing when the selected branch was master
+
+commit 5c723ed1ef2d4b456649ff8cb361fd19489ec89e
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 27 14:52:03 2013 +0800
+
+    Also clean backups dir
+
+commit 7b15fbc3161781d16cbee1b8225f405d6c7c8ca7
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 27 14:47:45 2013 +0800
+
+    Forcing values to have stability until #8 is resolved
+
+commit cd1283f04e79c709b953bdee8b058686d6400f5e
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 27 14:42:23 2013 +0800
+
+    Show elapsed time in compare.sh
+
+commit da6379663819e2b57e92b06a262be7b9c031139c
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 27 14:30:21 2013 +0800
+
+    Updating default settings as MDL-41421 is integrated
+
+commit 456586bb105abe17d4a60bc5a29d8deb0650ffd5
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 27 09:59:42 2013 +0800
+
+    README - Updated according to compare.sh
+
+commit 444c8d6e77dba63c621d542b4f110cfa8445606b
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 27 09:31:24 2013 +0800
+
+    Wrapper script to rule them all
+
+commit 48986ab4547fc13f263edc3759ddb296f40feb7a
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Sep 26 14:56:28 2013 +0800
+
+    Limiting generated files size to speed up the generation/backups/restores
+
+commit d43d71362fccd6017a0732ab2e37258486f6f40d
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 24 17:36:00 2013 +0800
+
+    Show inc/dec percents even if before or after is 0
+
+commit 30e8e12d66d20d0f426f170349ac185960cf5430
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 23 15:51:38 2013 +0800
+
+    Removing trailing whitespaces
+
+commit 8d08245e021339a49cf90b66a91148275714a375
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 23 15:47:49 2013 +0800
+
+    README - Adding detailed info about using your own backup
+
+commit 610f25b6b38397282a25324798416aada3d89e9a
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 23 13:19:43 2013 +0800
+
+    Moving web tool files to webapp/
+
+commit ab660f06c43d684fa9d20eb3469de6c52fd43257
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 23 13:12:08 2013 +0800
+
+    Script to configure the moodle site with advanced features
+
+commit ea8a674109ba95559e76b8f9553156e10aba5782
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 20 13:43:48 2013 +0800
+
+    Tmp branches & repo while MDL-41421 is not integrated
+
+commit d1a05a49eca4c9c4837fd111cf23e59dcf3c94fc
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 20 13:40:01 2013 +0800
+
+    Improved stability
+    
+    - Disabling cache text
+    - (almost) disabling update course last access
+
+commit 543236ef5c41d1c8361aa78a724958952e88bad5
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 20 11:45:12 2013 +0800
+
+    Adding size to the drop down options info
+
+commit 538025d20f62b34bc911b874a231ba78bfa88b68
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 20 11:04:59 2013 +0800
+
+    Considering that all arguments beginning with - are options
+    
+    Is not perfect, but all other fast-to-code
+    options are not that intuitive for users.
+
+commit 76b988d8ddf5bb96886905acd689838e2d630e5c
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 20 11:03:55 2013 +0800
+
+    Using a hardcoded base commit
+    
+    Also moving back to single repository.
+
+commit e09babdf311d3c38afdacf0721e353bdbdb594ed
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 17 14:05:42 2013 +0800
+
+    Stopping at install/upgrade errors and fwding exit code
+    
+    Also minor changes to standarize comparisons
+    and formats.
+
+commit 8c966275a87dbf716166cff01043793fc9570c4a
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 17 13:50:51 2013 +0800
+
+    Issue #5 - Adding a base branch
+    
+    Also single-repo restriction removed.
+
+commit eea79826efca78378666cee36394b2c956943ba4
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 16 18:05:51 2013 +0800
+
+    Issue #4 - Adding site branch, version and last commit info
+    
+    Last commit obtained through git show,
+    branch and version reading moodle's version.php
+
+commit 5c107222aacdc48227e0ff8f27353681a291f24b
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Sep 16 14:39:53 2013 +0800
+
+    #2 - Adding test_runner.sh options
+
+commit a7c628d2d199e05a35168295278ff84253a52c47
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 13 17:50:13 2013 +0800
+
+    Display also rampup and throughput #1
+
+commit 5a98a276b3c12d82ddbdee1cade2370b82a7ac97
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 13 17:43:14 2013 +0800
+
+    Avoid conflicts if the branches history changed
+
+commit e31c407c90e1c4c3be588e62014df3a41ea82ac5
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 13 17:01:55 2013 +0800
+
+    Adding cleanup script to delete old runs
+
+commit d518654dc36bd8ca142c832bf6fb194ebf42ac34
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Sep 13 11:49:48 2013 +0800
+
+    README - Changing info according to new owner
+
+commit c3681610336023ab635e96073da10a54fc2c4737
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Thu Sep 12 15:12:16 2013 +0800
+
+    README - Adding info about Moodle versions
+
+commit 61a97c77107e1b80d5dc8f1e7da049b45e05a05c
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Thu Sep 12 11:52:51 2013 +0800
+
+    README - Adding info about Moodle versions
+
+commit 4e1eea4e5e7d589e31332c8a9d04ac2c108ff819
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 18:50:33 2013 +0800
+
+    Saving the jmeter requests outputs in runs_outputs
+
+commit 347f4c2e0a1ba2486e8e3ec30b3c658a0e08ab74
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 16:32:03 2013 +0800
+
+    Fix renamed file
+
+commit caf102026b63f620ce4f76af317029856c174ecb
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 16:07:48 2013 +0800
+
+    Creating the cache dir when running the tests
+
+commit 4a33488ed146c88fe55a20ba45c78eaa5862f7b3
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 15:52:47 2013 +0800
+
+    README - Added info
+
+commit edace352924a84df1155677caedf529a58fb0353
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 15:39:31 2013 +0800
+
+    README - Adding info when using your own backup
+
+commit 1b1292522210091cc208e237e93a87831654144c
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 14:58:14 2013 +0800
+
+    Results - Fixing displayed values
+
+commit 67193f7beec1224323f83411f151679970961b36
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 14:42:55 2013 +0800
+
+    Adding more info to README.md
+
+commit 1994b15306a7fdf885419869bec5dabe336ca43c
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 14:42:43 2013 +0800
+
+    Improving restart_services.sh info
+
+commit e19f646dc659889b63d240b5d0a375427c989650
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 14:41:52 2013 +0800
+
+    Default configurations
+
+commit 733a2a08ae18d8ffcfadc5ebfdcaefde4104ca50
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 12:23:16 2013 +0800
+
+    More ignored files according to the new scripts functionalities
+
+commit 707c751ccd9682091d7c68b70747eafbc1825c3b
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 12:22:47 2013 +0800
+
+    Adding after run script
+
+commit 4cbb0dabe10a129ba4f2ff01e2c588a4968275f5
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 12:22:37 2013 +0800
+
+    Adding before run script
+
+commit 457941ec2f472ff74a884fe8a994034dc1404f08
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 11:46:49 2013 +0800
+
+    New script to restart services
+    
+    Services should be restarted before each run, this
+    script helps with it, non-compatible with OSx
+
+commit 1f6a272cf0fb7bc56d4838bc9135376104489b58
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 11:42:30 2013 +0800
+
+    Renaming test runner
+    
+    Adapting it to the new project format
+    where both webserver and jmeterserver
+    scripts are shared.
+
+commit 25008611f8dbbcaff4636d229159c0da3edbba54
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 11:37:46 2013 +0800
+
+    Renaming jmeterserver-side config file
+
+commit 2d2c6632b7fffd07730941d8d744ba641c839c6f
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 11:35:53 2013 +0800
+
+    config.php template
+
+commit c3528ef2c7c621890bc51e0e84f7dc9431e4ddd4
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Sep 10 11:33:35 2013 +0800
+
+    Adapting load_properties to multiple files
+
+commit 208da437a58d1e234494a7a02736cd3cceb09668
+Author: David Monllao <davidm@moodle.com>
+Date:   Wed Sep 4 09:18:54 2013 +0800
+
+    Adding runs samples
+
+commit fdcd8ba092b1ea623dd2bda435ac749db3217aa7
+Author: David Monllao <david.monllao@gmail.com>
+Date:   Mon Sep 2 14:08:12 2013 +0800
+
+    Using user defined vars instead of CLI call properties
+
+commit d43376dd065752cdaa55184f666abde9d5edcca8
+Author: David Monllao <david.monllao@gmail.com>
+Date:   Fri Aug 30 15:54:17 2013 +0800
+
+    Correcting usage instructions
+
+commit 61bd121a0adcb3a24389e9e7d53e7439976b5913
+Author: David Monllao <david.monllao@gmail.com>
+Date:   Fri Aug 30 14:20:37 2013 +0800
+
+    README - Ups...
+
+commit a17b4d4bd7d4924f71ebacef85d261251ca10cbf
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 29 17:09:02 2013 +0800
+
+    README - Updating it
+
+commit 984c5663cd1f446b0965662749e31aa6964dc2d3
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 29 16:53:53 2013 +0800
+
+    Adding Sam scripts to compare runs
+
+commit 307cd51064e8cfbeea31d12922eb0d062214faba
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 29 16:53:04 2013 +0800
+
+    Changing eeeverything to new functionality
+
+commit 592925fa1efdd96e3f03e6b31327d0341d62a1e1
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 29 16:51:17 2013 +0800
+
+    README - Updating according to current usage
+
+commit 70476611bf2107472fa194e0134e35012e0948c3
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 29 16:50:08 2013 +0800
+
+    Removing old tool scripts
+
+commit 36b25c60f4bf823d1a9206fcb9b6954f9c3febbe
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 29 16:42:25 2013 +0800
+
+    Adding test runner
+
+commit b11c728cd120da68148cbf0b2178811adaba6624
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 29 16:41:50 2013 +0800
+
+    Adding empty dir to store the images
+
+commit fb6e4fc57f368c066e855378e3bf8ab7a6ff712e
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Aug 20 17:43:01 2013 +0800
+
+    Adding one central test course
+
+commit 19a57dc78c71843ea96d88e4cda60e4d84c5d829
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Aug 20 16:50:42 2013 +0800
+
+    Adding module instances generation
+
+commit f2a74391a7666f561e794467e2f5124d65fa7f53
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 17:51:49 2013 +0800
+
+    Updating runtestplan.sh status
+
+commit e701aa47cc5d693f18f784702a4d82fde02b1285
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 17:45:13 2013 +0800
+
+    Adding simple testplans
+    
+    This is only to provide a working set of tools,
+    but the test is extremly simple, just a proof to
+    ensure runtestplan.sh is working as expected
+
+commit 6c6fc696e2b61f83d5672ff8596b3dc3579827bf
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 14:13:56 2013 +0800
+
+    Ignoring user's config.properties
+
+commit bf611f9442c9f4f4422edcf3be61aea2bdbb7e4f
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 14:13:18 2013 +0800
+
+    Adding data generator (moosh) and test plan runner
+
+commit 7d75811ba4b61061de58e9b1feb3ee66dcfbb57b
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 14:07:34 2013 +0800
+
+    README - This is crappy ATM
+
+commit c2f03629c57099a1a4878b68a2a38a030f61b9dc
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 14:07:15 2013 +0800
+
+    Adding default config file
+
+commit 2ba86ff926e627d14b9633b2fd723d3c97c50388
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 13:55:30 2013 +0800
+
+    Beanshell script to convert results to a PHP array
+    
+    Copied & modified from https://github.com/samhemelryk/moodle-jmeter-perfcomp
+
+commit 4f446672951445bb005a9b65206e29491f56e99f
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 13:20:15 2013 +0800
+
+    Moving Moodle's config.php template to templates/
+
+commit 31d0229f30116c41df217078287660ab8d9bb46c
+Author: David Monllao <davidm@moodle.com>
+Date:   Mon Aug 19 13:09:13 2013 +0800
+
+    Adding rampup period
+
+commit ecbd5e8bcc41b9c8b1089ecf568df39bcda3d2a0
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 12:09:14 2013 +0800
+
+    Fix wrong properties
+
+commit d955c421b9a50cba55ff4e58610522126eb3ff74
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 11:05:20 2013 +0800
+
+    Allowing alternative moodle repository
+    
+    It can be used to run the test using your own branches.
+
+commit b791b084f5b8500494c9ede5909dabed6076d3db
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 10:56:22 2013 +0800
+
+    Few improvements when reinstalling
+    
+    * Create moodledata/
+    * fetch again origin when reinstalling
+
+commit 59becdb52052d5d9357472df85e67eed5f958b02
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 10:49:56 2013 +0800
+
+    logs/ dir added
+
+commit 287b3bc1bd81bbb8199bbe8212324c9f42bd26ab
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 10:24:51 2013 +0800
+
+    runs/ dir added
+
+commit f8105d46fbd322bcf6c0a5f2d5d808bf8648c86f
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 10:06:05 2013 +0800
+
+    Moving all resources required by the test plan to testplandata
+
+commit d19f8b8df85d9c2f1e4abde5422a246e59a0077b
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 10:04:08 2013 +0800
+
+    README - How does this thing work
+
+commit 7030b27ec50b85197c5ccd65b11657647626054b
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Aug 16 10:01:53 2013 +0800
+
+    From bourne shell to bash
+
+commit e316f2a6a6e1e3bfa4e68c008501e617970454f6
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 15 16:44:21 2013 +0800
+
+    Ignoring test plans .xml dir
+
+commit 09d29332f4c44745ee6c77dc79db3677a058c7b2
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 15 16:43:42 2013 +0800
+
+    Site installation script
+
+commit dc131679696a3e8f84b89adc1c4dd412e97d8ccd
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 15 16:41:35 2013 +0800
+
+    Static vars
+    
+    Used by the data generator and
+    the test plan runner.
+
+commit 8c384a1b48f45458b506bba7b6462785e31b6dc6
+Author: David Monllao <davidm@moodle.com>
+Date:   Thu Aug 15 16:40:03 2013 +0800
+
+    Ignoring resources dir
+    
+    Contains .csv files with username/password
+    pairs.
+
+commit c27087a2b0aa353e1d40c4a27994d8ad919417c6
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Aug 13 14:25:38 2013 +0800
+
+    Moodle config.php template
+    
+    To overwrite with config.properies values.
+
+commit 5a0921e023e75c07ebca525cb9a4b8783a2e7e4e
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Aug 13 14:24:46 2013 +0800
+
+    Ignoring data directories
+
+commit 267ed3cab6b3ea52c7bdda7dea035cce403dcd95
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Mon Aug 19 14:21:43 2013 +0800
+
+    Create LICENSE.md

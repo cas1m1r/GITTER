@@ -1,0 +1,3198 @@
+======================: FILES :======================
+.
+├── LICENSE
+├── qr2key.py
+├── qrcrawler.py
+├── qrpirate.png
+├── qrpirate.sh
+├── README.md
+└── requirements.txt
+
+0 directories, 7 files
+======================: README CONTENT :======================
+# qr-pirate
+<p>
+  <img alt="qr-pirate logo"src="qrpirate.png" align="left" width="150" height="150">
+  <b>crawl QR-codes from search engines and look for Bitcoin wallet private keys</b><br>
+  <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+  <a href="https://pyup.io/repos/github/mzollin/qr-pirate"><img alt="Updates" src="https://pyup.io/repos/github/mzollin/qr-pirate/shield.svg"></a>
+  <a href="https://pyup.io/repos/github/mzollin/qr-pirate"><img alt="Python3" src="https://pyup.io/repos/github/mzollin/qr-pirate/python-3-shield.svg"></a><br><br>
+  <b>Disclaimer: You probably won't find any private keys of wallets that still contain Bitcoins. If you do, please leave them where they are, this tool is for demonstration purposes only. Also don't put photos of your private keys on the internet.</b>
+<p><br>
+
+## Setup and usage:
+- sudo apt install python3-dev python3-setuptools python3-pip libzbar0 libzbar-dev
+- pip3 install -r requirements.txt
+
+**example usage:** ./qrpirate.sh "bitcoin qr"<br>
+**output:** keylist_unique.txt
+<br>
+The balance of the wallet associated with each found private key will be output on the terminal.
+
+## Details
+You can use the qrpirate.sh bash script to automate the whole process from search keyword input to private key output, or use the qrcrawler.py and qr2key.py tools on their own. <b>The bash script automates the following steps:</b>
+
+1. Calls qrcrawler.py with the provided search keywords as an argument to crawl google, bing and baidu for images. They will be downloaded to a qrbooty folder with subfolders for every search engine.
+
+2. Renames and moves the files up from the subfolders to the qrbooty folder with unique names.
+
+3. Calls qr2key.py to scan the downloaded images in the qrbooty folder for QR-codes and checks if they contain Bitcoin wallet private keys. The keys will be saved in a keylist.txt file.
+
+4. Removes duplicates in keylist.txt and outputs the unique keys to a keylist_unique.txt file
+
+## Python dependencies:
+- icrawler
+- pillow
+- zbarlight
+- pycoin
+====================== GIT HISTORY: ======================
+527bee1 HEAD@{0}: clone: from https://github.com/henryezell1001/qr-pirate
+commit 527bee17bf6071f2e2482fa08b0fde73261f6c47
+Merge: d4c49f0 ae38d28
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Jun 10 13:21:45 2022 +0200
+
+    Merge pull request #197 from mzollin/pyup-update-requests-2.27.1-to-2.28.0
+    
+    Update requests to 2.28.0
+
+commit ae38d28e9f186764c8b15e3de079462bd4564587
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Jun 10 07:46:14 2022 +0200
+
+    Update requests from 2.27.1 to 2.28.0
+
+commit d4c49f0498c783f3ea0cffcb3ec91688c68c3004
+Merge: 06b6712 993acb5
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jun 1 08:02:23 2022 +0200
+
+    Merge pull request #195 from mzollin/pyup-update-pycoin-0.92.20220213-to-0.92.20220529
+    
+    Update pycoin to 0.92.20220529
+
+commit 06b6712227ecce8528c9289e8235c1c8b1a20034
+Merge: 2eebc2b b2f1d33
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jun 1 08:01:47 2022 +0200
+
+    Merge pull request #196 from mzollin/pyup-update-lxml-4.8.0-to-4.9.0
+    
+    Update lxml to 4.9.0
+
+commit b2f1d33c4599a61b28d6ffeff20e8a8530a62b29
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jun 1 03:57:36 2022 +0200
+
+    Update lxml from 4.8.0 to 4.9.0
+
+commit 993acb55fd99af1a01e8372992de4b6d4ce54c8d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon May 30 01:47:13 2022 +0200
+
+    Update pycoin from 0.92.20220213 to 0.92.20220529
+
+commit 2eebc2bcc6c4d7675e07cc08775586acba03098e
+Merge: f1160d4 10d9dde
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri May 20 08:11:24 2022 +0200
+
+    Merge pull request #194 from mzollin/pyup-update-certifi-2022.5.18-to-2022.5.18.1
+    
+    Update certifi to 2022.5.18.1
+
+commit 10d9ddee2cafc7750dd72276c6e46da24a9ee84c
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri May 20 06:51:25 2022 +0200
+
+    Update certifi from 2022.5.18 to 2022.5.18.1
+
+commit f1160d406dfb386a2c7b2d7d661874804779b6f6
+Merge: 160b16c fb47f2c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu May 19 07:53:39 2022 +0200
+
+    Merge pull request #193 from mzollin/pyup-update-certifi-2021.10.8-to-2022.5.18
+    
+    Update certifi to 2022.5.18
+
+commit fb47f2cb6404149e6bcaf835c5b75845bda72b76
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu May 19 06:52:21 2022 +0200
+
+    Update certifi from 2021.10.8 to 2022.5.18
+
+commit 160b16c979f6523a7a70847f60f40455753326a1
+Merge: cb38b43 6dbbefe
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue May 17 23:40:43 2022 +0200
+
+    Merge pull request #192 from mzollin/pyup-update-pillow-9.0.1-to-9.1.1
+    
+    Update pillow to 9.1.1
+
+commit 6dbbefec987454c10d80d620d1bb209259cfa427
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue May 17 23:39:28 2022 +0200
+
+    Update pillow from 9.0.1 to 9.1.1
+
+commit cb38b430dcae09f8e7eec9ea10366451dfe71ae2
+Merge: 7c7b743 e87ddef
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 14 19:02:51 2022 +0200
+
+    Merge pull request #191 from mzollin/pyup-update-soupsieve-2.3.2-to-2.3.2.post1
+    
+    Update soupsieve to 2.3.2.post1
+
+commit e87ddef2e7fd19993b4b9948971220636b72d37a
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Apr 14 16:19:48 2022 +0200
+
+    Update soupsieve from 2.3.2 to 2.3.2.post1
+
+commit 7c7b743bc180266a131d2fe44c40ecabba67e92c
+Merge: 4253bbd 2251de8
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Apr 9 15:40:45 2022 +0200
+
+    Merge pull request #190 from mzollin/pyup-update-beautifulsoup4-4.10.0-to-4.11.1
+    
+    Update beautifulsoup4 to 4.11.1
+
+commit 2251de8957e68ff75edea427ccb86d58ab3cebd5
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Apr 9 02:55:07 2022 +0200
+
+    Update beautifulsoup4 from 4.10.0 to 4.11.1
+
+commit 4253bbdcb764e372d44a57f77303038604eb0284
+Merge: dd1e80a e23a2fa
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 7 18:56:02 2022 +0200
+
+    Merge pull request #189 from mzollin/pyup-update-soupsieve-2.3.1-to-2.3.2
+    
+    Update soupsieve to 2.3.2
+
+commit e23a2faa728ab156889dc92d1425d70b0129cc80
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Apr 6 17:23:37 2022 +0200
+
+    Update soupsieve from 2.3.1 to 2.3.2
+
+commit dd1e80af49a717dd50339fee3ce28b586ebc3a12
+Merge: 21dea15 cdf8798
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Feb 17 22:49:49 2022 +0100
+
+    Merge pull request #188 from mzollin/pyup-update-lxml-4.7.1-to-4.8.0
+    
+    Update lxml to 4.8.0
+
+commit cdf87985c9c5cad9b52e74f1487b16ec4bfab08d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Feb 17 17:49:24 2022 +0100
+
+    Update lxml from 4.7.1 to 4.8.0
+
+commit 21dea153fdf315633d5a277711867ca87eda305a
+Merge: df9f59e e4439c0
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Feb 16 11:27:03 2022 +0100
+
+    Merge pull request #187 from mzollin/pyup-update-pycoin-0.90.20201031-to-0.92.20220213
+    
+    Update pycoin to 0.92.20220213
+
+commit e4439c0a74b9325b3a842111f771e151040716f5
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Feb 14 05:53:10 2022 +0100
+
+    Update pycoin from 0.90.20201031 to 0.92.20220213
+
+commit df9f59e16ba682fa30ee0c0d5d526026b7812c8b
+Merge: fa60bcf f986642
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Feb 3 18:36:52 2022 +0100
+
+    Merge pull request #185 from mzollin/pyup-update-pillow-9.0.0-to-9.0.1
+    
+    Update pillow to 9.0.1
+
+commit f986642381283f60e37135ec0950f059f34bdb8e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Feb 3 09:44:17 2022 +0100
+
+    Update pillow from 9.0.0 to 9.0.1
+
+commit fa60bcf121b4e1c736d723bf393ef2f6a6e4a499
+Merge: d6de9e2 61bc719
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Jan 8 10:08:55 2022 +0100
+
+    Merge pull request #184 from mzollin/pyup-update-urllib3-1.26.7-to-1.26.8
+    
+    Update urllib3 to 1.26.8
+
+commit 61bc7192b5dfccb896b30bd0089094e09b1be637
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Jan 8 02:50:41 2022 +0100
+
+    Update urllib3 from 1.26.7 to 1.26.8
+
+commit d6de9e23a6cd88ff36df4d0936fc3e65a66fde2e
+Merge: 35212bd a520e5e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 6 20:21:24 2022 +0100
+
+    Merge pull request #183 from mzollin/pyup-update-requests-2.27.0-to-2.27.1
+    
+    Update requests to 2.27.1
+
+commit a520e5e386e06187c129d650ee9158da22640871
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jan 6 07:27:25 2022 +0100
+
+    Update requests from 2.27.0 to 2.27.1
+
+commit 35212bd5b1811f19d1ffc2ab7a59b1c86b952cf8
+Merge: aec5b8d af56ac7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 4 22:06:40 2022 +0100
+
+    Merge pull request #182 from mzollin/pyup-update-requests-2.26.0-to-2.27.0
+    
+    Update requests to 2.27.0
+
+commit af56ac7266be5e3881260d96bd26e40dede19239
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Jan 4 07:01:06 2022 +0100
+
+    Update requests from 2.26.0 to 2.27.0
+
+commit aec5b8d8669e66a5d6e0772a0db881795fdbb79d
+Merge: 536affd 222a283
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jan 3 11:51:37 2022 +0100
+
+    Merge pull request #181 from mzollin/pyup-update-pillow-8.4.0-to-9.0.0
+    
+    Update pillow to 9.0.0
+
+commit 222a28381144334580147a25f05147875a1042c7
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jan 3 03:42:30 2022 +0100
+
+    Update pillow from 8.4.0 to 9.0.0
+
+commit 536affd42e246cfc827fd61fee44a2fe9740362f
+Merge: 17adf30 b013ec2
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Dec 14 23:20:19 2021 +0100
+
+    Merge pull request #180 from mzollin/pyup-update-lxml-4.7.0-to-4.7.1
+    
+    Update lxml to 4.7.1
+
+commit b013ec2ad8f592b98567c8615f05423c315f624f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Dec 14 01:49:38 2021 +0100
+
+    Update lxml from 4.7.0 to 4.7.1
+
+commit 17adf3010e3f424e3d231f27639c931be4623744
+Merge: f29740d e72d403
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 13 22:19:00 2021 +0100
+
+    Merge pull request #179 from mzollin/pyup-update-lxml-4.6.5-to-4.7.0
+    
+    Update lxml to 4.7.0
+
+commit e72d4033ce0138f3a69c3e7c1a029d38582028b5
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Dec 13 11:49:03 2021 +0100
+
+    Update lxml from 4.6.5 to 4.7.0
+
+commit f29740dd79abe96aef844104d1e9f1c399bde53e
+Merge: 2fca8d8 7930150
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 13 08:08:49 2021 +0100
+
+    Merge pull request #178 from mzollin/pyup-update-lxml-4.6.4-to-4.6.5
+    
+    Update lxml to 4.6.5
+
+commit 79301506fed008378a708a19ff64cd7fd56dfed0
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Dec 13 01:48:12 2021 +0100
+
+    Update lxml from 4.6.4 to 4.6.5
+
+commit 2fca8d8181a474fb3b924c2924564c778c2d7daa
+Merge: 5996e61 6b3e097
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Nov 11 17:05:26 2021 +0100
+
+    Merge pull request #177 from mzollin/pyup-update-soupsieve-2.3-to-2.3.1
+    
+    Update soupsieve to 2.3.1
+
+commit 6b3e09734bbff71552a344cbc3987fa1b3bb1547
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Nov 11 16:22:36 2021 +0100
+
+    Update soupsieve from 2.3 to 2.3.1
+
+commit 5996e611d80916b95b34e0934b9c199f1bfbe8bc
+Merge: cf56c2a 1b132ee
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Nov 3 21:43:43 2021 +0100
+
+    Merge pull request #176 from mzollin/pyup-update-soupsieve-2.2.1-to-2.3
+    
+    Update soupsieve to 2.3
+
+commit cf56c2aed626adcb9a04dff0d4594e7f2c4cf359
+Merge: 0e02426 3787028
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Nov 3 21:43:28 2021 +0100
+
+    Merge pull request #175 from mzollin/pyup-update-lxml-4.6.3-to-4.6.4
+    
+    Update lxml to 4.6.4
+
+commit 1b132ee8bd17ab3c4691bebc17f6f21b9f46eed8
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Nov 3 18:21:54 2021 +0100
+
+    Update soupsieve from 2.2.1 to 2.3
+
+commit 3787028f66f89d4258860cf9e98bbd562b544018
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Nov 3 18:21:52 2021 +0100
+
+    Update lxml from 4.6.3 to 4.6.4
+
+commit 0e02426e72bb2910e6015dbac04c88b2d93a6027
+Merge: cca4341 1fd99f7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Oct 15 15:30:11 2021 +0200
+
+    Merge pull request #174 from mzollin/pyup-update-pillow-8.3.2-to-8.4.0
+    
+    Update pillow to 8.4.0
+
+commit 1fd99f7e70ef80d2de2f7e6067907bf3a4b4f1c6
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Oct 15 14:46:06 2021 +0200
+
+    Update pillow from 8.3.2 to 8.4.0
+
+commit cca4341ce9ae26ed0744b137b6c9faa239c3a4e0
+Merge: d4b8f77 eabb2ac
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Oct 13 22:06:27 2021 +0200
+
+    Merge pull request #173 from mzollin/pyup-update-idna-3.2-to-3.3
+    
+    Update idna to 3.3
+
+commit eabb2ac8105d6ba138a4ac0b4d087d5f9165a0f6
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Oct 13 11:12:25 2021 +0200
+
+    Update idna from 3.2 to 3.3
+
+commit d4b8f7742f27387eec3daa466576c8c40510860f
+Merge: a49a3e6 7acc812
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Oct 10 11:44:48 2021 +0200
+
+    Merge pull request #172 from mzollin/pyup-update-certifi-2021.5.30-to-2021.10.8
+    
+    Update certifi to 2021.10.8
+
+commit 7acc8125472de9432fa83458d91158d85fca4e6d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Oct 10 01:02:45 2021 +0200
+
+    Update certifi from 2021.5.30 to 2021.10.8
+
+commit a49a3e6174ae52706c8ef866e910aada57eefaa3
+Merge: ee601ca 79e4820
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Sep 24 15:11:19 2021 +0200
+
+    Merge pull request #171 from mzollin/pyup-update-urllib3-1.26.6-to-1.26.7
+    
+    Update urllib3 to 1.26.7
+
+commit 79e4820b49e618fa018fc218258e033b19c0ae5d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Sep 23 18:42:04 2021 +0200
+
+    Update urllib3 from 1.26.6 to 1.26.7
+
+commit ee601caa262839ab0d8d681810f62e0c221e8d82
+Merge: f5a80b0 b711374
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Sep 9 08:38:13 2021 +0200
+
+    Merge pull request #170 from mzollin/pyup-update-beautifulsoup4-4.9.3-to-4.10.0
+    
+    Update beautifulsoup4 to 4.10.0
+
+commit f5a80b06f7621f90f69f0df7e38b1820da1d29f6
+Merge: 9b32689 e2e4477
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Sep 9 08:37:04 2021 +0200
+
+    Merge pull request #169 from mzollin/dependabot/pip/pillow-8.3.2
+    
+    Bump pillow from 8.3.1 to 8.3.2
+
+commit 9b32689bb55c9eb41b7ed0fd6d2f1b294c05f01b
+Merge: fc78a4f d7e0790
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Sep 9 08:36:38 2021 +0200
+
+    Merge pull request #168 from mzollin/pyup-update-pillow-8.3.1-to-8.3.2
+    
+    Update pillow to 8.3.2
+
+commit b711374fe51ed6914a19c5fdcdda0b07698d8a52
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Sep 8 16:49:11 2021 +0200
+
+    Update beautifulsoup4 from 4.9.3 to 4.10.0
+
+commit e2e4477220d5b7d6cdb458ce3817cd62171c6bd4
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue Sep 7 23:50:51 2021 +0000
+
+    Bump pillow from 8.3.1 to 8.3.2
+    
+    Bumps [pillow](https://github.com/python-pillow/Pillow) from 8.3.1 to 8.3.2.
+    - [Release notes](https://github.com/python-pillow/Pillow/releases)
+    - [Changelog](https://github.com/python-pillow/Pillow/blob/master/CHANGES.rst)
+    - [Commits](https://github.com/python-pillow/Pillow/compare/8.3.1...8.3.2)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: pillow
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit d7e079002f867a13d692d7013fa520f951797190
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Sep 3 00:44:20 2021 +0200
+
+    Update pillow from 8.3.1 to 8.3.2
+
+commit fc78a4f814508a1e4418a68f63b29870e5d723f1
+Merge: aaba1a9 9439151
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Aug 15 11:00:17 2021 +0200
+
+    Merge pull request #167 from mzollin/pyup-update-icrawler-0.6.4-to-0.6.6
+    
+    Update icrawler to 0.6.6
+
+commit 94391517e1369f90fcad7adabb4dabc9f8468742
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Aug 14 14:46:04 2021 +0200
+
+    Update icrawler from 0.6.4 to 0.6.6
+
+commit aaba1a9be8268bb3814b9e136711d3137b101895
+Merge: a9bfa2d 0f5a0ce
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jul 19 07:58:13 2021 +0200
+
+    Merge pull request #166 from mzollin/pyup-update-requests-2.25.1-to-2.26.0
+    
+    Update requests to 2.26.0
+
+commit 0f5a0ce3a6df4c3b12ee1fb245d1ce35ed3dc529
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jul 15 06:45:20 2021 +0200
+
+    Update requests from 2.25.1 to 2.26.0
+
+commit a9bfa2dc6902b8ce56efc5c1e9aa38ab5bba2d5a
+Merge: a0c69d4 1a97953
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jul 7 09:49:02 2021 +0200
+
+    Merge pull request #165 from mzollin/pyup-update-pillow-8.2.0-to-8.3.1
+    
+    Update pillow to 8.3.1
+
+commit 1a9795358f71683af3e9ca83ac82f1326d4a66b3
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jul 7 06:41:05 2021 +0200
+
+    Update pillow from 8.2.0 to 8.3.1
+
+commit a0c69d49be5684a14587cc7bfce077dd380c02c1
+Merge: 9c5fc50 977ccf9
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Jun 26 09:09:16 2021 +0200
+
+    Merge pull request #163 from mzollin/pyup-update-urllib3-1.26.5-to-1.26.6
+    
+    Update urllib3 to 1.26.6
+
+commit 977ccf96cfa346c59f28bcf84a0b281bf874bbc8
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Jun 26 00:52:33 2021 +0200
+
+    Update urllib3 from 1.26.5 to 1.26.6
+
+commit 9c5fc50d261e02fe5783a00d2e9b0dabce8e1946
+Merge: 18779ad d22ce45
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon May 31 07:07:54 2021 +0200
+
+    Merge pull request #162 from mzollin/pyup-update-certifi-2020.12.5-to-2021.5.30
+    
+    Update certifi to 2021.5.30
+
+commit d22ce4549b6229c453757b3db05999ec96d23416
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon May 31 02:36:41 2021 +0200
+
+    Update certifi from 2020.12.5 to 2021.5.30
+
+commit 18779ad1e002592014e97e5b052d7a9f79e70193
+Merge: 6e6b082 1b64d23
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun May 30 14:29:44 2021 +0200
+
+    Merge pull request #161 from mzollin/pyup-update-idna-3.1-to-3.2
+    
+    Update idna to 3.2
+
+commit 1b64d23b9d9c557d8f421538c1a8a396be137fd3
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun May 30 02:49:57 2021 +0200
+
+    Update idna from 3.1 to 3.2
+
+commit 6e6b0825686afc60f068b917e185a15770bae0e1
+Merge: f34d842 97906ce
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu May 27 23:40:22 2021 +0200
+
+    Merge pull request #160 from mzollin/pyup-update-urllib3-1.26.4-to-1.26.5
+    
+    Update urllib3 to 1.26.5
+
+commit 97906ce823396129a90ab7f5a4a3e46b4be55e04
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu May 27 23:12:07 2021 +0200
+
+    Update urllib3 from 1.26.4 to 1.26.5
+
+commit f34d842480c88d05af12b7147c2fe4be4412c390
+Merge: e00d734 529c8f7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu May 6 12:26:35 2021 +0200
+
+    Merge pull request #159 from mzollin/pyup-update-six-1.15.0-to-1.16.0
+    
+    Update six to 1.16.0
+
+commit 529c8f7d3f7abefd2114b65e1f99abacc9bd1007
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu May 6 02:14:19 2021 +0200
+
+    Update six from 1.15.0 to 1.16.0
+
+commit e00d7341beb1edeec077bcb44d55a7fe38cbbe6a
+Merge: 5933af0 27647d0
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Apr 2 21:39:01 2021 +0200
+
+    Merge pull request #158 from mzollin/pyup-update-pillow-8.1.2-to-8.2.0
+    
+    Update pillow to 8.2.0
+
+commit 27647d0ed3bae67a47d676a2728a76de19b77a38
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Apr 2 19:39:18 2021 +0200
+
+    Update pillow from 8.1.2 to 8.2.0
+
+commit 5933af0c4448ab75c3576ebb429c48c55002d903
+Merge: 5b10b09 cd97b02
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Mar 21 21:41:45 2021 +0100
+
+    Merge pull request #157 from mzollin/pyup-update-lxml-4.6.2-to-4.6.3
+    
+    Update lxml to 4.6.3
+
+commit cd97b02053f09f2dc40664dcb2c0f477dbe23e33
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Mar 21 21:40:49 2021 +0100
+
+    Update lxml from 4.6.2 to 4.6.3
+
+commit 5b10b09ae2c19d3fe461e07f619372ef7b655f78
+Merge: ac4a301 c9f737b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Mar 19 14:29:07 2021 +0100
+
+    Merge pull request #156 from mzollin/pyup-update-soupsieve-2.2-to-2.2.1
+    
+    Update soupsieve to 2.2.1
+
+commit c9f737bd3317dc4b776a06b321f10fd21d9d8121
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Mar 19 14:06:16 2021 +0100
+
+    Update soupsieve from 2.2 to 2.2.1
+
+commit ac4a301be7fa7c197b83e64f00710ba591999e30
+Merge: 67497f7 6d53cb2
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Mar 16 07:34:54 2021 +0100
+
+    Merge pull request #155 from mzollin/pyup-update-urllib3-1.26.3-to-1.26.4
+    
+    Update urllib3 to 1.26.4
+
+commit 6d53cb24ee6fca67d4ec0e34eeb54c1ea14812fb
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Mar 16 07:31:27 2021 +0100
+
+    Update urllib3 from 1.26.3 to 1.26.4
+
+commit 67497f7a20962866b53ad5b89f2611ca07b5abb0
+Merge: e0a9560 1b14985
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Mar 12 10:42:41 2021 +0100
+
+    Merge pull request #154 from mzollin/pyup-update-icrawler-0.6.3-to-0.6.4
+    
+    Update icrawler to 0.6.4
+
+commit 1b14985f78901babd1e4c824cfb3097a1cf08668
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Mar 11 09:45:18 2021 +0100
+
+    Update icrawler from 0.6.3 to 0.6.4
+
+commit e0a9560b508e7d1b3787eb0623832e0b5247a711
+Merge: 54e33c1 62bc665
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Mar 7 11:18:13 2021 +0100
+
+    Merge pull request #153 from mzollin/pyup-update-pillow-8.1.1-to-8.1.2
+    
+    Update pillow to 8.1.2
+
+commit 62bc66517df2dabad91fcb4645ffc893896c7a16
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Mar 7 07:27:35 2021 +0100
+
+    Update pillow from 8.1.1 to 8.1.2
+
+commit 54e33c16f6212ed8cff0af44a17743d099659305
+Merge: bef4bb2 a7af098
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Mar 2 08:28:16 2021 +0100
+
+    Merge pull request #152 from mzollin/pyup-update-pillow-8.1.0-to-8.1.1
+    
+    Update pillow to 8.1.1
+
+commit a7af0980edf95671946d16c777280065bea0f796
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Mar 2 05:26:11 2021 +0100
+
+    Update pillow from 8.1.0 to 8.1.1
+
+commit bef4bb2e7cbe0a15d099067aa185e92f1f7b262e
+Merge: c24a784 2c39790
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Feb 10 10:00:03 2021 +0100
+
+    Merge pull request #151 from mzollin/pyup-update-soupsieve-2.1-to-2.2
+    
+    Update soupsieve to 2.2
+
+commit 2c3979068a8f0ca6bb4a6e9140976aa41f5ebb80
+Merge: dfd8436 c24a784
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Feb 10 09:59:55 2021 +0100
+
+    Merge branch 'master' into pyup-update-soupsieve-2.1-to-2.2
+
+commit c24a78413b4f7eb522cf8fef7c1027367ea05d3f
+Merge: 9026ca5 e094466
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Feb 10 09:58:37 2021 +0100
+
+    Merge pull request #150 from mzollin/pyup-update-urllib3-1.26.2-to-1.26.3
+    
+    Update urllib3 to 1.26.3
+
+commit dfd8436476c7445943082ecb311fe946bebd0780
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Feb 10 07:48:38 2021 +0100
+
+    Update soupsieve from 2.1 to 2.2
+
+commit e09446691e11ba307b75bf1d058aa6d3965b1b9e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jan 28 02:14:32 2021 +0100
+
+    Update urllib3 from 1.26.2 to 1.26.3
+
+commit 9026ca5705869a59dfdfb662d27f9202a7a8dfad
+Merge: 15399d8 e96c326
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 5 08:02:55 2021 +0100
+
+    Merge pull request #149 from mzollin/pyup-update-idna-2.10-to-3.1
+    
+    Update idna to 3.1
+
+commit 15399d8df48e8c097983bee8fde9d032f5e4979c
+Merge: 07787f9 e69724d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 5 08:02:25 2021 +0100
+
+    Merge pull request #148 from mzollin/pyup-update-pillow-8.0.1-to-8.1.0
+    
+    Update pillow to 8.1.0
+
+commit 07787f9eb81e7e5dfa996b7051ed6afe68c9c470
+Merge: f6b1974 0315938
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 5 08:02:05 2021 +0100
+
+    Merge pull request #146 from mzollin/pyup-update-requests-2.25.0-to-2.25.1
+    
+    Update requests to 2.25.1
+
+commit e96c32682fb2b28767e323c4c4acf9db547b159e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Jan 5 00:43:43 2021 +0100
+
+    Update idna from 2.10 to 3.1
+
+commit e69724d108c99ccc6cf01099ff95a069f92bfb3b
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jan 3 01:07:48 2021 +0100
+
+    Update pillow from 8.0.1 to 8.1.0
+
+commit 0315938269533fd11a2a96b16f3212790facc640
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Dec 17 09:01:59 2020 +0100
+
+    Update requests from 2.25.0 to 2.25.1
+
+commit f6b19745e01b1c9eb44aaff49a0b8767dd8c00d1
+Merge: f21bafe ab99712
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Dec 11 08:36:49 2020 +0100
+
+    Merge pull request #145 from mzollin/pyup-update-soupsieve-2.0.1-to-2.1
+    
+    Update soupsieve to 2.1
+
+commit f21bafe4479f24dc914f366cd84a17d06159e1a0
+Merge: ac7a2fd 00d0bdf
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Dec 11 08:36:30 2020 +0100
+
+    Merge pull request #144 from mzollin/pyup-update-chardet-3.0.4-to-4.0.0
+    
+    Update chardet to 4.0.0
+
+commit ab99712b9f8c026c8829853b89b425f7a888eff0
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Dec 11 01:25:00 2020 +0100
+
+    Update soupsieve from 2.0.1 to 2.1
+
+commit 00d0bdfd0e2adbd2403b330475a2ea27537f2dfb
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Dec 11 01:24:57 2020 +0100
+
+    Update chardet from 3.0.4 to 4.0.0
+
+commit ac7a2fde2b1b9938964e153636b6a1f13c899a23
+Merge: be1ed28 a9bbaa5
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Dec 6 11:04:44 2020 +0100
+
+    Merge pull request #143 from mzollin/pyup-update-certifi-2020.11.8-to-2020.12.5
+    
+    Update certifi to 2020.12.5
+
+commit be1ed28a03df1c406e48f8535b20c8688775310f
+Merge: c96a392 346e314
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Dec 6 11:03:25 2020 +0100
+
+    Merge pull request #142 from mzollin/pyup-update-lxml-4.6.1-to-4.6.2
+    
+    Update lxml to 4.6.2
+
+commit a9bbaa5494a63c661a266761ef5d4f83f7c11052
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Dec 6 04:51:43 2020 +0100
+
+    Update certifi from 2020.11.8 to 2020.12.5
+
+commit 346e314ca99d89dfa3f0073e7f280c70b5f3756e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Nov 27 10:07:42 2020 +0100
+
+    Update lxml from 4.6.1 to 4.6.2
+
+commit c96a3922b6c01e389971c689672475eddfd498d0
+Merge: 4d0f62d ff9e787
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Nov 14 11:03:27 2020 +0100
+
+    Merge pull request #141 from mzollin/pyup-update-urllib3-1.26.1-to-1.26.2
+    
+    Update urllib3 to 1.26.2
+
+commit ff9e78785c84d0353bdadb0e65446bae460f3891
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Nov 14 04:48:19 2020 +0100
+
+    Update urllib3 from 1.26.1 to 1.26.2
+
+commit 4d0f62db68eae1117a52551cb1460597aa928292
+Merge: 202a04d 04a03ea
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 13 12:12:14 2020 +0100
+
+    Merge pull request #140 from mzollin/pyup-update-urllib3-1.25.11-to-1.26.1
+    
+    Update urllib3 to 1.26.1
+
+commit 202a04dcb022862e461d0a4dc18e66b7df35f5f5
+Merge: 26dea91 e081113
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 13 12:11:10 2020 +0100
+
+    Merge pull request #139 from mzollin/pyup-update-requests-2.24.0-to-2.25.0
+    
+    Update requests to 2.25.0
+
+commit e0811137913299384bd8f288083db9de310717fd
+Merge: 93caff6 26dea91
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 13 12:11:01 2020 +0100
+
+    Merge branch 'master' into pyup-update-requests-2.24.0-to-2.25.0
+
+commit 26dea91451c624052144358b703f4b0fecce9aaa
+Merge: 6dba028 f0c747b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 13 12:09:53 2020 +0100
+
+    Merge pull request #137 from mzollin/pyup-update-certifi-2020.6.20-to-2020.11.8
+    
+    Update certifi to 2020.11.8
+
+commit 6dba028ca6b13325fa353aaafc424639f88e1f5a
+Merge: 34d2530 2ceb197
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 13 12:09:33 2020 +0100
+
+    Merge pull request #136 from mzollin/pyup-update-pycoin-0.90.20200809-to-0.90.20201031
+    
+    Update pycoin to 0.90.20201031
+
+commit 04a03ea1bd08aa671b6f7fd84534870f13e4031f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Nov 12 04:48:26 2020 +0100
+
+    Update urllib3 from 1.25.11 to 1.26.1
+
+commit 93caff6cacf6d33faca165deefe2baa3ff17a1ca
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Nov 12 04:48:23 2020 +0100
+
+    Update requests from 2.24.0 to 2.25.0
+
+commit f0c747b0b8c08d32520866c54529753577e051b7
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Nov 9 05:02:16 2020 +0100
+
+    Update certifi from 2020.6.20 to 2020.11.8
+
+commit 2ceb19764544ad7a8cf2c9b9ba6676620fdf4620
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Nov 1 00:28:56 2020 +0100
+
+    Update pycoin from 0.90.20200809 to 0.90.20201031
+
+commit 34d253078464d8e0cf06e87dfcc2585938832325
+Merge: 57a96d5 f15c73a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Oct 28 16:13:49 2020 +0100
+
+    Merge pull request #135 from mzollin/pyup-update-pillow-7.2.0-to-8.0.1
+    
+    Update pillow to 8.0.1
+
+commit f15c73a410d69333d9ddde456b1aabcadf8a7a15
+Merge: ce98319 57a96d5
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Oct 28 16:13:40 2020 +0100
+
+    Merge branch 'master' into pyup-update-pillow-7.2.0-to-8.0.1
+
+commit 57a96d5d41258b83c211953f64f45f84568d4b3a
+Merge: 95d1127 354bda7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Oct 28 16:12:17 2020 +0100
+
+    Merge pull request #134 from mzollin/pyup-update-urllib3-1.25.10-to-1.25.11
+    
+    Update urllib3 to 1.25.11
+
+commit 95d1127d2e4da4296500e7aa35cdae9773d3f590
+Merge: b097c2f e42d67d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Oct 28 16:11:31 2020 +0100
+
+    Merge pull request #133 from mzollin/pyup-update-lxml-4.5.2-to-4.6.1
+    
+    Update lxml to 4.6.1
+
+commit ce983198f0dfc6e8d706c7add52e3ce2e5384733
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Oct 23 01:01:34 2020 +0200
+
+    Update pillow from 7.2.0 to 8.0.1
+
+commit 354bda754f997277aa32cd63955e8de3628dd4f1
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Oct 19 23:43:20 2020 +0200
+
+    Update urllib3 from 1.25.10 to 1.25.11
+
+commit e42d67dfd322787c6f13e43c4a10bdf5789602bb
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Oct 18 21:42:01 2020 +0200
+
+    Update lxml from 4.5.2 to 4.6.1
+
+commit b097c2fa45864b49806b51c6917b41e75ed19f64
+Merge: 2bdb02f 8bbb450
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Oct 5 17:02:01 2020 +0200
+
+    Merge pull request #130 from mzollin/pyup-update-beautifulsoup4-4.9.2-to-4.9.3
+    
+    Update beautifulsoup4 to 4.9.3
+
+commit 8bbb4503608d68de1ca0aca1bcb6d1bb2bb56e6a
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Oct 3 19:46:53 2020 +0200
+
+    Update beautifulsoup4 from 4.9.2 to 4.9.3
+
+commit 2bdb02f98a00fdedfb23bb24ba1b8a49a274a371
+Merge: cc22805 9029b2b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Sep 27 23:46:54 2020 +0200
+
+    Merge pull request #129 from mzollin/pyup-update-beautifulsoup4-4.9.1-to-4.9.2
+    
+    Update beautifulsoup4 to 4.9.2
+
+commit 9029b2b707ec9eb602a36d9bb80bbc8063b99fa6
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Sep 26 19:52:35 2020 +0200
+
+    Update beautifulsoup4 from 4.9.1 to 4.9.2
+
+commit cc22805dcbe7984d239d31f5786c9c9dbb1f7521
+Merge: 2fc05f2 2a5aa4d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Aug 13 09:24:21 2020 +0200
+
+    Merge pull request #128 from mzollin/pyup-update-pycoin-0.90.20200322-to-0.90.20200809
+    
+    Update pycoin to 0.90.20200809
+
+commit 2a5aa4d798dd24bdc2a1e625c686050febf0c4c8
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Aug 10 06:18:20 2020 +0200
+
+    Update pycoin from 0.90.20200322 to 0.90.20200809
+
+commit 2fc05f2e6e096486a60348de2a6648ce4ffb0354
+Merge: f470652 e46c777
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jul 23 07:44:25 2020 +0200
+
+    Merge pull request #127 from mzollin/pyup-update-urllib3-1.25.9-to-1.25.10
+    
+    Update urllib3 to 1.25.10
+
+commit e46c7777c51df8245b65fcdfc0b37db2fa213f2f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jul 23 00:24:20 2020 +0200
+
+    Update urllib3 from 1.25.9 to 1.25.10
+
+commit f470652e2a0e4a0583da2a46385d2026c23cf01f
+Merge: 8d9b7ab b1eb47b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Jul 10 00:50:41 2020 +0200
+
+    Merge pull request #126 from mzollin/pyup-update-lxml-4.5.1-to-4.5.2
+    
+    Update lxml to 4.5.2
+
+commit b1eb47bc379aa30a90952fd06c22a7facf12a106
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jul 9 22:53:33 2020 +0200
+
+    Update lxml from 4.5.1 to 4.5.2
+
+commit 8d9b7ab7c3d0644036400dcb87c44c1ce93f801a
+Merge: d3428ed ccca20e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jul 5 17:04:39 2020 +0200
+
+    Merge pull request #125 from mzollin/pyup-update-pillow-7.1.2-to-7.2.0
+    
+    Update pillow to 7.2.0
+
+commit ccca20ef975cc501c4304bc074e098c13600ef45
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Jun 30 16:31:24 2020 +0200
+
+    Update pillow from 7.1.2 to 7.2.0
+
+commit d3428edf4e90749a59468908829548b8272c7290
+Merge: c915e40 4238ae6
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jun 29 12:11:53 2020 +0200
+
+    Merge pull request #124 from mzollin/pyup-update-idna-2.9-to-2.10
+    
+    Update idna to 2.10
+
+commit c915e40187d10b485edce809ee2a029262fc2390
+Merge: 531bdd0 36f1681
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jun 29 12:11:34 2020 +0200
+
+    Merge pull request #123 from mzollin/pyup-update-certifi-2020.4.5.2-to-2020.6.20
+    
+    Update certifi to 2020.6.20
+
+commit 4238ae62e48ea49f8cf1595d69e0cb780a8063cb
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jun 28 08:12:25 2020 +0200
+
+    Update idna from 2.9 to 2.10
+
+commit 36f1681fd4b08f655d02c5851eb045521c504e5b
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jun 21 21:50:37 2020 +0200
+
+    Update certifi from 2020.4.5.2 to 2020.6.20
+
+commit 531bdd046d29ea240f8cc0a59f269330da4c5914
+Merge: a6b8e8b cb9a0ff
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jun 18 18:25:35 2020 +0200
+
+    Merge pull request #122 from mzollin/pyup-update-requests-2.23.0-to-2.24.0
+    
+    Update requests to 2.24.0
+
+commit cb9a0ffa9e92487ddf9b478fffb0ea6380c0f651
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jun 18 18:24:09 2020 +0200
+
+    Update requests from 2.23.0 to 2.24.0
+
+commit a6b8e8bc8becd3f7cd1eca4577c897a58041e284
+Merge: 160b56b 08a741f
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jun 7 18:18:56 2020 +0200
+
+    Merge pull request #121 from mzollin/pyup-update-certifi-2020.4.5.1-to-2020.4.5.2
+    
+    Update certifi to 2020.4.5.2
+
+commit 08a741f71de292a8cf52ce285cb5fa32c8b38b37
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jun 7 17:56:23 2020 +0200
+
+    Update certifi from 2020.4.5.1 to 2020.4.5.2
+
+commit 160b56b8e98098aef4725d75a03fa28acc055a74
+Merge: 353c509 0db5cc9
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jun 3 14:00:56 2020 +0200
+
+    Merge pull request #120 from mzollin/pyup-update-icrawler-0.6.2-to-0.6.3
+    
+    Update icrawler to 0.6.3
+
+commit 0db5cc9fd32cb1a11e4b4a7a76b9514c09422ade
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jun 3 13:59:26 2020 +0200
+
+    Update icrawler from 0.6.2 to 0.6.3
+
+commit 353c509ddb55aadbf93fceab25128c3a87109a7f
+Merge: c11e1ee 1725df1
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat May 23 01:01:52 2020 +0200
+
+    Merge pull request #118 from mzollin/pyup-update-lxml-4.5.0-to-4.5.1
+    
+    Update lxml to 4.5.1
+
+commit c11e1ee9bfa644a1f9b3411dd6dac1ce29ad8881
+Merge: 03341d9 cfb8c07
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat May 23 01:01:35 2020 +0200
+
+    Merge pull request #119 from mzollin/pyup-update-six-1.14.0-to-1.15.0
+    
+    Update six to 1.15.0
+
+commit cfb8c07e42873eede60f8ce1302068f381cd05a0
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri May 22 01:53:56 2020 +0200
+
+    Update six from 1.14.0 to 1.15.0
+
+commit 1725df1d21cedc9a051ab00f21bd780cd9a2a3d7
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue May 19 14:08:56 2020 +0200
+
+    Update lxml from 4.5.0 to 4.5.1
+
+commit 03341d993372cb13cc948edbfa49ff87685e229f
+Merge: 3d4112a 807dc83
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun May 17 22:31:28 2020 +0200
+
+    Merge pull request #117 from mzollin/pyup-update-beautifulsoup4-4.9.0-to-4.9.1
+    
+    Update beautifulsoup4 to 4.9.1
+
+commit 3d4112a0a8fb067dc7641200370207a731d73dfa
+Merge: efd7953 3848789
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun May 17 22:31:12 2020 +0200
+
+    Merge pull request #116 from mzollin/pyup-update-soupsieve-2.0-to-2.0.1
+    
+    Update soupsieve to 2.0.1
+
+commit 807dc8382a2cb81cb4723910026219cc573d5f13
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun May 17 22:29:43 2020 +0200
+
+    Update beautifulsoup4 from 4.9.0 to 4.9.1
+
+commit 38487899f0d668aef5bde008fc368e9d284d983e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun May 17 01:37:43 2020 +0200
+
+    Update soupsieve from 2.0 to 2.0.1
+
+commit efd79533a8c5506368967f96226dfef44855e7d8
+Merge: b6c884f 156b1fd
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Apr 26 00:40:06 2020 +0200
+
+    Merge pull request #115 from mzollin/pyup-update-pillow-7.1.1-to-7.1.2
+    
+    Update pillow to 7.1.2
+
+commit 156b1fd471d85ef63611b8d11188f3ab2596a57d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Apr 26 00:38:03 2020 +0200
+
+    Update pillow from 7.1.1 to 7.1.2
+
+commit b6c884f9b2c3df99e65b67f6c39f478aff2ab559
+Merge: ef0e215 7853a2d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Apr 17 00:00:25 2020 +0200
+
+    Merge pull request #114 from mzollin/pyup-update-urllib3-1.25.8-to-1.25.9
+    
+    Update urllib3 to 1.25.9
+
+commit 7853a2dced85569be94e5ec205a0755c91d2e712
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Apr 16 23:58:42 2020 +0200
+
+    Update urllib3 from 1.25.8 to 1.25.9
+
+commit ef0e215205608081ccd31dc25f4283a595a4ac97
+Merge: 87606dc 45d7bab
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Apr 6 11:00:07 2020 +0200
+
+    Merge pull request #113 from mzollin/pyup-update-certifi-2019.11.28-to-2020.4.5.1
+    
+    Update certifi to 2020.4.5.1
+
+commit 45d7baba7d1f6c2e02201626f37895a62cd9d8ef
+Merge: 5a33a0f 87606dc
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Apr 6 10:59:57 2020 +0200
+
+    Merge branch 'master' into pyup-update-certifi-2019.11.28-to-2020.4.5.1
+
+commit 87606dcfd3e3412a4dcc040b5a555c165f49b76f
+Merge: 87803af bef2727
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Apr 6 10:58:41 2020 +0200
+
+    Merge pull request #112 from mzollin/pyup-update-beautifulsoup4-4.8.2-to-4.9.0
+    
+    Update beautifulsoup4 to 4.9.0
+
+commit 5a33a0f77c635a6f7e5984bab1de0b3a7a6851f3
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Apr 6 00:01:52 2020 +0200
+
+    Update certifi from 2019.11.28 to 2020.4.5.1
+
+commit bef2727ce022123d089ad374d387bb33cbc2ac58
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Apr 6 00:01:48 2020 +0200
+
+    Update beautifulsoup4 from 4.8.2 to 4.9.0
+
+commit 87803afee52f8f5d0a2986b0689678adf46c61ff
+Merge: e63a370 eb0a1ac
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Apr 3 00:16:14 2020 +0200
+
+    Merge pull request #111 from mzollin/pyup-update-pillow-7.1.0-to-7.1.1
+    
+    Update pillow to 7.1.1
+
+commit eb0a1ac69e15a1b0bc5f2f2936d5d7441d93610e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Apr 3 00:13:42 2020 +0200
+
+    Update pillow from 7.1.0 to 7.1.1
+
+commit e63a37067a6add8eb6d5543498753f4d85924d26
+Merge: def0e48 46568f1
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Apr 1 22:01:50 2020 +0200
+
+    Merge pull request #110 from mzollin/pyup-update-pillow-7.0.0-to-7.1.0
+    
+    Update pillow to 7.1.0
+
+commit 46568f1b60d64406ae0384192e454e7ffaa65317
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Apr 1 21:55:43 2020 +0200
+
+    Update pillow from 7.0.0 to 7.1.0
+
+commit def0e481ab031cc1f0bedd52305c96fa006d287d
+Merge: 8729c3a b3644dd
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Mar 23 10:35:04 2020 +0100
+
+    Merge pull request #109 from mzollin/pyup-update-pycoin-0.90.20190728-to-0.90.20200322
+    
+    Update pycoin to 0.90.20200322
+
+commit b3644ddfdac972c851a0e6ca3c20443c67659c23
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Mar 23 07:32:23 2020 +0100
+
+    Update pycoin from 0.90.20190728 to 0.90.20200322
+
+commit 8729c3a4aa64d8d413625320d4e4cb51cb6be44a
+Merge: 1f3e8be ee0ed84
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Feb 24 08:23:43 2020 +0100
+
+    Merge pull request #108 from mzollin/pyup-update-soupsieve-1.9.5-to-2.0
+    
+    Update soupsieve to 2.0
+
+commit ee0ed846f223d2a0548eb26c6c9d9963c1178871
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Feb 23 03:36:04 2020 +0100
+
+    Update soupsieve from 1.9.5 to 2.0
+
+commit 1f3e8be915d2e9134f924f5239483b98d3426bdd
+Merge: b075e79 e382b49
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Feb 20 08:34:01 2020 +0100
+
+    Merge pull request #107 from mzollin/pyup-update-requests-2.22.0-to-2.23.0
+    
+    Update requests to 2.23.0
+
+commit b075e79034b1de846fb67473014114488d71f008
+Merge: 1bd643f 3411dfa
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Feb 20 08:33:39 2020 +0100
+
+    Merge pull request #106 from mzollin/pyup-update-idna-2.8-to-2.9
+    
+    Update idna to 2.9
+
+commit e382b49a859e05783f988a4d2f6afc0292c08ada
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Feb 20 06:37:50 2020 +0100
+
+    Update requests from 2.22.0 to 2.23.0
+
+commit 3411dfa631c056afe6bac22d9d48ad2c004fb94f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Feb 17 13:59:08 2020 +0100
+
+    Update idna from 2.8 to 2.9
+
+commit 1bd643f61559bea444111ddb0ccd7355210888c1
+Merge: d763533 d0f5c9e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jan 29 17:40:15 2020 +0100
+
+    Merge pull request #105 from mzollin/pyup-update-lxml-4.4.2-to-4.5.0
+    
+    Update lxml to 4.5.0
+
+commit d0f5c9e37581d5db29e2a3fa7b8a5bcd660decf6
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jan 29 17:37:15 2020 +0100
+
+    Update lxml from 4.4.2 to 4.5.0
+
+commit d763533988328d24c279b7afeebb10cab11fcfca
+Merge: 5d48f94 ec5adfb
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jan 22 17:23:18 2020 +0100
+
+    Merge pull request #104 from mzollin/pyup-update-urllib3-1.25.7-to-1.25.8
+    
+    Update urllib3 to 1.25.8
+
+commit ec5adfba71e019e18a49a0c8c2dc875d9eb2c8aa
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jan 22 17:22:21 2020 +0100
+
+    Update urllib3 from 1.25.7 to 1.25.8
+
+commit 5d48f9471ef75fe99f354ddf308297d3b4147707
+Merge: a03a2df 81b6247
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 16 21:44:52 2020 +0100
+
+    Merge pull request #103 from mzollin/pyup-update-six-1.13.0-to-1.14.0
+    
+    Update six to 1.14.0
+
+commit 81b6247649c6862fad8915cef09189f05923f373
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jan 16 21:43:49 2020 +0100
+
+    Update six from 1.13.0 to 1.14.0
+
+commit a03a2df6d38017ffc9fe6b43d672631ec214bd57
+Merge: 699ccd8 a973137
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 2 15:56:44 2020 +0100
+
+    Merge pull request #102 from mzollin/pyup-update-pillow-6.2.1-to-7.0.0
+    
+    Update pillow to 7.0.0
+
+commit a9731378f8aa5092505f30343d92423c80cc4795
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jan 2 15:48:58 2020 +0100
+
+    Update pillow from 6.2.1 to 7.0.0
+
+commit 699ccd8c66fbffeb6d436fcd0ed124d6f547df6c
+Merge: 9f39492 12d9740
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Dec 26 00:39:37 2019 +0100
+
+    Merge pull request #101 from mzollin/pyup-update-beautifulsoup4-4.8.1-to-4.8.2
+    
+    Update beautifulsoup4 to 4.8.2
+
+commit 12d974094a51e7975fa9a4eee0e2cd1ab4628d17
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Dec 25 10:50:35 2019 +0100
+
+    Update beautifulsoup4 from 4.8.1 to 4.8.2
+
+commit 9f394928255d9502eebf04c5656f02d9da98ce88
+Merge: 798df49 b100501
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 29 18:52:59 2019 +0100
+
+    Merge pull request #100 from mzollin/pyup-update-certifi-2019.9.11-to-2019.11.28
+    
+    Update certifi to 2019.11.28
+
+commit b100501fb2ddaaeb0445c519d4534945b486b283
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Nov 29 18:31:47 2019 +0100
+
+    Update certifi from 2019.9.11 to 2019.11.28
+
+commit 798df4952979c7bfde535e6d3acd7363da9a9f97
+Merge: ae3e7d4 b7d6f1b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Nov 26 18:00:10 2019 +0100
+
+    Merge pull request #99 from mzollin/pyup-update-lxml-4.4.1-to-4.4.2
+    
+    Update lxml to 4.4.2
+
+commit b7d6f1b156b1303dce750c189f76d6db3fd0ee00
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Nov 26 17:57:47 2019 +0100
+
+    Update lxml from 4.4.1 to 4.4.2
+
+commit ae3e7d4635c047d598cff1d9f5c27cdbdd6548ba
+Merge: 8be1e7b 29c14ce
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Nov 12 10:06:06 2019 +0100
+
+    Merge pull request #98 from mzollin/pyup-update-urllib3-1.25.6-to-1.25.7
+    
+    Update urllib3 to 1.25.7
+
+commit 29c14ce5383101eb9a6a450afe444807ac257cbe
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Nov 12 01:40:18 2019 +0100
+
+    Update urllib3 from 1.25.6 to 1.25.7
+
+commit 8be1e7b1a94df91004eab3e14141937df27012d1
+Merge: 4caed01 db17f7a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Nov 6 07:14:46 2019 +0100
+
+    Merge pull request #97 from mzollin/pyup-update-six-1.12.0-to-1.13.0
+    
+    Update six to 1.13.0
+
+commit db17f7a9c02aba2eb98e0e51e4400607caa9782a
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Nov 6 06:33:26 2019 +0100
+
+    Update six from 1.12.0 to 1.13.0
+
+commit 4caed018010750e2268c9e16f5dae1e3e3e06c14
+Merge: b26b748 a752fb8
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Nov 3 08:33:28 2019 +0100
+
+    Merge pull request #96 from mzollin/pyup-update-soupsieve-1.9.4-to-1.9.5
+    
+    Update soupsieve to 1.9.5
+
+commit a752fb89fa0933cab2a78132fcc28350ffdb7d40
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Nov 2 16:20:17 2019 +0100
+
+    Update soupsieve from 1.9.4 to 1.9.5
+
+commit b26b7481bd0252584b6f59e023273ae4da732d9e
+Merge: bd11b04 7ea24fe
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Oct 22 11:04:44 2019 +0200
+
+    Merge pull request #95 from mzollin/pyup-update-pillow-6.2.0-to-6.2.1
+    
+    Update pillow to 6.2.1
+
+commit 7ea24fee2dc5d589ece06c3b079365c02ae8cfbe
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Oct 21 23:42:24 2019 +0200
+
+    Update pillow from 6.2.0 to 6.2.1
+
+commit bd11b04dca3c10e748c7b729bd45b4663870778d
+Merge: 3393b83 5cc0b18
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Oct 7 17:05:20 2019 +0200
+
+    Merge pull request #94 from mzollin/pyup-update-beautifulsoup4-4.8.0-to-4.8.1
+    
+    Update beautifulsoup4 to 4.8.1
+
+commit 5cc0b18f6476dfd56f4c559a4a878cb6db3c26ca
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Oct 7 13:25:58 2019 +0200
+
+    Update beautifulsoup4 from 4.8.0 to 4.8.1
+
+commit 3393b83e9b544f6f6780f35e5d14cfb0b5805eb2
+Merge: 9245ff0 e9ec458
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Oct 2 15:41:27 2019 +0200
+
+    Merge pull request #93 from mzollin/pyup-update-pillow-6.1.0-to-6.2.0
+    
+    Update pillow to 6.2.0
+
+commit e9ec458f1149970e93efeb26ca2e38f41e5b0e39
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Oct 2 02:27:05 2019 +0200
+
+    Update pillow from 6.1.0 to 6.2.0
+
+commit 9245ff0a3f38804874f9ee5d8a3e9bfca0346d68
+Merge: e973c2a ec81266
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Sep 27 12:26:53 2019 +0200
+
+    Merge pull request #92 from mzollin/pyup-update-soupsieve-1.9.3-to-1.9.4
+    
+    Update soupsieve to 1.9.4
+
+commit ec81266d403c5bc90100e0c0c402c06277c72da1
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Sep 26 15:39:27 2019 +0200
+
+    Update soupsieve from 1.9.3 to 1.9.4
+
+commit e973c2a0fe0a3db792dd69c22d7bee05e27850f5
+Merge: 5cafd8b 82158ea
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Sep 24 22:22:00 2019 +0200
+
+    Merge pull request #91 from mzollin/pyup-update-urllib3-1.25.5-to-1.25.6
+    
+    Update urllib3 to 1.25.6
+
+commit 82158eae34ff7dfb95b55d137540db608ae0a9bb
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Sep 24 22:21:19 2019 +0200
+
+    Update urllib3 from 1.25.5 to 1.25.6
+
+commit 5cafd8bf3fddc3548be6d24f86bc54cca1d5932e
+Merge: 56cf4d3 7850bdf
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Sep 20 10:28:28 2019 +0200
+
+    Merge pull request #90 from mzollin/pyup-update-urllib3-1.25.4-to-1.25.5
+    
+    Update urllib3 to 1.25.5
+
+commit 7850bdfaf8b2629978ccc1ee32c0a9560acfe7e8
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Sep 20 09:19:10 2019 +0200
+
+    Update urllib3 from 1.25.4 to 1.25.5
+
+commit 56cf4d305f4bf2331560919c971203d4d4c2544e
+Merge: 08641f7 5ee5954
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Sep 19 22:34:46 2019 +0200
+
+    Merge pull request #89 from mzollin/pyup-update-urllib3-1.25.3-to-1.25.4
+    
+    Update urllib3 to 1.25.4
+
+commit 5ee595478cec159adfc9c47632a958e4ff13d5f8
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Sep 19 22:33:09 2019 +0200
+
+    Update urllib3 from 1.25.3 to 1.25.4
+
+commit 08641f77bc4cad73d9ad230eab36aeb0ddd801f7
+Merge: 2c420ee d3d7b5b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Sep 12 07:37:10 2019 +0200
+
+    Merge pull request #88 from mzollin/pyup-update-certifi-2019.6.16-to-2019.9.11
+    
+    Update certifi to 2019.9.11
+
+commit d3d7b5ba1985a731aa13f467fe102cf189befc58
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Sep 12 02:30:00 2019 +0200
+
+    Update certifi from 2019.6.16 to 2019.9.11
+
+commit 2c420eedb184f5ad90dcd00bcbaf5826060c3bbd
+Merge: 5c4432b e28f65b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Aug 18 03:42:17 2019 +0200
+
+    Merge pull request #87 from mzollin/pyup-update-soupsieve-1.9.2-to-1.9.3
+    
+    Update soupsieve to 1.9.3
+
+commit e28f65b44516397ddab5b25c52fd57b6afeb0897
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Aug 18 03:35:12 2019 +0200
+
+    Update soupsieve from 1.9.2 to 1.9.3
+
+commit 5c4432b59706fbfd507af39269edf3d44613bcd0
+Merge: 96fa0ed cff92cf
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Aug 11 14:19:59 2019 +0200
+
+    Merge pull request #86 from mzollin/pyup-update-lxml-4.4.0-to-4.4.1
+    
+    Update lxml to 4.4.1
+
+commit cff92cf71abb326bc1d217dec494aa4c8080cadd
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Aug 11 14:19:02 2019 +0200
+
+    Update lxml from 4.4.0 to 4.4.1
+
+commit 96fa0ed315f059271784e32116aa0d90aefd28cd
+Merge: 1645603 c58cb48
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jul 29 10:03:45 2019 +0200
+
+    Merge pull request #85 from mzollin/pyup-update-pycoin-0.90.20190630-to-0.90.20190728
+    
+    Update pycoin to 0.90.20190728
+
+commit c58cb48d324ae716aa75eb4071aef63c9fda947f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jul 29 08:14:41 2019 +0200
+
+    Update pycoin from 0.90.20190630 to 0.90.20190728
+
+commit 16456037995d06541f6f5e2f85057ec8e6538dd9
+Merge: 158a393 374dde2
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Jul 27 19:16:53 2019 +0200
+
+    Merge pull request #84 from mzollin/pyup-update-lxml-4.3.4-to-4.4.0
+    
+    Update lxml to 4.4.0
+
+commit 374dde2f27cd4c08bc48ddaef0bac2f99700a058
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Jul 27 17:33:38 2019 +0200
+
+    Update lxml from 4.3.4 to 4.4.0
+
+commit 158a39307f8addecd514f8f67da17ee21305f582
+Merge: ccb5583 302623f
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jul 22 11:05:49 2019 +0200
+
+    Merge pull request #82 from mzollin/pyup-update-beautifulsoup4-4.7.1-to-4.8.0
+    
+    Update beautifulsoup4 to 4.8.0
+
+commit 302623f9daf95bef0dab7246ac50bb9811130bbc
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jul 22 02:31:57 2019 +0200
+
+    Update beautifulsoup4 from 4.7.1 to 4.8.0
+
+commit ccb5583134dc62e18cfc91f91f918272c3152e85
+Merge: 4e308f0 a4a2b76
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jul 4 23:33:30 2019 +0200
+
+    Merge pull request #81 from mzollin/pyup-update-pillow-6.0.0-to-6.1.0
+    
+    Update pillow to 6.1.0
+
+commit a4a2b76a7a977b60984eb822b5a1957a43197e13
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jul 4 15:02:06 2019 +0200
+
+    Update pillow from 6.0.0 to 6.1.0
+
+commit 4e308f0c29ee40d8d73357bedb84e630c2fe95e6
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jul 1 12:59:42 2019 +0200
+
+    Update README.md
+
+commit 5dde6a417001ba57d6ea8807526a89c1a6e611be
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jul 1 12:56:47 2019 +0200
+
+    adapt key parsing to new pycoin version
+
+commit e0e02c17721f9b86bf80826bf93cd6e21675511f
+Merge: 1322d0d 5f9f1a4
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jul 1 11:43:02 2019 +0200
+
+    Merge pull request #80 from mzollin/pyup-update-pycoin-0.80-to-0.90.20190630
+    
+    Update pycoin to 0.90.20190630
+
+commit 5f9f1a47c1787dd5299b2bb967d3cfeb4bad32e0
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jul 1 06:16:49 2019 +0200
+
+    Update pycoin from 0.80 to 0.90.20190630
+
+commit 1322d0ddfc09150617779d9d7f1a7039755344ee
+Merge: c2c126d 2ca63ab
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jun 26 21:27:18 2019 +0200
+
+    Merge pull request #79 from mzollin/pyup-update-soupsieve-1.9.1-to-1.9.2
+    
+    Update soupsieve to 1.9.2
+
+commit c2c126d37535f76f7a275ec0417911948ca7ae71
+Merge: 1ef91c5 d3038f0
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jun 26 21:26:58 2019 +0200
+
+    Merge pull request #78 from mzollin/pyup-update-certifi-2019.3.9-to-2019.6.16
+    
+    Update certifi to 2019.6.16
+
+commit 1ef91c5c2c50dccca705f92122c18687efd2ac84
+Merge: 6209a92 8f29487
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jun 26 21:25:40 2019 +0200
+
+    Merge pull request #77 from mzollin/pyup-update-lxml-4.3.3-to-4.3.4
+    
+    Update lxml to 4.3.4
+
+commit 2ca63ab757577fbf48bad70c6fdb435b31a8e6fa
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jun 24 00:26:25 2019 +0200
+
+    Update soupsieve from 1.9.1 to 1.9.2
+
+commit d3038f01d47733e0d1887dd573cda1f596f22fa9
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jun 16 21:28:54 2019 +0200
+
+    Update certifi from 2019.3.9 to 2019.6.16
+
+commit 8f29487b3884e56cc6f0afd21471588bf0443fe6
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jun 10 10:33:43 2019 +0200
+
+    Update lxml from 4.3.3 to 4.3.4
+
+commit 6209a92b4d7d384499be5213f719753447229760
+Merge: 17f9a73 1f49ec5
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri May 24 08:07:52 2019 +0200
+
+    Merge pull request #76 from mzollin/pyup-update-urllib3-1.25.2-to-1.25.3
+    
+    Update urllib3 to 1.25.3
+
+commit 1f49ec5cf462e896f1d131fe99141f09425122a7
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri May 24 02:25:13 2019 +0200
+
+    Update urllib3 from 1.25.2 to 1.25.3
+
+commit 17f9a73014062b973d4882f648ee00aa67089460
+Merge: 6d676e9 d365326
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri May 17 17:10:54 2019 +0200
+
+    Merge pull request #75 from mzollin/pyup-update-requests-2.21.0-to-2.22.0
+    
+    Update requests to 2.22.0
+
+commit d3653261cf281a2470a9b81451708a2d4ee23d28
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri May 17 03:22:12 2019 +0200
+
+    Update requests from 2.21.0 to 2.22.0
+
+commit 6d676e918c655c7bb76e88c4ebd8f028f286aa7e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat May 4 15:45:06 2019 +0200
+
+    remove invalid pkg-resources==0.0.0 entry
+
+commit bd52c96a6d6b733858565d145dbeab3de8613839
+Merge: 6c9e403 8a788a1
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat May 4 12:27:04 2019 +0200
+
+    Merge pull request #74 from mzollin/pyup-update-urllib3-1.24.2-to-1.25.2
+    
+    Update urllib3 to 1.25.2
+
+commit 8a788a17e333b04be8538bb8d017bc6063937458
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Apr 29 20:39:23 2019 +0200
+
+    Update urllib3 from 1.24.2 to 1.25.2
+
+commit 6c9e403ca3d497d84b27b79b24ef17a19cacf064
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 18 16:07:18 2019 +0200
+
+    Update README.md
+
+commit d42241c5e051d36b5d3c54045b7fdb40c9b6301d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 18 16:01:35 2019 +0200
+
+    update requirements
+
+commit be214f15baf0a60fabd3266a38c2e49e861e21aa
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 18 15:41:48 2019 +0200
+
+    replace pybitcoin with pycoin package
+
+commit c5f05133ccb64a9068a5d205b169f2287c34c5e3
+Merge: 4357b9a 8873bb7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 18 14:35:36 2019 +0200
+
+    Merge pull request #71 from mzollin/pyup-update-urllib3-1.24.1-to-1.24.2
+    
+    Update urllib3 to 1.24.2
+
+commit 4357b9a7a6129997a2c2271ff91a14d058dcf2a1
+Merge: d9c03e0 85dafe7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 18 14:35:20 2019 +0200
+
+    Merge pull request #70 from mzollin/pyup-update-ecdsa-0.13-to-0.13.2
+    
+    Update ecdsa to 0.13.2
+
+commit 8873bb77a4756dee4fafd5ef2a3d7ea70d6d929b
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Apr 17 22:09:06 2019 +0200
+
+    Update urllib3 from 1.24.1 to 1.24.2
+
+commit 85dafe794d63060ec82d98535c84d8db1e577b05
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Apr 17 22:08:59 2019 +0200
+
+    Update ecdsa from 0.13 to 0.13.2
+
+commit d9c03e0dacb1b4be0c0f3e7751d70afe0ca0c03d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 11 11:20:42 2019 +0200
+
+    ignore AttributeError in PNG parsing
+
+commit b7575520ffed31e8b3c035a15b2e074fe7985d55
+Merge: 39e726d a11d0b6
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Apr 9 15:34:44 2019 +0200
+
+    Merge pull request #68 from mzollin/pyup-update-pillow-5.4.1-to-6.0.0
+    
+    Update pillow to 6.0.0
+
+commit a11d0b64bfaa34f3e3757f918049fbe73ffe2890
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Apr 2 10:10:29 2019 +0200
+
+    Update pillow from 5.4.1 to 6.0.0
+
+commit 39e726dc955ad0db8105c0c1e25a49fcc7effd14
+Merge: ed0ed2b eca01d9
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Mar 26 23:41:41 2019 +0100
+
+    Merge pull request #67 from mzollin/pyup-update-lxml-4.3.2-to-4.3.3
+    
+    Update lxml to 4.3.3
+
+commit eca01d915641391a7b2062c371d5c2199aaa9ea2
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Mar 26 21:32:15 2019 +0100
+
+    Update lxml from 4.3.2 to 4.3.3
+
+commit ed0ed2be2a10c873084d024e6bf7b40f4f524301
+Merge: a364b8a 8986d8d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Mar 23 19:35:07 2019 +0100
+
+    Merge pull request #66 from mzollin/pyup-update-zbarlight-2.2-to-2.3
+    
+    Update zbarlight to 2.3
+
+commit 8986d8d36f5794acb69c3d8e564206d371c0e901
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Mar 21 17:39:11 2019 +0100
+
+    Update zbarlight from 2.2 to 2.3
+
+commit a364b8a1542fdb8a41c43fa0e5463bb10a62dc07
+Merge: e7c6a90 af5521a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Mar 10 11:05:53 2019 +0100
+
+    Merge pull request #65 from mzollin/pyup-update-certifi-2018.11.29-to-2019.3.9
+    
+    Update certifi to 2019.3.9
+
+commit af5521afe32268bccbe164851be8cd239a08e65b
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Mar 9 17:26:52 2019 +0100
+
+    Update certifi from 2018.11.29 to 2019.3.9
+
+commit e7c6a9016c762e03b945e2a1740b66a859ca0459
+Merge: 70b1473 19a0aee
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Mar 1 13:11:13 2019 +0100
+
+    Merge pull request #64 from mzollin/pyup-update-lxml-4.3.1-to-4.3.2
+    
+    Update lxml to 4.3.2
+
+commit 19a0aee85d367a2c1692806c26265c04d5aeff3d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Mar 1 00:58:34 2019 +0100
+
+    Update lxml from 4.3.1 to 4.3.2
+
+commit 70b147311298d5db312c3aa2c53cf5fa6503e692
+Merge: 8de5e6d 14389b8
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Feb 9 09:49:29 2019 +0100
+
+    Merge pull request #63 from mzollin/pyup-update-lxml-4.3.0-to-4.3.1
+    
+    Update lxml to 4.3.1
+
+commit 14389b8b2cab5ff72a06fc798844c9b816ba01c1
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Feb 9 09:45:41 2019 +0100
+
+    Update lxml from 4.3.0 to 4.3.1
+
+commit 8de5e6da233e3b716cfabd216d2d6c5f3e5aebb4
+Merge: aaa916c 590061e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 29 22:27:48 2019 +0100
+
+    Merge pull request #62 from mzollin/pyup-update-cachetools-3.0.0-to-3.1.0
+    
+    Update cachetools to 3.1.0
+
+commit 590061ec1a5cf708274bff1e0d9f197f29d28faa
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Jan 29 22:08:22 2019 +0100
+
+    Update cachetools from 3.0.0 to 3.1.0
+
+commit aaa916c3b52ce6952888d1ce99abd760ec992add
+Merge: 71fb864 0fb6a4e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jan 21 14:17:25 2019 +0100
+
+    Merge pull request #61 from mzollin/pyup-update-zbarlight-2.1-to-2.2
+    
+    Update zbarlight to 2.2
+
+commit 0fb6a4e26d7a0b205eb0b5eadf5dad2e6f38991f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jan 21 14:04:58 2019 +0100
+
+    Update zbarlight from 2.1 to 2.2
+
+commit 71fb86486be402f36406ef1cb768c5a005cc29b2
+Merge: c7c6299 4e5117a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jan 7 11:21:41 2019 +0100
+
+    Merge pull request #60 from mzollin/pyup-update-beautifulsoup4-4.7.0-to-4.7.1
+    
+    Update beautifulsoup4 to 4.7.1
+
+commit c7c6299da7dd15d6dd9fdad795fd89c2f3d53fa0
+Merge: 80c4dad 976ef8c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jan 7 11:21:19 2019 +0100
+
+    Merge pull request #59 from mzollin/pyup-update-pillow-5.4.0-to-5.4.1
+    
+    Update pillow to 5.4.1
+
+commit 4e5117a3d16d145f41092e8de4020402f1049b4e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jan 7 04:05:30 2019 +0100
+
+    Update beautifulsoup4 from 4.7.0 to 4.7.1
+
+commit 976ef8c04563b4678d40a6ce7985ce83fb5863b9
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jan 6 23:19:31 2019 +0100
+
+    Update pillow from 5.4.0 to 5.4.1
+
+commit 80c4dad771fccc4d75514ce3d113582657420650
+Merge: 71503d1 1448296
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 6 14:45:43 2019 +0100
+
+    Merge pull request #58 from mzollin/pyup-update-lxml-4.2.6-to-4.3.0
+    
+    Update lxml to 4.3.0
+
+commit 14482967d5b30ee6a18216d85d4c2388ec5c9a51
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Jan 4 20:10:29 2019 +0100
+
+    Update lxml from 4.2.6 to 4.3.0
+
+commit 71503d11687f4195fe1540572bfb2a82fbb53e27
+Merge: cfc32e7 d4a3346
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 3 10:45:50 2019 +0100
+
+    Merge pull request #57 from mzollin/pyup-update-lxml-4.2.5-to-4.2.6
+    
+    Update lxml to 4.2.6
+
+commit cfc32e7d537bf363dc44b27d91e72df4e0511849
+Merge: 4c10f01 2cbea15
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 3 10:45:28 2019 +0100
+
+    Merge pull request #56 from mzollin/pyup-update-pillow-5.3.0-to-5.4.0
+    
+    Update pillow to 5.4.0
+
+commit 4c10f019e067ff84ae3986a19e1605f72e293542
+Merge: 5ddb4e7 a7a299d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 3 10:45:01 2019 +0100
+
+    Merge pull request #55 from mzollin/pyup-update-beautifulsoup4-4.6.3-to-4.7.0
+    
+    Update beautifulsoup4 to 4.7.0
+
+commit a7a299d21ff983fb446a160dce21d60046e70e27
+Merge: 79353da 5ddb4e7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 3 10:44:47 2019 +0100
+
+    Merge branch 'master' into pyup-update-beautifulsoup4-4.6.3-to-4.7.0
+
+commit 5ddb4e7ea30fb3420933599386322f5ac42c1538
+Merge: 7a6d59d b177cd8
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 3 10:43:47 2019 +0100
+
+    Merge pull request #54 from mzollin/pyup-update-base58-1.0.2-to-1.0.3
+    
+    Update base58 to 1.0.3
+
+commit d4a334643099ec639dcb484d27a6b2811eb4ce78
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jan 3 10:25:25 2019 +0100
+
+    Update lxml from 4.2.5 to 4.2.6
+
+commit 2cbea154fda885f24582d62311307dd28f00ab01
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Jan 1 22:51:21 2019 +0100
+
+    Update pillow from 5.3.0 to 5.4.0
+
+commit 79353da0372973da545fc6c31a6ff45fbfab5d0a
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Dec 31 21:07:18 2018 +0100
+
+    Update beautifulsoup4 from 4.6.3 to 4.7.0
+
+commit b177cd85c71aba0c7d3d986d1f5c52cd62040de1
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Dec 28 23:51:11 2018 +0100
+
+    Update base58 from 1.0.2 to 1.0.3
+
+commit 7a6d59d3255689177eb916800a727c29fd9aee65
+Merge: b71da32 d7e3cfa
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Dec 11 05:00:47 2018 -0500
+
+    Merge pull request #52 from mzollin/pyup-update-requests-2.20.1-to-2.21.0
+    
+    Update requests to 2.21.0
+
+commit d7e3cfae63b450c66d96ce18211f9344e0e368f2
+Merge: 3332cfe b71da32
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Dec 11 04:59:41 2018 -0500
+
+    Merge branch 'master' into pyup-update-requests-2.20.1-to-2.21.0
+
+commit b71da329c455eb388b1ff692410e056cd2a4659b
+Merge: ee53cf8 cc9936e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Dec 11 04:58:08 2018 -0500
+
+    Merge pull request #51 from mzollin/pyup-update-six-1.11.0-to-1.12.0
+    
+    Update six to 1.12.0
+
+commit 3332cfe94ddc60552a576a5dff65b9433fad4380
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Dec 10 19:58:38 2018 -0500
+
+    Update requests from 2.20.1 to 2.21.0
+
+commit cc9936e4073714ab7da00171b8759263da6b0022
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Dec 10 03:40:37 2018 -0500
+
+    Update six from 1.11.0 to 1.12.0
+
+commit ee53cf83b54b5f77f0ec23cb67415b98810ee626
+Merge: 12c5ee3 efeaaeb
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Dec 6 08:08:42 2018 -0500
+
+    Merge pull request #50 from mzollin/pyup-update-idna-2.7-to-2.8
+    
+    Update idna to 2.8
+
+commit efeaaeb7cb6ecbc316877dc3bc246113be3e45af
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Dec 4 16:43:23 2018 -0500
+
+    Update idna from 2.7 to 2.8
+
+commit 12c5ee3eacd9905857e01476aa555124c076c9ae
+Merge: e39cedc 25826e5
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 30 11:46:29 2018 -0500
+
+    Merge pull request #49 from mzollin/pyup-update-certifi-2018.10.15-to-2018.11.29
+    
+    Update certifi to 2018.11.29
+
+commit 25826e5deba12e2e4875fd1f58f82f17c506e1a6
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Nov 29 19:01:16 2018 -0500
+
+    Update certifi from 2018.10.15 to 2018.11.29
+
+commit e39cedc468f294fe04b13222e70f419bb8f97b2e
+Merge: 994e7db 75360d0
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Nov 9 05:58:29 2018 -0500
+
+    Merge pull request #48 from mzollin/pyup-update-requests-2.20.0-to-2.20.1
+    
+    Update requests to 2.20.1
+
+commit 75360d05e694dc3f712ef7c9c5937b4cfce595e2
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Nov 8 21:37:33 2018 -0500
+
+    Update requests from 2.20.0 to 2.20.1
+
+commit 994e7db7f886b3ffea17f348fa519e357432bbcc
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Nov 8 11:29:36 2018 +0100
+
+    update README for clarification
+
+commit 1f8e4d2fe86dd8625b97a6a2312563b1f83bd566
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Nov 8 11:28:22 2018 +0100
+
+    update README for clarification
+
+commit 155979aaf3da32a63c2d8c9783cbd144b307ed6b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Nov 4 23:58:23 2018 +0100
+
+    check for exceptions in converting to RGBA
+
+commit f5c5232c68f3ffee8e0472d56db65950b999d187
+Merge: a5cc0a5 cf72149
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Nov 4 16:00:26 2018 -0500
+
+    Merge pull request #47 from mzollin/pyup-update-cachetools-2.1.0-to-3.0.0
+    
+    Update cachetools to 3.0.0
+
+commit cf7214950b4bf4bbb7a1f1bd4cbe827722ed5fae
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Nov 4 13:04:23 2018 -0500
+
+    Update cachetools from 2.1.0 to 3.0.0
+
+commit a5cc0a5ba48fe0cadc23955b67af3e33a01b0df1
+Merge: 9785676 3679416
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Nov 4 00:02:54 2018 -0400
+
+    Merge pull request #46 from mzollin/pyup-update-urllib3-1.24-to-1.24.1
+    
+    Update urllib3 to 1.24.1
+
+commit 3679416780d0a0e9cf2f471577b7505ec985dbb2
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Nov 2 19:28:23 2018 -0400
+
+    Update urllib3 from 1.24 to 1.24.1
+
+commit 9785676b1183c0e5015cc62fc86f4496e2fec52a
+Merge: 825f845 49e1b1d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Oct 19 12:44:58 2018 -0400
+
+    Merge pull request #45 from mzollin/pyup-update-requests-2.19.1-to-2.20.0
+    
+    Update requests to 2.20.0
+
+commit 49e1b1dc0b709cc3a3de7a87245f341258adcb81
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Oct 18 20:51:56 2018 -0400
+
+    Update requests from 2.19.1 to 2.20.0
+
+commit 825f8456485e410d47e4f49ae08905580cad239b
+Merge: 6b5eecf cc37f67
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Oct 16 18:09:35 2018 -0400
+
+    Merge pull request #44 from mzollin/pyup-update-urllib3-1.23-to-1.24
+    
+    Update urllib3 to 1.24
+
+commit cc37f67feddb6b4662747e4c93fbbb591d190f56
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Oct 16 18:02:52 2018 -0400
+
+    Update urllib3 from 1.23 to 1.24
+
+commit 6b5eecf947a0109c0452a05d7a38d54248b7951a
+Merge: 0cc27cd a81277e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Oct 15 15:40:42 2018 -0400
+
+    Merge pull request #43 from mzollin/pyup-update-certifi-2018.8.24-to-2018.10.15
+    
+    Update certifi to 2018.10.15
+
+commit a81277eb0276f36433a39f03e99a572391ce722e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Oct 15 12:59:46 2018 -0400
+
+    Update certifi from 2018.8.24 to 2018.10.15
+
+commit 0cc27cde5be68cb245cb69c1495223d5b454246a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Oct 13 02:46:22 2018 +0200
+
+    add support for transparent PNGs
+
+commit 07e1544a61f907e6a8277effc482073a2e425fc9
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Oct 13 02:43:12 2018 +0200
+
+    skip invalid images
+
+commit ec9cd5f02160cee775942129a0ac2c7ecf395a99
+Merge: db7abca fef1f97
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Oct 12 19:18:23 2018 -0400
+
+    Merge pull request #42 from mzollin/pyup-update-urllib3-1.22-to-1.23
+    
+    Update urllib3 to 1.23
+
+commit db7abca1c0dd851b95994b1238dc22e35b9700b9
+Merge: 68f236a f25fb90
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Oct 12 19:17:55 2018 -0400
+
+    Merge pull request #41 from mzollin/pyup-update-lxml-4.2.4-to-4.2.5
+    
+    Update lxml to 4.2.5
+
+commit 68f236a4124add56388f7ffd25f3b2b784cca86f
+Merge: 8faed69 50edf5c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Oct 12 19:17:35 2018 -0400
+
+    Merge pull request #40 from mzollin/pyup-update-pillow-5.2.0-to-5.3.0
+    
+    Update pillow to 5.3.0
+
+commit fef1f97d7389234611a56770f4553736c5b6d714
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Oct 9 14:30:16 2018 -0400
+
+    Update urllib3 from 1.22 to 1.23
+
+commit f25fb90ac68c0d8d3e79cf3aff782af39558177a
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Oct 9 14:30:13 2018 -0400
+
+    Update lxml from 4.2.4 to 4.2.5
+
+commit 50edf5ca204c86e80b4847f9d8193ead9b8982fd
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Oct 1 07:59:20 2018 -0400
+
+    Update pillow from 5.2.0 to 5.3.0
+
+commit 8faed692a6a6e971d1ae66277077b7d17e49ab52
+Merge: 863d5b0 a8c98a8
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Sep 27 06:00:32 2018 -0400
+
+    Merge pull request #39 from mzollin/pyup-update-base58-1.0.0-to-1.0.2
+    
+    Update base58 to 1.0.2
+
+commit a8c98a889eff863fd97b4e326243ce645f31f549
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Sep 27 05:32:14 2018 -0400
+
+    Update base58 from 1.0.0 to 1.0.2
+
+commit 863d5b0145c0f24ebc237b6bfeb6a4157a17c6b2
+Merge: 41d5ace 8fa3eac
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Sep 13 14:19:14 2018 -0400
+
+    Merge pull request #37 from mzollin/pyup-update-olefile-0.45.1-to-0.46
+    
+    Update olefile to 0.46
+
+commit 8fa3eacc5cb650e4f250b88764b6758993bf8f0b
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Sep 10 15:22:37 2018 -0400
+
+    Update olefile from 0.45.1 to 0.46
+
+commit 41d5acedc09d75be980836667cdab633a7af96a3
+Merge: 510035c 9f100d6
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Aug 29 06:02:54 2018 -0400
+
+    Merge pull request #36 from mzollin/pyup-update-certifi-2018.8.13-to-2018.8.24
+    
+    Update certifi to 2018.8.24
+
+commit 9f100d670ea16eac45f8d3c8724b5a6a8003afd2
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Aug 24 09:02:05 2018 -0400
+
+    Update certifi from 2018.8.13 to 2018.8.24
+
+commit 510035cb1c1fde4afc76a51bb82b54835be146b8
+Merge: ff6dec9 480f61d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Aug 13 16:43:23 2018 -0400
+
+    Merge pull request #35 from mzollin/pyup-update-certifi-2018.4.16-to-2018.8.13
+    
+    Update certifi to 2018.8.13
+
+commit ff6dec9dab10d83b02bcc924753f14b2111763d1
+Merge: 50a8d74 efa2b5a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Aug 13 16:43:08 2018 -0400
+
+    Merge pull request #34 from mzollin/pyup-update-beautifulsoup4-4.6.1-to-4.6.3
+    
+    Update beautifulsoup4 to 4.6.3
+
+commit 480f61def992f8d11912d55d08f79e0a1b48596a
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Aug 13 07:00:44 2018 -0400
+
+    Update certifi from 2018.4.16 to 2018.8.13
+
+commit efa2b5a15cfd0c8f2245cfc8dd371e9b5798e80f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Aug 12 13:21:41 2018 -0400
+
+    Update beautifulsoup4 from 4.6.1 to 4.6.3
+
+commit 50a8d74ddaee6fdd11210045fdbacbec04d0f14f
+Merge: acaf283 312a70c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Aug 3 16:44:09 2018 -0400
+
+    Merge pull request #33 from mzollin/pyup-update-lxml-4.2.3-to-4.2.4
+    
+    Update lxml to 4.2.4
+
+commit acaf283b394ffefec9d8e9b1a6795fefba108198
+Merge: b7100da 73af2a0
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Aug 3 16:43:55 2018 -0400
+
+    Merge pull request #32 from mzollin/pyup-update-beautifulsoup4-4.6.0-to-4.6.1
+    
+    Update beautifulsoup4 to 4.6.1
+
+commit 312a70ca7b5f1738ebf2afeb614e78d5a9717c18
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Aug 3 16:05:57 2018 -0400
+
+    Update lxml from 4.2.3 to 4.2.4
+
+commit 73af2a0c0389e99f1e7ed1e64373c38ddff77af9
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Jul 28 21:48:50 2018 -0400
+
+    Update beautifulsoup4 from 4.6.0 to 4.6.1
+
+commit b7100da7d2b74d511362c72dd306bd8954d97808
+Merge: ef2f6f6 4a6ed01
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jul 2 01:57:29 2018 -0400
+
+    Merge pull request #31 from mzollin/pyup-update-pillow-5.1.0-to-5.2.0
+    
+    Update pillow to 5.2.0
+
+commit 4a6ed01ffc6aa0010d3b9237808da30e2e913224
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jul 1 20:34:59 2018 -0400
+
+    Update pillow from 5.1.0 to 5.2.0
+
+commit ef2f6f6b1f33df49ae32bf052f83e34276228236
+Merge: 21c7dc8 d2d935d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Jun 29 17:56:27 2018 -0400
+
+    Merge pull request #29 from mzollin/pyup-update-lxml-4.2.1-to-4.2.3
+    
+    Update lxml to 4.2.3
+
+commit d2d935da5b4cf8eca75b8115cd8e7e09073d8eba
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jun 27 15:25:46 2018 -0400
+
+    Update lxml from 4.2.1 to 4.2.3
+
+commit 21c7dc8c5a842052a01d4101059330dff00550e0
+Merge: 7b3bf8d da36680
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Jun 15 16:04:16 2018 -0400
+
+    Merge pull request #27 from mzollin/pyup-update-requests-2.19.0-to-2.19.1
+    
+    Update requests to 2.19.1
+
+commit da366802363d3d78a628e99886e5129dd9b5a9dc
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jun 14 17:31:24 2018 -0400
+
+    Update requests from 2.19.0 to 2.19.1
+
+commit 7b3bf8dcc789ac063faa20ac6fbc5ed8d9b4f9ae
+Merge: 344f2f2 15a38cf
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jun 14 02:32:53 2018 -0400
+
+    Merge pull request #26 from mzollin/pyup-update-requests-2.18.4-to-2.19.0
+    
+    Update requests to 2.19.0
+
+commit 15a38cf6600a1ed2dcd699acf9cd7e9553faa82e
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Jun 12 18:50:19 2018 -0400
+
+    Update requests from 2.18.4 to 2.19.0
+
+commit 344f2f27875fb4b8f532cdd5a020813fa9217eef
+Merge: 8a16b54 4b1d243
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jun 12 02:43:34 2018 -0400
+
+    Merge pull request #25 from mzollin/pyup-update-idna-2.6-to-2.7
+    
+    Update idna to 2.7
+
+commit 4b1d2432235c363034004a687a03d20db6f1f51f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jun 11 02:18:12 2018 -0400
+
+    Update idna from 2.6 to 2.7
+
+commit 8a16b544713d06b0619d3fab1c92ca58938f4b29
+Merge: 83fd8f2 fba0bd4
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jun 6 17:30:41 2018 -0400
+
+    Merge pull request #24 from mzollin/pyup-update-zbarlight-2.0-to-2.1
+    
+    Update zbarlight to 2.1
+
+commit fba0bd458ff9b9405febf6b63d5cde63d5144786
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jun 4 08:43:00 2018 -0400
+
+    Update zbarlight from 2.0 to 2.1
+
+commit 83fd8f29aeeed7adc0f36effa8c33c4dbe882973
+Merge: 5241bae 8fe5d49
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat May 26 19:52:23 2018 -0400
+
+    Merge pull request #23 from mzollin/pyup-update-icrawler-0.6.0-to-0.6.2
+    
+    Update icrawler to 0.6.2
+
+commit 8fe5d497ed4f9cba70c004c9e9ba67ab74a54a28
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri May 25 10:56:42 2018 -0400
+
+    Update icrawler from 0.6.0 to 0.6.2
+
+commit 5241bae63c71fd970cbfb5d2675d03f8433dff85
+Merge: 3a86d7c bb6ecec
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon May 14 00:04:09 2018 -0400
+
+    Merge pull request #21 from mzollin/pyup-update-cachetools-2.0.1-to-2.1.0
+    
+    Update cachetools to 2.1.0
+
+commit bb6ecec6361986e620c38d7ab27bdb69b599b7ba
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat May 12 12:47:18 2018 -0400
+
+    Update cachetools from 2.0.1 to 2.1.0
+
+commit 3a86d7c500c2f4b29f49addd009c89c153cf8be4
+Merge: 108a9ff 09a7bcc
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Apr 26 15:16:03 2018 -0400
+
+    Merge pull request #20 from mzollin/pyup-update-base58-0.2.5-to-1.0.0
+    
+    Update base58 to 1.0.0
+
+commit 09a7bccbfc0e390fd9bb80f49e63eea7fba10eed
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Apr 20 08:41:32 2018 -0400
+
+    Update base58 from 0.2.5 to 1.0.0
+
+commit 108a9ffd88f88619e23ebef3e40329cd99cc6cda
+Merge: a34652c 98f4d94
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Apr 18 02:45:29 2018 -0400
+
+    Merge pull request #19 from mzollin/pyup-update-certifi-2018.1.18-to-2018.4.16
+    
+    Update certifi to 2018.4.16
+
+commit 98f4d94df552ab9e423c801da6fd256cb5c18314
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Apr 16 17:26:26 2018 -0400
+
+    Update certifi from 2018.1.18 to 2018.4.16
+
+commit a34652cff390e6d3ed3bdb0a83f3251714f968b2
+Merge: 99f9558 70fa804
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Apr 3 05:31:48 2018 +0200
+
+    Merge pull request #18 from mzollin/pyup-update-pillow-5.0.0-to-5.1.0
+    
+    Update pillow to 5.1.0
+
+commit 70fa804e74384ded75eade15607c7f362cc4fc6d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Tue Apr 3 00:29:13 2018 +0200
+
+    Update pillow from 5.0.0 to 5.1.0
+
+commit 99f955886c45e3308ac349fc706907bb0ae2a450
+Merge: 380d131 eda527d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Mar 22 07:25:32 2018 +0100
+
+    Merge pull request #17 from mzollin/pyup-update-lxml-4.2.0-to-4.2.1
+    
+    Update lxml to 4.2.1
+
+commit eda527d7ed6ac79c23de15aa6d5a7a0606aed490
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Mar 22 00:10:51 2018 +0100
+
+    Update lxml from 4.2.0 to 4.2.1
+
+commit 380d13196ebc8e4670d287dbae5af575ff2593c7
+Merge: c96bb1d cf61afe
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Mar 18 17:24:14 2018 +0100
+
+    Merge pull request #16 from mzollin/pyup-update-icrawler-0.5.0-to-0.6.0
+    
+    Update icrawler to 0.6.0
+
+commit cf61afe6a2e149b12c554a727d4e1333ac777e60
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sat Mar 17 16:54:42 2018 +0100
+
+    Update icrawler from 0.5.0 to 0.6.0
+
+commit c96bb1df11ee8c1c88c914db9306c28695d7636c
+Merge: 879f578 58f62dd
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Mar 14 09:14:43 2018 +0100
+
+    Merge pull request #15 from mzollin/pyup-update-lxml-4.1.1-to-4.2.0
+    
+    Update lxml to 4.2.0
+
+commit 58f62ddce022dfe127fd4466baae7b33573abd7f
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Mar 14 00:23:37 2018 +0100
+
+    Update lxml from 4.1.1 to 4.2.0
+
+commit 879f578abb0447e0373cae1111bab09e67fea950
+Merge: 197a2fa b14e2a7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Mar 2 16:45:14 2018 +0100
+
+    Merge pull request #14 from mzollin/pyup-update-icrawler-0.4.9-to-0.5.0
+    
+    Update icrawler to 0.5.0
+
+commit b14e2a7d7e0155124647bfab3381dae3081e0a69
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Fri Mar 2 16:39:18 2018 +0100
+
+    Update icrawler from 0.4.9 to 0.5.0
+
+commit 197a2fa11e02ac4b701d5896c9715a411e93f80c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 25 07:39:30 2018 -0500
+
+    move hashbang to the first line
+
+commit 401f4b20cef087395c506c642a83bf216af8e8a7
+Merge: fe158f3 023361b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 25 11:33:13 2018 +0000
+
+    Merge pull request #13 from mzollin/pyup-update-olefile-0.45-to-0.45.1
+    
+    Update olefile to 0.45.1
+
+commit 023361b22103da2fb97767eca7cd7f23b384f0a8
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jan 25 11:13:40 2018 +0000
+
+    Update olefile from 0.45 to 0.45.1
+
+commit fe158f3767664d965360a5f11f42fd486f9f5bc8
+Merge: d906e5d 2417010
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 25 00:20:42 2018 +0000
+
+    Merge pull request #12 from mzollin/pyup-update-olefile-0.44-to-0.45
+    
+    Update olefile to 0.45
+
+commit 241701092713d49a0094508b2d86aceb6e78bcb1
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jan 24 23:28:42 2018 +0000
+
+    Update olefile from 0.44 to 0.45
+
+commit d906e5d1766312f8197a2c16994e5f858c4ad41d
+Merge: c1dd064 a6bef98
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Jan 24 17:39:15 2018 +0000
+
+    Merge pull request #11 from mzollin/pyup-update-zbarlight-1.2-to-2.0
+    
+    Update zbarlight to 2.0
+
+commit a6bef9885a13c4898cb97e6271ae635ef4907946
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Wed Jan 24 16:09:39 2018 +0000
+
+    Update zbarlight from 1.2 to 2.0
+
+commit c1dd06444d2989819736ef3d65d22b7cb39c8fcf
+Merge: 74842ac c35d45e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Jan 19 11:10:46 2018 +0000
+
+    Merge pull request #10 from mzollin/pyup-update-certifi-2017.11.5-to-2018.1.18
+    
+    Update certifi to 2018.1.18
+
+commit c35d45ecfb2414a423565c79eeb973fa0752537d
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Thu Jan 18 22:20:33 2018 +0000
+
+    Update certifi from 2017.11.5 to 2018.1.18
+
+commit 74842ac573a00996a8cfdabc56a13f9fe1db8818
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:33:09 2018 +0100
+
+    Update README.md
+
+commit 69a04bbe2dfc60662cf10f433913a2440f01b884
+Merge: 9988877 1375c5e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:31:07 2018 +0100
+
+    Merge branch 'master' of github.com:mzollin/qr-pirate
+
+commit 9988877a77aee81c38889f363fe65bb202f9693a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:30:22 2018 +0100
+
+    add qr-pirate logo
+
+commit 1375c5eda83e85dca088a6f9571fac8283c539c7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:29:09 2018 +0100
+
+    Update README.md
+
+commit 8d0159992daa6ca7d795e5cd6a24418f27926683
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:28:23 2018 +0100
+
+    Update README.md
+
+commit 886f9b59b999b39b85ba227356ca8bf57cf3783e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:26:41 2018 +0100
+
+    Update README.md
+
+commit 5d3de1e544190c6ddd989e33d23c0eed2cbcaf09
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:08:59 2018 +0100
+
+    Update README.md
+
+commit 1056c4530bf4d15fc298959de1bae76b1fece1b2
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:07:52 2018 +0100
+
+    Update README.md
+
+commit 2e335d4396eacd89c8bc55542c828fdebdacb52c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:03:18 2018 +0100
+
+    Update README.md
+
+commit 913608ee977fb9c673a71025adc863adbcd882a0
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:01:38 2018 +0100
+
+    Update README.md
+
+commit 1889b0d86422e0ef4021e68cbb4c5ada2e8a102b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 21:00:45 2018 +0100
+
+    Update README.md
+
+commit 73fa717982577777463d5ac01a48a751e666c80c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 20:53:11 2018 +0100
+
+    add qr-pirate logo
+
+commit 3b1ad26b8edf2e2853c5dd3bbed71819c31096f8
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 16 20:39:35 2018 +0100
+
+    add qrpirate logo
+
+commit 1eb3ed3b40338b56c5b0734bae7b035d5f4f69a1
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 11 01:14:56 2018 +0100
+
+    add license header
+
+commit c0982c3deba2a3f6f9a5416d0dd164f7cb4d880b
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 11 01:14:01 2018 +0100
+
+    add license header
+
+commit 14cd1bb70de5e0f57f5c34930c51a9a46b6f94cd
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Jan 11 01:13:22 2018 +0100
+
+    add license header
+
+commit 2275eddd4e454fd9e2614dd0124319cbb191cd94
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jan 8 13:33:54 2018 +0100
+
+    Update README.md
+
+commit 2c7a05bd408fc0ae31e81cf40d09feed2a8adddc
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jan 8 13:29:45 2018 +0100
+
+    Update README.md
+
+commit ec892d5f04377f851ce39f20b1091cb64c90f615
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Jan 8 13:17:12 2018 +0100
+
+    Create LICENSE
+
+commit d38cf155db7ca441da137ca7672bc3722006887e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 14:29:03 2018 -0500
+
+    catch IOError
+
+commit 057d6d42cb4e70607aa1033b98ff639303dd1166
+Merge: 7602251 7f87117
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 17:09:13 2018 +0000
+
+    Merge pull request #8 from mzollin/pyup-update-icrawler-0.4.8-to-0.4.9
+    
+    Update icrawler to 0.4.9
+
+commit 7f8711720acbd336716111f9650b384e3f96dce4
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jan 7 17:08:15 2018 +0000
+
+    Update icrawler from 0.4.8 to 0.4.9
+
+commit 7602251ea86879ed605bd0c7090ba5bea6472533
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 11:25:35 2018 -0500
+
+    fix for automated wallet balance checking
+
+commit ec545667ccf0090a2fa18cff45fc27664c8f2ae1
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 17:22:36 2018 +0100
+
+    Update README.md
+
+commit 313ca8e54afaef20bf094c3aca3a04e4a7d4e509
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 17:19:10 2018 +0100
+
+    Update README.md
+
+commit 7df64df197151bd15d6566e93503c094f0057518
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 17:00:57 2018 +0100
+
+    added automatic wallet balance checking
+
+commit b99dfe4f23868750407152bd99bc475e289bd3ca
+Merge: 20c840d 56e54af
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 15:49:15 2018 +0000
+
+    Merge pull request #5 from mzollin/pyup-update-commontools-0.1.0-to-0.1.1
+    
+    Update commontools to 0.1.1
+
+commit 20c840d0834a4e519110a0ac3679d2d80a8d8626
+Merge: ae58f37 2719667
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 15:48:39 2018 +0000
+
+    Merge pull request #6 from mzollin/pyup-update-python-bitcoinrpc-0.1-to-1.0
+    
+    Update python-bitcoinrpc to 1.0
+
+commit 271966799f8f890f8165666f8a173d8e1e065a63
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jan 7 15:46:57 2018 +0000
+
+    Update python-bitcoinrpc from 0.1 to 1.0
+
+commit 56e54afb030aa7f06058cdf053f4fa62c0ef0dfa
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Sun Jan 7 15:46:53 2018 +0000
+
+    Update commontools from 0.1.0 to 0.1.1
+
+commit ae58f37ce4a76ecfa4e3a8b9aa5213c2f7572035
+Merge: 33a7726 361d2d1
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 10:46:39 2018 -0500
+
+    added automatic wallet balance checking
+
+commit 33a7726e2d7ffe4378b3485dd2fcce62a94e4d2f
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Jan 7 10:40:36 2018 -0500
+
+    added automatic wallet balance checking
+
+commit 361d2d15fee79edf708bc42bfd2e86583c63cfc4
+Merge: 70c22db b9fcc71
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Tue Jan 2 00:48:39 2018 +0000
+
+    Merge pull request #4 from mzollin/pyup-update-pillow-4.3.0-to-5.0.0
+    
+    Update pillow to 5.0.0
+
+commit b9fcc7179757285562ea4a0866ab97aff0ee35e9
+Author: pyup-bot <github-bot@pyup.io>
+Date:   Mon Jan 1 23:25:49 2018 +0000
+
+    Update pillow from 4.3.0 to 5.0.0
+
+commit 70c22dbdbab6cb1b70790011dc3ba59f68ffcfff
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Dec 21 21:42:00 2017 +0100
+
+    Update README.md
+
+commit b48d5b3311d13e853d388d0e890fd9a1af5fb7ae
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Dec 21 15:37:59 2017 -0500
+
+    chmod +x
+
+commit aebc26fbda09f22e928dd36fef672b87c43626e7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Thu Dec 21 13:33:00 2017 +0100
+
+    Update README.md
+
+commit caac265d35ce113835f7a34381f9f491a8b6ae35
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Wed Dec 13 01:50:02 2017 +0100
+
+    Update README.md
+
+commit 271bd753179a0d8d2dda8901d11e0ddbe75940ae
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 15:45:26 2017 +0100
+
+    Update README.md
+
+commit 09dbf275eadcc629c74148340031a174df5f4d91
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 15:42:15 2017 +0100
+
+    Update README.md
+
+commit c1a9a93f439da9813cf09ea9154574bc5786904e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 15:40:29 2017 +0100
+
+    Update README.md for Python3
+
+commit faf27951c878ba9fecbbf52b313836d01e57ddd6
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 14:37:05 2017 +0100
+
+    Update README.md
+
+commit 51d13772d0565af9718850a177af9d8e92e54c46
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 14:16:40 2017 +0100
+
+    added exception handling
+
+commit 0bddbee51ce52760fe79181f9af3e36622e26988
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 09:49:38 2017 +0100
+
+    Update README.md
+
+commit 60eca988b9ba2a76e771b31d105c25e53abea85a
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 09:49:05 2017 +0100
+
+    Update README.md
+
+commit 9ef5797951780ac137f6ff8a8eb33141baae486d
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 09:42:50 2017 +0100
+
+    Update README.md
+
+commit fdd09c563042d8a2338c0f584b219378ecd11adc
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Mon Dec 11 03:30:56 2017 -0500
+
+    added requirements.txt
+
+commit 89ce4ccab76a136e49b11ab5bd351809e704fadd
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Mon Dec 11 09:14:21 2017 +0100
+
+    fixed indentation
+
+commit f7d14ff712ac1992048eb9a48ae8ee5d1bd32a2c
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Mon Dec 11 08:47:27 2017 +0100
+
+    use python3
+
+commit 97e0f909f565d1e96e14a6bd9ca1d539febb2a23
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Mon Dec 11 00:34:09 2017 +0100
+
+    decode byte object to string for python3 compatibility
+
+commit 9ed0fabad2950ca7d18bed1143d8e9d91eb5be96
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sun Dec 10 01:29:56 2017 +0100
+
+    remove duplicate debug output
+
+commit 1cde5c36b21508410d11254a99e950d3479d03ee
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 23:36:25 2017 +0100
+
+    Update README.md
+
+commit 87812efe9dfcfabb376e531685b432734aabb8fa
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 23:31:52 2017 +0100
+
+    Update README.md
+
+commit 0104989ed61d59d908b351b84234068f579af020
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Sat Dec 9 22:54:43 2017 +0100
+
+    removed file conversion step
+
+commit 63cfdc4c88891d25adeee1b529725c3037a6bb59
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Sat Dec 9 22:29:58 2017 +0100
+
+    fixed indentation
+
+commit 4b950f2af1f0fd7c82bba0c3de3a730391dc81b5
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Sat Dec 9 22:18:15 2017 +0100
+
+    fixed indentation
+
+commit 0c4c6031757f84f42f16de3fee811a24393eec18
+Author: Florian Bruhin <git@the-compiler.org>
+Date:   Sat Dec 9 21:09:33 2017 +0100
+
+    Make files executable
+
+commit 8867400c9688b9fd74d2c713462ae3917ff0da5c
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 21:04:19 2017 +0100
+
+    added dependency list
+
+commit 22f4bb2dfced194d28a8e280b5a81f4f83eb7580
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 21:01:42 2017 +0100
+
+    lowercase variables
+
+commit c55839a40eda24b58d8caa840bf106ee549ce5b9
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 20:58:04 2017 +0100
+
+    added quoting
+
+commit 3064d44843fc1c8914a1f6064a9c20dd64dfc25f
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Sat Dec 9 20:53:32 2017 +0100
+
+    cosmetic changes
+
+commit 28ef8f9a9c4c23668a9cc3a90f14e41fd9d65f81
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 20:42:42 2017 +0100
+
+    Update README.md
+
+commit 6e53519da13dffb144aa040ba3b2816d4118ac37
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 20:41:26 2017 +0100
+
+    Update README.md
+
+commit 5b935a4da68d66ddc7f9a628d3f41418f7d45b9e
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 20:40:38 2017 +0100
+
+    Update README.md
+
+commit 40d4a3825c14e943c43a4be41a13a208bc9f72d9
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 20:39:34 2017 +0100
+
+    Update README.md
+
+commit 89ec2d62307e3d9a393b746dbf50fe8332f0b9be
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Sat Dec 9 17:57:14 2017 +0100
+
+    output second keylist file with duplicates removed
+
+commit 7f8b83821cc09b68588010113e293f1b9dfc1ce7
+Author: Marco Zollinger <marco_zollinger_17@hotmail.com>
+Date:   Sat Dec 9 01:52:18 2017 +0100
+
+    initial commit
+
+commit 74adcb76d1e9122335c54102acad6f7a077d82a7
+Author: Marco Zollinger <marco@freelabs.space>
+Date:   Fri Dec 8 17:26:00 2017 +0100
+
+    Initial commit

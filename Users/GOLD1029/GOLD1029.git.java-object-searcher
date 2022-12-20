@@ -1,0 +1,252 @@
+======================: FILES :======================
+.
+├── pom.xml
+├── README.md
+└── src
+    ├── main
+    │   └── java
+    │       ├── me
+    │       │   └── gv7
+    │       │       └── tools
+    │       │           └── josearcher
+    │       │               ├── entity
+    │       │               │   ├── Blacklist.java
+    │       │               │   ├── Keyword.java
+    │       │               │   └── NodeT.java
+    │       │               ├── searcher
+    │       │               │   ├── JavaObjectSearcher.java
+    │       │               │   ├── SearchRequstByBFS.java
+    │       │               │   └── SearchRequstByDFS.java
+    │       │               └── utils
+    │       │                   ├── CheckUtil.java
+    │       │                   ├── CommonUtil.java
+    │       │                   ├── LogUtil.java
+    │       │                   └── MatchUtil.java
+    │       └── META-INF
+    │           └── MANIFEST.MF
+    └── test
+        └── java
+            ├── me
+            │   └── gv7
+            │       └── tools
+            │           └── josearcher
+            │               ├── entity
+            │               │   ├── BlacklistTest.java
+            │               │   └── KeywordTest.java
+            │               ├── searcher
+            │               │   ├── DeptSearch.java
+            │               │   ├── JavaObjectSearcherTest.java
+            │               │   ├── RequstSearchByRecursiveTest.java
+            │               │   ├── SearchRequstByBFSTest.java
+            │               │   └── SearchRequstByRecursive1.java
+            │               └── test
+            │                   ├── EntityTest.java
+            │                   ├── RecursionObject.java
+            │                   ├── TestBaseClass.java
+            │                   └── TestClass.java
+            └── Test4Searched.java
+
+20 directories, 25 files
+======================: README CONTENT :======================
+<h1 align="center">Java Object Searcher | java内存对象搜索辅助工具</h1>
+
+<p align="center">
+  <img title="portainer" src='https://img.shields.io/badge/version-0.1.0-brightgreen.svg' />
+  <img title="portainer" src='https://img.shields.io/badge/java-1.7.*-yellow.svg' />
+  <img title="portainer" src='https://img.shields.io/badge/license-MIT-red.svg' />
+</p>
+
+
+## 0x01 工具简介
+
+```
+#############################################################
+   Java Object Searcher v0.01
+   author: c0ny1<root@gv7.me>
+   github: http://github.com/c0ny1/java-object-searcher
+#############################################################
+```
+
+配合IDEA在Java应用运行时，对内存中的对象进行搜索。比如可以可以用挖掘request对象用于回显等场景。
+
+## 0x02 知识储备
+
+使用之前必须了解的三个概念
+
+#### 2.1 搜索器
+根据要搜索什么样的对象，选择对应的搜索器，目前项目有三类。
+
+* JavaObjectSearcher 普通搜索器
+* SearchRequstByBFS 通过广度优先搜索requst对象搜索器
+* SearchRequstByRecursive 通过深度优先搜索requst对象搜索器(递归实现)
+
+#### 2.2 关键字 & 黑名单
+
+关键字是搜索目标对象的关键，可以目标三个属性`属性名`(field_name),`属性值`(field_value)和`属性类型`(field_type)。
+
+比如想搜索属性名为table同时属性值为test的对象，还搜索属性名`request`同时属性类型包含`RequestInfo`关键字的，对应的逻辑表达试如下：
+
+```$xslt
+(field_name = table & field_value = test) || (field_name = request & field_type = RequestInfo)
+```
+
+编写代码如下：
+
+```java
+List<Keyword> keys = new ArrayList<>();
+keys.add(new Keyword.Builder().setField_name("table").setField_type("test").build());
+keys.add(new Keyword.Builder().setField_name("request").setField_type("RequestInfo").build());
+```
+
+黑名单是定义哪些属性中不可能存有要搜索的目标对象，防止无意义的搜索，浪费时间。如果把上面的例子当做黑名单，编写的代码也是类似的。
+
+```java
+List<Blacklist> blacklists = new ArrayList<>();
+blacklists.add(new Blacklist.Builder().setField_name("table").setField_value("test").build());
+blacklists.add(new Blacklist.Builder().setField_name("request").setField_type("RequestInfo").build());
+```
+
+## 0x03 使用步骤
+
+**1. 将项目的java引入到目标应用的classpath中**
+
+**2. 编写调用代码搜索目标对象**
+
+以搜索request对象为例，选好搜索器，并根据要搜索的目标特点构造好关键字(必须)和黑名单(非必须)，可写如下搜索代码到IDEA的`Evaluate`中执行。
+
+```java
+//设置搜索类型包含Request关键字的对象
+List<Keyword> keys = new ArrayList<>();
+keys.add(new Keyword.Builder().setField_type("Request").build());
+//定义黑名单
+List<Blacklist> blacklists = new ArrayList<>();
+blacklists.add(new Blacklist.Builder().setField_type("java.io.File").build());
+//新建一个广度优先搜索Thread.currentThread()的搜索器
+SearchRequstByBFS searcher = new SearchRequstByBFS(Thread.currentThread(),keys);
+// 设置黑名单
+searcher.setBlacklists(blacklists);
+//打开调试模式,会生成log日志
+searcher.setIs_debug(true);
+//挖掘深度为20
+searcher.setMax_search_depth(20);
+//设置报告保存位置
+searcher.setReport_save_path("D:\\apache-tomcat-7.0.94\\bin");
+searcher.searchObject();
+```
+
+## 0x04 更多
+* [半自动化挖掘request实现多种中间件回显](http://gv7.me/articles/2020/semi-automatic-mining-request-implements-multiple-middleware-echo/)====================== GIT HISTORY: ======================
+3aedbbf HEAD@{0}: clone: from https://github.com/gold1029/java-object-searcher
+commit 3aedbbf941d1c4bf6c63c0d1f08b8c82837bf24f
+Author: c0ny1 <1627639645@qq.com>
+Date:   Sun Jul 19 06:17:45 2020 +0800
+
+    解决Set.contains()抛空指针异常导致搜索中断问题
+
+commit f3510e5423dccea27c16cde7210156c2493b9e2e
+Author: c0ny1 <1627639645@qq.com>
+Date:   Sun Jul 19 05:56:59 2020 +0800
+
+    去除log4j依赖
+
+commit 213cdde67ed2ab4cfbba8558b04031fc2281d215
+Author: c0ny1 <1627639645@qq.com>
+Date:   Thu Apr 23 18:26:11 2020 +0800
+
+    解决报告保存内容为空，实际生成到中间件运行目录下问题
+
+commit 53d208f0e0949a319a96bde26b8cdb5b10ca2916
+Author: c0ny1 <1627639645@qq.com>
+Date:   Mon Apr 20 10:32:15 2020 +0800
+
+    搜索keyword说明错误修正
+
+commit e86b84c94a857e609c6d86e80d68a73b0c6a256d
+Author: c0ny1 <1627639645@qq.com>
+Date:   Mon Apr 20 09:13:07 2020 +0800
+
+    更新README&修改版本
+
+commit 87c345dd2d19fbe915936c609bec82ec9e2ac438
+Author: c0ny1 <1627639645@qq.com>
+Date:   Mon Apr 20 09:07:23 2020 +0800
+
+    更新README
+
+commit b5fba86af3b00405236639e284667d38560e561e
+Author: c0ny1 <1627639645@qq.com>
+Date:   Mon Apr 20 08:47:38 2020 +0800
+
+    更新README
+
+commit 8e40ae0d7de05d9e8c37fc59190d5200a7503585
+Author: c0ny1 <1627639645@qq.com>
+Date:   Fri Apr 17 22:09:52 2020 +0800
+
+    解决广度优先搜索算法因空指针异常导致中断问题
+
+commit 9ae6592df7cfe17aa318fab1692e4a27a0061611
+Author: c0ny1 <1627639645@qq.com>
+Date:   Fri Apr 17 20:32:49 2020 +0800
+
+    修改匹配模式为忽略大小写
+
+commit ef59f37ca11817fd3705f12be42c77eb0e74fad7
+Author: c0ny1 <1627639645@qq.com>
+Date:   Fri Apr 17 01:01:29 2020 +0800
+
+    让递归搜索和广度搜索requst模块支持设置报告保存路径
+
+commit 17bf836d5258685bb562c8e51a1929ad9ab638f7
+Author: c0ny1 <1627639645@qq.com>
+Date:   Fri Apr 17 00:45:14 2020 +0800
+
+    调整代码结构
+
+commit 0b62da3b5fd9f2bc81226ed54fff1a91e9c9bbfb
+Author: c0ny1 <1627639645@qq.com>
+Date:   Fri Apr 17 00:30:22 2020 +0800
+
+    修改递归搜索request方法中存储已经访问对象的方式
+
+commit 14222a697eb00db94de7d5f18eb804ad2e042558
+Author: c0ny1 <1627639645@qq.com>
+Date:   Fri Apr 17 00:17:51 2020 +0800
+
+    精简广度优先搜索request模块代码
+
+commit 694563b92e062b15e6b0955a30646debc452e73a
+Author: c0ny1 <1627639645@qq.com>
+Date:   Thu Apr 16 23:55:42 2020 +0800
+
+    添加深度优先遍历算法
+
+commit e127cd284ffcf5f2f23ac138fb08dab96f7d7d16
+Author: c0ny1 <1627639645@qq.com>
+Date:   Thu Apr 16 00:30:23 2020 +0800
+
+    解决无法搜索和过滤全类名
+
+commit 0bb7c2c9a24d22a490dd5fbf95de1db4a7bbae5f
+Author: c0ny1 <1627639645@qq.com>
+Date:   Thu Apr 16 00:20:53 2020 +0800
+
+    修改搜索和黑名单匹配方法的算法
+
+commit c7ac87626c7d779cc2f944ffbaa678d04d057c56
+Author: c0ny1 <1627639645@qq.com>
+Date:   Wed Apr 15 11:06:06 2020 +0800
+
+    添加Keyword和Blacklist的搜索和过滤机制
+
+commit 1c2a6944aa0797c9e2ff53ca5858c9d28b2c694e
+Author: c0ny1 <1627639645@qq.com>
+Date:   Mon Apr 13 00:25:38 2020 +0800
+
+    更新README
+
+commit aaa7b1d7b2433668825010fc081430a78047e862
+Author: c0ny1 <1627639645@qq.com>
+Date:   Mon Apr 13 00:03:33 2020 +0800
+
+    第一次提交

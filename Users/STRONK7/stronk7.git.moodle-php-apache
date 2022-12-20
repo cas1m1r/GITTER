@@ -1,0 +1,768 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 59fe7eba6ed83887e116c001443b3fc80d25a35a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Dec 9 16:18:33 2022 +0100
+
+    Bump to 8.2 final
+
+commit e41706b378ea9f1bef9b8e2c85a4927d2e15c1c9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 27 12:40:50 2022 +0100
+
+    Bump to 8.2.0RC6
+
+commit c0dc372f502c5a792dc005156c83ec6fb0757716
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 26 16:32:46 2022 +0200
+
+    Bump to 8.2.0RC4
+
+commit 8761cd221ddd1d84f8c87622926ff21765c3e3f2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 5 00:10:15 2022 +0200
+
+    Bump to 8.2.0RC3
+
+commit fa7401f328abd11647d2bba9072fa43bf5b27010
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Sep 26 16:30:23 2022 +0200
+
+    Bump to 8.2.0RC2
+
+commit 0934a95e82f5d06436d0a7d4e4f26359b93e2f87
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Sep 13 20:29:47 2022 +0200
+
+    First cut to 8.2.0RC1
+    
+    Everything seems to build ok without much modifications
+    from PHP 8.1, that's good. Let's test it!
+
+commit 4376f7a101cf077e2f40904cc563fd086d879a49
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Sep 13 18:46:29 2022 +0200
+
+    Switch to v3 that supports editing descriptions with token and 2fa
+    
+    Previously, the dockerhub description only was editable with
+    user and password, but it was not working for accounts having
+    2FA enabled (like ours). Hence the job in master was always
+    failing with 401.
+    
+    In July 2022 Github made the needed change to update dockerhub
+    descriptions using PAT, that is independent of the 2FA sttings.
+    
+    Hence, switching to v3 of the action and moving to token.
+
+commit 252d1bbc55be0d1315ecd538b5d4ff1bf158c7e2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jun 13 20:44:12 2022 +0200
+
+    Bump to oracle client libraries 21.6
+
+commit 5d77cec0ae285bb7b4fd6afc00aca1be3b79960c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Mar 24 23:05:03 2022 +0100
+
+    Reconcile with 8.1-bullseye
+
+commit a0b31f1c439b7d623723642b60ba1d1d5cf73d0f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Mar 8 16:50:03 2022 +0100
+
+    Bump master (php81) to use sqlsrv extension 5.10.0
+
+commit bfce0c9fd3deaf7bf633e97716228ac11b3da2eb
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Feb 25 17:39:42 2022 +0100
+
+    Enable the builds in master for manually dispatched runs
+
+commit 17fda523f146735bd393f6ca9c19f6d59967040f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jan 24 17:35:15 2022 +0100
+
+    Enable manual GH UI/CLI/API builds
+
+commit 3b666ea9fe2642b430251a8e7a87cac15c19453a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Jan 9 17:01:44 2022 +0100
+
+    PHP 7.3 EOL
+
+commit 4a7f1a5539d5ea1d85d6f1d8a7e8a89c1b8b43a9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Dec 4 16:14:15 2021 +0100
+
+    Reconcile master with 8.1-bullseye
+
+commit c75320dac339f70c8aab0debbc0b307d574d9a52
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 21 16:13:44 2021 +0100
+
+    Reconcile master with 8.0-bullseye and bump to PHP 8.0.13
+
+commit 890fa0d1bc9c4707fd2448f651da4c006f63acd0
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Nov 8 12:40:49 2021 +0100
+
+    Force build to bump to 8.0.12
+
+commit 5617716832fbcc6e0ff3c5537dbc1173fce525b7
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 15 17:56:57 2021 +0200
+
+    Reconcile master with 8.0-bullseye
+
+commit 92c165c2fd0adc56726a2fe6147217ca3340a942
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 15 17:26:32 2021 +0200
+
+    Switch from buster to bullseye as default 7.4 and 8.0 images
+    
+    With this, the transition is completed and the README updated.
+    
+    Closes #136
+
+commit 2b3c8e0e0961efef55bc54a82f18c2c03d2ba811
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Sep 29 17:15:59 2021 +0200
+
+    Add the already available bullseye images to the general table
+    
+    Note that, still, buster ones continue being the default for both
+    7.4 and 8.0. Going to run some tests before making bullseye the
+    new defaults.
+
+commit 9472852d6143dcde73449475e6ad6868d33c7622
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Sep 28 15:27:55 2021 +0200
+
+    Add master GHA badges (73, 74 and 80)
+    
+    Changed the name of the workflow to shorter because
+    that's the text shown in the badge.
+    
+    Plus remove wrong continue-on-error option.
+
+commit 5a033c21e8e397e4f12a8e75f1275ac1ec4db437
+Merge: 9bc9a25 6a90e65
+Author: Sara Arjona <sara@moodle.com>
+Date:   Mon Sep 27 09:11:25 2021 +0200
+
+    Merge pull request #139 from stronk7/move_tests_to_gha
+    
+    Moving the testing from Travis to GHA
+
+commit 6a90e6574c89bebf9e0f2691f5dd611703c48754
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Sep 25 11:24:07 2021 +0200
+
+    Moving the testing from Travis to GHA
+    
+    - remove Travis integration.
+    - replace it by GHA test job.
+    - add some more conditions to avoid the publish job to happen.
+
+commit 9bc9a255892072737dcdffd5233c355765acc0e0
+Merge: 2b3d9d2 8854b4b
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Sep 24 17:40:32 2021 +0200
+
+    Merge pull request #137 from andrewnicols/pcov
+    
+    Add support for pcov
+
+commit 8854b4b80c10f649a9bee24142ed7c0ad28b5381
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Sep 16 21:26:31 2021 +0800
+
+    Add support for pcov
+
+commit 2b3d9d2cc8cf71f7a7970d60fe57c054cd2094b2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Sep 19 17:58:05 2021 +0200
+
+    Bump to sqlsrv 5.9.0 final driver
+
+commit dd798884b2c0f0cdb83ae5c0c7a244966fe4ee57
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Aug 15 12:20:02 2021 +0200
+
+    Fix typo
+
+commit fe69e99e8e761b80e391251aecf9411376831016
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Aug 5 15:22:46 2021 +0200
+
+    First cut to moodle-php-apache multiarch builder
+    
+    First attempt to switch the automated building of moodle-php-apache
+    images from DockerHub to GHA. Main reason being that the former doesn't
+    support multiarch builds (only multiarch storage).
+    
+    Link: https://github.com/docker/hub-feedback/issues/1874
+    
+    Experimentally we'll be, also, sending the images to both DockerHub
+    and GitHub registries in case we need to switch some day.
+    
+    This requires:
+    
+    1. Some secrets to be created:
+      - DOCKERHUB_USERNAME
+      - DOCKERHUB_TOKEN (write perms)
+      - DOCKERHUB_PASSWORD, grrr, descriptions cannot be updated using PATs,
+        see https://github.com/peter-evans/dockerhub-description/issues/10
+      - GH_USERNAME
+    2. Autobuilds @ DockerHub to be disabled (this takes exactly on them)
+
+commit 0c2f2c71cfccd533e46c314fea2c7edb7624fc7b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Aug 5 15:16:41 2021 +0200
+
+    Towards multi-arch images support
+    
+    - Add environment variable to allow scripts to make decissions.
+    - Remove x86 harcoded dependency.
+    - Disable sqlsrv and oracle drivers for non amd64 builds (they need research).
+    
+    With these changes it's possible to build both amd64 and arm64 images.
+    
+    Need this is place to continue testing the new multi-arch
+    automated builders from GHA (that will replace DockerHub
+    builds, because, amazingly, they don't support multi-arch yet).
+    
+    Once built the multi-arch images, we'll be pushing them both
+    to DockerHub and also to GH own registry.
+
+commit a2a6e6cb6b8318382bac84137fcfe3967870a4aa
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jul 8 09:59:59 2021 +0200
+
+    Add the optional exif extension. Needed for 4.0 and up.
+    
+    Part of the Moodle 4.0 requirements issue: MDL-70594
+
+commit 4df9efa7427f8d4f6f7a98777c8c29da84501177
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Apr 30 17:28:00 2021 +0200
+
+    Reconcile master with 8.0-buster
+
+commit c96cffb34d2b266ea861b9e53fc105b59802ff73
+Merge: 67a8d11 ef02b66
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Feb 15 12:25:51 2021 +0100
+
+    Merge pull request #129 from stronk7/master
+    
+    Bump to php 8.0.2
+
+commit ef02b66a4d67c951e775617f609cfb0669e9e420
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Feb 15 00:28:44 2021 +0100
+
+    Bump to php 8.0.2
+    
+    (by moving to 8.0-apache-buster "floating" tag)
+
+commit 67a8d112eec6b3d78fbfc4289a7d2d6c706e1016
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jan 28 09:20:30 2021 +0100
+
+    Reconcile master with 8.0-buster
+
+commit c555cdd759fbc78eb7d314a7e32a065d6c794e61
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Dec 1 16:22:59 2020 +0100
+
+    Reconcile master with 8.0-buster
+    
+    and set PHP 7.2 EOL
+
+commit eb6ae8927689ccaacf96527c0cc0691a831d3750
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Oct 15 23:13:10 2020 +0200
+
+    Move badges to travis-ci.com (#123)
+
+commit 1a5abc0019d08d8231d39fced955dcc33ff1b4c9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Sep 12 23:59:44 2020 +0200
+
+    Stretch EOL was 20200706 (no matter LTS)
+
+commit a9e0f1de46c147ec4fb257077ca85d97032e1af8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Sep 12 19:32:14 2020 +0200
+
+    Back to pecl solr from manually patched and compiled one
+    
+    With the release of php-solr 2.5.1 (20200909) we can be
+    back to the upstream extension. The problems in previous
+    version (see php/pecl-search_engine-solr#16) have been
+    fixed and it should work as is.
+    
+    This comes with php71, 72, 73, 74 and 80 support.
+
+commit 98d4e08b65ee9bf028474cb4e28113cfab493231
+Merge: 3acb498 355fe39
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed May 27 03:00:01 2020 +0200
+
+    Merge pull request #114 from stronk7/master
+    
+    Reconcile master with 7.4-buster
+
+commit 355fe39465df8bc12e85d9eacac02e3b911b1473
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed May 27 01:24:04 2020 +0200
+
+    Reconcile master with 7.4-buster
+
+commit 3acb49832004a0036ea0940f777cdea5dd251257
+Merge: 5924bec 7364adb
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Apr 24 18:49:19 2020 +0200
+
+    Merge pull request #108 from stronk7/php71_eol
+    
+    Just note PHP7.1 is EOL since some good months ago (Dec 2019)
+
+commit 7364adbef3496fc9e6c0b036ec65e7d4b0741d19
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Apr 24 17:03:31 2020 +0200
+
+    Just note PHP7.1 is EOL since some good months ago (Dec 2019)
+
+commit 5924bec2c2485d50cea2b01cf3fc23aae89fa426
+Merge: a3b0a71 eae4948
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Nov 29 13:24:37 2019 +0100
+
+    Merge pull request #105 from stronk7/master
+    
+    Reconcile master with 7.4-buster
+
+commit eae49486fcfd220d71539030de8e33d6905713a7
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 29 13:16:17 2019 +0100
+
+    Reconcile master with 7.4-buster
+
+commit a3b0a71c77efce53b04ba7f38fa916fa48b0ea35
+Merge: 62c1438 8cf1a3b
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Nov 29 13:08:18 2019 +0100
+
+    Merge pull request #104 from stronk7/master
+    
+    Add link to 7.4 / 7.4-buster now it's released
+
+commit 8cf1a3b7599c7daf225e497ac70617fac549833f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 29 12:07:37 2019 +0100
+
+    Add link to 7.4 / 7.4-buster now it's released
+
+commit 62c1438e54cb13aaec79375bfe3e28aa862dc79d
+Merge: ae1e2e5 031db36
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Oct 9 20:54:34 2019 +0200
+
+    Merge pull request #100 from stronk7/master
+    
+    Reconcile master with 7.3-buster
+
+commit 031db36fa849633f934db8a6a3c22670d108d14f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 9 17:10:00 2019 +0200
+
+    Reconcile master with 7.3-buster
+
+commit ae1e2e5fa92842c4ceadc2e5996d4811dab133bf
+Merge: 698620d 72f03a9
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Aug 31 19:39:05 2019 +0200
+
+    Merge pull request #92 from stronk7/master
+    
+    Switch default 7.x from stretch to buster (README)
+
+commit 72f03a9146a264fc02afa412ac2a1e79a8c1a60b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Aug 31 17:04:36 2019 +0200
+
+    Switch default 7.x from stretch to buster
+
+commit 698620da7a70c644b263788a100fedc476cd25a0
+Merge: 893d9db 03a16b8
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Aug 30 18:28:57 2019 +0200
+
+    Merge pull request #85 from stronk7/master
+    
+    Reconcile master with 7.3-buster
+
+commit 03a16b82f0902109e1c0a0257edfad884eed7845
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Aug 30 18:00:34 2019 +0200
+
+    Reconcile master with 7.3-buster
+
+commit 893d9db660ad85e02ebfbe8da1c3dbda4d379cb9
+Merge: 26ad62b 85243fa
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Aug 2 23:56:16 2019 +0200
+
+    Merge pull request #75 from stronk7/add_7172_builds
+    
+    Add new buster71 and buster72 builds
+
+commit 85243fae412f931cfefa48aeac90b67e1d4d7e4e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Aug 2 17:02:37 2019 +0200
+
+    Add new buster71 and buster72 builds
+
+commit 26ad62b4eb83347aae467f12afa0081b974e400d
+Merge: 211758d f4d203c
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jul 25 15:58:09 2019 +0200
+
+    Merge pull request #72 from stronk7/master
+    
+    Reconcile with 7.3-stretch & add new 7.3-buster
+
+commit f4d203c3879f01c41fd6e9998d75e580dcf3359b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jul 25 13:04:52 2019 +0200
+
+    Let's remain sticky to Redis 4.3.0
+    
+    Some days ago Redis 5.0.0 was released and it includes some
+    changes that require verification in core functionality and
+    associated unit tests (now failing). To be handled by:
+    
+    https://tracker.moodle.org/browse/MDL-66139
+    
+    Once that issue is fixed... surely we can unpin this.
+    
+    Ciao :-)
+
+commit 013c6b5068fd6275bbf9a804eced5f75fb01772d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jul 24 12:01:29 2019 +0200
+
+    New 7.3-buster build
+
+commit 211758deca6545237432fbaa05bfa55722cf09df
+Merge: 289e137 ea9f5aa
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon May 27 13:32:44 2019 +0200
+
+    Merge pull request #63 from stronk7/master
+    
+    Enable the mongodb extension for 7.3
+
+commit ea9f5aaa0c4cf1c88c55485d165eac8de665defd
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 26 11:38:30 2019 +0200
+
+    Enable the mongodb extension for 7.3
+    
+    Just that, nothing else needs to be done. moolde-docker will have
+    other changes to make the test environment ready.
+
+commit 289e1379c01c2cc6d0d2791784fdf8f43bc637be
+Merge: ba487d7 01323a9
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu May 23 20:29:37 2019 +0200
+
+    Merge pull request #59 from stronk7/master
+    
+    Reconcile master with 7.3-stretch
+
+commit 01323a9f9b20787719b29687983328fe74153fa6
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 23 19:45:20 2019 +0200
+
+    Reconcile master with 7.3-stretch
+
+commit ba487d729626cd20c1520b8e9b4fe895067f0b0f
+Merge: 6418939 84d60fe
+Author: Sara Arjona <sara@moodle.com>
+Date:   Wed May 15 18:31:28 2019 +0200
+
+    Merge pull request #55 from stronk7/master
+    
+    Add notes in master to show every branch status
+
+commit 84d60fe643edba71d0ebd1f3276831a9b9c93f4a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 11 18:29:11 2019 +0200
+
+    Add notes in master to show every branch status
+
+commit 6418939ae24ecf37d4005d7ba67440cf5474ed9c
+Merge: 090e61e aa6e94c
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu May 9 23:45:27 2019 +0200
+
+    Merge pull request #46 from rlorenzo/patch-1
+    
+    Fixed typo for 7.2-stretch
+
+commit aa6e94cc8813fb18f2dc4e0ab36145fdd00a1732
+Author: Rex Lorenzo <rex@oid.ucla.edu>
+Date:   Fri Mar 22 14:37:07 2019 -0700
+
+    Fixed typo for 7.2-stretch
+
+commit 090e61ecf01fcaa57c149a99679cd61250e689b4
+Merge: c334c90 05bcc7d
+Author: Eloy Lafuente <stronk7@stronk7.com>
+Date:   Sun Jan 20 23:56:13 2019 +0100
+
+    Merge pull request #41 from scara/master-update-readme-new-72-and-73-images
+    
+    Updated README: new 7.2 and 7.3 images on master
+
+commit 05bcc7d7863b56fc019daf10924bd4602b3d7a1b
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Sun Jan 20 22:25:51 2019 +0100
+
+    Updated README: new 7.2 and 7.3 images
+
+commit c334c90a83c390a4149a1e964d16201e62ac1a00
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Fri Sep 21 10:58:57 2018 +0800
+
+    Update readme for new images
+
+commit 76267f487a1d7cca1382a559ac7af95521d43175
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Tue Jul 31 11:34:08 2018 +0800
+
+    Switch base image to -stretch variant
+    
+    Fixes #21
+
+commit 2ca8467f5bb1561cde37f30758a6af58d15fccc0
+Merge: c0df519 592bf50
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Mon Aug 13 14:15:05 2018 +0200
+
+    Merge pull request #30 from stronk7/master
+    
+    Explicitly use -jessie as base until we move to -stretch
+
+commit 592bf50b53945e1e671e90bf791da09b7839757b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Aug 13 13:48:07 2018 +0200
+
+    Explicitly use -jessie as base until we move to -stretch
+    
+    Recently the official builds moved the default from jessie to stretch
+    so, some of the dependencies in our container stopped working.
+    
+    This just ensures that we continue using the -jessie variants until
+    the move to -stretch (and dependencies) are tested enough.
+    
+    Part of #21.
+
+commit c0df5190fa4abc18b4aeb34ab1653cc093e2be20
+Merge: dec82b5 a05f50d
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Sep 14 10:00:40 2017 +0100
+
+    Merge pull request #11 from abias/patch-1
+    
+    Update README.md
+
+commit a05f50d52798053c3e7686f1510ad772f7dc962a
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Wed Sep 13 16:13:44 2017 +0200
+
+    Update README.md
+
+commit dec82b5918312ab5c6f5c42dc56f9bc073d1ce37
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Sep 5 13:25:59 2017 +0100
+
+    Switch reference to Moodle HQ
+
+commit 52620dc85df16109722b17a3be40a59599d60edc
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Aug 2 12:02:08 2017 +0100
+
+    Create set of data directories by default
+
+commit 7a98a299f3d6eadb53d25f82b6ed223098d4f2fc
+Merge: c63aa2f b39798f
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Wed Jul 26 12:41:50 2017 +0100
+
+    Merge pull request #7 from danpoltawski/sqlsrv-4.3.0
+    
+    Update sqlsrv driver to 4.3.0
+
+commit b39798fd8cf70bda3a7193ea3aed83e6accada70
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Jul 25 08:11:34 2017 +0100
+
+    Update sqlsrv driver to 4.3.0
+    
+    Thanks Matteo!
+    
+    Fixes #6
+
+commit c63aa2f0d3e728c1f0db20c6074d1ec23724e704
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jul 6 11:00:56 2017 +0100
+
+    Remove misleading comment
+
+commit 3ae60696da2af0d8e571369d38faac90a6ab2ead
+Merge: 3765950 365857d
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Wed Jul 5 17:12:12 2017 +0100
+
+    Merge pull request #5 from danpoltawski/fix-apt
+    
+    Don't remove apt https transport after build
+
+commit 3765950a3e590ee137be011419d0c26b8e1a8943
+Merge: 6efd643 a7385ff
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Wed Jul 5 17:11:08 2017 +0100
+
+    Merge pull request #4 from scara/Fix-TMP-Permissions-To-Avoid-UPLOAD_ERR_NO_TMP_DIR_Error
+    
+    Fix TMP permissions to avoid UPLOAD_ERR_NO_TMP_DIR.
+
+commit 365857d8191d2a145486069fa7e707c6143b11be
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Jul 5 16:46:49 2017 +0100
+
+    Don't remove apt https transport after build
+    
+    Fixes #3
+
+commit a7385ffb02a541c58f7f4ada834603ac85513faf
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Thu Jun 29 00:06:02 2017 +0200
+
+    Fix TMP permissions to avoid UPLOAD_ERR_NO_TMP_DIR.
+    
+    Related issues: danpoltawski/docker-moodle/#9.
+
+commit 6efd6433097d04284d1275ae62403b005f20b322
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Jun 2 16:18:32 2017 +0100
+
+    Attempt to discover what is causing behat issues..
+
+commit 77b0942b67c703b870facf199a7ef3c78585090e
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:34:38 2017 +0100
+
+    Update README.md
+
+commit 5b2f5cef7b54486767c7565bc4c7cb5af0c29283
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:30:36 2017 +0100
+
+    Update README.md
+
+commit 48db47835fa768b371366e484fd2701aff632450
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:30:19 2017 +0100
+
+    Update README.md
+
+commit 6258ee8ea8690efad67d8a15c7495b31d55459fe
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:29:31 2017 +0100
+
+    Update README.md
+
+commit af8f82b8682c69f407d4c42158fb7d8245259c12
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:29:03 2017 +0100
+
+    Update README.md
+
+commit a6744da3433e4f62cbe16d2ff605c50677f019d2
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:23:34 2017 +0100
+
+    Update README.md
+
+commit 87c8b96fa1e43c2a60d3531e626bf36befec8a00
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 18:10:15 2017 +0100
+
+    Fix locales issue
+
+commit ea7b2e7fb21131e64c8853a530aede6f4105fd79
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 18:06:07 2017 +0100
+
+    Add test for missing locale
+
+commit d90878ff8864f761ad4e0f8b0f25823db7a65fd4
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 12:31:24 2017 +0100
+
+    [travis] Report logs on failure if necessary
+
+commit d65301615966cd534c5978c040c04caa045ba22a
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Wed May 24 11:22:55 2017 +0100
+
+    Update README.md
+
+commit 1a74f2aac9efccd1151c4282e355b2b4f98b6601
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 16:22:36 2017 +0100
+
+    Add travis testing
+    
+    Also remove opcache install, since its not enabled and doesn't make much
+    sense for dev environment really.
+
+commit a14fcf8ec15ec2a341e00a76063612a22545a1a8
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 16:04:45 2017 +0100
+
+    Add README.md
+
+commit 0eedd6bf201e261ddbe6b2e1241a4933ff78c8d9
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 15:28:03 2017 +0100
+
+    Reduce image size by clean up depends after building
+
+commit e08ac76d03848f462d3b7a9ec2efa4510d1aaee7
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 11:51:22 2017 +0100
+
+    Add support for php 7.1
+
+commit 787e00da2403a610f97a6a138a8ca64e2112f43c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 11:50:23 2017 +0100
+
+    Add php 7.0 image
+    
+    - Without mssql
+    - With sqlsrv driver
+
+commit 7339251e18856bded0010423890dfe310dd43415
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 11:48:53 2017 +0100
+
+    Add Moodle PHP Dockerfile on php56

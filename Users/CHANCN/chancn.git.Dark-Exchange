@@ -1,0 +1,1221 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 1654d05cda0c81585da7b8e64f9ea3e2944b27f1
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Oct 25 12:52:06 2011 -0400
+
+    You can now set your trust score on an identity using a slider in the identity view window.
+
+commit 5c4f09d7c9b064a111908b6834eb7929932df095
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Aug 29 09:39:46 2011 -0400
+
+    Fixed an issue with displaying the trust scores when it doesn't exist in the database.
+
+commit faf7f320f2a1f8d25cee0f01bd8422b7ad4ff81c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Aug 26 14:05:04 2011 -0400
+
+    Added a try catch block to try to catch the random missing lob entry errors.
+
+commit db6e9b9f3d232784212a5fed9ed43f35624a6bc1
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Aug 26 12:32:56 2011 -0400
+
+    Fixed the RejectedExecutionException caused by leiningen. Updated to the latest version of seesaw.
+
+commit 9a6fbc0b2927b94539df6f7870bda05f0cf8c50d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Aug 23 11:14:59 2011 -0400
+
+    Added my trust score and network trust score to the identity view window. Added tests for the identity view window and fixed an issue with the interceptor util which only showed up in those tests.
+
+commit 6bddf540019ef27e4c1b2808e91eb183509e2988
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Aug 22 10:57:53 2011 -0400
+
+    Added a trust score fixture to help with testing. Added my-scores function to the trust score model for later use with a get scores action.
+
+commit ac4dcc242bb1c8ac352ec1849f30401fce0d4111
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Aug 19 10:52:55 2011 -0400
+
+    Added the combined score calculation to the trust score model.
+
+commit f474c99f1da14507d9a75fefce12454df4e1aa08
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Aug 18 12:30:54 2011 -0400
+
+    Updated the trust score model to not create dumplicate scores between identities.
+
+commit 16294823653ecd45935f536cb5b1f4fe0a46253f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Aug 17 09:48:19 2011 -0400
+
+    Updated to the latest version of clj-record. Created an initial trust score table and model.
+
+commit 600a97fc3b6b748f82710333ccdd0caaa2d32be4
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Aug 15 10:34:01 2011 -0400
+
+    Created the migration to create the trust scores table.
+
+commit c739e4776afc57333b99d983852b1ac6c5ea376d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Aug 15 10:09:27 2011 -0400
+
+    Updated drift to 1.2.2.
+
+commit 1babdf33cd944bb43f75e9b8fc43f5e1fe8fbeea
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Aug 7 21:54:22 2011 -0400
+
+    Updated the version to 1.3.0-SNAPSHOT.
+
+commit 14ab42d16b48d075a28d8362242e9eb1e146a83f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Aug 7 21:38:51 2011 -0400
+
+    Updated the version to 1.2.0.
+
+commit 2aef3d1f605500236babf16874a58410d64ae8c5
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Aug 7 11:18:59 2011 -0400
+
+    Issue #42: Added Namecoin as a currency and Namecoin transfer as a payment type.
+
+commit da71bf90be5ee1a3a84152fa0446b8357799f79a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Aug 5 13:05:16 2011 -0400
+
+    Issue #32: Added a show only online identities check box to the identities tab.
+
+commit 87163c356e917173a25320d25c90d93f7689d524
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Aug 5 10:00:52 2011 -0400
+
+    Reset the identity pinger to run every hour instead of every ten minutes.
+
+commit 73cc96f7e878e4aa45b5aafd8263c95168e4472e
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Aug 4 20:03:25 2011 -0400
+
+    Dark exchange will now constantly test for connections.
+
+commit a7c4698617f9199d000aa381fef76fa295b0b532
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Aug 3 11:21:23 2011 -0400
+
+    Issues #38, #39, #40, #41: Added support for Paypal, Liberty Reserve, Paxum, and Pecunix.
+
+commit bf5c9ac888804d138dd8409a151426451ce588a5
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Aug 3 10:23:49 2011 -0400
+
+    Updated the highlight colors to something more reasonable.
+
+commit 5b6ac14407499060c3ef46c73fbfbcbc0e7df918
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Aug 2 11:17:25 2011 -0400
+
+    Issue #34: Added timestamp to all logs.
+
+commit 44b7501dac64900782a6bb774314f36d8ffb4adc
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Aug 2 11:07:50 2011 -0400
+
+    Issue #33: The password field now has focus when the login window is shown.
+
+commit e0a632ea449bf8dd29af6f6946f8f9bfb4f009c4
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Aug 2 09:28:50 2011 -0400
+
+    Issue #31: Removed id columns from all of the tables.
+
+commit d9d8159e326f1d6a66140704de45bd8ab9e8ebea
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Aug 1 10:28:11 2011 -0400
+
+    Added exception handling to deal with bad data crashing Dark Exchange.
+
+commit fdc8c38a5d05c611bb4f794c8beb60e5284070ec
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jul 28 10:12:54 2011 -0400
+
+    Trade messages will now be sent properly when first created.
+
+commit 28dc2afe4c6d41da0cd754a141399a68ff1da46a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 27 11:20:12 2011 -0400
+
+    Unviewed messages in the trade view are now highlighted. Messages sent by the user have a gray background.
+
+commit 133b0616c10743d7f02694669cfbb421afc1388a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 27 10:18:36 2011 -0400
+
+    Fixed an issue with new messages showing up as unseen when sent by the user.
+
+commit 9c3458e9f1f508c9159e17303383961a6f9a11d8
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 27 10:01:09 2011 -0400
+
+    Open trades will now highlight properly when a new message is received.
+
+commit b482a109dc7539fa1be813f690b0bf1cab39915d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 26 10:45:57 2011 -0400
+
+    Added seen and viewed to the trade messages table. Open trades will now be highlighted when they have a new unseen message.
+
+commit 710f724620639b64389dcda0d5b57d8a5da2917b
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 26 08:57:10 2011 -0400
+
+    Fixed a display issue on the peer tab which caused the is notified column to display a 1 instead of yes.
+
+commit 0b520b6649199fffb83b77ad104385993a44d4f7
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 25 10:25:06 2011 -0400
+
+    Issue #5: Trades will now be highlighted if an action is required.
+
+commit 2686ab4431cc17dfaf537cd6e8d16614f12cb08f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 24 11:03:52 2011 -0400
+
+    Updated the version to 1.2.0-SNAPSHOT.
+
+commit 0e009435e2db3705844616431e936b14f67e5275
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 24 10:28:20 2011 -0400
+
+    Set the default button for the login and create user windows.
+
+commit 000ed27547cd0add11d813e6df84e0b6d827d5e3
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 24 10:06:17 2011 -0400
+
+    Updated to the latest version of Seesaw to fix an exception when updating tables. Updated the version to 1.1.1.
+
+commit 076cb3d695a65360bd3470a1f2a464714e52cfaa
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 24 09:52:23 2011 -0400
+
+    Updated the version to 1.1.0.
+
+commit 9c7800d981b34c701f200f7c1e72ef2b678ac4bc
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jul 21 15:32:40 2011 -0400
+
+    You can now view and accept an offer from the view identity window. Also updated the Seesaw 1.0.9.
+
+commit 4c30cac089dae453e61e894e2188c65ee8accf72
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 20 10:57:52 2011 -0400
+
+    Added the offer table to the view identity window. Refactored out open offer table into its own files.
+
+commit 92349f7092eedaf6d3015a934e41701e029562f7
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 19 10:50:25 2011 -0400
+
+    Added a view identity window.
+
+commit 6a0c964e0b93d60a83d57d76aa30ff5caaa24349
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 19 09:56:01 2011 -0400
+
+    Removed my identity from the identity table.
+
+commit f78e4f0c1ff33a9377dd789a26cd937cd9d163ff
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 19 09:46:50 2011 -0400
+
+    Added my identity to the identities tab.
+
+commit 75910fa4c56d5ee2f329d61adfd17fefcb88036f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 18 12:31:23 2011 -0400
+
+    Is online is updated for identities now.
+
+commit bf46d5ef9b037efe2a8f6f1957085a88b312bc81
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 18 10:24:58 2011 -0400
+
+    Added the is online column to the identities table.
+
+commit 8ef4fce4a567ccd15e2124455f391b48ad6c892d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 18 10:18:28 2011 -0400
+
+    Added is-online column to the identities table. To do so, I had to create an execute-commands function in the database protocol, and implement the method in the h2 implementation of the protocol.
+
+commit c74c1280dcf3922099937ec09f9886367b371592
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 18 09:19:31 2011 -0400
+
+    The peers table now displays yes or nothing in the notified column.
+
+commit e876cb6719a5486e95372547fa6ce06fc59db14d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jul 16 17:53:21 2011 -0400
+
+    Added another peer to the peers.txt file to help others find more peers faster.
+
+commit 0d9452afb879df8d5f78fd34c89ac14c17747c12
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jul 16 17:31:23 2011 -0400
+
+    Updated the version number to 1.1.0-SNAPSHOT.
+
+commit 8e1a1dbf17e1c0fed349dd65b522fa88b94a4c22
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jul 16 17:25:47 2011 -0400
+
+    Fixed an issue with BigDecimal numbers throwing an exception when they can't express a number as a decimal.
+
+commit 1b93113c110ce4429805ccc5a859ca84290c9ce2
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jul 15 10:38:38 2011 -0400
+
+    Issue #15: The open offers table now displays has / wants and wants / has.
+
+commit 8f1ed7c7bcd8f52271f0628e25ee3032d8a656c3
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jul 15 10:29:57 2011 -0400
+
+    Issue #16: Added has / wants and wants / has to the search table.
+
+commit 7ad53402f443471c4e6737b74f4181219202ddf4
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jul 15 10:10:46 2011 -0400
+
+    Added ids to the correct has panel and wants panel this time.
+
+commit 497afe4bb79be7f4a252aea04cd8820a22d9ddb3
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jul 14 10:52:43 2011 -0400
+
+    Updated Seesaw to 1.0.7. Tried to disable the has-panel and wants-panel in the search tab, but Seesaw's select does not seem to be working.
+
+commit 2f2f2c380cd68c79e6d86611a0ab4a935435b19f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jul 14 10:14:29 2011 -0400
+
+    Search is a little bit more responsive when switching to cancel mode.
+
+commit 722d30f9922437ff8177f127b9b012b13f9ff005
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 13 12:50:09 2011 -0400
+
+    Search can be cancelled and behaves a bit better than before.
+
+commit ec9fe89b181594a8e0ddff0c6ae64e5c609e589e
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 13 09:46:25 2011 -0400
+
+    Viewing a trade is now more responsive.
+
+commit faf0126f9e22b08a1f3b7db60e2d2b977184f781
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 12 10:43:07 2011 -0400
+
+    Updated most of the buttons in Dark Exchange to not block the event thread when executed.
+
+commit 4c865b6298a6ae30c3983c0083c147ab5e7c0e32
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 11 10:04:32 2011 -0400
+
+    Updated more buttons to use the background thread. Created a new function in the actions utils to make it easier to use background threads with actions.
+
+commit bfb84d2434c6595ae70d4598548cebad0663d8d7
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 10 16:55:56 2011 -0400
+
+    The login button now behaves better and doesn't block the event thread.
+
+commit 671fb085bcccd6d86feeaea60afd1a7608448636
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 10 16:37:37 2011 -0400
+
+    Notification is now more aggressive.
+
+commit 6522e1cf0db7ffcd16aedd4fbb73b2da07671a13
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 10 16:37:04 2011 -0400
+
+    Updated the project file to set the version to 1.0.0-BETA4
+
+commit 716c7d7b043abb941ae8232eba798556b646038d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 10 10:28:36 2011 -0400
+
+    Updated the version to 1.0.0-BETA3.
+
+commit 1337c9306e0435a995212c54bdc3890e9742f07d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jul 8 11:04:39 2011 -0400
+
+    In order to force Dark Exchange to download all peers, all peers are reloaded from every notified peer.
+
+commit 4c9d7f1d8ee0ce6f7b56b309c34284770595308d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jul 7 19:29:22 2011 -0400
+
+    Issue #10: The identity table now displays a section of characters from the center of the public key.
+
+commit 5a525edb83aa1de1cd4053b500640cbdd28a2998
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jul 7 18:33:28 2011 -0400
+
+    Issue #6: Removed the double click listener for the open offer table.
+
+commit 28ad20ee9bff1a5974d711642cada03046115449
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 6 22:52:51 2011 -0400
+
+    Added info and warn messages to keep track of what's going on while loading peers.
+
+commit 7ec12b15249cd36899b564e42fc0a07c4de0054c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 6 21:30:14 2011 -0400
+
+    Updated the README file to list ways people can help.
+
+commit fcf94405b8f2a944a3cce26eab1cb47a17404e9a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 6 21:19:05 2011 -0400
+
+    Dark Exchange will now try to download all peers every time it is run.
+
+commit 871b7245d415e3b361646dbf1fc9a0b905786bbc
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 6 13:37:02 2011 -0400
+
+    Updated the h2 database to the latest version. Created an update migration to switch fields in the offers table to decimals. Fixed an issue with reading clobs from the database with the new version of h2. Tests will now reload the test database each time.
+
+commit 4b3b713f137f301519050a712da6835a62544742
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jul 6 09:26:45 2011 -0400
+
+    Extended the time Dark Exchange waits to find peers. The peers downloaded property is now only set when all of the peers have been downloaded properly.
+
+commit 7e3fc8089cb412435d7e55b8101fe6b02d7bc7cc
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 5 20:44:15 2011 -0400
+
+    Updated the way peers are found to hopefully help connect the network better.
+
+commit 0c33d934b288c43fffff8d6be253495dbbe5dcef
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 5 20:18:57 2011 -0400
+
+    Updated i2p to the latest version and removed the bouncy castle reference in it. Added the ability to run Dark Exchange in development mode outside of the lein directory. Started work on the decimal issue.
+
+commit 79388e9062c5fef76f43be9173a49deeabcf2589
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jul 5 08:48:29 2011 -0400
+
+    Updated a reference to the snapshot version of drift to the latest release version in the project.clj file. Updated the README file to point to the wiki.
+
+commit 86603da48246973b180654c579c30a2a36311105
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 20:34:15 2011 -0400
+
+    Fixed an issue forcing all currency values to be integers.
+
+commit 0fcea122ba28902fca64e8060883e4d3df601906
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 18:36:26 2011 -0400
+
+    Changed the names of the databases from conjure to dark_exchange.
+
+commit 2662868ce831576d9196ccfba308fe73e4af7211
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 18:30:18 2011 -0400
+
+    Fixed an issue with Dark Exchange not connecting to its network. Also, created a new peer text file for development.
+
+commit 47a969bf83284c85fd9bd71d80ecd8689ca52339
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 16:58:44 2011 -0400
+
+    Fixed an issue with long passwords throwing an exception.
+
+commit 4e09a79e12b9d6be53328245ca51efe60d80d03c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 16:20:09 2011 -0400
+
+    Updated the drift version to 1.2.1.
+
+commit 518462f2f28f8bbc9d3999fe0d5d1b00e0103dbb
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 10:03:10 2011 -0400
+
+    Updated the version to 1.0.0-BETA
+
+commit b16c230c820d485c9221f97695f6c65cb0550a91
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 10:00:12 2011 -0400
+
+    Added dots to indicate that the mid section of the public key is displayed.
+
+commit 54f02c1f725a29957b704b390478f294c17dbc35
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 09:59:15 2011 -0400
+
+    The portion of the public key shown for the trade partner identity is now a more random section.
+
+commit f90595379f1b3df5b17c3b3b853912bf1706c4b8
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jul 4 09:51:08 2011 -0400
+
+    Search results are cleared before each new search.
+
+commit 666e0664eb5a037231c506bbb8fe5dbde2364c35
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 3 14:35:14 2011 -0400
+
+    Offers which have already been accepted do not cause exceptions or empty trades anymore.
+
+commit 8f082afb9eabe512e1e1be25dc4f21add60b26ff
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jul 3 13:22:15 2011 -0400
+
+    Fixed an issue with trade updates not getting propagated on the very last update which closes the trade.
+
+commit 381646a3d968839956e06b31dc9e7cc249509c1c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jul 2 18:53:16 2011 -0400
+
+    Offline trade message updates now work.
+
+commit 65e93a50c797411974e26017e6cad0a775b1ce34
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jul 1 09:51:21 2011 -0400
+
+    Sending messages offline does not throw exceptions anymore (they still do not work though). The local peer will only be added to the database once.
+
+commit 2e9f127eb8612155b46cd05dc8cb9b79a632db61
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jul 1 09:18:05 2011 -0400
+
+    Offline trade updates now work.
+
+commit eac5aefb9aeb1e8e9b49d640f355a0a753e5a1b8
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 30 12:22:26 2011 -0400
+
+    Fixed an issue when updating a trade offline. Though offline trade updates are still not working completely.
+
+commit 8a9af31f06ee66c54c853f005920fafdede7aa18
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 29 09:03:01 2011 -0400
+
+    Fixed an exception when confirming a trade from a user who is now offline.
+
+commit 7dea682b27b33f813333dbe1a8ea9fdbe3d2f692
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 28 09:27:30 2011 -0400
+
+    Updated the feature notes to include the latest code updates.
+
+commit e0a9563a8bfdcaec06b797eb1d54a7e5b2506765
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jun 27 10:33:13 2011 -0400
+
+    The local destination and current user are now added to the peer and identity databases respectively. Sending messages on trades works again.
+
+commit 8b34fd7cc05704407cf68b8d60b51abe4c4c2568
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jun 26 20:36:28 2011 -0400
+
+    Updated the feature notes.
+
+commit 3a8a93f94bf264f368ba74fd92985fcf1c25caf5
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jun 26 20:30:51 2011 -0400
+
+    Fixed rendering issue when updating the identity table.
+
+commit b187fdc9440690e2643c74aa00c396e6aeb893e4
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jun 26 20:18:58 2011 -0400
+
+    The identity tab will not update when identities are added, removed, or updated.
+
+commit 7e7d6d8df6ad36dc07c0c7b9c2b9fdb72d9c8bac
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jun 26 19:23:33 2011 -0400
+
+    Added the identity tab. Fixed an issue with accepting offers.
+
+commit b6bd3dfd07a51b2da94c4a18dfcb38581c59e222
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jun 25 20:19:49 2011 -0400
+
+    Fixed an issue with the peer not getting set as notified if it is notifying another peer.
+
+commit 4b41e7a56f99886753175410a27cab2fe0b06399
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jun 25 15:40:57 2011 -0400
+
+    You can now add a peer properly, though it doesn't set the notification on the other side.
+
+commit 93991324b764d54a4b402243ccc048ef5dbc7695
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 23 22:13:43 2011 -0400
+
+    Added features for future release section to the feature notes, and added highlighting for trades with new messages to the new section.
+
+commit 6d0c4baaff9dcba7b053d4769c6e3abe1790a4e2
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 23 22:11:48 2011 -0400
+
+    Fixed an issue with the password hashing function not using the salt properly. Also fixed all of the broken tests.
+
+commit b7072823ff343fed1552797ee5cb20cb8f0ca444
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 23 17:47:28 2011 -0400
+
+    More password encryption hardening.
+
+commit e37777144f365850f4762baebe763ea979791c7e
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 23 12:50:04 2011 -0400
+
+    Hardened the encryption.
+
+commit aad972f06ca24a05257afa4d1153fa5b12fef12d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 22 21:30:41 2011 -0400
+
+    Updated the feature notes to move the installer to the complete section.
+
+commit f28ee95389215943510068f33c7002638e17c062
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 22 21:18:38 2011 -0400
+
+    Added lein tar to create a distribution tar file for Dark Exchange.
+
+commit 879fde9cfa7638113fed54592746ff4a6f068b99
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 22 10:35:43 2011 -0400
+
+    Added tar packaging.
+
+commit 57c14f887b1dd2a864cb22539e8499393f5572b2
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 22 10:23:44 2011 -0400
+
+    The view message button on the trade viewer window is now enabled or disabled based on the selection in the window.
+
+commit fb37e2c18bf4132422fba00d7fdd3e206c1e799a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 22 10:15:17 2011 -0400
+
+    Most table buttons are now disabled until the user makes a selection.
+
+commit 39e1e3dd98247f383a27741353a68e2d91eb8473
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 21 10:01:40 2011 -0400
+
+    Added support for all currencies.
+
+commit ab4a52a77a47216681d8c1a5c8a73d775fea4973
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jun 20 20:29:45 2011 -0400
+
+    The currency and payment type comboboxes will agree now.
+
+commit b2106c42e615192ca1a5ba575ada758344106960
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jun 18 11:03:02 2011 -0400
+
+    The currency and payment type comboboxes now agree in the new offer window.
+
+commit 9bb7d390d2bb8c17c876e0a4d1ae3c6d7633eede
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 17 20:16:48 2011 -0400
+
+    Updated seesaw to the latest version.
+
+commit e29a89d295fd615ea613ecdd042570269a1ce7ab
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 17 20:11:31 2011 -0400
+
+    Centered all windows on either the screen or their parent window.
+
+commit 7b958b69f865be50831a4586f28f5edb1f0b1591
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 17 19:35:48 2011 -0400
+
+    Changed some of the cancel buttons to done buttons to avoid confusion.
+
+commit 25554008d86824cd2095b518df5bf3645dcc5d03
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 17 19:24:34 2011 -0400
+
+    It is now possible to reject a trade.
+
+commit 619c4f79343b01ed47996eaee083d882b010ca07
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 16 11:29:54 2011 -0400
+
+    Messages should get updated when trades are updated.
+
+commit 0e63cdbb85cde58eead8a3c6d10eb84162be5014
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 15 12:24:26 2011 -0400
+
+    First pass at off line trade updates. However, nothing is tested yet.
+
+commit 23a4d24c9118fd04d1e24863b539a1ab0cb25ce9
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 14 21:18:40 2011 -0400
+
+    Dark exchange will now automatically connect to the network of peers.
+
+commit 4383b75a16bc7d72c2316115f40336061bb384d5
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 14 16:45:23 2011 -0400
+
+    To run in development mode, you must now use lein run :development.
+
+commit 08a4a27b66ac44aa9e50287b7e215c3135fdd105
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jun 13 21:58:44 2011 -0400
+
+    Updated the feature notes to show that trade messages are complete.
+
+commit 3e05d160524db534cd6fabcdc787560dc9e84dcd
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jun 13 21:56:19 2011 -0400
+
+    Fixed an issue with the foreign trade id not getting set on both sides on the initial offer acceptance. Sending messages on trades now work in both directions.
+
+commit 2f73824801bec0c93ea388b9954be8627dd87f1c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jun 12 16:27:11 2011 -0400
+
+    You can now send messages back and forth while attached to trades. Though, not everything is implemented properly yet.
+
+commit 6988097081e1206431933c52bf2080fb7fdbf82f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 10 09:31:58 2011 -0400
+
+    Nearly all transactions between systems are signed now. Refactored the way interceptors work and put them in their own package.
+
+commit b5973aef77a7d6a28f1bbc46d5b6f39767e7f0f0
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 9 14:07:26 2011 -0400
+
+    Changed the way interceptors work in client and server. Also added public-key-algorithm as part of the user identity.
+
+commit a10875cacc395b6ee5d9b93b84cf585a3bb4e66a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 8 10:38:52 2011 -0400
+
+    You can now confirm a payment has been received. This means you can now complete a full trade cycle.
+
+commit 3b7436a1ca9595847a3b459ca9301899f3eb151e
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 8 09:53:16 2011 -0400
+
+    You can now say a payment has been sent for a trade.
+
+commit bb83bdbefa86553c5273037d43a158e69a54875a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 7 15:34:11 2011 -0400
+
+    Waiting for in the trade table now switches to the correct status after confirmation. The trade table will now automatically refresh when any trade is updated.
+
+commit ae9d3c36df545ba859d0b273669f35e93a8725a7
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 7 11:30:34 2011 -0400
+
+    Fixed an issue with phantom offers showing up after accepting a trade.
+
+commit d476bee756af8cfa1b6de400bbe3b59f8269c5f5
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 7 11:20:12 2011 -0400
+
+    It is now possible to accept a trade.
+
+commit 50d8e299f3ab88e718e77d85a9271f14e20ddb0a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue Jun 7 09:01:01 2011 -0400
+
+    Fixed the offer fixture to conform to the new table structure.
+
+commit e8fa3398b82dea787fe83242418d2f758c3bc1cb
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon Jun 6 13:00:34 2011 -0400
+
+    It is now possible to view a trade.
+
+commit 16eb3dedd2f4b0cf8099bab2d6736f19c0236cb6
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun Jun 5 21:07:24 2011 -0400
+
+    Implemented accepting an offer and creating trades.
+
+commit bf39aa1bf4be626a16385162dd9d59c37704e7b3
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jun 4 20:59:07 2011 -0400
+
+    Implemented a view offer window which is the last step before accepting an offer.
+
+commit 78f11d93ded2a5ed9a9d7ec1ac38e0d098136cce
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat Jun 4 19:58:39 2011 -0400
+
+    The public key of the user who owns the searched for offer is now displayed.
+
+commit 0bd6e52400b991be7835186443ca5e64dda38845
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 3 15:59:43 2011 -0400
+
+    Implemented the view offer button partially. Added a destination to the returned offer, but it is not working at the moment.
+
+commit 8e6b4ee79b629f373ca3a7565544754cd1c3900c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 3 15:23:59 2011 -0400
+
+    Finally figured out how to save destinations and reload them!
+
+commit 2f0fa97508282ca2ad564ec8af34ad887653b2f7
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 3 11:21:38 2011 -0400
+
+    Added a peer delete listener and now delete peers when you can't connect to them.
+
+commit 064fecfbad6f4c1cd35dcc553fdc7ad6479de019
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 3 10:32:21 2011 -0400
+
+    Moved the search table update to the event thread to make it play nicer. Fixed a possible null pointer exception in send-message. Fixed a display issue with offers in the search table not displaying the dollar amount for wants.
+
+commit 4d2c36422b8da541f3dcd1b57db619259f131c4d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri Jun 3 10:14:21 2011 -0400
+
+    Changed the way frames are created and displayed to avoid showing a frame before it is ready.
+
+commit 36db3ff43a4fcd86a7039ecdd3ebfe602dd0a5ef
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu Jun 2 22:11:22 2011 -0400
+
+    It is now possible to search for offers across the network.
+
+commit b003a413ec6cdb7988ac61053f725285f9c92a43
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 1 10:32:37 2011 -0400
+
+    Merged the has_offers and wants_offers tables into the offers table to simplify the search offers function and reduce code in other areas.
+
+commit 46ce4241b0c99511a9842c7d08a5428bfa022d1a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed Jun 1 09:26:47 2011 -0400
+
+    Added a test for the search offers function in the offers model. Updated some column names in the migrations to keep them consistent with the database column names. Updated some function calls to use the standard seesaw functions instead of swing methods per daveray's suggestion.
+
+commit b0be5a0016b63d33a5aa94682230355ad81d5eff
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 31 23:38:40 2011 -0400
+
+    Updated the fixtures to handle dependencies.
+
+commit 89299a77fb76670ddabdf5814aa156a06a795dd7
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 30 21:19:49 2011 -0400
+
+    Added search offers function to the offer model, but haven't tested it yet.
+
+commit 7c81ab6dc5dd6fe1ef7a0e795d9a9ba052c6c96b
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 30 21:09:00 2011 -0400
+
+    Updated the search tab's table to display appropriate column headers. Updated offer to handle the acceptor as an identity (fk didn't work).
+
+commit 811d210612d0cc6a87e414cd456ef0c2646974d3
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 30 16:59:35 2011 -0400
+
+    Added the search tab. Broke up the new offer window into multiple files to reuse the code with the search tab.
+
+commit 4906175ee1f106c67b88f8436ced9dfcc7c79082
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 29 19:19:19 2011 -0400
+
+    Identities are picked up from responses as well as requests now.
+
+commit d93b88844d4300e0157e0f7a0990a340334a0989
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 29 18:52:40 2011 -0400
+
+    Added destinations will now be notified properly.
+
+commit 332daf175ddf2ceac16e5a3b7ea73ad86506d3f3
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 29 18:35:04 2011 -0400
+
+    Added the identity model and tests.
+
+commit 0bc1925ca828698dedbcdb4ab3a912f51dc657d1
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 29 11:45:18 2011 -0400
+
+    Added identity information to the request map. Added a test for the client model.
+
+commit fc6b85a72d7e85c0001e2d253c924373920140f7
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 29 11:16:07 2011 -0400
+
+    Added a new action, get open offers. Fixed an issue with the actions not getting loaded properly on startup.
+
+commit 6e895742a939f64910cff9590e573b2b9b0b692c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 29 10:20:27 2011 -0400
+
+    Refactored actions to require the actions to return a response map instead of just the data.
+
+commit d8f7356854e78177cc83f19a2d317841c9a72bd0
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 29 10:14:18 2011 -0400
+
+    Broke out the notify and get peers actions into their own files, and added tests for them.
+
+commit d985792351de95e43246f19a2eff08689c4f78da
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat May 28 18:30:39 2011 -0400
+
+    Updated offers to include a link to the user who created it. Also, fixed an issue when creating new users.
+
+commit ece3ae59970a592b93b8fb47533959696efe49c3
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat May 28 18:07:12 2011 -0400
+
+    refactored the order of the migration files. Updated create user in the user model to generate the public and private keys.
+
+commit 5b8db9e0c77ffaca47779875e2774011ad60964d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat May 28 16:58:28 2011 -0400
+
+    Added a test and model testing support code for the user model.
+
+commit aaf0e46809e1e32658aa3569434deb8319fe7663
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat May 28 11:01:14 2011 -0400
+
+    Added tests for the security model, and created functions to save and load the public and private keys.
+
+commit f2d202ddbb8759c094cd11209ec5fe74b0fdf637
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri May 27 09:24:52 2011 -0400
+
+    Login now works.
+
+commit 7406c60e425da58e771bae7dab64f917ef72ea56
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri May 27 08:52:22 2011 -0400
+
+    You can now create users.
+
+commit 83bb7173e60106b1f82af48aaecf5febb72c0471
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 26 22:10:45 2011 -0400
+
+    Most of the code for adding a user is implemented, but a bug keeps it from working right now.
+
+commit 0dc0e5e53cb0f86348015b32fa25903545b30e17
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 26 10:53:43 2011 -0400
+
+    Added the create user window and implemented its cancel button.
+
+commit 1ada92afa14f09fe5d8a8e45c1b4b8c9a7378ba6
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed May 25 21:35:55 2011 -0400
+
+    Added a login window, but haven't completed it yet.
+
+commit d9dd6098d72fdb2b678c807eab7fd0effcf4c36f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed May 25 20:41:29 2011 -0400
+
+    Broke up the initialization sequence, and fixed missing imports on a few of the models.
+
+commit fe0e26682e55534a6364e29cfb6332e5d68b2f16
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed May 25 16:47:22 2011 -0400
+
+    Added a security model file and started work on a users table and model.
+
+commit 50fc45ea94047411ae4197a85200f75337c0d6c2
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 24 21:17:44 2011 -0400
+
+    You can now delete offers.
+
+commit 0437daf27b0fcb82b8aad7ae587b3aaceff53154
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 24 20:52:41 2011 -0400
+
+    You can now add an offer.
+
+commit fbfa5c0dea15be3b3977f57ce973aa8e070b22ee
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 24 17:08:38 2011 -0400
+
+    Filled out the currency and payment type comboboxes in the new offer window.
+
+commit d1e9384f2ba592e044c0a6ec3bc0729243c0e047
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 24 08:52:25 2011 -0400
+
+    Added the new offer window to all users to enter new offers.
+
+commit 791e07fb07871053efd9367a6f61ce0799b79490
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 23 16:55:25 2011 -0400
+
+    Internationalized the currency model.
+
+commit fc2b42a7729701299b76a471f9634f59d5765e3a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 23 16:31:06 2011 -0400
+
+    Fixed the issues keeping the open offers table from loading. Though there is no way to actually enter an offer right now.
+
+commit 2939efafbecedfed98233ff6a7501ec67f9cd4ef
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 23 09:34:13 2011 -0400
+
+    Added new models for offer. Added code to load the open offers table, but it doesn't work yet.
+
+commit 576c253f0de9a2f2fc8c37a9e62ebe049df2fb23
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 23 08:50:11 2011 -0400
+
+    Refactored the main controllers into their own namespace.
+
+commit 694d45a4731ad4256d9e7e043c59a1e8bf5a41af
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 23 08:44:57 2011 -0400
+
+    Updated to the lastest version of seesaw. Set the scrollable's preferred size for both tables in the home tab.
+
+commit 597e5833763a830ca9b1e971161b359381e64e1c
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sun May 22 11:24:44 2011 -0400
+
+    Added open offer and open trade panels.
+
+commit 55ae36b411b72eb9bf9c3d61e5ee0506fe9b81b9
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Sat May 21 17:48:37 2011 -0400
+
+    Added a download all peers function to the peer model.
+
+commit 11d22d106264b481d07c5445273a36bae5a808ff
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 19 20:20:03 2011 -0400
+
+    Added get-peers action.
+
+commit 4383f19024f22a625d748d1ac45053683a305359
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 19 20:02:11 2011 -0400
+
+    Fixed an exception when updating a peer.
+
+commit cfa1c1afd080f98a9bd9e1969d7bd580c0ae5da2
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 19 19:52:09 2011 -0400
+
+    Fixed the clob reading error.
+
+commit 1c0cdbe06b2d07b9bc8d8f0b212ab6f8c91eeff5
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 19 12:29:36 2011 -0400
+
+    Removed closing of the sockets since that seems to cause problems for i2p.
+
+commit 86d9e5e031b946c7fe5537117c7c65c5302703bf
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 19 10:50:13 2011 -0400
+
+    Made sure the database is migrated to the latest version each time you run Dark-Exchange.
+
+commit 550ba6770dbcc2194c7dc18f8635dc5eb964b886
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Wed May 18 11:13:52 2011 -0400
+
+    Added the notify action, but the test is causing an error somehow.
+
+commit f030b791293cdf62ffe85fa9f320393875d43dbf
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 17 10:56:31 2011 -0400
+
+    Added json support for passing data back and forth. Also broke i2p-server into three files, i2p_server.clj, server.clj and client.clj
+
+commit 64ff2bb63a82e152ce8a7f15dc3853ff7203e79d
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 17 09:07:22 2011 -0400
+
+    Code clean up: removed unused peer table code.
+
+commit 19525500cadc2496a1bcff1d292d58d6fc4dead4
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Tue May 17 09:02:49 2011 -0400
+
+    Updated peer tab to use the new table generation functions in seesaw.
+
+commit d3af68d71c2488e0bae8b91066bf06de428e8d5f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 16 10:52:31 2011 -0400
+
+    Added basic echo server functionality and a test button to test it.
+
+commit 19bfc5e4f680660239ad2ccef72e59a02d48cb95
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 16 09:54:25 2011 -0400
+
+    Removed unused import from db_config.clj
+
+commit 78a0dbd21da73276fe415e2c84c163805c06181f
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Mon May 16 09:21:12 2011 -0400
+
+    Updated the h2 protocol to take a db directory, and removed the username and password which isn't used anymore. Also added a generator function for the h2 protocol.
+
+commit 57a5d319e53885d12ba6970cfff02dd565bc05b0
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sun May 15 21:12:38 2011 -0400
+
+    You can now add a destination, but it is not checked and you can never remove it from your database.
+
+commit 7bfddce894daf65dc546e5b1d470ab2ddcae2cb8
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sun May 15 14:03:28 2011 -0400
+
+    Added the add destination window, but haven't added all of the actions yet.
+
+commit f06e0c7ddd13a0a08fac1625ed6e44c71a748bc4
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sun May 15 12:11:27 2011 -0400
+
+    Created the peer table and added data from the database into the table.
+
+commit 03e239f93b6a2bf94e2e4fb2a4866b108d93b20b
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sun May 15 10:01:01 2011 -0400
+
+    Removed references to view-util. Added classes to support clj-record models.
+
+commit 1e309bfc27991ca141b9cd7eef41fb6d4b154010
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sat May 14 22:32:56 2011 -0400
+
+    Removed now unused util file, and removed an unused import from tabbed_pane.clj.
+
+commit bd5f43796453d6746254f6a4cf2d58d65f60667e
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sat May 14 21:47:37 2011 -0400
+
+    Updated the menu to Seesaw's select which now works for menus.
+
+commit c99e5a184e756988ce77a1b6471d690bb1479842
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sat May 14 20:48:00 2011 -0400
+
+    Updated tabbed_pane.clj to use Seesaw's tabbed-panel function.
+
+commit 1c4cacd93756509b03107389a3a8ca9503b06f45
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Sat May 14 20:37:14 2011 -0400
+
+    Updated Seesaw to 1.0.1 and used a map structure to find the menu. Tried to save the private key for the server, but it didn't work. The code is added, but doesn't do anything for now. Expanded the peers table to hold more information on when it was last updated, and created.
+
+commit 5d63f35a5dc4554976699a9035a3b29173a45a76
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri May 13 11:17:55 2011 -0400
+
+    Added new files which didn't get committed before.
+
+commit 3e1042d0072aee0029cfe63927045838d1c78222
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri May 13 11:01:56 2011 -0400
+
+    Added a peer tab and the i2p server to load the destination. However, I'm still having trouble with selectors and it's not connected together yet.
+
+commit db81809481cb0c1d828712f624b374a7d20f0b12
+Merge: 2ea6e01 f4fd831
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri May 13 08:49:39 2011 -0400
+
+    Merge branch 'master' of github.com:macourtney/Dark-Exchange
+
+commit 2ea6e01d6742537b9eefc3a081e9061108061c4a
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Fri May 13 08:44:48 2011 -0400
+
+    Added missing updates from another computer.
+
+commit f4fd83158d479bfdc356e1a940a8efbb1b365fe4
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Thu May 12 22:59:07 2011 -0400
+
+    Implemented the exit menu item.
+
+commit 3da643ad1ab683b98d2650c71b1bbe4544b8b07e
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Thu May 12 20:45:35 2011 -0400
+
+    Updated the project file to add the i2p jars. Updated .gitignore to ignore the classes directory.
+
+commit efe997712de919eb29c9ce0d154a3490afa1d37e
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 12 17:58:38 2011 -0400
+
+    Started adding gui code using seesaw.
+
+commit 5563ca51c37270cdb1a15a4e172f8ad8da1e5f0b
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 12 11:30:21 2011 -0400
+
+    Added peers and identities tables creation migrations.
+
+commit 5d41ea357a4f497e4012276a73b22861e9bcf201
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 12 11:29:22 2011 -0400
+
+    Added peers and identities table creation migrations.
+
+commit 65bc12bc84d2b2f7d5913d4711217c1ad4773597
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 12 11:01:17 2011 -0400
+
+    Added the migration generated files and directories to the git ignore list. Removed old migration file.
+
+commit 51421ae0c2f0a4198c71c0207a71cece0e8d3ec6
+Author: Matt Courtney <macourtney@gmail.com>
+Date:   Thu May 12 10:57:15 2011 -0400
+
+    Added the git ignore file to ignore leiningen generated files. Also added Eclipse generated files.
+
+commit f576f2df4377f9253d24eb8936f78738bc214ad6
+Author: Matthew Courtney <macourtney@gmail.com>
+Date:   Wed May 11 21:22:28 2011 -0400
+
+    Updated the README file to include a description and license information.
+
+commit 0968663a09477b4fa5b4b08b506f38e4b62cd8cf
+Author: Matthew Courtney <macourtney@new-host.home>
+Date:   Wed May 11 21:16:11 2011 -0400
+
+    Copied initial project files into the repository.

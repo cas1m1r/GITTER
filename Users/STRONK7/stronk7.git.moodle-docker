@@ -1,0 +1,2309 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 9e29dafb948a7981fcd6ab4a0c8bbae08dab1b84
+Merge: 52cf8c4 0296a61
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Dec 15 10:26:03 2022 +0100
+
+    Merge pull request #244 from stronk7/point_to_latest
+    
+    For sqlsrv, switch from 2017-latest to latest
+
+commit 52cf8c4dbe1a4b430abab6aa6d88af1292274ba9
+Merge: 8256be5 885d2b3
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Dec 12 09:22:38 2022 +0100
+
+    Merge pull request #198 from NoelDeMartin/moodle-app-node
+    
+    Configure app development node version
+
+commit 0296a617c9169f2cb0efae969a5e6ec73064e820
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Dec 11 11:36:42 2022 +0100
+
+    For sqlsrv, switch from 2017-latest to latest
+    
+    Note that, right now, "latest" is exactly 2017-latest, so
+    everything will continue working exactly the same.
+    
+    But once we finish with the tests @ MDLSITE-6045, we'll make
+    2019-latest to become "latest".
+
+commit 885d2b3e0617faad4428096e246098c90417e671
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Dec 9 10:07:20 2022 +0100
+
+    Make MOODLE_DOCKER_APP_NODE_VERSION to be guessed from local app
+    
+    This puts Windows on pair with Unix moodle-docker-compose and
+    if the app is running from local path, its node version is
+    extracted from there.
+
+commit 6c0cd10863101db07391c4b2efb0cbc90a7e958a
+Author: Noel De Martin <noel@moodle.com>
+Date:   Mon Jan 17 14:00:46 2022 +0100
+
+    Configure app development node version
+
+commit 8256be5826765127fb39b21e7d09f3c5bbafe9ca
+Merge: 954c7ce 13b0fd2
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Dec 5 16:51:03 2022 +0100
+
+    Merge pull request #242 from andrewnicols/local_yml
+    
+    Add support for local.yml
+
+commit 13b0fd259299e479b0e21745f3f9b40773777ae8
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Tue Oct 18 08:51:57 2022 +0800
+
+    Add support for local.yml
+    
+    This change adds support for a local yml file to include any
+    customisations that users may wish to include as standard.
+    
+    This may, for example include changes to existing containers, or it may
+    include the addition of additional containers such as database admin
+    tooling, or proxy servers.
+
+commit 954c7ce7f16daa85d435e6902e769abc0711d991
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Nov 30 18:27:39 2022 +0100
+
+    GHA tests to meet 401_STABLE
+
+commit 1f0a5bc3f628fd68701f674b6af555aade156c61
+Merge: 2b61d30 e1f68da
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Nov 6 19:54:29 2022 +0100
+
+    Merge pull request #239 from kabalin/readme-phpunit
+    
+    README: Fix phpunit command example for 9.x
+
+commit e1f68dad082621fa099969875fb7a75c00976cc9
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Fri Nov 4 12:11:23 2022 +0000
+
+    README: Fix phpunit command example for 9.x
+
+commit 2b61d305081732b73a4a98f348fdc2ef8a13de0b
+Merge: d9c2765 150c744
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Oct 13 15:27:11 2022 +0200
+
+    Merge pull request #234 from stronk7/bump_to_checkout_v3
+    
+    Bump to actions/checkout@v3
+
+commit 150c744786c4ab1b82ed8bcf6d4c7f451b02e955
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Oct 13 12:33:38 2022 +0200
+
+    Bump to actions/checkout@v3
+    
+    Related to this deprecation of NodeJS 12 for GHA actions:
+    
+    https://github.blog/changelog/2022-09-22-github-actions-all-actions-will-begin-running-on-node16-instead-of-node12/
+    
+    While it doesn't affect to this repository, let's bump to the new v3
+    version now so we keep it updated.
+
+commit d9c2765a2523d05e4f2b6f7941952988b8ad7169
+Merge: 1a7e8c5 7c3129b
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Oct 10 10:00:11 2022 +0200
+
+    Merge pull request #225 from skodak/dbversion
+    
+    add support for database versions
+
+commit 7c3129bd74cfa8dbc4b62ff73fd4011bcd996846
+Author: Petr Skoda <petr.skoda@openlms.net>
+Date:   Mon Oct 10 08:16:31 2022 +0200
+
+    Unquote images
+
+commit 1a7e8c5f6ae64b6ecc58da20b1ca7f53f6407e00
+Merge: b88d66d 92b9f88
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Oct 7 10:58:49 2022 +0200
+
+    Merge pull request #231 from skodak/basedir
+    
+    simplify basedir variable setting
+
+commit 92b9f88bf902f3f2befbc4afc1290b48dc4f7abe
+Author: Petr Skoda <petr.skoda@openlms.net>
+Date:   Fri Oct 7 09:24:33 2022 +0200
+
+    simplify basedir variable setting
+
+commit 07bb7cc4e5ac9ea9cf796aa59d3c7d8c860b6d6b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Oct 6 16:52:52 2022 +0200
+
+    Various fixes for windows
+    
+    1. Remove the php overrides facility.
+    2. Enclose all EXIST calls with double quotes, only that way
+       they work consistently.
+    3. Remove an old debugging that was there since years ago.
+    4. Avoid a warning about selenium suffix not set.
+
+commit a0cc379be90767b9d6a51d7a82c14df9b164b803
+Author: Petr Skoda <petr.skoda@openlms.net>
+Date:   Tue Sep 27 10:55:19 2022 +0200
+
+    add support for database versions
+
+commit b88d66d05bb402458955224cd2cf31a8796f5f69
+Merge: f57b43c cdf9000
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 4 18:20:37 2022 +0200
+
+    Merge pull request #226 from skodak/dbport
+    
+    add support for exposing of database port
+
+commit cdf9000578d06fc4499cbcb464274332a6d7aa8f
+Author: Petr Skoda <petr.skoda@openlms.net>
+Date:   Tue Sep 27 11:21:15 2022 +0200
+
+    add support for exposing of database port
+
+commit f57b43cf00f8e1a4b0ee5da0ba118baa73cdae3b
+Merge: 4d813b8 18d9181
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Sep 30 13:36:15 2022 +0200
+
+    Merge pull request #230 from moodlehq/add-license-1
+    
+    Create LICENSE
+
+commit 18d918157f15bfd1c7434b9f13d2eca36b96b126
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Sep 30 11:52:20 2022 +0200
+
+    Create LICENSE
+    
+    Fixes #227
+
+commit 4d813b80001f4a5e66ed3ec9fec0cc3a1a82efdf
+Merge: 466c022 b419187
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Sep 11 17:33:52 2022 +0200
+
+    Merge pull request #224 from stronk7/ubuntu_22
+    
+    Bump GHA environments to use Ubuntu 22.04 (up from 18.04)
+
+commit b419187665df7faf5da5d6e8a9ba97da66186638
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Sep 11 13:45:51 2022 +0200
+
+    Bump GHA environments to use Ubuntu 22.04 (up from 18.04)
+    
+    Since some time ago, GH is warning us that the Ubuntu 18.04
+    environment is deprecated:
+    
+    "The ubuntu-18.04 environment is deprecated, consider switching to
+    ubuntu-20.04(ubuntu-latest), or ubuntu-22.04 instead...."
+    
+    Hence, we are bumping here, to be able to cerify if everything
+    continues working ok
+
+commit 466c02283d573bef6d1e2438dd280a91b9ba800e
+Merge: bcf6f05 c15d4a4
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Jul 25 18:38:13 2022 +0200
+
+    Merge pull request #221 from stronk7/better_wait_for_db_oracle
+    
+    Verify oracle availability using "DATABASE IS READY TO USE!"
+
+commit c15d4a4a23f776b16c283be3c5e2e14ca914403e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jul 25 15:49:12 2022 +0200
+
+    Verify oracle availability using "DATABASE IS READY TO USE!"
+    
+    We have ensured that all the oracle database images output
+    at the end of the init script the "DATABASE IS READY TO USE!"
+    text. That has been done by:
+    
+    https://github.com/moodlehq/moodle-db-oracle/pull/13
+    
+    (Because Oracle 11g was missing that string)
+    
+    So, now that the string is available in all moodle-db-oracle
+    images we can start using it here, in moodle-docker.
+    
+    Still note this is not the ideal wait/health-check system
+    and we'll have to move to a proper one. See:
+    
+    https://github.com/moodlehq/moodle-docker/issues/160
+    
+    But it's better than nothing, and the current one based
+    on the "Database opened." string was not working ok for
+    Oracle 21c (that requires 2 startups).
+
+commit bcf6f050fe2f06e01a24a7d932aee62a9a98f2eb
+Merge: 02d1934 5926bab
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Jul 25 12:12:03 2022 +0200
+
+    Merge pull request #220 from aspark21/oracle-21
+    
+    Update to Oracle 21c
+
+commit 5926bab9e2d511085b259b39096585aab04653e4
+Author: Alistair Spark <aspark21@users.noreply.github.com>
+Date:   Sun Jul 24 22:28:02 2022 +0100
+
+    Update to Oracle 21c
+
+commit 02d19347c6bd769bc22dfd092d504f284b04bffb
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jun 8 15:10:41 2022 +0200
+
+    Bump pgsql to 12, required for 4.1dev
+
+commit 2e82e11d98c079f8061f7b64f4af468dbf9a9682
+Merge: ef8e822 caffd1a
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jun 8 11:40:27 2022 +0200
+
+    Merge pull request #216 from NickLambellGCH/master
+    
+    Update Moodle Docker Compose V2 Check
+
+commit caffd1a728ae9c6e5d532075864b968619782cfa
+Author: Nicholas Lambell <100257316+NickLambellGCH@users.noreply.github.com>
+Date:   Wed Jun 8 10:08:04 2022 +1000
+
+    Update version check to support newer docker compose versions that don't prefix with v
+
+commit ef8e8223b47af0745259bf6f554cb76964108e86
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jun 4 20:11:04 2022 +0200
+
+    Bump master (4.1dev) tests and default php to 7.4
+    
+    Part of https://tracker.moodle.org/browse/MDL-71747
+
+commit ec0bcf82b7d94d8ae7cfa6db288d12172354bdd1
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 24 17:20:47 2022 +0200
+
+    Pin MariaDB to 10.7, new 10.8 and 10.9  have problems (take II)
+    
+    Again (we unpinned it 3 months ago!), pin MariaDB
+    to continue using 10.7, because 10.8 and 10.9 (just released) have some
+    startup / init problems.
+
+commit 53540c3dd35164676ac20e1376f94ee9c49fd6a0
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 24 17:03:44 2022 +0200
+
+    Pin MariaDB to 10.8, new 10.9 has start problems
+    
+    Again (we unpinned it 3 months ago!), pin MariaDB
+    to continue using 10.8, because 10.9 (just released) has some
+    startup / init problems.
+
+commit e888435dc03c0978294d93774ff4c39c9794c914
+Merge: 5b5098b 9bd30cc
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue May 24 12:46:21 2022 +0200
+
+    Merge pull request #212 from stronk7/add_400_ci
+    
+    Add 400_STABLE to CI tests
+
+commit 9bd30cce7732f6b75c3b4a4d5c90e775548415b9
+Author: Noel De Martin <noel@moodle.com>
+Date:   Mon May 23 11:21:20 2022 +0200
+
+    Fix app tests
+
+commit e36e3170e8103a64375d86f731d1b923c55e6e65
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 19 20:56:38 2022 +0200
+
+    Add 400_STABLE to CI tests
+
+commit 5b5098b425a41733cd0694e818ecf23c8def5367
+Merge: 640c8e5 7ff0e4a
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu May 19 20:47:08 2022 +0200
+
+    Merge pull request #203 from kabalin/compose-v2
+    
+    Use Compose v2 if it is available in the system.
+
+commit 7ff0e4a3512c6e71ed8efee4f15c68792eb6684f
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Mon Feb 7 16:50:57 2022 +0000
+
+    Use Compose v2 if it is available in the system.
+    
+    We don't change windows script as they seem maintaining alias which is
+    using 'docker compose' insternally, given there is an option to disable
+    v2 behavior by calling `docker-compose disable-v2`
+    (https://docs.docker.com/compose/cli-command/#install-on-mac-and-windows),
+    so for now it is fine to use it as is.
+    
+    Fixes #202
+
+commit 640c8e5d10f50ec14602088024eda181cde2c643
+Merge: 9979aad 05ea81d
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu May 5 11:08:36 2022 +0200
+
+    Merge pull request #210 from paulholden/pcov-coverage
+    
+    Update code coverage documentation to use pcov.
+
+commit 05ea81dd2add1f9a87460c42da588b6343f62b20
+Author: Paul Holden <paulh@moodle.com>
+Date:   Wed May 4 23:02:01 2022 +0100
+
+    Update code coverage documentation to use pcov.
+
+commit 9979aad65f2e53a8ca85957cf57cf694381beea6
+Merge: 87c5aff 8cbcf2c
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu May 5 09:26:54 2022 +0200
+
+    Merge pull request #211 from paulholden/github-url
+    
+    Correct Github URLs to always specify https protocol.
+
+commit 8cbcf2c0b2a42921dfb8161c4885070250087e6b
+Author: Paul Holden <paulh@moodle.com>
+Date:   Wed May 4 23:20:49 2022 +0100
+
+    Correct Github URLs to always specify https protocol.
+
+commit 87c5affc56dc715e6d88e46d08e0e6b2fdb1a8e5
+Merge: 58837a0 6219ca3
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Feb 26 11:22:58 2022 +0100
+
+    Merge pull request #204 from stronk7/unpin_mariadb
+    
+    Unpin MariaDB
+
+commit 6219ca33743caa756ad89192fe683f205d79583d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Feb 26 09:48:20 2022 +0100
+
+    Unpin MariaDB
+    
+    Now that 10.6.7 and 10.7.3 have been releases and their
+    docker images are available, we can unpin it @ GHA.
+    
+    Fixes #174
+
+commit 58837a02a407bb4b9092896baa0351482ce7c00c
+Merge: a2f8baa cbbedfc
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jan 27 22:42:25 2022 +0100
+
+    Merge pull request #201 from stronk7/exttests_https
+    
+    Use exttests both for http and https
+
+commit a2f8baaee06f357f3831d2779e2444686c3b4572
+Merge: 8c59c0b c203a77
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jan 27 19:29:49 2022 +0100
+
+    Merge pull request #196 from aspark21/faildump-mapping
+    
+    Faildump mapping
+
+commit cbbedfcffca6a13e7dfe6df6cedd046ea6a31744
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jan 27 19:22:20 2022 +0100
+
+    Use exttests both for http and https
+    
+    It was promised @ #200 to fix #178, so here it is the fix.
+    
+    Basically, without needing to put the exttests container with
+    a proper https configuration at all, use the existing http one
+    for the tests requiring https (because it's not checked).
+    
+    We use the very same trick @ CIs and they are working and
+    running all the tests without a problem.
+    
+    Fixes #178
+
+commit c203a77951e32361a593c5d42b2f903084a9f95d
+Author: Alistair Spark <a.spark@ucl.ac.uk>
+Date:   Wed Dec 8 00:00:24 2021 +0000
+
+    Error handle incorrect local faildump path
+
+commit f6df058d09fdc00d0dd81d8995d99af04c2705f6
+Author: Alistair Spark <a.spark@ucl.ac.uk>
+Date:   Fri Dec 3 12:03:27 2021 +0000
+
+    Update path in line with existing config
+
+commit d1fce2667749676e29c29d7a2e196830d4b87b71
+Author: Alistair Spark <a.spark@ucl.ac.uk>
+Date:   Fri Dec 3 11:44:01 2021 +0000
+
+    Improve Faildump path documentation
+
+commit 2e560ccd6c11ad9450b39d31bae79f31d825e7ab
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Jul 20 08:06:52 2017 +0800
+
+    Map a faildump directory (Fixes #22).
+    
+    This change adds an optional environment variable to describe the
+    location of behat faildumps.
+
+commit 8c59c0b40adcb12bf2ddceb1672a85ff7b75abc6
+Merge: 9a6a341 c24a115
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jan 12 17:01:47 2022 +0100
+
+    Merge pull request #181 from dahrens/enhance_behat_docs
+    
+    Enhance docs on `MOODLE_DOCKER_BROWSER`
+
+commit 9a6a341d6fa2d2a6ef746f2c0c5435808e061bed
+Merge: 6d79f84 77a4a6f
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jan 12 16:52:55 2022 +0100
+
+    Merge pull request #195 from aspark21/selenium-versions-rebased
+    
+    Selenium versions rebased
+
+commit 77a4a6f7c7357542b42b8ef583577cd19bebf2ad
+Author: Alistair Spark <a.spark@ucl.ac.uk>
+Date:   Fri Dec 3 12:37:04 2021 +0000
+
+    Unpin Selenium version for Firefox
+
+commit 48c9651aafcbb41e8f1ca36aa83da567500099a0
+Author: Alistair Spark <aspark21@users.noreply.github.com>
+Date:   Thu Dec 2 17:43:39 2021 +0000
+
+    Improve Selenium documentation
+
+commit a5cd6da167f36869faf43b93842056308e5a68fc
+Author: Alistair Spark <aspark21@users.noreply.github.com>
+Date:   Thu Dec 2 17:34:24 2021 +0000
+
+    re-align selenium versions with master branch
+
+commit f00e279e0d2aa6169192ae9f8d68e750955c81da
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Sep 20 07:48:48 2017 +0100
+
+    Windows docker-compose fixes from Matteo
+
+commit 9588267d8434f8d479d9d75927e46159f7802589
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Sep 19 16:02:41 2017 +0100
+
+    Support version notation for selenium browsers
+    
+    With this patch, you can set MOODLE_DOCKER_BROWSER to options like the
+    existing options:
+    
+    firefox
+    chrome
+    
+    But also you can specify a tag/version for each, such as:
+    
+    firefox:2.53.1
+    chrome:3.5.2
+    
+    Fixes #20
+
+commit 6d79f84bbc3fade2b434a7e19fdd76f92d802d99
+Merge: dd04527 db9b56e
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Sep 11 20:06:07 2021 +0200
+
+    Merge pull request #185 from NoelDeMartin/MDL-68969
+    
+    Update mobile app docs
+
+commit db9b56ec6f1e1d9b198ffc91e6d214159561d773
+Author: Noel De Martin <noel@moodle.com>
+Date:   Thu Sep 9 17:31:52 2021 +0200
+
+    Update mobile app docs
+
+commit dd0452733c9311c083b4e67f059b7e4cc3105bff
+Merge: 9555774 04e2bb1
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Sep 5 18:03:11 2021 +0200
+
+    Merge pull request #182 from stronk7/unstick-selenium-chrome
+    
+    Revert "Use sticky selenium/standalone-chrome:3.141.59-20210713"
+
+commit 955577478f5cb225250e6a307783634a75f46224
+Merge: 4129a3b 86cd6c4
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Sep 5 18:02:34 2021 +0200
+
+    Merge pull request #179 from stronk7/gha_badge
+    
+    Switch badge from Travis to GHA
+
+commit 86cd6c4dbcbd29d34c231fdff98bc72c51c3d17d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Aug 4 16:56:01 2021 +0200
+
+    Switch badge from Travis to GHA
+
+commit 04e2bb165194b8369449ee9da82f518369479934
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Aug 29 09:24:36 2021 +0200
+
+    Revert "Use sticky selenium/standalone-chrome:3.141.59-20210713"
+    
+    This reverts commit 1929e8c167017d09cea2cc04f4035be6afaa32b8.
+    
+    Fixes #177
+
+commit 4129a3bdb80be5550ba9e15245ffaed6ce578ac0
+Merge: 404063f d830b6a
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Sep 3 00:20:40 2021 +0200
+
+    Merge pull request #156 from NoelDeMartin/MOBILE-3738
+    
+    Update app config to support Ionic 5
+
+commit d830b6a8602ccd59c9597e1960fc94e994e7d6ca
+Author: Noel De Martin <noel@moodle.com>
+Date:   Tue Jul 20 12:32:43 2021 +0200
+
+    MOBILE-3738 app: Update with latest versions
+
+commit c23ac8f1f64c986613c6c4f469a5219d85d541b0
+Author: Noel De Martin <noel@moodle.com>
+Date:   Thu Apr 29 14:50:30 2021 +0200
+
+    MOBILE-3738 app: Configure ionic5 app
+
+commit c24a115510d74a5c88cf3c3218d1c000851a0f10
+Author: Dennis Ahrens <dennis.ahrens@mailbox.org>
+Date:   Tue Aug 10 17:04:25 2021 +0200
+
+    Enhance docs on `MOODLE_DOCKER_BROWSER`
+    
+    This addresses a confusion that popped up in #180.
+
+commit 404063f06c07105e3fac408463ae41bfc065eec6
+Merge: 8fefcce 0f5c0b9
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Aug 6 19:48:03 2021 +0200
+
+    Merge pull request #175 from dahrens/podman_support
+    
+    Bind exttests to port 9000 to support podman-compose
+
+commit 0f5c0b9a6c861568b5a04afc9131d0262b1c5b34
+Author: Dennis Ahrens <dennis.ahrens@mailbox.org>
+Date:   Sat Jul 31 01:55:53 2021 +0200
+
+    Bind exttests to 9000 to support podman-compose
+
+commit 8fefcce2b42d6ac17fe76cc18c039d0fe5713145
+Merge: 293609b 181b7f1
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Aug 2 22:01:59 2021 +0200
+
+    Merge pull request #162 from stronk7/remove_travis
+    
+    Remove Travis integration from this repository
+
+commit 181b7f1186c16b557391d20fbe3ea123d1996447
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 18 11:24:28 2021 +0200
+
+    Remove Travis integration from this repository
+    
+    GHA integration has been added recently: #159
+    
+    Jobs in this repo are a lot (of combinations)
+    and they keep our travis busy for hours, not
+    allowing other repos to advance.
+    
+    Plus, solve critical (:-P) typo in comment.
+    
+    This closes #161
+
+commit 293609bece3c5f6a3c0a48d8cfa0b6e0b3c6ad19
+Merge: de2f4f0 1929e8c
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Aug 2 19:22:29 2021 +0200
+
+    Merge pull request #176 from stronk7/sticky_selenium
+    
+    Use sticky selenium/standalone-chrome:3.141.59-20210713
+
+commit 1929e8c167017d09cea2cc04f4035be6afaa32b8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Aug 2 13:17:53 2021 +0200
+
+    Use sticky selenium/standalone-chrome:3.141.59-20210713
+    
+    New version3.141.59-2021729 is causing problems, so we need
+    to make it sticky to use a known to work version.
+
+commit de2f4f05bcc059ba2974fa1394d2c65510c5901e
+Merge: 73b5ae1 dbf978b
+Author: Sara Arjona <sara@moodle.com>
+Date:   Wed Jul 14 19:35:26 2021 +0200
+
+    Merge pull request #173 from stronk7/mariadb_10.5_sticky
+    
+    Make mariadb:10.5 sticky
+
+commit dbf978b3d03df5afe5b412280280bc81a2926547
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jul 14 12:39:49 2021 +0200
+
+    Make mariadb:10.5 sticky
+    
+    New mariadb:10.6 makes the COMPRESSED row format read-only by default
+    because it's deprecated now and will be removed in mariadb:10.7
+    
+    This is being tracked @ https://tracker.moodle.org/browse/MDL-72131
+    
+    Once that issue is fixed and we switch to DYNAMIC or whichever the
+    final solution is, we'll unpin this.
+
+commit 73b5ae1d01199d0bdb7466dbaad8272ed86ecae6
+Merge: 4703721 117b87e
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jun 17 21:15:47 2021 +0200
+
+    Merge pull request #167 from NeillM/hotfix/windows-app-deprecation
+    
+    App fails to load on Windows using deprecated variable
+
+commit 4703721615ec98f5635559ce1b12baefeb4c1169
+Merge: ddaf009 0183491
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jun 17 20:24:38 2021 +0200
+
+    Merge pull request #163 from ffhs/docs/update-xdebug-readme
+    
+    Update README.md due Xdebug 2 to 3 upgrade
+
+commit 117b87e5490ca563cd39a65147380a3fe91b02b1
+Author: Neill Magill <neill.magill@nottingham.ac.uk>
+Date:   Wed Jun 16 09:11:02 2021 +0100
+
+    App fails to load on Windows using deprecated variable
+    
+    Before this change if you set MOODLE_APP_VERSION to latest the MOODLE_DOCKER_APP_VERSION would be set to "latest" which means it failed to load the app image causing the docker images not to be loaded.
+
+commit 01834917770760c314a24e6059e35ac896dbf72f
+Author: Adrian Perez <adrian.perez@ffhs.ch>
+Date:   Wed May 19 12:16:18 2021 +0200
+
+    Update README.md due Xdebug 2 to 3 upgrade
+    
+    https://xdebug.org/docs/upgrade_guide
+
+commit ddaf009a48884a2a9e6b6d5a9f47f4907c8f08ae
+Merge: fa2b2d9 485a39c
+Author: Víctor Déniz <victor@moodle.com>
+Date:   Mon May 17 23:08:11 2021 +0100
+
+    Merge pull request #159 from stronk7/add_gha
+    
+    Add GHA support to moodle-docker
+
+commit 485a39c2eb87a966485e644210767f017006a94f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 15 13:05:18 2021 +0200
+
+    Add GHA support to moodle-docker
+    
+    Basically does the same than old Travis runs, with some differences:
+    
+    - I've grouped the jobs into 3 categories (phpunit, behat, app).
+    - Each one has own setup/teardown/test shell script, instead of the
+      previous "mammoth" setup and test scripts, that I've left unmodified
+    - Aiming to get the travis CI runs disabled because they are super slow
+      (we only have 2 concurrent jobs allowed) and, while running, all the
+      other moodlehq repos have to wait.
+    - I'll create an issue to remove travis support once this
+      is accepted and working ok.
+    - Only change that I had to perform to existing stuff is raising the
+      hardcoded sleep of 5 seconds to 10 seconds because I was getting some
+      random failures with MySQL, needing more time to start.
+    - We should move to proper health-checks for database (#160) containers soon,
+      much like app containers (#131).
+
+commit fa2b2d9bf6a484bc7607f5bdcb9c0c4ca2dcff9d
+Merge: 296465a 8a179ab
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon May 17 01:41:59 2021 +0200
+
+    Merge pull request #79 from jpahullo/issue-55
+    
+    Allow multiple instances of Moodle simultaneously
+
+commit 8a179ab00fec06c5b25cccce1a75e5fc1b7da530
+Author: Jordi Pujol Ahulló <jpahullo@gmail.com>
+Date:   Wed Mar 14 19:26:12 2018 +0100
+
+    Allow multiple instances of Moodle simultaneously
+
+commit 296465a67e55b7c29da962c9546527e195d6279c
+Merge: cf06e9a c4ce1ec
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun May 9 17:45:12 2021 +0200
+
+    Merge pull request #158 from stronk7/ci_php80
+    
+    Test php80 combinations with 311 and master
+
+commit c4ce1ec0bb6e81a9cc92f8b4e68192790c2600de
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 8 15:59:00 2021 +0200
+
+    Test php80 combinations with 311 and master
+    
+    Also, tweak phpunit execution to use --filter
+    so it works in all versions.
+
+commit cf06e9a656ef4829d9830bc6031880903ce5b94c
+Merge: 0da45cf f939365
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Mar 16 19:38:45 2021 +0100
+
+    Merge pull request #152 from paulholden/summary-install
+    
+    Document site summary argument in installation script.
+
+commit f939365eb8f07e857ba1b46884a8a68369ea492b
+Author: Paul Holden <paulh@moodle.com>
+Date:   Wed Feb 24 21:36:30 2021 +0000
+
+    Document site summary argument in installation script.
+    
+    Available since MDL-70643 (ignored in prior versions), fixes #121.
+
+commit 0da45cfdd3617f146357cf31d3961bb4c3df304c
+Merge: 80eaf76 f887c99
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Jan 18 09:40:12 2021 +0100
+
+    Merge pull request #151 from paulholden/default-noreply
+    
+    Set valid default noreply address.
+
+commit f887c99383972136de09bac84603cc380d3c6a01
+Author: Paul Holden <paulh@moodle.com>
+Date:   Sun Jan 17 22:03:24 2021 +0000
+
+    Set valid default noreply address.
+    
+    Fixes #121.
+
+commit 80eaf76a0a761ee5bf59be127b65652ba0ad90d2
+Merge: 94f0764 c64cf3a
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Jan 17 16:19:20 2021 +0100
+
+    Merge pull request #150 from stronk7/authenticated_docker
+    
+    Login in dockerhub when possible to avoid pull limits
+
+commit c64cf3a93c168ff77a867b2dcb243af511705dcb
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jan 16 11:04:28 2021 +0100
+
+    Login in dockerhub when possible to avoid pull limits
+    
+    With current pull limits @ dockerhub, it's possible to get failed
+    jobs just running 2-3 builds (each one having a good number of jobs).
+    
+    With this patch, if both DOCKER_USER and DOCKER_TOKEN are defined
+    as environmental variables, they will be used to perform a login
+    to dockerhub, getting rid of pull limits.
+
+commit 94f07648689a44fd3449cb15155a9cb3a0cfb036
+Merge: f45146f 0efb150
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Jan 16 11:09:19 2021 +0100
+
+    Merge pull request #149 from paulholden/php-73
+    
+    Increase default PHP version to 7.3.
+
+commit 0efb150feea92b27fb20e45f1e620850e8c7081b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jan 15 17:53:57 2021 +0100
+
+    Bump all 311 and master CI tests to new PHP 7.3 requirement
+
+commit 77cc267c7fdac1244639bba9ac16c9a9bfd6becd
+Author: Paul Holden <paulh@moodle.com>
+Date:   Fri Jan 15 13:28:39 2021 +0000
+
+    Increase default PHP version to 7.3.
+    
+    This is the minimum requirement for 3.11 as per MDL-69308.
+
+commit f45146ff4d6606c36e6f6e51d04e45d8d8126337
+Merge: 7dd49cf d876239
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Dec 27 17:41:08 2020 +0100
+
+    Merge pull request #147 from stronk7/moodle-db-oracle-r2
+    
+    Moving to public moodlehq/moodle-db-oracle-r2 again
+
+commit d8762393eab59227a22e6d130fe02d56bfa10d1e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Dec 26 13:11:25 2020 +0100
+
+    Moving to public moodlehq/moodle-db-oracle-r2 again
+    
+    See https://github.com/moodlehq/moodle-db-oracle/pull/9 for more info
+
+commit 7dd49cf44b85155126b0d4e1e9d505392a51bae0
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Dec 26 12:57:47 2020 +0100
+
+    Update versions, adding 311 and removing 3.7 basically (#145)
+
+commit e197e5f92d152d2c78e1c83e62dd009baeb5461a
+Author: Nico Roeser <Nicolas.Roeser@rz.uni-regensburg.de>
+Date:   Wed Nov 25 23:51:20 2020 +0100
+
+    Remove unnecessary executable permissions (#142)
+    
+    These had accidently been introduced in commit a358c24d1.
+    
+    Co-authored-by: Eloy Lafuente <stronk7@moodle.org>
+
+commit 81354f221366919ff821819adff4bcf29f475f62
+Merge: 005a713 4ed95b5
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Wed Nov 25 09:41:12 2020 +0800
+
+    Merge pull request #144 from NoelDeMartin/fix-app-tests
+    
+    Fix app setup script for old releases
+
+commit 4ed95b550076f5c244249776d4a91a9eb21230f7
+Author: Noel De Martin <noel@moodle.com>
+Date:   Tue Nov 24 16:44:54 2020 +0100
+
+    Fix app setup script for old releases
+
+commit 005a713471dff2fb65f809439b27e1ffa75c4fe3
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Nov 5 14:13:10 2020 +0100
+
+    Revert "Merge pull request #120 from abias/patch-2"
+    
+    This reverts commit c0f179208a442f43e0931a214874c3668a98e0dd, reversing
+    changes made to c645548a985b341178faeaf1cceaa10ac29ce550.
+    
+    This reverts #120 because the same change had been already applied by #135
+    (Eloy's fault, not remembering or checking...)
+
+commit 104704a127e142e101ac2d1ec7e92a29b8ab8775
+Merge: c0f1792 8949c27
+Author: Sara Arjona <sara@moodle.com>
+Date:   Tue Oct 27 08:48:38 2020 +0100
+
+    Merge pull request #141 from stronk7/mariadb_wait_timeout
+    
+    Set wait-timeout to proper default (28800)
+
+commit 8949c271cb965715b4730be091faee21dd08c967
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Oct 25 23:27:39 2020 +0100
+
+    Set wait-timeout to proper default (28800)
+    
+    Older (than 10.5) MariaDB docker containers come
+    with wait-timeout = 600 and that makes unit tests
+    execution to fail with "MySQL is gone away".
+    
+    Apparently this is already ok with current 10.5
+    so current moodle-docker instances are passing ok
+    without needing the setting
+    
+    But, no matter of that, we are explicitly adding
+    the setting here, to enable anybody wanting to use
+    older MariaDB docker images to get tests passing.
+    
+    See https://tracker.moodle.org/browse/MDLSITE-6141
+    for more details.
+
+commit c0f179208a442f43e0931a214874c3668a98e0dd
+Merge: c645548 56d9bf6
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Oct 23 01:28:33 2020 +0200
+
+    Merge pull request #120 from abias/patch-2
+    
+    Add $CFG->pathtophp to config.php template
+
+commit 56d9bf641003cd50ee57f8f80566d8c325b06678
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Sat Feb 15 17:46:54 2020 +0100
+
+    Add $CFG->pathtophp to config.php template
+
+commit c645548a985b341178faeaf1cceaa10ac29ce550
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Oct 15 23:11:23 2020 +0200
+
+    Move badges to travis-ci.com (#136)
+
+commit 50ec4a0030b90ac238d2a2967acb7f9edfdbe473
+Author: Krzysztof Bartel <deer667@gmail.com>
+Date:   Sat Sep 12 14:44:35 2020 +0200
+
+    removed old config vars removed in newer MariaDB (#134)
+    
+    Based on https://mariadb.com/kb/en/innodb-system-variables/
+
+commit 064f5343286395b1ab293d410cab687646093518
+Merge: bcfbb75 2f53209
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Sep 11 18:07:36 2020 +0200
+
+    Merge pull request #135 from paulholden/cron-config
+    
+    Define some helpful config flags for running tasks.
+
+commit 2f532093580887e25954a801d3fcfb2ebb32a43e
+Author: Paul Holden <paulh@moodle.com>
+Date:   Wed Sep 2 20:11:10 2020 +0100
+
+    Define some helpful config flags for running tasks.
+    
+    They allow cron/tasks to be run immediately through the UI without
+    additional configuration.
+
+commit bcfbb75fbe6e1bd6409a351b71fcac161a75daec
+Merge: 43f2b90 543ef13
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Aug 28 12:59:27 2020 +0200
+
+    Merge pull request #133 from stronk7/add_39_310
+    
+    Update versions, add new, bump php versions
+
+commit 543ef13aa906d37c9e675962e1e1e78844cf288a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Aug 22 00:33:39 2020 +0200
+
+    Update versions, add new, bump php versions
+    
+    Add 310_STABLE dev branch, update 3.9 and 3.8 requirements.
+    
+    (part of https://tracker.moodle.org/browse/MDL-67415)
+
+commit 43f2b9035d3d608a9cb045b52402320056c66b11
+Merge: b2e6c7f f67080f
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Aug 3 22:07:49 2020 +0200
+
+    Merge pull request #132 from NoelDeMartin/standarize-env-variables
+    
+    Rename MOODLE_APP_VERSION to MOODLE_DOCKER_APP_VERSION
+
+commit f67080f69b5d41e4885c90e96bf1447af259ae3f
+Author: Noel De Martin <noel@moodle.com>
+Date:   Mon Jul 27 16:30:59 2020 +0200
+
+    Rename MOODLE_APP_VERSION to MOODLE_DOCKER_APP_VERSION
+
+commit b2e6c7f9bcf50047e53604ec9269606a7ffa43d4
+Merge: 9655ec9 a4ada7d
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jul 15 12:02:26 2020 +0200
+
+    Merge pull request #126 from NoelDeMartin/moodle-app-development
+    
+    Moodle app development
+
+commit a4ada7dcd38489eefed89c8c8cb8baedf77a4621
+Author: Noel De Martin <noel@moodle.com>
+Date:   Thu Jun 4 11:18:34 2020 +0200
+
+    Add app service for development
+
+commit 421404e5353428c9ecb6b154c9dea4d55faa37d6
+Author: Noel De Martin <noel@moodle.com>
+Date:   Thu Jun 4 11:17:18 2020 +0200
+
+    Update Behat app tests
+
+commit 9655ec977f45a62ecc3d56c10b242fd36a8fc368
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Thu Jun 18 17:43:37 2020 +0200
+
+    Add notes for XDebug usage to README.md - Fixes #118 (#119)
+    
+    * Add notes for XDebug usage to README.md - Fixes #118
+    
+    * Refine notes about XDebug usage in README.md
+
+commit a32b321ad2b98229541bf5c309104594b3581d05
+Merge: 0b3dcfe da0cde1
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu May 28 20:15:37 2020 +0200
+
+    Merge pull request #122 from NeillM/app
+    
+    Mobile app support
+
+commit da0cde14486b7e820b7a5c46a6b6f7abb70431e9
+Author: Neill Magill <neill.magill@nottingham.ac.uk>
+Date:   Thu May 28 14:22:00 2020 +0100
+
+    Fix the config file
+
+commit 440c1485d079dca001618d70bff011ce51001490
+Author: Neill Magill <neill.magill@nottingham.ac.uk>
+Date:   Thu May 28 14:19:21 2020 +0100
+
+    Improved variable names for the Moodle App
+
+commit 93649b49844bf105c1f60c0cbb371f510bb4a028
+Author: Neill Magill <neill.magill@nottingham.ac.uk>
+Date:   Wed May 20 12:14:32 2020 +0100
+
+    Use currently supported mobileapp image
+
+commit e95d3addd96e0d17d5e1fe83a0002d9110cf90e0
+Author: Neill Magill <neill.magill@nottingham.ac.uk>
+Date:   Wed Apr 1 10:55:11 2020 +0100
+
+    Wait for the mobile app to finish compiling before running tests
+
+commit 5ba57532dbdc0bd862fc464e416d49ef94110c8a
+Author: Neill Magill <neill.magill@nottingham.ac.uk>
+Date:   Tue Mar 31 13:34:00 2020 +0100
+
+    Mobile app support
+    
+    Adds a MOODLE_MOBILE_VERSION environment parameter do define a
+    Moodle app docker image.
+    
+    If the browser is chrome and it is defined the mobile app will be started and
+    Moodle configured so it is available for behat tests.
+
+commit 0b3dcfe719caa219bdce369ee082bbb4d9df9074
+Merge: d509c8d 1534244
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Feb 2 23:05:10 2020 +0100
+
+    Merge pull request #66 from abias/localhost-only
+    
+    Add env variables to control the ip address a port binds to
+
+commit 153424488e4b99fa19a8e1063b15f73cd648220f
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Fri Jan 31 15:10:37 2020 +0100
+
+    MOODLE_DOCKER_SELENIUM_VNC_PORT to control both bind_ip and port #66
+    
+    This solves #64
+    
+    Truth table:
+    
+    not set (dflt) ==> 0 (means no vnc server is started)
+                 0 ==> 0 (means no vnc server is started)
+               999 ==> 127.0.0.1:999
+       0.0.0.0:999 ==> 0.0.0.0.999
+
+commit 1cc9a7a6b6b6b3138f93e29aec1193b057692460
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jan 31 14:52:25 2020 +0100
+
+    MOODLE_DOCKER_WEB_PORT to control both bind_ip and port #66
+    
+    This solves #64
+    
+    Truth table:
+    
+    not set (dflt) ==> 127.0.0.1:8000
+                 0 ==> 0 (means no web server is started)
+               999 ==> 127.0.0.1:999
+       0.0.0.0:999 ==> 0.0.0.0.999
+
+commit d509c8d37880424ac2560355f7a987005c0e841a
+Merge: 04712da 0fc0f32
+Author: Víctor Déniz <38071202+vmdef@users.noreply.github.com>
+Date:   Mon Jan 13 16:01:38 2020 +0000
+
+    Merge pull request #116 from stronk7/update_tests_39
+    
+    Bump versions to new 39 requirements and add 38 tests
+
+commit 0fc0f32820b08e73b8fdd4515fffe55d1d8eab1f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jan 8 23:49:02 2020 +0100
+
+    Bump versions to new 39 requirements and add 38 tests
+
+commit 04712daa60bbf8384245ee45f60cb420e1771f4d
+Merge: 444f2da 46cccbe
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jan 8 23:29:33 2020 +0100
+
+    Merge pull request #111 from kabalin/use-www-data-behat
+    
+    Suggest using www-data user for behat runs
+
+commit 444f2da7575622284e424f634f3d68a73e9a4188
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 29 13:33:22 2019 +0100
+
+    Adding PHP 7.4 and making 7.2 default
+    
+    As far as 3.9 is going to require 7.2, let's make it the default.
+
+commit 46cccbeb6804c3979caf25d81ae05f08c59c3353
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Tue Nov 5 14:56:33 2019 +0000
+
+    Readme: Add note on coverage params for phpunit runs.
+
+commit 9251c4f3f40425fc278af5e287490d79cb3e157d
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Tue Nov 5 14:54:24 2019 +0000
+
+    Readme: Suggest using www-data user for behat to avoid permission issues
+    
+    Fixes #108
+
+commit 8f46ad97cfbda9f22f10311cfb64dbeed4abdd07
+Merge: bde62a1 17443b6
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Mon Sep 16 16:28:34 2019 +0200
+
+    Merge pull request #109 from stronk7/master
+    
+    Ensure quoted params are passed ok
+
+commit 17443b629c8871cb1040ba75b7176fbfbb65b182
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Sep 13 19:41:18 2019 +0200
+
+    Ensure quoted params are passed ok
+    
+    Fixes #106
+
+commit bde62a1c86d529430152be49dc519d85f89b1639
+Merge: 5cdfd2d 9e7f4db
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Sep 13 20:14:53 2019 +0200
+
+    Merge pull request #92 from adrienthiery/fix/documentation
+    
+    Updated documentation for admin logging
+
+commit 5cdfd2ded442c206097f9332bd0f64ab56bd40cc
+Merge: f7e2997 33709b7
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Sep 12 19:46:51 2019 +0200
+
+    Merge pull request #107 from moodlehq/unpin_352
+    
+    Unpin 3.5.2 and allow any new 3.x release to be used
+
+commit 33709b709370d280e4ac7c4c04e5eab26c7ee440
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Sep 11 18:19:22 2019 +0200
+
+    Bump travis to ensure it uses branches with forked php-webdriver
+    
+    Also, done some other bumping and reorganization.
+
+commit 6ea930f4490d522103da73077be9726cea977b33
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Sep 11 16:53:42 2019 +0200
+
+    Unpin 3.5.2 and allow any new 3.x release to be used
+    
+    With [MDL-66378](https://tracker.moodle.org/browse/MDL-66378) and, specially,
+    https://github.com/moodlehq/php-webdriver/pull/1
+    we can continue using Chrome >= 76 because we are enforcing the
+    use of the legacy JsonWire protocol (instead of the default W3C one).
+    
+    So it has been agreed that we'll allow any 3.x new release to be used in
+    order to detect problems earlier (we always can pin again if needed).
+
+commit f7e29974bbeb70a9ed6b0b253673aff07e8d98a6
+Merge: 6a84650 fc0fe74
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Sun Jun 30 21:20:16 2019 +0800
+
+    Merge pull request #103 from stronk7/redis_session_tests_are_back
+    
+    Enable Redis session tests back for PHP 7.2 and up
+
+commit fc0fe7446e6d746f7b5a3616549993f5b0a91257
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jun 29 11:37:47 2019 +0200
+
+    Move phpunit-full job to current master, where redis is back to work
+
+commit 64e557e9f40216cf291a9c7259b2678a9dcdca91
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jun 20 17:09:08 2019 +0200
+
+    Enable Redis session tests back for PHP 7.2 and up
+    
+    (this is part of https://tracker.moodle.org/browse/MDLSITE-5876)
+    
+    This reverts commit 2c7756fc9a51fade794dae67fe1bd780a4858c01.
+
+commit 6a84650865d51f6afaa9886218d29820ad99fc62
+Merge: 5a886db 31d6d76
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Mon May 27 08:18:50 2019 +0800
+
+    Merge pull request #102 from stronk7/master
+    
+    Add mongodb container as part of external services
+
+commit 31d6d76b488d95d7cca395c05a4f6768688954cb
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 26 12:21:03 2019 +0200
+
+    Add mongodb container as part of external services
+    
+    With https://github.com/moodlehq/moodle-php-apache/issues/16
+    adding support to mongodb tests back for PHP 7.1, 7.1 and 7.3
+    this enables them to be executed from moodle-docker.
+    
+    Also, unrelated, README has been updated to show the 7.2 and 7.3
+    versions as available.
+
+commit 5a886dbb31b7123adf02e57fa458f2c06effb5b7
+Merge: d05cce0 c8fd810
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun May 26 17:24:22 2019 +0200
+
+    Merge pull request #83 from stronk7/unpin_pg_967
+    
+    Unpin postgres:9.6.7
+
+commit c8fd8109286a85376234a284c0e232463fd6122c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Mar 21 22:01:03 2018 +0100
+
+    Unpin postgres:9.6.7
+    
+    This resolves #78, now that the driver has been fixed.
+    
+    Going up to postgres11, let's see how it goes!
+
+commit d05cce06f1fe572e50d5bc4c63619034e60cf419
+Merge: 49d6665 31e1a67
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu May 23 08:10:23 2019 +0800
+
+    Merge pull request #100 from stronk7/disable_redis_session_tests
+    
+    Disable Redis session tests for PHP 7.2 and up
+
+commit 31e1a67a3eb20f66e95904228db591b3e820b4f3
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 21 02:17:46 2019 +0200
+
+    Reorganize travis stuff to better represent current status.
+    
+    - oracle runs removed (there aren't public images anymore).
+    - added the GIT var to be able to pick the target moodle version.
+
+commit 2c7756fc9a51fade794dae67fe1bd780a4858c01
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon May 20 23:45:17 2019 +0200
+
+    Disable Redis session tests for PHP 7.2 and up
+    
+    See MDL-60978 for more information.
+
+commit 49d6665220dbb6197a43d531df64b80c2daea0f8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jan 18 23:29:06 2019 +0100
+
+    Downgrade to 10.2.x because some config vars are out in 10.3.x and up
+    
+    This corresponds to #25, and #93 has been created to
+    solve the problem and make it compatible with all versions.
+
+commit 25297194b94f2191dfdda0c8c3460c9a0e19620e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jan 18 19:08:54 2019 +0100
+
+    Unpin mariadb back to 10
+    
+    This reverts commit d97753275139360c26d1cc84b4b5982015f6cae6.
+    
+    As discovered in #25 mariadb tests are breaking on the
+    latest version, so pin to a known working version for now.
+    
+    This pinning should be reversed when MDL-59583 [1] is resolved.
+    
+    [1] https://tracker.moodle.org/browse/MDL-59583
+
+commit 9e7f4db33a275434300160ad10fc78ce5fecc198
+Author: Adrien Thiery <adrien.thiery@gmail.com>
+Date:   Wed Dec 26 17:36:29 2018 +0100
+
+    Updated documentation for admin logging
+
+commit c494f4a467d80ede812300ea1b91210a2a5c868f
+Merge: d24327b d0ef96c
+Author: Eloy Lafuente <stronk7@stronk7.com>
+Date:   Tue Mar 20 02:32:26 2018 +0100
+
+    Merge pull request #82 from scara/master-fix-MDL-61169
+    
+    Fixed CI build failure.
+
+commit d0ef96c732cffc5204606139dfe872bbe5cb45fe
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Thu Mar 15 21:50:37 2018 +0100
+
+    Fixed CI build failure.
+    
+    Fixed a failure in a GeoIP unit test, found while reviewing #79
+
+commit d24327b7fb285fc1893410eb469152c6320b4d7e
+Merge: 7c7f8dc 3691145
+Author: Eloy Lafuente <stronk7@stronk7.com>
+Date:   Mon Mar 5 17:36:15 2018 +0100
+
+    Merge pull request #77 from stronk7/pin_pg_967
+    
+    Pin postgres to 9.6.7 because 9.6.8 leads to DDL failures
+
+commit 36911459e2b41cc4f012ca778af7ad666d704848
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Mar 5 17:23:33 2018 +0100
+
+    Pin postgres to 9.6.7 because 9.6.8 leads to DDL failures
+
+commit 7c7f8dc6904190a9a9647d26f6c432f789f4e614
+Merge: d0b4b96 b9ea630
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Dec 21 13:05:40 2017 +0800
+
+    Merge pull request #73 from danpoltawski/patch-1
+    
+    Add moodle-docker-wait-for-db into quick start docs
+
+commit b9ea630655860117dbcbc42c83eb975dff614098
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Dec 21 07:36:29 2017 +0800
+
+    Add moodle-docker-wait-for-db into quick start docs
+    
+    In relation to #72
+
+commit d0b4b96216d9787f357455cbcdce42550c2473f9
+Merge: dfc9940 67d0bcc
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Dec 21 11:31:36 2017 +0800
+
+    Merge pull request #71 from andrewnicols/exttests
+    
+    Add support for locally hosted exttests
+
+commit 67d0bccf23b9e18388314eb13e1e8ea9a71deeb3
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Mon Dec 4 11:43:39 2017 +0800
+
+    Add support for locally hosted exttests
+    
+    To avoid unnecessary dependency upon download.moodle.org, this makes use
+    of locally hosted external tests using an additional docker image.
+    
+    This only adds HTTP external tests.
+    HTTPS external tests will require more in-depth changes due to use of
+    SSL certificates.
+    
+    Fixes #70.
+
+commit dfc9940133ea2cea966cc585f38b886baee11f33
+Author: David Mudrák <david@moodle.com>
+Date:   Fri Dec 1 01:16:59 2017 +0100
+
+    README: Fix path to moodle-docker-compose
+
+commit 67f37aad42a015bab4f0a2af8049467bc7aa4264
+Merge: aeb91a7 d00e841
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Oct 9 23:01:14 2017 +0100
+
+    Merge pull request #65 from abias/readme-phpunit
+    
+    Add instructions for phpunit to README.md + Align version numbers for behat instructions
+
+commit d00e841a51cd9c858ac1ed97e46b2f1c4a94e2ad
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Mon Oct 9 21:59:26 2017 +0200
+
+    Add instructions for phpunit to README.md + Align version numbers for behat instructions
+
+commit aeb91a78b5e6bd34876539261a6889b80b198ad7
+Merge: 6d8bca2 8c2edca
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Oct 2 14:15:45 2017 +0100
+
+    Merge pull request #63 from scara/master-fix-quotes-issues-under-windows
+    
+    docker-compose Fixed bad quoting in variables under Windows
+
+commit 8c2edca352fee3bdfe8e244fbb6184419119db01
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Sun Oct 1 16:17:16 2017 +0200
+
+    docker-compose Fixed bad quoting in variables under Windows
+    
+    Without this fix the compose stops with an error:
+    >set MOODLE_DOCKER_WWWROOT=C:\Projects\Moodle\moodle-master
+    >set MOODLE_DOCKER_DB=mysql
+    >cd C:\Projects\Moodle\moodle-docker
+    >copy config.docker-template.php %MOODLE_DOCKER_WWWROOT%\config.php
+    >bin\moodle-docker-compose.cmd up -d
+    ERROR: no such image: selenium/standalone-firefox"":2.53.1: invalid reference format
+    
+    Already found while working at #20 in refining #60.
+
+commit 6d8bca22d2eb6e763d5142498aa4b2f410df66ed
+Merge: 40191d2 a358c24
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue Sep 19 14:58:50 2017 +0100
+
+    Merge pull request #59 from scara/master-33-webapp-mapping-to-localhost-not-always-fine
+    
+    webserver: Let Moodle hostname be configurable.
+
+commit a358c24d149e9a1b79593f7dfca9e226d6a332a3
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Tue Sep 19 15:20:02 2017 +0200
+
+    webserver: Let Moodle hostname be configurable.
+    
+    Useful when the container host engine runs on a machine different
+    from your local dev environment. Defaults to 'localhost'.
+    
+    Resolves #33.
+
+commit 40191d226e2f399e366f1eea1fda421ccbf4afd6
+Merge: 86407fa d375426
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue Sep 19 11:29:31 2017 +0100
+
+    Merge pull request #57 from moodlehq/selenium-mac-issues
+    
+    Workaround for selenium problems with debug image
+
+commit d37542653e8220583f12342161562509d47e536e
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Sep 19 10:23:45 2017 +0100
+
+    Workaround for selenium problems with debug image
+    
+    https://github.com/SeleniumHQ/docker-selenium/issues/227
+    
+    Fixes #50
+
+commit 86407fa143fee435780c3c9ff8146149db5e4c9a
+Merge: 4c6f9d7 8d86c2e
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Sep 18 10:25:40 2017 +0100
+
+    Merge pull request #51 from moodlehq/php-version
+    
+    Move php version handling to an environment variable
+
+commit 8d86c2e0c78cbcdca37dcdd78a78b59d3542f44a
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Sep 15 15:42:04 2017 +0100
+
+    travis: change matrix for multiple php versions
+    
+    Rather than slowing down travis run time by trippling all tests,
+    try to get a mix of runs on a variety of php versions.
+
+commit 11edb7449c4b54f55a5992ec0c2e6c0f394246ae
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Sep 15 12:25:35 2017 +0100
+
+    Move php version handling to an environment variable
+    
+    The branching way of doing things made the repository harder to use and
+    also a lot of work maintaining changes between branches.
+    
+    Using a variable is more versatile.
+    
+    Fixes #15
+
+commit 4c6f9d7aff0f5dbd90692f91f82b568528b018af
+Merge: b51ac6e d3ed983
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Sep 18 08:33:35 2017 +0100
+
+    Merge pull request #52 from abias/wwwroot-mandatory
+    
+    Make MOODLE_DOCKER_WWWROOT environment variable mandatory
+
+commit b51ac6e07e080a5ed04f092c1187af88bdd730f7
+Merge: 041efe1 b08fca7
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Sep 18 08:31:35 2017 +0100
+
+    Merge pull request #54 from abias/readme-persistence
+    
+    Add note about stopping and restarting containers to README
+
+commit b08fca732c84cefe6c674197a7a8b9a80e4e3a39
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Sep 18 08:31:16 2017 +0100
+
+    Fix typo
+
+commit f0e49dd2ff3b2d55d1cb60a204e78191bd8cd824
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Sat Sep 16 21:36:47 2017 +0200
+
+    Add note about stopping and restarting containers to README
+
+commit d3ed9838f898a90b729bd003bbf2619e451f3dba
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Fri Sep 15 22:38:39 2017 +0200
+
+    Make MOODLE_DOCKER_WWWROOT environment variable mandatory
+
+commit 041efe13d934dc4678c645f50fcaeffb9cc2a148
+Merge: e6c3033 9ecc8bb
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Sat Sep 16 00:46:04 2017 +0100
+
+    Merge pull request #53 from abias/readme
+    
+    Improve README for first-time users
+
+commit 9ecc8bb0249dc8f4f8d42b222e368d3a9da16818
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Fri Sep 15 23:17:05 2017 +0200
+
+    Improve README for first-time users
+
+commit e6c3033ad1cf6f3d53831a2697c41648349b3490
+Merge: 1e7c60d 1cb3299
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Sep 15 11:58:28 2017 +0100
+
+    Merge pull request #49 from moodlehq/rlorenzo-vnc-behat
+    
+    VNC Support
+
+commit 1cb3299d2d6e8f1a0900d5e19be6172b37de7abc
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Sep 15 10:53:36 2017 +0100
+
+    Reorganise README a bit
+    
+    Make environment variables section more prominent
+
+commit ae29c247c77e7d033f7744cf130171a3b87df12a
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Sep 15 10:25:20 2017 +0100
+
+    Refine the VNC support
+    
+    Don't run the selenium 'debug' images by default, require the
+    specification of a port.
+    
+    Use the upstream docker images without building.
+
+commit 1f80053aafd0586b68be68f0fac4707b7f00c9b4
+Author: Rex Lorenzo <rex@oid.ucla.edu>
+Date:   Tue Sep 12 13:00:01 2017 -0700
+
+    Adding in support for VNC to view running Behat tests.
+
+commit 1e7c60d6f017447111888032c46f5cb1d6073fab
+Merge: ed7ed24 2dd0dbe
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Sep 14 16:37:47 2017 +0100
+
+    Merge pull request #48 from moodlehq/fix-chrome-version
+    
+    Lock chrome version
+
+commit 2dd0dbee1fbc3d62684036a40872e782f4e2ba03
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Sep 14 15:24:51 2017 +0100
+
+    Lock chrome version
+    
+    Fixes #47
+
+commit ed7ed24f88d0e99e0c9659860777f7819bdc283a
+Merge: c7bd54c 3bcc13a
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Sep 14 11:07:16 2017 +0100
+
+    Merge pull request #43 from abias/patch-1
+    
+    Update README.md
+
+commit 3bcc13ae54eda6ca311806cf7473e2c63f7bf345
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Wed Sep 13 16:08:58 2017 +0200
+
+    Update README.md
+
+commit c7bd54cb37f57da7e96e9c8043a1256a5eec4553
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Sep 6 11:51:51 2017 +0100
+
+    Lock memcached server to version 1.4
+    
+    Version 1.5 causes problems with test_multi_use_compatibility()
+    
+    Reported upstream as https://tracker.moodle.org/browse/MDL-60037
+    
+    Fixes #36
+
+commit 54c26a1c587d7dd51b484526ed4935491e57890b
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Sep 5 14:29:02 2017 +0100
+
+    Move from danpoltawski -> moodlehq
+
+commit d53cb7f1af61d7670320a4c516aca2b93f9f41d5
+Merge: c8e43f1 246e98a
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Aug 4 11:28:34 2017 +0100
+
+    Merge pull request #32 from danpoltawski/debug-options
+    
+    Add some debug options to default config
+
+commit 246e98a1b2cf83723304d42241b16e3bd4ff9440
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Aug 3 11:50:25 2017 +0100
+
+    Add some debug options to default config
+    
+    We might want to control this by a flag in future
+    
+    Fixes #27
+
+commit c8e43f12f412aef939525376604e59a0aededb89
+Merge: 894365b e075d04
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Aug 3 11:42:13 2017 +0100
+
+    Merge pull request #31 from danpoltawski/faildumps
+    
+    Add behat faildump path
+
+commit e075d0495610402b7562318246fd233fc5fcf111
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Aug 2 13:58:39 2017 +0100
+
+    Add behat faildump path
+    
+    (and expose it via the webserver)
+    
+    Fixes #22
+
+commit 894365bb597f9ab6976f64d7d2f4a2fdd7ba9b2d
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Fri Jul 28 11:46:43 2017 +0800
+
+    Switch to MailHog and move behind reverse proxy
+    
+    Unfortunately mailcatcher is not well-suited to being behind a reverse
+    proxy so I've switched to use MailHog instead.
+    
+    The MailHog image is much simpler to proxy and gives the same kind of
+    result in a very lightweight image.
+    
+    The benefit of using a reverse proxy is that we do not tie directly to
+    ports, but instead have a single port for the whole install making
+    parallel runs more achievable.
+    
+    Fixed #24
+
+commit 5110384218a92e64966cb032fc6526f294dfce90
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Wed Jul 26 14:59:36 2017 +0800
+
+    Allow web server port to be unset
+    
+    By default the existing behaviour is preserved, but by setting the
+    MOODLE_DOCKER_WEB_PORT environment variable to an integer, the behaviour
+    can be changed:
+      port 0    - do not map at all
+      port > 0 - map to the specified port
+    
+    Fixes #24
+
+commit 81ecfa2980aa788e95694f3c165128a90ed4cbf0
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Jul 26 16:47:11 2017 +0100
+
+    Revert "Switch behat tag to a @core_tag"
+    
+    While @core_tag is a better test, it takes so much time it slows down
+    deadling with pull requests etc.
+    
+    This reverts commit bfb49b776ea8f438d74407d892490bc981905bd0.
+
+commit 08d9c12a8529c7a7b2302fbcb9b14d101ff97729
+Merge: eebfceb f027b44
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Wed Jul 26 16:48:07 2017 +0100
+
+    Merge pull request #30 from danpoltawski/mailcatcher
+    
+    Use mailcatcher for email testing
+
+commit f027b447d41cd7178e7cfb59158a3051fe93e811
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Jul 26 13:17:56 2017 +0100
+
+    Use mailcatcher for email testing
+    
+    This could be an optional depdency, but I think the simplicity benefits
+    of having it run by default are worthwhile. (Can be changed in future to
+    be disabled, or replaced with a more eleborate smtp setup).
+    
+    Fixes #28
+
+commit eebfceb3ea0ce71280d7c3c4d50d0d87c47ed8c7
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Jul 21 10:55:44 2017 +0100
+
+    Support :cached flag for code volume on OSX
+    
+    This provides better performance for mac users:
+    https://docs.docker.com/docker-for-mac/osxfs-caching/
+    
+    Fixes #18
+
+commit 17a80f73e4cd14c3d3a7a83fd39371c8bc69fcb5
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Jul 21 10:49:04 2017 +0100
+
+    Add portable symlink following..
+
+commit 7e3e1efc9b3114506f35d58a6c49450cd178f9ae
+Merge: a9e9c4c 4e3119c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Jul 21 10:35:31 2017 +0100
+
+    Merge branch 'symlink'
+
+commit a9e9c4cbb404d84b9dc2cf157f1d10e5c96aa6cc
+Merge: 5d7dd27 03d0be5
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Jul 21 09:49:17 2017 +0100
+
+    Merge pull request #26 from andrewnicols/docs_14
+    
+    Improve docs to mention all variables
+
+commit 03d0be53a15d016f184b93a5361aa45cd42fc471
+Merge: 30b9a44 5d7dd27
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Jul 21 08:51:35 2017 +0100
+
+    Merge branch 'master' into docs_14
+
+commit 30b9a442e42bace54a841646c104ec0fdacd252b
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Jul 20 08:17:17 2017 +0800
+
+    Add notes about the available environment vars (Fixes #14)
+
+commit 4e3119cfbb4f8b76d25c02ffb28470b32fe5d425
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jul 20 10:47:35 2017 +0100
+
+    Make moodle-docker-compose work when synlinked
+    
+    So that you can do ln -s bin/moodle-docker-compose /usr/local/bin/
+
+commit 5d7dd27fcbc82985aac7d565c198225914f68952
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jul 20 09:56:55 2017 +0100
+
+    Rename project to moodle-docker
+    
+    Fixes #16
+
+commit d97753275139360c26d1cc84b4b5982015f6cae6
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jul 20 08:59:45 2017 +0100
+
+    Temporarily pin mariadb to 10.2.6
+    
+    As discovered in #25 mariadb tests are breaking on the
+    latest version, so pin to a known working version for now.
+    
+    This pinning should be reversed when MDL-59583 [1] is resolved.
+    
+    [1] https://tracker.moodle.org/browse/MDL-59583
+
+commit 1b31eb52f76baa0e100eecf1f1803152156b086a
+Merge: ae830f8 a9ce646
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jul 13 11:22:29 2017 +0100
+
+    Merge branch 'chrome_shared_mem' of https://github.com/stronk7/docker-moodle
+
+commit ae830f892c991e5d78f7c513b020c85134b0d94f
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jul 13 11:13:59 2017 +0100
+
+    Remove the 'latest' and 'lowest' branches
+    
+    Somewhat related to issues #15 and #10, the php branches are already
+    enough maintance, so lets remove the latest and lowest ones.
+    
+    Need to think more about how to control this better long term
+
+commit f5de35da473a1c0d4bf5e96596ded80f17b88b50
+Merge: df1d9f7 65da50e
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jul 13 11:12:54 2017 +0100
+
+    Merge branch 'manual-help' of https://github.com/xow/docker-moodle
+
+commit df1d9f794a4ad3271247dc83f831299e5534394e
+Merge: 1d29745 8730f6e
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Jul 13 11:07:05 2017 +0100
+
+    Merge pull request #17 from danpoltawski/file-upload
+    
+    Make it possible to test @_file_upload in behat
+
+commit 65da50e5df28827e83b2fb3895a01347d3ccb4c3
+Author: John Okely <jlokely@gmail.com>
+Date:   Thu Jul 13 10:03:00 2017 +0800
+
+    Add help for manual testing
+
+commit a9ce6468c00bec0fec74c103f04d8bd47d67e2ec
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jul 12 17:32:01 2017 +0200
+
+    Fix Chrome crashes by using host shared memory
+    
+    Ref: https://github.com/SeleniumHQ/docker-selenium#running-the-images
+
+commit 8730f6e19d3deff417f774433c6786d8d89c2839
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Jul 12 10:30:47 2017 +0100
+
+    Make it possible to test @_file_upload in behat
+    
+    Thanks to Alain Corbière for this suggestion.
+    
+    Fixes #13
+
+commit 1d29745e963cab1eebf2d9282637c6307fc25197
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Jul 7 14:25:40 2017 +0100
+
+    Add new ldaplib PHPUNIT constants
+    
+    Fixes #8
+
+commit bfb49b776ea8f438d74407d892490bc981905bd0
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Jun 2 15:34:53 2017 +0100
+
+    Switch behat tag to a @core_tag
+    
+    This was problematic before, so perhaps a better test
+
+commit bc006e16faadbd58fc97a9b50c3bcace4cd26ef3
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 26 17:15:00 2017 +0100
+
+    Switch mysql to using command arguemnts
+    
+    Don't think the config mounting was working..
+
+commit 3b280254bd0ffc1187e56eb955ed68e9d7ceb346
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 26 16:16:45 2017 +0100
+
+    Add Mariadb support
+    
+    Fixes #4
+
+commit d51ecfa4c3f0d8b8a8f69ddf2f5bf39e5d8b6b0d
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 26 15:11:39 2017 +0100
+
+    Enable external services to reduce skipped phpunit tests
+    
+    Fixes #3
+
+commit 99ac2067cf4c7dcf8e39dddc51b5534f83b3ad2f
+Merge: d176995 e377c68
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri May 26 14:25:38 2017 +0100
+
+    Merge pull request #6 from micaherne/windows-batch-file
+    
+    Added batch file for Windows support
+
+commit e377c68052b58ca08551ae59e96580422db4991f
+Author: Michael Aherne <michael.aherne@strath.ac.uk>
+Date:   Fri May 26 12:12:26 2017 +0100
+
+    Added batch file for Windows support
+
+commit d1769951cdd2a789fa16badb88c76287ec05207b
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 26 11:10:29 2017 +0100
+
+    Add dependency on db
+    
+    As mentioned by Matteo in #5
+    
+    I haven't yet established a 'ready' command, not clear if its
+    worth the benefit of doing this.
+
+commit c635b37050cc32c01ec86caef5630480eccd045c
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 15:15:01 2017 +0100
+
+    Update README.md
+
+commit 2991241ae93be483b635f3a9a66881e2e4321f4c
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 15:14:24 2017 +0100
+
+    Update README.md
+
+commit fc5c5fa63ffc30bbbfa8220926b8801ad6f932b1
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:51:35 2017 +0100
+
+    Link to branches travis page as its more useful
+
+commit 7f8370872c4dde80ec3db0c9b0aa82c268a653b5
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:50:33 2017 +0100
+
+    Rename Readme.md to README.md
+
+commit 776ecdebc772f9fa5ca568549911a052939d571f
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:15:45 2017 +0100
+
+    Add info about branching model
+
+commit c9fba558c9eeea2f1a6b41dcfb4842a47f14fc76
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu May 25 12:15:43 2017 +0100
+
+    [readme] big update to current state
+
+commit bcdeb232b6799f0ceea832f2619e89e8680fbde5
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu May 25 07:25:21 2017 +0100
+
+    Chrome support and helper scripts
+    
+    * Reduce complexity of travis file and move into helpers
+    * Allow support for different behat brwosers
+
+commit 696494c5b7beca48706f1c6bdf66db2c91c74074
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 22:32:36 2017 +0100
+
+    [mysql] Set collation
+
+commit 711a19a1218ce789808e49b795e2293101ec5c66
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 22:14:11 2017 +0100
+
+    Use a smaller behat tag
+
+commit 9860b87eb714e3cec64123950fb373a715e4f2aa
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 21:55:36 2017 +0100
+
+    [travis] Add behat run of @mod_forum to tests
+
+commit 944828bac81bf61331e53c1694af04c05e320e65
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 17:04:14 2017 +0100
+
+    Completely rework the repo layout
+    
+    * Using a series of docker compose templates which can be cobined
+    * Added some travis tests for each db driver
+
+commit 0820715b2a0b6ec5df9d541eae9627f076e7ed4f
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 14:38:31 2017 +0100
+
+    Add submodules for dev wip
+
+commit 824742285913fcfd76a75f2471c0b87ccdd0796a
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 14:29:42 2017 +0100
+
+    Remote docker images from repo
+    
+    To make docker hub building more straightforward
+
+commit 4b754123c7c1a074c86042daafab6aeaecb957ed
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 23 11:25:45 2017 +0100
+
+    Update to latest microsoft tag
+
+commit cbdb1f1d0dcec807af2f3320ff6b27fa45a6de03
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon May 22 12:03:13 2017 +0100
+
+    Add php70 container
+
+commit edaaca60948dceffe3ac570774e1aa65554ec342
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon May 22 11:08:28 2017 +0100
+
+    Tidy up docker files to implement a best practice
+
+commit ccd6c774c502e84185aa4156010a4b494d132626
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 5 17:21:49 2017 +0100
+
+    Add a restart after changing process limit
+    
+    Combined with previous commit fixes the problems found in
+    auth_db_testcase::test_deleting_with_many_users
+    https://tracker.moodle.org/browse/MDL-58748
+
+commit 8e341a604a74180fa5b19dd10e905018eb3591ba
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 5 15:54:00 2017 +0100
+
+    More oracle tweaks
+
+commit 9641318960616efe987cccb17e6d48f127c04949
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 3 11:55:17 2017 +0100
+
+    Remove the unused moodle-php image
+    
+    Switch to the php standard one, now i've worked it out..
+
+commit e28798e1cc5561266d8a6ca63db6792d78ac8063
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon May 1 10:18:22 2017 +0100
+
+    Change mssql docker image to one with tools in
+    
+    Seems to be a change in docker image
+    (https://github.com/Microsoft/mssql-docker/issues/82)
+    
+    This reverts commit 32a38ca582c8ab2c4d8ef537db5adcfd0afcaae3.
+
+commit 32a38ca582c8ab2c4d8ef537db5adcfd0afcaae3
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Apr 28 15:20:28 2017 +0100
+
+    Fix sqlcmd path
+
+commit 00cbab083e38f876e90220bdadb9518ca5456c2c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Apr 28 15:11:43 2017 +0100
+
+    Clean up mssql image
+
+commit fa1c58ef2bddd4fa8c749fde19ba84f3c318c9fb
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Apr 28 11:45:28 2017 +0100
+
+    Add selenium node
+
+commit 0fa7f2b4706117253ab7c1be29c50b6c045473a2
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 18:41:53 2017 +0100
+
+    Fix locales
+
+commit 9824ec717de52dae978734a8b7166af9feee972d
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 18:20:59 2017 +0100
+
+    Remove run statemnts..
+
+commit 7f330059e0bc7a6a1edf45f1e148131a29801e16
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 18:11:20 2017 +0100
+
+    Split up docker commands
+
+commit 818004a7eafc8d4e6e2a8094092376bb1a6279e3
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 18:06:39 2017 +0100
+
+    Fixup locale install
+
+commit 1ecdc808418ec0d2f72d9df988152e611d5a3992
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 17:34:43 2017 +0100
+
+    Add ldap test server
+
+commit 85b5151a2d37bf54948ad19a5de4ade7a5e7cf3b
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 17:01:56 2017 +0100
+
+    Refactor php docker files into more manageable chunks
+
+commit e4d0a41ac9b0d4679e4ae7fff8566816b6051380
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 16:07:16 2017 +0100
+
+    Fix typo
+
+commit debd99cd9824e775af77f2b08401129d7999f15e
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 16:06:25 2017 +0100
+
+    Add two memcached servers to run cluster tests
+
+commit 3d064cc14e6df23bc079724733014cac9bf3d0ff
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 16:04:52 2017 +0100
+
+    Update some extensions causing skipped tests
+
+commit 054c9c9a8a27c26cb5d75d5101247eb18174531f
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 15:35:25 2017 +0100
+
+    Switch to non-broken solr and oracle config
+
+commit 36d541a61e227062b7a5d27548c5669f0fb708e0
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 10:55:25 2017 +0100
+
+    First stab at docker-compose
+
+commit b97a6955c678f5142eec3251277d3400540ce606
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 10:48:39 2017 +0100
+
+    Oracle tablespace..
+
+commit ec94336bef958b390c64bf6f95e986688dde27e6
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 09:24:09 2017 +0100
+
+    Fix oracle pass
+
+commit c0a089063f5fbc560b0e90356c1c1fd3f762b72d
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Apr 26 17:05:36 2017 +0100
+
+    Make php56 work with mssql properly
+
+commit 70e059c54b58fe4fb8cc615c5f8c0f5e732658e4
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Apr 26 17:05:09 2017 +0100
+
+    Switch the approach to adding oracle
+
+commit f6c5a936c6e58dae4a55a9b105ab55e1dd09316c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Apr 26 14:07:06 2017 +0100
+
+    Improving php56 image
+
+commit e6a278473dc77e77696d5f53daf31f939b1a072c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Apr 26 11:06:52 2017 +0100
+
+    Add another container for php56
+
+commit 38e53516de87efe4dee0c45a34a75fc855141962
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Apr 25 19:27:26 2017 +0100
+
+    Add missing soap dependecy
+
+commit d74e337e5831dd5118d5623da8f65e630d6f999c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Apr 25 15:30:22 2017 +0100
+
+    Improvements to oracle iamge
+    
+    * Create explict moodle users
+    * Split setup into two scripts
+
+commit bbc95cef64d56c1c136f8ff888a426fd00cf79e5
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue Apr 25 13:55:00 2017 +0100
+
+    Update Readme.md
+
+commit 3ce5d29faf89b5acf27338597ef413ec4f873723
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Apr 25 13:53:28 2017 +0100
+
+    More readme
+
+commit bb8f47a9b3d12b5d1087f1072e5d44d7008864ab
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue Apr 25 13:16:06 2017 +0100
+
+    Update Readme.md
+
+commit 582b64d00ab80c04c877539d5970874400c6b94c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Apr 25 13:13:07 2017 +0100
+
+    Add more readme detail
+
+commit 607b7cb9ae255d33876341226c79968471955411
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Apr 25 12:59:13 2017 +0100
+
+    Initial commit of combined repo

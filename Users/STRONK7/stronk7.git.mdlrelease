@@ -1,0 +1,2130 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 4dd4af9c3c9d312b90ef2fc1a2ad1eb2542110bf
+Merge: b321b36 81f03b0
+Author: Andrew Lyons <andrew@nicols.co.uk>
+Date:   Sat May 7 22:56:05 2022 +0800
+
+    Merge pull request #78 from junpataleta/master
+    
+    Remove 3.10 out of security support
+
+commit 81f03b0e99a9c09f7a760515d0ae5bf859b0fa25
+Author: Jun Pataleta <jun@moodle.com>
+Date:   Sat May 7 22:49:55 2022 +0800
+
+    Remove 3.10 out of security support
+
+commit b321b368995a7b6590ef7b237dbb6a980d34d6b3
+Merge: 9795d17 88f2524
+Author: Jun Pataleta <jun@moodle.com>
+Date:   Tue May 3 18:32:43 2022 +0800
+
+    Merge pull request #77 from stronk7/note_about_point_1_end_on_sync
+    
+    Note about the need to perform some actions once on-sync ends
+
+commit 88f252408887bcb645af2f37b1a24bc8848a23cc
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Apr 30 20:54:46 2022 +0200
+
+    Note about the need to perform some actions once on-sync ends
+    
+    The test now clearly states:
+    
+    >Notes:
+    >  - Don't forget that the last week of on-sync it's better to perform a normal master release (weekly) in order to guarantee that versions have diverged. If this is such a week, please proceed accordingly.
+    >  - IMPORTANT: If this is the last week of on-sync, don't forget to run all the actions that are documented together in the Point 1 of the "2 weeks after" section of the Moodle Release Process (link: https://docs.moodle.org/dev/Release_process#2_weeks_after). It is highly recommended to execute ALL the actions in that Point 1 immediately after moving out from on-sync (before the next week begins).
+    
+    That includes switching the queue managers (from continuous to normal),
+    to unhold all the held issues with special message and to enable all the
+    new jobs in the CI server.
+
+commit 9795d17fea3eb5e75214e304c6182d521f609435
+Author: Jun Pataleta <jun@moodle.com>
+Date:   Sun Apr 17 16:13:15 2022 +0800
+
+    Add MOODLE_400_STABLE to config.sh
+
+commit 7976a6256e5671b4d53a60c2721a05df3bffdcae
+Merge: e6e4d95 6022eeb
+Author: Jun Pataleta <jun@moodle.com>
+Date:   Wed Apr 6 16:34:56 2022 +0800
+
+    Merge pull request #76 from stronk7/major_back_to_dev_fixes
+    
+    Prepare major and back-to-dev release types to 400
+
+commit 6022eeb9f9c186c4d4c0f416160abb4605393f8a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Apr 6 09:22:53 2022 +0200
+
+    Prepare major and back-to-dev release types to 400
+    
+    This is the first time that we are going to release
+    a new two-digits (00) major release. Till now we have
+    only released 310 and 311 that was continuous from
+    previous 39 ones.
+    
+    This implies a little changes to both the "major" and
+    the "back-to-dev" release types.
+    
+    On major:
+     - We fix how the new branch (MOODLE_400_STABLE) and the
+       tag description (MOODLE_400) are calculated. Previously
+       they were being calculated as "40" instead of correct "400".
+    
+    On back-to-dev:
+     - We fix how the next development $release (4.1dev) and the
+       next development $branch (401) are calculated. This also fixes
+       a long standing TODO forever, so versions > .10 will work ok
+       automatically.
+     - We add a note warning that it's always needed to check the results
+       are the correct ones because mdlrelease always just increment by 1
+       the calculated versions. And, sometimes, when the next release is
+       going to be a new .0 one (for example 4.7 => 5.0) the changes
+       need to be done manually.
+
+commit e6e4d9572505dcb43f7a2bdcae981376b82ed1b9
+Merge: f9fa26b 51860e8
+Author: Andrew Lyons <andrew@nicols.co.uk>
+Date:   Thu Mar 3 20:08:27 2022 +0800
+
+    Merge pull request #75 from stronk7/no_branch_change_on_beta_rc_major
+    
+    Avoid any branch change on beta/rc/major
+
+commit 51860e8d61b922247dcca773dbe40db10364900c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Mar 3 11:44:33 2022 +0100
+
+    Avoid any branch change on beta/rc/major
+    
+    With the release of 4.0beta it has been detected that
+    we were re-calculating the branch on beta/rc/major
+    releases, and it's not needed at all (the branch never
+    changes on those releases).
+    
+    So this commit just keeps it unmodified for those releases.
+    
+    Also, a small change has been performed to the beta regexp
+    in order to avoid creating 4.0betabeta (double betas). This
+    doesn't happen ever (we only release ONE beta), but testing
+    discovered that we were concatenating incorrectly.
+
+commit f9fa26b1e6ba0333fb394084692591de8f67fb30
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 6 11:02:22 2021 +0100
+
+    NOBUG: 310 security
+
+commit 021ad334666be18d04d98f3206caff3bca6ddcb5
+Merge: 1a7e20a 36853c9
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri May 28 14:31:15 2021 +0200
+
+    Merge pull request #74 from sarjona/continuous-queue-doc
+    
+    Review process after start using continuous queue manager
+
+commit 36853c982b7e9ac1a071c31a87375b912a810e83
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri May 28 09:41:57 2021 +0200
+
+    Review process after start using continuous queue manager
+    
+    Since the new continuous queue manager has started, issues in current
+    queue won't be delayed anymore.
+    Besides, the send rebase message job has been reviewed to send also
+    a message to issues in integration.
+
+commit 1a7e20a7498165c72b47022510fbf8afd57f8236
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 15 18:42:53 2021 +0200
+
+    NOBUG: 311 stable
+
+commit 0476fa100c065e0991eea27aa66b61de6114c0f3
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 8 17:08:22 2021 +0200
+
+    NOBUG: 39 security, bye 38 and 35
+    
+    Also, a small change to make mdlrelease php8 compatible
+
+commit 2edbdd3ca52a7151e3a07ee5d08b493a09e5a320
+Merge: 3dd74d4 43d6075
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Feb 12 08:35:09 2021 +0100
+
+    Merge pull request #73 from stronk7/add_aarch64_executable
+    
+    Add the new mimetex.linux.aarch64 to be handled as binary /executable
+
+commit 43d60755d15b224236090c8a9d7b77294703a014
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Feb 11 23:28:20 2021 +0100
+
+    Add the new mimetex.linux.aarch64 to be handled as binary /executable
+    
+    In MDL-70627 we introduced a new mimetex binary, and it was added with
+    755 permissions (I remember it pretty well because I amended the
+    original commit to add the executable bits).
+    
+    But that new file was not known to our beloved prerelease stuff, so
+    perms were changed back to 644. See 3122b30050c639d4a13a079a52779ec033fcf8a1
+    
+    This commit just adds the new binary, and also sorts them alphabetically
+    for easier reading.
+
+commit 3dd74d47b7f4a859ed722e86422acc2e4dd0e7b8
+Merge: f499b79 f2b72dc
+Author: Sara Arjona <sara@moodle.com>
+Date:   Mon Nov 30 08:57:20 2020 +0100
+
+    Merge pull request #72 from stronk7/fix_langstring_source_for_dev_branches
+    
+    Fix problem when calculating the name of lang strings install branches
+
+commit f2b72dc55a0a976602977f4e9981bd701a214c4e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 27 16:54:46 2020 +0100
+
+    Fix problem when calculating the name of lang strings install branches
+    
+    There was a problem when calculating the name of the lang strings
+    install branches affecting to DEV branches (for STABLE branches it
+    was working ok).
+    
+    That's the reason MOODLE_310_STABLE did the work ok and it
+    correctly found the install_310_STABLE branch.
+    
+    But MOODLE_311_STABLE, that is a DEV branch (despite its name) was
+    calculating the name like: install_MOODLE_311_STABLE that doesn't
+    exist.
+    
+    We were missing to remove that "MOODLE_" from the name. Never noticed
+    this for master (our other DEV branch) where it works ok, because
+    it doesn't have any MOODLE_ as part of the name :-).
+
+commit f499b79b7bb20e3934fb03d36ce916a388f97de1
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 13 17:46:24 2020 +0100
+
+    NOBUG: Added new 311_STABLE development branch
+
+commit 0290599927bdb8d846474490ddd42263b4a386fe
+Merge: b47d4a3 2c23c20
+Author: Sara Arjona <sara@moodle.com>
+Date:   Wed Nov 11 07:22:45 2020 +0100
+
+    Merge pull request #71 from stronk7/disable_queues_manager_end_on_sync
+    
+    Reconcile prerelease notes and warnings with README (on-sync type).
+
+commit 2c23c20414d90132f57d7f64ecf4670fbebd1224
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Nov 11 00:45:12 2020 +0100
+
+    Reconcile prerelease notes and warnings with README (on-sync type).
+    
+    This adds an "IMPORTANT" warning about the need, the last week
+    rolling on-sync releases... to disable the queues manager, so it
+    doesn't continue processing issues after on-sync.
+    
+    Note this is also in the release process, but scheduled to Monday
+    after on-sync. Better if we disable it on rolling the last week
+    of on-sync.
+    
+    Grrr, also detected a typo (bad comparison operator), fixing it here
+
+commit b47d4a34f536656940c9be5ad26f222d061b16ed
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 7 18:34:45 2020 +0100
+
+    NOBUG: 310 stable, 38 security & bye 37
+    
+    So, over the next 2 weeks we only will have one dev branch, master.
+    Once the on-sync period is gone, we'll create the 311 dev branch from 310.
+    
+    Also modified a remaining "master" occurrence to support parallel
+    dev branches and small text modifications.
+
+commit 96b10c8e1ba6b59f907d0d69c8e691b4776a1e59
+Merge: 817a64d 843876f
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Oct 29 07:26:28 2020 +0800
+
+    Merge pull request #70 from stronk7/major_release_associated_types
+    
+    Add automatic support for major-related release types
+
+commit 843876f7d32419736cfd17715293af0bb13b799f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 28 20:34:05 2020 +0100
+
+    Add automatic support for major-related release types
+    
+    When the tool is being used for a major-related release type:
+      - on-demand
+      - beta
+      - rc
+      - major
+      - back-to-dev
+      - on-sync
+    
+    It's automatically detected if we are in a parallel development
+    period. If that's the case, the correct (next to be released)
+    branch is picked automatically (of course, it's still possible
+    to use the --branch option to force any branch).
+    
+    Note that, under parallel development, the "back-to-dev" release
+    type doesn't have anything to do, because there isn't any branch
+    to move back to dev (master is already dev), so it's detected and
+    prevented now.
+    
+    Finally, when the "major" is released from a STABLE development
+    branch, like will happen whe we release 3.10... some extra instructions
+    are printed, about the need to create the next parallel development
+    branch (MOODLE_311_STABLE) if needed.
+    
+    With this I think that we can consider the toool 100% ready to
+    support present and future parallel development periods.
+
+commit 817a64d9a41d1fcb965d0a4a957e3234efbdf331
+Merge: 59bb7f3 2de6c3e
+Author: Sara Arjona <sara@moodle.com>
+Date:   Tue Aug 18 13:18:20 2020 +0200
+
+    Merge pull request #69 from stronk7/multiple_dev_branches
+    
+    Initial support for multiple development branches
+
+commit 2de6c3e7b6bdaf8f8044999d952ee25383b65b1b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Aug 8 17:25:31 2020 +0200
+
+    Initial support for multiple development branches
+    
+    Supports:
+    - configure which the dev branches are.
+    - release weeklies properly.
+    - release minors properly.
+    
+    TODO:
+    - implement all the TODOs in the scripts.
+    - verify all the release types.
+
+commit 59bb7f3d96b8a06ec7a78afb05a6ac64cd73828a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jun 13 20:13:48 2020 +0200
+
+    NOBUG: Added new 38_STABLE branch
+
+commit 620de7f462dec83ad9a7ae180069c7492d7be3be
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jun 13 20:03:23 2020 +0200
+
+    Change the validation from old "matrix" to new "jobs"
+    
+    The old (deprecated) matrix was changed by MDL-68392 to jobs. So
+    from now on, look for it.
+
+commit f96eea50b1e0420e97eb4cbc3b9945c4072cde67
+Merge: 0418d1f 49de3d8
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Jun 12 19:04:27 2020 +0200
+
+    Merge pull request #68 from vmdef/master
+    
+    Added installation instructions for macOS
+
+commit 49de3d8478e4515e497047e680a58e37956bfa05
+Author: Víctor Déniz Falcón <victor@moodle.com>
+Date:   Fri Jun 12 17:55:39 2020 +0100
+
+    Added installation instructions for macOS
+
+commit 0418d1f16b8447b0aab27c30aed0030fd8d83528
+Merge: 702cee1 8c39ad6
+Author: Sara Arjona <sara@moodle.com>
+Date:   Mon May 11 08:34:47 2020 +0200
+
+    Merge pull request #67 from stronk7/36_end_37_sec
+    
+    NOBUG: 37 goes to security and 36 out of support
+
+commit 8c39ad6ebfba11d74799b3e0905c04ec9b6eb172
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 9 20:31:20 2020 +0200
+
+    NOBUG: 37 goes to security and 36 out of support
+
+commit 702cee19006d5bd8e6603344316968da660ea0fb
+Merge: 8bf2c75 b6bcc36
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Mar 27 19:55:11 2020 +0100
+
+    Merge pull request #66 from stronk7/clearer_check_ideas_doc
+    
+    Clearer reference about always looking to the ideas doc
+
+commit b6bcc36c53051bfe7521318176905ad8a50e7013
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Mar 27 18:48:52 2020 +0100
+
+    Clearer reference about always looking to the ideas doc
+    
+    That way, anything annotated there by anybody in the team,
+    in any of the sections, will be considered and ideally, never missed.
+
+commit 8bf2c758af78c0588feefb273ac0602824bfa8a8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jan 27 16:01:50 2020 +0100
+
+    Verify there aren't remaining issues under testing
+
+commit b0b47be38bd79009c57dc4c90d4266375650caf4
+Merge: 13f74c0 f52afad
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Nov 22 00:15:07 2019 +0100
+
+    Merge pull request #65 from stronk7/master
+    
+    NOBUG: Added new 38_STABLE branch
+
+commit f52afada6b74a89ac41553b79cfaf2b2650a8f7c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 16 18:06:04 2019 +0100
+
+    NOBUG: Added new 38_STABLE branch
+
+commit 13f74c0ca3c80700287a6e20613b820ec5519fcf
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 9 12:26:22 2019 +0100
+
+    NOBUG: 36 goes to security
+
+commit 3dfd1de664fe4cdacf17a369c02793d7932e5c02
+Merge: f81c15c 22b4a1c
+Author: Sara Arjona <sara@moodle.com>
+Date:   Thu May 30 13:17:46 2019 +0200
+
+    Merge pull request #64 from stronk7/rollability_summary
+    
+    A brief note about roll-ability on weeklies and on-sync
+
+commit 22b4a1cc195cbb7c093ab2d5f659f788d72158de
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 30 12:07:05 2019 +0200
+
+    A brief note about roll-ability on weeklies and on-sync
+    
+    Basically to remember to everybody that 1) CI-wise we must be
+    green and 2) Every "ongoing" issue (already being integrated)
+    needs to have a valid outcome (integrated/reopen/delayed) before
+    being able to roll.
+
+commit f81c15cf12fc54f50d93135134c31fd88f0b7306
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 19 11:27:13 2019 +0200
+
+    NOBUG: Added new 37_STABLE branch
+
+commit f8fd122ca5f5a2d95cf5c6e5b4b5f929a6c2b91a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 12 00:26:42 2019 +0200
+
+    NOBUG: 35 goes to security, 31 and 34 out of support
+
+commit d307232696ad7827778757293be28eb471954abc
+Merge: c39cf1e adcf4ef
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Apr 5 15:18:00 2019 +0200
+
+    Merge pull request #63 from stronk7/links_to_after_the_release
+    
+    Add some links to the "After the release" section
+
+commit adcf4ef8a4955528945e11f9726a546dd7171d00
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Mar 29 12:48:56 2019 +0100
+
+    Add some links to the "After the release" section
+    
+    Added links to the section plus some clarifications
+    about when / when not every step there should be applied.
+
+commit c39cf1e47b96253ac8fd18e8aec23621e8ae09ec
+Merge: 7259c74 a9aee8c
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Mar 8 11:50:39 2019 +0100
+
+    Merge pull request #62 from stronk7/little_tags_explanation_for_minors
+    
+    Be clear about the correct moment to push tags to integration.git
+
+commit a9aee8c87a32b33d0fdc0a93a7c9329fcfe87bb8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Mar 8 11:45:37 2019 +0100
+
+    Be clear about the correct moment to push tags to integration.git
+    
+    While it's already clear enough both in Moodle Docs and prerelease.sh
+    output, we have found it's needed to also make a comment here, so the
+    3 sources of information are better aligned.
+
+commit 7259c741304f76cd6d0edc1f0019bc5a6b76b376
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Dec 2 00:29:26 2018 +0100
+
+    NOBUG: Added new 36_STABLE branch
+
+commit 419735e8b2165b5904531717fa4a214b5ab2dac4
+Merge: 1321ac9 2e7c9e0
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Tue Nov 13 08:00:03 2018 +0800
+
+    Merge pull request #61 from stronk7/33_end_34_sec
+    
+    NOBUG: 34 goes to security and 33 out of support
+
+commit 2e7c9e023cf32e06394e84d8cec3f9cd6702829f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 10 21:01:59 2018 +0100
+
+    NOBUG: 34 goes to security and 33 out of support
+
+commit 1321ac94d0775ebf173de3d5f00cb38c933a642e
+Merge: 9aea2ed 97794da
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Sun Oct 28 18:01:45 2018 +0800
+
+    Merge pull request #60 from stronk7/blacklist_fontawesome
+    
+    Blacklist fontawesome files
+
+commit 97794daa5f110658a63a1dffefde6b339bffbf18
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 19 18:01:37 2018 +0200
+
+    Blacklist fontawesome files
+    
+    They aren't SVGs to be fixed or handled by this utility at all. In
+    fact they are already skipped. So simply backlisting them explicitly
+    and leading to a clearer (no skipped messages) when pre-releasing.
+
+commit 9aea2edbee3cc4ba8ca8c53cc324b2dbbbdd8566
+Merge: 0e236e9 ce2d78f
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Fri Sep 28 07:55:39 2018 +0800
+
+    Merge pull request #59 from stronk7/send_rebase_message_job
+    
+    Move info to start using the new rebase message job.
+
+commit ce2d78f89e83fc0a08ab1847c6123103c9145d8c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Sep 28 01:26:54 2018 +0200
+
+    Move info to start using the new rebase message job.
+
+commit 0e236e96a13a5dd62581daf6079deb1d1aea221e
+Merge: 34457d8 a0f906c
+Author: Jun Pataleta <jun@moodle.com>
+Date:   Mon Jul 30 14:07:49 2018 +0800
+
+    Merge pull request #58 from moodlehq/clarify-post-release-process
+    
+    Ensure stats are calculated before updating tracker for the week
+
+commit a0f906c4584984d9aa3026cb4df0ab41a1f78a03
+Author: Jake Dallimore <jake@moodle.com>
+Date:   Mon Jul 30 13:20:10 2018 +0800
+
+    Ensure stats are calculated before updating tracker for the week
+    
+    Make sure we calculate the weekly stats before updating tracker and
+    ensure that any 'Integration review in progress' issues count towards
+    the delayed count for the week.
+
+commit 34457d8fe9b704224d9e508879ee836ba1fe0729
+Merge: 1fe7ade a17e99e
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Thu May 24 10:42:45 2018 +0200
+
+    Merge pull request #57 from stronk7/master
+    
+    NOBUG: 35 added, 33 to security and 32 out of support
+
+commit a17e99e650281041d72a618d940e36c3ce5fefe2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed May 16 22:51:30 2018 +0200
+
+    NOBUG: 35 added, 33 to security and 32 out of support
+
+commit 1fe7adeba79a8f3675f7db83cdee2377bf454636
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Feb 15 19:13:07 2018 +0100
+
+    NOBUG: Point to new CI server, job moved there.
+
+commit 4bed8972bf144244ba7bfd410356e013dcb0ebf6
+Merge: 7db3470 531a212
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Fri Nov 24 12:27:26 2017 +0100
+
+    Merge pull request #56 from stronk7/verify_external_counters
+    
+    NOBUG: Add extra step about verifying/filling external testing counters
+
+commit 531a2129d842dd7570b6fddfce36d0d4ed6af40f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 24 11:44:17 2017 +0100
+
+    NOBUG: Add extra step about verifying/filling ext. test counters
+
+commit 7db3470b4d1cedd7bc86c519b45249b4764372d0
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 11 19:46:11 2017 +0100
+
+    NOBUG: 32 goes to security and added new 34 stable branch
+
+commit 3ec9efb7535f27440ae36101c60241cda4d31852
+Merge: 69185c8 d37a07a
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Wed Oct 25 11:28:16 2017 +0200
+
+    Merge pull request #55 from stronk7/weeklies_together_beta
+    
+    NOBUG: The last remaining combo after years, now documented, yay!
+
+commit d37a07ac6ab9f30f145cfef0ce7772ebe89e07f2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 25 11:19:30 2017 +0200
+
+    NOBUG: The last remaining combo after years, now documented, yay!
+
+commit 69185c8a99666494004f8c9e34abf437bfd36e88
+Merge: 8012f35 ba5dfb3
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Fri Jul 7 11:51:29 2017 +0200
+
+    Merge pull request #54 from danpoltawski/minor-clarification
+    
+    Try and clarify minor release weekly before it
+
+commit ba5dfb316809adf9aa281ea582a557bd48d63654
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Jul 7 10:17:39 2017 +0100
+
+    Try and clarify minor release weekly before it
+    
+    Thanks to Eloy for clarifications
+
+commit 8012f35f27465139ec9233a0e9d1d4a93a06d4bc
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 14 12:00:27 2017 +0200
+
+    NOBUG: Added new 33_STABLE branch
+
+commit 72c846eadceffb249a6da18af4a1197a6e67f04d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 7 23:55:56 2017 +0200
+
+    NOBUG: 31 goes to security and 27 and 30 out of support
+
+commit f9f09e81e195df463188321e7dddb5e966fd1d5f
+Merge: f8dc286 c0b51f5
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Jan 20 11:27:41 2017 +0000
+
+    Merge pull request #51 from stronk7/MDLSITE-4933
+    
+    MDLSITE-4933: Change information to point to the new close job
+
+commit c0b51f562327ec5984054f000c7c3736c2bc8461
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jan 20 12:23:38 2017 +0100
+
+    MDLSITE-4933: Change information to point to the new close job
+
+commit f8dc2867fff45fecf01d6bd48466ea4501672f7d
+Merge: b271153 56dc340
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Dec 23 09:31:31 2016 +0000
+
+    Merge pull request #50 from stronk7/last_on_sync_is_weekly
+    
+    NOBUG: Towards last on-sync release leading to version divergence
+
+commit 56dc340c940c5ef37753a1a8a361c3f6ca35025b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Dec 22 19:12:08 2016 +0100
+
+    NOBUG: Towards last on-sync release leading to version divergence
+
+commit b2711530cf7ecf9f214ef78bb385acfef24abb8a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Dec 3 17:52:30 2016 +0100
+
+    NOBUG: Added new 32_STABLE branch
+
+commit 308194ba2997416f083e2f326571dd92989d34f8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 13 02:30:31 2016 +0100
+
+    NOBUG: 30 goes to security and 29 out of support
+
+commit 993229bd8ad3f7828692e808113a6781e8d72f15
+Merge: e07e688 bccf13c
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue Nov 1 19:16:25 2016 +0000
+
+    Merge pull request #49 from stronk7/plus_added_note
+    
+    NOBUG: Note about plus (+) being added unconditionally
+
+commit bccf13c353da7cbee1861a2b7932241d36bd2af6
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Nov 1 20:07:56 2016 +0100
+
+    NOBUG: Note about plus (+) being added unconditionally
+
+commit e07e6886d804e524a4cc185f3f99942e1aeac458
+Merge: 35edc99 70e47cb
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Jul 7 09:19:41 2016 +0100
+
+    Merge pull request #47 from stronk7/MDLSITE-4620
+    
+    MDLSITE-4620: Add NOBUG to travis.yml automatic commits
+
+commit 70e47cb50a01af1533dccdb0b1c7bc4d0765db70
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jun 30 17:41:57 2016 +0200
+
+    MDLSITE-4620: Add NOBUG to travis.yml automatic commits
+
+commit 35edc99b93072c08a25a45351eafcf99431322be
+Merge: a1e0fd3 0d5f109
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Thu May 26 09:55:54 2016 +0800
+
+    Merge pull request #45 from stronk7/clarify_on_sync
+    
+    NOBUG: Usually, generate weekly stables together with on-sync master
+
+commit 0d5f109d591eb13422cf9b45e2a44fa06b2d764c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 26 02:17:57 2016 +0200
+
+    NOBUG: Usually, generate weekly stables together with on-sync master
+
+commit a1e0fd3fb5b0b6f58f577359f486bca64e79e599
+Merge: 4780488 deb0a5e
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Tue May 24 20:55:29 2016 +0200
+
+    Merge pull request #44 from andrewnicols/travis_upgrade_fix
+    
+    NOBUG: Correct Travis validation
+
+commit deb0a5e5038a59d6245bec52cc448adfde5d0883
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Tue May 24 13:44:19 2016 +0800
+
+    NOBUG: Correct Travis validation
+
+commit 47804885feab939e2289aa7d0ec41a0b8286f0af
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 21 23:56:30 2016 +0200
+
+    NOBUG: Added new 31_STABLE branch
+
+commit f8bb56295cfbd32a41fe6ceb3e2226221ba688bb
+Merge: bb46d02 5e0d7f3
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Sat May 14 10:20:03 2016 +0200
+
+    Merge pull request #43 from moodlehq/clarify-release-checker-wording
+    
+    Clarify version bumper info
+
+commit 5e0d7f33b6a0b70db5c84b0d0d82a68ec0a07c69
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Sat May 14 09:16:47 2016 +0100
+
+    Clarify version bumper info
+
+commit bb46d020d1c4bf6121eb2c93ea5718744358ef26
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 8 11:38:54 2016 +0200
+
+    NOBUG: 29 goes to security and 28 out of support
+
+commit 8bab34fe53f3a1ba849b35474983b298e9169a7f
+Merge: cd2bedd 9142186
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri May 6 19:39:09 2016 +0100
+
+    Merge pull request #42 from stronk7/master
+    
+    NOBUG: Correct link for sending rebase message.
+
+commit 9142186cfc7fe8552d548466f0fdb322fa4f8040
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri May 6 16:38:58 2016 +0200
+
+    NOBUG: Correct link for sending rebase message.
+    
+    - Skip (any) held issue.
+    - Skip issues under current integration.
+    
+    It matches the top-left widget/list in the integration dashboard.
+
+commit cd2bedd4666ce606ce8a9842b6d0efbb9b78c8f8
+Merge: 427898f 21fa56b
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Tue May 3 22:12:49 2016 +0200
+
+    Merge pull request #41 from moodlehq/the-plus-saga-continues
+    
+    The + saga continues..
+
+commit 21fa56bed7155b07fca6498e2b6e82aaf5140a19
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue May 3 20:47:18 2016 +0100
+
+    The + saga continues..
+    
+    I guess caused by e2d7919a very similar to 84171cbc..
+    
+    When incrementing the version this time it got borked because our
+    release name is now 3.1dev+ and you ended up with:
+    
+    diff --git a/version.php b/version.php
+    [...]
+    -$release  = '3.1dev+ (Build: 20160429)'; // Human-friendly version name
+    +$release  = '3.1+beta (Build: 20160504)'; // Human-friendly version name
+    
+    -$branch   = '31';                       // This version's branch.
+    -$maturity = MATURITY_ALPHA;             // This version's maturity level.
+    +$branch   = '31+';                       // This version's branch.
+    +$maturity = MATURITY_BETA;             // This version's maturity lev
+    
+    And misguided instructions telling you to tag that with the production
+    tag (ARGHGHHHHHHHHH!!!):
+    
+        git tag -a 'v3.1.0' -m 'MOODLE_31' 8ce725245d449154e181f7d26367b7221a5aa4e4
+
+commit 427898f8029987ae1527e642d63701ffaae185d3
+Merge: d64de3c 672cd9c
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Mar 18 18:29:17 2016 +1100
+
+    Merge pull request #40 from stronk7/some_small_changes
+    
+    NOBUG: Small changes and extra links only
+
+commit 672cd9cad1e19521d2abe8dc42c59f44d2d596a4
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Mar 10 22:22:35 2016 +0100
+
+    NOBUG: Small changes and extra links only
+
+commit d64de3c6e19520b1890e93e26537263b28f4dedf
+Merge: 34bd7d5 0b6e92b
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Fri Feb 26 15:49:51 2016 +0100
+
+    Merge pull request #39 from andrewnicols/MDLSITE-4428-docs
+    
+    Update README.md
+
+commit 0b6e92b645dce1c2bac748b9ba68abc0e81072d7
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Fri Feb 26 07:58:54 2016 +0800
+
+    MDLSITE-4428 Update git repositories list
+
+commit a681d340fe3267d58b445d55c81ab20ade5b1826
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Fri Feb 26 07:51:26 2016 +0800
+
+    MDLSITE-4428 Add link to issues awaiting integraiton
+
+commit 21a89a50dd0e92d716ca0a0c409eaff4aeb67110
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Fri Feb 26 07:50:47 2016 +0800
+
+    MDLSITE-4428 Correct link for standard messages
+
+commit 34bd7d54c794c80437cdd175c243026205197d1f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 15 18:54:06 2015 +0100
+
+    NOBUG: Added new 30_STABLE branch
+
+commit 4d7df1acfd4a76659693bd64b15893694cf05bf1
+Merge: a1b8a4f 543edc0
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Nov 13 07:11:45 2015 +0000
+
+    Merge pull request #38 from dmonllao/more-weekly-plus-rc-info
+    
+    MDLSITE-3968 Info about RC with stables
+
+commit 543edc000d4d7793d1e80fb50ff37a69f953d3fd
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Nov 13 10:30:13 2015 +0800
+
+    MDLSITE-3968 Info about RC with stables
+
+commit a1b8a4f9c38d1eb3294a7101052c8f880b1fdf8d
+Merge: e88dff3 7303255
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue Nov 10 08:00:15 2015 +0000
+
+    Merge pull request #37 from dmonllao/ondemand-stables-info
+    
+    MDLSITE-3968 Info about on-demand with stables
+
+commit 73032554d48979bb57d32a2923543667b27101d9
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Tue Nov 10 10:39:27 2015 +0800
+
+    MDLSITE-3968 Info about on-demand with stables
+
+commit e88dff3484f777192e5a6d2df1e7e8674c92f924
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 6 22:25:18 2015 +0100
+
+    NOBUG: 28_STABLE falls to security-only
+
+commit 3ad4cdce804ea7016ab2b79562fd649440242a0f
+Merge: 314aba0 503d6f7
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Mon Nov 9 08:58:42 2015 +0800
+
+    Merge pull request #36 from stronk7/MDLSITE-4220
+    
+    Mdlsite 4220
+
+commit 503d6f7a7d18fd0822dbc93f19f14e54b5e43ee8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Nov 3 19:12:43 2015 +0100
+
+    MDLSITE-4220 Get rid of potentially to-change test
+
+commit 0dfba1a2b356e3801248b012957c5376f94168e2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 28 00:47:39 2015 +0100
+
+    MDLSITE-4220 Ensure version.php changes are the branch point.
+    
+    We need all the changes performed before version.php changes
+    happen and we both branch from it and tag it as release.
+    
+    This implies a bit of dark magic, deleting the version commit, adding
+    the remaining changes and re-introducing it again but should
+    work without problems. After branching, master can be changed back.
+
+commit de87e07962b898efbde1dbefa52c1895c2961958
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Oct 27 18:56:53 2015 +0100
+
+    NOBUG: Colors improved, previously it was just "too much red"
+
+commit 80192d7b7b738a57d7c06d654b3ecf5f90f18f6d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Oct 27 13:48:14 2015 +0100
+
+    MDLSITE-4220 Make major releases to update .travis.yml file.
+
+commit 314aba015b982e554942e9acc055c38ecb303157
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 10 21:41:10 2015 +0200
+
+    NOBUG: Fix --type back-to-dev to bump correctly to next X.0 (after .9)
+
+commit b174b10948c86773e9b6338ed8687f796fd113a2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 10 13:42:39 2015 +0200
+
+    NOBUG: Get rid of 26_STABLE and move 27_STABLE to security.
+
+commit a1f318bb3eb19284a8e7e3ac81acf6f444ff7535
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 10 12:35:18 2015 +0200
+
+    NOBUG: Added new 29_STABLE branch and tidied notes.
+
+commit 26e354c230e40cf5da56f4d4f891d18cd4cce4da
+Merge: 97b7e42 e8c1df3
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 7 09:44:13 2015 +0100
+
+    Merge pull request #35 from moodlehq/remove-gitorious
+    
+    MDLSITE-3946 remove gitorious mirror
+
+commit 97b7e4235bccafe99cdff1036de0f88138438528
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri May 1 11:23:29 2015 +0200
+
+    NOBUG: Get rid of copy/paste error from rc line
+
+commit e8c1df3d735f6ef480efc6ec0b71e68da16c5577
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 9 12:54:04 2015 +0100
+
+    MDLSITE-3946 remove gitorious mirror
+    
+    Its being shut down.
+    
+    NOTE: this doesn't remove the url from existing mirrors - I suggest we
+    just get integrators to do that manually.
+
+commit 5dd8b25874edcb8c076a9ea6792a644d4ddc80e9
+Merge: fe1b624 138f292
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Fri Feb 13 10:07:56 2015 +0100
+
+    Merge pull request #34 from dmonllao/docs-release-process-2
+    
+    README.md - After the release
+
+commit fe1b624b3c5804d3a0a2e074cb4f56c4d624278e
+Merge: f5e2077 6a8cba7
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Fri Feb 13 10:07:30 2015 +0100
+
+    Merge pull request #33 from dmonllao/docs-release-process-1
+    
+    README.md - Adding additional steps after prerelease
+
+commit 138f292d2f4931f44e4db92a5b4b97478d17318a
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Thu Feb 12 16:44:11 2015 +0800
+
+    README.md - After the release
+    
+    More info about the procedure after pushing to
+    public servers.
+
+commit 6a8cba7da3400625e523194028872f8cbd1fa258
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Thu Feb 12 16:13:01 2015 +0800
+
+    README.md - Adding additional steps after prerelease
+    
+    Remember waiting for the CI server outcome to push to public servers.
+
+commit f5e2077cc70a7ba9dd86288ae50dcf61a8bfb21d
+Merge: 14f29f8 c864397
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Thu Jan 8 15:53:10 2015 +0100
+
+    Merge pull request #32 from moodlehq/only-push-released-branches
+    
+    MDLSITE-3732 release.sh: only push release incremented branches
+
+commit c864397c5b093a906ec694f72cb35793923bdce7
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jan 8 14:39:26 2015 +0000
+
+    MDLSITE-3732 don't require matching build date
+
+commit 2b7be780c35915156348e8db123ab48e77c03c50
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jan 8 12:40:08 2015 +0000
+
+    MDLSITE-3732 release.sh: only push release incremented branches
+
+commit 14f29f815b7f2c8e5d6f3ab32c37ec3b77649c6d
+Merge: a27e0d8 bdb991c
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Thu Jan 8 12:23:33 2015 +0100
+
+    Merge pull request #31 from moodlehq/push-info
+    
+    MDLSITE-3732 print summary of what is going to be pushed
+
+commit bdb991c4dbba7c41c2523661b87dd9cab9127905
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Jan 8 11:08:11 2015 +0000
+
+    MDLSITE-3732 print summary of what is going to be pushed
+
+commit a27e0d80e3ba4c65bafed55c2d5ab01613de34ed
+Merge: 1c4b0a1 96ca3a3
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Sun Nov 16 19:28:40 2014 +0100
+
+    Merge pull request #30 from dmonllao/MDL-47648
+    
+    Adding filter/tex/mimetex.exe to executables
+
+commit 96ca3a3a15cff39b18739538fb26091aad0e495b
+Author: David Monllaó <david.monllao@gmail.com>
+Date:   Fri Nov 14 09:30:05 2014 +0800
+
+    Adding filter/tex/mimetex.exe to executables
+    
+    Related with MDL-47648
+
+commit 1c4b0a1291353776ec5a46bed146b9a963461695
+Merge: f14d29e fc766f2
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Sun Nov 9 09:38:14 2014 +0000
+
+    Merge pull request #29 from stronk7/master
+    
+    NOBUG: Add 28 to stables, move 26 to sec and get rid of 25
+
+commit fc766f2d595e4304c34907f3e57588cc20b92889
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 9 04:08:20 2014 +0100
+
+    NOBUG: For back-to-dev type avoid build going backward
+    
+    Just detected that the type-back-to-dev was moving
+    the build information backwards from "next monday"
+    (used by majors and minors) to "today" (used by all the rest
+    of releases).
+    
+    This is not very important and, in fact, has happened
+    with previous back-to-dev without anybody realising it, see:
+    
+    http://git.moodle.org/gw?p=moodle.git;a=commitdiff;h=730d717
+    
+    With this change, back-to-dev follows the same "next monday"
+    rule than releases, so build won't go backwards anymore.
+
+commit 573aa4b17c07ed616dd8994d750fb0b51ed492c7
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 9 03:39:03 2014 +0100
+
+    NOBUG: Add 28 to stables, move 26 to sec and get rid of 25
+
+commit f14d29eab32e817d07399d6041fb0939e574eed3
+Merge: b58032f a612381
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Nov 7 15:52:57 2014 +0000
+
+    Merge pull request #28 from stronk7/master
+    
+    NOBUG: Make master weeklies under beta/rc to behave as on-demand
+
+commit a612381813cc9a94d621d2a27cfa4196cba883fa
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Nov 7 16:47:07 2014 +0100
+
+    NOBUG: Make master weeklies under beta/rc to behave as on-demand
+    
+    Previously it was going straight to next version dev, when that is only
+    expected after a major release and branching. Now those weeklies
+    behave exactly like on-demand ones, just adding the trailing "+".
+    
+    Note we always use on-demand normally so this bug was not really affecting us,
+    but better have weeklies being correctly updated to avoid errors.
+
+commit b58032f330b71e800161eb42a970e51783245449
+Merge: fb3af9e f198272
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Wed Nov 5 10:02:20 2014 +0000
+
+    Merge pull request #26 from samhemelryk/config-script
+    
+    NOBUG: Separated branches out into a config.sh
+
+commit f1982727211dc2a6516439ce88000e92e0aac000
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Fri May 9 10:55:55 2014 +1200
+
+    NOBUG: Separated branches out into a config.sh
+
+commit fb3af9ecbd7d451c86951b42ab0d0dd5e5a21c6b
+Merge: 3a14941 02fc227
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Aug 29 09:55:02 2014 +0100
+
+    Merge pull request #27 from stronk7/master
+    
+    NOBUG: Remove old docs and add missing point
+
+commit 02fc227084da2d28fa54206a6ed6367f047e161d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Aug 29 00:02:05 2014 +0200
+
+    NOBUG: Remove old docs and add missing point
+
+commit 3a14941ccb582fde2a671e951b4088111ba0ce51
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jul 12 20:54:59 2014 +0200
+
+    NOBUG: 24 out of support.
+
+commit 96916f3f415ae9b329138087e394e501064f46d7
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat May 10 21:06:57 2014 +0200
+
+    NOBUG: add 27 and move 25 down to security
+
+commit 4bb65d0f2333cd9493cb4bfd9f8485e1904ea071
+Merge: 15f2a76 84171cb
+Author: Sam Hemelryk <sam.hemelryk@gmail.com>
+Date:   Fri May 9 09:50:00 2014 +1200
+
+    Merge pull request #25 from stronk7/master
+    
+    NOBUG: Fix rc transitions
+
+commit 84171cbc62ecf464d3c3096da215538591712fee
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 8 16:30:32 2014 +0200
+
+    NOBUG: Fix rc transitions
+    
+    When moving from rc1+ to rc2, there was a bug
+    leading to incorrect rc1+rc2 $version. This fixes
+    it by allowing the rc\d+? => rc\d transitions.
+
+commit 15f2a760d6c16336f739826818ae3b225ad71e94
+Merge: 079ebdd da14d7e
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Wed Apr 16 00:20:07 2014 +0200
+
+    Merge pull request #24 from samhemelryk/install-fail
+    
+    NOBUG: added handling for failed clone operation
+
+commit da14d7e7f2912b1565f10f9f2b8d1e0cfdb49436
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Wed Apr 16 09:11:49 2014 +1200
+
+    NOBUG: added handling for failed clone operation
+
+commit 079ebddf4e3ab99c21cebf3a7642bed1607ac434
+Merge: 41980ea e2d7919
+Author: Sam Hemelryk <sam.hemelryk@gmail.com>
+Date:   Wed Apr 16 08:39:50 2014 +1200
+
+    Merge pull request #23 from stronk7/missing-plus-on-demand
+    
+    NOBUG: Add "+" to on-demand rolls when needed.
+
+commit e2d7919a21156843663c8d3b2efd3283b7a1b532
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Apr 15 16:35:34 2014 +0200
+
+    NOBUG: Add "+" to on-demand rolls when needed.
+
+commit 41980ead8c0cd1e4ce85a669f2d593f666b99e9e
+Merge: 2a30678 a534c56
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Apr 4 10:12:45 2014 +0800
+
+    Merge pull request #22 from marinaglancy/master
+    
+    NOBUG: Suggest to remove existing gitmirror directory
+
+commit a534c566d7b6285832cd7c8fcc856a4204b71586
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Apr 4 09:48:05 2014 +0800
+
+    NOBUG: Suggest to remove existing gitmirror directory
+
+commit 2a3067862981f4fc63c3585a5024524d3545d9a7
+Merge: 7dbf224 72bb27d
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Apr 4 08:11:35 2014 +0800
+
+    Merge pull request #21 from stronk7/gitlab
+    
+    NOBUG: Installer to support gitlab master repos.
+
+commit 72bb27dec205e1948b27b354cea3ca31edc07b16
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Apr 3 12:31:54 2014 +0200
+
+    NOBUG: Use new moodle-install repo for lang strings
+
+commit 514c7f8bb6262a4d4382570fab7afa1845aa0770
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Apr 3 03:24:54 2014 +0200
+
+    NOBUG: Installer to support gitlab master repos.
+    
+    This creates a brand-new "gitmirror" clone with
+    all the remotes pointing to the new gitlab's master
+    repos. Both ssh and https remotes are supported.
+    
+    Also, this commit gets rid of the old update.sh script
+    because we are not using the old mdlrelease manual
+    mehtod anymore.
+
+commit 7dbf224d655b2efa208dde5d28affcaa510957b2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jan 11 17:23:28 2014 +0100
+
+    NOBUG: 19 and 23 out. 24 to security.
+
+commit be359ff1cb4160b89ce451930182cf9a184a1c77
+Merge: bfb5160 9179477
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Nov 28 18:45:48 2013 -0800
+
+    Merge pull request #20 from samhemelryk/weeklies
+    
+    Removed the security branch from the weekly releases
+
+commit 9179477e8738a956fa3e17b53790069881266767
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Fri Nov 29 14:33:39 2013 +1300
+
+    Removed the security branch from the weekly releases
+
+commit bfb5160b77ea79af7752ae57f3e023b90bbcd6cd
+Merge: c0bf360 5dbe58f
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Thu Nov 21 14:44:50 2013 -0800
+
+    Merge pull request #19 from samhemelryk/MDLSITE-2009
+    
+    MDLSITE-2009: put pushargs to use
+
+commit 5dbe58f5f9363cb49546fbee99dc1b46995895ad
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Fri Nov 22 08:34:21 2013 +1300
+
+    MDLSITE-2009: put pushargs to use
+
+commit c0bf360316d50f37c728cf94540f0857879739dd
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Nov 21 19:27:58 2013 +0100
+
+    NOBUG: Better handling of any escape sequence by less
+
+commit 59986a445d8f4c3e168eea8bec6603042100a9b9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Nov 21 19:06:58 2013 +0100
+
+    NOBUG: Fix wrong branch being shown in UI for diffs
+
+commit e82ea29cc352bee8c4ba4de5d34e82bf2bf18040
+Merge: 8337168 cbacd2f
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Mon Nov 18 12:18:42 2013 -0800
+
+    Merge pull request #18 from samhemelryk/MDLSITE-2578
+    
+    MDLSITE-2578 release.sh - no longer can you accidentally release!
+
+commit cbacd2f950ad6f0bc32de0d670d6f1ac423ac5c3
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Tue Nov 19 08:51:43 2013 +1300
+
+    MDLSITE-2578 release.sh: added several very useful options
+
+commit 8337168b7b6e3c5ae049174372dc9723953374b5
+Merge: fcd6984 ff36da8
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Sun Nov 17 17:52:09 2013 -0800
+
+    Merge pull request #17 from samhemelryk/MDLSITE-2009
+    
+    MDLSITE-2009 minor improvements to prerelease.sh and README.md
+
+commit ff36da8ace2ada75a22f0f1a9b55a9101999e030
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Mon Nov 18 10:12:23 2013 +1300
+
+    MDLSITE-2009 tidied up the README.md file
+
+commit 99a82f13e615aa3f9489cb45a5d65035d8fab7fe
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Mon Nov 18 11:41:07 2013 +1300
+
+    MDLSITE-2009 prerelease: several minor improvements
+    
+    * Moved allbranches var to global space so that others can use it.
+      Converted uses to the new global as appropriate.
+    * Converted echo usage within reset_repo and show_changes to use output
+      allowing their use within scripts in conjunction with --quiet.
+    * Added branch existence checking and responsible output to reset_repo
+      and show_changes so that errors are avoided when expected branches
+      are missing.
+    * Minor help formatting improvements.
+
+commit fcd698486fe6c59a8df87cadca71313c5d2021fb
+Merge: 853d264 7d30849
+Author: Sam Hemelryk <sam.hemelryk@gmail.com>
+Date:   Sun Nov 17 12:11:47 2013 -0800
+
+    Merge pull request #16 from stronk7/add_26_stable_support
+    
+    Add 26 stable support
+
+commit 853d26477da3a16fa88e7c0fb0a9a24718d517dc
+Merge: f78b014 ed0e3db
+Author: Sam Hemelryk <sam.hemelryk@gmail.com>
+Date:   Sun Nov 17 11:11:04 2013 -0800
+
+    Merge pull request #15 from stronk7/back-to-dev_changes
+    
+    Back to dev changes
+
+commit f78b014c6f6e36acab13e410d0792fda52c43255
+Merge: 61c2f1a 78b8508
+Author: Sam Hemelryk <sam.hemelryk@gmail.com>
+Date:   Sun Nov 17 11:08:33 2013 -0800
+
+    Merge pull request #14 from stronk7/major_changes
+    
+    MDLSITE-2009 Various 'major' fixes and improvements
+
+commit 7d30849ef5dfa49b57dfd6bc7632d419d9cbf135
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 17 01:24:21 2013 +0100
+
+    Add 26_STABLE support to scripts.
+
+commit ed0e3db8ef911782759b8d8f173aadeefab93523
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 16 18:14:55 2013 +0100
+
+    MDLSITE-2009 Add "back-to-dev" build type.
+    
+    To be executed once major releases have been packaged. It moves
+    master back to "dev" status.
+
+commit 78b8508513209e90a688d152d5359cc139de5043
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Nov 16 17:55:04 2013 +0100
+
+    MDLSITE-2009 Various 'major' fixes and improvements
+    
+    - Add support for changing version comments on release.
+    - Default for "next monday" and observe the --date option.
+    - Fix some problems with the newly created branch on major.
+    - Reorganize comments and notes.
+
+commit 61c2f1adbe34ba9ea2d938f93b0849a309b057a6
+Merge: 251fb96 99be865
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Wed Nov 13 17:31:23 2013 -0800
+
+    Merge pull request #13 from stronk7/rc_fixes
+    
+    NOBUG: Allow rcs (and others) to come from + versions.
+
+commit 251fb96eabb9139bc80064dab23534b06135c913
+Merge: c6f0d76 efbab86
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Wed Nov 13 17:30:53 2013 -0800
+
+    Merge pull request #12 from stronk7/showing_the_reality
+    
+    New --show option added
+
+commit 99be865c6aff460e45c60305270dff8bba30909f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Nov 14 02:23:00 2013 +0100
+
+    NOBUG: Allow rcs (and others) to come from + versions.
+    
+    Before the patch it was required for rc to come from
+    dev/beta without any "+". Same for majors. Now both
+    support coming from a previous "+" version.
+
+commit efbab8690cd82012a736b2a4856896e6dabc4442
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Nov 11 19:54:14 2013 +0100
+
+    NOBUG: Added --show option to display changes.
+
+commit 3290823b33da72c239521504aa5cd0a01ab0623e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Nov 11 13:47:56 2013 +0100
+
+    NOBUG: Set default timezone to Australia/Perth.
+
+commit c6f0d76f7563d4e6518a094d3859ea76c88dda0d
+Merge: cad90eb 310da1d
+Author: Sam Hemelryk <sam.hemelryk@gmail.com>
+Date:   Sun Nov 10 19:17:34 2013 -0800
+
+    Merge pull request #11 from stronk7/minor_changes
+    
+    Some changes performed while doing minors...
+
+commit 310da1dcad82a44463800d8fef8116829140e384
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 10 01:21:16 2013 +0100
+
+    NOBUG: Improve build date calculations.
+    
+    Without this change, the build date for any
+    release is always assumed to be today (in YYYMMDD format).
+    
+    But that's not always true, especially for major and minor releases.
+    
+    So this introduces a new --date option to force any build date and
+    also modifies the default calculations for major and minor releases moving
+    from today to next monday (that is when all releases happen, no matter they
+    are ready in git since some days before).
+    
+    Note the new --date option has precedence over any calculation.
+
+commit 4f8e6b97fc449e1a721c04677b52770fd8daec7e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 10 00:34:23 2013 +0100
+
+    NOBUG: option to discard local changes (--reset)
+
+commit cad90eb46297dc089e194466df436d85d9d03d24
+Merge: 8bbb05c 452ad61
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Oct 25 02:51:48 2013 -0700
+
+    Merge pull request #9 from stronk7/ondemand_and_onsync
+    
+    MDLSITE-2009 Implement on-demand & on-sync types
+
+commit 452ad614b08115e018779cba1a6327453b65af8e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 25 11:23:50 2013 +0200
+
+    MDLSITE-2009 Implement on-demand & on-sync types
+    
+    They only apply to master branch.
+    
+    - Custom commit messages.
+    - on-demand advances to current date.
+    - on-sync increments +1.00
+    - commented some code that caused master version
+      to become out of sync after major release (violating on-sync)
+      that needs to be changed to something else only modifying $release.
+    - TODO: Ensure that on-demand happens only in beta & rc status.
+    - TODO: Ensure that on-sync happens only in dev status.
+
+commit 8bbb05cc04e1b95a2aa771c6c55cc4f9d2850922
+Merge: 447ac0a 7b30e85
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Sat Oct 19 04:48:26 2013 -0700
+
+    Merge pull request #8 from stronk7/bitbucket_mirror
+    
+    MDLSITE-2009 add bitbucket push url (new mirror)
+
+commit 447ac0ad40718da32536a35c8b3e672cf657b354
+Merge: b693ced f755ae8
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Sat Oct 19 04:37:02 2013 -0700
+
+    Merge pull request #7 from samhemelryk/improved-pushes
+    
+    Improved pushes
+
+commit 7b30e851150d91535430a743192dbe5369a5491e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 16 09:58:46 2013 +0200
+
+    MDLSITE-2009 add bitbucket push url (new mirror)
+
+commit f755ae89f4f6206b0583bb4aa1624902158e3be9
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Mon Oct 14 09:48:18 2013 +1300
+
+    MDLSITE-2009 missing branches now created during execution
+
+commit b7100e2b83f46f19852ec4bce6a8037114d08da7
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Mon Oct 14 09:36:17 2013 +1300
+
+    MDLSITE-2009 improved the update script
+    
+    * Now conditionally updates things.
+    * Is safe to run over and over again
+
+commit 64f727a8f16f92a8a16f4f63fc0564e2cc61c550
+Merge: 88c2ba5 d25bad9
+Author: Sam Hemelryk <sam.hemelryk@gmail.com>
+Date:   Sun Oct 13 12:20:38 2013 -0700
+
+    Merge pull request #1 from stronk7/clarify_paths
+    
+    MDLSITE-2009 Clarify paths
+    Very nice thanks Eloy!
+
+commit d25bad9af5cc94e748e245274166df970c8e98e1
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 11 14:43:20 2013 +0200
+
+    MDLSITE-2009 prevent shell error, orphaned command.
+
+commit b326b439f992f2875c85c9e53d5155b21e044ea8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 11 13:37:53 2013 +0200
+
+    MDLSITE-2009 integration is origin in gitmirror
+
+commit ee479952985991559e704f08fd7512bfcfff194e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 11 13:13:50 2013 +0200
+
+    MDLSITE-2009 better process ordering.
+    
+    It's desirable to always follow the "master first,
+    then stables from older to newer" rule when creating
+    the new commits. Commit dates are as package dates and
+    they have implications about how sourceforge displays them.
+
+commit 1ecc7ad5c0a0dcddb07927e6a872a94ad5c73b72
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 11 11:19:27 2013 +0200
+
+    MDLSITE-2009 Clarify paths
+    
+    - Ensure that gitmirror exists.
+    - Ensure all operations happen there.
+
+commit 88c2ba5b4c0d8d83cd9fc0f59ea4eb67a60d4636
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Fri Oct 11 17:06:12 2013 +1300
+
+    Added repository upgrade script
+
+commit bc160712b65e388ac6ebfef0abe0d81d486b7a0e
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Fri Sep 20 14:25:22 2013 +1200
+
+    Improved the scripts used for preparing branches for release
+
+commit b693cedf419dc9879781162fd09efad76afd83a3
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon Jul 29 22:23:33 2013 +0800
+
+    HQ-362 new install langugages directory
+
+commit 32581ecba72ef976c685387adf7c415c6e400d4a
+Merge: f248290 b7b811d
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Sat Jul 6 18:30:46 2013 -0700
+
+    Merge pull request #6 from stronk7/kill_bill_22
+    
+    Take rid of the 22_STABLE branch.
+
+commit b7b811dca6677ede9bca038adca63535c6f8cb16
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jul 6 21:49:08 2013 +0200
+
+    Take rid of the 22_STABLE branch.
+
+commit f24829007e6fa54817d74b730ab186dfea810759
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 14 15:43:38 2013 +0200
+
+    In case we are not releasing all branches together
+
+commit 13ceaf672807750baa01d03c042317738aa96de7
+Merge: 1d162ca 2dee820
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue May 14 02:46:34 2013 -0700
+
+    Merge pull request #5 from stronk7/master
+    
+    Verify en_fix integration has happened
+
+commit 2dee820d2d4e7522047dcd4b1f399e5027e4125f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 14 11:44:53 2013 +0200
+
+    Add support for 25_STABLE
+
+commit e431ba9168db1e0c54ae89a319239d5c5ba987ed
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri May 10 19:28:51 2013 +0200
+
+    Verify en_fix integration happened before releases
+    
+    Before releases (minor and major), verify that the
+    improvements to English strings (en_fix) have been
+    integrated recently. Ask AMOS maintainer if not.
+    
+    There is already a task in the release process
+    about to ping the AMOS maintainer to make those
+    fixes available for integration (usually using an issue).
+
+commit 1d162ca3674bb6e8afc1f22d9c7d41c332d0df7c
+Merge: d8c226e f13eef2
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Jan 31 01:38:45 2013 -0800
+
+    Merge pull request #4 from stronk7/master
+    
+    Tip about versioning
+
+commit f13eef2e0d2e8584d28bbd50e14c8e6d469fc067
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jan 31 10:35:43 2013 +0100
+
+    Tip about versioning order
+
+commit d8c226e16236cc1ddb3f2fa9215dcc3be8bea756
+Merge: 7f4cc57 20d7f09
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Sun Jan 13 22:15:07 2013 -0800
+
+    Merge pull request #3 from stronk7/take_rid_of_21_stable
+    
+    Take rid of 21_STABLE. Out of support 20130114.
+
+commit 20d7f091467c2cb3d3ef59de7ec2417ab1e71de6
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jan 14 04:21:02 2013 +0100
+
+    Take rid of 21_STABLE. Out of support 20130114.
+
+commit 7f4cc5708d976b35468cf358e658a8d22e46b7e3
+Merge: de0bd62 1bb4ea1
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Sun Jan 13 17:57:13 2013 -0800
+
+    Merge pull request #2 from stronk7/bye_bye_cvs
+    
+    Bye, bye, CVS!
+
+commit 1bb4ea10773599db0448f93a840beb37d6772217
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jan 11 21:59:39 2013 +0100
+
+    Bye, bye, CVS!
+
+commit de0bd62056f7613799a0e95187baac79a54f3f37
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Dec 20 21:58:40 2012 +0100
+
+    Add [on sync] for those periods in master.
+
+commit 5c3483368c355971ed53e0229f22e92cdb7da557
+Merge: f29051d 08403c5
+Author: danpoltawski <talktodan@gmail.com>
+Date:   Mon Dec 3 17:15:20 2012 -0800
+
+    Merge pull request #1 from stronk7/master
+    
+    Towards 24_STABLE support in mdlrelease
+
+commit 08403c5c83d49b1cd54fb77b27e0cb9aa1b7d00a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Dec 3 23:49:22 2012 +0100
+
+    Update everything for 2.4 and upwards.
+    
+    This updates the instructions, to get rid
+    of the CVS stuff for major releases.
+    Also, updates the shell scripts to handle the
+    new git branch MOODLE_24_STABLE properly.
+
+commit f29051d71ae474bf627ad5b2953121f583db53f2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Nov 20 13:24:54 2012 +0100
+
+    MDL-36436 Fix existing svgs for IE9 compatibility.
+
+commit fddcf6a84e5bfef03a5e7821f9d03e73a82500d0
+Merge: be335a0 cd0489f
+Author: Petr Škoda <info@skodak.org>
+Date:   Fri Jul 27 15:02:55 2012 -0700
+
+    Merge pull request #21 from danpoltawski/amos-url-change
+    
+    MDLSITE-1787 - AMOS git url change
+
+commit cd0489f632b33feae70bedc8c9b64d928f399630
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed Jul 25 09:35:31 2012 +0800
+
+    MDLSITE-1787 - AMOS git url change
+
+commit be335a090442137df09692a167630bb98b6524c9
+Merge: 02a995e 95a9e59
+Author: Petr Škoda <info@skodak.org>
+Date:   Thu Jul 5 22:25:17 2012 -0700
+
+    Merge pull request #18 from stronk7/clean_discontinued_branches
+    
+    Clean discontinued 20_STABLE and other old branches.
+
+commit 95a9e595171e8fc992b4889be818bf6a86446e55
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jul 6 05:17:29 2012 +0200
+
+    Clean discontinued 20_STABLE and other old branches.
+    
+    Mainly to prevent any accidental roll on them.
+
+commit 02a995e285e59b49b7138d87de1afa50db0c5dce
+Merge: 27d917a dce6f72
+Author: Petr Škoda <info@skodak.org>
+Date:   Mon Jun 25 12:42:01 2012 -0700
+
+    Merge pull request #17 from stronk7/master
+    
+    Updated scripts for 23_STABLE...
+
+commit dce6f7272cfbf31ce88070959345e7bcd0b068aa
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jun 25 18:06:24 2012 +0200
+
+    Updated all scripts to support the new MOODLE_23_STABLE branch
+
+commit 27d917a95507fce002d10badded2d70622c527ac
+Merge: 8763afb 435ff1b
+Author: Petr Škoda <info@skodak.org>
+Date:   Thu Apr 19 02:49:13 2012 -0700
+
+    Merge pull request #16 from danpoltawski/wait-for-ci
+    
+    Make the steps clearer to wait for CI
+
+commit 435ff1bd703851f943ccb671e9802709305cd146
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 19 17:01:38 2012 +0800
+
+    Make the steps clearer to wait for CI
+
+commit 8763afb8bdadcf514d04da3df3edf425a071e648
+Merge: 3218212 6215908
+Author: Petr Škoda <info@skodak.org>
+Date:   Thu Apr 12 13:52:01 2012 -0700
+
+    Merge pull request #14 from stronk7/binfixes
+    
+    Binfixes
+
+commit 6215908adeae6d5711078ca3ffa50e3b20d8e8ac
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 12 19:35:38 2012 +0800
+
+    Add additional non-binary extensions
+
+commit eb7036f315dc86c80909a7723434927db8c19876
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 12 16:37:00 2012 +0800
+
+    [hacky] Make randombinary a binary
+
+commit 321821275ee9c43613d164582aa781bed00822cc
+Merge: 2d62d24 22e46a8
+Author: Petr Škoda <info@skodak.org>
+Date:   Mon Mar 12 03:29:36 2012 -0700
+
+    Merge pull request #13 from stronk7/changes_to_tagging_20120312
+    
+    Updated notes with tagging agreement 20120312
+
+commit 22e46a8b28bb33176b9914e7adb79c485ac90076
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Mar 12 11:26:33 2012 +0100
+
+    Updated notes with tagging agreement 20120312
+
+commit 2d62d24be4fb52774610f14c1214cfc6fb2df326
+Merge: 3e9133f b7126fd
+Author: Petr Škoda <info@skodak.org>
+Date:   Thu Mar 1 03:31:59 2012 -0800
+
+    Merge pull request #11 from stronk7/old_branches_and_note
+    
+    Old branches and note
+
+commit b7126fd3a3b7f60a0fa9b24ecb1464c81f2f30cf
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Mar 1 11:44:46 2012 +0100
+
+    Added note about to check integration checks before spreading upstream.
+
+commit 7330454567455f372cc5a2342433c1922f81b147
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Mar 1 11:43:32 2012 +0100
+
+    Added "missing" branches and tags to the git spread.
+
+commit 3e9133f6d8cf1deb8334fd663c544ad6acdb8819
+Merge: fd5ba27 af25116
+Author: Petr Škoda <info@skodak.org>
+Date:   Thu Feb 2 05:52:20 2012 -0800
+
+    Merge pull request #10 from stronk7/master
+    
+    One small clarification (point 2) and reorganization (point 3)
+
+commit af25116310eb52cdec2960def930c2ad665a580c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Feb 2 12:37:11 2012 +0100
+
+    Tidy up instructions a bit
+
+commit fd5ba27d17a68fef941ea7f7c41aca6c35f76627
+Merge: deb7441 440a509
+Author: Petr Škoda <info@skodak.org>
+Date:   Thu Jan 12 03:06:56 2012 -0800
+
+    Merge pull request #9 from stronk7/master
+    
+    Not much interesting, just ignoring that workspace folder
+
+commit 440a5099228a2dd155740451e58f595d956db963
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jan 12 11:05:09 2012 +0100
+
+    Added cvsmoodle22 dir to ignore list
+
+commit deb7441f81788397196aa427ed5e66436d433131
+Merge: 80f7303 e0c0c06
+Author: Petr Škoda <info@skodak.org>
+Date:   Tue Dec 6 02:06:15 2011 -0800
+
+    Merge pull request #8 from stronk7/master
+    
+    Prep for 22_STABLE branch support
+
+commit e0c0c062d2ccca276a0b270bdfe7a3a0219cea90
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Dec 5 12:43:18 2011 +0100
+
+    Updated with some details when rolling 2.2
+
+commit 7231a5bf05bef81a9d4e291525799b0808840a1c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Dec 5 12:42:26 2011 +0100
+
+    Updated all scripts to support the new MOODLE_22_STABLE branch
+
+commit 80f7303f873b0e29a728ecd6209ea47c8d267140
+Merge: 6643bf0 0414c5c
+Author: Petr Škoda <info@skodak.org>
+Date:   Thu Dec 1 12:30:39 2011 -0800
+
+    Merge pull request #6 from stronk7/master
+    
+    Added some tagging details, to have them documented + link to the on-demand-master-only branch
+
+commit 0414c5c382731a11220e0c05be3b1d916f183186
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Nov 21 16:25:16 2011 +0100
+
+    Added some tagging / commit details and note pointing to on-demand-master-only
+
+commit 6643bf09cc11009d0c055a692a55af0f9034fc65
+Merge: d2c4020 b43762f
+Author: Petr Škoda <info@skodak.org>
+Date:   Wed Oct 19 13:36:36 2011 -0700
+
+    Merge pull request #5 from stronk7/master
+    
+    Simple note about to delay tagging to the release day
+
+commit b43762f6fcbc9aa4fb9795f28ea6464e7dce58c9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Oct 19 22:06:02 2011 +0200
+
+    Note about the better moment to tag on minor releases
+
+commit d2c402039c94f4842b89775a046b7e86e0953905
+Merge: a4e8e91 41e0fff
+Author: Petr Škoda <info@skodak.org>
+Date:   Fri Jul 8 10:30:34 2011 -0700
+
+    Merge pull request #4 from stronk7/master
+    
+    Just latest tiny changes to docs & support for 21_STABLE @ install_mirror.sh
+
+commit 41e0fff6bd36d352e609ffb5f777c2346c39d145
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jul 8 11:51:43 2011 +0200
+
+    Updated docs a bit
+
+commit e555ceca48bf596f21a0ac7f727b3ed03918ca75
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jul 8 11:49:21 2011 +0200
+
+    Added support for 21_STABLE to install_mirror.sh
+
+commit a4e8e91b6e5157a316161340b8b8ad7969b57b54
+Merge: d117064 221d8c3
+Author: Petr Škoda <info@skodak.org>
+Date:   Sat Jul 2 16:04:48 2011 -0700
+
+    Merge pull request #3 from stronk7/master
+    
+    updated scripts supporting 21_STABLE and major release instructions
+
+commit 221d8c382b2779686ba23a6183007e861a77aa3d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Jul 3 00:50:36 2011 +0200
+
+    Updated instructions for Major release support & .gitignore for 21_STABLE
+
+commit 2f853aa5f09d1582c0179c37cafb127607959330
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Jul 3 00:49:22 2011 +0200
+
+    Modified the git & cvs scripts to support MOODLE_21_STABLE
+
+commit d117064f8de46c213f887c489aba908f292fb163
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jun 23 11:45:03 2011 +0200
+
+    Updated instructions
+
+commit aa5df84a74aa0adeaf7f0a35cc0db75f58803abb
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Jun 17 12:11:32 2011 +0200
+
+    make diff CR-insensitive, as far as fix_newlines() is used by git_to_cvs_mirror.php
+
+commit 4604cd28149714be42fb0682e77ed8b33c961ab9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jun 2 23:58:35 2011 +0200
+
+    Some dots here and there...
+
+commit d5a077dd2e4893f33e6eeee55bfdcfcc8c566bd1
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 26 01:15:22 2011 +0200
+
+    Updated instructions with AMOS updates + cvs-git compare script
+
+commit 976fdc3edbbc123272a67ae5651191d0ee55c29b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri May 6 18:04:12 2011 +0200
+
+    Added tagging instruction for release executions
+
+commit 22aae5bd61d311a7c4036311acd91bf1674965d8
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Apr 20 18:38:44 2011 +0200
+
+    cvs updated + tag no HEAD + renumbering
+
+commit d5b4450aadf3630c4663371bc914b5573638e3fc
+Author: Petr Skoda <commits@skodak.org>
+Date:   Wed Mar 30 18:30:59 2011 +0200
+
+    full 20 stable branch support
+
+commit 79a6f64fbd600f6f806cbd090d4eeff80dcef14a
+Author: Petr Skoda <commits@skodak.org>
+Date:   Thu Mar 24 18:47:42 2011 +0100
+
+    use full target branch refs
+
+commit 101f673bd75b3afd4b34a1fc51c633fff7a13cbb
+Author: Petr Skoda <commits@skodak.org>
+Date:   Thu Mar 24 18:35:03 2011 +0100
+
+    update installer to create 20 stable
+
+commit 98a19bec977a87f55292c72a971cd98fb38371a4
+Author: Petr Skoda <commits@skodak.org>
+Date:   Thu Mar 24 18:32:51 2011 +0100
+
+    master is now 2.1dev, 2.0 has a new stable branch
+
+commit c775a39bd2ba865a6dd8d4297008d7ccc2cf4dfb
+Author: Petr Skoda <commits@skodak.org>
+Date:   Sun Mar 13 11:09:31 2011 +0100
+
+    add executable flag to algebra pearl script
+
+commit fe4ee34b2c0b0519503074101719047554ef87da
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 12:25:36 2011 +0100
+
+    fix borked path
+
+commit e2f68f7cfdaf7288b0c017b61a31c4bb2e481400
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 11:42:21 2011 +0100
+
+    fix release instructions
+
+commit 05b467c221dc57b4dd40367bda73099f161e74e4
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 11:21:23 2011 +0100
+
+    exclude win executables (thanks David)
+
+commit dd7c910c1696ae69c4a31f450de54ca5ff814b38
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 11:01:08 2011 +0100
+
+    removing dev script executable permissions
+
+commit fc385357ed4f7f874316692ba709fcccaff8f380
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 10:54:44 2011 +0100
+
+    removing more idea files
+
+commit 72c086c6012f1e2efe439d29a708faf8d4507b71
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 10:52:50 2011 +0100
+
+    new fix permissions script
+
+commit 79a9e2ec75d3bff15de113a339b3fd651c71bf32
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 10:52:38 2011 +0100
+
+    improve source dir check
+
+commit cdb4fd50a38a78f389eaf515695e8e563c8a4a06
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 10:04:15 2011 +0100
+
+    deleting idea files
+
+commit 32bdfe53be8052e153a112f27c0cb15f26ccf8d2
+Author: Petr Skoda <commits@skodak.org>
+Date:   Tue Mar 1 10:03:48 2011 +0100
+
+    better ignore idea files, they change too much
+
+commit b3a7283741f6437ba6d0afa3dcec187a34aa69c5
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Feb 21 23:12:45 2011 +0800
+
+    Minor changes to install and docs
+
+commit 56d2925d7caea607e1a7703f55eef74e7b422e93
+Author: Petr Skoda <commits@skodak.org>
+Date:   Mon Feb 21 13:35:57 2011 +0100
+
+    minor tweaks + add phpstorm files
+
+commit 699550a56537089dcb53e2dfd17687b0044d4ed2
+Author: Petr Skoda <commits@skodak.org>
+Date:   Wed Dec 29 21:04:30 2010 +0100
+
+    latest version used for the second git weekly snapshot
+
+commit 1759ffdfbed64f4cf9bcf53cde3c2e9dc626ae58
+Author: Petr Skoda <commits@skodak.org>
+Date:   Wed Dec 29 19:56:00 2010 +0100
+
+    fixed main repo location
+
+commit 864a68a29f90dab2ac82ae93e5af072514e85e60
+Author: Petr Skoda <commits@skodak.org>
+Date:   Wed Dec 29 18:18:49 2010 +0100
+
+    initial commit

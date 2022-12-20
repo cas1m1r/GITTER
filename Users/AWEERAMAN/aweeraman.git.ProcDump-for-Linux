@@ -1,0 +1,599 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 69127a78d1e2f7e9cf5bf46fbab740e7db6ed8eb
+Author: Andreas Ziegler <andreas.ziegler@fau.de>
+Date:   Thu Oct 1 22:21:31 2020 +0200
+
+    ProcDumpConfiguration: fix crash in getopt_long (#102)
+    
+    As reported in #92, parsing the command line parameters can
+    currently lead to a crash in `getopt_long`. This is caused by
+    a missing terminating entry in the `long_options` array
+    which is required as described in the man page for
+    getopt_long [1]. Without this entry, getopt_long continues to
+    parse garbage values on the stack as options.
+    
+    Adding the missing entry fixes the crash.
+    
+    [1]: `The last element of the array has to be filled with zeros.`
+    
+    Fixes: #92
+
+commit 1c942ed6bed4511747cb542bc891c419dd1c0e6f
+Author: Frank Dietrich <frank.dietrich@posteo.de>
+Date:   Mon Aug 31 21:44:24 2020 +0000
+
+    Fix to get child process PID's regardless of their process name. (#99)
+
+commit 3ac1f7cd2ea0f2e433bae91b3f6fa78891cb7b04
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Wed Jul 1 17:55:28 2020 -0700
+
+    removing EOL 19.10 (#94)
+
+commit df75f529b902c9e205cd02c683335da59992d7a5
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Mon Jun 29 00:26:08 2020 -0700
+
+    Fixed spelling in README and spacing in usage prompt (#91)
+    
+    * fixed distribution spelling
+    
+    * fixed spacing in usage prompt
+    
+    * removed EOL fedora distros and added Centos8
+
+commit 2ec3090bddcc084d07cb4f8266815545050ddeab
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Wed May 6 23:19:16 2020 -0700
+
+    Ubuntu 20.04 Documentation Update (#88)
+    
+    * adding ubuntu 20.04 installation candidate
+    
+    * updating dev environment
+
+commit d636c79a9a29f60b12d00ad2a23827da08f3e906
+Merge: 48c371c bd3ce9f
+Author: Mario Hewardt <marioh@microsoft.com>
+Date:   Wed Apr 8 11:59:05 2020 -0700
+
+    Merge pull request #87 from jahabibi/documentation-update
+    
+    updated copyright and minimum OS
+
+commit bd3ce9f40b267561625a314f73566d80e3109322
+Author: Javid Habibi <javid.habibi@microsoft.com>
+Date:   Wed Apr 8 11:55:37 2020 -0700
+
+    updated copyright and minimum OS
+
+commit 48c371c74341059fa18a44e06d23d84affb105c5
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Fri Apr 3 12:03:02 2020 -0700
+
+    updated README to support 1.1.1 flags (#84)
+
+commit 9c4bfcd45ed18991e0ff536cd1f7c02f98c3b3a4
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Fri Apr 3 11:48:28 2020 -0700
+
+    Procdump 1.1.1 release preparation (#83)
+    
+    * 1.1.1 release prep
+    
+    * ubuntu 19.04 EOL in January 2020
+
+commit 06062a0ecf5d58579bbf3ff6fee3d12be192484f
+Author: Mario Hewardt <marioh@microsoft.com>
+Date:   Fri Apr 3 11:43:08 2020 -0700
+
+    Add new triggers (#81)
+    
+    * new thread count trigger
+    
+    * fixed timing issue after core dcump generation
+    
+    * added file descriptor trigger
+    
+    * added polling interval CLI option
+    
+    * cleanup
+    
+    * cleanup
+    
+    * Fix filedesc count
+    
+    * Update src/TriggerThreadProcs.c
+    
+    Co-Authored-By: jahabibi <33559523+jahabibi@users.noreply.github.com>
+    
+    * Update src/TriggerThreadProcs.c
+    
+    Co-Authored-By: jahabibi <33559523+jahabibi@users.noreply.github.com>
+    
+    * Fixed PrintConfiguration to account for new thresholds and polling interval
+    
+    Co-authored-by: jahabibi <33559523+jahabibi@users.noreply.github.com>
+
+commit 268b0d7cacb80b6bfcd4a1486ab2652062ed1a28
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Wed Jan 8 17:14:24 2020 -0800
+
+    fixed typo (#75)
+
+commit e95fce4f5dfd9e8e600a183836cb1721f347b459
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Tue Jan 7 13:54:19 2020 -0800
+
+    fixed autoversioning for non AZDO builds & how BuildId is passed into debbuild/rpmbuild (#74)
+
+commit 08254a4076407f3a06cf652eac948dc4ccb48806
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Fri Dec 13 10:22:42 2019 -0800
+
+    1.1 build fix (#70)
+    
+    * utilize AZDO build number for package generation
+
+commit 24f4b41a08be7666d8126df96965c759bcad23ca
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Fri Dec 13 10:22:01 2019 -0800
+
+    updated install docs removing EOL openSUSE 42.3 and added RHEL 8 (#71)
+
+commit ffe893fefbf7dede5f65ae29f98f3ec4ab9d1c5c
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Wed Dec 11 23:11:38 2019 -0800
+
+    prep for 1.1 release (#69)
+
+commit 71b0cecacd980fd6ef049f26f241d0e042cebb7d
+Merge: aff9caf 5eedb22
+Author: Mario Hewardt <marioh@microsoft.com>
+Date:   Fri Dec 6 11:52:04 2019 -0800
+
+    Merge pull request #68 from MarioHewardt/docs
+    
+    procdump and .net core integration doc
+
+commit 5eedb221dd8c1e3fad21cb090a9ce12ff0fa5acf
+Author: Mario Hewardt <marioh@microsoft.com>
+Date:   Wed Dec 4 11:56:59 2019 -0800
+
+    procdump and .net core integration doc
+
+commit aff9caf830fb05c7746ac7df0fcb5b5bd0ff784f
+Author: Mario Hewardt <marioh@microsoft.com>
+Date:   Tue Dec 3 14:19:10 2019 -0800
+
+    Added support for .NET Core 3.x+ core dump generation that results in… (#67)
+    
+    * Added support for .NET Core 3.x+ core dump generation that results in more manageable core dump sizes
+    
+    * Fixed Valgrind error - uninitialized memory block
+    
+    * Fixed Valgrind - memory leak
+    
+    * Fixed review feedback
+    
+    * Fixed PR feedback
+
+commit 0a151d1086f4ee8f0abb9eb47795d4457a121854
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Mon Oct 14 15:43:38 2019 -0700
+
+    readme OS cleanup (#64)
+
+commit 81f04f27a52bfed1f46936a7422ce081ea6a06bd
+Author: Nikki <n1kk1t4n@gmail.com>
+Date:   Fri Oct 11 14:55:01 2019 -0700
+
+    Better comments for Trace() in Logging.h so it is easier for develope… (#62)
+    
+    * added clarity to Trace macro usage
+
+commit a228beddaf05dcceda521d9071b5d88114c455dd
+Author: Nikki <n1kk1t4n@gmail.com>
+Date:   Fri Oct 11 14:54:14 2019 -0700
+
+    Changed the instructions to install gpg key for MS repo in README file. (#61)
+    
+    * Updated instructions to utilize packages-microsoft-prod.deb to install Microsoft package feed and key
+
+commit 76cbe3705a564b68645cc9580893584920ccaf79
+Author: aaptel <aurelien.aptel@gmail.com>
+Date:   Wed Oct 2 23:59:17 2019 +0200
+
+    CoreDumpWriter.c: use unlink() instead of shelling out to rm (#36)
+
+commit 48707f6e25b3dce403df38e2790c041fbcac1fd1
+Author: Nikki <n1kk1t4n@gmail.com>
+Date:   Wed Oct 2 12:46:23 2019 -0700
+
+    Added CheckKernelVersion() in ProcDumpConfiguration.c. (#59)
+    
+    * Added minimum kernel version validation
+
+commit 0ce6154594feda762884f3d456c2de32c1d0b1c0
+Author: Nikki <n1kk1t4n@gmail.com>
+Date:   Wed Sep 4 11:18:07 2019 -0700
+
+    Added error-checking against null process name in sanitize(). (#58)
+    
+    * Added error-checking against null process name in sanitize()
+
+commit 9805450bc110dc92aed04b5b5a4bac0b5bd35a1a
+Author: Nikki <n1kk1t4n@gmail.com>
+Date:   Fri Aug 23 13:54:04 2019 -0700
+
+    1. Changed the 1 invocation of pthread_setcancelstate() to pthread_setcanceltype(). (#57)
+    
+    2. This is to fix the issue of invalid arg to pthread_setcancelstate(). resolve #49
+
+commit 8272866579a05e34adca1411322c56bdabef4e58
+Author: Jason Cooke <Jason-Cooke@users.noreply.github.com>
+Date:   Fri Aug 2 13:00:07 2019 +1200
+
+    docs: fix typo (#55)
+
+commit 70e97dabf786d216bda7428742af98080601c3df
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Thu Aug 1 17:46:35 2019 -0700
+
+    Set up CI with Azure Pipelines (#56)
+    
+    * Set up CI with Azure Pipelines
+    * removing dependency on travis CI and updating readme build badge
+
+commit 1d030454a1f76e8c26609db6979c0bfbaf932760
+Author: Neal Gompa (ニール・ゴンパ) <ngompa13@gmail.com>
+Date:   Sat Dec 1 17:53:44 2018 -0500
+
+    Add a multi-distro spec file to build procdump (#29)
+    
+    This commit simultaneously removes the old way to produce a Debian package.
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+
+commit dee64806c27ce6c653d90663cf6ad1cf5ace4629
+Author: Joe Lawrence <jdl1291@gmail.com>
+Date:   Tue Nov 27 17:33:59 2018 -0500
+
+    Misc cleanups (#52)
+    
+    * ProcDumpConfiguration: remove unused NewProcDumpConfiguration() function
+    
+    Everyone is using the g_config directly or via thread_args.
+    
+    Signed-off-by: Joe Lawrence <joe.lawrence@redhat.com>
+    
+    * ProcDumpConfiguration: call FreeProcDumpConfiguration() on exit
+    
+    Make use of the unused FreeProcDumpConfiguration() function, slightly
+    modify it to work with g_config and not a dynamically allocated
+    ProcDumpConfiguration.
+    
+    Fixes the following valgrind complaints:
+    
+      32 bytes in 2 blocks are still reachable
+         at 0x4C29BC3: malloc (vg_replace_malloc.c:299)
+         by 0x403F3D: WaitForMultipleObjects (Handle.c:207)
+         by 0x4035B6: WaitForQuitOrEvent (ProcDumpConfiguration.c:572)
+         by 0x405EDF: WriteCoreDump (CoreDumpWriter.c:58)
+         by 0x405CA4: CpuThread (TriggerThreadProcs.c:99)
+         by 0x4E3DDD4: start_thread (in /usr/lib64/libpthread-2.17.so)
+         by 0x514FEAC: clone (in /usr/lib64/libc-2.17.so)
+    
+      64 bytes in 2 blocks are still reachable
+         at 0x4C29BC3: malloc (vg_replace_malloc.c:299)
+         by 0x404000: WaitForMultipleObjects (Handle.c:219)
+         by 0x4035B6: WaitForQuitOrEvent (ProcDumpConfiguration.c:572)
+         by 0x405EDF: WriteCoreDump (CoreDumpWriter.c:58)
+         by 0x405CA4: CpuThread (TriggerThreadProcs.c:99)
+         by 0x4E3DDD4: start_thread (in /usr/lib64/libpthread-2.17.so)
+         by 0x514FEAC: clone (in /usr/lib64/libc-2.17.so)
+    
+      896 bytes in 2 blocks are still reachable
+         at 0x4C29BC3: malloc (vg_replace_malloc.c:299)
+         by 0x403E6B: WaitForMultipleObjects (Handle.c:191)
+         by 0x4035B6: WaitForQuitOrEvent (ProcDumpConfiguration.c:572)
+         by 0x405EDF: WriteCoreDump (CoreDumpWriter.c:58)
+         by 0x405CA4: CpuThread (TriggerThreadProcs.c:99)
+         by 0x4E3DDD4: start_thread (in /usr/lib64/libpthread-2.17.so)
+         by 0x514FEAC: clone (in /usr/lib64/libc-2.17.so)
+    
+      1,120 bytes in 2 blocks are possibly lost
+         at 0x4C2B955: calloc (vg_replace_malloc.c:711)
+         by 0x40126C4: _dl_allocate_tls (in /usr/lib64/ld-2.17.so)
+         by 0x4E3E7AB: pthread_create@@GLIBC_2.2.5 (in /usr/lib64/libpthread-2.17.so)
+         by 0x404115: WaitForMultipleObjects (Handle.c:228)
+         by 0x4035B6: WaitForQuitOrEvent (ProcDumpConfiguration.c:572)
+         by 0x405B4E: CpuThread (TriggerThreadProcs.c:81)
+         by 0x4E3DDD4: start_thread (in /usr/lib64/libpthread-2.17.so)
+    
+    Signed-off-by: Joe Lawrence <joe.lawrence@redhat.com>
+    
+    * ProcDumpConfiguration: free ProcessName string on exit
+    
+    Fixes the following valgrind complaints:
+    
+      4 bytes in 1 blocks are still reachable
+         at 0x4C29BC3: malloc (vg_replace_malloc.c:299)
+         by 0x50DE0C9: strdup (in /usr/lib64/libc-2.17.so)
+         by 0x4031E6: GetProcessName (ProcDumpConfiguration.c:427)
+         by 0x402DEB: GetOptions (ProcDumpConfiguration.c:285)
+         by 0x405769: main (Procdump.c:19)
+    
+    Signed-off-by: Joe Lawrence <joe.lawrence@redhat.com>
+    
+    * CoreDumpWriter: free the outputBuffer in common case
+    
+    In WriteCoreDumpInternal(), move the outputBuffer[] and outputBuffer
+    cleanup code from a single error path to its common execution path.
+    
+    Fixes the following valgrind complaints:
+    
+      564 bytes in 9 blocks are indirectly lost
+         at 0x4C29BC3: malloc (vg_replace_malloc.c:299)
+         by 0x4062C1: WriteCoreDumpInternal (CoreDumpWriter.c:169)
+         by 0x405F58: WriteCoreDump (CoreDumpWriter.c:73)
+         by 0x405C7C: CpuThread (TriggerThreadProcs.c:99)
+         by 0x4E3DDD4: start_thread (in /usr/lib64/libpthread-2.17.so)
+         by 0x514FEAC: clone (in /usr/lib64/libc-2.17.so)
+    
+      924 (360 direct, 564 indirect) bytes in 3 blocks are definitely lost
+         at 0x4C29BC3: malloc (vg_replace_malloc.c:299)
+         by 0x406088: WriteCoreDumpInternal (CoreDumpWriter.c:123)
+         by 0x405F58: WriteCoreDump (CoreDumpWriter.c:73)
+         by 0x405C7C: CpuThread (TriggerThreadProcs.c:99)
+         by 0x4E3DDD4: start_thread (in /usr/lib64/libpthread-2.17.so)
+         by 0x514FEAC: clone (in /usr/lib64/libc-2.17.so)
+    
+    Signed-off-by: Joe Lawrence <joe.lawrence@redhat.com>
+    
+    * ProcDumpConfiguration: cancel and join the SignalThread
+    
+    Fixes the following valgrind complaints:
+    
+      560 bytes in 1 blocks are possibly lost
+         at 0x4C2B955: calloc (vg_replace_malloc.c:711)
+         by 0x40126C4: _dl_allocate_tls (in /usr/lib64/ld-2.17.so)
+         by 0x4E3E7AB: pthread_create@@GLIBC_2.2.5 (in /usr/lib64/libpthread-2.17.so)
+         by 0x40349E: CreateTriggerThreads (ProcDumpConfiguration.c:496)
+         by 0x4057FC: main (Procdump.c:42)
+    
+    Signed-off-by: Joe Lawrence <joe.lawrence@redhat.com>
+    
+    * Logging: add va_end() to error path
+    
+    From stdarg.3: "Each invocation of va_start() must be matched by a
+    corresponding invocation of va_end() in the same function."
+    
+    Fixes the following cppcheck complaint:
+    
+      [src/Logging.c:36]: (error) va_list 'copy' was opened but not closed by va_end().
+
+commit 4654429b1c4b21a630b2157dcb1a02628b3eb9d2
+Author: Will Dietz <github@wdtz.org>
+Date:   Mon Nov 19 12:54:03 2018 -0600
+
+    Rename variable sigset -> sig_set to avoid conflict w/function sigset (#50)
+    
+    Fixes build with musl.
+
+commit 7efe055198799e4c8640c433310e0b51dd9c1586
+Author: Andreas Ziegler <ziegler@einserver.de>
+Date:   Mon Oct 22 20:41:12 2018 +0200
+
+    Document -w parameter in manpage (fix for #34) (#40)
+    
+    Add -w parameter documentation in the man page.
+
+commit ddfa62601862a4397ba708ac668ed1658aedd359
+Author: aaptel <aurelien.aptel@gmail.com>
+Date:   Sat Oct 20 01:52:00 2018 +0200
+
+    use default macro for default values (#39)
+
+commit c2f3389e2a05144f7b332dcae07e3793babed798
+Author: John Salem <josalem@microsoft.com>
+Date:   Fri Oct 19 16:37:33 2018 -0700
+
+    Consolidating all development into master branch to simplify contribution (#43)
+    
+    * Add parentheses around assignments in conditionals
+    
+    < and != have higher operator precedence than =
+    
+    Signed-off-by: Michael Sartain <mikesart@fastmail.com>
+    
+    * Fix a typo in README (with -> will)
+    
+    * Fix path to sources file
+    
+    * fixed. missing number of dumps
+    
+    * fixed potential deadlock upon malloc failing and incorrect parsing of process name
+    
+    * moving process sanitization to gcore call & adding travis CI
+    
+    * fixing .travis.yml file rename
+    
+    * adding dependency install steps for travis
+    
+    * skip normal build steps within travis and run our own
+    
+    * adding gnu flags for travis
+    
+    * fixing path travis
+    
+    * continued updates to travis
+    
+    * gcore is part of gdb not its own package.....
+    
+    * Update Procdump.c
+    
+    typo fix in warning message
+    
+    * adding travis CI badge
+    
+    * fixed reading from /proc/PID/cmdline so that it only reads on first monitoring loop
+    
+    * tests/integration: Drop dpkg/apt calls in run.sh
+    
+    procdump is prefectly capable of running on more than Debian and Ubuntu,
+    and rather than attempting to support a bunch of different package
+    managers in this integration script, we'll just abort and tell the user
+    what they need to install for the tests to function.
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+    
+    * Makefile: Require gnu99 standard from the compiler
+    
+    This fixes compilation on RHEL/CentOS 7, as the system GCC does not
+    default to C99 with GNU extensions by default. The default changed
+    from gnu90 to gnu11 (C11 with GNU extensiosn) in GCC 5.1.0.
+    
+    Enforcing gnu99 across the board works well enough and doesn't
+    break building on Ubuntu, either.
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+    
+    * Makefile: Add DESTDIR support for 'make install'
+    
+    In order to enable distributions to properly package procdump,
+    the Makefile needs to support DESTDIR to enable proper support
+    for 'make install DESTDIR=foo' used by package building tools.
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+    
+    * README.md: Note the zlib requirement for building the code
+    
+    The 'zconf.h' header is required to build procdump, which
+    means that a build-time requirement for zlib headers is required.
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+    
+    * README.md: Update the list of minimum supported Linux distributions
+    
+    This has been tested to build and run on RHEL/CentOS 7, Fedora 26+,
+    Mageia 6, and Ubuntu 14.04+.
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+    
+    * Makefile: Fix to allow packager compiler flags to be added
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+    
+    * procdump.gif: Drop executable bit
+    
+    Images aren't supposed to be marked as executables...
+    
+    Signed-off-by: Neal Gompa <ngompa13@gmail.com>
+    
+    * moved & refactored process name extraction
+    
+    * fixes to clear -Wall
+    
+    * updated help statement for consistency
+    
+    * made sanitize non-destructive
+    
+    * fixed wrong dump desc in time thread proc
+    
+    * removed unnecessary GetProcessStat call
+    
+    * re-recorded hero gif
+    
+    * updating version number to 1.0.1
+    
+    * re-re-recorded hero gif to capture updated version number
+    
+    * Update README.md
+    
+    Fixed typo in usage
+    
+    * Update procdump.1
+    
+    Fixed typo
+    
+    * Implement waiting for process by name (-w parameter) (#34)
+    
+    * Implement waiting for process by name
+    
+    This change implements the '-w' command line parameter to
+    allow waiting for a specific process name to launch.
+    
+    This is done by looping over the /proc/ filesystem and
+    comparing the names as returned by GetProcessName to the
+    name passed on the command line.
+    
+    GetProcessName printed error messages if errors occurred -
+    as we're now calling it a lot in WaitForProcessName instead
+    of once before, let's change the log level to 'debug' for
+    all messages in GetProcessName and add a new error message
+    which is printed when the previously existing call to
+    GetProcessName fails.
+    
+    * Add testcase for '-w'
+    
+    This change adds a very simple test application to the test
+    suite. The application is built through the top level
+    Makefile and used by the *_by_name.sh scenarios.
+    
+    Some changes were necessary in runProcDumpAndValidate.sh to
+    accommodate running ProcDump with the -w parameter:
+    the script checks if TESTPROGNAME is defined and not empty.
+    This variable is set by the new scenarios. If it is set,
+    the corresponding binary in the bin/ folder is run with
+    parameters defined in TESTPROGMODE after a small delay.
+    
+    * :memo: Adding blurb about branching to contributing doc (#42)
+    
+    ship it!
+
+commit 579323325a37b57585ace072498b891000976121
+Author: aaptel <aurelien.aptel@gmail.com>
+Date:   Mon Oct 8 19:45:35 2018 +0200
+
+    Logging.c: use puts() (#37)
+
+commit 1fb637759985a2838d4b0e3ae08f4173da2daa94
+Author: jahabibi <33559523+jahabibi@users.noreply.github.com>
+Date:   Wed Jan 10 13:16:01 2018 -0800
+
+    1.0.1 Release (#30)
+    
+    # Changes Include
+    
+    * hook into Travis CI to run integration tests
+    * fixed #4 potential deadlock upon malloc failing
+    * fixed #8 by parsing process name from /proc/[PID]/cmdline and sanitizing process name for dump file generation
+    * fixed various typoes
+    * fixed #22 post-build check failures on openSUSE
+
+commit 707ab0c24e95a273a27274d26ae5e983a5e66933
+Author: John <josalem@microsoft.com>
+Date:   Tue Dec 5 17:08:57 2017 -0800
+
+    initial commit of procdump
+
+commit 5688941a89463f38de0deaf19701ca9e4ee956d6
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Fri Nov 10 14:07:24 2017 -0800
+
+    Initial commit
+
+commit 80f8af9e74717f52f20a417aa3097020113f3dbe
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Fri Nov 10 14:07:24 2017 -0800
+
+    Initial commit
+
+commit 68e20a1c14a9c39618642110aaa140a0ace58b88
+Author: Microsoft GitHub User <msftgits@microsoft.com>
+Date:   Fri Nov 10 14:07:21 2017 -0800
+
+    Initial commit

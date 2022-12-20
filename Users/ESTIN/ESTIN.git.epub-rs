@@ -1,0 +1,746 @@
+======================: FILES :======================
+.
+├── Cargo.toml
+├── LICENSE.txt
+├── README.md
+├── src
+│   ├── archive.rs
+│   ├── doc.rs
+│   ├── lib.rs
+│   └── xmlutils.rs
+├── test.epub
+└── tests
+    ├── archive.rs
+    ├── doc.rs
+    ├── docs
+    │   ├── book2.epub
+    │   └── Metamorphosis-jackson.epub
+    └── read.rs
+
+3 directories, 13 files
+====================== GIT HISTORY: ======================
+8b82217 HEAD@{0}: clone: from https://github.com/estin/epub-rs
+commit 8b822178ffc845839c75250a18858b362e643928
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Tue Dec 7 16:22:27 2021 +0300
+
+    Don't use default features of zip crate, only `zip/deflate` required for epub
+
+commit f7bf7f4196123418d5097db863de596ad304c168
+Author: Barry Corrigan <b.j.corrigan@gmail.com>
+Date:   Wed Feb 17 07:15:48 2021 +0000
+
+    Performance improvement, handle UTF-16 epubs, more relaxed parsing
+    
+    1. Performance. When epub-rs opened an epub, it was traversing the
+       entire zip each time in order to extract the file names. I changed
+       this to use the ZipArchive file_names() fn, which has a large
+       performance improvement because epub-rs now only has to read the zip
+       central directory instead of the entire zip on opening. For my use
+       case of scanning thousands of epubs, this made the scan 2.2x faster
+       (maybe more, the bottleneck moved elsewhere!), which is quite a lot,
+       but I expect that anybody using epub-rs on low resource devices etc
+       would find it faster at opening epubs as well.
+    
+    2. UTF-16 support. Rarely, some epubs have UTF-16 encoding in opf files
+       etc. Maybe they were made by java tooling or something. This would
+       break in epub-rs because the XML parser only supports utf-8. Luckily,
+       UTF-16 usually has a bom marker so I added some code to detect that
+       and convert to UTF-8 before parsing. Some lifetime considerations
+       here meant I just directly parse XML in the new() method now.
+    
+    3. Slightly more "flexible" parsing of epubs. When I have come across
+       epubs that appear to open OK in calibre or foliate, but not in
+       epub-rs, I have investigated why and found that in these cases
+       epub-rs is pretty strict. I changed it so that if there's a malformed
+       resource, toc item, or guide item, it just skips it and moves to next
+       one. This means in these few cases, it matches calibre and co and
+       successfully opens the epub. This is usually because the epub creator
+       has manually entered a thumbnail resource or similar into the OPF but
+       did so incorrectly.
+
+commit e02c860e01b2e4f9a2cecda37fa192f55e7ed5a2
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Mon Jan 4 08:33:18 2021 +0100
+
+    Remove trailing white space
+
+commit b81f33d9d51b8ba54883b462e31ce0a876d9930d
+Author: SilverTorus <48274652+SilverTorus@users.noreply.github.com>
+Date:   Mon Jan 4 01:31:59 2021 -0600
+
+    Add filepath fix for windows
+    
+    EpubDoc could not read files in the epub archive on Windows due to the default
+    behavior of Pathbuf.join() method. This fix forcibly coerces the separators to
+    Unix-style separators, so that ZipArchive in the zip-rs dependency searches for
+    the file at the proper filepath.
+
+commit c1880e75ab13a7865c0ac6e3e3cba99124344c8d
+Merge: 2269567 d0ffa29
+Author: danigm <dani@danigm.net>
+Date:   Mon Jan 4 08:24:17 2021 +0100
+
+    Merge pull request #25 from rofrol/patch-1
+    
+    usint -> using
+
+commit d0ffa29d300173c3220fa6d3f259766b3dd68e67
+Author: Roman Frołow <rofrol@gmail.com>
+Date:   Mon Jan 4 01:08:59 2021 +0100
+
+    usint -> using
+
+commit 2269567c1023cd3513c73ed8eff6d0b4cc445151
+Merge: e78e6b5 2108bc5
+Author: danigm <dani@danigm.net>
+Date:   Wed Dec 23 12:05:16 2020 +0100
+
+    Merge pull request #22 from danigm/nested-navpoints
+    
+    doc: Add nested navpoints to TOC
+
+commit 2108bc53d86c78943a1fcf2db850d2d141953485
+Author: G. Eyaeb <geyaeb@protonmail.com>
+Date:   Wed Dec 23 11:57:00 2020 +0100
+
+    doc: Add nested navpoints to TOC
+    
+    Nested navpoints are allowed in EPUBs and often used. This patch adds a
+    new attribute to the NavPoint with the list of children so we can have
+    nested navpoints.
+
+commit e78e6b5f937d331dc547b224a922df42de4d9bb9
+Merge: d971606 c5ffe90
+Author: danigm <dani@danigm.net>
+Date:   Tue Nov 24 12:35:00 2020 +0100
+
+    Merge pull request #20 from danigm/bufreader
+    
+    Use BufReader by default instead of File
+
+commit c5ffe90ae8f67a1023e572abfb192d3d7816aa82
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Tue Nov 17 11:44:10 2020 +0100
+
+    Use BufReader by default instead of File
+    
+    It looks like using BufReader by default is a lot faster than just File,
+    so it's better to use this method by default.
+    
+    https://github.com/danigm/epub-rs/pull/17#issue-522254334
+
+commit d971606a30a63f3a722fff9b7784fdf973b45331
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Thu Nov 19 18:05:39 2020 +0100
+
+    New version: 1.2.3 and Update deps
+
+commit 7c6ff3abad743d378d652c32ded448c688eedd63
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Thu Nov 19 18:04:56 2020 +0100
+
+    Cargo clippy and fmt fixes
+
+commit 3bb6589c64e723c6d5632a517f68a50a32c41440
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Thu Nov 19 17:41:48 2020 +0100
+
+    Replace deprecated failure with anyhow
+    
+    failure crate is deprecated and it should not be used. This patch
+    replaces it with anyhow that has a similar API.
+
+commit 284ee81d706b27a17023795f0145049c75931056
+Merge: 3253098 6354847
+Author: danigm <dani@danigm.net>
+Date:   Tue Nov 17 13:09:28 2020 +0100
+
+    Merge pull request #19 from philippeitis/patch-2
+    
+    Bump minimum Rust version
+
+commit 63548478c54e1acec51b3c4efc2990f009a2564f
+Author: philippeitis <33013301+philippeitis@users.noreply.github.com>
+Date:   Tue Nov 17 03:01:51 2020 -0800
+
+    Note the minimum Rust version which compiles
+
+commit b72ecd40ea9480e3eec416837ebd870e03c70111
+Author: philippeitis <33013301+philippeitis@users.noreply.github.com>
+Date:   Tue Nov 17 02:48:04 2020 -0800
+
+    Bump to 1.40.0 for doctest
+
+commit ac629d3bafde9ef333492431ec1f802ca87e8078
+Author: philippeitis <33013301+philippeitis@users.noreply.github.com>
+Date:   Tue Nov 17 02:45:43 2020 -0800
+
+    Bump version for gimli
+
+commit bbb00f8a6058c0341b760009f1e533c468684925
+Author: philippeitis <33013301+philippeitis@users.noreply.github.com>
+Date:   Tue Nov 17 02:42:40 2020 -0800
+
+    Bump minimum Rust version
+
+commit 32530986ae3ee41a7356fc0de93593db09498eeb
+Merge: 8c31809 3081661
+Author: danigm <dani@danigm.net>
+Date:   Tue Nov 17 11:39:46 2020 +0100
+
+    Merge pull request #18 from philippeitis/patch-1
+    
+    Add continuous integration
+
+commit 3081661360098aad95d6ca5ab359aa596b3ccef9
+Author: philippeitis <33013301+philippeitis@users.noreply.github.com>
+Date:   Tue Nov 17 02:36:53 2020 -0800
+
+    Add continuous integration
+
+commit 8c318095a87f1a84a94547386bd343a57019dc3c
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Tue Nov 17 11:25:53 2020 +0100
+
+    doc: Set the archive path on new method
+
+commit c70f28ac9ec23dcd9143b6c2265932943b0354ac
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Tue Nov 17 11:22:25 2020 +0100
+
+    archive: Set the path on new method
+    
+    This patch will fix the tests broken by this PR
+    https://github.com/danigm/epub-rs/pull/17
+
+commit f386ba642d35ad8a99bd61719ec609848390d2dd
+Merge: 89e036b 8ad97f0
+Author: danigm <dani@danigm.net>
+Date:   Tue Nov 17 11:06:59 2020 +0100
+
+    Merge pull request #17 from philippeitis/simplify_new
+    
+    Simplify EpubDoc::new(), EpubArchive::new()
+
+commit 8ad97f02ef9075df6fab7d2f7130f75a3b619ac2
+Author: philippeitis <33013301+philippeitis@users.noreply.github.com>
+Date:   Tue Nov 17 01:01:52 2020 -0800
+
+    Simplify EpubDoc::new(), EpubArchive::new()
+
+commit 89e036bfe9936e572c9ccea834fb44b9ad6e8f67
+Merge: f1697c0 734b135
+Author: danigm <dani@danigm.net>
+Date:   Tue Mar 10 10:00:30 2020 +0100
+
+    Merge pull request #16 from csos95/master
+    
+    EpubDoc/EpubArchive add <R:Read+Seek> param & from_reader constructors
+
+commit f1697c05ad43ae779bf68a65701d50cfde1d22a2
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Tue Nov 12 16:29:32 2019 +0100
+
+    Add docs.rs documentation link
+
+commit 734b1354165058ba196b670260d801a3ab3f390a
+Author: csos95 <csoscss@gmail.com>
+Date:   Tue Mar 10 03:35:42 2020 -0500
+
+    EpubDoc/EpubArchive add <R: Read + Seek> parameter and from_reader constructors
+
+commit 0b74ec2e317ebb69d40898ef98e8d1d44e82e0db
+Merge: 5076d6c 2f0933a
+Author: danigm <dani@danigm.net>
+Date:   Tue Feb 11 18:48:46 2020 +0100
+
+    Merge pull request #15 from KitaitiMakoto/unique-identifier
+    
+    Unique Identifier and Release Identifier
+
+commit 2f0933a1e889285150e6150e1874551255497ef1
+Author: Kitaiti Makoto <KitaitiMakoto@gmail.com>
+Date:   Wed Feb 12 02:36:34 2020 +0900
+
+    Add more tests for unique identifier and release identifier
+
+commit 358243918fe227583047840aca09b9aeb539c5f1
+Author: Kitaiti Makoto <KitaitiMakoto@gmail.com>
+Date:   Wed Feb 12 02:35:40 2020 +0900
+
+    Implement EpubDoc::get_release_identifier()
+
+commit 9be5b9df3192c0a95a9977f47e21f3332de0390d
+Author: Kitaiti Makoto <KitaitiMakoto@gmail.com>
+Date:   Wed Feb 12 02:35:16 2020 +0900
+
+    Add a test to retrieve release identifier
+
+commit bf2f0932122bf3e593612a9fbb56810aa16f0390
+Author: Kitaiti Makoto <KitaitiMakoto@gmail.com>
+Date:   Wed Feb 12 02:08:21 2020 +0900
+
+    Retrieve unique identifier
+
+commit 417e2f89c56a8fe3292a3d6ed5a07e79a7a14809
+Author: Kitaiti Makoto <KitaitiMakoto@gmail.com>
+Date:   Wed Feb 12 02:08:08 2020 +0900
+
+    Add a test to retrieve unique identifier
+
+commit 5076d6ced2755cee9c06768d95f3c7fb7e27f8f6
+Merge: 529ef8c 5d64a30
+Author: danigm <dani@danigm.net>
+Date:   Tue Feb 11 17:28:49 2020 +0100
+
+    Merge pull request #14 from KitaitiMakoto/meta-property
+    
+    meta element with property attribute
+
+commit 5d64a303da0b4a3ed54b571a1dd70b753c37257a
+Author: Kitaiti Makoto <KitaitiMakoto@gmail.com>
+Date:   Tue Feb 11 23:44:47 2020 +0900
+
+    Retrieve metadata from metas with property attribute
+
+commit c5fca4888a61107b1eaefa396f01f12e53777a80
+Author: Kitaiti Makoto <KitaitiMakoto@gmail.com>
+Date:   Tue Feb 11 23:32:41 2020 +0900
+
+    Add a test to retrieve meta with property attribute
+
+commit 529ef8c9a3545a85e0d58f48a247b2eedccbd5cd
+Merge: 30bbe69 be7bd56
+Author: danigm <dani@danigm.net>
+Date:   Fri Jan 3 09:33:55 2020 +0100
+
+    Merge pull request #13 from billop/2018
+    
+    Update to 2018 edition
+
+commit be7bd56ad00966b42b27aa3742a94528e481cc17
+Merge: d55fb4d 30bbe69
+Author: danigm <dani@danigm.net>
+Date:   Fri Jan 3 09:33:44 2020 +0100
+
+    Merge branch 'master' into 2018
+
+commit 30bbe6903de112126ba22e158ebca49b83595488
+Merge: dc9134f fa6b3f3
+Author: danigm <dani@danigm.net>
+Date:   Fri Jan 3 09:31:06 2020 +0100
+
+    Merge pull request #12 from billop/lint
+    
+    Cargo fmt and Clippy Fixes
+
+commit d55fb4daf1f3de237772cdef00f5f3c572ba0e12
+Author: billop <12755239+billop@users.noreply.github.com>
+Date:   Thu Jan 2 16:30:40 2020 -0800
+
+    Update to 2018 edition
+
+commit fa6b3f3403dbb708dac1b479b1057d24dc5f6a09
+Author: billop <12755239+billop@users.noreply.github.com>
+Date:   Thu Jan 2 16:12:09 2020 -0800
+
+    Cargo clippy
+
+commit c43eef6a1b690981e139c680c8d0353d57492161
+Author: billop <12755239+billop@users.noreply.github.com>
+Date:   Thu Jan 2 16:00:19 2020 -0800
+
+    Cargo fmt
+
+commit dc9134f1eddd60613798609096cf58b0e5bd1c0d
+Author: Daniel García Moreno <dani@danigm.net>
+Date:   Tue Nov 12 15:49:29 2019 +0100
+
+    Dependencies update 1.2.1
+    
+    Update dependencies and fix a small problem related to changes in
+    xml-rs.
+
+commit 00bce45a41ccce7fe37a586e4b5d5d9e94a6e21a
+Merge: b9333ac 17c24a8
+Author: danigm <danigm@wadobo.com>
+Date:   Sun Dec 16 11:24:50 2018 +0100
+
+    Merge pull request #10 from morbatex/percent_encoding
+    
+    Fix for percent encoded files in the manifest
+
+commit 17c24a80f23b0ff0a6582e341cab2391b31595df
+Author: Max Böcker <max.boecker@rwth-aachen.de>
+Date:   Fri Dec 14 17:27:09 2018 +0100
+
+    Fix for percent encoded files in the manifest
+
+commit b9333acbf6c48b67038fae5631de5d7a964fa819
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sat Oct 27 19:20:35 2018 +0200
+
+    Update dependencies
+
+commit df53785c3453a65d284847cd8b8bb04f37f188d5
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Sep 25 10:19:09 2018 +0200
+
+    New version 1.2.0
+    
+    Changelog:
+     * Added TOC information to the doc
+
+commit a0311172175ebe9d7be7f3b8edeeaa5c122bdac4
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Sep 25 10:18:00 2018 +0200
+
+    TOC navigation support
+    
+    Fix #8
+
+commit f4cb15ff619e008d948c830331c539d2fe1cfdd5
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Sep 25 09:02:03 2018 +0200
+
+    Dependency update
+
+commit 840315a473713fcbf81b397de9d3d02195a27c6f
+Merge: 365c9f9 487ee0a
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Jan 8 08:33:58 2018 +0100
+
+    Merge branch 'master' of github.com:danigm/epub-rs
+
+commit 487ee0abf93a6c169afee7450a77e4d6cc73e78f
+Merge: 2f0d325 fddf5a8
+Author: danigm <danigm@wadobo.com>
+Date:   Mon Jan 8 08:33:43 2018 +0100
+
+    Merge pull request #7 from Michael-F-Bryan/path
+    
+    Use AsRef<Path> instead of &str for constructors
+
+commit fddf5a8b0d9181fe7c0383f557735f1cfb08b80a
+Author: Michael Bryan <michaelfbryan@gmail.com>
+Date:   Mon Jan 8 07:24:08 2018 +0800
+
+    Fixed the broken test
+
+commit 4e4ee44ebd3c13d717e6842f94993a33ea5291ff
+Author: Michael Bryan <michaelfbryan@gmail.com>
+Date:   Mon Jan 8 00:23:31 2018 +0800
+
+    Updated some doc-comments
+
+commit 5378d82f73e7f796d099d035be4c2377f241d3b6
+Author: Michael Bryan <michaelfbryan@gmail.com>
+Date:   Mon Jan 8 00:12:13 2018 +0800
+
+    Replaced a lot of string-ly typed paths
+
+commit 1993dbd2bbff86503d703a02c418317f748b8e30
+Author: Michael Bryan <michaelfbryan@gmail.com>
+Date:   Sun Jan 7 23:22:35 2018 +0800
+
+    EpubDoc::new() and EpubArchive::new() take P: AsRef<Path>
+
+commit 365c9f9d774a38dc0a0a35b6d167393801819c7e
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed Dec 13 14:07:32 2017 +0100
+
+    New version 1.1.1
+    
+    Changelog:
+     * Metadata without name or content doesn't break the parser
+     * XML files with UTF8-BOM now works correctly
+
+commit 2f0d3259971a9968dfacb4c7866233aab793f592
+Merge: 252c7f1 c008c50
+Author: danigm <danigm@wadobo.com>
+Date:   Wed Dec 13 08:41:18 2017 +0100
+
+    Merge pull request #6 from bcorrigan/master
+    
+    Fix for UTF-8 bom marker bug
+
+commit c008c50fb1845d12d71f20e1025dfd21cc765057
+Author: Barry Corrigan <b.j.corrigan@gmail.com>
+Date:   Tue Dec 12 22:47:49 2017 +0000
+
+    Fix for UTF-8 bom marker bug
+
+commit 252c7f1e88d6ef3606fb9e1b3ed6b0a3b3a4ca9e
+Merge: 47dfb30 95304b3
+Author: danigm <danigm@wadobo.com>
+Date:   Mon Dec 11 18:34:52 2017 +0100
+
+    Merge pull request #5 from bcorrigan/master
+    
+    meta tags without name and content attributes are now ignored
+
+commit 95304b3e5a421e577985492714d8a6e001137af8
+Author: bcorrigan <b.j.corrigan@gmail.com>
+Date:   Mon Dec 11 15:59:19 2017 +0000
+
+    meta tags without name and content attributes are now ignored
+
+commit 47dfb30b7d79362a4d3690ea6cf1bff196263bca
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Dec 5 18:49:04 2017 +0100
+
+    New version 1.1.0
+    
+    Changelog:
+     * Allow multiple metadata with the same name
+     * Manage errors using failure module
+     * Updated dependencies
+
+commit c3227b123c70540e63fd7f3d8c8367d142fe3738
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Dec 5 18:47:35 2017 +0100
+
+    Use failure to manage errors
+
+commit 6a51919b040a5426d087556400230ae7c9a2a096
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Dec 5 18:30:13 2017 +0100
+
+    Allow multiple metadata with the same name
+
+commit c188fa79e1e2a5cdc32a2a38a9e19e01f105e815
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Dec 5 18:29:38 2017 +0100
+
+    Update dependencies
+
+commit c93a773e60bdc9376aa138f6512238857ff64b2c
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Jul 31 22:20:17 2017 +0200
+
+    New version 1.0.5
+    
+    Fixed a bug in the book resource path with books with the rootfile in
+    the zip root directory.
+
+commit d394748cb9234c6b8f4498571d22d17eb7ffd906
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Jul 31 22:13:08 2017 +0200
+
+    Added one test to read a real book
+
+commit 6a616bcbb4e282f317c60eda21711a5589d1f55f
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Jul 31 22:12:10 2017 +0200
+
+    Fixed book resource read for empty root base
+
+commit 318e4c509d4624939c3e805c0189256145eafedd
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sat Jul 1 18:39:56 2017 +0200
+
+    Updated dependecies
+
+commit 72725487d7b705bee5cfbdab9c6b69518f804086
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed May 31 19:01:37 2017 +0200
+
+    Fixed resources doc string
+
+commit 28bd2a02aebf623bd167ec748c6ed64b9a337f6c
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Tue Mar 14 13:50:55 2017 +0100
+
+    Adding extra_css attribute to inject css in html
+
+commit 48c333cc9e613e39c14f61767714a60c47b2afce
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Mar 13 16:48:16 2017 +0100
+
+    New version 1.0.3
+
+commit c131106df336782684cb413ec6ba273b409d08d9
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Mar 13 16:44:43 2017 +0100
+
+    Updated xml-rs with last version to manage nbsp entities
+
+commit c089284829b8cc35e26e0818fb0d5901dc65bc8e
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed Feb 22 14:12:29 2017 +0100
+
+    Using '?' instead of try! macro
+
+commit a8e104d8becdf2540e60fce94ac031ea2926ae81
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Thu Feb 16 09:22:05 2017 +0100
+
+    Code styling with rustfmt
+
+commit 508746350627927d03b597f98b914d9861c41c9e
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Feb 13 18:15:45 2017 +0100
+
+    New version 1.0.2
+
+commit cdb9bbc82e5c510ae1e5301f6f3ae9f80444efbf
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Feb 13 18:14:58 2017 +0100
+
+    Removing &nbsp; from xml before parse, it's not xml
+
+commit 0833faf1a46c6c510fb67e318c43a52141392b28
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Feb 13 18:14:20 2017 +0100
+
+    Replacing xlink:href attr of image tag
+
+commit 4a97060c7865c44068933182e89a2b41cd5baa05
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sun Feb 5 13:47:46 2017 +0100
+
+    Added epubdoc to the README.md
+
+commit 12865b5d820c7a10967d6de56961f66f442d3be8
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sun Feb 5 13:39:15 2017 +0100
+
+    Added get_current_with_epub_uris method
+    
+    This method replaces the relative paths with epub:// and absolute uris
+    to be able to find these resources with get_resource_by_path.
+    
+    This is useful to render the content with webkit or other html engine.
+
+commit b8581efc6564c50bf6e238ab3f867d67f1f1b4f9
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sun Feb 5 08:59:18 2017 +0100
+
+    Using Rc instead Arc, we're not using threads
+
+commit 959128a32d439b740844e36fba194409c13b262d
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Mon Jan 23 18:04:26 2017 +0100
+
+    Using if-let instead of if x.is_some()...
+
+commit f377248b34203e1bce25ddb52b9ae852cdc1dc13
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sat Jan 21 21:17:03 2017 +0100
+
+    First stable release
+
+commit 56aeda57a3d28320cdfe19ac0e4f9d51b9fb88ac
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sat Jan 21 21:16:17 2017 +0100
+
+    Better examples in the lib file
+
+commit 252bb2ac26cce44d3de899cab6a14a69a8be5058
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sat Jan 21 20:51:36 2017 +0100
+
+    Added current management methods
+
+commit 61a594de649703e61849642a009355b182efb085
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sat Jan 21 20:09:50 2017 +0100
+
+    Example for EpubDoc::new
+
+commit ee7d3edd95320c699dea9e0e8fd256d1569042ae
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Sat Jan 21 20:08:27 2017 +0100
+
+    get_cover and get_resource_mime methods
+
+commit a6a1cc003cd532a8af54385eed5b592696b9f791
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Fri Jan 20 21:47:08 2017 +0100
+
+    Added doc and crate links in README
+
+commit f3b0be2497ba8d765e1b94921cb7c8506f323ba6
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Fri Jan 20 21:41:45 2017 +0100
+
+    New package version 0.1.2
+
+commit 972cf365eec3580897a606218018c51a4c0d8047
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Fri Jan 20 21:41:04 2017 +0100
+
+    Implemented get_cover and get_resource
+
+commit 776ad7f045dbcd4802c21fdc181171afade25a58
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Fri Jan 20 20:00:23 2017 +0100
+
+    Added doc to the package
+
+commit a6c612e04894a072600593ef3481762403a8a8bd
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Fri Jan 20 19:33:16 2017 +0100
+
+    New package version 0.1.1
+
+commit 4e51ec3a763cd07c0e20aa158dd8742ce9528d36
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Fri Jan 20 19:32:22 2017 +0100
+
+    Epub resources and spine filled on new method
+
+commit 1d4c19d4943aecf0c56c50340ef75d42da689519
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Fri Jan 20 01:04:08 2017 +0100
+
+    Parser with refcell
+
+commit f33b1156c9bd4153b866a2f915e5478bcc67389c
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Thu Jan 19 00:18:29 2017 +0100
+
+    Created xmlutils mod to add xml facilities
+
+commit 16b662e93a13e4e7572371ddd74f67d7f2d48071
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed Jan 18 21:46:56 2017 +0100
+
+    Starting to implement xmldoc, new method done
+
+commit 0dd6af7e4db9330bc5990a78bc2e6688acf1b2fb
+Author: danigm <danigm@wadobo.com>
+Date:   Wed Jan 18 15:42:37 2017 +0100
+
+    Added license to the project
+
+commit 85dacb94121a612c2503fbdbcdc31ea4f0e130cf
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed Jan 18 15:33:56 2017 +0100
+
+    Fixed license identifier in cargo
+
+commit 7e85201afb6de58e6f92b441d8cc76499f576a55
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed Jan 18 15:31:42 2017 +0100
+
+    Excluding test epub file from package
+
+commit 4ddca912c398df508dee4e880bbf466f30cb7896
+Author: danigm <danigm@wadobo.com>
+Date:   Wed Jan 18 15:27:00 2017 +0100
+
+    Created readme.md
+
+commit 0fed19cca4524abca45fe39a2652adbfcf63a3fd
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed Jan 18 15:25:22 2017 +0100
+
+    Added license and other info in toml
+
+commit f0fb519c12da2da6b2fd8e79ed411fb72be66026
+Author: Daniel García Moreno <danigm@wadobo.com>
+Date:   Wed Jan 18 15:22:59 2017 +0100
+
+    Initial commit, with base epub archive management

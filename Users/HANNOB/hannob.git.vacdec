@@ -1,0 +1,169 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit ec06f1270a7659dc79ad039f36368bdc049175a1
+Author: Philip Gillißen <guerda@freenet.de>
+Date:   Thu Jan 13 16:49:36 2022 +0100
+
+    Add hint for Windows installation (#23)
+    
+    * Update README.md
+
+commit 86a770a4fe471bd600099b6e42b8797a9b1e92f0
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 2 09:19:20 2021 +0100
+
+    raise version
+
+commit ad4670b87e9fb69b9dcedcea969b0c7da78c8001
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Oct 13 10:55:53 2021 +0200
+
+    newline after error message
+
+commit efc7a447515e0bf832a728e3e5f2403f9b7d425b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Oct 13 10:44:40 2021 +0200
+
+    r is default
+
+commit 5521cd5c9dc0e350d38d1527c9fb73c4f7a1d266
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Oct 13 10:39:32 2021 +0200
+
+    Allow passing text file, cert via command line, also create more useful error message for bad QR code, closes #16, closes #17
+
+commit d1c7d353280c8a7b7d9dffe819326cb7160d4548
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Sep 15 12:01:06 2021 +0200
+
+    use python3 shebang for systems still defaulting to python2
+
+commit d19054f69f292789636b5a0e27bd8fa70cd45e00
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Sep 14 12:55:55 2021 +0200
+
+    link test
+
+commit 8e2303cc3e8283f02220bebfe059fcaa5f0a8695
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Aug 15 09:49:05 2021 +0200
+
+    add setup.py
+
+commit 0cec5d36336f9c05f7f11f6ef4263cc9d9e953cd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Aug 15 09:45:38 2021 +0200
+
+    link to fork with verification, closes #9
+
+commit 65b290a4ea400385fcdc6d0533dcbb94b9cd8203
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Jul 23 12:10:40 2021 +0200
+
+    more emphasis on not validating signature
+
+commit d835434d2e2ee38ef57f6a814b138ceddb9b2761
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Jul 23 12:06:58 2021 +0200
+
+    emphasis on not validating signature
+
+commit 71a5277c6fdf3ea723d536925546d9f90c2719aa
+Merge: 5e00ee8 e56cec2
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Jul 17 15:15:29 2021 +0200
+
+    Merge pull request #5 from guerda/patch-1
+    
+    Add explanation to install zbar shared libs
+
+commit e56cec2944d49ad3a7db1acfcb36eac8bbca059e
+Author: Philip Gillißen <guerda@freenet.de>
+Date:   Wed Jul 14 15:58:07 2021 +0200
+
+    Improve formatting
+
+commit 3fbbf79bcffcbf7eb37d15ee174667ecc9635c42
+Author: Philip Gillißen <guerda@freenet.de>
+Date:   Wed Jul 14 15:57:38 2021 +0200
+
+    Use smaller package for Linux
+
+commit a42d74f4b5a04bb4b2e17db9e0a7aebcd03205f9
+Author: Philip Gillißen <guerda@freenet.de>
+Date:   Wed Jul 14 09:16:49 2021 +0200
+
+    Add explanation to install zbar shared libs
+
+commit 5e00ee820a0237d2453fb9fadbb595faf2f8feaa
+Merge: 7bb9952 25224c1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Jul 1 13:44:51 2021 +0200
+
+    Merge pull request #3 from angelos/readme-spec
+    
+    Included link to digital covid certificate spec
+
+commit 25224c124859ca898421b3775103382e6d7e44f8
+Author: Angelo van der Sijpt <angelovds@gmail.com>
+Date:   Thu Jul 1 13:42:16 2021 +0200
+
+    Included link to digital covid certificate spec
+
+commit 7bb99529a4072b5092ad20630f6b4aea7a2d73e1
+Merge: 62b16c6 22472b1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jun 28 20:35:53 2021 +0200
+
+    Merge pull request #2 from jugmac00/fix-python-path
+    
+    fix Python path
+
+commit 22472b10a13a28a7392b9f4cb29947d79ea81da2
+Author: Jürgen Gmach <juergen.gmach@googlemail.com>
+Date:   Mon Jun 28 20:01:03 2021 +0200
+
+    fix Python path
+    
+    Previously, the Python path was hardcoded to "/usr/bin/python".
+    
+    In order to make packages available to "/usr/bin/python", you would
+    need to install them into the so-called global site-packages.
+    
+    This is usally not a good idea, as this could break your operating
+    system (e.g. apt and other vital packages).
+    
+    Usually, it is recommended to create a virtual environment, in which
+    an application's dependencies should be installed.
+    
+    As the path was hardcoded to "/usr/bin/python", the installed packages
+    within the virtual env were not found, when you called
+    "./vacdec [image]".
+    
+    Using "/usr/bin/env python" fixes this problem, without introducing
+    backwards incompatibility.
+
+commit 62b16c6af0375af0d1bb268ae887fab0ac951802
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Jun 25 21:23:40 2021 +0200
+
+    add more instructions
+
+commit 4c0ae482a08b3e3752aad52d13feae0f419c6639
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Jun 25 15:58:18 2021 +0200
+
+    readme
+
+commit 07a861924c38f7fa979ba47442a03928f5d3470c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Jun 25 15:53:06 2021 +0200
+
+    add script
+
+commit 63327096e00d244ef1c4fa54f647119af3486565
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Fri Jun 25 15:52:35 2021 +0200
+
+    Initial commit

@@ -1,0 +1,1634 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# RAT-via-Telegram
+[![Build Status](https://travis-ci.org/mvrozanti/RAT-via-Telegram.svg?branch=master)](https://travis-ci.org/mvrozanti/RAT-via-Telegram)
+[![Made with Python](https://img.shields.io/badge/Made%20with-Python-3572A5.svg)](https://travis-ci.org/mvrozanti/RAT-via-Telegram)
+
+Windows Remote Administration Tool via Telegram (now in Python 3.7!) | Originally created by <a href="http://github.com/Ritiek">Ritiek</a>
+
+### Why another one?
+
+- The current Remote Administration Tools in the market face 2 major problems:
+
+    - Lack of encryption.
+    - Require port forwarding in order to control from hundreds of miles.
+
+- This RAT overcomes both these issues by using the Telegram bot API.
+
+    - Fully encrypted. The data being exchanged cannot be spied upon using MITM tools.
+    - Telegram messenger app provides a simple way to communicate to the target without configuring port forward before hand on the target.
+
+## Features:
+
+- Keylogger with window title log included
+- Get target PC's Windows version, processor and more
+- Get target PC's IP address information and approximate location on map
+- Delete, Move files
+- Show current directory
+- Change current directory
+- List current or specified directory
+- Download any file from the target
+- Upload local files to the target. Send your image, pdf, exe or anything as `file` to the Telegram bot
+- Autostart playing a video in fullscreen and no controls for a youtube video on target
+- Take Screenshots
+- Execute any file
+- Access to microphone
+- Start HTTP Proxy Server
+- Freeze target's keyboard
+- Schedule tasks to run at specified datetime
+- Encode/Decode all local files
+- Ping targets
+- Update .exe -- thanks <a href="http://github.com/LearnerZone">LearnerZone</a>
+- Self-Destruct RAT
+- Change wallpaper from file or url
+- Execute cmd shell
+- Take snapshots from the webcam (if attached)
+- Execute arbitrary python 3.7 on the go
+- Freeze target's mouse
+- [TODO] Browser (IE, Firefox, ~~Chrome~~) cookies retrieval
+- [TODO] Password retrieval
+- [TODO] Monitor web traffic (graphically?)
+- [TODO] Bandwidth monitoring (stepping stone to web traffic monitoring) - started 28/10/2018
+- [TODO] Fine-tuning scripting (i.e.: if app x is opened y is executed)
+- [TODO] Capture clipboard (Text, Image)
+- [TODO] Hide desktop icons
+- [TODO] Audio compression
+- [TODO] Name server lookup (/nslookup - <a href="https://github.com/mvrozanti/RAT-via-Telegram/issues/19">#19</a>)
+
+ Thanks <a href="http://github.com/Dviros">Dviros</a>:
+- Chrome login/password retrieval
+- Display ARP table
+- Get active processes and services
+- Shutdown/Reboot computer
+- Display DNS Cache
+
+
+& More coming soon!
+
+## Screenshots:
+
+<img src="http://i.imgur.com/I5nzrbz.jpg"/>
+
+## Installation & Usage:
+
+- Clone this repository.
+- Set up a new Telegram bot talking to the `BotFather`.
+- Copy this token and replace it in the beginning of the script.
+- Run `compile.py`
+  - Generates an executable binary
+- To run the script: `python RATAttack.py`.
+- Find your bot on telegram and send some command to the bot to test it.
+- To restrict the bot so that it responds only to you, note down your `chat_id` from the console and replace it in the script and comment out the line `return True`. Don't worry, you'll know when you read the comments in the script.
+
+<img src="http://i.imgur.com/XKARtrp.png">
+
+- A folder named `RATAttack` will be created in your working directory containing `keylogs.txt` and any files you upload to the bot.
+
+### Commands:
+
+When using the below commands; use `/` as a prefix. For example: `/pc_info`.
+
+```
+arp - display arp table
+capture_pc - screenshot PC
+cmd_exec - execute shell command
+cp - copy files
+cd - change current directory
+delete - delete a file/folder
+download - download file from target
+decode_all - decode ALL encoded local files
+dns - display DNS Cache
+encode_all - encode ALL local files
+freeze_keyboard - enable keyboard freeze
+unfreeze_keyboard - disable keyboard freeze
+get_chrome - Get Google Chrome's login/passwords
+hear - record microphone
+ip_info - via ipinfo.io
+keylogs - get keylogs
+ls - list contents of current or specified directory
+msg_box - display message box with text
+mv - move files
+pc_info - PC information
+ping - makes sure target is up
+play - plays a youtube video
+proxy - opens a proxy server
+pwd - show current directory
+python_exec - interpret python
+reboot - reboot computer
+run - run a file
+schedule - schedule a command to run at specific time
+self_destruct - destroy all traces
+shutdown - shutdown computer
+tasklist - display services and processes running
+to - select targets by it's name
+update - update executable
+wallpaper - change wallpaper
+```
+
+You can copy the above to update your command list via `BotFather` so you don't have to type them manually.
+
+## Compiling:
+
+### How To Compile:
+- Run `compile.py`. You can also pass `--icon=<path/to/icon.ico>` to use a custom icon. If you want to use UPX for compression, you can add `--upx-dir [upx-3.95-win64 | upx-3.96-win32]`, depending on your architecture. You can skip this last option if you have UPX in your `PATH` environment variable.
+- Once it is compiled successfully, find the `.exe` file in `C:/Python37/Scripts/dist/` or the current directory, depending on where you called it from.
+- **BEWARE!** If you run the compiled `.exe`, the script will move itself to startup and start with your PC to run at startup. You can return to normal by using the `/self_destruct` option or manually removing `%APPDATA%/Portal` directory and `%APPDATA%/Microsoft/Windows/Start Menu/Programs/Startup/portal.lnk`.
+
+### Modifying Settings:
+
+- You can also modify the name of hidden `.exe` file and location and name of the folder where the hidden `.exe` will hide itself. To do this; modify `compiled_name` and `hide_folder` respectively.
+- Assign your known chat ids to beginning of RATAttack.py
+
+## Contributing:
+
+- This project is still in very early stages, so you can expect some bugs. Please feel free to report them! Even better, send a pull request :)
+- Any new features and ideas are most welcome! Please do submit feature requests by creating Issues
+- Branch protection is enabled on `master`. You must work in an alternate branch (e.g. `dev`) and make a PR. This is to ensure that master has a working and approved version of RvT.
+
+## Credit
+A markdown file with credits:
+ <a href="https://github.com/mvrozanti/RAT-via-Telegram/blob/master/CREDIT.md">Credit file</a>
+
+People with PRs:
+ - <a href="https://gituhb.com/dudeisbrendan03">Brendan | some stuff</a>
+ - <a href="http://github.com/Dviros">Dviros | Chrome login/password retrieval | ARP Table | Process/services | shutdown/reboot | dns cache</a>
+ - <a href="http://github.com/LearnerZone">LearnerZone | Support on updating the executable</a>
+
+Dependency owners:
+ <a href="https://github.com/mvrozanti/RAT-via-Telegram/network/dependencies">A load of people who turn coffee to code</a>
+
+Original creator:
+ - <a href="http://github.com/Ritiek">Ritiek | Original RAT dev</a>
+
+## Disclaimer:
+
+**This tool is supposed to be used only on authorized systems. Any unauthorized use of this tool without explicit permission is illegal.**
+
+## License:
+
+`The MIT License`
+====================== GIT HISTORY: ======================
+e96042a HEAD@{0}: clone: from https://github.com/Khalid-Sultan/RAT-via-Telegram
+commit e96042afc30a9f3f1d79851f907fea233817568e
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 14:11:36 2019 -0300
+
+    updated README contributing section
+
+commit 96036755cd29ea11c4e80f1bc1ecf194ba880826
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 12:53:08 2019 -0300
+
+    dont exec bin on travis for now
+
+commit c92b099142f7dbd9f5b18f99967d39acd4e92f25
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 12:35:17 2019 -0300
+
+    added opencv install through choco
+
+commit c61162fb4de9031dd2b663e2bce3a036b25ef13c
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 12:21:58 2019 -0300
+
+    added opencv wheel download
+
+commit 9617097eec27e7527e66c568a9aa2b3ddb58c37f
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 03:36:25 2019 -0300
+
+    fixed compile.py
+
+commit 35af536fb99de9269c4f3b11b55d1df2b51adb6f
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 03:19:25 2019 -0300
+
+    fixed compile.py
+
+commit 3ab54b86bb3642d88f0a5ee7540bbd591d9e6286
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 03:11:01 2019 -0300
+
+    fix regexx
+
+commit 09236431f986ffba85ec4e64c3048d6d9092befa
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 02:52:44 2019 -0300
+
+    TIL wheels depend on filename for installation
+
+commit 48af46bc0b7d4ac50116cc5951f525720ce91544
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 02:25:33 2019 -0300
+
+    fixed compile.py
+
+commit 34459619c6072031bcca794d7719f7c408fe007b
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 02:11:27 2019 -0300
+
+    fixed compile.py
+
+commit dc059eebe09a185af32f4a941a8bba1fb82b06eb
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 02:00:07 2019 -0300
+
+    fixed compile.py
+
+commit 42fe5d9fa2b5a7cd3afad0130fe880dcf917f162
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 01:56:41 2019 -0300
+
+    better README
+
+commit 10ff1e4b4f6ce3e6021c134fc8e95c9876e6a9b1
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 01:48:39 2019 -0300
+
+    added automated download for upx
+
+commit c8de4b9d2b63f424f4857b755872ed12db134cb6
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 01:34:11 2019 -0300
+
+    updated README and fixed inconsistent tab usage
+
+commit 37336851a73df020f4e714058a1b351ed83bb3f1
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Jun 30 01:10:10 2019 -0300
+
+    automated pyHook and pyAudio wheel downloads in setup_rat.py and updated README
+
+commit dff4616e4fb7973aecbe8ee497b14093d67349db
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 22:47:20 2019 -0300
+
+    added RATAttack execution
+
+commit 13d9501931ae1c55c46756b9f21f5518eb01bac0
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 22:37:27 2019 -0300
+
+    removed compile.bat and removed call to upxdir
+
+commit 59f2fade114b5ff208b0fcc574fb0912fdc26de5
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 20:02:06 2019 -0300
+
+    added upx install and trying to remove compile.bat
+
+commit 5ef43461a34a8f29ca8970764b6be57696627e32
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 19:45:23 2019 -0300
+
+    trying to update setuptools to fix 3.5 build
+
+commit af9a3d9913983c89f113b6e2aac8165ee5497b72
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 19:34:03 2019 -0300
+
+    added built binary check
+
+commit c8b5ef1e8f0ba9cf78f26c9a4eb579a0c0f8ce1e
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 19:29:16 2019 -0300
+
+    added built binary check
+
+commit 11f4fcba8a6f4e4957784446820ebbf97e967982
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 19:14:55 2019 -0300
+
+    added machine log to setup_rat.py
+
+commit 8fab16e78956c9bd49dd6cd287a9af1db61e2988
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 18:53:08 2019 -0300
+
+    machine is a function
+
+commit 35080d7e76ae7db475c3909084d521d13e9abd12
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 18:42:45 2019 -0300
+
+    added machine log to setup_rat.py
+
+commit dec3e64fa4a991e4f05cc2b3cbe15c581b1b69f0
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 18:38:37 2019 -0300
+
+    added machine log to setup_rat.py
+
+commit c7cc54fc55b19dc4feb1bfab053e0266c189f7e7
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 18:25:27 2019 -0300
+
+    checking for yes command automation on vm
+
+commit fdd08fd1dd824cd67fb920145486c4762505f1ad
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 17:58:08 2019 -0300
+
+    checking for yes command automation on vm
+
+commit 11003a5dca1f1fb89630e881771e64777008f3ef
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 17:52:47 2019 -0300
+
+    checking for yes command on vm
+
+commit f45197b7ee2f180942f3994a4dee7704986c838a
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 17:45:58 2019 -0300
+
+    reboot travis
+
+commit 387982571c9729dda2775c23cced746e1b86fc32
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 17:41:01 2019 -0300
+
+    reboot travis
+
+commit cc20a8a2a3ccb8753c0b087cc3b6299948b337fb
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 17:35:42 2019 -0300
+
+    reboot travis
+
+commit 94c578e7ac0f60cc116d5172029f5e143027e5dc
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 17:02:28 2019 -0300
+
+    maybe adding to PATH is fukcing up something?
+
+commit 88988af17dabdaa2d3458ff6e8c8b74fff57567d
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 16:52:20 2019 -0300
+
+    revert environment
+
+commit deea2bfdb8a52e9f412c9dba00f5754eac0f5d74
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 16:44:33 2019 -0300
+
+    trying fix https://stackoverflow.com/questions/1940578/windowserror-error-126-the-specified-module-could-not-be-found
+
+commit b15baa2f238073c4f349c43078f0f083edb7a734
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 16:39:07 2019 -0300
+
+    revert environment
+
+commit 5e734ff6e31b9441f42c65e6a335ac0ebc6dbae0
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 16:28:53 2019 -0300
+
+    trying fix https://stackoverflow.com/questions/1940578/windowserror-error-126-the-specified-module-could-not-be-found
+
+commit d47489756c5bcc0a76bd0ac34c64dc81776eaf9b
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Jun 29 16:20:03 2019 -0300
+
+    trying fix https://stackoverflow.com/questions/1940578/windowserror-error-126-the-specified-module-could-not-be-found
+
+commit b9628f45a64d32d3c9291b11d0d6fe5f71ee751c
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Thu Jun 27 22:15:25 2019 -0300
+
+    trying fix from https://github.com/conda/conda-build/issues/3220\#issuecomment-430687833
+
+commit ced5446d7038f86eeeeb7df5ffb2a3d9050a328f
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Thu Jun 27 22:13:50 2019 -0300
+
+    trying fix from https://github.com/conda/conda-build/issues/3220\#issuecomment-430687833
+
+commit 23e9ce6917a0491d3677f782480bf26a0853eb5e
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Thu Jun 27 21:54:18 2019 -0300
+
+    recognize RVT_TOKEN environment variable if it exists
+
+commit 2e25b105dc49df5d9f4d54fc5c17d502800ead7e
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Wed Jun 26 15:52:37 2019 +0100
+
+    README
+    
+    Related: #69
+
+commit 6649c91f31b1081871709422863beabc7601a9cd
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Wed Jun 26 11:08:04 2019 +0100
+
+    Ignore python env
+
+commit 36689f5a82646788adc458877000cbeec3545527
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Wed Jun 26 10:31:43 2019 +0100
+
+    Update GitIgnore for VS
+
+commit 1b6af69190ab3b89b4ee28422e09731729b6feb5
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 16:44:19 2019 -0300
+
+    added shield
+
+commit 95507dea081150f0300d6ee6c1a713b0e10d367c
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 16:41:55 2019 -0300
+
+    added travis shield
+
+commit 310302be0187adeb6206c80f74421a6915e86083
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 15:17:22 2019 -0300
+
+    updated travis for python/windows workaround
+
+commit cef766aeaec3409451c3988e793a5c97accd3de2
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 15:09:07 2019 -0300
+
+    updated travis for python/windows workaround
+
+commit f273149a1e628bcb53dd6a65ed365c443b68eea0
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 14:53:28 2019 -0300
+
+    updated travis for python/windows workaround
+
+commit a83edf935ff4cc08cae92ae285409b270f4c3a3e
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 14:34:38 2019 -0300
+
+    updated travis for python/windows workaround
+
+commit fb3511b3b3a6dfa5ee1812b0b2fdba3c53a91150
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 14:27:35 2019 -0300
+
+    updated .travis.yml
+
+commit eda6c5fa7d50a400a63ef5f7a19664d4ce5cbb6a
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Tue Jun 18 14:23:11 2019 -0300
+
+    added .travis.yml
+
+commit bad4cf2aa77d90fe5b9023219397f15c9b2f5b5f
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Thu Jan 31 02:51:07 2019 -0200
+
+    removed stale direct links to uci host
+
+commit e992c6c218da2876b67cf35c345bf9e99cdc40bf
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 19:54:16 2018 +0000
+
+    wrong names
+
+commit 3cabca3bd4263faa1891a02fca6be70122411b4f
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 10:54:09 2018 +0000
+
+    make it easier to read with the help of bullet points™
+
+commit 727808be05647f0144f292a7979be4d094e6c5a3
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 10:53:10 2018 +0000
+
+    Missed blank line
+
+commit 7c7099218d8b90eec8313b3b20cafb5198174875
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 10:52:36 2018 +0000
+
+    Credit - coffee to code (dependency creators)
+
+commit e0496fe9c1a2e169126c62c4aa2d73a660f37a59
+Merge: f24292d f2b2571
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 10:50:00 2018 +0000
+
+    Merge pull request #56 from mvrozanti/logging-stage1
+    
+    Starting place for logging - Get non-PyPI modules from `https://www.lfd.uci.edu/~gohlke/pythonlibs` instead - Quick install script - README update
+
+commit f2b25716c36f49f7ca9f33995a6a94fb919bfa4a
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 10:49:17 2018 +0000
+
+    Update readme, fix a stupid mistake, remove the wheel archives
+
+commit 504a55a1d038312e2fbfe18efe4ac7ad5c7d80c2
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 10:45:41 2018 +0000
+
+    Grab files using the power of the internet
+
+commit 29856b8c447ae964032bef8eb1dcd9c797b7244d
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Tue Oct 30 10:39:06 2018 +0000
+
+    Murder this. Don't need it
+
+commit b810a13867d8bdc2c1c03d04b26e130cd51f938e
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 21:03:09 2018 +0000
+
+    update readme for #19
+    
+    starting bandwidth monitoring (step towards web traffic monitoring) and going to add /nslookup
+
+commit f24292dcc72225f6b28277e58e701a3cc1a2ec01
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:58:26 2018 +0000
+
+    Update PULL_REQUEST_TEMPLATE.md
+
+commit 07c0b0c1be35340e3c2d30d829910b5432228854
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:56:27 2018 +0000
+
+    Logging disabled again
+
+commit 1decf098b0d79fe632e94dd2b7338f13aad35a34
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:56:03 2018 +0000
+
+    Log to file was disabled, now enabled
+
+commit 4ac9276e8b967519b39bb68b90b802eceb33ab54
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:55:43 2018 +0000
+
+    log some more dangerous things
+
+commit 19b45e5a191719866f2502ffadd61fbd2a810817
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:53:20 2018 +0000
+
+    things to log+remember errors for debug
+    
+    notifications on annoying and dangerous things, log the exception into the log file but don't print it into the console (if the console is running)
+
+commit 67e343bd60f72ad5a792a5a0f8d437cd651a7793
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:40:22 2018 +0000
+
+    Do not commit the act of death
+
+commit d0596dedc975dca63d0d5fad2458ef3a8dd2bf05
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:39:02 2018 +0000
+
+    Put quick deploy in readme
+
+commit 4ef2892d29b0b811925eb3525840c4f591d65247
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:37:21 2018 +0000
+
+    'Validator' prints OK now, quick setup script
+
+commit 34a73f5e2cbb84ad93bb6ce532617a749b54e6a9
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:29:24 2018 +0000
+
+    Verify the hashes of the files from the git to their source
+    
+    +rep
+
+commit 6a7e9f5aaf9b087c9ba16cd730fd6be1080939f6
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 20:10:05 2018 +0000
+
+    The start of some logging
+    
+    Creates the logging directory and folder.
+
+commit 96e288611261e6bf64f30e275735572d8fab5bd8
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 19:52:27 2018 +0000
+
+    Update PULL_REQUEST_TEMPLATE.md
+
+commit ed61c8dde8a10191b7d5d1441f2ebcf10ed2062e
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sun Oct 28 19:51:20 2018 +0000
+
+    Create PULL_REQUEST_TEMPLATE.md
+
+commit 24e5b4fe200b88aceb2285c2b04ce814ce1753d6
+Merge: 46ff101 a0eb3da
+Author: Nexor <mvrozanti@hotmail.com>
+Date:   Fri Oct 26 20:39:02 2018 -0300
+
+    Merge pull request #53 from mvrozanti/pyAudio
+    
+    pyAudio fix (I think)
+
+commit a0eb3da5c9c9fefcea597bd8283f8b39d2a3c655
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Sat Oct 27 00:09:39 2018 +0100
+
+    spec file shouldn't need publishing
+    
+    last one
+
+commit c445fd3a72f5f18996c19684c985a97a530b7903
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 23:50:46 2018 +0100
+
+    Error exceptus
+    
+    This magic trick should stop the script crashing if you don't have an input device
+
+commit 64d2829671bf2408c987ffd3fb6ef8fb1b044a58
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 21:36:09 2018 +0100
+
+    pyAudio fix thanks to @Dagdelo
+
+commit 7a3db6e21b7c04f45502a7b3d685306f9ae45daa
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 21:31:22 2018 +0100
+
+    Fixed credit file
+
+commit 46ff10185e81332055d5146ef03adb68f83e9ddd
+Merge: 386d937 5420db9
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 21:28:13 2018 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 386d937afab534d1ad6f96db55729b266966895f
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 21:27:03 2018 +0100
+
+    Credit file
+
+commit 5420db9de0dbaac9b67adc9fbaa2edab4c801a6a
+Merge: 907ec1e 90df138
+Author: Nexor <mvrozanti@hotmail.com>
+Date:   Fri Oct 26 14:31:34 2018 -0300
+
+    Merge pull request #52 from mvrozanti/mouse-lock
+    
+    Mouse lock
+
+commit 90df138eec185ab351f9222f3180c900c00d604c
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 17:55:29 2018 +0100
+
+    thought I committed this
+
+commit 2fb1b15c1c1ecec222bef046372af1c1b5617449
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 17:55:08 2018 +0100
+
+    pyHook 32bit, mouse locking, fancy text
+    
+    Added a 32bit pyhook wheel, finished mouse freezing, added some fancy text output all colour 'n' all and I'm going to figure out some stuff on what I'll need to to for monitoring web traffic
+
+commit ff95d0bc91074f4908bda105e68a19ce0ac13a35
+Author: Unknown <jbrendan70@outlook.com>
+Date:   Fri Oct 26 17:25:58 2018 +0100
+
+    Fancy text + removed pyaudio
+    
+    Now when running out of a wrapper it has fancy colours. And I couldn't get the script to install requirements on my laptop, desktop.
+
+commit e1c7413648bd5da01c128d86b735984bf7171ea2
+Author: Unknown <jbrendan70@outlook.com>
+Date:   Fri Oct 26 17:14:01 2018 +0100
+
+    VSCode ignore and removing a definition
+    
+    Already has mouseFrozen defined as False, didn't see it
+
+commit c093a1120a17862ed8eec67c74e6ca9329a056e7
+Author: Brendan T D. J <brendantdj@bar-technology.co.uk>
+Date:   Fri Oct 26 16:56:14 2018 +0100
+
+    This should work, will test when I have time
+    
+    (accidentally committed this with my work account - oops)
+
+commit 6ef3db0a943cecd567c3fe0815524f11f3067bbd
+Author: Brendan T D. J <brendantdj@bar-technology.co.uk>
+Date:   Fri Oct 26 16:51:18 2018 +0100
+
+    That's already imported
+
+commit cf41c246785ac9200486af47a6020b20e7c94acd
+Author: Brendan T D. J <brendantdj@bar-technology.co.uk>
+Date:   Fri Oct 26 16:50:55 2018 +0100
+
+    Created events that only return False and True for pyHook.
+    
+    Started on fixing the freeze mouse thing as it wouldn't work before.
+
+commit 907ec1ef812555b12f4434cfb89324d259459a4f
+Author: Brendan <jbrendan70@outlook.com>
+Date:   Fri Oct 26 16:04:18 2018 +0100
+
+    Update README.md
+
+commit 13a7b8d9cb13c513765413fef9eff152cd8495bf
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Oct 21 18:32:58 2018 -0300
+
+    i think this fixes #51 and infamous #42
+
+commit 5add1d7d2899b7377df93f5edb916cf7ea4ed868
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Oct 21 16:40:02 2018 -0300
+
+    cant actually search for environment variable in target computer so removed it from token
+
+commit 9fca1c504f4be81fd66369a4b052d2f0b8c2ebf5
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sun Oct 21 15:53:35 2018 -0300
+
+    updated README, added token verification and fixed opencv module in requirements.txt
+
+commit 86c957db550464fad46f217de6a96dd1de50e0c7
+Merge: 51f6624 fc57c0f
+Author: Nexor <mvrozanti@hotmail.com>
+Date:   Sun Oct 21 11:24:37 2018 -0300
+
+    Merge pull request #49 from dudeisbrendan03/master
+    
+    Python 3.7 because nobody has python 2.7 anymore
+
+commit fc57c0f5bff48e293da227751e02d40babf18a09
+Author: dudeisbrendan03 <jbrendan70@outlook.com>
+Date:   Sun Oct 21 15:08:56 2018 +0100
+
+    so everybody can use this (python wrapper script)
+
+commit 28a873d07e9931216e4d215df7894d922d321dae
+Merge: 2df9d47 f0fa73e
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Sun Oct 21 15:07:34 2018 +0100
+
+    Merge branch 'master' of https://github.com/dudeisbrendan03/RAT-via-Telegram
+
+commit 2df9d478a2d4bff172efd3e7ded703c40be9ac80
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Sun Oct 21 15:06:28 2018 +0100
+
+    be gone - build logs
+
+commit f0fa73e31134c68a08cf3aac37739cb68123a4eb
+Author: dudeisbrendan03 <jbrendan70@outlook.com>
+Date:   Sun Oct 21 15:05:59 2018 +0100
+
+    Delete Analysis-00.toc
+
+commit 2e53baa40bc57123cd5cff3953517e4fae2230c6
+Author: dudeisbrendan03 <jbrendan70@outlook.com>
+Date:   Sun Oct 21 15:05:00 2018 +0100
+
+    UPX 3.95
+    
+    All my git clients won't create this folder
+
+commit 1b20d416296fc553f516f05f47de58dfc5e3bfef
+Author: dudeisbrendan03 <jbrendan70@outlook.com>
+Date:   Sun Oct 21 15:03:51 2018 +0100
+
+    create UPX folder
+
+commit c1fb74c4eeb5c10cf64f659a51b006a22666aeab
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Sun Oct 21 12:30:43 2018 +0100
+
+    ignore some things, update the readme for py3.7
+
+commit a206b31bafea44ba5068845971bdbd2b9fdaf9ed
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Sun Oct 21 12:26:25 2018 +0100
+
+    camera
+
+commit 52f3e3a65aa4f93c579260bfb4fe8a4e79cec908
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Sun Oct 21 12:25:09 2018 +0100
+
+    reading is good for the brain
+
+commit f7dc13f2cc110bb7a27407c4deabd872cba36df0
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Sun Oct 21 12:23:36 2018 +0100
+
+    Oops, should've added that
+
+commit 16a29def4ba292a3b41bedc6d824a4c1a3c5a60e
+Author: Brendan Jennings <jbrendan70@outlook.com>
+Date:   Sun Oct 21 12:21:56 2018 +0100
+
+    UPX 395, fixing compilation issues, py 3.7 support, can now take photos from webcam
+
+commit 3dbc1ce8940e6639f817ba36072f3a6b53134680
+Author: dudeisbrendan03 <jbrendan70@outlook.com>
+Date:   Sun Oct 21 11:45:38 2018 +0100
+
+    pyaudio being a piece of $h!t and not working
+
+commit 8a709f3728b78f468823dcb94790620be11e3b74
+Author: dudeisbrendan03 <jbrendan70@outlook.com>
+Date:   Sun Oct 21 11:44:50 2018 +0100
+
+    Python 3.7 - main
+
+commit 51f66245e4146b435845927edcbe4c2a443ee50b
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Mon Feb 12 15:41:04 2018 -0200
+
+    undoing logging for now
+
+commit b3a2575a073ea96535360c48d4f4c00f40938ff1
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Feb 10 17:12:58 2018 -0200
+
+    added logging.exception for  better debugging
+
+commit 4cfb704502d1e71bfe9388c0bacb80465bb564f8
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Feb 10 14:43:04 2018 -0200
+
+    removed
+
+commit 52c71bb65f281f0c812779524b6886ee538b937b
+Author: Marcelo <mvrozanti@hotmail.com>
+Date:   Sat Feb 10 14:17:43 2018 -0200
+
+    fixed some requirements and batch files
+
+commit bc9ff3e18ac5ced7b3fc6e28bfc7e1d9efd5e393
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Sep 2 11:24:12 2017 -0300
+
+    Added /cmd_exec feature (still in need to keep cmd window open to keep current directory info)
+
+commit 60fb1d5e86513f08283d4b5bf8ebd1daabb715f1
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Fri Jul 7 14:32:29 2017 -0300
+
+    Added /get_chrome feature + typo fixing
+
+commit 0d7a20c9cc98b28b06f65d963beb309a1d9e70f4
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Fri Jul 7 14:30:49 2017 -0300
+
+    Added /get_chrome feature
+
+commit ac30097d9c1610c9c365206e3b2c9dba03bcab0c
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Wed Jul 5 18:28:02 2017 -0300
+
+    Added /python_exec feature
+
+commit 2b5621129de42931f3c86fb7a39eab4dd52b876e
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu Jun 29 16:32:53 2017 -0300
+
+    Change wallpaper from URL
+
+commit 34b3e1c096608d57692c770f43b52aeae9bd92cf
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu Jun 29 15:57:06 2017 -0300
+
+    Fix typo that made last commit not work
+
+commit 23043c1a1c7719a216f510de50c44df52c257398
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun Jun 25 19:54:14 2017 -0300
+
+    Added change wallpaper feature
+
+commit 33a21402602eec505367d14b3e0e68fed6c2f549
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Wed Jun 21 21:49:23 2017 -0300
+
+    Added shutdown, reboot and DNS cache gathering features - Thanks Dviros
+
+commit 46e152ba73dc481fdec54767b3fa0ee162ea8327
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Tue Jun 20 21:07:41 2017 -0300
+
+    Added update executable feature! Thanks LearnerZone
+
+commit da174b6db20d0f12bf3a8d988965705cd6e3e854
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Fri Jun 9 15:26:40 2017 -0300
+
+    Added new goals
+
+commit 3aebf3631171cbf6b29adeb676d5053c07f13d8d
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Fri Jun 9 15:12:56 2017 -0300
+
+    Added window title logging
+
+commit d8d3c8fc391d55a34a4705aa3cf7323254666801
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Jun 3 01:18:11 2017 -0300
+
+    Added copy feature
+
+commit 56081d93db5cdb3bcad1339c8b2117ef9bb35e45
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu Jun 1 17:09:19 2017 -0300
+
+    Fix mandatory everyday typo
+
+commit 65adbda68928f5ed469e8c5d59d46282dd671a9a
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu Jun 1 17:06:04 2017 -0300
+
+    Added /mv feature
+
+commit 6cffab0ff965d67a9725128b0d4079a3a4936cdc
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu Jun 1 16:37:20 2017 -0300
+
+    Fixed /play command not sending out format on missing argument
+
+commit e188567a0d97d660017ebde8e43a4df021cba001
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun May 28 19:59:55 2017 -0300
+
+    Changed keylogs.txt file to .user file - discretion
+
+commit 64ecc57eb763286b57f204dc1045761e94fdc1bb
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun May 28 19:52:59 2017 -0300
+
+    Ping feature added - make sure target is online
+
+commit bfe623f22240fc98140062f6b54a3549bc5f9655
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu May 25 18:47:43 2017 -0300
+
+    Getting rid of features dictionary - not really useful
+
+commit abacadf615a09086586928d579bf01e216277d3c
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu May 25 18:46:24 2017 -0300
+
+    Fix typo in last commit
+
+commit cc7afe5c15af154a1214cc0360b65279a098fdb8
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu May 25 18:42:56 2017 -0300
+
+    Fixed Issue#6
+
+commit 7deed4a106025dea9f282b7a5c1ac6403365e62c
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Thu May 25 18:24:51 2017 -0300
+
+    Added [en/de]code_all feature
+
+commit b2e2104001ac1d5445ebab60f941d042ab77f9cf
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Tue May 23 13:53:02 2017 -0300
+
+    Bugfix on send_safe_message
+    send_safe_message has been created due to program failing when target is
+    disconnected from internet
+
+commit fe210fcc85186784a482962034252d1567c5c951
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Tue May 23 03:41:36 2017 -0300
+
+    Bugfix Issue#8
+
+commit 0bcddb09970c07a84ce3393b616a1af131868099
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun May 21 20:44:22 2017 -0300
+
+    Fixed keylogger not adding to file
+
+commit f93fda67063f5e19c8bd325d6b9d970813783390
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun May 21 20:14:19 2017 -0300
+
+    Fixed ip_info not showing text because of website encoding
+
+commit d46e59502b788b7820bdc6a8fcc9be3e7cb3fc72
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat May 13 15:30:30 2017 -0300
+
+    New goals
+
+commit 8548c9732b8bbab9844f00e03a772d57d6146b43
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat May 6 00:14:58 2017 -0300
+
+    Added /schedule feature
+
+commit db10e13f1a321f495c59b95e7c050c9fea2d0457
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Fri May 5 23:05:40 2017 -0300
+
+    Tasklist feature added
+    Also: Long messages are now able to be sent by splitting.
+
+commit 02501eb5cc4cf5a2f741a12c1336c9c6338ef6d3
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun Apr 30 17:52:06 2017 -0300
+
+    Thanks to Dviros - ARP table + local ip
+
+commit 6551cba882ff8a8d292fb4a50c29adeba87bce71
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 18:19:38 2017 -0300
+
+    Added *.pyc files to .gitignore
+
+commit 6b89956b7240b8b0eb1239d92c8c3e718c183b42
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 18:17:46 2017 -0300
+
+    Added /[un]freeze_keyboard feature
+
+commit ad4f83146339bb4798b2b7e90922d9a5d31e0778
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 17:25:27 2017 -0300
+
+    Added UPX support
+
+commit 92cd4521fbb572fd536363ae658880a104fab782
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 17:24:55 2017 -0300
+
+    UPX support added
+
+commit 88ce28ec5e8bbb64f1672d5a4280e283cf9f2fad
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 17:24:26 2017 -0300
+
+    UPX support added
+
+commit 6ad67a757ff88a476786ea3641f360590e0a6253
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 15:56:49 2017 -0300
+
+    Removed all unnecessary files from remote
+
+commit 4cd7894babb55dee546eb32daa66653d9b6ea09d
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 15:55:20 2017 -0300
+
+    Completely removed contents of build folder
+
+commit 651e02f8b058909b20ec2a82b7445556281c24ec
+Merge: 862e031 682f984
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 15:51:07 2017 -0300
+
+    Merge branch 'master' of https://github.com/mvrozanti/RAT-via-Telegram
+
+commit 862e031d650df8853eeaa1e7a3bd76a410e89982
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 15:44:18 2017 -0300
+
+    Removed .toc files
+
+commit 682f9845b5b8a42fadfd58b8402b445e3cdfdbba
+Author: Nexor <mvrozanti@hotmail.com>
+Date:   Mon Apr 24 08:36:43 2017 -0300
+
+    Update README.md
+
+commit 9aedb33391c684aac42b16d5445692b74ceffd6c
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun Apr 23 17:58:23 2017 -0300
+
+    Added [WIP] ideas on README
+
+commit 211df56bfc21ad975af3716839832ea6303b2e63
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun Apr 23 17:24:06 2017 -0300
+
+    Keylogger now registers more keys
+
+commit c1c11d747300bcf41509f9ef54751c1bfd7c9359
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun Apr 23 16:42:42 2017 -0300
+
+    Proxy feature seems to be working on port 8081
+    At least for LAN it does. More tests need to be done to check if it works
+    on WAN.
+    README updated.
+
+commit 7e31217990fd931337874ebe5a9f2efac5f3f364
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 22:30:48 2017 -0300
+
+    started working out proxy server
+
+commit dfe94aa1cbdce48ed3f40737cfe9d843949dd39f
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 20:59:20 2017 -0300
+
+    Fixed hidden_folder location being dependent upon executable format (py or exe)
+
+commit 5265b5322294eaab776d48284803cde7fd0020b8
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 20:50:54 2017 -0300
+
+    Finally added microphone feature!
+    Also edited README for feature exposition
+    Created new batch for just running the application
+
+commit 1fcc202629daf7516a8d4d6297a7f34899d7e467
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 18:20:52 2017 -0300
+
+    New screenshots file for updated usage
+
+commit 908277078736111e0d5b12288f28ce9e5402555e
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 17:44:14 2017 -0300
+
+    README correction
+
+commit 7d4ab22fef851be794e7e5c0143cc53688225056
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 17:36:35 2017 -0300
+
+    Functionalities is now a dictionary with commands as keys and required arguments as values
+
+commit 5f55a4056ea450a36647a204976dc09cd4b0b56a
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 17:15:59 2017 -0300
+
+    Added /delete feature
+
+commit dc98bdea6411d995b752a4e5e5a4ddd05b4b4aad
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 16:34:56 2017 -0300
+
+    Functionaliy list is now sorted
+    both in help, README and code itself
+    /play feature is now self-explanatory upon wrong use (0 arguments)
+
+commit 84c7e4fe567f4229a4229af9bf4a84c2dda6d6ae
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 16:20:03 2017 -0300
+
+    Bot now greets multiple known_ids upon start
+
+commit ac8a6c3cfe9156474cedcb629df89b694c1c9260
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 16:12:45 2017 -0300
+
+    C:/Program Files/Git/ls now supports 0..1 arguments
+
+commit 67c14bebbc4c4dd8c792169d56aefaeb07f01d75
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 16:02:03 2017 -0300
+
+    fixed double message happening in /ls sometimes
+
+commit b84c25ba2c7627d1481d7bd23b5409ff6e450b92
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 15:23:59 2017 -0300
+
+    Reedited /to for clarity
+
+commit 77bfad92b80b4bf893e228017e3d960e2b4db77f
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 15:17:41 2017 -0300
+
+    added instructions to /to command
+
+commit 7ee5645d967d4cb2899aa5a3fa6c7c45942a13c0
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 15:04:39 2017 -0300
+
+    README commands are now sorted lexicographically
+
+commit 58f853de3a125235cb5ed144b0d72840f728b139
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sat Apr 22 14:50:48 2017 -0300
+
+    download_file command now renamed to download
+    pwd feature added
+    cd feature added
+    ls now requires no argument (prints cwd)
+    token and chat_id are now assigned as environment variables so I don't
+    have to worry about you haxors stealing my stuff ;) (Thanks Kasama)
+
+commit d5bc7980cb04bcf60adb79504e7fbc66b8e639c6
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Wed Apr 19 23:27:32 2017 -0300
+
+    .gitignore set, going to sleep
+
+commit e28029276ec69439b01e4b62e538e246af0fc196
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Wed Apr 19 23:22:04 2017 -0300
+
+    learning gitignore
+
+commit 040b92a65c67a7b10ba3700602e7bb77d5fbe496
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Wed Apr 19 23:16:35 2017 -0300
+
+    Added gitignore for .exe
+
+commit adab2c76be74ab434a341d68d4ba5bedf5fed004
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Wed Apr 19 23:08:19 2017 -0300
+
+    Complete remodel
+
+commit fd9592cfccdd2733d454636e6225c313469cd92d
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Tue Apr 18 17:24:52 2017 -0300
+
+    Added /play youtubevideo feature
+
+commit 79137faa701ee48f17a871f1258fea68093d4e49
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Tue Apr 18 17:19:54 2017 -0300
+
+    Added /play feature
+
+commit 3ae1fdc933006e0170cb443971a341d8c94d7f7b
+Author: mvrozanti <mvrozanti@hotmail.com>
+Date:   Sun Apr 16 21:53:31 2017 -0300
+
+    fixed /msg_box
+
+commit 8cdad6da0bfef026cd66ef437a8545503100d35d
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Mon Apr 17 02:56:19 2017 +0530
+
+    Fix mis-information
+
+commit 88ab9f5e70741bd9b7adf66eb5113dce5f290b23
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 20:58:33 2017 +0530
+
+    Update docs on self_destruct
+
+commit e234e978a2974a47b6645a2ccbbed1fbc4e4c23e
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 20:57:41 2017 +0530
+
+    Fix some bugs
+
+commit f0d38682f6435db7a54c1032129214931ac6b598
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 20:37:51 2017 +0530
+
+    Improve self_destruct
+
+commit 4c3847b7c488e7118ce52e2bbcb6e7f932515100
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 19:30:36 2017 +0530
+
+    Update WIP list
+
+commit 12625899999de1685f09b79e61631a9d8cae8217
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 19:20:51 2017 +0530
+
+    Add logic when hiding itself
+
+commit d653443e16d5f768932f63537c85167b1146b27b
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 17:20:11 2017 +0530
+
+    Update docs on manually removing files
+
+commit bf682b78e87f4d936383000e01a94a49f7586de6
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 17:17:48 2017 +0530
+
+    Change default folder in compiled to AppData\Roaming
+
+commit a69b27e3bdf3d84d2888247061ece3e6e374028e
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Sun Apr 16 16:53:39 2017 +0530
+
+    Fix bugs and add upload file feature (#1)
+    
+    * Add upload file feature
+    
+    * Compiled form is now more customizable
+    
+    * Update hide_folder
+    
+    * Fix file_name while saving the file being uploaded
+    
+    * Fix imports from win32com.client
+    
+    * Fix imports from win32com.client
+    
+    * Update docs on compiling
+    
+    * Fix typos
+
+commit 420d64ff087c4e4ec7001f3a6723c9a7ea4ce4e8
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 14:02:55 2017 +0530
+
+    Clean README
+
+commit c070d2494fabcaf3c66d48ceafee40cd0b85dc04
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 14:01:26 2017 +0530
+
+    Clean README
+
+commit c7fd09bd3e6b93e878dbef66686bc9e593638ca0
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 02:04:40 2017 +0530
+
+    Add docs to delete keylogs.txt
+
+commit 5077169e8bdffa69f41ba5933a1dec48416ccfc3
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 02:03:02 2017 +0530
+
+    Modify keylogs.txt location
+
+commit d1cdfc2a68311b164f5417dad23d6ed9a763302a
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 01:54:10 2017 +0530
+
+    Update line nos.
+
+commit 75000c87f79c01e7d7d2f03af350b6a5ac5c044a
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 01:52:47 2017 +0530
+
+    Update line nos.
+
+commit 2c9e4028d1f9addec27c75f78dd2d21135354fa3
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 01:50:49 2017 +0530
+
+    Add warning
+
+commit 86a4ba14805992312cc01040a7b7b12daff79c36
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 01:44:39 2017 +0530
+
+    Add infection and /self_destruct
+
+commit 52dc54a926a7ce0b48a8386aa3e4eb919ac886b7
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 01:43:16 2017 +0530
+
+    Add infection and /self_destruct
+
+commit 01ecf754f7479d7e7b0c3ddf6c510e0beab52774
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 00:45:27 2017 +0530
+
+    Add tendo
+
+commit 15716bc49d996cbf33ff19fb480b6d1dd3d8e15c
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Fri Apr 14 00:26:35 2017 +0530
+
+    Add winshell
+
+commit a057345ef96bf0d9b7ab7371f48088e4a53846ec
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 23:17:21 2017 +0530
+
+    Improve docs
+
+commit f02f621a75b2c78854e4f25cb4f4c6f1f13522ba
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 23:14:08 2017 +0530
+
+    Change ID to chat_id
+
+commit 53fa0fd296a48eb5a46a66a4cbcff0847de102cd
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 23:10:47 2017 +0530
+
+    Remove exceptions
+
+commit ecaf3554855e9980a3870d06a573e049e0602def
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 23:09:20 2017 +0530
+
+    Update restricted response
+
+commit 831cbdf2900616203d98f5e29e00dced8420e2d5
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 23:07:25 2017 +0530
+
+    Modify to #L130 & #L132
+
+commit 654d37826b722bdea011cbc3db4f880620e1b640
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 23:04:16 2017 +0530
+
+    Remove exceptions
+
+commit 534358664c919d960e016fe5337fdd33a565f0cc
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:42:48 2017 +0530
+
+    Update L#
+
+commit 240fb677eecabaa45fd77d4cf966371327f84e8e
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:39:43 2017 +0530
+
+    Catch exceptions
+
+commit f074265342eb3467e252fd5543b8a790041e5195
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:39:21 2017 +0530
+
+    Update to #L43
+
+commit f5b83dae90611ec88d6d579f63c57d10e5d01eb2
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:29:41 2017 +0530
+
+    Add installation docs for pyHook
+
+commit b65013eef4c095649b17557134153594f34bc8ec
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:29:06 2017 +0530
+
+    Add installation docs for pyHook-1.5.1
+
+commit 5efa0dcd892275b8df642a069cded863567c6c8b
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:27:50 2017 +0530
+
+    Add installation docs for pyHook-1.5.1
+
+commit 8733d5af7396d632aaf1520b6821697e9c1c3c90
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:24:36 2017 +0530
+
+    Add pypiwin32
+
+commit f8f5f31861d7a1d8a8412083a72b7536a207361d
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:24:00 2017 +0530
+
+    Add pypiwin32
+
+commit 22480036c57b93db11257af3a5b7c71d2901f56b
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 22:23:31 2017 +0530
+
+    Add pyHook-1.5.1 64-bit
+
+commit 46237e6e6a5ed9014a397f38c600bc4e7f8fa947
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:37:15 2017 +0530
+
+    Python3 support will be added soon
+
+commit 4aefb76f10d06a40e2de660b3ae66af73c37840f
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:29:54 2017 +0530
+
+    Add executing files on target
+
+commit 58f869544793e4c1ede1484fc64ae97d227c2e17
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:28:09 2017 +0530
+
+    Add IP address information
+
+commit c60ca9801c6f0eedfa6f8f1887d596b6ab6c958f
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:26:13 2017 +0530
+
+    Fix script name
+
+commit 083332098ca600846054598e82e562a484631ddb
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:24:41 2017 +0530
+
+    Fix numbering
+
+commit 69a0fb9e2924183a42f3417d427b8b0efe529a63
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:18:46 2017 +0530
+
+    Add contributing
+
+commit e8db8fb434a9da02671d73318d4f80e27ddf23ce
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:14:48 2017 +0530
+
+    Add WIP tags
+
+commit 68a20911ace270df2a9a8ca1abdc01ae4e223921
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:14:00 2017 +0530
+
+    add WIP tag to Upload files
+
+commit 2720eea7a21166cb06c0643b407d3c1790f2efe6
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:09:39 2017 +0530
+
+    Create RATAttack.py
+
+commit f55679823f094c82d7532a108265e2225ffb064e
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:06:32 2017 +0530
+
+    Update screenshot
+
+commit faacf5c011d1a44e4d395c9aebaac93df91fbe9d
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 21:00:52 2017 +0530
+
+    Update installation docs
+
+commit e0b7ea96dd27163781849225b681141df36a1a16
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 19:48:55 2017 +0530
+
+    Add notes
+
+commit f9bc0cc9c8b76e307a3b97fcb394c6a0a43a152b
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 19:39:57 2017 +0530
+
+    Add pyInstaller
+
+commit 77b22350902a474c2d0a749a23c499f162a4fe76
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 19:32:37 2017 +0530
+
+    Add pyHook-1.5.1
+
+commit 700975db002b28ebf2005774d0a4d67252030105
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 19:32:00 2017 +0530
+
+    Add pyHook-1.5.1
+
+commit b6f37621a0d78ae9113226eea66c9c96f84c3c47
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 19:14:42 2017 +0530
+
+    Add dependencies
+
+commit 113ac0892f4ca7bfbd22fe07e822cb8372455a0e
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 18:41:24 2017 +0530
+
+    Update Compiling
+
+commit 3ea3bdfd8844f7c09e5c82eca625afc14c6fa161
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 18:38:10 2017 +0530
+
+    Add Compiling
+
+commit 6ddc54e25c0794774c573ab9be88fd358b184dab
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 04:34:03 2017 +0530
+
+    Add disclaimer and license
+
+commit 31a2cec368b78c9876ddd87acd097eb978d3e95c
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Thu Apr 13 04:27:34 2017 +0530
+
+    Add supported commands
+
+commit 63b6a6813b8f5d108d7ec98d98ef303b3ff8030c
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Wed Apr 12 18:34:31 2017 +0530
+
+    Update README.md
+
+commit 9a90fe6935edc9d3b731010e23a66112942e87c0
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Wed Apr 12 18:29:21 2017 +0530
+
+    Update README.md
+
+commit d19707905724822c76487e2c7744ab85b3a6861c
+Author: Ritiek Malhotra <Ritiek@users.noreply.github.com>
+Date:   Wed Apr 12 18:06:38 2017 +0530
+
+    Initial commit

@@ -1,0 +1,380 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+Scribble
+========
+
+A jekyll theme. [Want a demo? click and read instruction. :point_left:](http://scribble.muan.co/2013/05/06/scribble-the-jekyll-theme/)
+<br />
+[More themes](https://github.com/muan/muan.github.com/releases).
+
+![screenshot](http://scribble.muan.co/images/screenshot.png)
+
+There is no clever design philosophy to talk about, I tried to find something to work with, and 'scribble' came to my mind. 
+
+This theme uses Open Sans powered by Google Web Fonts, and was written in plain HTML, SCSS & CoffeeScript, though .scss & .coffee files wouldn't be included in the theme. 
+
+The theme is mobile optimised but I did not check browser compatibility. It looks great in Chrome, Safari and Firefox though.
+
+---
+
+### Get started
+
+1. [Fork the repository](https://github.com/muan/scribble/fork).
+2. Clone the repository to your computer.<br /> `git clone https://github.com/username/scribble`
+3. `bundle install`
+4. **Using older versions of Jekyll**<br />
+  Build and run jekyll using `jekyll --server --auto`.<br />
+  **Using [Jekyll 1.0](http://blog.parkermoore.de/2013/05/06/jekyll-1-dot-0-released/)**<br />
+  Build Jekyll using `jekyll build`.<br />
+  Then run Jekyll using `jekyll serve --watch`, go to http://localhost:4000 for your site.
+
+---
+
+### Make it yours
+
+1. I have extract most user specific information to `_config.yml`, you should be able to set up almost everything from it.
+2. Change about.md for blog intro.
+3. For domain settings, see [the guide from GitHub](https://help.github.com/articles/setting-up-a-custom-domain-with-pages).
+
+---
+
+### GitHub Pages stuff
+
+The `gh-pages` branch of this repository is [the project page](http://scribble.muan.co), which **should not** be used as your blog, so use `master` branch for your blog. This is assuming your blog repository will be called [your-username].github.io, if tis is not the case, you will need to delete the `gh-pages` repository and create a branch off the `master` branch. Hope that's clear.
+
+---
+
+### Options
+
+When writing a post, there are 3 options you can add to the header.
+
+1. **disqus: y**<br />
+  If disqus is set to 'y', at the end of the post there will be a disqus thread, just like this one. To use disqus, you MUST [set up your own disqus account](http://disqus.com/).
+
+2. **share: y**<br />
+  An option for showing tweet and like button under a post.
+
+3. **date**: 2013-05-06 18:07:17<br />
+  Date is not a required header since Jekyll reads the file name for date, this was added in only for the **signoff time**. (as shown at the end of this post) If you don't want the signoff time, go into `/includes/signoff.html` remove the `<span>`, and remove `{% include signoff.html %}` from `/layouts/post.html`.
+
+---
+
+### The end
+
+Like it? [Tell me](http://twitter.com/muanchiou).<br/>
+Question? [Use GitHub Issues](https://github.com/muan/scribble/issues).
+====================== GIT HISTORY: ======================
+130331f HEAD@{0}: clone: from https://github.com/sforteln/scribble
+commit 130331f402e9fd10c098179c8eb6affc9f25d8e4
+Merge: 881e635 110d533
+Author: Mu-An Chiou <muan@github.com>
+Date:   Sun Jul 6 13:04:33 2014 -0700
+
+    Merge pull request #28 from grplyler/master
+    
+    Changed pygments to highlighter in _config.yml
+
+commit 110d5332529d58b09843834c37db7cc302cf1327
+Author: grplyler <g.r.plyler@gmail.com>
+Date:   Mon Jul 7 01:07:35 2014 +0800
+
+    Changed pygments to highlighter in _config.yml
+    
+    Deprecation: The 'pygments' configuration option has been renamed to 'highlighter'.
+    Jekkyl v2.1.0
+
+commit 881e6350d14299eea504c9793bb2625ef973491f
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Wed Jan 29 16:30:30 2014 +0900
+
+    Use Pages gem instead
+
+commit 83dfc17ad406177ebbf73287b8a2c26128840741
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Wed Jan 29 16:18:10 2014 +0900
+
+    Add code block examples
+
+commit ca5e0e4fd341df892fc5a8518a37f9396f36ba92
+Merge: 54aab2e 95bd16c
+Author: Mu-An Chiou <muan@github.com>
+Date:   Tue Jan 28 23:17:42 2014 -0800
+
+    Merge pull request #25 from denzeljiang/master
+    
+    fix code block on mobile
+
+commit 95bd16c23cedb73e3fdd3af0d89668c2d7a1441f
+Author: LaputaPrince <denzeljiang@gmail.com>
+Date:   Tue Jan 28 22:37:13 2014 -0500
+
+    fix code block on mobile
+
+commit 54aab2e7c0f26bf828f544467ad7fb5605eb6395
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Wed Nov 20 11:14:43 2013 -0800
+
+    Fix 404 page error, resolves #23
+
+commit ce28b24f4d220a11200134632433e4a412502cfd
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Wed Nov 20 11:11:37 2013 -0800
+
+    Use redcarpet, see https://github.com/mojombo/jekyll/pull/1515
+
+commit 22882b4e4a756edd731440bc5e24a5c3851afb77
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Thu Sep 26 12:52:59 2013 +0100
+
+    Update readme
+
+commit f1ac6b2c0b6824aa872406cf48b4bf541033c2ee
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Thu Sep 26 12:52:24 2013 +0100
+
+    Update readme
+
+commit 9f470f2e4b4b1cc93f21cbd192c09e7a7dc5f2a2
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Thu Sep 26 12:49:07 2013 +0100
+
+    Post
+
+commit 7e903d906ec440513dab8a56625d43e7f4d8c88e
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Thu Sep 26 12:49:02 2013 +0100
+
+    Wat
+
+commit 834855270bdf9c3bf6e7273a8d03cf1701904619
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Fri Aug 16 11:14:23 2013 +0100
+
+    It feels stupid that I have to push twice but well
+
+commit daded21d6ac0328041718b9282d5fa12c2e72a0f
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Fri Aug 16 09:55:23 2013 +0100
+
+    Add scss files to master
+
+commit b7f36985dd52cb97a0eabf6f854f5e37e2a0271a
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Fri Aug 16 09:55:12 2013 +0100
+
+    Update gitignore
+
+commit 4cdd86c00c5c2c92fac0cde6580cf971ffe682ac
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Fri Aug 16 09:42:51 2013 +0100
+
+    Add coffee files
+
+commit 97b085d3f0b986e3753e45388ae0bf8e93978d90
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Fri Aug 16 09:40:53 2013 +0100
+
+    Add Rakefile
+
+commit aa4580988addf873bdaadde3cfe15eb4817f185c
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Fri Aug 16 09:40:47 2013 +0100
+
+    Add bourbon
+
+commit 2f9eedadc8c963d9a252752d37ec9f21b8dd437d
+Merge: 46a17de 770f819
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Mon Jul 29 16:51:06 2013 -0700
+
+    Merge pull request #17 from tkhr/patch-1
+    
+    Update README.md, fix link for GitHub Issues
+
+commit 770f819c52242988221c2608442302bb046727f7
+Author: Takehiro Adachi <takehiro0740@gmail.com>
+Date:   Tue Jul 30 05:28:31 2013 +0900
+
+    Update README.md, fix link for :octocat: Issues
+
+commit 46a17de0749a8b8c2dd7c33cbe412916b02f36c9
+Merge: b1e48f1 a86180b
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Fri Jul 26 07:56:03 2013 -0700
+
+    Merge pull request #16 from aigarsdz/master
+    
+    Remove border around image link
+
+commit a86180bcae87246f537d70c349c40c3811888c44
+Author: Aigars Dzerviniks <dzerviniks.aigars@outlook.com>
+Date:   Fri Jul 26 10:53:26 2013 +0300
+
+    Remove border around image link
+
+commit b1e48f17696389742a58cd22376b0a342fcf6bdc
+Merge: 6e528a8 75b67cf
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Mon Jun 24 06:14:07 2013 -0700
+
+    Merge pull request #13 from strongwillow/master
+    
+    I added key navigation support in post.
+
+commit 75b67cfa60381efbdea73cc11e75781276260d19
+Author: Clear Tsai <clear.tsai@gmail.com>
+Date:   Mon Jun 24 20:48:33 2013 +0800
+
+    Add key navigation in post
+
+commit 6e528a85472d0f5993581f83b91f5bf8385e4e47
+Merge: b822ddd eb8e725
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Thu Jun 20 14:42:22 2013 -0700
+
+    Merge pull request #12 from davefp/master
+    
+    Collection of small fixes
+
+commit eb8e725c4486d4593a36b6ee12193a25b2a8f8c2
+Merge: bebf86d b822ddd
+Author: David Underwood <david.underwood@jadedpixel.com>
+Date:   Thu Jun 20 09:29:26 2013 -0400
+
+    Merge branch 'master' of https://github.com/davefp/scribble
+    
+    * 'master' of https://github.com/davefp/scribble:
+      Make sure syntax highlight does not effect gists. Fixes #9
+      Added the inclusion of bold in addition to normal
+      Fix code block styling-- FFX's thick white scrollbars… fixes #4
+      Fix code block
+      Remove link target attr, closes #2
+      Remove CodeMirror and use pygments instead.
+      Update README.md
+    
+    Conflicts:
+            _config.yml
+            _includes/links.html
+
+commit bebf86df22c0939f8d2eab3eed6a99d02678405f
+Author: David Underwood <david.underwood@jadedpixel.com>
+Date:   Thu Jun 20 09:21:20 2013 -0400
+
+    Quick layout fixes
+
+commit b822dddbf6cd5fad0729d4f053221065fe878fb9
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Sat Jun 1 17:51:32 2013 +0100
+
+    Make sure syntax highlight does not effect gists. Fixes #9
+
+commit db0625b7aba90734fca9af8de164691b6e084160
+Merge: 4f8d432 66bf932
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Mon May 27 07:19:04 2013 -0700
+
+    Merge pull request #8 from matthew-campbell/open-sans
+    
+    Added the inclusion of bold in addition to normal Open Sans
+
+commit 66bf932179548d17ce51f04db3830cca54400a94
+Author: matthew-campbell <matt@matthewcampbell.org>
+Date:   Mon May 27 09:56:54 2013 -0400
+
+    Added the inclusion of bold in addition to normal
+
+commit 4f8d4328941380df86bd75724a5962ba751b267b
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Sun May 26 04:14:22 2013 +0100
+
+    Fix code block styling-- FFX's thick white scrollbars… fixes #4
+
+commit da68187fb5f6f06da36ec81eafd45f2c6ab0981c
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Wed May 22 13:15:00 2013 +0100
+
+    Fix code block
+
+commit 3997f383a5f6ced99f97d2cdbedc8a1c5d4e39ac
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Wed May 22 11:46:08 2013 +0100
+
+    Remove link target attr, closes #2
+
+commit 25bd684a399559f7613338ac3fce5cc81c6789e3
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Tue May 21 20:59:53 2013 +0100
+
+    Remove CodeMirror and use pygments instead.
+
+commit db614737adb7d1c4a2dae1b62cfcd8705d6a8df0
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Tue May 21 20:33:23 2013 +0200
+
+    Update README.md
+
+commit fbe8d95b23df47fb9e5285f4ce93c3c4f1e3cc6b
+Author: David Underwood <david.underwood@jadedpixel.com>
+Date:   Fri May 17 14:22:31 2013 -0400
+
+    Removes extraneous whitespace
+
+commit 985c6d690213a3a144ec9139c77cd92d70d77d91
+Author: David Underwood <david.underwood@jadedpixel.com>
+Date:   Fri May 17 13:57:45 2013 -0400
+
+    Updates page layout to display proper title
+
+commit d554428795da34e33d0ca802a9ede36afd2276b7
+Author: David Underwood <david.underwood@jadedpixel.com>
+Date:   Fri May 17 13:56:42 2013 -0400
+
+    Adds .gitignore for _site
+
+commit 6f551687540805749169f26c7036400d261f3e27
+Author: David Underwood <david.underwood@jadedpixel.com>
+Date:   Fri May 17 13:54:13 2013 -0400
+
+    Adds config to allow internal vs. external links
+
+commit 3433544d51beb1f0e810c50bd04f5a25af9dcd6e
+Author: David Underwood <david.underwood@jadedpixel.com>
+Date:   Fri May 17 13:45:15 2013 -0400
+
+    Makes the header nicer
+
+commit f171b246b4f38b0e37316503cbdbefb114a90c99
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Thu May 16 13:42:47 2013 +0100
+
+    TYPO! fixes #1
+
+commit ed9d891d93ae693c54dcaafa08996c8d1ee4a6b7
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Thu May 16 13:38:25 2013 +0100
+
+    Update about.md, fixes #1
+
+commit 81219fc7fbd75109c05035fd99c1d31434c9b07d
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Tue May 14 15:44:50 2013 +0100
+
+    … Forgot about Gemfile
+
+commit 6009dbc284d3b2ccd6ff63a192798d721aeec4b9
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Tue May 14 16:37:29 2013 +0200
+
+    Update README.md
+
+commit a75838de4aa540ee8c8b011af2025f42b181da78
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Mon May 6 20:21:29 2013 +0100
+
+    :curly_loop: Update steps
+
+commit 54dddee97b4a3667fc4afcc018e1b02fd95fb5b1
+Author: Mu-An Chiou <me@muanchiou.com>
+Date:   Mon May 6 18:48:43 2013 +0100
+
+    :curly_loop:

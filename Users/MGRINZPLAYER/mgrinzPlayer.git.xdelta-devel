@@ -1,0 +1,2473 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit c6493c5a57e1edc95fa27123e86fe14c3695f284
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Thu Jul 23 00:18:31 2015 -0700
+
+    run_release.sh fixes
+
+commit e2a8a7b0529c99106783a719cbb0052c2616d6fd
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Wed Jul 22 23:38:26 2015 -0700
+
+    run_release.sh functions on OS X
+
+commit d08d96f5e16a45cc3e45e5f51593c6750ab07654
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Wed Jul 22 22:11:36 2015 -0700
+
+    Bash cleanup
+
+commit 3ef3534fbc6677550e55a7c0d99fa7854ab31e5a
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Wed Jul 22 21:58:39 2015 -0700
+
+    Label 3.0.10
+
+commit 57f9222b301a085d20766a5a0cc97489c364466f
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Wed Jul 22 00:42:38 2015 -0700
+
+    Generate a Makefile.test for running tests
+
+commit 806836136cec2eeb763b4b539d4d41bc2c5bbf5c
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Mon Jul 20 23:55:51 2015 -0700
+
+    run_release builds LZMA in each host configuration; relaxes the single-bit error test for observed LZMA behavior, now expect no more than the specified number of non-failures
+
+commit 73e7b324de6d5e2a1959b61d0619b2c4353e640d
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Sat Jul 18 00:26:11 2015 -0700
+
+    run_release builds 32/64bit binaries for 32/64bit on linux and mingw
+
+commit 94b7d2c1c9ed371fb9e86d5e3355124a69f338d3
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Thu Jul 16 23:46:00 2015 -0700
+
+    Add printf tests, to be sure about mingw apparently false warnings
+
+commit 8c44ed7581ea8190ee07e477b5c7241f7db8ca23
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Thu Jul 16 21:59:24 2015 -0700
+
+    Remove obsolete Makefiles
+
+commit 53c2be245f503bc5e41b822ac2364f67a346d087
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Sun Jul 12 23:42:47 2015 -0700
+
+    XD3_WIN32: Handle size_t case in printf; avoid setting XD3_POSIX in Makefile
+
+commit ab5fac1b46411bdf6151013978a721d52342cc4f
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Thu Jul 9 21:37:34 2015 -0700
+
+    More work trying to build with mingw; not succeeding
+
+commit f56eeca9241a1dc570f77a419a98766e868301d5
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Wed Jul 8 00:39:11 2015 -0700
+
+    Build for mingw, work underway
+
+commit 33340a986e29ed681f71729901bf43309c745c15
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Sun May 10 21:27:13 2015 -0700
+
+    Release 3.0.10 prep
+
+commit 30b5745de795fba5f9425b3f0c043d1b44e1ceaf
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Mon May 4 21:14:27 2015 -0700
+
+    More followup on issue 188, correction to frontier_blkno calculation (was wrong when last block is full)
+
+commit aaa50352cef1452e1d3cd97d9fc90209715c0861
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Sun May 3 13:26:20 2015 -0700
+
+    Move three definitions to make them visible from regtest
+
+commit 7b1623ee69fd80034a5772e1ac7523af1375ddb9
+Merge: 9095fce adcba8b
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Sat May 2 22:20:35 2015 -0700
+
+    Pulling this
+
+commit 9095fce2a9cb614f5e6fbb8b91801236aa5f5510
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Sat May 2 22:17:09 2015 -0700
+
+    Off-by-one error leading to XD3_TOOFARBACK when a potential match is found in the 32nd block prior to EOF
+
+commit adcba8bb76667f648fbeac099ad1f014a781b228
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Mon Mar 30 23:45:18 2015 -0700
+
+    Add --with-lzma support
+
+commit 63c9404c28dbcde26a730f1c62b70e0994b240cc
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Mon Mar 30 22:57:48 2015 -0700
+
+    Update Copyright dates
+
+commit 729373a05b00410b2554904747444d92944d9b26
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Mon Mar 30 21:34:58 2015 -0700
+
+    README to README.md
+
+commit d33bb8605b03ea04d371a4f8a0aa7fa24866000d
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Mon Mar 30 21:33:00 2015 -0700
+
+    Update code.google.com URLs to Github
+
+commit a4aba85c92f68f15421a6c2360a9a3d3851f7a8f
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Sun Mar 29 23:34:01 2015 -0700
+
+    Update include & link paths; minor MSVC++ issue.
+
+commit c61b26a46dfbf63d06c463cd479d8069576fd128
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Tue Mar 24 00:20:10 2015 -0700
+
+    Tested (local trouble w/ lzma)
+
+commit 49af8d34a70ec3c798d1d2dcf225b12498f63cf9
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Tue Mar 24 00:03:45 2015 -0700
+
+    missing should not be checked in
+
+commit 03336535b53b85f096a6b8400d0d9118a5527d8c
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Mon Mar 23 22:33:17 2015 -0700
+
+    Stamp 3.0.9
+
+commit 66204f902496f9c5de3a82e1309c84c9ea103983
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Tue Mar 10 22:18:40 2015 -0700
+
+    Functions out of macros for xd3_decode_offset, to address warnings created by new definition of xoff_t
+
+commit a2e999beec49f222ab30006121eb84d8f9548fbb
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Mon Mar 9 23:00:16 2015 -0700
+
+    run_release.sh copied / modified from 64-bithash branch
+
+commit 6aaf25fbceea84599a8fc5880f3b456c95feea60
+Author: Josh MacDonald <josh.macdonald@gmail.com>
+Date:   Sat Mar 7 22:34:51 2015 -0800
+
+    Use named types for xoff_t, to get printf formats right
+
+commit b4288ec5c426bfd89dfe1a7a92ea9b04a245fb26
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Fri Mar 6 22:47:16 2015 -0800
+
+    Builds clean Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
+
+commit 5281e33754a38f111818ffddd66b2248d1f80b25
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Fri Mar 6 22:02:57 2015 -0800
+
+    .gitignore
+
+commit e6352b73d806a5705f6de87d2b10a888c224aadc
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Fri Mar 6 22:00:52 2015 -0800
+
+    Remove auto* generated scripts
+
+commit 26ef9742c102a806850bf935c17bb6524b24d9b0
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Fri Mar 6 21:59:44 2015 -0800
+
+    Use subdir-objects to placate auto*
+
+commit fe5f06a4955c546db67dba0b701cd526af98e281
+Author: Joshua MacDonald <josh.macdonald@gmail.com>
+Date:   Fri Mar 6 21:34:31 2015 -0800
+
+    Remove releases/
+
+commit ee616b958d794c6714d117b22f0be6757b379d7e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Oct 18 05:56:50 2014 +0000
+
+    Remove generic encoding table support
+
+commit 98bc4523a0c5d1a0743da4261e41a431a66acf2d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Oct 18 05:35:49 2014 +0000
+
+    Print about lzma in help
+
+commit ef93ff74203e030073b898c05e8b4860b5d09ef2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 12 05:24:22 2014 +0000
+
+    Add appheader tests; fix buffer overflow in main_get_appheader
+
+commit 7b6ff92bf4f954b70f92b04eadcf43fe69403cc8
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Apr 3 05:45:20 2014 +0000
+
+    Revert recent (unreleased) change in hash_value formula; make several tests use the average over 16 runs
+
+commit 81498dea08759883b4bfdb3335a95da92c9278dd
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Mar 9 05:44:20 2014 +0000
+
+    Fix issue in xd3_encode_memory causing error when IOPT buffer capacity reached and a copy reaches the end-of-source, causing unexpected request for second source block. New tests to cover this case. Removed the IOPT limit in xd3_encode_memory (improves compression).  Doubles sizing of the large-checksum hash table (fewer collisions, better compression).
+
+commit 9e98593f4cbaa59b8fdef989983a4fc727685b4c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Jan 14 06:27:04 2014 +0000
+
+    3.0.8 release
+
+commit 83253f41e9c16c7c043df5930da1f57fca3d294d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 13 06:22:27 2014 +0000
+
+    (continued)
+
+commit 8f0f344e3f8c2bb64dbd78a1a03794b1a0afcd8c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 13 06:17:48 2014 +0000
+
+    Binaries for 3.0.8
+
+commit 5011298b911992feb3c85f61546b316cda9562a4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 12 19:14:00 2014 +0000
+
+    Allow building with liblzma on Windows platforms.
+    Does not link, still debugging.
+
+commit 0043fc17a9fc0c1cf1be17f25d8b876714cd1e3a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue May 14 06:35:56 2013 +0000
+
+    3.0.7 source
+
+commit c044f7bcf2717f72eb4c728b75cffe9d458e351c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue May 14 06:34:40 2013 +0000
+
+    Add windows 3.0.7 builds.
+
+commit 0bc04475efa7611dccd291cf91411038fa5a667b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue May 14 05:35:52 2013 +0000
+
+    3.0.7 RC0
+
+commit d60e9beffed2aa6ab8e2f00ef2037fbc194960f6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon May 13 16:35:07 2013 +0000
+
+    Repair and improve the regtest
+
+commit 3dd6bad228fa7d6a118c3f2ed06ca0ce4816b846
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu May 9 05:59:01 2013 +0000
+
+    Fix LZMA encoding / decoding
+
+commit d9e99f91af7e5c52a9b5cbb998c26271249fe5b6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Feb 9 09:36:58 2013 +0000
+
+    Fix for printf warnings (independent of 32/64bit)
+
+commit 9b74e9d590b431e0fb48881fcccb0f5d099bdf6a
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Jan 21 09:09:05 2013 +0000
+
+    Release 3.0.6
+
+commit 2045293f8bb2738185befddccb5f1c6b71db1410
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 21 09:03:32 2013 +0000
+
+    Windows releases.
+
+commit ac17b222cb4294dfeabf1aeed74dfe1a24991412
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 21 08:35:44 2013 +0000
+
+    Revert to r386; prepare 3.0.6 release
+
+commit 2fa2807516df9afb29fbff9ffb18232260c66ec4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 21 07:45:51 2013 +0000
+
+    Park these changes; tremendous slowdown, will revert to 386
+
+commit e6b16a22f53632e1a6a2e622e792818b193e77f5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 21 06:22:47 2013 +0000
+
+    fix main_getblk_lru for decode
+
+commit 50e06849fd4a6972f207fe6333d87cb8b459fe8e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 21 04:40:11 2013 +0000
+
+    Further conversion cleanups.
+
+commit 6dab5fb9f9ecc61e2cecc227873df55542fc5bb5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 21 03:48:02 2013 +0000
+
+    Audit -Wconversion results
+
+commit 589131e4beed56f8f2a6834f183079fe07dc1eda
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 20 10:35:03 2013 +0000
+
+    Partial Win64 build fixes.
+
+commit df1e90ee3c130ad7b89d2273c2b0d53cab42d6f1
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 20 08:57:36 2013 +0000
+
+    Fix some TODOs (option_srcwinsz up to 4GB?
+
+commit 90e1af8f3e1867c33f86fe9ceccbaada01e8caef
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 20 03:09:40 2013 +0000
+
+    Makefile fix
+
+commit 972579fd3cb277b2b480902cb830076f6ea6d816
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 20 03:06:59 2013 +0000
+
+    Undo several temporary changes
+
+commit d7403297a8616ddeed0476d4d8cd48fa382342b7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 20 03:01:30 2013 +0000
+
+    Fix regression in SVN 376 (3.0.5)
+
+commit 8861d6fdc0dd728af8f2987813599e1fc43d5ee5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Nov 21 08:42:35 2012 +0000
+
+    Allow parsing values larger than 32bits.
+
+commit b0948838916a55874e89aa92ba8e72531fdea058
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Nov 17 08:26:35 2012 +0000
+
+    Rename windows release
+
+commit 5131c927493b1e9b8c1f1d7d16468a35a4bfd7e2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Nov 17 08:13:18 2012 +0000
+
+    Built 64-bit 3.0.5 for Windows 7,
+    Statically linked(fingers crossed)
+
+commit 517d29426946be9b73e3135e471088701560e247
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Nov 17 08:04:54 2012 +0000
+
+    Make -B a size_t, build and test w/ -m64
+
+commit 733c052865ace6971d6cc309b0d6ecfc8bc11d3b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Nov 17 05:49:05 2012 +0000
+
+    VS2010 builds w/ SDK 7.1 for x64. Now some more testing...
+
+commit 3debece1a6e2e9855d1f52d2c24acf8c63e61b50
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 13 06:17:19 2012 +0000
+
+    Add 3.0.5.tar.gz
+
+commit 3489c129e81517a87d2f3c7b66d1e51b2935e5f2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 13 06:14:31 2012 +0000
+
+    Label 3.0.5
+
+commit 95250a1edb606539ef2a84b97f15fcf9ca7f045d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 13 02:15:07 2012 +0000
+
+    Fix an off-by-one error in preventing > max_srcwinsize backward seeks
+
+commit cf7a6661699ee81be37b5866744440f2e4ebbd55
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Nov 12 08:37:40 2012 +0000
+
+    Remove a harmful error check/message, which prevented the decoder from reading correct inputs
+
+commit 21f36c26398ef1907bc43e02f4a9c2b8da9872b0
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Nov 5 06:53:57 2012 +0000
+
+    Address issue 147
+
+commit a9e8d2f03a29f81ecb490980d64431f25296085d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Sep 24 04:10:10 2012 +0000
+
+    Fix UNALIGNED_OK logic, add autoconf rule to detect for non-Windows builds and default to UNALIGNED_OK=1
+
+commit 04295a524612410a206f86e9103dc4dcf7df5eca
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Aug 19 19:13:26 2012 +0000
+
+    Add 3.0.4 exe
+
+commit 44d670a4f3dc866fa4bd7a80e31fd8c5d3c9b264
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Aug 19 19:08:23 2012 +0000
+
+    Build for Win7 x64
+
+commit 353c4ae6a7f181fdbbf1c4806dca28745cacff95
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 18 17:29:16 2012 +0000
+
+    Release 3.0.4
+
+commit 589234afb0ebe9baa615459a5dddff163fdab5cd
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sat Aug 18 17:26:56 2012 +0000
+
+    Prepare 3.0.4 on Linux/gcc-4.7
+
+commit 2e4a3d62c6b9fe12b25f6a5d01256badbbe4df5a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 18 17:14:30 2012 +0000
+
+    Prepare 3.0.4
+
+commit f1f956b4d86dad153f9cbb8eb87b04052c0fa96c
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Aug 5 21:02:11 2012 +0000
+
+    Build fix for gcc-4.7
+
+commit d7a5351fd2aa7fd90641cb5007be60ed3332df33
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Thu Jul 19 07:30:27 2012 +0000
+
+    Fix for build w/o liblzma present
+
+commit 86757b7e62ce6e3a30c66eda2f2aeacbfe2450d6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Jul 19 07:05:59 2012 +0000
+
+    Add support for lzma secondary compression (-S lzma)
+
+commit 9376393d3c0c1ce7280b91c4747b0eb1c98a943a
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jul 15 22:27:43 2012 +0000
+
+    Release 3.0.3
+
+commit 004eba3b3b54dd23fa8377aeb7dca9b7819bb8ca
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jul 15 22:20:43 2012 +0000
+
+    Compile on gcc-4.2
+
+commit 505be6b4cc8c142d4098f8c050e3c1075e1caf24
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jul 15 22:16:58 2012 +0000
+
+    Compiles on gcc-4.6
+
+commit 7fab5abad768eed704ed7819567598b88228e790
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jul 9 07:55:19 2012 +0000
+
+    Address external compression sigpipe
+
+commit 7202888da3a2c6b5d1b71ea0484b013d042add0e
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sat Jun 30 07:47:42 2012 +0000
+
+    Add a Windows (32-bit) release for 3.0.2.
+
+commit 3aacfbf7ab34e2ef227b6e7c12f42a42c1887824
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jun 30 07:25:22 2012 +0000
+
+    release 3.0.2 source
+
+commit cfb1068766390147371c14211da6d8cfac47db5c
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Wed Jun 27 09:32:08 2012 +0000
+
+    Fix a few more string shenanigans.  Basic tests in WIN32, builds in cygwin too.
+    Comments out Python/Swig, will make them conditional later (I can't figure this out).
+
+commit df30203f7af37f3a81033300f4a4790cd330d784
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Jun 27 06:35:37 2012 +0000
+
+    edit xdelta3.vcxproj
+
+commit 65aa190617d32e4778c2b553e0f069028cf975d9
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Jun 27 06:34:27 2012 +0000
+
+    remove strcat, sprintf
+
+commit 682e6c256ce25420951faf89ec104abb856deea8
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jun 18 15:44:02 2012 +0000
+
+    Adds an error message for XD3_INVALID_INPUT
+
+commit f1d09a6659bf905e0c417b95383902e7dc52ccc4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jun 18 12:08:49 2012 +0000
+
+    Fixes for CC=clang
+
+commit 87edd6f2a6738ee7ac69376e0555ef23cfe3dcfa
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jun 17 12:14:48 2012 +0000
+
+    Issue 120: compile with -pedantic
+
+commit 63acb876b02eeb9d890a03cf9b3cff751ce51d27
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jun 17 03:21:49 2012 +0000
+
+    Preparing release 3.0.1
+
+commit 1b454c840a58f19db8da3e9312b85f7615cb7226
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jun 17 03:17:24 2012 +0000
+
+    Build the python module, distribute a few extra files
+
+commit aa790704589d3dbd8a1e9ffcba6c4e1acb692c31
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jun 16 21:52:59 2012 +0000
+
+    Add examples/iOS to the automake dist
+
+commit 62bcc84a75e479bd20946ed9e288ee3574f4e879
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jun 16 21:24:29 2012 +0000
+
+    Add examples/iOS test app
+
+commit 00e24b43ffc8cc0eb2f062218646f465a8176b8f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jun 16 15:22:13 2012 +0000
+
+    Include testing/regtest.cc in Makefile.am
+
+commit c53d22c90235600c9518eccc63d2dd1416320044
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jun 16 14:31:55 2012 +0000
+
+    Updates for iOS build, Automake setup
+
+commit 54ac3c4c0c03d7dd52db661a94ec3ecccff826b4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 9 08:33:39 2011 +0000
+
+    Bump version to 3.0.0.
+
+commit cc0cbbd791870eada49da8480979ddeabf45437f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 9 07:42:42 2011 +0000
+
+    Tests a directory of sample data.  Using this now to verify behavior of
+    secondary compression for the new release.
+
+commit d26de3993a0ff4927f9c1f380097f8b2ca9a511d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Nov 12 02:19:26 2010 +0000
+
+    Build fix, Makefile hack
+
+commit 1882c39affc3b224871790bfe06ac71f293e5f2b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Nov 7 16:48:21 2010 +0000
+
+    Whitespace cleanups, comments
+
+commit 75fe1e3d0b617ca6ef19f145f8df0ca57977eaf6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Nov 7 16:47:20 2010 +0000
+
+    Fix examples directory
+
+commit 5c20b63301a8f58096fe32926a6ab53d6e2d2017
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Nov 7 08:45:56 2010 +0000
+
+    Cleanup after external compression processes
+
+commit 1aa254921a98abec3139e9f3888c82ce2f2188c8
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Nov 7 08:16:49 2010 +0000
+
+    Further simplify xdelta3-blkcache.h by removing lru_free
+
+commit 176e2509eb0264d14b473c6e036daa5428b0bac7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Nov 7 07:44:13 2010 +0000
+
+    Clean up and simplify main_set_source()
+
+commit 46593c36a012edda887a0072cf93949086f33b75
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 25 15:23:29 2010 +0000
+
+    Move block-cache code from -main.h to -blkcache.h.  Previous merge was
+    incorrect - contents were branched post-code-removal.  To identify diffs
+    in blkcache.h see previous version of -main.h
+
+commit 63836024013a4b2859efc792c8ff2aaa65193641
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 25 15:19:13 2010 +0000
+
+    branch from xdelta3-main.h
+
+commit 4b73dc97cad0a40dcef8b1b5363213c6483a27f3
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 25 15:13:54 2010 +0000
+
+    Conditional compile fixes.
+
+commit 70791a914aac630f13aa7d57a6788aa202c30528
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Aug 24 06:06:33 2010 +0000
+
+    Fixes a bad optimization which caused raising -B to worsen compression
+    in source-from-fifo mode (e.g., externally compressed inputs).  Disables
+    several minor optimizations to simplify the code.
+
+commit fa8eb3ec609c29455485dcde100b989ccd9ad99e
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Tue Aug 3 04:21:38 2010 +0000
+
+    release 3.0z
+
+commit 0a2d5cd15a92c842dfba6b087b414b413961dc0d
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Aug 2 02:50:56 2010 +0000
+
+    change external-compression warning text
+
+commit 24ff9cf7f34fa7481a71a1ecdcfe1a67d964c2b1
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Aug 1 04:26:30 2010 +0000
+
+    address issue 109 adds a strong warning about external decompression
+
+commit cc9bb70bea56488e2524bb64386182ae2c069f4d
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Aug 1 03:54:24 2010 +0000
+
+    patch for issue 111, compiles clean under cygwin gcc 4.3.4 too
+
+commit f1f6f860e659b285b554641a28ba0a9933ddf9ef
+Author: josh.macdonald@gmail.com <josh.macdonald@gmail.com@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Aug 1 02:41:42 2010 +0000
+
+    Fixes for win7, especially named pipe handling
+
+commit debec7aae3d3d3e5b1b2da62a9417ab3a0c72c00
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Jul 1 03:37:15 2010 +0000
+
+    Add -F command and properly handle trailing garbage.  Manually tested.
+
+commit 07cacc99dc5a2f9e5fd7197e1675fd923750d9e4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 23 04:48:46 2010 +0000
+
+    Add verbose messaging about externally compressed inputs/output.
+
+commit 0cdb6aeccd29f82ab5128a9cac2172ffd3d8386b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 21 23:03:48 2010 +0000
+
+    Fix the handling of external source decompression, which changed in 3.0w
+    and was inadequately tested.  Mark version 3.0y.
+
+commit 03795531fa7e3d68bd18329aceeaba57859aebd3
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 21 17:41:59 2010 +0000
+
+    Add a contributed man page.
+
+commit 73fb2962725b50420081b8ff6f274dc54d203d80
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 16 06:25:52 2010 +0000
+
+    Prepare release 3.0x
+
+commit c301114d6e4f11e0a690205900cbf3186ea77ba4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 16 05:52:14 2010 +0000
+
+    Undo recent "off-by-one" fix, it was incorrect (the bug was actually
+    the issue about updating the value of xd3_source_eof() in the same change).
+
+commit f0ff7729714bb176234a85db28273d0d6b4ea4b3
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 16 05:41:06 2010 +0000
+
+    Whitespace changes.
+
+commit ef262b0786a71e26112ec3dd7a5f5aad03c7313d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 16 05:31:28 2010 +0000
+
+    Fix an off-by-one error in srcwin_move_point, and prevent updating
+    xd3_source_eof () when eof is known in xd3_getblk.  Now performance
+    is the same for FIFO and no.
+
+commit 2410f9aa90750bc4c9892ae631a48cb4089a4e46
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 16 05:15:49 2010 +0000
+
+    Fixes a memory corruption caused by recent changes (as early as 3.0w,
+    it seems).
+
+commit 1f7cebdc141c0bae5c25201e35b4d8fd2a27bb16
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Feb 15 22:02:51 2010 +0000
+
+    Misc whitespace changes.
+
+commit f241a281e80aaf1aa90fe1a0d9db206396cd6a79
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 11 11:34:19 2010 +0000
+
+    Running xdelta3-regtest.py.  Observed a bug in recently-added
+    match-setup code, using source_eof instead of frontier position.
+
+commit 3dbebbe46096e17c0298f1cbe315d10b35b4f9ee
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 7 03:00:42 2010 +0000
+
+    Implement srcwin_maxsz in xd3_source_match_setup(), which prevents
+    the encoder from seeking backwards further than this parameter.  This
+    was supposed to be implemented long ago, but was especially problematic
+    in the recent release, which implements source-from-FIFO.
+
+commit e7a0eda2519593950a1a0dff77e42d4da9189c3e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Jan 6 04:05:08 2010 +0000
+
+    Fixes for gcc-4.2 on OS X 10.6, some comment cleanup.
+
+commit 299d98b8710ae6e6b84ec78a759d91a15448a8b9
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Nov 8 17:31:16 2009 +0000
+
+    Rewrote main_set_source() to delay deciding lru_size (effectively
+    option_srcwinsz) until after decompression state is known.  Working
+    but definitely needs more testing.
+
+commit a42182cd17787a521afa61b2cea719ae67b7d45b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Nov 5 03:16:19 2009 +0000
+
+    Cleanups in xd3_decode_output_halfinst() and xd3_decode_emit().
+
+commit 97eb8c8b6f2b9e9a1d124e972e86765a92c2b37e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 3 05:08:19 2009 +0000
+
+    Implement (and manually test) main_getblk_func() using FIFO instead of
+    LRU for non-seekable sources (always, was not previously for the decoder,
+    which caused problems).
+
+commit 7f7ac45b750fe90bc0572c1a53981910d24b878a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 3 01:50:13 2009 +0000
+
+    Fixes for issue 94.
+
+commit 9c3c0e573dd63bd1a0345d38f46594293d58c9d2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Oct 28 03:43:34 2009 +0000
+
+    64-bit xoff_t definitions.
+
+commit aeedaafed466bd62a9b164c8c7d9b8929eccb976
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Oct 28 03:21:46 2009 +0000
+
+    Optimize decode for source copies.
+    Add magic number for Xz.
+
+commit 8b1a211185018b2b80ffe950e8d82de4c8c0f214
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 06:28:22 2009 +0000
+
+    Release 3.0w
+
+commit e73f65e11cf9afa079b2e68f7be5ca9bb1d62334
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 06:01:00 2009 +0000
+
+    Provide more information about the error.
+
+commit cb3aea3a7fb33e3034004081c146f2b8d2325a14
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 05:46:28 2009 +0000
+
+    Fix the error message to suggest "try raising -B" when XD3_TOOFARBACK happens in decode.
+
+commit ce816262e6dfa8cdea8849150a6dacab202989a5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 05:39:39 2009 +0000
+
+    Fix xdelta3-main.h's lru[] implementation, new manual testing success.
+
+commit d8237539476e01980ae977163cb078968bd071cc
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 03:44:43 2009 +0000
+
+    Debugging: add a big TODO!
+
+commit 6731dfb89d79d9a9a890e67ba235e2aac7ee015f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 02:41:37 2009 +0000
+
+    All tests pass.
+
+commit 0fef30425e5fd7151a71dc3e63a9687caada1c96
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 02:33:06 2009 +0000
+
+    Fix the source_decompression test, which tests that appheader overrides compression magic number.
+
+commit 683ae8877b23b63a16bad3bdcb4dd612d08d73ce
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 01:11:09 2009 +0000
+
+    Source from non-seekable input seems to work.  Limited testing!
+
+commit af93d0ee94f31f01554a5d9e88611fa3071b1c7a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 26 00:01:30 2009 +0000
+
+    This fixes main_getblk_func to supposely work with non-seekable inputs, we'll see!
+
+commit ce2428828250d7d643525a9c7cbc3554cd50009e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 25 22:54:16 2009 +0000
+
+    Fixes bugs in xd3_srcwin_move_point.
+
+commit ca626a8f838cb329c22b02bcb5c81538a09eea6f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 25 19:16:41 2009 +0000
+
+    Test crashes in recode test w/ "allow_fake_source" support, getting close?
+
+commit 0e486ef0fc9d4ea3aa05e120d09459e5cc7af098
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 25 18:58:45 2009 +0000
+
+    Fix ALT_CODE_TABLE generation code to use xd3_encode/decode_memory(), a
+    long-standing TODO.
+
+commit dcb74c33f7d14d6fc9f590c9c551722498cb11ce
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 25 18:19:30 2009 +0000
+
+    Adds xd3_set_source_and_size.
+
+commit f7f72abe8fe48766b545df3949b09fe25f900aee
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 25 16:38:08 2009 +0000
+
+    Eliminates xd3_source->size, which is an _API Change_.  Adds a new requirement, that
+    source->blocksize be a power-of-2.  DOES NOT PASS ALL TESTS.
+
+commit 8681251a19d6a845a725fba60eb0a4c9fa3c375c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Oct 24 01:13:46 2009 +0000
+
+    Move and re-invigorate the regtest, fix 1 harmless compiler warning
+
+commit 80c9e15bc657b623c19cda6af2778dacd906be81
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Mar 12 01:47:01 2009 +0000
+
+    Update version
+
+commit c2ac8336ee676ec6f2d3a24e6eeb339a5fda30ba
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Mar 8 03:39:35 2009 +0000
+
+    Testing for issue 79.  TODO around xdelta3.c:3926 successful.
+
+commit 9be16d928d7386488efc34bd99293b3360105da0
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 12 03:35:51 2009 +0000
+
+    Fixes issue 79, adds more testing.
+
+commit 1b96ad8ae09b53cdcd7dd03d4bac09ba8c61e5a6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 10 03:49:57 2009 +0000
+
+    Templatize the test, expose issue 79.
+
+commit 0b19bfedbd1f17004bdc6766a7ba5e61dddc20b0
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 12 16:41:45 2008 +0000
+
+    Build 3.0u for Windows
+
+commit 0445e4a19055823f52ad799d0472b7331cedcf57
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Sep 17 03:32:47 2008 +0000
+
+    Compile with
+    -Wconversion -Wsign-compare -Wextra -Wno-unused-parameter
+    in C and C++.
+
+commit 3f45014f9ed4132a7f388a034237e9ab93fe7ffe
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 13 12:26:35 2008 +0000
+
+    Remove "pre0"
+
+commit 8c432a0ff6c916d30d18a8b2d3ee33f3219976c2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 13 12:23:29 2008 +0000
+
+    Fix examples build, all-targets build, run tests, set version=3.0u.
+
+commit 78a9c799db76946ba9c266f09a4a18075b8b6965
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 13 12:12:55 2008 +0000
+
+    Implement adler32 and appheader for merge command.
+
+commit 1a5047d649aefdbff708f0a5d2a8de4c5edf7176
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Sep 7 15:58:46 2008 +0000
+
+    Change "q" to "ll" for portability.  Issue 41.
+
+commit 1e2da10152f5926a906116c3f13ec0df9d1c6cfa
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Sep 7 09:59:42 2008 +0000
+
+    Latest testing fixes.  I've been changing the size-iterator class
+    and block-size by hand and re-running the tests.  Obviously, that's
+    no good.
+
+commit b8630ef77dfe76039b3c54882750d694b81a13bd
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Sep 7 09:42:31 2008 +0000
+
+    Fixes two merge bugs:
+    
+    1. The whole_state struct now keeps an array of window sizes so that
+    during reconstruction it can use the same window size as the target
+    delta.  The code was previously using dec_tgtlen, which was the window
+    size of the last target delta window.
+    
+    2. xd3_merge_copy_source(), which applys a source-copy instruction
+    during merge was not properly translating target-copy instructions
+    in the target.  The solution here is SLOW and INEFFICIENT, but it at
+    least allows the tests to pass.  A big TODO here is to improve the
+    algorithm: it has a potentially O(N) recursion for each target-copy
+    that it sees, and the naive approach also can produce duplicate adds.
+
+commit 16d481af9d05ece1a76c6f828ef4a64d1f039434
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 6 14:30:34 2008 +0000
+
+    Fixes an incorrect mode assignment for merging source-copies of
+    target-copies.
+
+commit 7c7c8a38a1810f5953e443c58e6a1609ee5c2912
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 6 14:19:38 2008 +0000
+
+    Improve "printdelta" to indicate source vs. target copies, widen size fields
+    to 6 chars.
+
+commit 76218119a2c07f8f68b43037fabcd324616ed9ee
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Sep 5 04:26:16 2008 +0000
+
+    Solves the issue reported in Issue 36.  More merge tests now pass.
+
+commit f63f39248269b44a3872af19cb47f9776dea48f3
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Sep 5 03:06:25 2008 +0000
+
+    Introduce a test case for the latest post to issue 36.
+
+commit b1898b74d388615715e1487dbb1474460d2b362c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 16 15:54:21 2008 +0000
+
+    Issue 77 -- VCDIFF tools #define issue.
+
+commit c2649db85aa9ef74412efd7c7e19d917646dce74
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 16 15:51:00 2008 +0000
+
+    Fixes a error in the test.  Merge test passes...???
+
+commit cfa558736324be5e2068f5459a55f882c2631bc6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 16 15:12:07 2008 +0000
+
+    Fix bug in xd3_merge_add(), calling memcpy with wrong offset and size.
+
+commit d490e1971a6155e2637afbae6f13f97eee49ff95
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 9 15:25:30 2008 +0000
+
+    Fixes for merge of zero-byte files, allow merge w/o source.
+
+commit 3f6c6bfbaf34894a6e879a39bd66491525fd552c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 9 15:24:05 2008 +0000
+
+    Merge test actually finding problems now.
+
+commit 0cece8d64b78073424d481e5b9f788c6f886ed44
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Aug 9 04:34:32 2008 +0000
+
+    Fixes test up to the merge failure for "must have source file" which
+    seems bogus now.
+
+commit d21bd984620e5a095ac94120e4467aeff36788c5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Aug 8 04:08:12 2008 +0000
+
+    The merge test isn't writing data for 0-byte target files because
+    InMemoryEncodeDecode fails at this where xdelta3-main.h succeeds.
+    This gets back to a TODO in -main.h about zero-size ambiguity.
+
+commit f0dd5487e10baa0e896fb0b2067151495250db40
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Aug 8 04:05:31 2008 +0000
+
+    Fix error message in main.h
+    Port testing/random.h portable random number generator (corrected)
+    back to xdelta3-test.h.  The code copied from http://www.qbrundage.com
+    was out of line with the original Mersenne Twister code and didn't work.
+
+commit ba2e003158b0fb9ad95b19d73c3e1c04eb9e1e0d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Aug 7 05:19:18 2008 +0000
+
+    Add TmpFile class and begin testing merge command via xd3_main_cmdline().
+
+commit ece1ef18cb2c0d3b8883e292707b3398b7b3d23c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jul 19 16:16:01 2008 +0000
+
+    Part of a merge-command test.
+
+commit cac3ff51853873ef6aa0d5b7e6d9d720218f38f6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Jul 10 04:10:18 2008 +0000
+
+    Adds a test for the fix for issue 70.  The new regression test
+    framework's ability to craft specific inputs is very handy.
+
+commit bd594c150533173d0340df8204824c9d6f00966b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Jul 9 06:56:30 2008 +0000
+
+    Attempting to reproduce the non-blocking bug which caused an
+    infinite loop due to hash collision in a recently reported issue.
+    Having trouble, but this refactoring allows Segment to use fixed data.
+
+commit d0c5ff7a1847558a9264d9485e336f549b66dd38
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Jul 8 04:07:45 2008 +0000
+
+    Add testing for move/copy mutators.
+
+commit 2f8593b1222a6e74c835a1b90e4195de0ba234d0
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Jul 8 02:38:58 2008 +0000
+
+    Fixed the random number generator.
+    Adjusted and commented the DeleteMutator test.
+
+commit 4ef223a7f43b35bf2510b7f19f7c9975b3c80ce0
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jul 7 04:09:29 2008 +0000
+
+    Working on delete mutator.  Discovered trouble w/ the RNG.
+
+commit e33a66616ed7912db380716310fe0641639cc17d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jul 7 03:11:00 2008 +0000
+
+    Make these files compile with C++.
+
+commit 7dd0248a21ecc9bd0b333d3c251b52faee532549
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jul 6 15:19:28 2008 +0000
+
+    Add mutator test working.
+
+commit e82b0cd004eadfefb9465713acbe6b62a3f99f6f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jul 6 00:39:55 2008 +0000
+
+    Fix the modify test.
+
+commit f946a79d77bd04e0d671b3c66e926d0c1ca3a213
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jul 5 17:13:49 2008 +0000
+
+    New ChangeListMutator functionality.
+
+commit 1c583b507081301a0c6738eeaf541790b2393714
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jul 5 13:24:15 2008 +0000
+
+    Fix stdin/stdout problem on Windows, issue 34.
+
+commit d4f98ead39af5d47905166bfc2a6e1e94540bc23
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Jul 3 12:59:37 2008 +0000
+
+    Test for encode/decode w/ single first-byte difference.  Uncovered a couple of
+    incorrect assertions in xdelta3 proper.  More tests coming...
+
+commit 647321d6bb4c41593228c8c7a5c29e92e839885c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Jul 3 03:44:56 2008 +0000
+
+    Encode/Decode test operating correctly, now failing with source data.
+
+commit 39986a1759550d3d5083e710862295588837f719
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Jul 2 03:52:23 2008 +0000
+
+    Add new test for streaming encode/decode.  The encoder writes directly
+    to the decoder.  The test passes for sizes < Constants::BLOCK_SIZE so far,
+    needs work.
+
+commit 9e896b470f5a4550a7fbbdc515db08b0249f5950
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jun 30 05:15:05 2008 +0000
+
+    A test is taking shape...
+
+commit e127914b71638072798f7c02e93caf9377ba7385
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Jun 27 03:41:48 2008 +0000
+
+    Adds new testing directory for a C++ test, makes xdelta3-test.h compile with C++.
+    Removes xdelta3-test2.h, moves contents into xdelta3-regtest.cc
+
+commit c31f63a124fc6221ee82e9563bb7aeeb238c92e8
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Jun 20 04:06:06 2008 +0000
+
+    Add a new test file, add a Mersenne Twister implementation, and
+    begin work on a new merge command.  The new "file_spec" model will
+    allow working with randomly-generated inputs without having to write
+    the entire file to disk, allowing better streaming tests: next!
+
+commit 9cbfc47a5aa5bd5d2f61a5dc4a969336d27485fa
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Apr 22 03:51:33 2008 +0000
+
+    First successful merge command. :)
+
+commit 705dcf8e17695a6a825af621c68ab1f67158e313
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Apr 22 02:44:56 2008 +0000
+
+    Install a proper fix for the looping problem in issue 70.  Needs better testing
+    but good for now.
+
+commit 45601a0e4de335cda615b9a653c5db2b97b37d57
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Apr 20 22:41:24 2008 +0000
+
+    No, doesn't work but this is a little closer.  The bug-fix for the
+    infinite loop in issue 70 is breaking identical-input detection
+    too.
+
+commit fbcf9d630679b1078221b5afc6da9074bad50492
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Apr 20 22:05:41 2008 +0000
+
+    It's plausible that this merge code actually works; untested.
+
+commit bbe3286bc10894036a877cb7186fe033b9872520
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Apr 19 04:23:41 2008 +0000
+
+    Cleanup of previous.  New xd3_merge_input_output used in both
+    main_merge_arguments and main_merge_output.
+
+commit 38c56fe9beed20615b5570e2d833bf0827b772f7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Apr 19 03:25:52 2008 +0000
+
+    Straighten up the logic for calling xd3_merge_inputs in both
+    main_merge_arguments and main_merge_output.
+
+commit 13a3797683e06fc55c5e19415fe70d0caef53f08
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Apr 15 04:01:06 2008 +0000
+
+    Fixes for issue 70.  The test inputs tickled a case where the
+    non-blocking API would not make progress, searching for match
+    on the page boundary and repeatedly asking the application to
+    get another source block.
+    
+    This is only a non-blocking issue, glad it's fixed.  I'll add
+    encode_decode_test to my test suite before another release.
+
+commit a5fcf7340127e5f55b7cec9af06dcf2386d2dbdb
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Apr 9 02:53:26 2008 +0000
+
+    Add mechanism for processing merge arguments in order, memory
+    management for xd3_whole_target structures being passed between
+    arguments-processing and main merge_output function.
+
+commit 46055387b76e4a5732fbc9896b28bbb16ede81d7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Apr 2 06:05:55 2008 +0000
+
+    merge command now successfully rewrites a single input.  success!
+
+commit c91bb844a7920a6d896c281da138c9b65476714f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Apr 2 04:47:26 2008 +0000
+
+    Merge command passes its first smoke test, reproduces a delta by
+    instruction-level rewriting of the input to the output.  Hits an
+    assertion due to target-copies that cross window boundaries--next
+    step is to fix the output window size to the last input window size.
+    
+    This fixes an important bug in xd3_choose_instruction, which assumed
+    that copy instructions were at least four bytes, but this is no longer
+    the case for merged outputs (at least for the case where window size
+    changes, which will not be allowed in future).
+
+commit 0536aa91d51b43afd52d4cf08ac50baa28511ca1
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Mar 31 03:03:24 2008 +0000
+
+    Implement more of "xdelta3 merge" command.  Compile fixes.
+    Work on xdelta3-regtest.py.
+
+commit 81d864ca9a4c5bf24526c16d2c9387610ebc0973
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Mar 14 01:42:20 2008 +0000
+
+    Fix for issue 67, test now fails as root with an error message.
+
+commit 8afc788e59bf5d41a1647444c149826cb29a01d3
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Feb 11 02:11:30 2008 +0000
+
+    Can't explain how the usize_t->uint32_t changes here solve the problem
+    described by issue 61, but it's likely the same as issue 66 and I'm
+    going to apply them blindly with TODOs to try and understand it later.
+
+commit d9d95ae69315581ec577d4926bc462cac35511ea
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 28 16:55:30 2007 +0000
+
+    Fix for DJGPP (1/4)?
+
+commit e7b61e1ec3b00947fc8052bccb2906e8d000eff5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 28 06:09:23 2007 +0000
+
+    Fixes issue 58.  Incorrect looping condition in xd3_smatch() caused
+    checking for matches with incorrect checksums, detected by debug builds.
+    This also improves speed slightly and potentially degrades compression
+    where the sprevsz array had spurious matches beyond its actual coverage.
+
+commit 2e0d675bf995f9f6e893bd41cb4b14304c6c88ab
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Dec 27 19:46:36 2007 +0000
+
+    Adding more support for "merge" command.
+
+commit b7e82b2ed8eaf661aaa4548e703083474b016f04
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Dec 17 05:01:19 2007 +0000
+
+    Call main_input() recursively for main_merge_arguments.
+
+commit d22f1e1becc52f5bc41319c44d8a71225ee82742
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Dec 17 03:34:10 2007 +0000
+
+    Fix.
+
+commit 7e94b75cd4c567ca855514caa126632486a0f054
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Dec 17 03:29:20 2007 +0000
+
+    Patches for Makefile.mingw and xdelta3.h comments, work on "merge"
+    command.  Fix for new return value in stream_overflow.
+
+commit df99698aa15f6b0b5a83c860b2a36cb69bad6c6c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Dec 15 00:36:21 2007 +0000
+
+    Patches for mingw.
+
+commit 1371320742140dc48e1834c6a32d91147fff13de
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Dec 15 00:20:56 2007 +0000
+
+    Compile on OS X, better implementation of UNALIGNED_OK=0 small checksum.
+
+commit d9111360bb5da1076924d1762fffb5dc90e4f10c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 14 11:53:27 2007 +0000
+
+    Add skeleton for "merge" command.
+
+commit 8f9de43ff27baf20547cbc25d3472b13fc49c24d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 14 11:24:41 2007 +0000
+
+    Fix another snprintf issue.  (Wish I had "patch" on my cygwin box... Wish
+    I wasn't using a Cygwin box for dev purposes.)
+
+commit a80f2ee447ecc9c22f8e2ea8ce9651fc23a1bac2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 14 11:19:18 2007 +0000
+
+    Fix a few more uint uses.
+
+commit 600bf55006a53294e4cc74740442bd053ca1f05c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 14 09:21:13 2007 +0000
+
+    Replace uint with usize_t, more portable.
+
+commit 0334aeb5a83eb3f3aaf34e0e483785d046d54abc
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 14 09:12:08 2007 +0000
+
+    Fixes for Win32 and vsnprintf.
+
+commit 24ee8c8b37389770330cd7b90c202d0ee3732c1a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 14 08:57:25 2007 +0000
+
+    80-col fixes.
+
+commit a528d2e869b8d910afbfc09d86b233684424a9c5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 14 06:35:43 2007 +0000
+
+    Implement UNALIGNED_OK for xd3_small_cksum_update, hoping to fix
+    test failure on Xscale/ARM platform.
+
+commit 1887f152a7ab3e043ffae6d54a9bff3e58db0d3e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Dec 13 06:25:01 2007 +0000
+
+    A few cleanups -- xd3_scksum should have been using uint32_t, but I
+    doubt that is the real problem.  I suspect the problem on ARM/Xscale
+    has to do with unaligned access issues.
+
+commit 22ed9167f3ed0399f84a000aa7f1438f55eae4cb
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 7 05:38:22 2007 +0000
+
+    Release 3.0t
+
+commit 4f77a2c07c1a2cb306ac7ce85c93f6097701fdc7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Dec 7 05:19:12 2007 +0000
+
+    Patches from A. Mennucc for Debian.  Fixing makfile for Cygwin
+    conditional compilation, which is irregular.
+
+commit 440ec9c30484dbb2cbd56b3762c4ba9961efcf22
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Dec 6 04:16:59 2007 +0000
+
+    Adjust the low-end range for command_line_arguments unittest.  I wish this
+    didn't depend on the system rand() function, but it's portable at least.
+
+commit 8ee35e6f26f054730333c824158464042518ff52
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Dec 5 03:53:30 2007 +0000
+
+    Fix bug in xd3_set_source, the optimization for shiftby/maskby were
+    in some cases not setting those variables, which are used by xd3_blksize_div
+
+commit d13bec62c6ab184903118bf803219b27229c214e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Dec 2 06:53:28 2007 +0000
+
+    Fix recode, recode test.
+
+commit 179ef5eef18e8dbb84f35a6356621e7c1ed7012a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Dec 2 03:09:47 2007 +0000
+
+    Fix an off-by-one bug lurking in the array initialization
+    in djw_compute_mtf_1_2
+
+commit ebd9ec25c66d21dfa5c0b1f23879f59f223fe724
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Dec 2 01:22:59 2007 +0000
+
+    Working on the test failure in dbeug mode, partial recode test written.
+
+commit 22ea0b5cd1763b3ba5e8c8580bcee9f96e915341
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 27 08:16:59 2007 +0000
+
+    Diagnose expected non-failures test failure introfuced in 3.0s relating
+    to DJW and compiler optimization level.  Mysterious.
+
+commit ce6a092d2ac6723acd4de0b89a7832a027722027
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Nov 26 12:15:18 2007 +0000
+
+    The rabin-karp checksum looks better in testing but doesn't really
+    seem to improve things in practice.  Removed HASH_PRIME.
+
+commit d8d2ab4c809485480727ee7a943163f272d22b11
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Nov 15 07:34:39 2007 +0000
+
+    Get uniqueness and fullness metrics working, add compaction parameter for
+    hash-table size bias.
+
+commit bf70327283902dad35d28f8a55285893d0f25599
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 13 10:31:14 2007 +0000
+
+    Learned a lot about Rabin-Karp performance.
+
+commit ba57c64d224ed4feb37ff7005e33f6a7d70cbbd9
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Nov 13 04:02:15 2007 +0000
+
+commit a4b5480a34e217e93e147f460b47e27741d809c1
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Nov 11 07:59:13 2007 +0000
+
+    Compile with g++ 3.4.4 and add C++ checksum_test.cc
+
+commit 9c137e5d088878e6867b5de40ddefa30a7afa59c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Nov 10 21:27:30 2007 +0000
+
+    Adds output regarding inefficient copy instructions to "printdelta".
+    
+    Adds crude inefficiency check to xd3_smatch(), preventing 4-byte matches
+    if (here-addr) >= 2^14 and 5-byte matches if (here-addr) >= 2^21.
+    
+    Nice improvement.
+
+commit 6c303e681012e5abf252d28eaff0a5d084a18f64
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Nov 9 05:32:50 2007 +0000
+
+    Release 3.0s
+
+commit da0238b63c9c3dbd4fc31113d73e4dde26042440
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Nov 7 03:50:30 2007 +0000
+
+    A few optimizations: -1 (fastest) is faster than before.  -fno-builtin
+    makes a difference.  New implementation of xd3_forward_match() is written
+    and tested, but not enabled, needs a little more benchmarking.
+
+commit 146646b3dfffa1f2bb85cc76115df700f81bf2e0
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Nov 7 03:48:13 2007 +0000
+
+    Adds compare_test for benchmarking xd3_forward_match, the optimized
+    version is not yet enabled in xdelta3.c
+
+commit e38166194f764c299b8f3e6798fefd1c819701ca
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Oct 30 18:50:59 2007 +0000
+
+    Update FASTEST config based on 50-round test.
+
+commit 01a2cd8795dcd17288f755c370890b6b3c1aef0d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 29 06:45:15 2007 +0000
+
+    Running experiments for new -1 and -2
+
+commit cb5d52f0e3f93125c1e03f9750c9aab7fd8c0c89
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 29 05:51:43 2007 +0000
+
+    Restore old secondary djw defaults.
+
+commit d7e85e2b6cce72b6b586ce0715ff24e552355b63
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 29 05:41:00 2007 +0000
+
+    Add a new COMPLEVEL_1, previous -1 becomes -2.
+
+commit ec559eabd8eac6b507c8e15cd6a54c9ab1c1df8c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 29 05:11:45 2007 +0000
+
+    Add a new fastest, fastest->faster (-2)
+
+commit cd11aad95f3d6d054d0ef399e04c3c5a1b71622a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 29 04:20:30 2007 +0000
+
+    Inline some functions.
+
+commit 7c76827a863f902cea16a2adafbb601f1b2fb76f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Oct 29 00:15:01 2007 +0000
+
+    Use maskby/shiftby when source->size <= source->blksize, which helps
+    xd3_process_memory() uses.
+
+commit 946598c887a0575465601c8a1e1436e6521b5505
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 28 23:15:58 2007 +0000
+
+    New xd3_blksize_div() function used everywhere to avoid __umoddi3
+
+commit 93250631824866baa87bfa7aac463258250fa6b1
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 28 22:20:26 2007 +0000
+
+    Eliminate calls to __umoddi3 (compiler generated for 64-bit % 32-bit).
+    
+    More 80col reformatting.
+
+commit 49327439297ae6239f30dc77abf90e86352b7b7e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 28 10:18:37 2007 +0000
+
+    80col changes.
+
+commit 7c16f576f4c8e292a93b5855e05eda5fedfba31a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 28 10:08:29 2007 +0000
+
+    ENC_FLUSH -> ENC_INSTR
+
+commit f920533ee0105ea7cde76fff2db37bb8fe40f0ca
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 28 09:48:23 2007 +0000
+
+    Reformat for 80 cols.  Allow -S djwN where N is 0-9.  Default
+    (for -S djw) is 3.  -S djw9 enables multi-group huffman for
+    all three sections.  -S djw3 enables single-group huffman for
+    all three sections. 1-2 are single data-only, 3-4 are single
+    data+inst, 5-6 are single data+inst+addr, 7, 8, 9 enable
+    multi-group huffman for the three sections in order.
+
+commit 18cdf64402b2e2c937eada55f238706719131431
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 28 02:04:11 2007 +0000
+
+    Comments.
+
+commit b16a15e3fa741b96e69bddf8263b802e0a7f0a99
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 28 01:46:14 2007 +0000
+
+    Reformat >80col lines.  32-bit build/test fixes.
+
+commit 756cbabc8e380ada4690948ffd7bd6505853fc7a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Oct 27 23:10:51 2007 +0000
+
+    Cleanups on cygwin.
+
+commit 9460b3ba09fa411aef06c62ae04140774c851f83
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Oct 27 23:06:56 2007 +0000
+
+    Fixes for linux build.
+
+commit 93635ad98b10042bdcbfd8bb139ebb0e795ae26f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 21 07:56:34 2007 +0000
+
+    Comments and build with speed_test.cc
+
+commit f79ab343e49f89be06ede199a022eb3da07fd36b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Oct 21 07:26:33 2007 +0000
+
+    New speed tes.t
+
+commit d14c20c9747073d2752af20cb5f5c55725fe3db1
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Oct 20 10:28:50 2007 +0000
+
+    working on inline functions
+
+commit cfdf9bf3be42b455a77d72cc58bcdfca76b7a889
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Oct 10 09:53:05 2007 +0000
+
+    Recognize -S none.
+
+commit 1ff9f951b68e78d7358f8f64042d3493c22a0743
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Oct 10 09:29:23 2007 +0000
+
+    Removes NODECOMPRESSIZE.
+
+commit 0fbb5388d7c483adeb5ba872dc19b7a3589b1455
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Oct 10 09:22:04 2007 +0000
+
+    3.0r release
+
+commit c3e680eb87190ce1468b0e6b8fb7b9d9f4f05593
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 29 17:39:11 2007 +0000
+
+    Fixes DJW_MAX_CODELEN problem, which caused move-to-front calculations
+    to run off the end of an array since there were no code-length entries
+    in the extra codes array beyond code-length=20.  Left as a TODO: document
+    this code better so it's not so obscure.
+
+commit 714c6dfe476280021013fa0f51875ea935b1d388
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 29 16:32:29 2007 +0000
+
+    Build fix for MSVC++
+
+commit c5ea64c0c216b1882b2a7b5c409b4c6ec0279abc
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 29 16:13:11 2007 +0000
+
+    Adds a test that triggers the assertion failure in djw_build_prefix,
+    a few cleanups, but does not fix the problem (next CL).
+
+commit b36dd4d10d1176591e037863bc68809f75685fb6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Sep 24 00:15:22 2007 +0000
+
+    Add example by Ralf Junker, who has given me permission to distribute.
+
+commit aac50eca57b177a84e7a5a17f91b87ce2b3183d0
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Sep 22 23:39:58 2007 +0000
+
+    Fixes:
+    
+    1. Encoder was improperly setting stream->min_match on re-entry following
+    XD3_GETSRCBLK events.
+    
+    2. Decoder was improperly terminating a loop when XD3_GETSRCBLK events
+    occur while decoding the final instruction.
+    
+    3. An known assertion failure in djw_compute_mtf_1_2 will abort() in
+    non-debug mode instead of running out of memory.
+
+commit 94fc679c61ca73182ba9d473a36253364f8f1967
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Sep 13 09:59:55 2007 +0000
+
+    Fix secondary compression for recode. Now able to reproduce doytchin's
+    bug report by recoding an FGK as a DJW.
+
+commit c453ed7952ef5ee3f7d799f8ed7ee113ee711e28
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Sep 13 08:35:42 2007 +0000
+
+    Fix the def'n of xoff_t, at least for this linux box (thanks to cosmics.ru)..
+
+commit 6be9f4559966387c41692a39b37951d34a55af5b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Sep 12 09:51:42 2007 +0000
+
+    The "recode" command sets command-line secondary compression flags in the recode stream.
+
+commit aa3d74e6f7bbc0d004d0479c595471b49cc92d0e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Sep 12 08:49:48 2007 +0000
+
+    Fixes xdelta recode command, but does not implement adler32, source
+    info, app header, etc.
+
+commit a5cf569debedee47fbe8d4f3b96a200cf677c623
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Sep 12 07:36:37 2007 +0000
+
+    Add "xdelta3 recode" function, which is currently outputing incorrect
+    VCDIFF windows.
+
+commit a69974bdf9f5b2248829ddefabf91c87256cbdce
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Mar 25 23:35:14 2007 +0000
+
+    Set to static build, comment out Merge rules in WiX setup.
+
+commit 000d39b5b36b618ac8a8cdd35346d43776c71881
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Mar 25 20:41:46 2007 +0000
+
+    Add MSI build, Makefile wix rules.
+
+commit 1c31177eadf7f260207866a10345bb17d4cb9905
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Mar 24 14:17:49 2007 +0000
+
+commit 653ea97f54e37363c1bcb9f37d4d49e5c21bf85a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Mar 24 14:14:18 2007 +0000
+
+    Release 3.0q source
+
+commit 2aa04800dcd1c4fac0e7adfff08273ef4ab60cf3
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Mar 24 13:59:04 2007 +0000
+
+    Allow read-sharing for WIN32 CreateFile()
+
+commit 4eafeb23fc939ddf0b127831281f73010aa87e85
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Mar 24 13:36:45 2007 +0000
+
+    Do not buffer stderr on Windows.
+
+commit bf7c199b648e36be3cc68410d1f572ffbe2007d1
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Mar 24 13:23:06 2007 +0000
+
+    Use 1024 instead of 1000 for KB/MB/GB calculations.
+
+commit f52e28968f4f9d782b9f98f25b10e1cafbee0b11
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Mar 24 13:04:09 2007 +0000
+
+    Rename #define P to #define DP
+
+commit ca6951c05772975cff7d67dba745c3bc33e71252
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Mar 8 07:29:21 2007 +0000
+
+    Fix a bug w/ global test results (which were being modified by
+    ScoreTests()).
+
+commit ca80197380e9e5c2add57329d0dbf79893034b6b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Mar 6 08:34:52 2007 +0000
+
+    regtest is not quite summarizing correctly
+
+commit 350d4f60d226eb8b370e7c0b8b1157a83baa8570
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Mar 4 00:35:46 2007 +0000
+
+commit 4753ff7a726b9beff5ea9f53cd3b5c0dcedaffa3
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Feb 26 17:21:05 2007 +0000
+
+    Cleanup experiment code; use hyperbolic function.
+
+commit 7e10cdfc529496c0478c86b563defe2bf96f9187
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Feb 19 10:24:32 2007 +0000
+
+    cleanup regtest 400 test
+
+commit b16ffb6dbe426a19d7df90151dab1183ec14f412
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 18 12:05:32 2007 +0000
+
+    3.0p source release
+
+commit 0ac9c060270d4749dc2d766339c6970981f7d65b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 18 12:01:23 2007 +0000
+
+    3.0p windows exe
+
+commit eaaaa30794be3c67a9561e5a2e499424cdf98665
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 18 12:00:22 2007 +0000
+
+    fix for windows ssize_t 3.0p
+
+commit 9dedb9c4ffa28670d07315fbfa2589234ca9ea9f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 18 11:49:05 2007 +0000
+
+    pre 3.0p, all tests pass
+
+commit 62df86676f3f285ae1d5510b7d47a884f7c36792
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 18 10:57:01 2007 +0000
+
+    remove PROMOTE, SSMATCH, TRYLAZY, raise default IOPT_SIZE
+
+commit cb24126c313a791a0705a2ecb740ab373cc5a612
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 18 02:41:57 2007 +0000
+
+    raise default sprevsz, add command-line flag -P to set
+
+commit f6cfb03ce353ba50c4d8d981014c038acc363e10
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Feb 17 09:14:19 2007 +0000
+
+    generic encode tables compiled in setup.py; comments on HARDMAXWINSZ; more winsize tests
+
+commit 21fbdf82621e2397ef244fe8bbbb76e49bf89f29
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Feb 14 11:15:28 2007 +0000
+
+    fix two alloc checks in djw.h
+    fix setting of stream->iopt_size
+    fix small_page_test.c
+
+commit 213b0440e117611ff89f6d3dc744952ecefa1bfe
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Feb 14 08:46:04 2007 +0000
+
+    set opaque
+
+commit 6b2bb82f31e71c9e60c132c00db61b51ac907126
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Feb 14 08:42:35 2007 +0000
+
+    add small_page_test.c, currently fails
+
+commit 8c968ee7b98144c43e7453c026892abee5536e0c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 13 19:08:53 2007 +0000
+
+    Fix parsing error for 0-instruction patch files.
+    Exit 0 on success for delta_command().  Used to exit 0 or 1 like diff.
+
+commit 990289208d555a760499623e30682d6fe19216e7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 13 19:07:33 2007 +0000
+
+    Cleanup -regtest.py. Comment on crash in -python.h
+
+commit 4be58a9a9ab199ef2b3765f57e649398e8dd5890
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 13 02:44:36 2007 +0000
+
+    Adds xd3_flags for setting compression level in xd3_encode_memory().
+
+commit 792f7c0cf9cb987e3d2a0501e1b228836ec798e7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Feb 12 03:05:48 2007 +0000
+
+    Fix and recomment xd3_srcwin_move_point() after changes in SVN 127 to use src->blksize as the advance size.
+
+commit ff760f81e367b84b8357f55721ad8e24cf086ef4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 11 02:18:45 2007 +0000
+
+commit a5f03073f9a5ce6f25255566803f9ad9fcf1c469
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 11 02:16:27 2007 +0000
+
+    Fixes bugs in XDELTA environment variable.
+    Removes stream.srcwin_size variable, uses stream.src->blksize instead, to address performance regression from xdelta1.  Changes the order of checksum computation to be like xdelta1, insert checksums in reverse to give preference to earlier matches.
+    Removes svn:executable from files.
+
+commit e6a4d603ed05dd9d7e04311ef351700b60852dae
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 8 15:14:56 2007 +0000
+
+    Bugfix XDELTA environment var.
+
+commit ae03d4eb0d52b894fc1af662aa21da7dafc69928
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 8 14:36:06 2007 +0000
+
+    XDELTA environment variable lets you do stuff like this:
+    
+    XDELTA="-s source-dir.tar" tar --use-compress-program=xdelta3 -cf -
+    target-dir
+
+commit 10620253c9cef6ab530887f082d7549637182ce5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 8 02:47:46 2007 +0000
+
+    Release 3.0o final.
+
+commit e8ad07ed159ba6439452f5ed7b18ac0cdc135df2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 8 02:45:23 2007 +0000
+
+    Integrate Makefile from Cygwin.
+
+commit 7020f11558a0b3a3565e407ebfa72cd4012e17f6
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 8 02:38:57 2007 +0000
+
+    Make "option ignored" less verbose.
+
+commit 24349261eab74a3a2392d38858d143c9270441e2
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 8 02:35:49 2007 +0000
+
+    Make windows python module work under Cygwin.
+    Build VC++ release 3.0o
+
+commit af5c96da10b2ce86c975769a3554ad9557bef431
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 8 02:14:23 2007 +0000
+
+    Python swig module working with xd3_encode_memory(), xd3_decode_memory(),
+    and xd3_main_cmdline().  module added to xdelta3-regtest.py run-length
+    experiments.  XD3_INVALID_INPUT code added to distinguish decoder errors
+    from invalid stream-states. xdelta3-test.py unittest added for python
+    module.  xd3_encode_memory() now limits config.winsize to <= 1MB:
+    xd3_process_memory() now properly splits the input buffer into windows.
+
+commit 750fb98f99a96c390a86185383ce1739eadeae0a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Feb 7 20:01:54 2007 +0000
+
+    Ready to release 3.0o.  Still working on swig.
+
+commit fd42cfdd13dae5ed7fa52323017df6bfe441b3e4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Feb 7 10:53:08 2007 +0000
+
+    Update FASTEST, DEFAULT compression level.  Comments.
+
+commit bae4a7e25d8384b841f4358bd8f7eba302f602c7
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Wed Feb 7 06:07:04 2007 +0000
+
+    Fixes print commands on Windows, the needed GetStartupInfo() and stdin/stdout handles set after the change in 112 (missing its comment) which converts the print commands to use snprintf() and the default I/O routines.  Addresses issue 14.
+
+commit f15380d045ade6a25a78df37d8562a27ed13e23f
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Feb 6 18:45:09 2007 +0000
+
+commit d3ab114a4f748456e63fbd0f19c89d52c8d740ae
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Feb 5 10:30:28 2007 +0000
+
+    Add a .swig for python, working on xd3_encode_mememory() and
+    xd3_decode_memory(). Not working. Progress on scoring in
+    xdelta3-regtest.py. Update FAST encoder w/ results of 9,11,13,16-llook
+    experiments.
+
+commit 29ec813ed97ebd4a02d594bb2a07f570ee1f604b
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 4 10:15:53 2007 +0000
+
+commit c1a789ab0dcfcb00462fedd3a34fc95800b2a225
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 4 09:59:08 2007 +0000
+
+    Release 3.0n
+
+commit eefeeb7bb607c893872c19c9013c2fb987c287cf
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 4 09:53:21 2007 +0000
+
+    Fixes the /dont_run_xdelta_as_root test, creates a real file and chmods
+    it to 0.
+
+commit 90ab158f92e3449ddec3f01ac034a6e031fb562e
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 4 09:37:56 2007 +0000
+
+    Cleanup www (it's on the code.google.com/p/xdelta/wiki/list now).
+    Rekey.
+
+commit 400e5c3f9edbfedfa770c94c04e62aa8657ed04a
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 4 09:30:02 2007 +0000
+
+    Adds a new compression level (-6), makes -1 faster and -9 better.
+
+commit 1e10015476fb24d78d0b14de6a7819586037382d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Feb 4 08:35:06 2007 +0000
+
+    Decoder memory error, related to secondary compression, fixed. Valgrind
+    made this easy to spot.
+
+commit 869949c424e596feb732624823913740b3e4c369
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Feb 2 19:57:04 2007 +0000
+
+    Disable external compression under Cygwin for the Python module. External compression works in the Cygwin binary, just not with Python.
+
+commit 89cf3d8d1839cfc261c48718bf699e9cfca83d81
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Feb 2 19:55:28 2007 +0000
+
+    patch_command: warn about parse error for invalid delta
+    delta_command: check gzclose() errors to avoid producing an invalid delta
+
+commit fd99e24f74212a442516acd28b8067d81e894a84
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Feb 2 09:09:41 2007 +0000
+
+    xdelta3-regtest.py experiment now changes the file each round.
+
+commit cf90ff745827ea1d080cfc0ea51381838bfec38d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Fri Feb 2 06:40:34 2007 +0000
+
+    Add an error message for parse errors with the XdeltaControl object.
+
+commit 8748d16e6e5bf741ede89af1940f8291fb1b8046
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 1 09:17:19 2007 +0000
+
+    Implmeent xd3_encode_memory() and xd3_decode_memory(), add comments.
+
+commit 9f465a9db201b97c43d69778eabd222d4fc09fd5
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Thu Feb 1 06:15:10 2007 +0000
+
+    Fixes build on Cygwin, some work on -regtest.py
+
+commit e394dd3491d609868860d01456786f438a542618
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 29 15:51:31 2007 +0000
+
+    Updates on G:
+    remove missing file from vcproj
+    compiles under cygwin
+
+commit ae118dad4f77c07dc2673e6877d5fdb4098ba727
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 29 04:56:38 2007 +0000
+
+    Change _completely() to _completely_stream(), to introduce a new,
+    simpler in-memory API.
+
+commit 19ab311b65d55c748672a5d1d914f2af83c27956
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 28 20:09:48 2007 +0000
+
+    Fixes the source-allocation problem, should resolve 64bit platform
+    issues.
+
+commit f33c5dde63152070c53add0e664b9a70530ddac9
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 28 19:12:56 2007 +0000
+
+    Cleanup
+
+commit 5fedf82fa4041ee12ea636df57b7456c4b57ff6d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 28 19:12:08 2007 +0000
+
+    More cleanup.
+
+commit 42660ea8bae2254e0a6ccf5bc7457e2ded8f8495
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 28 17:55:03 2007 +0000
+
+    Clenaup junk.
+
+commit 95734ad7f4c65382226f82bc2119954b682410d9
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 28 01:33:54 2007 +0000
+
+    Remove more junk.
+
+commit 08b0a40be19b61725ac74d5fddbfa7deff0e75b9
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 28 01:27:04 2007 +0000
+
+    Delete junk imported by accident.
+
+commit 0393a6cd5bdd8b67fc0b7dcaf7e304d442a0c837
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Mon Jan 22 01:02:05 2007 +0000
+
+    3.0m windows build
+
+commit 1c854caf0726338f7ad38d191cab4c8796cae54b
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Jan 22 00:44:10 2007 +0000
+
+    3.0m
+
+commit f606e39a0b166448aa49d404d722196742074f0c
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Jan 22 00:32:46 2007 +0000
+
+    Release 3.0m
+
+commit bd5f9148aec1b93c5642801e49e0f8b4bd73c05e
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 21 22:29:24 2007 +0000
+
+    Update configs, comments, etc.
+
+commit 8f66aff36a341906552a4bf7792b872fc3e2d338
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 21 21:04:11 2007 +0000
+
+    Fixes dumb crash in xd3_free_stream when stream->iopt_alloc is NULL.
+
+commit 46bc79f71df9953b6b3c8c079f4621054bec44e8
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sat Jan 20 21:31:07 2007 +0000
+
+    Changes to support -I IOPT_SIZE on the commandline.  New support for unlimited instruction
+    buffer size set by -I 0. The default remains 4096.
+
+commit cb71b68706e9ca39b3d98162610cf1b3726a294c
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Tue Jan 16 02:00:34 2007 +0000
+
+commit d9643866175e03a5849d1d094c98b1eb62122b10
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Tue Jan 16 01:48:46 2007 +0000
+
+    Release 3.0l
+
+commit 755f521ad96da6493ea1b163c81d1c1a5afd065a
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Tue Jan 16 01:37:03 2007 +0000
+
+    Fixes the soft config used in parts of xdelta3-test.h, so it will be immune to changes in
+    xdelta3-cfgs.h.
+
+commit 73994b30a85fc3ff4c25967ae18c87275f19ad65
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Tue Jan 16 00:43:59 2007 +0000
+
+    Increase default IOPT buffer size to 4096 entries: there is still no
+    command-line flag for this setting!  Bump version to 3.0l.
+
+commit 5da12fc106daf5d858b503a77f47a9fc22170cfa
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 14 21:35:47 2007 +0000
+
+    Cleanup the calculation of -B and -W, get the minimum source buffer size
+    (-B) to work, enforce a maximum input window size (-W).  Add some
+    debugging output. Correct a bug in setting the large hashtable size.
+    I've noticed some odd behavior with the -W setting, more tests to do.
+
+commit 4fcf343c749900d354f90b6c12f0ac35518157d4
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Jan 13 01:49:09 2007 +0000
+
+    3.0k windows build
+
+commit 6d8c35af4f7302ed5942734fec85e26d76ebea23
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sat Jan 13 01:36:05 2007 +0000
+
+    Edit xdelta3-cfgs, not exactly scientific tuning but much better for
+    now.
+
+commit d0e3d3e2b35bf442277d2e1b9901df6ce4bdcee9
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Thu Jan 11 07:51:58 2007 +0000
+
+    Testing random configurations to update xdelta3-cfgs.h, preliminary.
+
+commit dd34abf7bac54838473e24d2f8c7eec62646a8cd
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Wed Jan 10 13:20:42 2007 +0000
+
+    Work on tuning tests.
+
+commit c0bb815c7e93362b17c330c975a3032662349bcc
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Jan 8 03:02:58 2007 +0000
+
+    Experimenting with -C soft-config, trying to tune the -1..-9 values.
+    Right now -9 is definitely slower but not usually better.
+
+commit e845f0033400ecf6e121f2188e8c221ea5a00838
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Jan 8 00:29:21 2007 +0000
+
+    Set source buffer size to min(source->size) and if the command-line is
+    not set, scale to source->size up to 64MB.
+
+commit 63bc8004c88dbd9e5975d3473e64a8428513d6be
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 7 22:50:24 2007 +0000
+
+    Removes the -M memsize flag, the #define, and stream_config field of the
+    same name. Now computes small/large hash tables based on 1 slot per
+    input-size/hash-width.
+
+commit 1b2185ed9cfb1b1afc24e255c09698fc0f1be880
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Jan 7 18:05:34 2007 +0000
+
+    Build WIN32 release 3.0j.
+
+commit b85712bb31dda0358259d88b99cde227f71a1695
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 7 18:04:15 2007 +0000
+
+    Release 3.0j
+
+commit 5b4d0ab7e04e885660b531a682be4629eb09dc3c
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 7 17:56:53 2007 +0000
+
+    Add files to release.
+
+commit 08fa3e3b1e873284007e44a6e8402c060f23346a
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 7 03:33:47 2007 +0000
+
+    Fixes spurious warning from printhdr.
+
+commit 6b8007761b66db36f7863cfb42270a8d0c8b9077
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 7 03:19:22 2007 +0000
+
+    Fixes the python module, there were some bugs in main.
+
+commit bae7eb2b3db9664a5041a8dbefef5a2fa3847376
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Jan 7 00:41:49 2007 +0000
+
+    Fixes source_decompression_test. I thought I fixed this once before:
+    the main external-decompression waitpid() was called before the
+    output file is closed.  The fix was lost.
+    
+    Makes all the external-command tests conditional on !WIN32.
+
+commit 23da124c2e40f51e64af4a0ad8239f438558d0c4
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Dec 17 06:29:57 2006 +0000
+
+    3.0i
+
+commit ed1cfb02e18c75f5e03fe1973cfb0cd65fe15d5d
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Dec 17 00:25:33 2006 +0000
+
+    Release 3.0i windows build, with native I/O routines.
+
+commit 4f033f90aa355913c7fc2bd39524200a0a0847b9
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Dec 16 23:13:12 2006 +0000
+
+    Make badcopy use xoff_t
+
+commit a7d946283af8a6325fb9887fc644e27d7b7c2f59
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Dec 16 22:06:35 2006 +0000
+
+    Badcopy uses xdelta3-main.h routines for XD3_WIN32 support
+
+commit 16a3b42d97e73a409a909b18b635134b94320932
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Dec 16 21:33:11 2006 +0000
+
+    Adds /DXD3_WIN32 using native open/read/write/seek, etc, also fixing get_errno and xd3_strerror. Still not 64bit tested.
+
+commit cfa42a075b9af0c213c0b27707b3ab8b2a45acac
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Dec 16 08:38:32 2006 +0000
+
+commit 45bc1408336abd3b7bb0e2ee6fdcb44bca759bbf
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sat Dec 16 06:25:18 2006 +0000
+
+    Fix badcopy.c for WIN32. Adds some real bogus rand logic.
+
+commit 9cf6c8f78deb125a5cf2c89b86ffe9f057b3318b
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Dec 10 22:53:50 2006 +0000
+
+    Add an OSX release, why not.
+
+commit ead65667677453f4fb0e792dc239365ec9078f63
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Dec 10 22:07:22 2006 +0000
+
+    xdelta3.vcproj adds release build, xdelta30h.x86-32.exe built and released.
+
+commit 49878c5fa398a24eeb5f5a474577a1a3396c2ed4
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Dec 10 22:03:18 2006 +0000
+
+    Release 3.0h
+
+commit 2874dd83f1efa51d152fc0fc15ac024e1249dd4e
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Dec 10 21:52:57 2006 +0000
+
+    Adds some comments about LZMA external compression.
+
+commit 6674bf7d106d2ec20bdbe12cb95370b8666a1cfb
+Author: josh.macdonald <jmacd@users.noreply.github.com>
+Date:   Sun Dec 10 20:44:36 2006 +0000
+
+    Stack corruption errors: added some room to the arrays.
+
+commit 811bb03103a6e8a307c2e59863f03dd88cd9b11c
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Dec 10 20:27:45 2006 +0000
+
+    Builds on WIN32.
+
+commit 7fb75616337a50fb98c6c251f8d76825dfca9165
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Dec 10 02:20:48 2006 +0000
+
+    Preliminary WIN32 support.
+
+commit ad85653ca73c8126de516b9a4294e8f08577c00d
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sat Sep 30 04:47:47 2006 +0000
+
+    import 1.1.3
+
+commit 5a7c245871879325d7b05c06e0b2011203986ee8
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sat Sep 30 03:12:31 2006 +0000
+
+    The XD3_INTERNAL in xd3_srcwin_move_point was caused by match_maxaddr
+    being reset between windows. This deserves a test, but it's Friday
+    night!
+
+commit 66072e3a97778b987bb160a8aabc5e8c1f749698
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Thu Sep 28 04:45:30 2006 +0000
+
+    Update command-line summary.
+
+commit 079e089020c34e098cacd7e1d1e67632c7aef5bd
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Thu Sep 28 04:24:50 2006 +0000
+
+    Add XDELTA1PATH external compression option.
+
+commit 2fa879cfccfd766796f223045d6317a0bc6f20da
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Sep 25 07:21:17 2006 +0000
+
+    Oooops.
+
+commit 1bd0bf97026c2f8ff6e80c7299f03a1470b2f2bd
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Sep 25 07:20:48 2006 +0000
+
+    Cleanups, working on the python module, which has assertion failures.
+
+commit 485d0b54d205a6f91e4dba20b34c9e936646e04f
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Sep 24 08:11:09 2006 +0000
+
+    Cleanups for release 3.0g.
+
+commit 2da26b218611968ec42e6b500e825dcf46c64b3c
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Sep 24 06:43:43 2006 +0000
+
+    Cleanups involving xd3_smatcher and soft-config variables.  Adds -M memsize
+    to allocate larger/smaller source-checksum hash table.
+
+commit a7fba1359bb4e626e6ae2711bd13d3eea957616d
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Sep 24 04:47:19 2006 +0000
+
+    Fixes improper use of xd3_emit_size() for header->srcbase.  Obviously
+    it was a bug: xd3_decode_uint64 was being used while xd3_encode_uint64
+    was not!
+
+commit 02f5cd0638aa193cc75f39e34c8e3a90eea60c52
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Sep 24 04:24:38 2006 +0000
+
+    Move the decode routines. There is a decoder bug past >4GB, but no code
+    changes here.
+
+commit df3d83031d716abbca504cbf0c003dccda750979
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Sep 24 03:18:55 2006 +0000
+
+    Fixes setting of srcwin_cksum_pos in xd3_srcwin_move_point(), because
+    main's getblk now returns XD3_TOOFARBACK for encode.  This had been
+    broken several checkins prior, and was causing XD3_INTERNAL at the 4G
+    boundary.
+
+commit 23ded1901e47c21fb0a66ea846898bb450e4f205
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Sep 24 02:46:46 2006 +0000
+
+    Fix a bug in xd3_source_extend_match, causing stream->input_position to
+    move backward when a large-cksum collision causes a short match in lazy
+    mode, where there was a small match_back.
+    
+    Reproduce w/ testcases/7.
+
+commit 88dc5e73a9d7ecacb9296a97624348bd98cf539e
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Sep 24 01:14:38 2006 +0000
+
+    Fix a bug, add a test for xd3_source_cksum_offset().
+
+commit 6b35b22a09ad9c83e03ca546160b02c5fc0a3704
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Mon Aug 28 08:21:24 2006 +0000
+
+    Finally the encoder passes the 32bit boundary!
+
+commit 5b2604f05112824495e806a4e7f413b92ff9827f
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Aug 27 21:53:05 2006 +0000
+
+    Fixes the srcwin_cksum_pos advancement, at least up through the 32bit
+    boundary.
+    
+    Adds XD3_TOOFARBACK error code and XD3_INTERNAL for internal errors
+    where asserts won't do.
+
+commit a6f202275ec093b9f8948d77b9783f0820f930d8
+Author: dotdotisdead <dotdotisdead@a3eca27d-f21b-0410-9b4a-6511e771f64e>
+Date:   Sun Aug 27 18:39:38 2006 +0000
+
+    Source snapshot... broken.

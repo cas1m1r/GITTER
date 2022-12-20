@@ -1,0 +1,204 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 3a2ca02cdca8f210b0aa42727e52661acb394492
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Sun Jan 30 22:16:36 2022 +0100
+
+    setup.py: fix formatting (closes #18)
+
+commit e6e43c4c57e2d3327e8db3411126b3d278ad1ca4
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Fri Jan 28 17:54:55 2022 +0100
+
+    Update setup.py shebang to python3
+
+commit 9bc1eb3a5ce831376fe6c9db07797fc22fc185dd
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Fri Jan 28 17:14:08 2022 +0100
+
+    Return an error instead of writing DER output to the terminal
+
+commit 5bdfbc4775d97a9293544ec933abdedf1fef5c21
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Fri Jan 28 16:47:58 2022 +0100
+
+    Minor formatting fixes (fixes #17)
+    
+    Make all lines pass `flake8 --max-line-length 88`
+
+commit fde12a9bfc4b7f80d160581e9f9cda9fc3fe32c1
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Fri Jan 28 17:16:04 2022 +0100
+
+    Reword some messages
+
+commit b57f7861eb658a753bf3a588794b6198050ce032
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Jan 13 07:36:13 2022 +0100
+
+    Use gcd from gmpy2, remove obsolete imports
+
+commit 6c16a98d775a2120925f66901a13751dc7c14f7f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Jan 9 21:45:25 2022 +0100
+
+    Use ValueError instead of nonexistent ArgumentError
+
+commit cbbb3117e0690e9a4fb245579c93b2209a621669
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Jan 9 10:47:46 2022 +0100
+
+    Make codingstyle more consistent
+
+commit 86b163a9ede3474d8da060cbfe4b1ccf9c341488
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Dec 19 18:16:43 2021 +0100
+
+    raise exception instead of ending in endless loop for invalid inputs
+    
+    closes #13
+
+commit 6b21bf5142bde1a55da0a97984ee067eb3d6a74c
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Fri Jan 7 19:04:17 2022 +0100
+
+    drop legacy gmpy1 support
+
+commit 9185a5cc7f53d615b57e5098d21930d0b457f79b
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Thu Dec 2 21:26:50 2021 +0100
+
+    handle fractions.gcd deprecation
+    
+    fixes #12
+
+commit 2bd92b3a0676e92e342747f2c68eea9417c01633
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Sat Apr 17 12:49:58 2021 +0200
+
+    update shebang to use python3
+
+commit a45ce0a092b81220b7ba613655b81ab04064c005
+Author: Nathan RYDIN <nathan.rydin@gmail.com>
+Date:   Sun Mar 21 22:00:01 2021 +0100
+
+    update doc for python3
+
+commit 720c2e446e92fc6097dbf7395bf635eea93ea721
+Author: Hedroed <nathan.rydin@gmail.com>
+Date:   Mon Mar 8 23:58:56 2021 +0100
+
+    migrate to python3
+
+commit 7dab6bc031c6445fc391891c2e412b0abc61f5fe
+Author: Sylvain Pelissier <sylvain.pelissier@gmail.com>
+Date:   Sun May 7 18:22:49 2017 +0200
+
+    Use integer division to avoid float OverflowError (#5)
+    
+    * Use integer division to avoid float OverflowError
+
+commit d902bec5402c516981d37f8c08990dbe2e2c9d7c
+Merge: cfbfd74 1f6c04c
+Author: ius <j.de.gram@gmail.com>
+Date:   Fri Nov 18 17:57:30 2016 +0100
+
+    Merge pull request #6 from enricobacis/master
+    
+    Correct Euler's totient function in all cases
+
+commit 1f6c04ca49880d70638c464b91143e717d9ff6b7
+Author: enricobacis <enrico.bacis@gmail.com>
+Date:   Thu Nov 17 22:41:40 2016 +0100
+
+    Correct Euler's totient function in all cases
+    
+    It's obviously never good to have p == q, but when this happens we need
+    to compute the correct version of Euler's totient function. In fact when
+    phi(p•q) == phi(p) • phi(q) only when p and q are coprime.
+    
+    phi(p**k) = p**k - p**(k-1)
+    So when p == q we have phi(p**2) = p**2 - p
+
+commit cfbfd749c18afb5ae21f1d04d4bd10caf6677894
+Merge: 9c3c581 e07d132
+Author: ius <j.de.gram@gmail.com>
+Date:   Tue Aug 2 18:31:43 2016 +0200
+
+    Merge pull request #4 from nil0x42/master
+    
+    use `gmpy2` dependency if `gmpy` is not available
+
+commit e07d132702b2d884553e5cf6446a014cb33c9919
+Author: nil0x42 <nil0x42@gmail.com>
+Date:   Tue Aug 2 15:10:56 2016 +0200
+
+    use `gmpy2` dependency if `gmpy` is not available
+    
+    both are compatible for use with rsatool
+
+commit 9c3c5814c51deec47f5b738308ef61ebbc778c99
+Merge: c41b17c 4edd9e2
+Author: ius <j.de.gram@gmail.com>
+Date:   Thu Feb 4 22:33:19 2016 +0100
+
+    Merge pull request #3 from sylvainpelissier/master
+    
+    Make the script Python 3 compatible
+
+commit 4edd9e21f910e156c5b5a73a66b4d63923b8e86d
+Author: Sylvain Pelissier <sylvain.pelissier@gmail.com>
+Date:   Mon Feb 1 21:41:31 2016 +0100
+
+    Make the script Python 3 compatible
+
+commit c41b17cec4add9908e07278a9ae5205bc8df09f5
+Merge: 24a5b00 8e4861b
+Author: ius <j.de.gram@gmail.com>
+Date:   Thu Oct 15 22:29:16 2015 +0200
+
+    Merge pull request #2 from stamparm/patch-1
+    
+    Miniscule typo fix
+
+commit 8e4861b21877e3abe63ca60556e01eaffa200921
+Author: Miroslav Stampar <miroslav@sqlmap.org>
+Date:   Thu Oct 15 10:15:48 2015 +0200
+
+    Update rsatool.py
+    
+    Miniscule typo fix
+
+commit 24a5b00e678bbd536679ad8d56633899cb8696a7
+Merge: 005c2aa fbb2ac2
+Author: ius <j.de.gram@gmail.com>
+Date:   Wed Jul 22 20:46:06 2015 +0200
+
+    Merge pull request #1 from fabianfreyer/master
+    
+    Create an installer script
+
+commit fbb2ac2e625703b116d5c9a4e8a2f3c8591581bf
+Author: Fabian Freyer <fabian.freyer@physik.tu-berlin.de>
+Date:   Wed Jul 22 15:16:49 2015 +0200
+
+    Use setuptools, not distutils for dependencies
+
+commit 34c03150a9de8d3b18bed07ec4108859a4486ba8
+Author: Fabian Freyer <fabian.freyer@physik.tu-berlin.de>
+Date:   Wed Jul 22 14:46:52 2015 +0200
+
+    Created setup.py and .gitignore
+
+commit 08d16d3169525cb755cd10b03bb6b5b00680e52d
+Author: Fabian Freyer <fabian.freyer@physik.tu-berlin.de>
+Date:   Wed Jul 22 14:43:45 2015 +0200
+
+    Fixed shebang to use env
+
+commit 005c2aafdcd4387058945f42636cab89748bee31
+Author: Joerie de Gram <j.de.gram@gmail.com>
+Date:   Mon Jan 2 16:40:37 2012 +0100
+
+    Initial commit

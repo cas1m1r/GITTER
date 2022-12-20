@@ -1,0 +1,108 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 4afb34c0c81932833676070af53b882c0892f32e
+Merge: aca07c8 04aed73
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Sat Feb 2 20:40:14 2019 +0000
+
+    Merge pull request #3 from stronk7/detect_jobs_without_builds
+    
+    Verify the job has been executed before trying to access to lastBuild
+
+commit 04aed73cd46f294948bc651c88d1090653870881
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Feb 2 18:33:43 2019 +0100
+
+    Verify the job has been executed before trying to access to lastBuild
+    
+    Since long ago we had detected that, on startup, the bot was missing the
+    status from a couple of our ci servers. After tracing the problem down,
+    it was caused by some jobs in those servers that never had been run,
+    hence their lastBuild was null.
+    
+    This simply adds a check to ensure that some build has happened.
+
+commit aca07c8ead03c7aa15e77650451fc1e7dc393316
+Merge: 3e665c8 62bbef3
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Jun 11 19:31:29 2018 +0100
+
+    Merge pull request #2 from stronk7/skip_pairs
+    
+    Add support to skipped notifications (from, to)
+
+commit 62bbef307758c2a567258b9a50140031414769a9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jun 11 16:35:08 2018 +0200
+
+    Add support to skipped notifications (from, to)
+    
+    With HUBOT_JENKINS_SKIP_NOTIFICATION it's possible to specify
+    pairs of statuses (from , to) not leading to any notification.
+
+commit 3e665c8e9cb89efcdfadd3bd27911ca64dd9ab36
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Sep 1 15:17:50 2017 +0100
+
+    Improve readme
+
+commit c64086de43cf2884d5e43b610ef51c4e5aa5b815
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri Feb 3 14:01:23 2017 +0000
+
+    Refresh jenkins status at startup
+
+commit faf53e2a3279a85259ad621fd6b7d7a858791c54
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Feb 2 12:18:21 2017 +0000
+
+    0.1.0
+
+commit e0207518d27057e49d2652af1f11cb2dded9c1af
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Jan 31 19:37:43 2017 +0000
+
+    0.0.3
+
+commit 0354399bb0478a1b9d336c596c59c8b0de79276f
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Jan 31 19:36:50 2017 +0000
+
+    Refactoring and fix of cache bug
+    
+    Now an additional url param option to always notify
+
+commit b98ae297f2c30b437c2faac3ae7100b1b14b7e34
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Jan 31 14:05:17 2017 +0000
+
+    0.0.2
+
+commit be2949ce48a50f61f434ef625701eb1f2857ac4d
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Jan 31 14:04:12 2017 +0000
+
+    Handle job names with _ and ( in better
+    
+    Remove more irrelevant log lines from output.
+    
+    Fixes #1
+
+commit 1f6cbb8c1d5bb7f4c936303d5e4cbae89a860808
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon Jan 30 17:54:51 2017 +0000
+
+    version
+
+commit d88388146fd4830788f2f4f4fb5955639ecacc01
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon Jan 30 17:54:23 2017 +0000
+
+    Initial improvements
+
+commit 2c7ca8b74b212821689753a29365357a23c94145
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon Jan 30 14:36:28 2017 +0000
+
+    Initial commit

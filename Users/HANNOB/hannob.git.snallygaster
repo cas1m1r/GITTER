@@ -1,0 +1,1387 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 3179b7ae902b779eab02e67eb937007e39c9d495
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 16 17:33:40 2022 +0100
+
+    reformat setup.py with black
+
+commit 4e036b611731e807d2c7021c079b5f9c13c905dc
+Merge: 769ce28 cb3d219
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 16 17:25:25 2022 +0100
+
+    Merge pull request #78 from hartwork/setup-file-open-context-manager
+    
+    setup.py: Use context manager for readme file opening
+
+commit cb3d219e32936e1ffd27dc26228a73161efe478c
+Author: Sebastian Pipping <sebastian@pipping.org>
+Date:   Wed Nov 16 17:08:39 2022 +0100
+
+    setup.py: Use context manager for readme file opening
+
+commit 769ce28922a384f5b917cc5cac382773388aa0b5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 16 17:07:24 2022 +0100
+
+    remove obsolete comment and lower minimal python version to 3.7
+
+commit dc72289ed7ad99034f621863c19686d70b80cf17
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Nov 16 16:44:29 2022 +0100
+
+    CI: enable python 3.12
+
+commit 303bfd34046838d7511a80ec92a3058d0753ed54
+Merge: f4f5ad0 2045a36
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Jul 21 14:31:11 2022 +0200
+
+    Merge pull request #75 from undergroundwires/patch-dns-error
+    
+    Fix crash due to bad DNS on target
+
+commit 2045a36be9464d5ec0e9bde511d80a0315b8aaf7
+Author: undergroundwires <git@undergroundwires.dev>
+Date:   Wed Jul 20 18:02:22 2022 +0200
+
+    Fix crash due to bad DNS on target
+    
+    snallygaster fails and stop execution with `dns.resolver.NXDOMAIN: The DNS query name does not exist: XXX.XX.XXX.XX.` if the IP address (masked as XX..) found does not resolve. This can be due to bad configuration from remote site and snallygaster should not fail but continue with other tasks.
+
+commit f4f5ad0279a6019e0a56f607fc7db89a603d71b5
+Merge: 2336124 4e39180
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Mar 12 15:28:16 2022 +0100
+
+    Merge pull request #72 from security-companion/adapt_contributionsmd
+    
+    remove E501 from Contributions.md as it is also not included in test\test_codingstyle.py
+
+commit 4e391808971021f649d4a721f9b834ad7d3ee7f5
+Author: J. Mammele <jomammele@web.de>
+Date:   Sat Mar 12 09:36:59 2022 +0100
+
+    adapt contributions.md part2
+
+commit 2d2e978a958dccfa52455833e765fed6b12887d8
+Author: J. Mammele <jomammele@web.de>
+Date:   Sat Mar 12 09:34:56 2022 +0100
+
+    remove E501 from Contributions.md as it is also not included in tests\test_codingstyle.py
+
+commit 2336124b4a7961c4fcf37573000fac931ded8c76
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Mar 10 10:48:35 2022 +0100
+
+    re-disable py3.11
+
+commit 417c91734b94bd8a6d82c5b4795e722e59f3760a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Mar 10 10:37:04 2022 +0100
+
+    enable python 3.11
+
+commit 60d91a34ed61fe92b821897b7daad3b11c4a4de9
+Merge: 760bb51 9788ad6
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Feb 23 09:18:12 2022 +0100
+
+    Merge pull request #70 from security-companion/correct_info_tag_for_phpinfo_test
+    
+    add missing @INFO in front of test_phpinfo()
+
+commit 9788ad655ea9d6de0c79b349656ed3b7dcfd95da
+Author: J. Mammele <jomammele@web.de>
+Date:   Tue Feb 22 21:26:12 2022 +0100
+
+    add missing @INFO in front of test_phpinfo()
+    
+    add missing @INFO in front of test_phpinfo() as this test is declared in TESTS.md within the info-category.
+
+commit 760bb5153f8119e7baad7bc61abb4708750be1fe
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jan 31 21:28:53 2022 +0100
+
+    version 0.0.12
+
+commit 88d30774a3db49ab240a869f1faf25a059089163
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jan 31 21:24:42 2022 +0100
+
+    use more f-strings
+
+commit cc0ccd5ffa0ed802c1e24fb46ed41006a3bea0db
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Jan 16 09:37:28 2022 +0100
+
+    let pyupgrade enforce f-strings and latest python
+
+commit 66a6e1fb45fdca4b0efd4b12b2fa299f615ff990
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Jan 16 09:36:48 2022 +0100
+
+    use more f-strings
+
+commit d9efb3bee7b925a79649c4406668f56142b57926
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Jan 16 09:24:30 2022 +0100
+
+    catch all the different ways the HTML parser can fail
+
+commit 2c6cae3ed8b4df401248830df9a3a09f3ed0e9fa
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jan 12 20:47:34 2022 +0100
+
+    Remove nargs=1, simplifies code
+
+commit 8e076ee8d9239f173be4cf581c3a78f2a5c3a7e1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Dec 28 16:43:14 2021 +0100
+
+    raise version to 0.0.11
+
+commit 0f4fbc331b23c50d74abead7f501815b5787c5f3
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Dec 28 16:15:57 2021 +0100
+
+    disable python 3.11 tests for now due to pylint/wrapt incompatibility
+
+commit a9cf7025301b12811e6138d2dc97183bb5d035d0
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Dec 28 15:25:25 2021 +0100
+
+    fix pylint warning use-implicit-booleaness-not-comparison
+
+commit e53d0c472ae7584eb52af2beeaa42db5fc638793
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Nov 12 08:08:15 2021 +0100
+
+    add desktop.ini test
+
+commit d6c642592803dca6e3792f301ba1d2d8baaa5e12
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Nov 12 08:05:57 2021 +0100
+
+    add desktop.ini test
+
+commit 978d7fa71145464074e6ae1f147706780fe825cf
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Nov 12 08:00:58 2021 +0100
+
+    add detection of symfony debugging mode on 404 pages
+
+commit 573f5ef1eadc97c38964b97d4aa64993098fbc1f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Oct 17 12:35:33 2021 +0200
+
+    support v3 php-cs-fixer format and rename test
+
+commit fe3c6766583e66bd995b3ea8f796f754d6fc5f23
+Merge: dc633df 2bb82cd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Oct 17 12:34:08 2021 +0200
+
+    Merge pull request #66 from hannob/enable_onlinetests
+    
+    Enable onlinetests
+
+commit 2bb82cd17295342ef822f59fec6bfcec6e6b89a7
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Oct 17 10:32:55 2021 +0200
+
+    update tested versions
+
+commit c60f06154f5c83fccaca3a9c4c03df86d9ba649f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Oct 17 10:28:56 2021 +0200
+
+    update tested versions
+
+commit 1aa69b18c7d6d19eb7ee40c2cade68c780db4c4c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Oct 17 10:24:21 2021 +0200
+
+    enable onlinetests in GH actions
+
+commit dc633dfa823b254ed76062b8f7604d6d9ae3ff66
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Oct 16 14:27:52 2021 +0200
+
+    ignore new pylint warning and fix CI
+
+commit 99dc47ad2a0d9282ebdabd4cad496f4494f421f1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Sep 5 09:52:39 2021 +0200
+
+    fix new pylint warnings
+
+commit ba378a662641002112506021042ec6ae1930c63b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Jul 2 14:12:14 2021 +0200
+
+    improve apache server info detection / avoid false positives by adding closing h1 tag
+
+commit 60912775b7c09bf5721bb01f4351ab6a49639386
+Merge: 2c68373 da06e0c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Jul 2 14:03:23 2021 +0200
+
+    Merge pull request #61 from security-companion/apache_configuration
+    
+    Add check for apache server info
+
+commit da06e0c29af63eeb55592f079b2e5bf8fc444980
+Author: joejoe <17023802+jopi2016@users.noreply.github.com>
+Date:   Sun Jun 27 11:51:11 2021 +0200
+
+    remove apache perl status, add documentation for apache-info check
+
+commit 56fdcc5cc1b0169170f1255b9737bd8ce8c5942f
+Author: joejoe <17023802+jopi2016@users.noreply.github.com>
+Date:   Sat Jun 26 23:18:49 2021 +0200
+
+    update check for apache-info, check for perl-info still need improving
+
+commit 2c68373861d7ac65fcfe9c2ffeec9d5850f026de
+Merge: 505df47 697b9dc
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Jun 26 15:01:11 2021 +0200
+
+    Merge pull request #60 from sebix/sebix-patch-1
+    
+    Readme: add openSUSE package
+
+commit cd7b43ffb2b1ab0b8a357cb7623c46cf2cae3d9c
+Author: joejoe <17023802+jopi2016@users.noreply.github.com>
+Date:   Fri Jun 18 13:39:58 2021 +0200
+
+    Update snallygaster
+    
+    add check for apache server info and perl-status
+
+commit 697b9dcb9ac8388fd227b81291bb7fee3d31b95e
+Author: Sebastian <sebix@sebix.at>
+Date:   Fri Jun 18 08:41:35 2021 +0200
+
+    Readme: add openSUSE package
+    
+    I'm maintaining the openSUSE package already for a while now
+
+commit 505df4729164302c234cc45143a11606334460a1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Jun 17 11:41:02 2021 +0200
+
+    version bump
+
+commit 54ec2bc6468dfe2565e79d0a29989846bf901707
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Jun 17 11:40:21 2021 +0200
+
+    add dirlisting check for wordpress duplicator plugin
+
+commit 17b6dec47b7b9d1884ac11dfb156a85bce7b1076
+Merge: 7ae3394 84a2088
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 16 22:02:14 2021 +0200
+
+    Merge pull request #59 from hannob/ghactions2
+    
+    Move CI to github actions
+
+commit 84a2088ff7b5ba064218ab22d2f425ce2f47e9d3
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 16 22:00:39 2021 +0200
+
+    fix py3.10
+
+commit 817af1ed4fdb97a47cc8cb1d29c9b8fb55ebedb0
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 16 21:58:27 2021 +0200
+
+    add gh actions
+
+commit 7ae339428b82561e027851861ddd787382cc03be
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 16 21:55:08 2021 +0200
+
+    remove travis
+
+commit 54f8186aa99959997964120e443420c13436e325
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 16 10:24:25 2021 +0200
+
+    disable too-many-lines check in pylint
+
+commit f27d2a247da823585e607da4a74479aad0d9fe6d
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 16 10:23:27 2021 +0200
+
+    add wordpress duplicator installer.php check
+
+commit 1825c8f3bb8834ad0d90b61a4a4c40f89843035c
+Merge: 7ac1da0 311a11d
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 17 21:28:53 2021 +0200
+
+    Merge pull request #58 from sebix/fix-57
+    
+    replace deprecated ssl.wrap_socket with SSLContext
+
+commit 7ac1da03958b0513ea89114bc0cfd16e33d3cb20
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 17 21:27:37 2021 +0200
+
+    disable check for with/open style
+
+commit 311a11d7a21eabe0686fd756009685041dce3f75
+Author: Sebastian Wagner <sebix@sebix.at>
+Date:   Tue Apr 6 21:36:19 2021 +0200
+
+    replace deprecated ssl.wrap_socket with SSLContext
+    
+    fixes hannob/snallygaster#57
+
+commit bfe8914200b90bb8a85ed80f067491b733d05092
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Nov 5 10:46:03 2020 +0100
+
+    add thumbsdb doc
+
+commit 88873b4e427f495dc8ea12a7994ed2326c6781e1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Nov 5 10:44:08 2020 +0100
+
+    add test for Thumbs.db
+
+commit bd59a246de281729d6102504707e25b7b83188f8
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Oct 28 19:18:49 2020 +0100
+
+    unify exception handling in axfr test and don't terminate on dns.exception.Timeout
+
+commit ddde8966b0bbc2d9eae8fddeeef8e40a08c8eb8e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Oct 1 14:03:23 2020 +0200
+
+    raise version
+
+commit c311b6d4d3adfae04e74f2822a2da274e964e035
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Sep 27 15:19:03 2020 +0200
+
+    codingstyle for backupfiles
+
+commit 4a02f0fe26dd94513984926d60541101cef80afd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Sep 27 15:18:34 2020 +0200
+
+    dnspython 2.x support, this requires using dns.resolver.resolve if available (and .query for 1.x support) as well as using IPs for axfr
+
+commit 188c16bb8f9f97a93297ad9e95283591d96677ab
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Sep 27 14:56:30 2020 +0200
+
+    add .orig to backupfiles test, created by patch tool
+
+commit 2afa32f1eb67538072d88110df642008dfa2c358
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Sep 17 22:01:06 2020 +0200
+
+    document wpdebug
+
+commit dad646d3afd4c1e951d1b95e1f524ac1aefa77c9
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Sep 17 22:00:06 2020 +0200
+
+    add wordpress debug.log test
+
+commit d6cf24f0212bd30c27a9dc65c13f8b42fbcdb3fb
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Sep 17 15:02:15 2020 +0200
+
+    fix pyflakes and pyupgrade warnings
+
+commit c41bfddea3a9aeea9e922416ed611281fac3fd46
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Sep 17 14:57:07 2020 +0200
+
+    check if we document all the tests in TESTS.md
+
+commit 3bdc124494f91765f0cb647d59a1e0449be9b045
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Sep 17 14:41:41 2020 +0200
+
+    doc for headerinject
+
+commit 73a362bae3263b7d0a8ec101a925c0ec1e8d449a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Sep 17 14:40:15 2020 +0200
+
+    add http header injection test
+
+commit 678da1524667f487d07752fbdddc6461c3c1b72c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Sep 11 20:43:05 2020 +0200
+
+    disable broken python nightly, enable 3.9-dev
+
+commit 6136f6d080c1128a29c684a9c36c0c0ee9bda91b
+Merge: b40d899 d8e755b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Aug 22 13:41:40 2020 +0200
+
+    Merge pull request #52 from ppepos/main
+    
+    Fix composer false positive
+
+commit d8e755bf3566758bb63b27d27fd3c41243a78ae2
+Author: Philippe Pépos Petitclerc <ppeposp@gmail.com>
+Date:   Fri Aug 21 15:39:51 2020 -0400
+
+    Fix composer false positive
+
+commit b40d8999cd5211a7a1fcb46fa11444a467addbc6
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jul 13 11:20:03 2020 +0200
+
+    raise version to 0.0.8
+
+commit 077cd0d24e8d59ce7695be555d6cccdfc523a24e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jul 13 11:19:37 2020 +0200
+
+    use annotated tags for changelog
+
+commit b17125863708481e25767aef81db3d103055928b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jul 13 11:18:08 2020 +0200
+
+    document phpinfo
+
+commit db236aa3e3b144c44b5a177932900fbb5ea8e202
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jul 13 11:16:09 2020 +0200
+
+    fix whitespace error from merge
+
+commit d23213b7106dfa486d4df4ee96cb41db1d441426
+Merge: 835baf0 d1640c8
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jul 13 11:14:59 2020 +0200
+
+    Merge pull request #51 from hannob/master
+    
+    Master
+
+commit d1640c8186f81953eecb9e3b80e3d2a884383093
+Merge: d2d9da8 262a768
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jul 13 11:01:12 2020 +0200
+
+    Merge pull request #30 from lynt-smitka/phpinfo
+    
+    Test: phpinfo
+
+commit 262a768f06d5d4eafd2395bde8814f9b9b67bb7c
+Merge: 3687889 d2d9da8
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Jul 13 11:00:31 2020 +0200
+
+    Merge branch 'master' into phpinfo
+
+commit 835baf05afed05e8f50edee40a69dc88edffdae5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Jul 2 14:15:44 2020 +0200
+
+    add vb_test.php check
+
+commit 9f4b6a0c64c560769114a05158d80c730a85a3f5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Jun 23 13:29:05 2020 +0200
+
+    raise version to 0.0.7
+
+commit e1ed99667bf5716673a9836acef5cd828e3cd07a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Jun 23 12:45:37 2020 +0200
+
+    add laravel telescope test
+
+commit a7392b7dcabbc933fcd71f6d48a4869d62a2f202
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Jun 18 17:34:35 2020 +0200
+
+    print proper error for invalid hostnames, this can be very long hostnames or invalid encodings (like unicode surrogate characters)
+
+commit 70b45a1b4271cd85ad4675d1a57b25d7d3a043a8
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 17 15:46:39 2020 +0200
+
+    Create SECURITY.md
+
+commit d2d9da88c4d71605d7af6c1e2634378bc1f3c982
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 10 20:10:51 2020 +0200
+
+    add pyupgrade to travis
+
+commit 2f16368641561b3a60522ddaf5a2b78a42881565
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 10 20:04:03 2020 +0200
+
+    fix pyupgrade issues
+
+commit 28b28fdd4e861868bab28b280002dc5cb4d36324
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed Jun 10 20:00:22 2020 +0200
+
+    add pyupgrade codingstyle check
+
+commit d47ba27b24e9b0c4767a7b600783c94c980e0e8f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Jun 7 20:18:00 2020 +0200
+
+    add check for django debugging on error pages
+
+commit 1f9d05d99d75bf064b2d9bb2efa5d291a598f42f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 11 17:32:50 2020 +0200
+
+    openelasticsearch test
+
+commit a14692a889c76fe4e1b8052ef6f007b6f25a6e5f
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed May 6 09:09:23 2020 +0200
+
+    add gentoo
+
+commit c4f35ee7825c6a8c79e977ab95e51a52a8105c87
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed May 6 08:38:28 2020 +0200
+
+    change description
+
+commit 0f56893a4f981eddd29cfb9ea6b19f8dbf4bf6d7
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Wed May 6 08:37:43 2020 +0200
+
+    add distro packages
+
+commit f94fc0c45cd32d23cef34828f1dbd4f2732ad8c9
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 4 18:43:36 2020 +0200
+
+    add version tag to doc
+
+commit 46a4af1c60eea68c4cb27f9930dee13da8999464
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 4 18:39:15 2020 +0200
+
+    raise version
+
+commit e4dfbc20865acbc30f3c597c18e1087289e8d3bb
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 4 17:36:11 2020 +0200
+
+    un-break binary fetcher
+
+commit 25d7eae2704fed045ca92a3ce37f42b0aaafeb2e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 4 17:21:08 2020 +0200
+
+    add check for wordpress installer in subdir, also add possibility for fetcher function to return redirect url
+
+commit a371268dc77f7428ddcbf6b187952c8e3fd19d28
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon May 4 11:55:15 2020 +0200
+
+    more tests
+
+commit 59e6a9c593d5c83996d73cc52a83af597cabda79
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 18:49:39 2020 +0200
+
+    remove CVS test, produces plenty of false positives and hardly any true positives
+
+commit 6815b828087b93b1fafc1cec164aeecea4136866
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 14:49:55 2020 +0200
+
+    remove unused module
+
+commit 7fb5a771180f4a2fd9d503f45874eb843a53ed1e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 14:25:18 2020 +0200
+
+    with cert validation disabled we don't need SSL errors
+
+commit a520b8828a7935bf5326720bbb8c9b67af21b3ee
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 14:10:25 2020 +0200
+
+    link another .DS_Store tool
+
+commit 23b73d9db9ba9b3a3bf763bfea3c4144a598ef6a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 12:01:49 2020 +0200
+
+    fix codingstyle
+
+commit 1d52111b984a015c46f0553979f3c2e101d83f62
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 11:57:33 2020 +0200
+
+    unify test name and output name
+
+commit f24996431964d6f714698287a48abeebb7cd3695
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 11:56:25 2020 +0200
+
+    enable onlinetests in travis
+
+commit a8b7df96f8b708f10cb31ab7782cd1f3ceb93cf9
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 11:55:50 2020 +0200
+
+    add online test with scandata
+
+commit 5da03ce6452c25439dd11e65635240f26a84bc3c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 11:06:33 2020 +0200
+
+    rework acmereflect test and avoid false positives
+
+commit f3c78e9e8428e95de72ce784a0745dc5d73b4498
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun May 3 10:58:10 2020 +0200
+
+    really disable cert verification (this was intended to happen for a long time)
+
+commit 6c78a33ee9606de9e8478a8c557cc8ab52133f3c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat May 2 19:34:52 2020 +0200
+
+    add installer check
+
+commit eda10e05b3a876c62bd70dfabde7f315bf44678e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat May 2 19:33:34 2020 +0200
+
+    disable annoying falsepositive tests
+
+commit e8c64a67b324817bab168d3c80dc1f8633f533c1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Apr 30 16:57:28 2020 +0200
+
+    add doc for composer
+
+commit 28cae8de39d2c1c81612fa862bb5d745608c6e3d
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Apr 30 16:56:14 2020 +0200
+
+    add info check for composer files
+
+commit 51db3b29ba47ddc895718d83f9bfed0aac2a0d28
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Apr 30 16:55:56 2020 +0200
+
+    ignore python dist stuff
+
+commit de6fca7e4c48a992724a6f26e1b750e932aa0774
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Apr 30 16:08:07 2020 +0200
+
+    raise version
+
+commit 2c7b92190b2288676ea69aa6ede6b3e68d6288b0
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Apr 30 16:07:13 2020 +0200
+
+    avoid retries and set short timeout
+
+commit c79e6ca070d6f1d6264b33b829f6c87ef82f31bd
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Apr 28 20:21:59 2020 +0200
+
+    codingstyle
+
+commit 7bb7a7923348cef676d550ac2ddfa8fe4c3842b2
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Apr 28 20:19:46 2020 +0200
+
+    only scan default URL, the .cgi/.py variants are exceptionally rare
+
+commit 3ceb07fa77942462f38b83bc569f1cb579296595
+Merge: 8da92e6 7e88703
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Apr 28 10:20:47 2020 +0200
+
+    Merge pull request #49 from cfi-gb/patch-1
+    
+    Fix mailman path
+
+commit 7e88703851144e07daf53d2859ba3b6a67bceb62
+Author: cfi-gb <34644702+cfi-gb@users.noreply.github.com>
+Date:   Tue Apr 28 10:05:48 2020 +0200
+
+    Fix mailman path
+
+commit 8da92e648fd01534fb746ce0e13c1362ad3df966
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Apr 27 14:19:30 2020 +0200
+
+    fix broken mailman version detection
+
+commit 8bf19a1a1e6ce0ec92e4649af10869e9deddf440
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Apr 27 14:13:52 2020 +0200
+
+    improve mailman check, detect unused
+
+commit 7fe86948ff90aea2c620b1fd8bd22ddbea1c2125
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Apr 27 14:07:01 2020 +0200
+
+    add info check for mailman
+
+commit 5dddb3f2bf861669b743343b57cb66620fa545f5
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Apr 25 20:13:37 2020 +0200
+
+    error when url is passed instead of host
+
+commit 7bb6fb6108d261f60a739251372f3f26062144d1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Apr 3 19:08:40 2020 +0200
+
+    removing older python versions
+
+commit 7e7c22fe16b22b76b2390493376b36d52165241d
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Apr 3 19:00:17 2020 +0200
+
+    unify markdown style of headline
+
+commit 0cde46a211efe4bf9819c61820d34e7e6ac80ec7
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Apr 3 18:56:58 2020 +0200
+
+    rename poolmanager to pool for shorter code
+
+commit eca340a8f98aa722fef9c38ff3340b759759e3e1
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Apr 3 13:50:32 2020 +0200
+
+    add check for monit default webinterface credentials
+
+commit 86444763bcb2a81decc16af40ffd3c488f812b3a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Tue Mar 24 07:14:41 2020 +0100
+
+    spellcheck
+
+commit e5fa749149a629f5cbd0100a70a3f5686eaa6398
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Mar 22 09:31:02 2020 +0100
+
+    add dlint to CI
+
+commit 86d6bdcc5960f082a3195ab616679a345c66c511
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Mar 22 07:57:19 2020 +0100
+
+    silence dlint warning, we deliberately don't want certificate validation
+
+commit 41e8e0d920c1cd43ea32e498686748de282d66f7
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Mar 9 11:29:39 2020 +0100
+
+    document dep installation in debian
+
+commit 2ce3182865771ebf6fefa597c69e962b01c18e90
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Mar 9 09:16:18 2020 +0100
+
+    link to git-dumper
+
+commit 8103cbc316733f3d0ef8bfbe20118b7047b495c3
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sun Mar 8 17:06:26 2020 +0100
+
+    make it clear at least one host argument is needed
+
+commit 9e395a414f206019eb52eae0ee5046eedd2ee353
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Feb 24 21:16:00 2020 +0100
+
+    codingstyle fix
+
+commit b4e8957c0be7f1e9c8e4a1324c0d0abb0ac38c09
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Feb 24 21:06:15 2020 +0100
+
+    catch some of the 'milder' optionsbleed instances
+
+commit f345060a3971790e1325f9678f6e7f98a8782b12
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Feb 24 21:00:07 2020 +0100
+
+    rework optionsbleed check, avoid ReDoS attack, issue #24
+
+commit 09509dc157b7aa5acb49bd7543e101a1cb8bb7ae
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Feb 24 10:34:09 2020 +0100
+
+    make sshkey check more flexible and work with 'BEGIN OPENSSH PRIVATE KEY'
+
+commit f0befe0312473a002adb6a6665800e7097f9660e
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Feb 20 10:12:11 2020 +0100
+
+    use safe random numbers to make dlint happy
+
+commit 4473249d25fe85910b1d954c957cc7105423f9da
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Jan 11 18:36:37 2020 +0100
+
+    we also want to create sdist packages
+
+commit 77c2e4f456222acc3e9d8f2b01377fccd70fd1be
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Jan 11 18:35:05 2020 +0100
+
+    raise version
+
+commit 573042daa7dd5255d8c4c487321315d3d749fa3b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Jan 11 18:32:30 2020 +0100
+
+    early exit in fetcher to avoid deep nesting
+
+commit 00375b231422382641245138271130af98185a0c
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Jan 11 18:25:20 2020 +0100
+
+    add citrix_rce
+
+commit abc751e64ef955959b901e3fa2b40be4ecd61a00
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 14 09:52:17 2019 +0100
+
+    raise python versions
+
+commit 494f985bdff91588c94395165f48dcea4bced99d
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 14 09:32:13 2019 +0100
+
+    add unittest for codingstyle, use in travis
+
+commit 8919075eeea2c0b12f9a92a5bba54102c4e315ab
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 14 09:31:26 2019 +0100
+
+    add gitignore for pycache
+
+commit e2e58306ade0b126aaf37c2f0ea9277c8ee67b8a
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Sat Dec 14 09:29:43 2019 +0100
+
+    avoid very long lines
+
+commit 99617f3979b22ca42e4537a531cd2b9428dc9d2b
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Dec 13 13:52:16 2019 +0100
+
+    fix some pylint warnings
+
+commit 9ae5c95a4364125405b8b0c895fb636f5809b7b7
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 12 19:11:46 2019 +0100
+
+    run CI on nightly to catch python problems early
+
+commit 5f6df1347a8c49415676ce7355680d9a0eb466ae
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 12 18:13:52 2019 +0100
+
+    add notes to self how to prepare a release
+
+commit 674a6de118bbe2019d0babb8788300fbd263a138
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 12 18:12:53 2019 +0100
+
+    add thanks to benjamin
+
+commit c0447e355b812dafdee84cc23d686f3dcc29e62d
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 12 18:08:50 2019 +0100
+
+    fix setuptools warning
+
+commit 18ccd9959a0d4528106560853f94f36b1859be38
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 12 18:06:06 2019 +0100
+
+    raise version
+
+commit a5091dd9463d4e52714ce442037b531481b1a413
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 12 18:02:15 2019 +0100
+
+    description is markdown
+
+commit 0e29be547a3022cf6950c668de8c257734999fba
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Thu Dec 12 17:56:34 2019 +0100
+
+    make invalidsrc test use deterministic order
+
+commit eb1ab8845b01feb3454227d01f4d32faf4eaf0f6
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Fri Nov 15 12:02:53 2019 +0100
+
+    update CI to test current python versions
+
+commit 96ada75f2c6cc8643e76d20f433944b32d52d9db
+Author: Hanno <hanno@gentoo.org>
+Date:   Thu Aug 1 15:21:47 2019 +0200
+
+    replace dead link with wayback machine link
+
+commit d56a219cb971932e615d3c604db3872ab5a0f0f9
+Author: Hanno <hanno@gentoo.org>
+Date:   Sun May 12 12:11:05 2019 +0200
+
+    add extra string match to avoid false positives with sftp check
+
+commit 50a5d0a4e0b1fef3c73087973ef845824cba42a0
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed May 8 10:44:26 2019 +0200
+
+    More filenames for backup_archive test, closes https://github.com/hannob/snallygaster/issues/41
+
+commit 4349dcc7302ca458de1999b9be4cbdffbb07cc68
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed May 8 10:43:40 2019 +0200
+
+    make backup_archive consistent
+
+commit ba78a4b37d4bb56637b1c1c05fc093d6bcaff204
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 30 11:52:00 2019 +0200
+
+    doesn't need what404 call, consistent name of test and message
+
+commit b08db8d34cfd2e95335b1bb2bdf0d52c6686d8f6
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Apr 29 14:33:37 2019 +0200
+
+    rework backup_archives, start with backup.*, further filenames to be added later
+
+commit 790afdce7b25985d29614221cbf959b69f657503
+Merge: 0e1fb70 9acec6f
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Mon Apr 29 14:26:29 2019 +0200
+
+    Merge pull request #27 from timonegk/master
+    
+    Add test for common backup archive files
+
+commit 9acec6f054c95b450ed964797623dedb13d4a572
+Merge: d0b8eef 0e1fb70
+Author: Hanno Böck <hanno@gentoo.org>
+Date:   Mon Apr 29 14:26:11 2019 +0200
+
+    Merge branch 'master' into master
+
+commit d0b8eefb404444cac852c2ca5a908db584767e0f
+Author: Timon Engelke <timon.engelke@online.de>
+Date:   Thu Apr 25 15:56:29 2019 +0200
+
+    backup_archives: add description
+
+commit 0e1fb7039e39a0493eb2420a4f260bad9c0361f7
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Mar 11 11:49:14 2019 +0100
+
+    add dot save (nano backup files)
+
+commit 91b72ad00ca6bafadd153aabffcffb4c234c02ad
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Mar 11 09:12:50 2019 +0100
+
+    adminer link description
+
+commit 4d105eb13a98261b515a9d13fb50f19973a73d7b
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Mar 11 09:11:41 2019 +0100
+
+    add test for ELMAH, recommendation by Alexander Buchner, thanks!
+
+commit 6cfb4486051c7cd3a3158ac0f368621df4ab5387
+Author: Hanno <hanno@gentoo.org>
+Date:   Thu Feb 14 15:06:43 2019 +0100
+
+    close poolmanager to avoid resource warnings
+
+commit 69452f3e363ab9dfc5946aa2f367449dd7323ecb
+Author: Hanno <hanno@gentoo.org>
+Date:   Fri Jan 18 13:34:43 2019 +0100
+
+    add adminer test
+
+commit ebb53bae5e47921783496da9b81f3a8fe5fdc6fb
+Author: Hanno <hanno@gentoo.org>
+Date:   Sun Nov 11 13:15:00 2018 +0100
+
+    add php warnings test
+
+commit 738e935abae30f2462a55a7510589cf00982f91e
+Author: Hanno <hanno@gentoo.org>
+Date:   Sat Nov 3 15:21:33 2018 +0100
+
+    add check for exposed drupal sqlite db
+
+commit 7b9413c6025da007f82726feadbdc0b43d45046a
+Author: Hanno <hanno@gentoo.org>
+Date:   Sat Sep 8 19:34:21 2018 +0200
+
+    fix codingstyle
+
+commit 7c9e384b47284f973c76d3f16608c3d7cdad673d
+Author: Hanno <hanno@gentoo.org>
+Date:   Sat Sep 8 19:30:08 2018 +0200
+
+    add test for acme reflection bug
+
+commit 34bb0b51f4752532b753ecef15b53b1a5123f101
+Author: Hanno <hanno@gentoo.org>
+Date:   Fri Sep 7 10:08:49 2018 +0200
+
+    add background source for backup files issue
+
+commit b6e83c976bbc680004007eaa5c3399af678f35d1
+Merge: f848ac0 cc93b9d
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Thu Jul 26 20:44:44 2018 +0200
+
+    Merge pull request #32 from roman-mueller/php_cs_cache
+
+commit cc93b9ddda60ac84db0ee8fe0860363a27f21e86
+Author: Roman Mueller <roman.mueller@gmail.com>
+Date:   Thu Jul 26 20:39:52 2018 +0200
+
+    Fix test_php_cs_cache output message
+
+commit 3687889c752883e83771a1e7413af43de52feabc
+Author: Vladimír Smitka <vladimir.smitka@lynt.cz>
+Date:   Mon Jul 16 09:40:36 2018 +0200
+
+    code styling
+
+commit 17aaeb5b94fddf7e6f77defc8fd85a81d28f8fba
+Author: Vladimír Smitka <vladimir.smitka@lynt.cz>
+Date:   Mon Jul 16 09:35:42 2018 +0200
+
+    Test: phpinfo
+    
+    Many PHP web developers left the file with phpinfo() function accessible in root folder - phpinfo.php, info.php, i.php or test.php are the most comon filenames for it. I saw other names with different cases, phpversion.php, x.php, a.php or index.php with some parameters, but I think the first four are the most used.
+
+commit f848ac050ed86582463ada8c8c355e5335250646
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Jul 3 15:47:29 2018 +0200
+
+    be consistent with uppercase debug messages and options
+
+commit ef8a5207fbe587554cefd88e6c81ebf5dace5340
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Jul 3 15:44:16 2018 +0200
+
+    add path option
+
+commit a3e5e7da6eeb48743e1dd873ef4ec4748bcf91d7
+Author: Timon Engelke <timon.engelke@online.de>
+Date:   Tue Jul 3 14:03:02 2018 +0200
+
+    backup_archives: change scanned files
+    
+    - remove wwwroot.tar.gz
+    - add [hostname].zip and [hostname].tar.gz
+    - add [domain].zip and [domain].tar.gz
+    
+    See #27 for further information.
+
+commit 844a29c0f20644ac0c3fcf633c8d58b3a3fad80c
+Author: Hanno <hanno@gentoo.org>
+Date:   Thu Jun 28 13:47:01 2018 +0200
+
+    add test for .php_cs.cache, may be too noisy, but we'll try
+
+commit 1b19def15850a8433260b726fe6d7f3a1a81fe73
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Jun 19 17:39:44 2018 +0200
+
+    document wordpress test
+
+commit 2ba6815dcf613eb2eec74f8a5183c2367d8a7f36
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Jun 19 17:39:07 2018 +0200
+
+    add wordpress version number detection check based on meta tag
+
+commit 05dac44792d6238f8356af454b7d30735c62486b
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Jun 13 19:38:20 2018 +0200
+
+    bump version number
+
+commit d0b3cdd4786c97bac81246ca4b227a636f018d42
+Author: Timon Engelke <timon.engelke@online.de>
+Date:   Mon Jun 4 15:56:16 2018 +0200
+
+    Add test for common backup archive files
+
+commit d9f4116da34f906e5a10de1c3a8a79ec6adfb039
+Merge: 8a586d7 bce8738
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Fri Apr 27 10:34:56 2018 +0200
+
+    Merge pull request #17 from pieterlange/master
+    
+    Add minimalistic docker image
+
+commit 8a586d79cf77b4052e22b6367590b194dec918d9
+Merge: 0164612 4697b5b
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Fri Apr 27 08:54:04 2018 +0200
+
+    Merge pull request #19 from mohdshakir/patch-2
+    
+    Updated TESTS.md: Changed symphony to symfony
+
+commit 01646120899dd51a3e8a3b95d653459d0f6b04b2
+Merge: 4390696 a423d40
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Fri Apr 27 08:53:49 2018 +0200
+
+    Merge pull request #18 from mohdshakir/patch-1
+    
+    Updated snallygaster: Changed symphony to symfony
+
+commit 4697b5bbfefb803d3bc8ede24b6224a542bde3a8
+Author: Mohd Shakir Zakaria <mohdshakir@gmail.com>
+Date:   Fri Apr 27 10:53:48 2018 +0800
+
+    Changed symphony to symfony
+
+commit a423d4063f37763f9288505c0baca69e216daa7c
+Author: Mohd Shakir Zakaria <mohdshakir@gmail.com>
+Date:   Fri Apr 27 10:51:56 2018 +0800
+
+    Changed symphony to symfony
+
+commit bce87382efa24ee80ddf7c8e0c4a14bed3ace39a
+Author: Pieter Lange <pieter@ptlc.nl>
+Date:   Fri Apr 27 00:52:54 2018 +0200
+
+    Add minimalistic docker image :whale:
+
+commit 4390696203f4ed08b9209704b3960499317c1a48
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Apr 23 21:15:29 2018 +0200
+
+    improve dotenv test
+
+commit 8e84da2d9b07a1a1c988dc5d52e747986aaf52a1
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Apr 23 13:58:25 2018 +0200
+
+    add W503 to python warnings, it's not possible to comply both with W503 and W504
+
+commit 29ce32c504c1d43f5a436578688dc4823810a717
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Apr 23 13:55:50 2018 +0200
+
+    fix coding style issues, mostly binary operator placement, see https://www.python.org/dev/peps/pep-0008/#should-a-line-break-before-or-after-a-binary-operator
+
+commit 7eb0e39e84271b39e755834bb5082d5550fab9c6
+Author: Hanno <hanno@gentoo.org>
+Date:   Mon Apr 23 12:58:49 2018 +0200
+
+    add Travis CI config
+
+commit 7d5dc67f43d9bd47b47af4d1701aeff78477f0d0
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Apr 11 19:32:43 2018 +0200
+
+    rename partial to fetchpartial to avoid name collision with stdlib function
+
+commit 0df8d3d3bdb55447fb8f12d5b53166209ea50a13
+Merge: 1f3fe8e 831756a
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Wed Apr 11 19:26:08 2018 +0200
+
+    Merge pull request #7 from gabeguz/patch-1
+    
+    Fix typo in test name
+
+commit 831756ab9174e704260c468dcccfe7a47a7a66c9
+Author: Gabriel Guzman <gabe@lifewaza.com>
+Date:   Wed Apr 11 10:04:32 2018 -0400
+
+    Fix typo in test name
+    
+    "sql_dumps" should be "sql_dump" according to the code.
+    
+    ```
+    $ snallygaster -t sql_dumps localhost
+    Test sql_dumps does not exist
+    $ snallygaster -t sql_dump localhost
+    $
+    ```
+
+commit 1f3fe8edbc541c15760b12f61ea19b36c36842cd
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Apr 11 14:02:06 2018 +0200
+
+    add json output option
+
+commit bada8ce64f1cd5d2a992862f562fcf0518142c6d
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Apr 11 12:32:46 2018 +0200
+
+    add pip install instructions
+
+commit ebf2adcbaefdb68958e2b9ad8fd8ebcba1d77178
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Apr 11 11:08:07 2018 +0200
+
+    add setup.py
+
+commit c553b05b81022aa1ed6b82617dbfbe7d47e42408
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Apr 11 10:59:40 2018 +0200
+
+    fix coding style
+
+commit 69f189db314bb7dadf2ee8780544b2f316b810b0
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Apr 11 10:59:03 2018 +0200
+
+    add test for phpunit vuln / CVE-2017-9841
+
+commit 0e03694934ed373b63d4982e55c51865e1ceb22e
+Author: Hanno <hanno@gentoo.org>
+Date:   Wed Apr 11 09:20:06 2018 +0200
+
+    add cgiecho test, fixes #5, proposed by riarmar
+
+commit 8ea2bfd51065c4b7e2e71c014acd98b645c77744
+Merge: be3c750 c3fb5be
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Tue Apr 10 17:56:20 2018 +0200
+
+    Merge pull request #4 from gvarisco/master
+    
+    Added requirements.txt for usage with pip
+
+commit c3fb5bec3de7308803cfbd7df8c3a490f9178d6b
+Author: Gianluca Varisco <gianluca@teamdigitale.governo.it>
+Date:   Tue Apr 10 15:55:01 2018 +0200
+
+    Added requirements.txt for usage with pip
+
+commit be3c75064d21f9a1cecc1a908e9dc401b7b75267
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 15:52:23 2018 +0200
+
+    fix styling of code block
+
+commit 913ea517423054e50bb3bfa94f70e36f2cb88dc0
+Merge: 82d1236 9f82ec3
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Tue Apr 10 15:51:44 2018 +0200
+
+    Merge pull request #2 from gvarisco/patch-1
+    
+    Fixed broken reference: TESTS.md
+
+commit 9f82ec372900f310ce65eb1e650a1fc72d48631b
+Author: Gianluca Varisco <gianluca.varisco@gmail.com>
+Date:   Tue Apr 10 15:46:55 2018 +0200
+
+    Fixed broken reference: TESTS.md
+
+commit 82d123661cc2c711455568943a3c4ac52352619b
+Merge: a312ec6 c91abc5
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Tue Apr 10 15:24:54 2018 +0200
+
+    Merge pull request #1 from wireghoul/patch-1
+    
+    Update TESTS.md
+
+commit a312ec62cd1d05f1f501274ccbad3b763061d75b
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 15:24:22 2018 +0200
+
+    add CONTRIBUTIONS.md
+
+commit c91abc54b5f2dae46f3173b18ea88d41043db0d4
+Author: Eldar Marcussen <wireghoul@justanotherhacker.com>
+Date:   Tue Apr 10 23:16:29 2018 +1000
+
+    Update TESTS.md
+    
+    quick typo fix
+
+commit f0614d5f35b989281f2ad960258e73db8dd3c82f
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 15:01:15 2018 +0200
+
+    update readme with faq, credits and link to tests
+
+commit 4c34c09ec78e6396246b0684d52bad4a2dff4317
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 14:52:38 2018 +0200
+
+    add documentation for tests
+
+commit 370b6249636a72c49c0a5c42a1ffbcec54719645
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 14:51:54 2018 +0200
+
+    more reordering
+
+commit 40508b8daa3807c51d7ceacdb1c74f340e35353b
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 14:24:47 2018 +0200
+
+    re-group so cvs is close to git/svn
+
+commit 3ada10c3bc85cd24680e6f5463cf66cbbc35aa88
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 14:08:47 2018 +0200
+
+    add CC0 license
+
+commit 04ad530ab547eca056987b6185f5f7395876df0e
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 14:07:25 2018 +0200
+
+    initial readme
+
+commit a83048d4af9442724f7949cf700d4268cf3e6d2e
+Author: Hanno <hanno@gentoo.org>
+Date:   Tue Apr 10 14:01:44 2018 +0200
+
+    Initial commit
+
+commit 809145d23622d0499530e452baeaf85ddc83d547
+Author: Hanno Böck <hanno@hboeck.de>
+Date:   Tue Apr 10 14:01:16 2018 +0200
+
+    Initial commit

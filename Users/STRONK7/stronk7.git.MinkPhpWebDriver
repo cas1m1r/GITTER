@@ -1,0 +1,525 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit f570e0f8a28c07933598e92c32f039a02a65add7
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Jul 19 19:02:54 2021 +0000
+
+    Bump shivammathur/setup-php from 2.11.0 to 2.12.0
+    
+    Bumps [shivammathur/setup-php](https://github.com/shivammathur/setup-php) from 2.11.0 to 2.12.0.
+    - [Release notes](https://github.com/shivammathur/setup-php/releases)
+    - [Commits](https://github.com/shivammathur/setup-php/compare/2.11.0...2.12.0)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: shivammathur/setup-php
+      dependency-type: direct:production
+      update-type: version-update:semver-minor
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 1a9c85b2214d21c3cec9b9272e4b5b5f254d4394
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon May 31 06:04:33 2021 +0000
+
+    Bump actions/cache from 2.1.5 to 2.1.6
+    
+    Bumps [actions/cache](https://github.com/actions/cache) from 2.1.5 to 2.1.6.
+    - [Release notes](https://github.com/actions/cache/releases)
+    - [Commits](https://github.com/actions/cache/compare/v2.1.5...v2.1.6)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit c22d24af26e6a455aeba06fa1e1bc563440c8831
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun May 2 22:52:12 2021 +0300
+
+    Bump actions/cache from v2.1.4 to v2.1.5 (#39)
+
+commit 889246f66f2f0ff0c224432136d1ce411694b127
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun May 2 22:47:56 2021 +0300
+
+    Bump shivammathur/setup-php from 2.9.0 to 2.11.0 (#40)
+
+commit a48d1b0c8c4751042577132cd3f96b7a418c664f
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Mar 8 00:56:17 2021 +0200
+
+    removing " and ' from filename (#37)
+    
+    * removing " and ' from filename fixes #36
+    * added new KeyboardWriteTest for Chromium-based browsers
+    * executable for ./bin
+    * cleanup start_driver.sh
+    * fixing continue-on-error for 8.1
+
+commit 9698149854f2bfef4bba4cd2c7d7b46789411c3f
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sat Mar 6 01:49:11 2021 +0200
+
+    Bump actions/cache from v2.1.3 to v2.1.4 (#32)
+
+commit 66207ad04b45ad4348dd68ab2a918da2875ae46f
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 31 01:07:29 2021 +0200
+
+    v1.0.1 release
+
+commit 4a4fccfe06662e5e29ec1de8545bdf59d91e5fc7
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Sun Jan 31 07:04:35 2021 +0800
+
+    Reset window handle cache when starting session (#31)
+    
+    It seems that Firefox re-uses the window handles between sessions. This
+    means that the window name cache becomes stale and can potentially point
+    to the wrong name.
+    
+    There are a number of solution to this issue, but this is the smallest
+    change without rewriting the handling completely.
+
+commit 70c267e7734e6bf7ae9a199d21cf26cc354c515c
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 16 22:34:52 2021 +0200
+
+    updated README and package name mink-phpwebdriver
+
+commit 8d93021fbeb04f449b9408a3c4b8bfef72969bf3
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 16 19:36:48 2021 +0200
+
+    Preparing 1.0 release (#30)
+    
+    - added changelog
+    - added license
+    - updated composer
+    - updated shell-scripts
+    - updated WebDriverFactory
+
+commit 8bac9c51f935d3c965c9a163260e509a7b93900e
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Tue Jan 12 08:02:16 2021 +0800
+
+    Introduce a workaround for Geckodriver/653 (#12)
+
+commit 0f742931814aea6d65995eb96cbd3fe3c1696a0f
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 9 22:07:48 2021 +0200
+
+    added prompt support (#24)
+
+commit 9e20ffa44f8774458c2a678f40ae84df09a50620
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 9 22:02:24 2021 +0200
+
+    updated getValue and how we handle empty "radio" and "option" (#25)
+    
+    * updated getValue and how we handle empty "radio" and "option"
+    
+    * added screenshot listener
+    
+    * removed .WebDriver.php.swo
+    
+    * handling time as date input
+    
+    * removed unused methods, merged time and time, updated comment
+
+commit 0a967d0a4102bdd6a6e281f3e1429979081696bc
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Sun Jan 3 18:42:17 2021 +0800
+
+    Allow reopened closed windows to be switched to (#8)
+    
+    The workaround to support firefox window switching means that the list
+    of windows can become stale.
+    
+    When a window is opened, closed, and then reopened the list of windows
+    then contains two windows with the same name, with the currently open
+    window likely being later in the list, for example:
+    
+        Array
+        (
+            [4294967304] => questionpreview
+            [4294967307] => questionpreview
+        )
+    
+    The switchToWindow code only looks for the first match, which is the
+    stale window which has since been closed.
+    
+    Ideally there should be no state stored here, but given the geckodriver
+    bug that this workaround addresses, the state must be updated more
+    aggrerssively.
+
+commit 6b911506d5b38dd5d42c5a7f4af32c97d2c0deb2
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Dec 30 22:09:03 2020 +0200
+
+    removed skip of testClickOutsideViewport
+
+commit fabd834310383b5454a37da2aef4e0067cb16bea
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Dec 31 04:07:45 2020 +0800
+
+    clickOnElement: Ensure element is in view (#10)
+    
+    This code is to work around a bug in geckodriver where the pointer
+    location is not set before clicking. However, the `moveToElement()`
+    function only works where the element is in the viewport.
+    
+    The element must be scrolled into view if it is not already visible
+    before setting the pointer position.
+    
+    This issue should also be raised against geckodriver where the bug
+    actually lies.
+    
+    Fixes #9
+
+commit 7aed58e46c1f6838b71ab791394e7c772b086847
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Dec 31 04:06:12 2020 +0800
+
+    Trigger a 'change' Event after setting a value. (#11)
+    
+    Fixes #5
+
+commit e2ab88a9917b83ddb0645df63e489f52e8abee3c
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Fri Dec 25 02:22:25 2020 +0200
+
+    Stabilize chrome (#19)
+    
+    * maximize window at reset
+    * added todo for setTimeouts
+    * updated "on" (to run only on pull request)
+
+commit 85e9a2eeff795a1fda421c4dfb85894ecf88e057
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Dec 24 19:11:45 2020 +0200
+
+    added php 8.0, removed 7.0 and 7.1 (#15)
+    
+    * added php 8.0, removed 7.0 and 7.1, added msedgedriver
+    * improved input[type=date] handling
+    * renamed .build to bin
+
+commit 2893eb7b8635594001b99ffe79020b833366c8b6
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Dec 24 19:02:46 2020 +0200
+
+    added pull_request to GitHub Actions
+
+commit ae5759a1d4171317cb0186abc291875538ebf4cd
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Dec 24 03:19:33 2020 +0200
+
+    Bump actions/cache from v1 to v2.1.3 (#18)
+    
+    Bumps [actions/cache](https://github.com/actions/cache) from v1 to v2.1.3.
+    - [Release notes](https://github.com/actions/cache/releases)
+    - [Commits](https://github.com/actions/cache/compare/v1...0781355a23dac32fd3bac414512f4b903437991a)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+
+commit d9dbd24a728df22bf195a0d9dfb2fc79fb0da470
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Dec 24 03:15:54 2020 +0200
+
+    moved dependabot.yml under .github
+
+commit 8ba49cfb795241b0767799eea3adadc35e1ae7d1
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Dec 24 02:58:26 2020 +0200
+
+    adding dependabot.yml (#7)
+
+commit e4358fdfb1bab7df638fa598aa8a4f0e57c8e223
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Dec 24 02:46:06 2020 +0200
+
+    #16 moving to gh actions. (#17)
+
+commit bf3511954b7ed6515a105db4f5e1329439dddb02
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Jun 24 01:49:53 2020 +0300
+
+    Multiple improvements  (#6)
+    
+    * switched from facebook/webdriver to php-webdriver, bumped behat/mink to 1.8
+    
+    * clickOnElement should use WebDriverElement::click
+    
+    Clicking on an element is defined in both the W3C specification, and the
+    JsonWire specification as a command in its own right.
+    
+    https://www.w3.org/TR/webdriver/#element-click
+    https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#sessionsessionidelementidclick
+    
+    It is incorrect to use the mouse action to move to the location and
+    perform the click as this approach does not wait for the page to unload
+    before starting the next action.
+    
+    On some pages this can lead to Mink moving on to the next step before
+    the page completes the unload, leading to random failures.
+    
+    * fixing tests after upgrade to webdriver 1.8
+    
+    * upgrade to xenial
+    
+    * added 7.4 + workaround for xenial
+    
+    * fixing get/set cookie
+    
+    * moving 7.4 away from allow_failures and added nightly
+    
+    * cleaning up .build
+    
+    * fixing start_driver.sh, improved clickOnElement for firefox
+    
+    * fixing start_driver.sh, improved keyUp, keyDown, keyPress, sendKey
+    
+    Co-authored-by: Andrew Nicols <andrew@nicols.co.uk>
+
+commit ca980b65ec7edf025e800259008810f1c78d8d30
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 18 19:04:40 2020 +0200
+
+    adding workaround for input[type=date]
+
+commit b13a9a6af90ce669aadab5700b8ee3aba77265e2
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 18 14:45:11 2020 +0200
+
+    set php 7.4 to allow_failures
+
+commit ab783c78acecce1ac94ffdaf63870c88016ea7d5
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 18 14:40:50 2020 +0200
+
+    set php 7.4 to allow_failures
+
+commit 47ec2ceb611e219070bb6ec1f810bf4f20d527be
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sat Jan 18 13:29:17 2020 +0200
+
+    returned trusty
+
+commit 155d822d71625ee997e8e4a59950b8a32f43b1b8
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Fri Jan 17 02:00:57 2020 +0200
+
+    removed bionic
+
+commit 4844624a4e0b27bd3f1e8e29144d677d73479a1f
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 01:39:31 2020 +0200
+
+    added bionic
+
+commit fe08aa57a9d7d6459b6603132faecb2d7855d65c
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 01:28:20 2020 +0200
+
+    debug before_install.sh
+
+commit de6f104ff550988fc918af6d97d471e658581bfa
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 01:09:59 2020 +0200
+
+    added libssl-dev
+
+commit 59f664f56656f0e407f8ca38458f84289c278a40
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 01:01:44 2020 +0200
+
+    adding xvfb
+
+commit 79588bd5186cd9336532e1357debe2423a7e937a
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 01:00:16 2020 +0200
+
+    debug before_install.sh
+
+commit 3fff5182b10ecdf43327637eaf2935697fc6315e
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 00:56:36 2020 +0200
+
+    using default dist., debug before_install.sh
+
+commit 71620b8839d8000c65b7c95ee6bbf754988bc540
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 00:53:59 2020 +0200
+
+    updated before_install.sh
+
+commit 27e3474b7b23647360bf35f1cc2a9708380a8bbb
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 00:42:51 2020 +0200
+
+    updated before_install.sh
+
+commit 82b78077b5f18aec767ef050682b16df471e1cab
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 00:30:21 2020 +0200
+
+    updated install.sh
+
+commit 54307cb7af4c967b10e7bf6bf2cbb9f710811981
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 00:28:18 2020 +0200
+
+    added after_script.sh, before_install.sh, install.sh
+
+commit 148487a32976440036fe966407da0165c6ac5db4
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 00:20:20 2020 +0200
+
+    7.4 travis
+
+commit 4868df781b6c54d5a88fec391406b8d074972d24
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Mon Jan 13 00:00:59 2020 +0200
+
+    added WebDriverFactory for Behat, added "behat/mink-extension" to "dev", commented all options in phpunit.xml.dist, updated README.md
+
+commit 7b6066ee004907c33ecdca233c24fd01b9b38551
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 23:14:19 2020 +0200
+
+    updated facebook/webdriver, updated before_script.sh
+
+commit 195e987b114b32c669a6dbb773fcc40a064184de
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 22:38:20 2020 +0200
+
+    added workaround for firefox and window switch
+
+commit 6375fadf9a9a949eaf617d9061b42ed551323d27
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:52:50 2020 +0200
+
+    updated phpunit.xml.dist
+
+commit c09454831d58b1d7cc847dee9548f1a5f2c4c2cb
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:42:46 2020 +0200
+
+    updated phpunit.xml.dist
+
+commit 0f224cf496071f96d7d1bbca416d32f44ffb7af4
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:33:39 2020 +0200
+
+    updated facebook/webdriver
+
+commit 5ecc7d19fe382597cec5adfc761c740221f5dbfc
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:26:44 2020 +0200
+
+    updated before_script.sh
+
+commit fd442824ed68996d64c58960977e45cd1295461b
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:21:51 2020 +0200
+
+    updated before_script.sh
+
+commit 7368fb5107e9796d277e239029d64b6025d884b5
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:17:59 2020 +0200
+
+    updated .travis.yml and before_script.sh
+
+commit 783e6657bc317f39a771fa1b2f86d5d97bc87c95
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:09:41 2020 +0200
+
+    updated .travis.yml and phpunit.xml.dist
+
+commit c27b1de0d18aee4a30a886938b288ee66577bf75
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Sun Jan 12 02:06:10 2020 +0200
+
+    improved before_script.sh, fixing tests, updated .travis.yml, updated facebook/webdriver
+
+commit 5a51c51a7641ef7b3a1082a66e677e7ed14ffe4f
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Dec 26 20:27:01 2019 +0200
+
+    added support for date input
+
+commit 9dd1920d0b46b19d31dbd65c99f48c5632d9e11e
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Dec 26 01:10:26 2019 +0200
+
+    updated executeJsOnElement, updated start to avoid starting new session if webDriver exists, updated getCookie, updated setValue to handle color
+
+commit 15c7519dde61daeb5e88d19141cddebea6d3358b
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Dec 25 23:17:28 2019 +0200
+
+    removed travis_retry
+
+commit 66d045d21c258de18cf249736a50bdada7134b62
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Dec 25 23:15:14 2019 +0200
+
+    updated before_script.sh
+
+commit 83ba3be018a2552333b15a476260a43725fa978e
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Dec 25 23:12:27 2019 +0200
+
+    updated .travis.yml
+
+commit 240ae54df3f1c30cf81840040159f3b714bdd5c4
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Dec 25 23:11:01 2019 +0200
+
+    added attempts to before_script.sh
+
+commit af2d4c9e254ced83cf10ba87c9303e24dfddd2a9
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Dec 25 23:01:21 2019 +0200
+
+    added 7.4, bumped composer to 7.0, updated travis
+
+commit 77b9f3dcffdae4a63b127aa2e195128b12599ddc
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Wed Dec 25 22:53:07 2019 +0200
+
+    updated before_script.sh to detect linux or mac, updated composer.json, added driver folders to ignore
+
+commit cc94ba41dbc350beeb89074826a1755035c43e03
+Author: Oleg Andreyev <oleg.andreyev@ecentria.com>
+Date:   Thu Sep 5 01:41:19 2019 +0300
+
+    minor fixes to travis
+
+commit d0dd25ad59ce94245ce3427ac5822ed47fdb9e45
+Author: Oleg Andreyev <oleg.andreyev@ecentria.com>
+Date:   Thu Sep 5 01:40:41 2019 +0300
+
+    minor fixes to travis
+
+commit e822b0e4b4ca8db292b3cb229dce4d505d2f00f9
+Author: Oleg Andreyev <oleg.andreyev@ecentria.com>
+Date:   Thu Sep 5 01:37:00 2019 +0300
+
+    added before_script.sh + firefox support, added phpunit.xml.dist
+
+commit 5b8351dc61037915201b0fc35c5317541ac7c38a
+Author: Oleg Andreyev <oleg.andreyev@ecentria.com>
+Date:   Thu Sep 5 00:59:06 2019 +0300
+
+    Initial Commit
+
+commit 07b0f6be5c4ec82b041b62b99bd48786a4373ad0
+Author: Oleg Andreyev <oleg@andreyev.lv>
+Date:   Thu Sep 5 00:29:18 2019 +0300
+
+    Initial commit

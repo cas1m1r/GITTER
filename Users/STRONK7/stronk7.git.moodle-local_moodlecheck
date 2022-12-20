@@ -1,0 +1,1581 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit a59d537dfbe1985386519b83dd96a6cf024d5913
+Merge: bc74c81 d289fa8
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Nov 27 16:35:20 2022 +0100
+
+    Merge pull request #100 from stronk7/master
+    
+    GHA tests to meet 401_STABLE and small reorganisation
+
+commit d289fa83c2e17c595139808c96bd554adc57d0b9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Nov 27 16:15:33 2022 +0100
+
+    GHA tests to meet 401_STABLE and small reorganisation
+
+commit bc74c81fa6611ae8e7e0b5d8aafcacb16d78565c
+Merge: e936868 1353ff0
+Author: Andrew Lyons <andrew@nicols.co.uk>
+Date:   Tue Oct 18 17:04:23 2022 +0800
+
+    Merge pull request #99 from stronk7/move_to_moodledev_api_docs
+    
+    Move from old dev docs to new ones to fetch existing APIs
+
+commit 1353ff0f9c9531c91a107d5564a689c0028ecdb3
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Oct 17 19:30:54 2022 +0200
+
+    Move from old dev docs to new ones to fetch existing APIs
+    
+    Note that soon, well replace this by the APIs being bundled
+    with core (see MDL-71096), but this is a switch to be able
+    to compare results before and after, leaving the old docs
+    out from the equation.
+
+commit e9368687cb72bd8b6b7b8d5dd75f7ab71c85d699
+Merge: 0f52dd2 c72133c
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Oct 13 15:28:04 2022 +0200
+
+    Merge pull request #98 from stronk7/bump_to_checkout_v3
+    
+    Bump to actions/checkout@v3
+
+commit c72133cf6a3c65d4029619230237181e54189809
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Oct 13 12:40:53 2022 +0200
+
+    Bump to actions/checkout@v3
+    
+    Related to this deprecation of NodeJS 12 for GHA actions:
+    
+    https://github.blog/changelog/2022-09-22-github-actions-all-actions-will-begin-running-on-node16-instead-of-node12/
+    
+    While it doesn't affect to this repository, let's bump to the new v3 version now so we keep it updated.
+
+commit 0f52dd28e3a1ac6a71cd670dcbd5ee7331a74cb1
+Merge: 3e62de7 2c803f2
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 11 14:23:06 2022 +0200
+
+    Merge pull request #97 from MHajoha/feature/96/interfaces-traits
+    
+    #96: Support interfaces and traits in packagespecified and functionsdocumented
+
+commit 2c803f22119dd5c743440c739a0a59565141fa1c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Oct 7 00:14:13 2022 +0200
+
+    Cover the packagespecified rule with some basic tests
+
+commit 77542d5fb24884dd2a1dc4c0dd59689a0c1f0097
+Author: Maximilian Haye <m.haye@tu-berlin.de>
+Date:   Thu Oct 6 14:55:31 2022 +0200
+
+    Support interfaces and traits
+    
+    Previously, only the class containing a function was retrieved and used in either rule. Now, the containing artifact is also looked up if it is an interface or a trait. Function objects contain a new 'owner' property for this. The old 'class' property remains, but can probably be removed unless third-party rules need to be supported.
+    
+    To include the correct artifact type ('class', 'interface', or 'trait') in warnings, artifacts additional gain the property 'typestring' containing one of those three strings.
+    
+    Fixes #96
+
+commit 3e62de752f7562b9a194f40d08bbc9bb51ef30b7
+Merge: be5f8f7 697ae29
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Sep 27 10:33:38 2022 +0200
+
+    Merge pull request #95 from stronk7/allow_reload_page
+    
+    Allow the form to reload, for easier re-executions
+
+commit 697ae2922ef2030fa298be26e6d8561760477226
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Sep 21 17:55:24 2022 +0200
+
+    Allow the form to reload, for easier re-executions
+    
+    Right now it's not possible to reload (F5) the moodlecheck
+    page in order to re-execute the checks automatically.
+    
+    That's a feature that the sister page @ codechecker has,
+    and it's a facility to progressively got fixing and
+    re-executing the same configured checks.
+    
+    Basically implies to read all the params and perform a
+    redirect so all the information is in the URL, available
+    for re-execution.
+    
+    No change in results or cli are expected, just the web/UI
+    moodlecheck page can now be reloaded (in practice), that
+    also implies that it's possible to invoke it from other
+    places via properly escaped URL, for example:
+    
+    site://local/moodlecheck/?path=mod%2Fforum
+    
+    Fixes #88
+
+commit be5f8f79521ad0374f421f7568cfafe740fb3d10
+Merge: 10c0bd9 7437a87
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Sep 21 12:03:52 2022 +0200
+
+    Merge pull request #94 from MHajoha/feature/81/php74-typed-properties
+    
+    #81: Correctly detect PHPdoc on PHP 7.4 typed properties
+
+commit 7437a87386274223a068143f1b81e6b47d0fdb2b
+Author: Maximilian Haye <m.haye@tu-berlin.de>
+Date:   Tue Sep 20 18:01:05 2022 +0200
+
+    Correctly detect PHPdoc on PHP 7.4 typed properties
+    
+    Fixes #81
+
+commit 10c0bd9cca001f497c087a7d8a1dcae837f85843
+Merge: bfa2577 1d5fe85
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Sep 21 09:25:14 2022 +0200
+
+    Merge pull request #93 from MHajoha/feature/82/functionsdocumented-subclass-warning
+    
+    #82: Make undocumented methods in subclasses warnings
+
+commit 1d5fe85d1fce7bcbd9807e8c5c3074e943f71840
+Author: Maximilian Haye <m.haye@tu-berlin.de>
+Date:   Tue Sep 20 15:57:40 2022 +0200
+
+    Make undocumented methods in subclasses warnings
+    
+    Fixes #82
+
+commit bfa25777a2e8383690cff4fe4a72cda80fc37e52
+Merge: e59bd16 89a81dc
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Sep 11 16:39:31 2022 +0200
+
+    Merge pull request #92 from stronk7/ubuntu_22
+    
+    Bump GHA environments to use Ubuntu 22.04 (up from 18.04)
+
+commit 89a81dc54b57e431ffbe88c7a9df07b9edffae73
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Sep 11 14:40:05 2022 +0200
+
+    Switch to && and || logical operators
+
+commit 0b322a6c6a0f077e8eb5cd030caae78463df8be9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Sep 11 13:40:46 2022 +0200
+
+    Bump GHA environments to use Ubuntu 22.04 (up from 18.04)
+    
+    Since some time ago, GH is warning us that the Ubuntu 18.04
+    environment is deprecated:
+    
+    "The ubuntu-18.04 environment is deprecated, consider switching to
+    ubuntu-20.04(ubuntu-latest), or ubuntu-22.04 instead...."
+    
+    Hence, we are bumping here, to be able to cerify if everything
+    continues working ok
+
+commit e59bd168083e4065a856189814a8bda4f98fe0b5
+Merge: 617741f 17701d6
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Jul 26 12:36:12 2022 +0200
+
+    Merge pull request #90 from marinaglancy/php81
+    
+    Compatibility with PHP 8.1
+
+commit 17701d6180a20705c9d1d5c077a6bcc78a9cae61
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Jul 11 17:42:27 2022 +0300
+
+    Compatibility with PHP 8.1
+
+commit 617741fb911a5bb049c9a2418d24813efda6ee2e
+Merge: aa0be1c 3e0b8d3
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jun 8 13:14:02 2022 +0200
+
+    Merge pull request #89 from junpataleta/allow_inline_tag_description
+    
+    Allow support for description when checking inline @link/@see tags
+
+commit 3e0b8d38319c57fddff616c7304642c3d53e3dc6
+Author: Jun Pataleta <jun@moodle.com>
+Date:   Wed Jun 8 16:58:19 2022 +0800
+
+    Allow support for description when checking inline @link/@see tags
+    
+    For more info, check out:
+    https://docs.phpdoc.org/3.0/guide/references/phpdoc/inline-tags/
+    
+    Side note about @see tags:
+    - In PHPDoc, @see tags are technically allowed to have a URL, but we
+    don't apply it in Moodle to have a better distinction between @link and
+    @see tags. See MDLSITE-6105 for more info.
+
+commit aa0be1cf6228dc3466e9cc664977878492f6a528
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Jun 5 10:31:53 2022 +0200
+
+    Bump master (4.1dev) tests and default php to 7.4
+    
+    Part of https://tracker.moodle.org/browse/MDL-71747
+
+commit 380a77e7697ce670bf067b3b1d8289b46476e766
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jun 2 13:57:01 2022 +0200
+
+    Bump plugin version to 2022060200
+    
+    I forgot about it @ https://github.com/moodlehq/moodle-local_moodlecheck/issues/86
+    
+    Thanks @michael-milette for the reminder!
+
+commit ae435ce335722a07d5779c51441124e249aab08a
+Merge: a56f4d0 9811f6a
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jun 1 09:28:56 2022 +0200
+
+    Merge pull request #87 from stronk7/empty_files_fix
+    
+    Check for empty/non php files before processing
+
+commit 9811f6af2b73dffb6d4d89b058c7d2434049cf8c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 31 23:22:15 2022 +0200
+
+    Silence token_get_all() coz can emit warnings in rare situations
+
+commit 7b8fb45253d0ea98e5464f2dd2480f7d1e2ae2e4
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri May 27 23:54:16 2022 +0200
+
+    Check for empty/non php files before processing
+    
+    That way they will be skipped earlier and the rules
+    won't be checked against them. Both empty files and
+    files missing the php open tag.
+    
+    Covered with basic test.
+    
+    Also, fixed ignore paths, because they were a copy/paste
+    from moodle-local_codechecker.
+    
+    Fixes #86
+
+commit a56f4d09c58bd4aafdb74e814f86d84df5f83fbb
+Merge: 0b1f5df b76302a
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun May 22 11:39:05 2022 +0200
+
+    Merge pull request #85 from stronk7/add_400_ci
+    
+    Add 400_STABLE to CI tests
+
+commit b76302a9f058888205302b7e98eb77e8b36c777e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 19 23:16:56 2022 +0200
+
+    Add 400_STABLE to CI tests
+    
+    And add some missing @covers annotations.
+
+commit 0b1f5df91bcf224394c348da1707d349c72d94a4
+Merge: 681763b d2a9ca0
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Feb 26 11:29:19 2022 +0100
+
+    Merge pull request #83 from stronk7/unpin_mariadb
+    
+    Unpin MariaDB
+
+commit d2a9ca09bb17049cae2b5a8979cdc6ecedcc5db4
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Feb 26 09:24:29 2022 +0100
+
+    Unpin MariaDB
+    
+    Now that 10.6.7 and 10.7.3 have been releases and their
+    docker images are available, we can unpin it @ GHA.
+    
+    Fixes #78
+
+commit 681763bfc8ce24755c4697c771ec8aa2344dc960
+Merge: 27bdf0b 45e01d1
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Feb 26 11:19:40 2022 +0100
+
+    Merge pull request #84 from stronk7/phpcs_fixes
+    
+    Various codechecker fixes
+
+commit 45e01d1ebe448aed7f33a82b85d961970a11a58e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Feb 26 09:55:22 2022 +0100
+
+    Various codechecker fixes
+
+commit 27bdf0b0661a96471243f4c915bd57a08bdf92b3
+Merge: ee29d91 b6e4dee
+Author: Andrew Lyons <andrew@nicols.co.uk>
+Date:   Wed Nov 10 17:42:20 2021 +0800
+
+    Merge pull request #80 from stronk7/bye_bye_travis
+    
+    With GHA working since some good months ago, bye, bye, Travis
+
+commit b6e4deefa747308553be0067c86b8f15719ebe9e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Nov 9 19:31:27 2021 +0100
+
+    With GHA working since some good months ago, bye, bye, Travis
+    
+    Also, change the badge to GHA alternative.
+
+commit ee29d91ef269ac65519a2ff995e19f483318c143
+Merge: aa9d278 5bd9c76
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Sep 11 20:10:45 2021 +0200
+
+    Merge pull request #79 from stronk7/update_coreapis
+    
+    Update core apis source file
+
+commit 5bd9c76042a48d89524bfe7f923df91c2235341f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Sep 8 19:53:34 2021 +0200
+
+    Update core apis source file
+    
+    This is a local copy of https://docs.moodle.org/dev/Core_APIs ,
+    useful for whenever the remote URL cannot be fetched. It contains
+    the APIs as of 8 Sep 2021 (previous version was > 1y old).
+
+commit aa9d2789eae57312fcf6f622c05a3cf8371519bf
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Aug 14 15:05:26 2021 +0200
+
+    Add missing EOL @ EOF, towards CI passing
+
+commit 43666bde9f191c7ebb85ceeecfaafe9da89d30d3
+Merge: 5cd6b35 e6f9dc7
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jul 15 20:06:55 2021 +0200
+
+    Merge pull request #77 from stronk7/mariadb_10.5_sticky
+    
+    Make mariadb:10.5 sticky
+
+commit e6f9dc751de589f72ca909ef8d773a905ea0e2b2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jul 14 23:58:39 2021 +0200
+
+    Make mariadb:10.5 sticky
+    
+    New mariadb:10.6 makes the COMPRESSED row format read-only by default
+    because it's deprecated now and will be removed in mariadb:10.7
+    
+    This is being tracked @ https://tracker.moodle.org/browse/MDL-72131
+    
+    Once that issue is fixed and we switch to DYNAMIC or whichever the
+    final solution is, we'll unpin this.
+
+commit 5cd6b359af1844404c46d9cdc579f9ec65c169d5
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Jul 11 12:00:23 2021 +0200
+
+    Bump PostgreSQL to 10 (Moodle 4.0 requirement)
+
+commit 64f8af86824289706826c4ff3bdebdf7d699e929
+Merge: 5c219ef 6e73f3c
+Author: Andrew Lyons <andrew@nicols.co.uk>
+Date:   Mon May 31 08:02:06 2021 +0800
+
+    Merge pull request #76 from stronk7/phpdocs_tags_update
+    
+    Update allowed phpdoc tags
+
+commit 6e73f3c3b945479831207d087641094e76c69e39
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 30 17:19:58 2021 +0200
+
+    Update allowed phpdoc tags
+    
+    Fixes #75, visit it for more details. Basically update the allowed
+    phpdoc tags, specifically for phpunit and also for codechecker.
+
+commit 5c219ef84a1596eb3acb73e0238c45bf25e78b64
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 13 14:13:31 2021 +0200
+
+    Simple reordering, only because that's the order shown in docs
+    
+    So, don't ask for much reason, :-)
+
+commit dc9371463bbdbdb8dd8df1a839f4e3f5b3ad4ef9
+Merge: da117ed 22d48de
+Author: Víctor Déniz <victor@moodle.com>
+Date:   Wed May 12 15:20:07 2021 +0100
+
+    Merge pull request #74 from stronk7/ci_php80
+    
+    Perform some php8 runs with 311 and master
+
+commit 22d48def8d1741cbc2b7f938ad9cb0cf2367ddcd
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 11 23:16:00 2021 +0200
+
+    Perform some php8 runs with 311 and master
+    
+    Only real required change  is to set the new
+    max_input_vars=5000 requirement. Strictly speaking
+    only needed for php8, but it doesn't hurt with
+    older php versions and older moodle branches, so
+    setting it up always.
+    
+    About the xmlrpc-beta extension, it's only needed
+    for php8 runs and only if the plugin uses xmlrpc
+    for something. Else, it can be omitted without
+    problem, as far as it's not a moodle requirement
+    but only a recommendation.
+    
+    Finally, also bump version.php to current date
+    and make Moodle 3.5 (2018051700) required. This is
+    to make a new release in the plugins database.
+
+commit da117ed105c0b48078cf0f33ac2e95b09e7876e0
+Merge: 5edcc27 16c5ca1
+Author: snake <jrhdallimore@gmail.com>
+Date:   Wed May 12 08:59:15 2021 +0800
+
+    Merge pull request #73 from stronk7/namespaces_only_final_part
+    
+    Ensure that only the final part of namespaces is returned
+
+commit 16c5ca1baa58b881ab25db02bd4deb904f99d4b5
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 11 18:45:42 2021 +0200
+
+    Remove old (33_STABLE) legacy_polyfill use
+    
+    As far as this plugin only supports 34_STABLE and up
+    the polyfill can now be safely removed.
+    
+    Also, note the it violates the PSR2/PSR12 method naming
+    which implies that not underscore _ prefixed methods
+    should be used.
+
+commit b00c7b3d3de429cc3b01448259c29bd2388fd0c3
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 11 02:34:30 2021 +0200
+
+    Ensure that only the final part of namespaces is returned
+    
+    This tool has limited namespace handling capabilities and
+    we always have been getting, exclusively, the last part of
+    every namespace detected in function params.
+    
+    This was the default behavior for PHP7 tokenizer and, in fact,
+    when reading the phpdocs for those params... we are removing
+    everything but the final part of the namespace too.
+    
+    But PHP8 changed the default behavior and its tokenizer now
+    returns the complete namespace as unique token.
+    
+    https://wiki.php.net/rfc/namespaced_names_as_token
+    
+    So, to keep everything working as it was... when we detect that
+    some type of the function params contains namespaces, we are also
+    going to remove everything but the final part of the namespace.
+    
+    That matches previous behaviour 100%.
+    
+    If some day we want to go processing full namespaces (instead of
+    their final parts), that will be great, but not now.
+    
+    Fixes #72.
+
+commit 5edcc27e76081de295a2107681bb88232a828a99
+Merge: cac3dfe 89bbe98
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Apr 22 18:43:54 2021 +0200
+
+    Merge pull request #71 from kabalin/variadic
+    
+    Add support for variadic function and add more tests.
+
+commit 89bbe98b32c665bd5efc5e953dcfeb3bc41c6a47
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Thu Apr 15 16:16:23 2021 +0100
+
+    Add support for variadic function and add more tests.
+    
+    This patch adds support for variadic function (aka splat) and expands test.
+    
+    We support @param <type> ...$args as phpdoc of a variadic function.
+    
+    Fixes #42
+
+commit cac3dfec760eaf3e3773d7d542e9a29c0e255dc6
+Merge: f232ce4 072d2db
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Feb 25 18:57:43 2021 +0100
+
+    Merge pull request #70 from stronk7/phpunit9_deprecated_assertions
+    
+    Replace assertEqualXMLStructure() by similar checks
+
+commit 072d2dbe5b160fc0e05d496938bdf2baccd2c6ff
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Feb 20 12:36:41 2021 +0100
+
+    Replace assertEqualXMLStructure() by similar checks
+    
+    The assertEqualXMLStructure() assertion has been deprecated in
+    PHPUnit 9 and will be removed in PHPUnit 10.
+    
+    As far as we were using it only to count elements, it has
+    been replaced by a simple XPath search.
+    
+    Source: https://github.com/sebastianbergmann/phpunit/blob/9.1.0/ChangeLog-9.1.md
+
+commit f232ce4fbd2a3d2343a2a409533cd8f46a847010
+Merge: b69ad66 30d4a80
+Author: Sara Arjona <sara@moodle.com>
+Date:   Wed Feb 17 18:19:09 2021 +0100
+
+    Merge pull request #69 from stronk7/stop_requiring_filedoc_for_1_artifact
+    
+    Stop requiring the file phpdoc block for 1-artifact files
+
+commit 30d4a8061c78fa0ec60bb67f0177af4c4692d4dd
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Feb 16 18:03:43 2021 +0100
+
+    Stop requiring the file phpdoc block for 1-artifact files
+    
+    Now we detect all the classes, interfaces and traits in a file
+    and, if there is only one, then we stop requiring the file
+    phpdoc block.
+    
+    This was agreed @ https://tracker.moodle.org/browse/MDLSITE-2804
+    and https://github.com/moodlehq/moodle-local_moodlecheck/issues/66
+    was created to implement it.
+    
+    Note this doesn't address the whole agreement, but just the
+    detail about stop requiring the file phpdoc block, because it
+    is specially annoying and recurring in new files (that use to
+    be 1-artifact ones).
+
+commit b69ad6606887484f07a6ab97d72343fb04aeeeea
+Merge: 323e531 6ff0cf3
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Feb 12 17:14:50 2021 +0100
+
+    Merge pull request #68 from stronk7/add_gha
+    
+    Add Github Actions to local_moodlecheck
+
+commit 6ff0cf3e5846c5078b63710b04bea001e2550021
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Feb 6 13:15:36 2021 +0100
+
+    Fix current phpcs warnings
+
+commit ee379eed1f3dc6da3c0308b504da7909cea831d0
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Feb 6 12:55:07 2021 +0100
+
+    Add Github Actions to local_moodlecheck
+    
+    Also, add the ability to travis runs to log-in to
+    DockerHub to avoid pulling rate limits.
+    
+    With this patch, if both DOCKER_USER and DOCKER_TOKEN are defined
+    as environmental variables, they will be used to perform a login
+    to dockerhub, getting rid of pull limits.
+    
+    Exactly the same than https://github.com/moodlehq/moodle-local_codechecker/pull/133
+    but applied to this repo.
+
+commit 323e53108dc43bb6fe627a33f3eb4550732cbb3a
+Merge: 35e0305 910de6c
+Author: Sara Arjona <sara@moodle.com>
+Date:   Thu Jan 21 12:47:07 2021 +0100
+
+    Merge pull request #67 from stronk7/pass
+    
+    Update tests to phpunit 8.5
+
+commit 910de6cf942bad6ae6a5e086ce40e49e1916eff0
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Jan 20 00:34:06 2021 +0100
+
+    Modify a test to cover #65
+    
+    Originally was going to add this commit there, but it was going to
+    conflict with this, because here we are touching the same lines.
+    
+    So I've just moved the commit here and done.
+
+commit c0af6c6f7e19f6365bff5a9ea4e2c8686585cb1b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Dec 4 00:20:25 2020 +0100
+
+    Update tests to phpunit 8.5
+    
+    Also
+    - Remove php70 tests because they don't support return :void
+    - Remove old versions using PHPUnit 6.x because they are missing the
+      stringContainsString() assertion.
+    - Reorganize the travis files to avoid using exceptions and change
+      to explicit positive alternative.
+    - Bump 311 and master tests from php72 to php73 (new requirement).
+
+commit 35e03055aa0865ae0e27c583ee6574ee89f3e51a
+Merge: 481e245 8a13076
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Jan 20 00:33:24 2021 +0100
+
+    Merge pull request #65 from marinaglancy/wordcount
+    
+    Digits can be used in classes and functions names
+
+commit 8a130768a85903437e4b12c539f06d8ddaa07d10
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Nov 20 17:25:50 2020 +0100
+
+    Escape tag search string
+    
+    Fixes https://github.com/moodlehq/moodle-local_moodlecheck/issues/63
+
+commit f6592aad641fc359f13693b424aa6deb0f750040
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Nov 20 17:12:42 2020 +0100
+
+    Digits can be used in classes and functions names
+
+commit 481e245e228bd190a8388a7636a096f9317ac610
+Merge: 7e856a5 30f8236
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Oct 18 14:10:24 2020 +0200
+
+    Merge pull request #62 from stronk7/travis_com
+    
+    Move to markdown and add travis badge
+
+commit 30f8236f16593362e207e7a735633fbef8f567f7
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Sep 21 23:46:01 2020 +0200
+
+    Move to markdown and add travis badge
+
+commit 7e856a52fd8c9710da203873cf9674de4d1c2611
+Merge: 0c3bb18 f672d65
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Sep 9 10:52:16 2020 +0200
+
+    Merge pull request #59 from mudrd8mz/category-validation-fix
+    
+    Add unit test for fetching the list of @category values
+
+commit f672d65742261c9c2b63c78ef0beaff017d03592
+Merge: a3d11e0 0c3bb18
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Sep 9 10:26:19 2020 +0200
+
+    Merge branch 'master' into category-validation-fix
+
+commit 0c3bb188f36a44a8569abac3b7c9f67af5dc4fcb
+Merge: 79fe595 d09f15b
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Sep 9 10:19:01 2020 +0200
+
+    Merge pull request #60 from andrewnicols/anonymous_class_phpdoc
+    
+    Anonymous class phpdoc
+
+commit d09f15b8492f618b8fad4295580cdd13f4546f98
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Wed Sep 9 10:55:22 2020 +0800
+
+    Improve phpdoc checking for anonymous classes
+    
+    Add support for:
+    - anonymous classes which do not extend or implement
+    - anonymous classes which implement an interface
+    - anonymuos classes which both extend and implement
+
+commit 5674e1cc8765bed74f3b3f0529696f73a487a842
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Wed Sep 9 07:34:35 2020 +0800
+
+    Restructure class check to improve readability and docs
+    
+    This commit includes appropriate unit tests for the two cases defined so
+    far:
+    - return new class extends otherclass {
+    - class someclass extends otherclass {
+
+commit 03c6038d85adb99f09cff51cca4ef9356f83260a
+Author: eWallah <info@eWallah.net>
+Date:   Thu Dec 19 15:41:04 2019 +0100
+
+    Do not require docblocks for anonymous classes.
+    
+    Anonymous classes were introduced in PHP 7.0, and are used by Moodle's
+    code coverage configuration.
+    
+    Fixes #50
+
+commit a3d11e0a75e61d2785240fc8f12836d20ef66249
+Author: David Mudrák <david@moodle.com>
+Date:   Mon Sep 7 07:39:30 2020 +0200
+
+    Allow testing the offline mode of fetching the list of @category values
+    
+    The cached coreapis.txt updated. Unit test added so that we can
+    explicitly test the contents of that cached file.
+
+commit 54c3ef762d8c6ea2dfaa4b337f8a083d1fe55b12
+Author: David Mudrák <david@moodle.com>
+Date:   Fri Sep 4 12:37:55 2020 +0200
+
+    Add unit test for fetching the list of @category values
+    
+    Also fix the docs page URL and make the regexp search a bit more robust
+    just in case the HTML change a bit.
+
+commit 79fe5956f9e9be906499c01dbc59695c2412643d
+Merge: ceab6b9 7d598ce
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Sep 3 12:04:27 2020 +0200
+
+    Merge pull request #58 from sumitnegi933/master
+    
+    Fixed #55 Add support to @depends annotation tag
+
+commit ceab6b90ff9f4680468bd6720b2add290b608820
+Merge: be7cf57 0435cb8
+Author: Sara Arjona <sara@moodle.com>
+Date:   Fri Aug 28 13:09:42 2020 +0200
+
+    Merge pull request #57 from stronk7/add_39_310
+    
+    Add 39 and 310 branches and bump to HQ's moodle-plugin-ci
+
+commit 7d598ce5efcfd21e94d8744a9901e29025f7ef71
+Author: Sumit Negi <sumit@moodle.com>
+Date:   Tue Aug 18 19:02:19 2020 +0530
+
+    Fixed #55 Add suport to @depends annotation tag
+
+commit 0435cb8ef693d09d950d8e823bb1b321abb1800c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Aug 22 00:43:51 2020 +0200
+
+    Add 39 and 310 branches and bump to HQ's moodle-plugin-ci
+    
+    (part of https://tracker.moodle.org/browse/MDL-67415)
+
+commit be7cf5724a6b1dc1a405aa735219388709a01699
+Merge: 6386499 a10a1d2
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jun 11 10:19:10 2020 +0200
+
+    Merge pull request #54 from stronk7/update_core_apis
+    
+    Renew the local Core APIs page and ensure all APIs are lowercase
+
+commit a10a1d2e67df7bd52cfc88e679d6a2c0311f11bf
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 28 23:39:26 2020 +0200
+
+    Renew the local Core APIs page and ensure all APIs are lowercase
+    
+    For whenever the remote https://docs.moodle.org/dev/Core_APIs is
+    not available, here we are updating the local copy, that was not
+    updated since 2012.
+    
+    Also, ensure that all the APIs are lowercase, irrespectively of
+    how they are named in that page (xAPI, OpenBadges...)
+
+commit 638649940174e9db9f26473e424460c8d5ada071
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu May 21 20:55:07 2020 +0200
+
+    CONTRIB-8095 local_moodlecheck: Better FQSEN support and tests
+
+commit 1e2534ea1612d5dbf4e425b759e166fc3136594b
+Merge: 4de7742 37a990d
+Author: Sara Arjona <sara@moodle.com>
+Date:   Thu May 21 16:39:48 2020 +0200
+
+    Merge pull request #53 from moodlehq/laptop
+    
+    CONTRIB-8095 local_moodlecheck: Update inline tags handling
+
+commit 37a990d792e124a0d98d441269e634611b6f3236
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon May 18 01:36:22 2020 +0200
+
+    Renew travis combinations and nvm version.
+
+commit dc031f2b20b665f26e3612e846ffa61405a7f26b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun May 17 12:25:07 2020 +0200
+
+    CONTRIB-8095 local_moodlecheck: Update inline tags handling
+    
+    Add some new checks and tests to ensure that the handling
+    of inline tags (@link and @see) is correct and following the
+    agreement @ https://tracker.moodle.org/browse/MDLSITE-6105
+    
+    - Both can be used standalone and inline
+    - @link always must be followed by url
+    - both @link and @see must be followed by only 1 word (url or fdqn)
+
+commit 4de7742a68dd896cd2e875a774312b60bda4b745
+Merge: 61f8707 cd868e0
+Author: Víctor Déniz <38071202+vmdef@users.noreply.github.com>
+Date:   Mon Jan 13 15:21:13 2020 +0000
+
+    Merge pull request #52 from stronk7/travis_39_comp
+    
+    Bump to 3.9 requirements and add 38_STABLE
+
+commit cd868e073e16114997a43cab80152965553c6b63
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Jan 9 11:09:06 2020 +0100
+
+    Bump to 3.9 requirements and add 38_STABLE
+
+commit 61f870751b65e0c7d6566b6b22f8b81dc0bcdc1e
+Merge: 767dcf0 46b5795
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Jan 9 10:42:26 2020 +0100
+
+    Merge pull request #49 from paulholden/summary
+    
+    Show success/error summary after report.
+
+commit 46b5795b62147f7d59f72a4e174d2fec1774c550
+Author: Paul Holden <paulh@moodle.com>
+Date:   Tue Oct 29 17:35:21 2019 +0000
+
+    Show success/error summary.
+
+commit 767dcf0f467b989ff45081959bb51d73c40ee85d
+Merge: 4498bed 0bcf432
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 22 20:35:43 2019 +0200
+
+    Merge pull request #30 from phager-at/master
+    
+    normalize file paths to make checks for package system independent
+
+commit 4498bed53d946ce8b0f68f1c43f4a43f15fb3ef2
+Merge: 9bb78c6 84e112c
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 22 20:29:01 2019 +0200
+
+    Merge pull request #40 from moodlehq/MDL-60786-drop-classeshavecopyright
+    
+    MDL-60786 Stop requiring @copyright and @license for individual classes
+
+commit 84e112cb147a47f17f48ceefe2a0f5dc5c38c07e
+Merge: 14ee287 9bb78c6
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 22 19:52:12 2019 +0200
+
+    Merge branch 'master' into MDL-60786-drop-classeshavecopyright
+
+commit 9bb78c6361e30ce4ca727aaa93955aa4fdfb00be
+Merge: 297b61a 3a9be0f
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 22 19:26:03 2019 +0200
+
+    Merge pull request #48 from kabalin/remove-jdk
+    
+    Remove JDK dependency.
+
+commit 297b61af3ce4f4d331d1f6edabaa80e012148813
+Merge: 7109f6f 69e2178
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 22 19:25:33 2019 +0200
+
+    Merge pull request #46 from paulholden/privacy-api
+    
+    Implement null Privacy API provider.
+
+commit 7109f6f9cb7602fd4432c6fd4e1c6a9d86634801
+Merge: 6204058 7b2c814
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 22 19:24:54 2019 +0200
+
+    Merge pull request #44 from paulholden/clean-path
+    
+    Clean user submitted file paths.
+
+commit 3a9be0f31b14ec6b5302b4be3218671fa79bc7fd
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Tue Oct 22 16:24:40 2019 +0100
+
+    Remove JDK dependency.
+    
+    Package does not depend on it.
+
+commit 69e21787d59c366efa0f5914c7b6ec29d1726913
+Author: Paul Holden <paulh@moodle.com>
+Date:   Thu Oct 17 15:47:33 2019 +0100
+
+    Implement null Privacy API provider.
+    
+    Fixes #45.
+
+commit 7b2c814e446d5e46ddd7a1dc5f0e0ba0b159e211
+Author: Paul Holden <paulh@moodle.com>
+Date:   Thu Oct 17 13:11:02 2019 +0100
+
+    Clean user submitted file paths.
+    
+    Fixes #43.
+
+commit 6204058113f421a602a84253b47ca7631c21818b
+Merge: 2721876 a386a69
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Tue Oct 22 16:44:38 2019 +0200
+
+    Merge pull request #47 from marinaglancy/travis
+    
+    Update .travis.yml
+
+commit a386a692237584ce9298b4f78718fba6768fe2e0
+Author: Marina Glancy <marina@moodle.com>
+Date:   Tue Oct 22 16:32:36 2019 +0200
+
+    Update .travis.yml
+
+commit 272187600c71a7833086c48f6ea40e7287074a7b
+Merge: 450531a d3690d8
+Author: Andrew Nicols <andrew@nicols.co.uk>
+Date:   Thu Mar 15 09:53:42 2018 +0800
+
+    Merge pull request #41 from stronk7/laptop
+    
+    MDLSITE-2824 phpdocs: accept some more tags.
+
+commit d3690d8004407a7ade803954fa67674b8eab66a9
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Mar 15 01:26:57 2018 +0100
+
+    MDLSITE-2824 phpdocs: accept some more tags.
+    
+    In general (anywhere):
+    
+    - codingStandardsIgnoreLine
+    
+    Within phpunit tests:
+    
+    - covers
+    - coversDefaultClass
+    - coversNothing
+    - group
+
+commit 14ee2875ff48d9aca54c6a86e60684e8ede2cfc8
+Author: David Mudrák <david@moodle.com>
+Date:   Wed Mar 14 21:19:49 2018 +0100
+
+    MDL-60786 Stop requiring @copyright and @license for individual classes
+    
+    This made sense in the past where we typically had many classes in one
+    library file and it was useful to keep track of who holds copyright and
+    credit for each of the added class.
+    
+    But today, with autoloading being the common and recommended practise,
+    we only have one class per file. So the information about the copyright
+    and license is typically duplicated - once in the file's phpdoc block
+    and then the same info in the class' block.
+
+commit 450531ae411d1397ca1d9944837fc3f85a4449fe
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Feb 27 16:34:11 2018 +0100
+
+    Coding style cleanup
+    
+    99% is whitespace, then some comments stylelint and 2-3 logic reductions.
+    So, re-enabled phpcs in travis.
+
+commit ee77a907a8d71742dab0ef74930f7f8efd613147
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Feb 27 11:12:49 2018 +0100
+
+    Initial travis support
+    
+    (includes whitespace, style cleanup)
+
+commit f69469424eb393c9a004efaf5df04dea3c0ffa9f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Feb 27 11:12:29 2018 +0100
+
+    Issue #31 - Cover with basic unit tests
+
+commit bfc3a755a9397d175372cc48f735ce3443476c7f
+Author: Daniel Thee Roperto <danielroperto@catalyst-au.net>
+Date:   Tue Oct 4 15:52:53 2016 +1100
+
+    Issue #31 - Missing documentation for class if using aclassname::class
+
+commit 9793961f575fd64e72a046231ea4fb5e9abbb1bb
+Merge: 5d4e33b be5a982
+Author: Eloy Lafuente <stronk7@stronk7.com>
+Date:   Sun Nov 5 11:25:09 2017 +0100
+
+    Merge pull request #37 from scara/master-35-expectedException-related-phpdocs-tags-recommended-only-for-phpunit-tests
+    
+    Recommended @expectedException* tags only in phpunit tests
+
+commit be5a98225438c6466f03904d1d87534f41d3d7d8
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Sun Nov 5 09:24:33 2017 +0100
+
+    Recommended @expectedException* tags only in phpunit tests
+    
+    Fixes #35.
+
+commit 5d4e33b01eecc233fb6cbb341ec798ca2441a8c5
+Merge: 9a436ca 3011bd2
+Author: Eloy Lafuente <stronk7@stronk7.com>
+Date:   Sat Nov 4 23:54:16 2017 +0100
+
+    Merge pull request #36 from scara/master-35-invalid-expectedException-phpdocs-tag
+    
+    Added @expectedException as valid phpdocs tag
+
+commit 3011bd23efdcecd28cb9c5e763d8d69873649d61
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Sat Nov 4 22:56:17 2017 +0100
+
+    Added @expectedExceptionCode as valid phpdocs tag
+    
+    More details in PHPUnit: https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.expectedExceptionCode
+    
+    Used in mainstream code.
+
+commit 8e8466e3dcff35c592ec8b4f8477322b68411a23
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Sat Nov 4 22:54:10 2017 +0100
+
+    Added @expectedExceptionMessageRegExp as valid phpdocs tag
+    
+    More details in PHPUnit: https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.expectedExceptionMessageRegExp
+    
+    Used in mainstream code.
+
+commit 9a436ca5553fc8afd517fb7daebeb83faf18b380
+Merge: 32da8b7 5a7bea5
+Author: Eloy Lafuente <stronk7@stronk7.com>
+Date:   Sat Nov 4 20:06:03 2017 +0100
+
+    Merge pull request #34 from stronk7/MDLSITE-5230
+    
+    MDLSITE-5230 phpdocs: support pipe (|) multiple types
+
+commit 67a9c431c88ba8af76047bf57312ae850e6f3752
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Thu Oct 5 23:06:02 2017 +0200
+
+    Added @expectedExceptionMessage as valid phpdocs tag
+    
+    More details in PHPUnit: https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.expectedExceptionMessage
+    
+    Used in mainstream code.
+
+commit 67c78bd772ad59e3731d6e4e02fd6ed2be5dfdef
+Author: Matteo Scaramuccia <moodle@matteoscaramuccia.com>
+Date:   Fri Sep 29 15:23:03 2017 +0200
+
+    Added @expectedException as valid phpdocs tag
+    
+    More details in PHPUnit: https://phpunit.de/manual/current/en/appendixes.annotations.html#appendixes.annotations.expectedException
+    
+    Fixes #35.
+
+commit 5a7bea5aa91f5d78819c2e4f32d69da9e603797f
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Sep 18 02:07:44 2017 +0200
+
+    MDLSITE-5230 phpdocs: support pipe (|) multiple types
+    
+    And discard null one as far as it cannot match function type
+    declaration ever. Before the patch, when there was a function type
+    declaration, the whole php  type was being used.
+
+commit 0bcf4320e5f7e2a07e179cf5bd12aee5e19fbce6
+Author: Philipp Hager <office@phager.at>
+Date:   Fri Jul 29 10:20:46 2016 +0200
+
+    normalize file paths to make checks for package system independent
+
+commit 32da8b7e4d0a2e4c0a7c1eb8ca0ff70c6d77a7c1
+Merge: 64bb943 6a6cc5f
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Tue Aug 25 08:55:02 2015 +0100
+
+    Merge pull request #25 from xow/fix-component
+    
+    Add component
+
+commit 6a6cc5f4911598d219112b02d16b2a0d2ccc179d
+Author: John Okely <john@moodle.com>
+Date:   Tue Aug 25 14:05:25 2015 +0800
+
+    Add component
+
+commit 64bb943493b7042a36a7f9a611a7b75cced3aa2c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Apr 6 00:42:08 2015 +0200
+
+    MDLSITE-3940 control: prevent any PHP output when Docs are down
+    
+    local_moodlecheck has a built-in mechanism/falbackk to use
+    a local file to extract the list of valid APIs within Moodle
+    when docs.moodle.org is unreachable,
+    
+    And it works ok, but leads to the output of a PHP warning message
+    that ends breaking the expected (XML) output.
+    
+    This simple fix just silences any output when that network operation
+    fails.
+
+commit 8e05027ce14cd0c7f3be3cae439637448ac0213e
+Merge: 7f79e42 6618322
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Fri Feb 27 12:13:33 2015 +0000
+
+    Merge pull request #24 from stronk7/MDLSITE-3856
+    
+    MDLSITE-3856 moodlecheck: allow undoc setup & teardown in unit tests.
+
+commit 661832231175864c7150b72a76e8f4e456946242
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Feb 27 12:34:15 2015 +0100
+
+    MDLSITE-3856 moodlecheck: allow undoc setup & teardown in unit tests.
+
+commit 7f79e420048b000eca425350aa1c3dda30d353ef
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Nov 25 13:59:49 2014 +0800
+
+    MDLSITE-2824 moodlecheck: @dataProvider allowed in unit test files
+
+commit 2b5d6f4157fa5dca5e640a8b4f358ab7a15ff4c3
+Merge: 0b3761c 1488475
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Mon Jan 19 15:27:10 2015 +0000
+
+    Merge pull request #22 from sebastianberm/master
+    
+    Added support for hg repositories
+
+commit 1488475cfccef3a6f2ad888cbdc82a424b341f85
+Author: sebastianberm <sebastian@sebsoft.nl>
+Date:   Sat Jan 17 23:11:05 2015 +0100
+
+    Added support for hg repositories
+    
+    At the moment, this system does exclude .git repo's by default, but does not exclude .hg repo's by default. This fixes that.
+
+commit 0b3761cd071d9aebff0fca21ac18eaef7735c763
+Merge: c5a74a5 ef91f1f
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Wed Oct 1 12:45:39 2014 +0200
+
+    Merge pull request #20 from danpoltawski/MDLSITE-3282
+    
+    MDLSITE-3282 don't complain about plain test methods
+
+commit ef91f1f7605341422b4c0de7164770c342d63a2d
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Sat Sep 27 22:49:32 2014 +0100
+
+    MDLSITE-3282 don't complain about plain test methods
+    
+    It has become sort of a de-facto standard to have no phpdocs on test
+    methods in Moodle phpunit tests. This makes a lot of sense because:
+    
+    * The test name should be the descriptive part - as it also is the most
+     commonly shared part of any failure
+    * Extensive phpdoc blocks that they easily get outdated as someone adds
+     another few assertions to address whats going
+
+commit c5a74a5e51682c6d613ca41280bc34ae7930cc66
+Merge: 6bb1579 8bc42e2
+Author: Eloy Lafuente (stronk7) <stronk7@stronk7.com>
+Date:   Sat Mar 22 16:07:53 2014 +0100
+
+    Merge pull request #19 from marinaglancy/master
+    
+    Make form appear properly in UI displaying all fields
+
+commit 8bc42e250f6ebaa7db3267108fdab02a1dba716f
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Mar 21 11:36:12 2014 +0800
+
+    Make form appear properly in UI displaying all fields
+
+commit 6bb1579491b1a7ff130786aa31dc8778f05c40dd
+Merge: b1975ca 8af9591
+Author: Marina Glancy <marina@moodle.com>
+Date:   Tue Feb 18 12:16:52 2014 +0800
+
+    Merge pull request #17 from stronk7/behat_valid_tags
+    
+    Behat valid tags
+
+commit 8af9591234ba574f94b717138ce2ff4427abbf5b
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Fri Feb 7 17:59:46 2014 +0100
+
+    New rule to validate tags against paths.
+    
+    Some of the tags are only valid under certain
+    directories, this new rule is built on top of
+    existing valid and recommended and verifies
+    that the tags are only used into valid paths
+    (usually behat/phpunit paths).
+
+commit db539a8bfc9197c4e31f7e77343996a7530490bb
+Author: David Monllao <davidm@moodle.com>
+Date:   Fri Feb 7 12:38:19 2014 +0800
+
+    Adding behat tags to valid and recommended tags
+    
+    Adding them at the beginning following ASCII
+    chars order.
+
+commit b1975cacf49b96bb656e12b65d466a8097eac060
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Dec 22 21:29:51 2013 +0100
+
+    MDLSITE-2672 Avoid double "core_" prefix of subsystems
+    
+    moodlecheck accepts both the list of plugins and subsystems
+    available in the site being run and, for external checks,
+    a .txt list of valid components from the CLI.
+    
+    Recently the format of the list was changed to always include
+    complete component names (core_backup...) instead of simple
+    subsystem names (backup...).
+    
+    With this change moodlecheck will accept both formats, adding
+    the 'core_' prefix only when needed.
+
+commit 7d814ea5f01bc147377fbe555333eef01d40924c
+Merge: 1850bdc 01311d0
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Sep 2 19:28:06 2013 -0700
+
+    Merge pull request #15 from samhemelryk/wip-combined
+    
+    Combined support for type hinted array and type hinted namespace args
+
+commit 01311d054f9b78a24735fb4f071d1c92873dba4d
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Fri Aug 16 09:51:11 2013 +1200
+
+    Added support for PHPDoc array params.
+    
+    The following is now supported by moodlecheck:
+    /**
+     * @param stdClass[] $objectarray An array of stdClass objects.
+     */
+    function some_func(array $objectarray) {}
+    
+    An example of this is shown at
+        http://www.phpdoc.org/docs/latest/for-users/phpdoc/tags/param.html
+    
+    Conflicts:
+            rules/phpdocs_basic.php
+
+commit 14ce2278885ecfdcd9e686eb6286291a7d57f749
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Tue Sep 3 10:03:21 2013 +1200
+
+    Fixed bug when parsing namespaced typehint args
+
+commit 1850bdcd10365c9f525af7b66be72616f839b7a6
+Merge: 54d8b1a 6b7b8fe
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Sep 2 18:51:43 2013 -0700
+
+    Merge pull request #14 from samhemelryk/wip-property-tags
+    
+    Added missing phpdoc property tags
+
+commit 6b7b8fe889b6ea47f231df4122c6fab4d117a9ad
+Author: Sam Hemelryk <sam@moodle.com>
+Date:   Tue Sep 3 10:19:38 2013 +1200
+
+    Added missing phpdoc property tags
+
+commit 54d8b1aa0f7e0e088b82d78641a3177fa7f464fe
+Merge: af8a21e 28c4f4d
+Author: Marina Glancy <marina@moodle.com>
+Date:   Sun Jul 7 18:05:19 2013 -0700
+
+    Merge pull request #11 from stronk7/MDLSITE-2216
+    
+    MDLSITE-2216 Prevent debugging in deprecated call
+
+commit 28c4f4d4de941956997b8bbf74c88aac538ca077
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jul 8 01:23:09 2013 +0200
+
+    MDLSITE-2216 Prevent debugging in deprecated call
+    
+    get_core_subsystems() now deprecated, does no support short paths
+    anymore. This commit just change the call to ask for full paths
+    always to avoid a debugging() message. Note we don't change to the
+    new core_component::get_subsystems() because that would lead the
+    moodlecheck to only work against 2.6 and upwards. So we continue
+    using the deprecated call.
+
+commit af8a21efc0191bfdc900a10c658e33b189c0f11a
+Merge: 750ee2f 5d1d10b
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Feb 18 21:45:11 2013 -0800
+
+    Merge pull request #10 from dmonllao/ignore-closures
+    
+    Ignoring closures
+
+commit 5d1d10bd067b3d9911365d85d1f47b6f8c923831
+Author: David Monllao <davidm@moodle.com>
+Date:   Tue Feb 19 11:07:52 2013 +0800
+
+    Ignoring closures
+    
+    They are not part of any API and
+    can not be called as other functions
+
+commit 750ee2ff6ffd9f0fdfe6dc68c9fd1c617b17dce2
+Merge: f268822 afa3cc8
+Author: Marina Glancy <marina@moodle.com>
+Date:   Tue Apr 24 22:07:18 2012 -0700
+
+    Merge pull request #9 from stronk7/ban_split
+    
+    Change all the (deprecated since 5.3) uses of split() by preg_split() or explode() alternatives.
+
+commit afa3cc858c2f5167c076eadfd06869a000dc2332
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Apr 17 18:05:22 2012 +0200
+
+    Change all the (deprecated since 5.3) uses of split()
+    by preg_split() or explode() alternatives.
+
+commit f268822cc81d0956a0534743f3d558e725430b29
+Merge: 51d23b4 645073d
+Author: Marina Glancy <marina@moodle.com>
+Date:   Sun Apr 15 22:37:43 2012 -0700
+
+    Merge pull request #7 from stronk7/remote_and_componentsfromfile
+    
+    Remote and componentsfromfile
+
+commit 645073dbe9f8be6fdcff454558bfd34e8c4bc2c1
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Feb 6 00:49:46 2012 +0100
+
+    Support external file listing allowed components
+
+commit 9c4976f7cd4543e410b062590de45b7865437cf6
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jan 28 20:27:18 2012 +0100
+
+    Add support to full (remote) paths
+
+commit 51d23b462de29751541c65cee0231023421715da
+Merge: fec969d 3b82e48
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Feb 13 17:07:08 2012 -0800
+
+    Merge pull request #5 from stronk7/recommended_throws
+    
+    throws is docummented and fully accepted
+
+commit fec969d5485ae70354dab1ef54d5a78178528d14
+Merge: a5cf033 fc23c61
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Feb 13 17:06:54 2012 -0800
+
+    Merge pull request #4 from stronk7/improved_line_reporting
+    
+    Improve a bit line numbers reporting for wrong tags
+
+commit 3b82e482dcc0bea2f55beca37fa50fa1dcdde86c
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Feb 13 23:18:15 2012 +0100
+
+    throws is docummented and fully accepted
+
+commit fc23c612293a9d03140a4a13362cf5d3626f22f3
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Feb 13 23:15:00 2012 +0100
+
+    Improve a bit line numbers reporting for wrong tags
+
+commit a5cf03387bb6c683a1a495cef94e99aa43e6b383
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Feb 10 10:46:14 2012 +0800
+
+    Make token \throws valid
+
+commit 4ee6e69c0c90264da6b71ab7e85f50eaef542276
+Merge: be8003e 4c3f890
+Author: Marina Glancy <marina@moodle.com>
+Date:   Wed Feb 8 17:41:44 2012 -0800
+
+    Merge pull request #3 from stronk7/check_valid_recommended_inline_tags
+    
+    Four new phpdocs validations (valid normal and inline tags)
+
+commit 4c3f89014b1bf92970ab72804ecb955e1a46cd67
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Thu Feb 9 02:18:17 2012 +0100
+
+    Four new phpdocs validations (valid normal and inline tags)
+    
+    This patch introduces the official list of valid phpdocs tags,
+    the list of recommended tags to be used by Moodle and the list
+    of valid tags to be used inline.
+    
+    Based on that information, 4 new rules are added:
+    
+    - Error if invalid phpdoc tag is found
+    - Warning if not recommended moodle tag is found
+    - Error if not inline-valid tag is found
+    - Errot if inline-valid tag is not enclosed by curly brackets
+
+commit be8003e98df61b8e1a600ab02246afa1762f224d
+Author: Marina Glancy <marina@moodle.com>
+Date:   Tue Feb 7 14:27:34 2012 +0800
+
+    Fixed some behaviour of token_get_all() that we don't need
+
+commit 1179838867cb023abc8c37c9163b0ca847c19b4b
+Merge: 7604e99 4c93918
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Feb 6 21:25:06 2012 -0800
+
+    Merge pull request #2 from stronk7/xmlfix_and_newapiparser
+    
+    Xmlfix and newapiparser
+
+commit 4c93918a99b586f7405218023dc3fdaa8883a688
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Feb 1 02:33:32 2012 +0100
+
+    Modify the API parser so it gets the APIs again from docs.moodle.org
+    
+    Anyway, I think we should move the list of official APIs to one
+    function in core, much like the plugins and subsystems.
+
+commit cd0f937a6d163bd3af94df430a945cff5f289c54
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Jan 28 22:21:04 2012 +0100
+
+    Add rootpath property to be able to output XML preamble + root element
+
+commit 7604e9948540c1e6b2b0a84f356dbc515372e1c4
+Author: Marina Glancy <marina@moodle.com>
+Date:   Thu Jan 19 11:17:09 2012 +0800
+
+    Supported multiple format output and command-line execution
+
+commit 08bfb5930dbbe4f3415581d12b2d85de639df972
+Author: Marina Glancy <marina@moodle.com>
+Date:   Wed Jan 18 11:54:57 2012 +0800
+
+    Added severity defaulted to error and fixed parsing categories list
+
+commit 3e0a32b72c6a60a2b9270ed1924b962241915156
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Jan 16 16:21:13 2012 +0800
+
+    Added rule for non-empty second line in file
+
+commit e9905f425c55569a371e04480a71a52f2d3a13e2
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Jan 16 16:20:49 2012 +0800
+
+    Fixed but with functions returning reference
+
+commit 7179ccd4a365d58b85eb5e78460113d81e8d96bc
+Author: Marina Glancy <marina@moodle.com>
+Date:   Mon Jan 16 14:43:52 2012 +0800
+
+    Various memory and time permormance improvements:
+    
+    - return list of tokens, classes, functions, etc. as a reference to array
+    - store tokenscount and do not use count() in for loop
+    - replace foreach with for
+    - get rid of recurse in find_tag_pair
+    - clear all cached arrays after the file is parsed to save memory for the next files
+
+commit 812aab4cc4ecc942739e8737746b43127d6f87a5
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 16:03:28 2012 +0800
+
+    Added check that functions have descriptions in phpdocs
+
+commit 12f1f9c39b4f5282e4e8659845d7e96f149fdc18
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 15:49:04 2012 +0800
+
+    Fixed bug affecting parsing of abstract functions
+
+commit 8dfb944af7dba4d1ca5810d0b1a086299605148f
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 15:20:54 2012 +0800
+
+    Added ability to ignore subdirectories when checking
+
+commit 505bc93da7c21e145c6ff3406ddfe82c15c97a7a
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 13:29:27 2012 +0800
+
+    Checking that @license tag is present
+
+commit 32027b58f84341d07226bae1453337d5730b9ae1
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 13:20:41 2012 +0800
+
+    Removing slash in path name
+
+commit e9b9594e2a768825fe593433437d0dffeec9bea4
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 13:14:10 2012 +0800
+
+    Changed validation of variables phpdocs
+
+commit 8aa85aa5ba7888f782306a07ffda3cb68a528860
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 12:17:28 2012 +0800
+
+    dir correction
+
+commit 7ba4406cbde9e927764a60ca83e8d30e8c8141c8
+Author: Marina Glancy <marina@moodle.com>
+Date:   Fri Jan 13 12:14:47 2012 +0800
+
+    Initial version

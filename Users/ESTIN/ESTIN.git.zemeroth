@@ -1,0 +1,6054 @@
+======================: FILES :======================
+.
+├── assets
+│   ├── agent_campaign_info.ron
+│   ├── campaign_01.ron
+│   ├── objects.ron
+│   ├── OpenSans-Regular.ttf
+│   ├── scenario_01.ron
+│   ├── settings.ron
+│   └── sprites.ron
+├── assets_src
+│   ├── atlas.svg
+│   └── export_ids
+├── Cargo.lock
+├── Cargo.toml
+├── LICENSE-APACHE
+├── LICENSE-MIT
+├── README.md
+├── src
+│   ├── assets.rs
+│   ├── core
+│   │   ├── battle
+│   │   │   ├── ability.rs
+│   │   │   ├── ai.rs
+│   │   │   ├── check.rs
+│   │   │   ├── command.rs
+│   │   │   ├── component.rs
+│   │   │   ├── effect.rs
+│   │   │   ├── event.rs
+│   │   │   ├── execute.rs
+│   │   │   ├── movement.rs
+│   │   │   ├── scenario.rs
+│   │   │   ├── state
+│   │   │   │   ├── apply.rs
+│   │   │   │   └── private.rs
+│   │   │   ├── state.rs
+│   │   │   └── tests.rs
+│   │   ├── battle.rs
+│   │   ├── campaign.rs
+│   │   ├── map.rs
+│   │   └── utils.rs
+│   ├── core.rs
+│   ├── error.rs
+│   ├── geom.rs
+│   ├── main.rs
+│   ├── screen
+│   │   ├── agent_info.rs
+│   │   ├── battle
+│   │   │   ├── view.rs
+│   │   │   └── visualize.rs
+│   │   ├── battle.rs
+│   │   ├── campaign.rs
+│   │   ├── confirm.rs
+│   │   ├── general_info.rs
+│   │   └── main_menu.rs
+│   ├── screen.rs
+│   └── utils.rs
+├── utils
+│   ├── assets_export.sh
+│   └── wasm
+│       ├── build.sh
+│       └── index.html
+├── zcomponents
+│   ├── Cargo.toml
+│   ├── LICENSE-APACHE
+│   ├── LICENSE-MIT
+│   ├── README.md
+│   └── src
+│       └── lib.rs
+├── zemeroth.svg
+├── zgui
+│   ├── assets
+│   │   ├── fire.png
+│   │   └── Karla-Regular.ttf
+│   ├── Cargo.toml
+│   ├── examples
+│   │   ├── absolute_coordinates.rs
+│   │   ├── common
+│   │   │   └── mod.rs
+│   │   ├── layers_layout.rs
+│   │   ├── nested.rs
+│   │   ├── pixel_coordinates.rs
+│   │   ├── remove.rs
+│   │   └── text_button.rs
+│   ├── README.md
+│   └── src
+│       └── lib.rs
+└── zscene
+    ├── assets
+    │   ├── fire.png
+    │   └── Karla-Regular.ttf
+    ├── Cargo.toml
+    ├── examples
+    │   └── action.rs
+    ├── README.md
+    └── src
+        ├── action
+        │   ├── change_color_to.rs
+        │   ├── custom.rs
+        │   ├── empty.rs
+        │   ├── fork.rs
+        │   ├── hide.rs
+        │   ├── move_by.rs
+        │   ├── sequence.rs
+        │   ├── set_color.rs
+        │   ├── set_facing.rs
+        │   ├── set_frame.rs
+        │   ├── show.rs
+        │   └── sleep.rs
+        ├── action.rs
+        ├── lib.rs
+        └── sprite.rs
+
+22 directories, 88 files
+====================== GIT HISTORY: ======================
+8870902 HEAD@{0}: clone: from https://github.com/estin/zemeroth
+commit 88709022bc65d704565709827a0145ce62b15c70
+Merge: 755a5de 61deaad
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Fri Jun 18 01:07:42 2021 +0300
+
+    Merge pull request #664 from ozkriff/mq_0_3_6
+    
+    Update macroquad to v0.3.6
+
+commit 61deaadefed7b27be8593a49a6655dfeec64f297
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 17 23:57:15 2021 +0300
+
+    Update macroquad to v0.3.6
+
+commit 755a5de84e2868a0da8c90cd457fd74384ae77d6
+Merge: 2d221ee 5475332
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Jun 17 20:21:07 2021 +0300
+
+    Merge pull request #663 from ozkriff/zcomponents-license-and-version
+    
+    zcomponents: explicit license and new version
+
+commit 5475332dd2b8f4a016c10c349df2bc304c3cb23b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 17 19:38:19 2021 +0300
+
+    zcomponents: Publish v0.2.0
+
+commit aec2f20adc84385fa67b9b1c3f27b5e8492679ff
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 17 19:35:02 2021 +0300
+
+    zcomponents: Add explicit license files
+
+commit a6f837ff3e4e015f7a74d322df8c522430c45a5c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 17 19:33:38 2021 +0300
+
+    LICENSE-MIT: Update years
+
+commit 2d221eee2627bbedb6e148fa2876a7959152e1a8
+Merge: 7a5ee80 40ec0dd
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Jun 17 20:07:15 2021 +0300
+
+    Merge pull request #662 from ozkriff/rust_1_53
+    
+    Fix new clippy::search_is_some lint
+
+commit 40ec0dda8269d55ce93477319a2f94852b944673
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 17 20:01:11 2021 +0300
+
+    Fix new clippy::search_is_some lint
+
+commit 7a5ee80fc358d0ff6b504af96aa6da918c47dc50
+Merge: 9532d72 bd89b23
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Jun 17 19:27:07 2021 +0300
+
+    Merge pull request #661 from remilauzier/master
+    
+    Cargo update
+
+commit bd89b236cbfcdd0c6684ebcfe19200b0513b070b
+Author: Rémi Lauzier <remilauzier@protonmail.com>
+Date:   Wed Jun 16 13:53:57 2021 -0400
+
+    Cargo update
+
+commit 9532d7261a6ed7029f9265a6f44bdf0effa63812
+Merge: 4653840 1ea00ea
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Wed Jun 16 16:39:41 2021 +0300
+
+    Merge pull request #660 from remilauzier/master
+    
+    Fix some clippy warnings
+
+commit 1ea00ea51d756a422c0bd3244f85e71fcf9d6177
+Author: Rémi Lauzier <remilauzier@protonmail.com>
+Date:   Wed Jun 16 00:24:37 2021 -0400
+
+    Fix some clippy warnings
+
+commit 46538406fe1ea77817356ce6b70be3fa316b8017
+Merge: e5a9ac8 9a57f6f
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Jun 7 13:58:45 2021 +0300
+
+    Merge pull request #658 from ozkriff/update_deps_num_v0_4_pretty_assertions_v0_7
+    
+    Update deps: bump num to v0.4 and pretty_assertions to v0.7
+
+commit 9a57f6f2e60c698980a506f1b2dfcd35f9d30981
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 7 13:13:54 2021 +0300
+
+    Bump num to v0.4 and pretty_assertions to v0.7
+
+commit e5a9ac8945515e017c86d24c31b79a989df23e6d
+Merge: aded120 c7869f9
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Jun 7 13:15:35 2021 +0300
+
+    Merge pull request #657 from ozkriff/remove_allow_clippy_unnecessary_wraps
+    
+    Remove allow(clippy::unnecessary_wraps)
+
+commit c7869f9be9e29ed7fc2950bdb100f883a3048def
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 7 13:09:11 2021 +0300
+
+    Remove allow(clippy::unnecessary_wraps)
+    
+    This lint is disabled by default in modern clippy
+
+commit aded120baa72beeaa048ddb8c8886fc687a04d41
+Merge: 97d6e9d 54f7603
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Jun 7 13:02:09 2021 +0300
+
+    Merge pull request #656 from ozkriff/knockback_check
+    
+    check_ability_knockback: Add strengh check
+
+commit 54f7603dc26df63d04e1740e79a76bad74db2528
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 25 08:40:52 2021 +0300
+
+    check_ability_knockback: Add strengh check
+
+commit 97d6e9d8f4f471aa5aadf95f07789a2a40bafcb2
+Merge: eebc501 6b52908
+Author: Andréy Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Jun 7 12:32:06 2021 +0300
+
+    Merge pull request #655 from not-fl3/macroquad_update
+    
+    Macroquad update & basic android version
+
+commit 6b529081324b95873d17901b9a530319d7acf993
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 6 20:26:25 2021 +0300
+
+    execute.rs: More clippy fixes
+
+commit 584da23783f402554339252a44e2e077a8340fd5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 6 19:52:17 2021 +0300
+
+    zgui: Remove Drawable::text's font_size arg
+    
+    And put a few TODOs
+
+commit d603e6a33e99d2f8e7846597821392069a5f1e30
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 6 19:50:04 2021 +0300
+
+    zgui: Add Err enum to examples
+
+commit 77a0da65f00f4412939ae7ba0d19698a88f04ee0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 6 19:49:13 2021 +0300
+
+    zscene: Add Err enum to action.rs example
+    
+    Looks nicer this way than with individual unwraps
+
+commit e9809a88e318e440119d78f0f1d0ed59b55fa7c4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 5 08:40:52 2021 +0300
+
+    assets.rs: Fix import
+
+commit 4d126b4d4a2ff982ccb0ba59e5b0fd18e661b10b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 5 08:40:32 2021 +0300
+
+    Move set_pc_assets_folder to main.rs
+
+commit 193c99abb5c3529797187c0787d2f83fbd058e5a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 4 22:14:08 2021 +0300
+
+    CI: cargo clippy --all --tests
+
+commit d5df0c04c1ba6a2612a2e4560fe3e389ac0d19f5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 3 09:05:30 2021 +0300
+
+    main.rs: Put expect on assets::load result
+
+commit d259e14c09ceab0ff9ac998322b7846b40a7f3b1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 3 09:01:30 2021 +0300
+
+    Fix zscene's example
+
+commit fd52b4c2f25dd77ceb08ce2086660ecbb7f35c6b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 1 10:02:30 2021 +0300
+
+    Style tweaks for consistency
+
+commit d1ac9f5120d68fc905f36cb77fbba6afe78fcc57
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Fri May 28 20:41:23 2021 -0500
+
+    Fix text rendering on floating labels and popups
+
+commit 7bc4b588fa4b47ddc84b5419532ca679ff70d84d
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Fri May 14 22:42:31 2021 -0500
+
+    Fix examples
+    
+    Some unwraps, maybe introducing ZResult would be a better choice here
+
+commit d1afadbdc4865d063c96a69abbd136fa9627f37b
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Fri May 14 22:34:55 2021 -0500
+
+    Fix clippy warnings
+    
+    Very questionable stuff in this commit, but makes CI happy (hopefully)
+
+commit 5a92c6fd5d37ae12b0f48cd48fcb9bbbfb6a9c83
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Fri May 14 21:32:33 2021 -0500
+
+    Allow highdpi rendering
+
+commit 1fd364ecdeacb47a7aea18b71ef7ebd6c20c23bb
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Fri May 14 15:05:40 2021 -0500
+
+    Use same assets path on PC, Web and Android
+
+commit dce67bbcb1ed829668313d184b6cc348ea1763f7
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Fri May 14 15:04:14 2021 -0500
+
+    zgui: Use adaptive font scale
+    
+    This will lead into lots of atlas rebuilding on window resize, but will make fonts look really good
+
+commit 6dbf8e8d72ee92eba74a0466d217b6492dd09e5b
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Thu May 13 02:04:10 2021 -0500
+
+    Clean up rust 1.52 warnings
+
+commit 4aacc249b7a90d58e7a2bd38b2b469c7d6cf693c
+Author: Fedor Logachev <not.fl3@gmail.com>
+Date:   Thu May 13 01:41:30 2021 -0500
+
+    Update macroquad version
+
+commit eebc5019f3071effbd6fefc059158634cd345042
+Merge: f871288 b269f79
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Tue Feb 23 14:43:48 2021 +0300
+
+    Merge pull request #652 from ozkriff/rand-0-8
+    
+    rand 0.8, quad-rand 0.2, macroquad 0.3-alpha.15
+
+commit b269f796a44cc8cf7429a92f0ef17bfe6bffbe9d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 20 22:42:50 2021 +0300
+
+    rand 0.8, quad-rand 0.2, mq 0.3-alpha.15
+    
+    And fix or suppress new clippy lints
+
+commit f8712886098184d43e0bfbf598ff8be6c1a6c8ee
+Merge: 65d587c 3d4395c
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sun Dec 20 14:40:31 2020 +0300
+
+    Merge pull request #650 from ozkriff/fix_effect_icons_pos
+    
+    Fix effect icons' pos
+
+commit 3d4395c3619ab4168ed662f07f741f422b2f8f98
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 19 23:27:27 2020 +0300
+
+    Fix effect icons' pos
+
+commit 65d587c3e0de1b53ca81553b0cba0712194a7a88
+Merge: 870c0b1 ebd3ce7
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Dec 17 21:50:20 2020 +0300
+
+    Merge pull request #649 from ozkriff/mq_0_3_0_alpha_14
+    
+    Update to macroquad 0.3.0-alpha.14
+
+commit ebd3ce72e90b9a7ecb251e06b0c0d2a7c205b297
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Dec 17 21:36:23 2020 +0300
+
+    Update to macroquad 0.3.0-alpha.14
+
+commit 870c0b173ba8eea1f53645346491d913efa9ae2f
+Merge: 398a589 de39c5a
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Fri Nov 27 16:33:16 2020 +0300
+
+    Merge pull request #647 from ozkriff/i564_no_prelude
+    
+    Stop using mq::prelude
+
+commit de39c5a76691ab72c1b208a8dff1d2617f1997e2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Nov 27 16:22:29 2020 +0300
+
+    Stop using mq::prelude
+
+commit 398a5897db5355f628ae8f272f0e1c8139b9c7b1
+Merge: 3f553bf b6d4c01
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Nov 26 21:01:10 2020 +0300
+
+    Merge pull request #646 from ozkriff/wip_macroquad
+    
+    gwg -> macroquad
+
+commit b6d4c01843435c0c55b94d4fd652fe9de42e7146
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 3 13:17:52 2020 -0600
+
+    gwg -> macroquad
+    
+    Co-authored-by: Fedor Logachev <not.fl3@gmail.com>
+
+commit 3f553bf981a5fe227a18e4967e93d1c204bd39a8
+Merge: 5df1a89 7b6b51a
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Nov 26 16:49:08 2020 +0300
+
+    Merge pull request #645 from timcryt/master
+    
+    Several easy TODO tasks are done
+
+commit 7b6b51add0f90e9c85e3a9c3a3cd890c9239b4a6
+Author: Тимофей <tymcrit@gmail.com>
+Date:   Mon Nov 16 18:23:11 2020 +0300
+
+    core: Introduce Rounds and Turns
+
+commit c616d5743b7574ef2ac22aca2416bfef593bd0a7
+Author: Тимофей <tymcrit@gmail.com>
+Date:   Mon Nov 16 17:50:01 2020 +0300
+
+    scenario.rs: Fix "exact"/"randomized" terminology
+
+commit f98ddce5d4fdc5e19d8eb31bc383a7a0e5c3c733
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Nov 26 14:59:07 2020 +0300
+
+    view.rs: TILE_COLOR_*: Replace arrays with Colors
+
+commit 369c746b3a8f6ef6dabd6acdf578e3ae532a5389
+Author: Тимофей <tymcrit@gmail.com>
+Date:   Mon Nov 16 17:06:06 2020 +0300
+
+    action::ChangeColorTo: Replace arrays with Color
+
+commit 5df1a89725e4783cf7d85b1f88b14a701a0f6e36
+Merge: 8ae0faa 41ee61e
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Oct 24 14:25:51 2020 +0300
+
+    Merge pull request #644 from ozkriff/deps_rs_and_update_deps
+    
+    Add back deps.rs badge and update deps
+
+commit 41ee61ef783a20bdce98cff412c0ca18332e1617
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 24 13:04:00 2020 +0300
+
+    Update deps + add libasound2-dev to GA
+
+commit 4ba8d17295db78be913f852b442998ee8b857ce0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 24 12:50:20 2020 +0300
+
+    Revert "README: Remove broken deps.rs badge"
+    
+    This reverts commit c611b031
+
+commit 8ae0faae995c0c0f0c971f613b0ca88aff2b0f6d
+Merge: e13dca6 4bc03a7
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Sep 28 18:18:28 2020 +0300
+
+    Merge pull request #642 from ozkriff/i319_dynamic_z_sort
+    
+    Dynamic z-sort
+
+commit 4bc03a7825ea1c94940f10bcdefbeaa881ab3ab8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Sep 27 23:56:09 2020 +0300
+
+    Dynamic sprite z-sorting
+
+commit fcfb164321e3026729aa53572525b64c79838fd0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Sep 27 23:49:58 2020 +0300
+
+    action::Custom
+
+commit e13dca6aa21ade905b287755a93fcf2603530277
+Merge: e494e0c a0e706a
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sun Sep 27 11:51:05 2020 +0300
+
+    Merge pull request #640 from Horki/scenario_default
+    
+    scenario: scenario::default() -> <Scenario as Defaul>::
+
+commit a0e706a43a14ba469dc29350194615ebc05a2602
+Author: Horki <ivanzvonimirhorvat@gmail.com>
+Date:   Thu Sep 24 14:47:53 2020 +0200
+
+    scenario::default() -> impl Default for Scenario
+
+commit e494e0c1c2d8b23f59a9370ef344dc0a1d825120
+Merge: fc4695e 56349f0
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Sep 24 12:22:30 2020 +0300
+
+    Merge pull request #639 from ozkriff/i638_fix_heavy_strike
+    
+    Fix passive abilities triggered on attacks
+
+commit 56349f0ad63d7893f3e03ada62724e3dc2bc28b1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 24 12:12:13 2020 +0300
+
+    Fix passive abilities triggered on attacks
+    
+    Add a "heavy_strike_flyoff_on_spikes" test.
+
+commit fc4695e4fc8f26a16b578b5f1ef0a3f708a14e4a
+Merge: f8d25d1 6e1277a
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Wed Sep 23 20:29:45 2020 +0300
+
+    Merge pull request #637 from ozkriff/fix_armor_break_message
+    
+    Fix excessive armor_break
+
+commit 6e1277a8e4c99c5821913e0fa0e747c28253e7bb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 23 19:58:55 2020 +0300
+
+    execute.rs: Fix excessive armor_break
+
+commit f8d25d1af3f8c7c442767b3f249f88b6a7ff0c97
+Merge: 4f6180b f861562
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Wed Sep 23 11:03:24 2020 +0300
+
+    Merge pull request #636 from ozkriff/tile_colors_tweak
+    
+    Reduce tile highlight color's alpha
+
+commit f861562378ffbf29623f5f25b00d6346831c60eb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 23 10:56:15 2020 +0300
+
+    Reduce tile highlight color's alpha
+
+commit 4f6180bbbdfa04808000f3d8852a62220ce2d28d
+Merge: d914579 b90ff29
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Wed Sep 23 09:26:49 2020 +0300
+
+    Merge pull request #635 from ozkriff/i214_reduce_text_overlapping
+    
+    Reduce popup text overlapping using MessagesMap
+
+commit b90ff292dc1b583af5d3268881cbc0da95064896
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 23 00:20:24 2020 +0300
+
+    visualize.rs: Remove unneeded vec![]
+
+commit 561f28a968be8217b3624a473dfe994d5d10bf55
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 23 00:16:20 2020 +0300
+
+    visualize.rs: Remove unneeded `pub`s
+
+commit 3f7c06391f6266e5c32b759437bac4867ad0f5ea
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 23 00:15:14 2020 +0300
+
+    visualize.rs: Don't show message for Vanish
+    
+    Also, changes removes angle brackets.
+
+commit ce120364b0511f1af907c48e2926a12c90f794d6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Sep 22 23:12:44 2020 +0300
+
+    Reduce popup text overlapping using MessagesMap
+
+commit d914579bf7fc7eec6a2f2ccf93077536bc5da5ab
+Merge: 38bf032 8d53f6b
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Sep 21 08:49:06 2020 +0300
+
+    Merge pull request #634 from ozkriff/i633_fix_lasting_effect_icon_pos
+    
+    Fix pos of lasting effect icons
+
+commit 8d53f6b2c79b493c91bafc45c945f98fa1d6c689
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 21 08:34:52 2020 +0300
+
+    Fix pos of lasting effect icons
+
+commit 38bf032b462c6ac5644b80cf644dc6551d00b76c
+Author: Ivan Zvonimir Horvat <ivanzvonimirhorvat@gmail.com>
+Date:   Fri Sep 18 17:55:35 2020 +0200
+
+    utils/wasm/build.sh: always create assets tarball (#630)
+    
+    * build: update assets.tar, in case of update
+    
+    * stat fix: make freebsd and gnu coreutils versions
+    
+    * build: create assets tarball always
+    
+    Co-authored-by: Andrey Lesnikóv <ozkriff@gmail.com>
+
+commit 9e0291ccd5dc60bd9774ee273a5913e302b26041
+Merge: a768bc2 9f4618f
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Sep 17 10:14:35 2020 +0300
+
+    Merge pull request #629 from ozkriff/i628_announce_bg
+    
+    Add simple hex bg to announce messages
+
+commit 9f4618f98a7cc265bf5ec3a62f9820799aa64918
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 16 22:20:00 2020 +0300
+
+    visualize.rs: announce: Add hexagonal bg
+
+commit cb654a0e826f9da183f21eac60b50e9371f6926f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Sep 15 18:20:00 2020 +0300
+
+    seq: Accept impl Into<Vec<...>>
+
+commit a768bc263b4f2a9d29671cf7fcf527bbba662d66
+Merge: ae854b1 c073f57
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Sep 12 15:28:57 2020 +0300
+
+    Merge pull request #627 from ozkriff/fix_ability_cooldown_icon_text
+    
+    Fix cooldown above-the-icon-text's position
+
+commit c073f577971896ae1a8c728bc1bbe532d6a87e9e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 12 14:56:34 2020 +0300
+
+    Fix cooldown above-the-icon-text position
+
+commit ae854b1a332e11815c39fffd24e8a720cf8b6ac7
+Merge: f452611 4ddabf9
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Sep 12 14:30:11 2020 +0300
+
+    Merge pull request #626 from ozkriff/i625_no_grass_on_spikes_or_rocks
+    
+    Create grass only on free&plain tiles
+
+commit 4ddabf9608240ade2ad1fbc485371adcea2062ae
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 12 14:19:16 2020 +0300
+
+    Create grass only on free&plain tiles
+
+commit f4526113d27a4325621dea525e555722cb151487
+Merge: 60a0500 68626a8
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Sep 12 14:11:29 2020 +0300
+
+    Merge pull request #624 from ozkriff/i618_dot_to_rhombus
+    
+    Replace dots with rhombuses
+
+commit 68626a8d828da652acedd2a489728688784fa15d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 12 13:37:45 2020 +0300
+
+    atlas.svg: Use rhombus for demon eyes
+
+commit 798ab03a044fee6e521026fd9af69f8c587777d9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 12 11:49:58 2020 +0300
+
+    atlas.svg: dot -> rotated square
+
+commit 16c8ef3bc639ad0ff5686b2003f264b91ade9cb9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 12 11:42:16 2020 +0300
+
+    Update shadow sprite geom to new hex geom
+
+commit 60a0500d30978a26fc2aa46a42ec52d518b0e901
+Merge: b1c2f9a d00a525
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Fri Sep 11 09:42:50 2020 +0300
+
+    Merge pull request #622 from ozkriff/i620_dont_throw_bombs_on_spikes
+    
+    atlas.svg: Rearranged spike_trap's spikes
+
+commit d00a52550a853bd43db911118750805c5117dd08
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 10 22:52:34 2020 +0300
+
+    atlas.svg: spike_trap: Rearranged spikes
+
+commit b1c2f9aa15c36a8675a3c9e373a10b15438815bf
+Merge: bb9d513 e294ac7
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Sep 10 23:00:13 2020 +0300
+
+    Merge pull request #621 from ozkriff/i532_bomb_push_bomb
+    
+    Allow PombPush to push away other bombs
+
+commit e294ac7e3578cc24168a34831120d11858192941
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 10 22:44:57 2020 +0300
+
+    Allow PombPush to push away other bombs
+
+commit bb9d5136b44425c232e983701cf701bb351eba5e
+Merge: 52334df 4d096ed
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Aug 31 22:44:15 2020 +0300
+
+    Merge pull request #617 from ozkriff/i616_abilities_no_args
+    
+    Remove parameters from Abilities
+
+commit 4d096ed69bea2dd6cdd1d5c9ab0c9223d0a62546
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 31 19:17:53 2020 +0300
+
+    Add cooldown info to ability description popup
+
+commit 4388a3d5581d4f5f3ef63e46120275528b8bb57b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 31 18:58:15 2020 +0300
+
+    RechargeableAbility: #[serde(from = "Ability")]
+
+commit 79469fc977810f52e7d671e0fd0b69ea6a29e22d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 31 18:46:41 2020 +0300
+
+    Ability: Hardcoded base_cooldown
+
+commit 2dc03a0361653f602d85eb6e575b4bb077edabad
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 31 18:00:26 2020 +0300
+
+    Ability::Heal: Split into Heal & GreatHeal
+
+commit 44ec238da579cfdd2e4e1b178033a5ed204fab7d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 15:14:21 2020 +0300
+
+    Ability::Jump: Split into Jump and LongJump
+
+commit 845849d20eca972987e0501c62cec86fb1c851a9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 13:33:12 2020 +0300
+
+    Ability::Bomb*: Remove argument
+
+commit 62be6f6a35e9a1c8ab1fa45a6169f8f4ab0d7a66
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 12:45:16 2020 +0300
+
+    Ability::Knockback: Remove argument
+
+commit 479320c667ed2d1504bf8be82cd47516dd8a9181
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 12:15:37 2020 +0300
+
+    Ability::Rage: Remove argument
+
+commit 50e377d5330b9a08a438270d40b6c3aab1c89c78
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 12:07:06 2020 +0300
+
+    PassiveAbility::Regenerate: Remove argument
+
+commit 52334df3010ba7c47eb72d112f77209110734359
+Merge: d5e35af 189218e
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sun Aug 30 10:27:19 2020 +0300
+
+    Merge pull request #615 from ozkriff/i614_agent_titles
+    
+    Show agent type without underscores
+
+commit 189218e4f8c759894488d7b06d042466d599a2e2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 10:14:38 2020 +0300
+
+    imp_toxic -> toxic_imp
+
+commit c7b00d298793c9357cabef8670e8eaf73bb5355f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 10:07:58 2020 +0300
+
+    Show agent types in title case using heck
+
+commit d5e35af507acd9dcffab987a60190a61e9823031
+Merge: ff1a268 9453b44
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sun Aug 30 08:57:23 2020 +0300
+
+    Merge pull request #613 from ozkriff/i609_ga_cache
+    
+    Optimize ci.yml
+
+commit 9453b44b18fba897496ed39894b2f45836819740
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 08:35:21 2020 +0300
+
+    ci.yml: fmt + clippy -> lints
+
+commit 01516a8162076ac779cf477cf9f72d7b4a74e6d1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 30 08:27:00 2020 +0300
+
+    ci.yml: nightlies -> beta
+
+commit 99be464ffc36b75a439d821cf4184bf457dce815
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 23:35:53 2020 +0300
+
+    ci.yml: Simplify resvg install os conditions
+
+commit 5abe480b704aff3f971da5f00d613446db38d1c7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 23:17:23 2020 +0300
+
+    ci.yml: Check if resvg exists before installing it
+
+commit afcdfc53aa73006951896c84224f7eb309991a06
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 22:52:50 2020 +0300
+
+    ci.yml: Add Cache step
+
+commit ff1a26839a6ebfff5df5ea838a81824c3d8a17cf
+Merge: 002d6df 2e053ef
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Aug 29 21:57:47 2020 +0300
+
+    Merge pull request #612 from ozkriff/i611_effect_icon_agent_info_panel
+    
+    Add lasting effect icons to agent info panel
+
+commit 2e053ef6c0e34351651e666c9f7975555dab2ab2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 21:34:36 2020 +0300
+
+    Add lasting effect icons to agent info panel
+
+commit 71e56f98a6f3ac59e7d4280588ff8f97d41ef61a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 21:34:16 2020 +0300
+
+    visualize.rs: Extract get_effect_icon fn
+
+commit 12b9d641aa654e523b54d8d261a963937111273d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 21:33:41 2020 +0300
+
+    visualize.rs: Make lasting effect icons a little bit smaller
+
+commit 002d6df907df11aec0e7d47c14a5700d0f27b7c2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 19:53:17 2020 +0300
+
+    release.yml: Fix resvg installation on Win
+
+commit 7e375a5bd5521f347cefc2154d643f73cdc2b3c1
+Merge: b02b805 ec0311a
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Aug 29 15:37:01 2020 +0300
+
+    Merge pull request #610 from ozkriff/i520_export_assets_sh
+    
+    export_assets: py -> sh
+
+commit ec0311ad0367e0149c9bc40dc0f0334e13002ae9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 29 00:19:42 2020 +0300
+
+    export_assets: py -> sh
+
+commit b02b805b548b9927cc224b7a2c084beb4a0bed3e
+Merge: fe34e33 bfeb207
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Aug 22 23:40:32 2020 +0300
+
+    Merge pull request #608 from ozkriff/i520_merge_assets
+    
+    Move assets into this repo, update CI and docs
+
+commit bfeb2078741fd08bfb21f2e71e7c1c59c4d6f25f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 19 22:04:26 2020 +0300
+
+    Move assets into this repo, update CI and docs
+    
+    inkscape -> resvg
+
+commit fe34e33d4b40239b9c3830810850134dc9d71fdd
+Merge: 71d1a2b c3c825d
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Wed Aug 19 00:10:03 2020 +0300
+
+    Merge pull request #606 from ozkriff/readme_build_instructions
+    
+    README: Build instructions: release -> debug
+
+commit c3c825da7436e3749d7247a78ed2d56410ee2fb4
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Tue Aug 18 23:35:52 2020 +0300
+
+    README: Build instructions: release -> debug
+
+commit 71d1a2b386fb0f97b7030144a348cf7a68dd39b2
+Merge: d5a2d72 dee2a5c
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Tue Aug 18 23:23:27 2020 +0300
+
+    Merge pull request #605 from ozkriff/i583_srand
+    
+    Seed quad_rand::srand with gwg::timer::time
+
+commit dee2a5ca1bcb9d2c2f2f78f87c197ef5dc0b9042
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Aug 18 23:10:05 2020 +0300
+
+    Seed quad_rand::srand with gwg::timer::time
+
+commit d5a2d729d5770298bb0d85911ea8fd8091625b4f
+Merge: c0d7f8b 32023c9
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Tue Aug 18 15:44:22 2020 +0300
+
+    Merge pull request #604 from ozkriff/readme_status_up
+    
+    README: Move status badge up
+
+commit 32023c91f711ea29be2175b1444180cddb75f744
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Tue Aug 18 15:30:02 2020 +0300
+
+    README: Break badges line
+
+commit 3110777c8572f828a8fc46a1aeddf859ef5b1717
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Tue Aug 18 15:24:00 2020 +0300
+
+    README: Move status badge up
+
+commit c0d7f8ba33120408895aefdba7617b4af5597a45
+Merge: 9af60be 48cfc81
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Tue Aug 18 01:02:54 2020 +0300
+
+    Merge pull request #603 from ozkriff/i587_mainloop_sleep
+    
+    Add yield_now to mainloop
+
+commit 48cfc815b5ba8dfe2a8ce5a0f5900f1be508a4bf
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Aug 18 00:51:49 2020 +0300
+
+    Add yield_now to mainloop
+
+commit 9af60beaf0ab0cad4b624faaf01a8ef45bc4ec6b
+Merge: 4ec2728 c90ab63
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Mon Aug 17 20:47:32 2020 +0300
+
+    Merge pull request #602 from ozkriff/i601_gwg_font_size
+    
+    Increase font size to 120
+
+commit c90ab633ac3137e434137a4b221588427eebad9a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 17 20:36:13 2020 +0300
+
+    main.rs: Employ gwg::graphics::set_font_size
+
+commit b5a464f29ffe233018b38029075546f35cb615f7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 17 20:35:47 2020 +0300
+
+    cargo update
+
+commit dda1186fc4b420b13fa43f3b3ceff61546b92b94
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 17 20:34:51 2020 +0300
+
+    main.rs: Remove unneeded context borrows
+
+commit 4ec272810d47c7119997c5787d5e52cd842c87fe
+Merge: 62174e8 63244f7
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sun Aug 16 21:09:13 2020 +0300
+
+    Merge pull request #600 from ozkriff/ijrust_warning_fixes
+    
+    ijrust warning fixes
+
+commit 63244f797d7b381d046d40ba16fdcc4243a07961
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 16 20:43:45 2020 +0300
+
+    Use same impl member order as in the trait
+
+commit 8791dd05589a7c162f88f811baea2f3afacac91b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 16 20:41:34 2020 +0300
+
+    core/battle.rs: Properly re-export MovePoints & PosHex
+
+commit 0797d15092e00ca1f6315e808f1244ed803ec92e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 16 20:39:25 2020 +0300
+
+    check.rs: Typo: BadTargetType
+
+commit 62174e83ff187cefd5eaf2036b55cfbbadf8e3ab
+Merge: 058db95 1d2d5c4
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Aug 15 11:56:29 2020 +0300
+
+    Merge pull request #599 from ozkriff/i588_effects_descriptions
+    
+    Add descriptions and info buttons for lasting effects
+
+commit 1d2d5c4a318fd5eb7ba4e9de16cf5b66e4038633
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 15 11:45:41 2020 +0300
+
+    Add descriptions and info buttons for lasting effects
+
+commit 7ab9136df12e12aeb79e38c32f6ec5a24ecc2c1d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 15 11:43:46 2020 +0300
+
+    core/campaign.rs: Fix typo in execute_action
+
+commit 058db958f08816d1ce79060b6666d0159dc0ab80
+Merge: 27e1364 0435efa
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Sat Aug 15 00:19:15 2020 +0300
+
+    Merge pull request #598 from ozkriff/i597_upgrade_info_popup_both_agents
+    
+    screen::AgentInfo: Show both agent types for upgrades
+
+commit 0435efa7f7b0e459265872116eef67920ed05a59
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 14 23:51:57 2020 +0300
+
+    screen::AgentInfo: Show both agent types for upgrades
+
+commit 27e1364ca3064848b6f80960eefebc72ce9fce43
+Merge: adfc1c8 473d7eb
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Fri Aug 14 18:23:36 2020 +0300
+
+    Merge pull request #596 from ozkriff/i582_i584_i585_zgui_stretch
+    
+    Add widget stretching & tweak game's UI accordingly
+
+commit 473d7eb39b1834d875d773b204b43a8ae9567ea8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 14 09:51:25 2020 +0300
+
+    Add widget stretching & tweak game's UI accordingly
+
+commit 82c9aaf8dc5cb51016d16000542703a1c4eae5c2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 14 09:44:43 2020 +0300
+
+    screen.rs: Make popup bg less transparent (0.8 -> 0.9)
+
+commit b055f8ecf639fe4a6a677d9a3e373e2aade90b4a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 14 09:43:54 2020 +0300
+
+    visualize.rs: Add constants for dot colors
+
+commit c47f83024777d02892dd8ac3370b66764dbf6acd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 14 09:43:02 2020 +0300
+
+    visualize.rs: Remove unneeded cast
+
+commit 4c7020bc6385e9eaac8f7d29da55984aec30dd5c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 14 08:52:02 2020 +0300
+
+    ability.rs: Fix some extended descriptions
+
+commit adfc1c8354a14dbc4bc22780e5de4042b723e54d
+Merge: 13ed4d2 48f6263
+Author: Andrey Lesnikóv <ozkriff@gmail.com>
+Date:   Thu Aug 13 11:56:20 2020 +0300
+
+    Merge pull request #595 from ozkriff/visualize_show_frame_for_time
+    
+    visualize.rs: Add show_frame_for_time helper func
+
+commit 48f6263eaa792f14aa1ebb2f2c44925d4aff79e1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 13 11:35:11 2020 +0300
+
+    visualize.rs: Add show_frame_for_time helper func
+
+commit 13ed4d2561256173786501f3dfb05ce2f7162c63
+Merge: 741e66c 40f1b57
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 10 13:34:24 2020 +0300
+
+    Merge pull request #594 from ozkriff/zgui_zscene_inline_error_mods
+    
+    zgui, zscene: Inline error mods
+
+commit 40f1b57daa52e9a15b2234768783a7e4ec117834
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 10 11:56:00 2020 +0300
+
+    zgui, scene: Inline error mods
+
+commit 741e66c0d3d152ae4a8b5f46ee86b86f8e52bd89
+Merge: b6040eb 0da5093
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 9 18:25:00 2020 +0300
+
+    Merge pull request #593 from ozkriff/cgmath_point2_to_mint_point2
+    
+    cgmath::Point2 -> gwg::graphics::Point2
+
+commit 0da5093dd17e4b0f837016fee71ea548bfc2c87a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 9 18:14:15 2020 +0300
+
+    cgmath::Point2 -> gwg::Point2
+    
+    Also, same for Vector2.
+
+commit b6040eb5e2fc4f12c00d0731427ec5e42413e9ce
+Merge: ca9621d 2b9ca85
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 9 17:56:59 2020 +0300
+
+    Merge pull request #592 from ozkriff/log_debug_to_trace
+    
+    log: debug -> trace
+
+commit 2b9ca85223769f4958a016d52cf5fdd75dfb9e47
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 9 17:29:06 2020 +0300
+
+    log: debug -> trace
+
+commit ca9621dfcfab92bcd9ab0b9a6a0f6e14612b7277
+Merge: 05634a4 52cef6d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 7 18:09:18 2020 +0300
+
+    Merge pull request #591 from PatriotRossii/i216-roll-dice-function
+    
+    Add roll_dice function
+
+commit 52cef6dba880b22e9bb23180b5f50e966a340d1d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 7 16:54:02 2020 +0300
+
+    Simplify signature of roll_dice
+
+commit e327901d3eb74feee04c9d22452dcb816bb4d746
+Author: PatriotRossii <patriotrossii2019@mail.ru>
+Date:   Fri Jul 31 00:22:36 2020 +0400
+
+    Add roll_dice function
+
+commit 05634a4645f0a269159ddf94e89be038e2342827
+Merge: dd7c222 2203f09
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 25 04:29:07 2020 +0300
+
+    Merge pull request #590 from ozkriff/i589_ability_deselect_click_outsite_map
+    
+    Cancel ability mode on out-of-map clicks too
+
+commit 2203f09f5bd26c8fbe1cd8685faa746780752165
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 25 00:25:29 2020 +0300
+
+    Cancel ability mode on out-of-map clicks too
+
+commit dd7c22275750a6a2b45c04a54897dd27609879ec
+Merge: f136673 8b4a268
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 20 21:55:12 2020 +0300
+
+    Merge pull request #586 from ozkriff/purple_joker_dots
+    
+    Change the color of joker dots from purple to white
+
+commit 8b4a268d0f71459d875a3863755c5fa8a68f8e51
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 20 21:33:43 2020 +0300
+
+    Change color of joker dots from purple to white
+
+commit f136673e5305663ec400e0e372312f72516517ca
+Merge: 2d52152 010df39
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 11 23:36:40 2020 +0300
+
+    Merge pull request #581 from ozkriff/i534_teleportation_flare
+    
+    Add White Teleportation Flare
+
+commit 010df39f624c5e0974c2a63493a2c99648dda454
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 11 23:02:35 2020 +0300
+
+    visualize.rs: Employ Duration::mul_f32
+
+commit 4fa0b88e62b597d7726731ed5ec1d931cc8c7bc0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 11 22:49:26 2020 +0300
+
+    Add white teleportation flare
+
+commit 2d521528d306187e7b8118d63e7791590d8c1f18
+Merge: e1042ec a9799f9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 13 00:59:49 2020 +0300
+
+    Merge pull request #577 from ozkriff/fix_web_gl_js
+    
+    Fix web build: use specific gl.js
+
+commit a9799f9c97204b82b2e165140e942f72e408a044
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 13 00:20:40 2020 +0300
+
+    Fix web build: use specific gl.js
+
+commit e1042ec5d2671e026db5421269ccef03da544a87
+Merge: 5888f7e 3f00f7d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 13 00:40:49 2020 +0300
+
+    Merge pull request #578 from ozkriff/update_deps
+    
+    Updated ron to v0.6 + cargo update
+
+commit 3f00f7daaed6aa45baf5d4e1cf150ae45352a7eb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 13 00:23:41 2020 +0300
+
+    Updated ron to v0.6 + cargo update
+
+commit 5888f7efe06edf1b5e733d32dd7f74d2d1fe35cc
+Merge: 7f37878 367a064
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 12 23:54:53 2020 +0300
+
+    Merge pull request #575 from Horki/quad_rand_patch
+    
+    Quad rand patch
+
+commit 367a064b18ff44281dc8a62d50ccefc9abcfd42d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 12 23:42:45 2020 +0300
+
+    Fix clippy warns: redundant imports
+
+commit 58cf78dbfa1287e23ad86bc1f77551634cfe7c36
+Author: Horki <ivanzvonimirhorvat@gmail.com>
+Date:   Mon May 4 18:10:56 2020 +0200
+
+    core utils: quad-rand patch
+
+commit 41fed6a12d5c1f4c722a99bed600349d9c583e0a
+Author: Horki <ivanzvonimirhorvat@gmail.com>
+Date:   Mon May 4 18:10:36 2020 +0200
+
+    cargo: updated quad-rand dep
+
+commit 7f37878dbd56fb21922dfc8220041cf3dcb12a90
+Merge: 429b3cd 505035d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Apr 2 00:05:43 2020 +0300
+
+    Merge pull request #573 from ozkriff/i528_fix_bloodlust
+    
+    AI: Fix loop break in try_bloodlust_imp
+
+commit 505035dbc346351d63f0127ac085811cf7968886
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Apr 1 23:57:52 2020 +0300
+
+    AI: Fix loop break in try_bloodlust_imp
+
+commit 429b3cd15bc561eb68e4a2618cd6976697ea7434
+Merge: 5a41812 c611b03
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Apr 1 22:58:31 2020 +0300
+
+    Merge pull request #572 from ozkriff/i571_remove_deps_rs_badge
+    
+    README: Remove broken deps.rs badge
+
+commit c611b031a7b4315ce28f178346c2dc632df79547
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Apr 1 22:49:33 2020 +0300
+
+    README: Remove broken deps.rs badge
+
+commit 5a4181256f7f49612f321b1c533424c801620a66
+Merge: d5c2642 7d0f745
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 31 10:30:08 2020 +0300
+
+    Merge pull request #570 from ozkriff/remove_ggwp_prefix
+    
+    Get rid of the 'ggwp-' prefix for zgui and zscene
+
+commit 7d0f745f24042d83316fb126fd710b16e28da438
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 31 10:20:34 2020 +0300
+
+    Get rid of the 'ggwp-' prefix for zgui and zscene
+
+commit d5c26423a52af2eccd37601997bb3d0e77e1a1b1
+Merge: 8eca07e f06dc1e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 31 10:04:42 2020 +0300
+
+    Merge pull request #569 from ozkriff/nalgebra_to_cgmath
+    
+    nalgebra -> cgmath
+
+commit f06dc1ec71b540d2956bc14a3340ca727586cc80
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 31 09:40:59 2020 +0300
+
+    nalgebra -> cgmath
+
+commit 8eca07ee25c183ee05029dc554d71e4fa6797122
+Merge: 91980dc b20bbe3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 27 19:41:21 2020 +0300
+
+    Merge pull request #568 from ozkriff/i563_switch_to_gwg
+    
+    Switch to GWG completely
+
+commit b20bbe3fc91c6158e1ffb50140a62ba87e367daa
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 27 18:43:31 2020 +0300
+
+    Undisguise gwg
+
+commit 0f9899029390874725b18194528c92b54a3d7168
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 27 18:37:26 2020 +0300
+
+    Switch to GWG completely
+
+commit 91980dc511756ea9a9c1d4c663b4fcc88c431ee1
+Merge: 12b9f4f 69352b1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 27 08:49:37 2020 +0300
+
+    Merge pull request #567 from ozkriff/turn_off_travis_and_appveyor
+    
+    Turn off Travis and Appveyor
+
+commit 69352b13ee6857ee614a1b1959963e4a330bba5b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 27 08:31:01 2020 +0300
+
+    Turn off Travis and Appveyor
+
+commit 12b9f4f03e34eee891ea489a0f686fe14d405803
+Merge: b74f952 c4ac1f1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 22 16:21:52 2020 +0300
+
+    Merge pull request #565 from ozkriff/i276_icons
+    
+    UI icons, ability descriptions, popups, and more
+
+commit c4ac1f119d4696587a0e02ed7ff21dd645527d3f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 21 19:08:44 2020 +0300
+
+    UI icons, ability descriptions, popups, and more
+
+commit b74f952b0d8b6ec2a2b4c632222209117279b087
+Merge: aecce3a 662b18f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 21 13:10:45 2020 +0300
+
+    Merge pull request #562 from ozkriff/update-good-web-game
+    
+    Update good-web-game and add quad-rand
+
+commit 662b18f0cb4a363d02e93bca987cfe0c78897a9c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 21 12:15:32 2020 +0300
+
+    GA: Update WASM job
+
+commit 256bb21fb63b4d35a6f63c10431c944a3e4dfbbb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 10 22:54:27 2020 +0300
+
+    Update good-web-game and add quad-rand
+
+commit aecce3a51479eb1d66e8ed7afa4a9c28489d5b78
+Merge: 29ab74f a12f405
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 15 11:12:15 2020 +0300
+
+    Merge pull request #559 from ozkriff/do_not_remove_selection_marker_in_ability_mode
+    
+    Do not remove selection marker in ability mode
+
+commit a12f405b6fbdf6499df45f5f092bf30b65f5c9d4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 15 10:29:58 2020 +0300
+
+    Add and employ utils::remove_widget
+
+commit 4b540c45e2539455b87c9dc8f0dbc348c6145edf
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 15 10:06:06 2020 +0300
+
+    campaign.rs: typo
+
+commit 89979e63d0a9dde1ac901917a8a423180a059b58
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 15 10:05:22 2020 +0300
+
+    Don't remove unit selection marker during SelectionMode::Ability
+
+commit 29ab74f79f994d14267a0fbd27d46aa326ac1f2b
+Merge: fa65256 97ee512
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 14 19:13:02 2020 +0300
+
+    Merge pull request #558 from ozkriff/lunge
+    
+    Add 'lunge' fn and employ it for club/knockback
+
+commit 97ee512789c086ac25a1a81066ab3ef3c7e9b977
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 14 15:40:40 2020 +0300
+
+    visualize.rs: Add 'lunge' fn and emply it for club/knockback
+
+commit 9f2c78a4afc5acd5beb4f5b9e4003c3baca8e312
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 14 14:39:27 2020 +0300
+
+    visualize.rs: BLOOD_SPRITE_DURATION_TURNS
+
+commit fa65256eb1c4a9093bf36e874f4bef3a798df5f3
+Merge: d08e5bb 4d8c9a7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Mar 11 22:55:36 2020 +0300
+
+    Merge pull request #557 from ozkriff/remove_warn_bare_trait_objects
+    
+    Remove warn(bare_trait_objects)
+
+commit 4d8c9a7cf9d7407e4c31aef511f8844f9a649dbd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Mar 11 21:43:11 2020 +0300
+
+    Remove warn(bare_trait_objects)
+    
+    It's not needed in the modern Rust.
+
+commit d08e5bb43b213c870a403f90fefa83e98194840d
+Merge: 2f84c07 4f4d1ba
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jan 30 23:24:16 2020 +0300
+
+    Merge pull request #556 from ozkriff/profile_override
+    
+    Cargo.toml: Optimized deps in debug builds
+
+commit 4f4d1ba46b5952b8d3c79563060b96b7ebd36e87
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jan 30 21:59:52 2020 +0300
+
+    Cargo.toml: Optimized deps in debug builds
+    
+    Profile overrides are stable now, yay!
+
+commit 2f84c0758d6f1c2d0e98fee8c47def42cea71b69
+Merge: 323b202 ce064f3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 25 18:06:07 2020 +0300
+
+    Merge pull request #555 from ozkriff/view_hex_to_point
+    
+    Add helper fn: BattleView::hex_to_point
+
+commit ce064f3a1e309eab2cedfcfa12fb363b8b79e420
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 25 17:19:09 2020 +0300
+
+    Add helper fn: BattleView::hex_to_point
+
+commit 323b2027402636d954fe35adb1b518baa5d2cf77
+Merge: 07e0251 3803ff0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 25 16:47:57 2020 +0300
+
+    Merge pull request #554 from ozkriff/fix_range_dodge
+    
+    Fix dodging animation from long range attacks
+
+commit 3803ff06dbcce77cb8a1617b5dd6158d5fd03b39
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 25 13:02:03 2020 +0300
+
+    Fix dodging animation from long range attacks
+
+commit 07e02510b3b01fccbc143691ea986ec5c90d8e3c
+Merge: 530721f b0f8bd4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jan 23 19:42:17 2020 +0300
+
+    Merge pull request #552 from ozkriff/as_mut_as_ref
+    
+    &**/&mut ** -> as_ref/as_mut
+
+commit b0f8bd41ce76e3135e5d5533219c7c7a651db57f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jan 23 17:52:26 2020 +0300
+
+    &**/&mut ** -> as_ref/as_mut
+
+commit 530721fed8339af20d98b992c23cdb83b9394e1b
+Merge: 2e3a0b8 4cdb954
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 18:41:38 2020 +0300
+
+    Merge pull request #551 from ozkriff/remove_strategy_map_screen
+    
+    Remove screen/strategy_map.rs
+
+commit 4cdb954d4f88bb623c7430434849edfa7da8cc5e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 10:51:48 2020 +0300
+
+    Remove screen/strategy_map.rs
+
+commit 2e3a0b8682285babdc43104fc2e3d587791e0cc5
+Merge: d1030e5 1eb6cb8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 17:02:01 2020 +0300
+
+    Merge pull request #544 from Vrixyz/291-weight-component
+    
+    Weight logic to Knockback
+
+commit 1eb6cb83787ef338c9832fa435b9e2e1e4442888
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:23:28 2020 +0300
+
+    Sync ASSETS_HASHSUM
+
+commit f0be1a7c915448e89f6316eb5d6621b49eb9cb13
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:22:51 2020 +0300
+
+    Add basic FlyOff tests for Weight::Normal/Heavy
+
+commit afd24eec06670b75df4dc5aa1073a080b6b04a7d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:22:17 2020 +0300
+
+    Knockback tests: Tweak var naming and positions
+
+commit 9ab2271c2a8371e681e1146b82f39efbdb3d5842
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:21:36 2020 +0300
+
+    Knockback tests: component_agent_one_attack -> component_agent_always_hit
+
+commit 2fc59283a05bd0b0d53f92c08f59538cb0c74924
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:20:26 2020 +0300
+
+    Style tweaks
+
+commit 3368997d00abd59736324852f436af5988735d3d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:15:56 2020 +0300
+
+    visualize_effect_fly_off: Add "Resisted fly off" msg
+
+commit 3a9f075d5fd4cca298082f1ae3099e4a0fa0b6b8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:08:04 2020 +0300
+
+    Show weight in agent's info panel
+
+commit 2578ba59d31385920fa09d2efac54ce10c9c879a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jan 22 16:06:46 2020 +0300
+
+    Make Blocker::weight optional for serde
+
+commit 2714f83be20d7ef7722649b08b0c9c8f53cd5f86
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sat Jan 18 14:24:08 2020 +0100
+
+    cargo fmt
+
+commit 47687e37dbf456ec93492a392dff05226140ce25
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sat Jan 18 14:20:57 2020 +0100
+
+    fix bomb push with new logic ; adapted bomb push tests ; new tests for knockback
+
+commit ffed0bdcb66c3d496377471f5e958eb41d12dd08
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Thu Jan 16 23:31:06 2020 +0100
+
+    cargo fmt
+
+commit d008d8bf547aeebe8d0b15fd2ae89b1c9cb27df0
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Thu Jan 16 23:24:45 2020 +0100
+
+    Correct visualization for Knockback and FlyOff resistance
+
+commit e7a0871bb7faaadffbbd555140659951ca141fb0
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Tue Jan 14 23:10:36 2020 +0100
+
+    fix feedbacks
+
+commit a4b486a75a02eeb68003cf96dc1b9e2ccc53c56c
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sat Dec 14 23:09:22 2019 +0100
+
+    test: separate throw bomb test for heavy and normal
+
+commit d7528b86303b4724b7e65f88748b02b6b97291ed
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sat Dec 14 22:09:51 2019 +0100
+
+    cargo fmt
+
+commit b3b959718639f83351d84b19ca55474c358d338d
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sun Dec 1 23:20:52 2019 +0100
+
+    convert knockback strength to new type PushStrength
+
+commit 251cdf91633cfbe61f1e468c108e17ec192da1ef
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sun Nov 17 12:09:00 2019 +0100
+
+    cargo fmt
+
+commit f38cbd95f012dcb5b3455c6e0e1de85e6dff9df5
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sun Nov 17 11:53:50 2019 +0100
+
+    Weight property added to blocker ; Strength added to Knockback
+
+commit d1030e5e20461a6d1c07ecc165bc04cc9f92527d
+Merge: 82eae24 f57649e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jan 13 15:03:36 2020 +0300
+
+    Merge pull request #549 from nickelc/gh-actions
+    
+    Add GitHub workflows for CI and Release
+
+commit f57649e0f1cf37d0884317536571c7e244dc2eee
+Author: Constantin Nickel <constantin.nickel@gmail.com>
+Date:   Mon Jan 13 12:12:55 2020 +0100
+
+    Add GitHub workflow status badge
+
+commit e4395d62473bbd63fd048e136c2dd81eed08aa8c
+Author: Constantin Nickel <constantin.nickel@gmail.com>
+Date:   Mon Jan 13 11:51:59 2020 +0100
+
+    Use `continue-on-error` for the nightly builds
+
+commit a1b9e8428928199799ca5f90e274f5bd8ad476ce
+Author: Constantin Nickel <constantin.nickel@gmail.com>
+Date:   Mon Dec 16 23:34:19 2019 +0100
+
+    Split lints job
+
+commit e9bef8a2bf1148022214eb36c03d51aeb9a8f007
+Author: Constantin Nickel <constantin.nickel@gmail.com>
+Date:   Mon Dec 16 13:12:30 2019 +0100
+
+    Speed up `Check assets` build job
+
+commit b2744872090862f5a4afd140fb26483aed334d4f
+Author: Constantin Nickel <constantin.nickel@gmail.com>
+Date:   Sun Dec 15 06:12:37 2019 +0100
+
+    Add Github workflow for release
+
+commit fbed395f037305fa5532c48109b8616a523754ea
+Author: Constantin Nickel <constantin.nickel@gmail.com>
+Date:   Sat Dec 14 22:17:26 2019 +0100
+
+    Add Github workflow for CI
+
+commit 82eae246b480c24dc92971699eb540cd6edeebce
+Merge: ebe1ade fbeb0b0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jan 12 12:55:16 2020 +0300
+
+    Merge pull request #550 from ozkriff/readme_travis_org_com
+    
+    README: travis-ci.org -> travis-ci.com
+
+commit fbeb0b04524f787790f04d003c7efc932ba0e24e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jan 12 11:05:50 2020 +0300
+
+    README: travis-ci.org -> travis-ci.com
+
+commit ebe1ade03e32c5a1ab0c6dc719643abc5cf2f71d
+Merge: a63b145 131edc8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jan 12 10:44:25 2020 +0300
+
+    Merge pull request #548 from ozkriff/fix_travis_windows
+    
+    Travis: Disable "cargo test" on windows for now
+
+commit 131edc8e8ade9a2323892aa591c676c7f091fc9f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jan 12 03:16:19 2020 +0300
+
+    Travis: Disable "cargo test" on windows for now
+
+commit a63b14589b1020f17a29ae48dcd49799a4dafa58
+Merge: 3c3ea3f 374c726
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 11 17:51:11 2020 +0300
+
+    Merge pull request #546 from ozkriff/clippy_fix
+    
+    Fix needless_doctest_main clippy lint
+
+commit 374c72680f6184b2d2d96bf785c22d069b94828e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 11 16:55:31 2020 +0300
+
+    Fix needless_doctest_main clippy lint
+
+commit 3c3ea3f5247a20526cfc427b3b27f47b8987e056
+Merge: fc8d8eb d590ae8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 13 11:07:50 2019 +0300
+
+    Merge pull request #542 from ozkriff/update_deps
+    
+    Cargo.toml: Update derive_more to 0.99 & structopt to 0.3
+
+commit d590ae8e3316003045660ad6f97af695fcd02ff2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 13 00:07:36 2019 +0300
+
+    Cargo.toml: Update derive_more to 0.99 & structopt to 0.3
+
+commit fc8d8eb5d247f39b4c7980deccaf07bcd566f29e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 12 07:48:39 2019 +0300
+
+    cargo fmt
+
+commit 11fbbbc1f088ca3dda0fce05d1305ce871334bcc
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Sun Nov 10 19:33:07 2019 +0100
+
+    fix format for usings
+
+commit ee76c8fa961feaffaa9744603e6a91fa9e85a50b
+Author: Thierry Berger <contact@thierryberger.com>
+Date:   Fri Nov 8 22:52:54 2019 +0100
+
+    Rename ObjId to Id
+
+commit f4c4210519af867e4c47e81f0644eeb9c7c6a08e
+Merge: 57b6ff7 ee02248
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Oct 13 01:13:38 2019 +0300
+
+    Merge pull request #539 from ozkriff/bloodlust
+    
+    Possess -> Bloodlust + Frame
+
+commit ee02248bc4e7ab0ec76974fb6745c47baf819fe4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Oct 13 00:05:32 2019 +0300
+
+    visualize.rs: Add bloodlust frame switching
+
+commit b823b16f42a4da111ceb8419c09f83127e3982c1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Oct 13 00:04:44 2019 +0300
+
+    Rename Possess to Bloodlust
+
+commit 57b6ff71c0fff320eba8cd1d2122a900c2c8a5a6
+Merge: 4c6bca2 6849f76
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 26 23:45:01 2019 +0300
+
+    Merge pull request #537 from ozkriff/i536_fix_clippy_inherent_to_string
+    
+    Fix inherent_to_string clippy warning
+
+commit 6849f769bec04218d87c3e719981c6940c6feda3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 26 22:43:49 2019 +0300
+
+    Fix inherent_to_string clippy warning
+
+commit 4c6bca2222622a6a3d77273a518f563b61c60a14
+Merge: 75dbf2e 6562cf0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Sep 24 11:29:02 2019 +0300
+
+    Merge pull request #535 from ozkriff/v0_7_snapshot
+    
+    "v0.6.0" -> "v0.7.0-snapshot"
+
+commit 6562cf029230576dce8815476990aaa2810661fc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Sep 24 09:15:42 2019 +0300
+
+    Cargo.toml: env_logger 0.6 -> 0.7 + cargo update
+
+commit 83e2d764179b021ead99102e4d39f00337feed95
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Sep 24 09:04:25 2019 +0300
+
+    v0.7-snapshot
+
+commit 75dbf2e2332ec246ee49d1398e8db42635c50368
+Merge: a6cd139 8586ef2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 21 14:00:08 2019 +0300
+
+    Merge pull request #533 from ozkriff/v0_6
+    
+    v0.6
+
+commit 8586ef2ac1c60c0a82e16ec6afbf2fa4662ff634
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 21 12:51:55 2019 +0300
+
+    v0.6
+
+commit da507841ca6cfe1e232ac61a04e3b48896c6367f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 21 12:50:18 2019 +0300
+
+    README: Update campaign screenshot
+
+commit a6cd139302b10147e10deaff2266afc3b46a40ab
+Merge: 1c7c761 acd6657
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 4 09:51:35 2019 +0300
+
+    Merge pull request #527 from ozkriff/fix_healing_check
+    
+    Fix check_ability_heal
+
+commit acd6657204c487e6664a1ff363edd85a8d1217be
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 4 01:37:09 2019 +0300
+
+    Fix check_ability_heal
+
+commit 1c7c7619512ecbbacbd96ef744b1d63a5ed20cf3
+Merge: 8e4b86f fd2c571
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 23:10:16 2019 +0300
+
+    Merge pull request #526 from ozkriff/playtest_feedback_fixes
+    
+    Mostly UI tweaks based on feedback from playtest
+
+commit fd2c571f94a6925834c9e5a9fb5bed3eccf96241
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 21:53:10 2019 +0300
+
+    Add ability's cooldown time to agent's info panel
+
+commit 5a167a60c7c277baef9939ec1d5cbaed2d600eba
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 21:52:35 2019 +0300
+
+    Replace "attack break" with "armor break" in agent's info panel
+
+commit f870b358eed585a925d6001a333f98f1eaff117f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 21:49:55 2019 +0300
+
+    Show reaction attacks in agent's info panels
+
+commit b3116d3740bf4bed8c83eab0813cdedffc9c612f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 21:48:52 2019 +0300
+
+    Disallow healing of agents with full strength
+
+commit 8e4b86f408178a37585bd4538839ef33fb2340dd
+Merge: 9b544da 1a012ca
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 17:49:15 2019 +0300
+
+    Merge pull request #525 from ozkriff/update_deps_ggez_0_5_rand_0_7
+    
+    Update deps: ggez 0.5.0-rc.2 -> 0.5.0 and rand 0.6 -> 0.7
+
+commit 1a012ca35b241bad7ea5e7204b8a72112f429829
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 16:28:25 2019 +0300
+
+    Cargo.toml: rand 0.6 -> 0.7
+
+commit 127d3418f38a5963116679bcc22b7f12cc676e63
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 16:15:14 2019 +0300
+
+    Bump ggez to 0.5.0
+
+commit 9b544daa420175219980c36900bfb08c654471e4
+Merge: 7adb856 e694f4f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 13:44:31 2019 +0300
+
+    Merge pull request #523 from ozkriff/i506_win32_build
+    
+    Appveyor: Add back win32 artifacts
+
+commit e694f4f462747398e832996542787c5ee207baf3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 12:41:34 2019 +0300
+
+    appveyor.yml: Move 'artifacts' block to the bottom
+    
+    To match the order of the pipeline's steps
+
+commit a8fbd1d4a77c363a777be7e6916ec798160f06a1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 11:00:20 2019 +0300
+
+    Appveyor: Add back win32 (msvc) build
+
+commit 7adb856d0b7da826022fd5fd66f3a33d70240845
+Merge: 3b4c21c bbf6e37
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 10:25:05 2019 +0300
+
+    Merge pull request #522 from ozkriff/license_mit_years
+    
+    LICENSE-MIT: Fix/update years
+
+commit bbf6e37a64ebc519f3b78712893711b6b6252413
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 3 00:35:00 2019 +0300
+
+    LICENSE-MIT: Fix/updatte years
+
+commit 3b4c21cdb4bf442f7599aaeb961f37b8d82ca7a1
+Merge: 2e561e0 efc1e6e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 2 08:59:40 2019 +0300
+
+    Merge pull request #519 from ozkriff/balancing_powerful_heavies
+    
+    Balancing: Make heavy fighters more powerful
+
+commit efc1e6ef4007da9a3c5a9471fa80a7ecc7de21a1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 2 02:09:06 2019 +0300
+
+    Balancing: Make heavy fighters more powerful (update assets)
+
+commit 2e561e01c158ef614c04c37089647cd49d777f5e
+Merge: 82dfd45 0f883f2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 1 23:02:45 2019 +0300
+
+    Merge pull request #518 from ozkriff/readme_ozkriff_games
+    
+    README: ozkriff.github.io -> ozkriff.games
+
+commit 0f883f26745968cace03008621375803dfd47bd2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 1 21:24:32 2019 +0300
+
+    README: ozkriff.github.io -> ozkriff.games
+
+commit 82dfd45f7a7feb18695f1e8c336502c636b78e9f
+Merge: 9463572 44f158d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 31 21:54:21 2019 +0300
+
+    Merge pull request #517 from ozkriff/i513_possession
+    
+    Ability "Possess"
+
+commit 44f158dda9e642197ffa43189d325657d1b186d2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 31 20:06:50 2019 +0300
+
+    Add ability Possess
+
+commit 94635725272c163eb5e3075dc81441d8732b7cf5
+Merge: 3278d2c e39cfdb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 25 01:27:14 2019 +0300
+
+    Merge pull request #515 from ozkriff/readme_roadmap
+    
+    Update the roadmap and remove future releases blocks
+
+commit e39cfdb3531d11ae4a1357790966d27feb2b7ff2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 25 00:09:31 2019 +0300
+
+    README: roadmap: Remove planned release blocks
+
+commit 126d4bc0567624f8d5c6cccc7e3ce7733ead93d6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 25 00:06:25 2019 +0300
+
+    README: Update boxes in the roadmap
+
+commit 3278d2cf231c2c23d3054e75ca2a9fb573cd5346
+Merge: 0e34fd1 99fdf17
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 22 06:10:43 2019 +0300
+
+    Merge pull request #514 from ozkriff/i512_balance_club_ability
+    
+    Balance Club ability: reduce duration and remove FlyOff effect
+
+commit 99fdf17229773fded324f0ec0a251a622fc0fc06
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 22 02:03:45 2019 +0300
+
+    Club ability: Reduce duration and remove FlyOff effect
+
+commit 7aa6a357c7a353f1ac6e813ecc9cd21a6419927e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 22 02:02:39 2019 +0300
+
+    check: Disallow clubbing of non-agent objects
+
+commit 0e34fd193d442357b1849eabadba61d17733285b
+Merge: 5a74907 528282d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 22 01:20:50 2019 +0300
+
+    Merge pull request #511 from ozkriff/i204_effect_icons
+    
+    Use icons to show lasting effects
+
+commit 528282d4127970486f72860051571dab395ca771
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 22 00:13:02 2019 +0300
+
+    battle.rs: make_gui: Employ line_heights().big for font size
+
+commit badbda4827385de981d97d682c8458ba73abf526
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 22 00:12:10 2019 +0300
+
+    Add lasting effect icons: stun and poison
+
+commit 5a7490736f7fd5fb089e1ad0cd9c04f77026377d
+Merge: b0f002e e619af1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 20 23:48:36 2019 +0300
+
+    Merge pull request #510 from ozkriff/i496_readme_patreon_link
+    
+    README: Add a link to patreon.com/ozkriff
+
+commit e619af18c77feab73f80600553c74cbe9f2c00bd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 20 22:47:38 2019 +0300
+
+    README: Add a link to patreon.com/ozkriff
+
+commit b0f002e2b58c2c47b55e379ead3700af9bd8cc76
+Merge: c07ce27 1dcf9e7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 19 22:39:37 2019 +0300
+
+    Merge pull request #508 from ozkriff/ai_reduced_distance_range
+    
+    AI: Decrease distance ranges for summoners and bombers
+
+commit 1dcf9e786fd4e1b1bcb431cf49b7d5b26541429b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 19 21:24:03 2019 +0300
+
+    AI: Decrease distance ranges for summoners and bombers
+
+commit c07ce27d70d1da63f6ef626b9e23733128582197
+Merge: fbfe353 9176e01
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 19 07:52:58 2019 +0300
+
+    Merge pull request #507 from ozkriff/show_break
+    
+    Show attack_break stat in agent info
+
+commit 9176e010ed739a36d7393e679d5b0daf23e3a01c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 19 01:26:37 2019 +0300
+
+    Show attack_break stat in agent info
+
+commit fbfe353dd21d920dd0ecf90c47e44d9d396dadca
+Merge: ab031d7 81175ec
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 18 22:54:53 2019 +0300
+
+    Merge pull request #505 from ozkriff/i504_hammerman_and_alchemist_upgrades
+    
+    Add hammerman and alchemist upgrades
+
+commit 81175ecf1f163b474f0ebb39a2532ca35230cbe5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 18 21:42:19 2019 +0300
+
+    Fix throw_bomb_damage test
+
+commit c606635b62147401f36ddb9fb83029f86ffbf0af
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 18 20:49:26 2019 +0300
+
+    Add healer, firer and heavy_hammerman
+
+commit a86df11b5c6d4b303f5cd229bbc8eb0b47eb3149
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 18 20:18:05 2019 +0300
+
+    Make explosions destroy armor
+
+commit ab031d7494be80da9eb2d4a2fbf7b1d2d065e5d2
+Merge: 20f8987 cca1a72
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 14 11:34:14 2019 +0200
+
+    Merge pull request #503 from ozkriff/one_upgrade_per_fighter_max
+    
+    Choose only one upgrade path per agent
+
+commit cca1a725c850ac20c3cdda120ac59b324b2c1238
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 14 10:29:47 2019 +0200
+
+    Choose only one upgrade path per agent
+
+commit 20f89872ac17a6eeecd90c9fa07de1e66a29739c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 10 11:54:25 2019 +0200
+
+    clippy fix: into_iter() -> iter()
+
+commit 43871d5277ad57137f850f03f6e6bb4a0e3acba3
+Merge: 15b6440 401f27e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 30 19:20:22 2019 +0300
+
+    Merge pull request #502 from ozkriff/i501_renown
+    
+    Renown
+
+commit 401f27e64bbf77cd97fb09af319e1e502b0f391e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 30 18:04:57 2019 +0300
+
+    Add basic renown system
+
+commit 40a693044ca0adca017282ca5524a038a1f313bd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 30 18:04:19 2019 +0300
+
+    Add serde(default) attribute to Award::recruits
+
+commit 21ff231f9fa8c7b3dee0f8c3eb90a66f6d068181
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 29 16:43:44 2019 +0300
+
+    utils::try_remove_item
+
+commit 337bad37064bc2b8b0d29ad150b8997cce5ba005
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 29 15:59:16 2019 +0300
+
+    src/core/battle/utils.rs -> src/core/utils.rs
+
+commit 15b6440dfbdd3b4d5c783dd763568e351bfe9cfe
+Merge: d0077bf f812ac0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 22 21:06:27 2019 +0300
+
+    Merge pull request #500 from ozkriff/sprite_info_obj_type
+    
+    Index sprite_info by ObjType not just plain String
+
+commit f812ac06dc2e7659107b8958f999669bec52a0a4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 22 19:42:34 2019 +0300
+
+    battle/view.rs: Index sprite_info by ObjType not just plain String
+
+commit d0077bf00f9a4e2c862f45c1b1665f54183f024a
+Merge: 69d22da 0067056
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 20 19:19:54 2019 +0300
+
+    Merge pull request #499 from ozkriff/i480_explosion_ground_marks
+    
+    Add explosion ground marks
+
+commit 0067056e4b8ef69c60565df7b5a2f915ae0960ff
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 20 18:03:45 2019 +0300
+
+    Add explosion ground marks
+
+commit 69d22daab0f2c80cccd16c28fee8a8380ca1e0d2
+Merge: 7199e58 baf573a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 18 07:57:49 2019 +0300
+
+    Merge pull request #498 from ozkriff/i399_agent_upgrades
+    
+    Upgrade player's fighters between battles
+
+commit baf573ae9b8138de47e4d823949d4a240eaeea74
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 18 01:49:25 2019 +0300
+
+    Upgrade player's fighters between battles
+
+commit 7199e58078d9db65cd594c0b6ff93b1f147ce3d8
+Merge: e8a8ab1 c414f10
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 16 08:41:43 2019 +0300
+
+    Merge pull request #497 from ozkriff/i481_agent_info_screen
+    
+    Agent info screen
+
+commit c414f10a947c8a57a7b457edbfd81ab514f9bad8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 15 19:47:09 2019 +0300
+
+    Agent info screen
+
+commit e8a8ab1ae19def9f1f1f6b9590d6dcad846235fa
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 14 18:11:51 2019 +0300
+
+    Use fire.png as an icon
+
+commit ae1b8e884187e199a6eb549a2097a539fe60ce48
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 14 16:33:05 2019 +0300
+
+    FUNDING.yml: Fix error by removing github account
+
+commit 6c7c0aec9c894dede417f34955afb28ae2712cb3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 14 02:41:18 2019 +0300
+
+    Move sprite_info data to the BattleView struct
+
+commit 6dd349823a3e2235ce36c515ab385688ec53f7f7
+Author: debris <marek.kotewicz@gmail.com>
+Date:   Sun Jun 9 18:05:58 2019 +0800
+
+    load sprites from sprites.ron file
+
+commit 56e3e39ef22df38bcfb72e3d095bf659c3fa57d9
+Merge: 1f3413c be2e7e9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 12 10:23:03 2019 +0300
+
+    Merge pull request #495 from ozkriff/rustfmt_toml
+    
+    Add a mostly empty explicit rustfmt.toml file
+
+commit be2e7e97d867a8323959481b14260bf440374dff
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 12 09:24:40 2019 +0300
+
+    Add a mostly empty explicit rustfmt.toml file
+    
+    The only non-default option for now is newline_style = 'Unix'
+
+commit 1f3413c947161dcc5a4428e9c7959f6b801d6a4e
+Merge: a93163c 613241a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 12 09:02:43 2019 +0300
+
+    Merge pull request #494 from ozkriff/update_derive_more
+    
+    Update 'derive_more' to 0.15 and run 'cargo update'
+
+commit 613241a1f2e1e569f68e34d1c03c4a8939e4e4c4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 12 02:03:37 2019 +0300
+
+    Update 'derive_more' to 0.15 and run 'cargo update'
+
+commit a93163c58e18bb7280cf9b81fc9ed05549d3c7ea
+Merge: 1e9350f 120f0ca
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 11 21:22:38 2019 +0300
+
+    Merge pull request #493 from ozkriff/i487_system_deps_doc
+    
+    README: Add a note about system deps
+
+commit 120f0ca455713d18e81104f14e833011c4bde90d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 11 18:43:43 2019 +0300
+
+    README: Add a note about system deps
+
+commit 1e9350f2746a7f21f11a659ceee849132be6bd04
+Author: Luke Schoen <ltfschoen@users.noreply.github.com>
+Date:   Wed Jun 12 02:06:00 2019 +1000
+
+    docs: Fix logic of insert within zcomponents (#491)
+    
+    * docs: Fix logic of insert within zcomponents
+    
+    * fix: Rephrase comment to make sense
+    
+    * docs: Rephrase again
+
+commit acb3e4277edaa4d0f6f6cc4d448b0bfcbc870108
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 10 22:59:23 2019 +0300
+
+    screen/battle.rs: Remove unneeded empty line
+
+commit cd096826b7c230725dbe24527b2c0c3c22f97d11
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 10 22:55:57 2019 +0300
+
+    zgui: Tweak button highlighting colors
+
+commit 206b282ff1e4aac2babbf06b8f95798bc6716b92
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 10 22:54:49 2019 +0300
+
+    zgui: Button::move_mouse: Remove an unneeded empty line
+
+commit dadbbc763f87eed4e7c7e68f1a436f0d751fcbac
+Author: debris <marek.kotewicz@gmail.com>
+Date:   Mon Jun 10 14:19:50 2019 +0800
+
+    Highlight buttons on mouse over, #419
+
+commit 3711da16998eb75c3306a4deb9114c94cefdd482
+Author: debris <marek.kotewicz@gmail.com>
+Date:   Mon Jun 10 11:24:19 2019 +0800
+
+    ignore .DS_Store
+
+commit a18160352f946e0646feee13b19e0f5c1b87ba3f
+Merge: 8ebf232 600cdd6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 10 09:54:57 2019 +0300
+
+    Merge pull request #485 from debris/no-resize
+    
+    Bump ggez to version 0.5.0-rc.2
+
+commit 600cdd67b41f1951f7d124ce963e3c4d9a3f4047
+Author: debris <marek.kotewicz@gmail.com>
+Date:   Sun Jun 9 16:14:23 2019 +0800
+
+    Bumped ggez to version 0.5.0-rc.2
+
+commit 8ebf232ff8b312eace20eab017d51ce836ded4c1
+Merge: fb1fc3e 3992ec2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 7 08:14:01 2019 +0300
+
+    Merge pull request #483 from ozkriff/fn_announce
+    
+    Extract fn 'announce' from 'visualize_event_{begin_turn|end_battle}'
+
+commit 3992ec2177c6b29bea3225ae50b52130dae3e10d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 7 03:08:02 2019 +0300
+
+    Extract fn 'announce' from 'visualize_event_{begin_turn|end_battle}'
+
+commit fb1fc3e6369f9451eb85c9b031fb80ea2f7832d3
+Merge: 357b120 d95eb35
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 7 02:45:36 2019 +0300
+
+    Merge pull request #478 from ozkriff/i474_flip_weapon_flashes
+    
+    Flip weapon flashes horizontally
+
+commit d95eb3591f5d7f0d4d0cb5dd93aee942b12a2c02
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 7 01:16:39 2019 +0300
+
+    Flip weapon flashes horizontally
+
+commit 357b120fd417679ef749385e0ed74fd08c2e9af4
+Merge: 749b435 ded731c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 2 17:33:10 2019 +0300
+
+    Merge pull request #476 from ozkriff/i114_agent_frames
+    
+    Agent frames: "rage", "throw", "summon", "heal"
+
+commit ded731cb2efd742fb40d44423e3bb45ef9d3b10e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 2 16:17:21 2019 +0300
+
+    sprite.rs: clippy fixes
+
+commit 80480bb3bfcb13dac7df5c8bb0f1a6dd566c2596
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 2 16:00:50 2019 +0300
+
+    Agent frames: rage, throw, summon, heal
+
+commit 749b435a5bddb252522665d863d33bc710781160
+Merge: 0eeaee7 ba1af77
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 30 08:27:54 2019 +0300
+
+    Merge pull request #473 from ozkriff/i115_facing
+    
+    Flip unit sprites horizontally
+
+commit ba1af770cd73a6ba682779c1903e5a89756410e4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 30 02:42:46 2019 +0300
+
+    Flip unit sprites horizontally
+
+commit 0eeaee7b6ab87369e939d47074ba18d1987444cf
+Merge: 647ece4 ea5c46e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 27 23:15:06 2019 +0300
+
+    Merge pull request #472 from ozkriff/i146_move_interrupted_msg
+    
+    Show 'move interrapted' message
+
+commit ea5c46e3600c6993e015b8b748fc6b2a7e15f702
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 27 22:09:24 2019 +0300
+
+    Fix clippy match_ref_pats warning
+
+commit f5a181f10b4e308449f7d863579fd3f8378837a6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 27 21:32:23 2019 +0300
+
+    Show 'move interrapted' msg
+
+commit 647ece4f10d1a4f59bcbc208281dbb94543bed39
+Merge: 8cf7a76 d3fb365
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 27 10:10:51 2019 +0300
+
+    Merge pull request #471 from ozkriff/i198_dodge
+    
+    effect::{Miss -> Dodge} + dodge animation
+
+commit d3fb3650e54e6a1b19c2429cb5cc7647ae66be1f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 27 09:03:17 2019 +0300
+
+    Add dodge animations
+
+commit b50fdfd2d89ee58b90ee0409d8be3f1e4d6cd406
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 27 08:49:51 2019 +0300
+
+    Rename Effect::Miss to Effect::Dodge
+
+commit 8cf7a7696a41c9ee1d37e7bee6654cab028304ca
+Author: AnthonyMikh <anthony.mikh@yandex.ru>
+Date:   Sun May 26 16:06:28 2019 +0300
+
+    Extract the logic of getting sprite parameters into `sprite_params` function (#470)
+    
+    * Extract the logic of getting sprite parameters into `sprite_params` function
+    
+    * Make `sprite_params` return struct with named fields for readability
+    
+    * Remove empty line
+    
+    Everything to save precious bytes!
+    
+    * Update return type of `sprite_params`
+    
+    * Unpub `sprite_params`
+    
+    There is no sence in exposing it outside of this module
+    
+    * Add trailing comma
+    
+    * Remove trailing space
+
+commit c8859cdcf4a83c175b2210b28d75fd117b868dee
+Merge: 6d8bd85 6c1d5d9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri May 24 11:30:57 2019 +0300
+
+    Merge pull request #469 from ozkriff/i458_highlight_tile_under_cursor
+    
+    Hightlight a tile under the cursor
+
+commit 6c1d5d9ad47e3d009f57a2a4756b862240f93860
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri May 24 09:59:06 2019 +0300
+
+    Don't highlight the current tile on touch devices
+
+commit 977b057c15c6aa29ebedfd005732033ddcd5e081
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri May 24 02:19:11 2019 +0300
+
+    Fix leading slahes in wasm/build.sh
+
+commit 3b99a1dc3c3eea8ad29146999bab6c3a00e73d18
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri May 24 01:44:25 2019 +0300
+
+    Hightlight a tile under the cursor
+
+commit 6d8bd85e1fab921983ca7f9be71b00d02f15eaa9
+Merge: b38b82c c20706a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 21:45:55 2019 +0300
+
+    Merge pull request #468 from ozkriff/funding
+    
+    Add FUNDING.yml
+
+commit c20706a295cfd2e56de195c26515178366d4a2ee
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 21:36:42 2019 +0300
+
+    Add FUNDING.yml
+    
+    Why not? :)
+
+commit b38b82ce52b5d30e678ad1c5c4592236e025cd3b
+Merge: 8da35fc 3e29568
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 01:36:08 2019 +0300
+
+    Merge pull request #465 from ozkriff/readme_improvements
+    
+    Readme improvements
+
+commit 3e295683db80a43a8920e27dceb5ba1e3661f551
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 00:38:56 2019 +0300
+
+    README: Add versions to the roadmap
+
+commit 12f1bac0b8348edc426cdfd92d6e1c64fc94e2f9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 00:38:33 2019 +0300
+
+    README: Add a font source note
+
+commit 23a7ed3b999be80154463b6e1527852660446dc6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 00:37:40 2019 +0300
+
+    README: Wrap raw links
+
+commit 10d95d7376ca99f081bf80e5eb358d341f215f17
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 00:36:36 2019 +0300
+
+    README: Use smaller screenshots
+
+commit 6ced4412270cf21be9ec0a6c2715328541a738f9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 00:36:18 2019 +0300
+
+    README: Add a phone photo
+
+commit 50eabc68fc5a3d6d3bd63ac00fbe1ef71fb6bd5b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu May 23 00:35:18 2019 +0300
+
+    README: Add a link to Facebook
+
+commit 8da35fc8947300f93f799764620feb85707bc483
+Merge: 4df04f7 337cafd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed May 22 23:32:15 2019 +0300
+
+    Merge pull request #464 from ozkriff/readme_tech_down
+    
+    README: Move more technical sections to the bottom
+
+commit 337cafd954781177ef96ca01d8a56f11aa6e75ca
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed May 22 20:41:34 2019 +0300
+
+    README: Move more technical sections to the bottom
+
+commit 4df04f776d7639140236feda8b6b5f1b3758aa37
+Merge: 66034d7 b08b7a6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed May 22 20:28:43 2019 +0300
+
+    Merge pull request #463 from ozkriff/i377_title
+    
+    Add zemeroth.svg and use it as a title in the readme
+
+commit b08b7a6d70c02a825ba627e5e67ad28b3e7843da
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed May 22 15:46:13 2019 +0300
+
+    Add zemeroth.svg and use it as a title in the readme
+
+commit 66034d7c69726b5f9a05078f9115142382af1fac
+Merge: 23f845c 56f5fc8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 21 21:31:01 2019 +0300
+
+    Merge pull request #462 from ozkriff/i380_line_any
+    
+    'Line::Any' means "any line" now. The 'line' field is optional now.
+
+commit 56f5fc8c47720fb63955baec6c08e084240209d3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 21 20:27:09 2019 +0300
+
+    'Line::Any' means "any line" now. The 'line' field is optional now.
+
+commit 23f845c4d79530d4035b69305e42a295cf0e36e1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 21 18:43:01 2019 +0300
+
+    Cargo.toml: Up the vesrion to '0.6-snapshot'
+
+commit 4ed53b25abe5fde894f4212a209a333c32a440f1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 20 02:13:00 2019 +0300
+
+    README: Fix the ggwp section title
+
+commit 4803a910dba2db35d44762088fd811f81e4cc2f8
+Merge: 574287f e4a5842
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 19 23:04:06 2019 +0300
+
+    Merge pull request #460 from ozkriff/readme_vision_section
+    
+    README: Add a 'Vision' section
+
+commit e4a5842f07d38b418a42048a8c8af98c8656fe49
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 19 21:26:55 2019 +0300
+
+    README: Add a 'Vision' section
+
+commit 574287fcf0d88635d8fc995c0a9a82e55ca47a9e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat May 18 10:06:03 2019 +0300
+
+    Add Battle Brother to the Inspiration section
+
+commit 0e789a5466fde1a073725cde65af04c1880fc425
+Merge: 5619224 562f245
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 14 07:32:22 2019 +0300
+
+    Merge pull request #459 from ozkriff/explosion_dust
+    
+    Add dust clouds to explosion's visualization
+
+commit 562f245e8e91c5e0c909bfdd1a7f16fd3a56918a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 14 02:03:05 2019 +0300
+
+    visualize.rs: Add dust clouds to explosion's visualization
+
+commit 561922441d10f2ea80e52f0f596fd9ae7232dc88
+Merge: fe887c0 604886e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 13 21:50:25 2019 +0300
+
+    Merge pull request #457 from ozkriff/update_ron_dep
+    
+    Cargo.toml: Update the 'ron' dep to 0.5
+
+commit 604886e6d5e6bd5755225d6c27962dde03186a1f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 13 20:47:02 2019 +0300
+
+    Cargo.toml: Update the 'ron' dep to 0.5
+
+commit fe887c0100af2c938b504c7793c1059d276c7107
+Merge: 721ad06 f3c4b6b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 13 19:34:17 2019 +0300
+
+    Merge pull request #456 from ozkriff/i418_i415_i455_readme_improvements
+    
+    Readme improvements
+
+commit f3c4b6b16ace63d6cdd91cff2fb2246391873ef8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 13 19:31:09 2019 +0300
+
+    README: Remove duplicated "Reduce text overlapping" item
+
+commit adfae4090a9eb6f251472573f36616239aa185b8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 13 19:02:27 2019 +0300
+
+    README: Add an 'Inspiration' section
+
+commit 35a0c5d70a22c35c7f9445b59b31d6e8d773712e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 13 19:01:45 2019 +0300
+
+    README: Add an initial version of the roadmap section
+
+commit c7f46df747ce6e1a29ed6cbc64946b5f891b0935
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 13 19:00:41 2019 +0300
+
+    README: Add a link to itch.io page
+
+commit 721ad06a6947c97227b8a5c5bbb74547e51e93e9
+Merge: b3b77f8 e384d89
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 30 11:55:22 2019 +0300
+
+    Merge pull request #450 from ozkriff/i449_fix_bomb_push
+    
+    Fix BombPush and add a regression test
+
+commit e384d892bc2b27276fb78e93f63955fb5db702e3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 30 10:11:00 2019 +0300
+
+    Fix BombPush and add a regression test
+
+commit b3b77f824c8f0dfe88eb02a3f44f0fbd5ce75a53
+Merge: 3152940 981ac7a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 24 23:21:02 2019 +0300
+
+    Merge pull request #448 from ozkriff/wasm
+    
+    A WASM port using not-fl3/good-web-game
+
+commit 981ac7abdf1c55cf5d14dc2cb0bb34d7dad4267d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 24 21:16:22 2019 +0300
+
+    travis/wasm: Clone assets
+
+commit 91bc35ffb0b03588b9f9f23e1649c8120850bbd0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 24 20:46:00 2019 +0300
+
+    A WASM port using not-fl3/good-web-game
+
+commit 3152940238e301e77fdeabf40c8e0d2f356ae0ed
+Merge: 97c30f5 38d615a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 22 10:31:56 2019 +0300
+
+    Merge pull request #447 from ozkriff/scenario_check_fix
+    
+    scenario::check: Fix invalid Error::NoPlayerAgents
+
+commit 38d615a32a71a0c030840213507d9ddcf7fed6c6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 22 09:28:47 2019 +0300
+
+    scenario::check: Fix invalid Error::NoPlayerAgents
+
+commit 97c30f5fdecd2e3378f746098db82fa2b5c37822
+Merge: 91b063a e17d5ca
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Mar 21 23:42:37 2019 +0300
+
+    Merge pull request #446 from ozkriff/i435_sync_battle_and_tactical_map_names
+    
+    Rename 'core/tactical_map' mod to 'core/battle'
+
+commit e17d5ca03cb8c1155dbc5793aa970968f577d05d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Mar 21 22:54:57 2019 +0300
+
+    Rename 'core/tactical_map' mod to 'core/battle'
+
+commit 91b063af29c0421c3cbfe48dc48423112dcade66
+Merge: 508a1e6 04569a2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Mar 21 10:12:43 2019 +0300
+
+    Merge pull request #443 from ozkriff/i442_more_derive_from
+    
+    Employ more Into conversions (provided by derive_more::From) for enums
+
+commit 04569a20a5ace11d9eec10341c95dea88e6cad7f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Mar 21 09:21:57 2019 +0300
+
+    Employ more Into conversions (provided by derive_more::From) for enums
+
+commit 508a1e6138a02cb7de3050737828b475f4604889
+Merge: 0e73f76 875f80a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Mar 21 09:06:26 2019 +0300
+
+    Merge pull request #441 from ozkriff/i440_move_apply_into_state
+    
+    Move 'apply' mod into 'state' mod and make 'state.parts_mut' private
+
+commit 875f80a08cfa1f5616b2e8ca903607c65f201208
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Mar 21 08:17:18 2019 +0300
+
+    state/private.rs: Move a mode setter into a public mutators impl block
+
+commit f7257484914931f148edc1fb5b3e2692ef11262b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Mar 21 08:12:16 2019 +0300
+
+    Move 'apply' mod into 'state' mod and hide 'state.parts_mut()' fn
+
+commit 0e73f766b135ddeb99065eec8f00dc0320f403ac
+Merge: 6595b89 7c0cfe5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 19 23:09:22 2019 +0300
+
+    Merge pull request #439 from ozkriff/i195_i364_mutability_refactoring_and_tests
+    
+    Encapsulate state mutations and add tests
+
+commit 7c0cfe54b1ac08b6ea3826dd9eba4fb50610ebfd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 24 13:26:05 2019 +0300
+
+    Encapsulate state mutations and add tests
+
+commit 6595b89a9fdd225c5e4e83318689a49f986a80f1
+Merge: 564864b 877bb5d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Mar 9 11:43:26 2019 +0300
+
+    Merge pull request #438 from ozkriff/events_hashmap_to_vec
+    
+    Event: HashMap -> Vec (preserve an order)
+
+commit 877bb5d196019737afec6404d4312472a169e494
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Mar 8 19:34:31 2019 +0300
+
+    Event: HashMap -> Vec (preserve an order)
+
+commit 564864bfd6ec5abbce09d55c390756e4ee922886
+Merge: 6e02b5d 018cea9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 27 09:38:34 2019 +0300
+
+    Merge pull request #437 from ozkriff/ggez_0_5_0_rc1
+    
+    GGEZ: v0.5.0-rc.0 -> v0.5.0-rc.1
+
+commit 018cea9b318bba13bbc9d4bb302587678f89d67a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 26 23:41:12 2019 +0300
+
+    GGEZ: v0.5.0-rc.0 -> rc.1
+
+commit 6e02b5d6d2a5f148c2da297d0bc36c873760690e
+Merge: 9213564 0897fab
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Feb 21 19:17:53 2019 +0300
+
+    Merge pull request #433 from ozkriff/i427_error_types
+    
+    Implement (Z)Error types for zscene, zgui and Zemeroth
+
+commit 0897fabc38ce166505c54083818e49433e4832a1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Feb 21 11:23:55 2019 +0300
+
+    Implement (Z)Error types for zscene, zgui and Zemeroth
+
+commit 9213564629d6ba6e9d3c839cc04cbe7f01eba792
+Merge: 6b03c02 ca1872f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 20 21:21:39 2019 +0300
+
+    Merge pull request #432 from ozkriff/i384_obj_type
+    
+    struct ObjType(pub String);
+
+commit ca1872f1138e172e12c378658205dfbaa30967d2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 20 17:00:08 2019 +0300
+
+    struct ObjType(pub String);
+
+commit 6b03c0299ad0a73f5c60bad46d435937df7db049
+Merge: 9031712 07e1bf1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 20 09:45:25 2019 +0300
+
+    Merge pull request #431 from ozkriff/i386_merge_line_height_constants
+    
+    Merge all 'line_height' consts and funcs
+
+commit 07e1bf1320231ddf8b14c96c2994ef8990a4980c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 20 08:47:15 2019 +0300
+
+    Merge all 'line_height' consts and funcs
+
+commit 903171203124183f63a82e5903e30d775293c4d6
+Merge: d2c1334 daddd6d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 20 02:03:18 2019 +0300
+
+    Merge pull request #430 from ozkriff/i429_appveyour_conf_remove_sdl
+    
+    appveyor.yml: Remove SDL2 stuff
+
+commit daddd6de67241fa500f7c31349b32f67f635c89f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 19 23:51:36 2019 +0300
+
+    appveyor.yml: Remove SDL2 stuff
+
+commit d2c1334fc0f0f5f71f7defca5f4cd476cd4b7100
+Merge: 29b2894 ec620df
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 19 11:21:26 2019 +0300
+
+    Merge pull request #426 from ozkriff/i409_ggez_0_5_alpha_0
+    
+    GGEZ: v0.4 -> 0.5.0-rc.0
+
+commit ec620dfd832ca690f43c5eab8d623a034e379d4f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 19 10:17:03 2019 +0300
+
+    README: Remove a note about native SDL2 deps
+
+commit 9ddd5832ca4ebebaf919317e825dd327b2d3bd07
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 19 09:24:15 2019 +0300
+
+    GGEZ: v0.4 -> 0.5.0-rc.0 (my tmp fork of it actually)
+
+commit 29b2894088383866a81c602bfc8c5ac483b8b814
+Merge: dbcafea 20986d9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 19 06:54:50 2019 +0300
+
+    Merge pull request #425 from ozkriff/i382_zgui_spacer_widget
+    
+    zgui: Add a "Spacer" widget
+
+commit 20986d9f5599b42fee75d619aa535199f25f8c3c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Feb 18 23:13:59 2019 +0300
+
+    zgui: Spacer
+
+commit dbcafeadec213cf7a150ab2251d6f18a83df3ef4
+Merge: 52f44ea f0e8718
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 30 10:51:30 2018 +0300
+
+    Merge pull request #413 from ozkriff/fix_summon
+    
+    Fix 'summon' ability - treat each agent individually
+
+commit f0e8718dc4f0c98dfff5e6e9a65644fba713950a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 30 01:01:58 2018 +0300
+
+    Fix 'summon' ability - treat each agent individually
+
+commit 52f44ea78d4e391bdd341e0db5ffb85dd8cd3f27
+Merge: 97bde6d 6cd3094
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 29 01:48:47 2018 +0300
+
+    Merge pull request #412 from ozkriff/i411_readme_screenshots_2018_12
+    
+    README: Update images
+
+commit 6cd3094880c81d8c2962dc8d141cdd1385bc8d49
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 29 00:21:16 2018 +0300
+
+    README: Update images
+
+commit 97bde6dea37beb65f8a8b00f8e0688e4f3c621ce
+Merge: ddf1813 798120f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Dec 25 14:34:17 2018 +0300
+
+    Merge pull request #406 from ozkriff/i352_blood_disappear
+    
+    Make the blood slowly disappear in three turns
+
+commit 798120f5af604a431556a977fdd536001f9e2bbb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Dec 25 13:44:32 2018 +0300
+
+    Make the blood slowly disappear in 3 turns
+
+commit 35b83a78bf0aac411dfea035be9f857036072f0b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Dec 25 13:43:19 2018 +0300
+
+    zscene: Add a 'Layer::remove' fn
+
+commit ddf181334281b2ef279502e9c1aa7b147b0790f0
+Merge: 659817f c03d868
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 23 13:36:46 2018 +0300
+
+    Merge pull request #405 from ozkriff/i388_default_font_helper_fn
+    
+    utils.rs: default_font
+
+commit c03d8686352fa1d6b44222b3af11f5baa749453f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 23 12:46:37 2018 +0300
+
+    utils.rs: default_font
+
+commit 659817fbd61781e8e4eda8cfa29eb0b66b97bae5
+Merge: 25ca798 14b0bea
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 23 11:38:36 2018 +0300
+
+    Merge pull request #404 from ozkriff/i385_reuse_fork_fn_in_battle_new
+    
+    Make 'fork' and 'seq' functions public, reuse 'fork' in screen/battle.rs
+
+commit 14b0bea5a7d7a222d646c1eb2f5118864a9368af
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 23 10:36:06 2018 +0300
+
+    Make 'fork' and 'seq' fns pub, reuse 'fork' in battle.rs
+
+commit 25ca798b93295434ca48058f215e71c174914d36
+Merge: bee88ca bd65147
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 23:15:03 2018 +0300
+
+    Merge pull request #403 from ozkriff/update_deps
+    
+    Update deps
+
+commit bd651479b478dc36a5228f378629d62a919fec7a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 22:18:52 2018 +0300
+
+    Cargo.toml: rand 0.5 -> 0.6
+
+commit f1b4ff15f25e98ac13d14d5bd8c2e539f2958f3a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 21:46:58 2018 +0300
+
+    Cargo.toml: env_logger 0.5 -> 0.6
+
+commit bee88ca7a7a04b817487db636664efa9013fdff7
+Merge: d9288b0 3f96cda
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 21:45:19 2018 +0300
+
+    Merge pull request #402 from ozkriff/cargo_toml_serde_derive
+    
+    Employ `derive` feature of the `serde` crate
+
+commit 3f96cdaaf06e61e1bed2abd254c5cac8de146eb0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 16:49:14 2018 +0300
+
+    Employ 'derive' feature of the 'serde' crate
+
+commit d9288b015a37def0a17d19d14361336efb47a453
+Merge: 5aa9fe0 681cb85
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 11:56:27 2018 +0300
+
+    Merge pull request #401 from ozkriff/i86_i400_blood_splatters_and_weapon_flashes
+    
+    blood splatters and weapon flashes
+
+commit 681cb85f08ffd14523c715f78b20b104ca76edcc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 10:46:03 2018 +0300
+
+    Dynamic blood splatters
+
+commit 6ac79277b7afd5e4eff4d054c83a01eac899786e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 10:45:28 2018 +0300
+
+    Show weapon/attack flashes
+
+commit 80c7e9ba60c4a907abc5b466044cf7a94d9f6867
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 10:36:47 2018 +0300
+
+    geom.rs: Add eand_tile_offset func
+
+commit 4a30f66cf52beab9a53e4242f178d5e0eb308862
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 02:30:32 2018 +0300
+
+    visualize.rs: arc_move: Increase min_time to 0.25
+
+commit 1bcd25b219d000468a05c01ce5a58634598c62fe
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 02:30:00 2018 +0300
+
+    visualize.rs: Tweak the dust effect
+
+commit e3ad7995db15798f63dc3de0a36314e1e48ecb7a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 22 02:28:32 2018 +0300
+
+    Remove unneeded pause from an attack visualizer
+
+commit 5aa9fe0aaff284a8d2c98e95af3e1c400bacc452
+Merge: b663d1d f85077c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 9 00:15:04 2018 +0300
+
+    Merge pull request #397 from ozkriff/i396_disable_travis_cache
+    
+    Disable travis cache
+
+commit f85077c0e003698ac1f506ff00083aaf418518dc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 8 22:43:15 2018 +0300
+
+    Disable travis cache
+    
+    I want to check if the cache is worth it at all.
+
+commit b663d1de29dad4ac73fd17f626ba830f9c80eb96
+Merge: 74329e5 f7a9946
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 8 22:00:37 2018 +0300
+
+    Merge pull request #395 from ozkriff/i379_mods
+    
+    Rust 2018: foo/mod.rs -> foo.rs
+
+commit f7a99469009d80044134be3821bd8edc9042950f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 8 20:28:27 2018 +0300
+
+    rust2018: foo/mod.rs -> foo.rs
+
+commit 74329e5316d43d7ff66017e0a9967f719421074b
+Merge: eea0b7d 2f41e70
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 8 14:52:41 2018 +0300
+
+    Merge pull request #394 from ozkriff/i379_rust_2018
+    
+    edition = "2018"
+
+commit 2f41e70a32e8fc33ab69533c6aebeb7dbf77f8f9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Dec 6 23:43:36 2018 +0300
+
+    edition = "2018"
+
+commit eea0b7d52360dae4331b70b75c1a95492907e3c6
+Merge: e21a0e9 e0cbb59
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 1 20:17:58 2018 +0300
+
+    Merge pull request #392 from ozkriff/i362_fix_grass_y_pos
+    
+    Fix grass vertical position
+
+commit e0cbb59f65e7572eab5e67c3b05eafa3ca41936f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 1 19:31:09 2018 +0300
+
+    Fix grass vertical position
+
+commit e21a0e9415587dad75cb15f9045c685c6e91b216
+Merge: 9cf6d2f 529ea14
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Dec 1 00:18:18 2018 +0300
+
+    Merge pull request #390 from ozkriff/i217_dust_clouds
+    
+    Dust clouds
+
+commit 529ea1416bd39b64575d3a27bd992314c67ecd77
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Nov 29 10:58:22 2018 +0300
+
+    Dust clouds
+
+commit 9cf6d2f7dc042aa741cb908498fe6b44a243b835
+Merge: 6c95326 dded667
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 28 09:40:49 2018 +0300
+
+    Merge pull request #383 from ozkriff/i333_campaign_screen
+    
+    Basic campaign mode with a carryover of the survivor fighters
+
+commit dded667c569698567fbe5aa50d26411b6beaeee5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 28 00:18:30 2018 +0300
+
+    Basic campaign mode with a carryover of survivors
+
+commit 42db4292546a05a0774ff50b6eadd1adff7e5911
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 27 23:57:47 2018 +0300
+
+    map.rs: Add radius_to_diameter fn
+
+commit abd468881840e03bbaebc100e2269ccf40449b54
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 27 23:55:54 2018 +0300
+
+    Don't quit from the app on ESC
+
+commit 2175efa2777e0817040fe2566365f0308f833d5b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 27 20:50:54 2018 +0300
+
+    screen/battle: Fix label/button notation
+    
+    Remove square brackets for group names.
+
+commit 259df89c9ef929bbb7db974221f9922afcccc74e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 27 20:48:06 2018 +0300
+
+    execute.rs: Make 'ExecuteContext::merge_with' private
+
+commit ba5684fd77e6e6fb486b8d8cbd6612f0e41a8b85
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 27 20:45:53 2018 +0300
+
+    ggwp-zgui: Fix clippy warning: into_iter -> iter
+
+commit 6c953262d7f350908718d046dcfc22bf85137010
+Merge: 03d4d42 bed802c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 29 10:33:16 2018 +0300
+
+    Merge pull request #375 from ozkriff/i371_travis_windows
+    
+    Travis: Enable windows
+
+commit bed802c56b62a44857a194f00d5465c6959e9b88
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Oct 11 23:25:16 2018 +0300
+
+    Travis: Enable windows
+
+commit 03d4d42ef90e8be1577fbd90a9523bf3e2add466
+Merge: 7a1a957 4368d72
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 20 14:08:59 2018 +0300
+
+    Merge pull request #374 from ozkriff/appveyor_artifacts
+    
+    Appveyor: Output an artifact
+
+commit 4368d72cc023f8fcbc6fece2b7452a4c1f9a0fb5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 19 15:00:00 2018 +0300
+
+    Appveyor: Don't put assets' .git dir into the artifact
+
+commit df0617eb0e4eec354a00d65c78e8d9dce2ec24c0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 20 12:58:24 2018 +0300
+
+    Appveyor: Remove 'cmd' instruction
+
+commit 564fc6bc7bc12e94bef183246f8d3bc95fbc22b9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Oct 18 15:00:00 2018 +0300
+
+    Appveyor: Output artifacts (with SDL2.dll)
+
+commit 7a1a957b3ca62ee95e63b3db767ea19b4eae9ddd
+Merge: e003bf8 7a12fbe
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 12 20:40:14 2018 +0300
+
+    Merge pull request #373 from ozkriff/i372_travis_job_names
+    
+    Use names for Travis jobs
+
+commit 7a12fbe52cf754913fa612db386be40df3a7d5b7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 12 19:32:40 2018 +0300
+
+    Use names for Travis jobs
+
+commit e003bf8f438a75fa27dfd789a8eaa219c113e1e2
+Merge: 8b3f1a2 ca219c1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Oct 10 07:48:41 2018 +0300
+
+    Merge pull request #370 from ozkriff/i348_hit_chance_math
+    
+    Hit chances based on agents' stats
+
+commit ca219c1ff4b84913be924d81c2d5eb2e0ebf2edb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Oct 10 01:14:50 2018 +0300
+
+    Hit chances based on agents' stats
+
+commit 8b3f1a26484944d717177ba11a3ade85133355e9
+Merge: aa0f160 5eec4e5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 9 21:40:25 2018 +0300
+
+    Merge pull request #369 from ozkriff/i367_desired_pos
+    
+    Arrange created objects in 'Line's
+
+commit 5eec4e5ff7b195ddac662b32f456c237c68d5f0a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 9 20:52:05 2018 +0300
+
+    Arrange created objects in 'Line's
+
+commit aa0f16028b63a455893dbec4e901ca89cf0c34ae
+Merge: 3803c08 91eb362
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 6 13:52:08 2018 +0300
+
+    Merge pull request #365 from ozkriff/i361_remove_config_data_duplication
+    
+    Remove data duplication from `objects.ron`
+
+commit 91eb362e9bcb87a1f70114fdf30e704f282ccd4d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 6 13:15:04 2018 +0300
+
+    Remove data duplication from the objects.ron
+
+commit c80081ef5cdf1891250eebd3f488c2cfa0a0568e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 6 11:53:48 2018 +0300
+
+    Remove unneeded derived traits from basic logic types
+
+commit 3803c08f288a1f19df55cf00dbfad908944eb8b9
+Merge: b7e978e 62e0db9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Oct 4 10:16:38 2018 +0300
+
+    Merge pull request #360 from ozkriff/i359_dont_create_agents_near_enemies
+    
+    Don't create agents near enemies
+
+commit 62e0db945cff957a426a59099d3021c59d0bc42e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Oct 4 09:35:00 2018 +0300
+
+    Don't create agents on tiles with adjacent enemies
+
+commit 68a07f82880624a39dc8c2e04ddc10556ac5df69
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 2 20:06:44 2018 +0300
+
+    Update to rust 2018-10-01
+
+commit b7e978efc655a97cde7886ac63af2f2c5c00dcc2
+Merge: 347be3b 402b889
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 2 09:25:20 2018 +0300
+
+    Merge pull request #357 from ozkriff/i356_fix_ai_panic_on_battle_end
+    
+    Fix AI panics by removing the wrong assert
+
+commit 402b8893c1f64bd64bd5e42799939052a6eedfad
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 2 08:28:22 2018 +0300
+
+    Fix AI panics by removing the wrong assert
+
+commit 347be3bda11fe04c9de2b82f8d64071067dd8193
+Merge: 8d1b43c d39398b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 24 21:51:44 2018 +0300
+
+    Merge pull request #351 from ozkriff/i350_poison_does_not_kill
+    
+    Poison doesn't kill
+
+commit d39398bc00352679dec209c24d29354a6f212511
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 24 21:10:05 2018 +0300
+
+    LastingEffect/TimedEffect -> effect::Lasting/Timed
+
+commit 68f352757f0da756b82077e4dd1a13cc928bcb0b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 24 21:01:30 2018 +0300
+
+    execute.rs: execute_effects: obj_id -> id
+
+commit 8bb3c744a05880eac331a60230a5edcf3de39c4b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 24 20:56:43 2018 +0300
+
+    Poison stops when strength is 1
+
+commit 46fd05a059d79701fedd9df5b38fa72e5b7c3401
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 24 20:53:16 2018 +0300
+
+    execute.rs: choose_who_to_summon: Remove unneeded explicit type
+
+commit 8d1b43c34b59273c92553ffd52c5ec69a934938c
+Merge: 1f8ed2c e047a9f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 22 22:58:04 2018 +0300
+
+    Merge pull request #349 from ozkriff/i234_escalating_summon_ability
+    
+    Escalating Summon ability
+
+commit e047a9fba361396ae3c0ec1a0fbede396289f304
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 22 22:12:44 2018 +0300
+
+    Escalating Summon ability
+
+commit 1f8ed2c23c4a21324d25a841ac0b59a4b9f13caa
+Merge: acd6b7f 8f61e6b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 22 20:30:58 2018 +0300
+
+    Merge pull request #347 from ozkriff/i70_armor
+    
+    Armor
+
+commit 8f61e6b5e34ebadf5a16e5882d1cfa282e55e128
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 22 19:13:07 2018 +0300
+
+    Return a struct from try_execute_passive_abilities_on_attack
+
+commit 77c5dbe5c639fa4dc08a3dca3b6877802df1e90a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 22 19:01:49 2018 +0300
+
+    Armor and Break stats
+
+commit acd6b7f0652a32afd6c3a0156f6a5f5a284760f1
+Merge: 27170a4 eeb5d4d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 21 22:45:23 2018 +0300
+
+    Merge pull request #346 from ozkriff/i257_zgui_semi_transparent_bg
+    
+    zgui: Add a semi-transparent bg to buttons and labels
+
+commit eeb5d4dd29178250a2ccfe74f3bda5b5babf1a03
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 21 21:13:27 2018 +0300
+
+    zgui: Add a semi-transparent bg to buttons and labels
+
+commit 27170a4be5d1975c2230ad3bcef714da3eb93ce5
+Merge: 56a9f95 4dde9d8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 15 10:06:01 2018 +0300
+
+    Merge pull request #344 from ozkriff/fix_movement_step_height
+    
+    visualizer.rs: Make step_height depend on tile_size
+
+commit 4dde9d8232259fef9466714855ced202dacabf2e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 15 09:32:51 2018 +0300
+
+    visualizer.rs: Make step_height depend on tile_size
+
+commit 56a9f959c2dde38c83d5e278e4a5ccc12fe4b50c
+Merge: 6e18d9c 78c6b38
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 15 08:28:26 2018 +0300
+
+    Merge pull request #343 from ozkriff/i342_missing_health_dots
+    
+    Show missing strength points as transparent dots
+
+commit 78c6b38fb1145d9c724e401b07123ec499644fae
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 15 07:32:42 2018 +0300
+
+    Show missing strength points as transparent dots
+
+commit 6e18d9c99bf91902e1ab44e18cb3208b74d7ca51
+Merge: 635878f 9fc774b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 13 21:06:11 2018 +0300
+
+    Merge pull request #338 from ozkriff/i301_max_bombers_count
+    
+    Try to summon imp types that are not r
+
+commit 9fc774b6926a319a13243b56218d2944ed689805
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 8 16:35:25 2018 +0300
+
+    Try to summon imp types that are lacking
+
+commit 635878fbff5fa501d36bd900632263e27869ed39
+Merge: e191953 205e0cc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 13 18:28:21 2018 +0300
+
+    Merge pull request #341 from ozkriff/fix_ai_end_battle
+    
+    Fix how AI handles an unexpected EndBattle event
+
+commit 205e0ccc3a7281120f498c72474abaa325c6170d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Sep 13 17:53:06 2018 +0300
+
+    Fix how AI handles an unexpected BattleEnded event
+
+commit e191953e775cfaad0b10d997b6cd73f59d099970
+Merge: fe724d6 0823050
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 5 08:20:24 2018 +0300
+
+    Merge pull request #337 from ozkriff/tune_end_battle_timing
+    
+    Tune `visualize_event_end_battle` timing
+
+commit 08230503fe032b5007ecdb3d3252ca5caeaf286c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 5 07:42:21 2018 +0300
+
+    Tune visualize_evnt_end_battle timing
+    
+    Wait until the text is disappeared completely before popping the screen
+
+commit fe724d603e5ea4bf7281a8a885df19c0a1f501c9
+Merge: eabcb64 7d30460
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 3 07:22:48 2018 +0300
+
+    Merge pull request #336 from ozkriff/i228_win_lose_screen
+    
+    Basic win/lose event and screen logic
+
+commit 7d304607047b659931061f48d179c8aa2eed73cb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 3 00:43:38 2018 +0300
+
+    Basic win/lose event and screen logic
+
+commit 1b83169f98604322cb788cba263ecebbc1690847
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 3 00:41:13 2018 +0300
+
+    Fix a clippy warning in map.rs
+
+commit eabcb64b581d48ee3f3008debf98cd91e48d9d4c
+Merge: 15effcf 413a337
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Sep 2 20:44:03 2018 +0300
+
+    Merge pull request #332 from ozkriff/nested_imports
+    
+    Reformat the code using nested imports
+
+commit 413a337ad62799ac88eb3cafba6bb40e3f444cc7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Sep 2 20:03:29 2018 +0300
+
+    Reformat the code using nested imports
+
+commit 15effcfbe52576775fc78df1ebc89c6dfb7b8142
+Merge: 44c7693 fec892a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Aug 28 09:43:57 2018 +0300
+
+    Merge pull request #331 from ozkriff/readme_appveyor_badge_fix
+    
+    Fix an appveyor badge (use 'master' branch)
+
+commit fec892a7d6319443a27f2751f0c2ce340589b2ee
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Aug 28 08:59:30 2018 +0300
+
+    Fix appveyor badge (use 'master' branch)
+
+commit 44c7693e3b463bb4d877418dcdc081354427b73e
+Merge: 0f8e58e 3a57ade
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 26 23:13:48 2018 +0300
+
+    Merge pull request #330 from ozkriff/core_tactical_map_mod
+    
+    Move most of the core's mods to core::tactical_map mod
+
+commit 3a57adecf2899646ca02474c31f6d32ffcfee9da
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 26 21:22:55 2018 +0300
+
+    Move most of the core mods to core::tactical_map mod
+
+commit 513fcb67977bf35c772046bce3054546e7072843
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 26 20:58:53 2018 +0300
+
+    src/core/ai/battle.rs -> src/core/ai.rs
+
+commit a1c6b62694601b16e26591efd9888c786b0361d0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 26 12:36:45 2018 +0300
+
+    screens: campaign_menu -> strategy_map
+
+commit 035b88f37c00e81f8bb68413769d4c16155847bf
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 26 10:06:53 2018 +0300
+
+    Fix a bunch of use_self clippy warnings
+
+commit 0f8e58eb4b2bbb5df5c2a722e73290ab8e88b1cc
+Merge: 15eef83 e86ba7d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 25 21:34:47 2018 +0300
+
+    Merge pull request #328 from ozkriff/i321_assets_checksum
+    
+    Verify assets checksum on CI
+
+commit e86ba7dbdeb0f9bf1d40c5d003fe0d788ec659f0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 25 20:56:20 2018 +0300
+
+    Add 'check_assets' travis job
+
+commit 7a210b1ed0ebade7265be7ca8c7abdaadcb77d70
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 25 20:55:56 2018 +0300
+
+    Add structopt dep and introduce '--check-assets' arg
+
+commit c3563255de51761061b854670d4cf810c28fb2b1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 25 20:54:46 2018 +0300
+
+    Add a description to Cargo.toml
+
+commit 15eef837d11843ef9065a924587b2816da817526
+Merge: 73e8db6 f1b19b7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 24 08:13:47 2018 +0300
+
+    Merge pull request #327 from ozkriff/update_deps
+    
+    Update deps: ron v0.3 -> v0.4, num v0.1 0 -> v0.2
+
+commit f1b19b74077a49da474fe7440808341a14b6cd99
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 24 07:02:39 2018 +0300
+
+    Update deps + cargo update
+
+commit 73e8db68aaf31d193255f6521ce98560e22656a6
+Merge: 933a3ea 4b2b0e6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 24 00:19:22 2018 +0300
+
+    Merge pull request #326 from ozkriff/i277_i325_travis_fmt_clippy
+    
+    Run `cargo clippy` and `cargo fmt` on Travis, disable `beta` channel
+
+commit 4b2b0e6c77228035d693e95ffbac2dfb46a693a6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 23 23:45:03 2018 +0300
+
+    travis: Add 'cargo clippy' check (#277)
+
+commit 9d88a9c48cdc59c81cb285a16879238d4f764cf7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 23 23:44:02 2018 +0300
+
+    travis: Add 'cargo fmt' check (#325)
+
+commit 34a4be7420f4fdac2e8862da205286246388b1d4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 23 23:40:49 2018 +0300
+
+    travis: Fix indentation of 'os' section
+
+commit fc851d2230349cf5159b2256a6651eb7f327b81b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 23 23:39:14 2018 +0300
+
+    travis: Disable beta channel
+
+commit 933a3ea5efc83badcb885ef2c0cf5b27f4c76a7b
+Merge: 7afac84 4071e83
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 23 21:28:11 2018 +0300
+
+    Merge pull request #324 from ozkriff/zcomponents_readme_cratesio
+    
+    ZComponents: Readme badges
+
+commit 7afac8412bd94d3f3121b984e730ff1a395bff0c
+Merge: ae7af45 8479c7b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 22 07:13:02 2018 +0300
+
+    Merge pull request #320 from ozkriff/i109_assets_verion_file
+    
+    Check assets md5 hash
+
+commit 8479c7b0106570bc8b583b5bd852de06bcc439fc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 22 00:00:34 2018 +0300
+
+    Check assets md5 hash
+
+commit 4071e83badbe6512f4cf623d46a876cdd70ed164
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Aug 21 15:00:00 2018 +0300
+
+    zcomponents: Fix an advanced example link
+
+commit cba3662a303c4684c7d03c6d1e1f257550ec0015
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 20 15:00:00 2018 +0300
+
+    zcomponents: Add docs and crates.io badges
+
+commit ae7af45a843a8e62b672a79712df2c79a18e0646
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 16 09:30:34 2018 +0300
+
+    Remove some outdated TODO comments
+
+commit 3e32823e48a23eafec291ba0167edfd461120348
+Merge: f431545 c6934ad
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 12 12:42:18 2018 +0300
+
+    Merge pull request #318 from ozkriff/utils_mod
+    
+    Move `time_s` func to `utils` mod
+
+commit c6934adfa5bef88667c88105eca6dd4ccae4df2a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 12 11:56:51 2018 +0300
+
+    Remove outdated TODOs from main.rs
+
+commit 20e06a47327cfa2ceb1a18bde268141e7b23dfe3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 12 11:38:23 2018 +0300
+
+    cargo fmt src/core/map.rs
+
+commit 250046b3ed40b7b6dfa8a7c19f1a36b4b277cab8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 12 11:34:01 2018 +0300
+
+    Move 'time_s' helper func to 'utils' mod
+
+commit f431545453529884722e13a8f2812609a875a0a4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 12 11:31:33 2018 +0300
+
+    Make core::map::hex_to_cube generic (#317)
+
+commit ce03bcf94f15912dd5eede944c7058c28130e6a3
+Merge: 72d1262 d1b5887
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 9 16:56:12 2018 +0300
+
+    Merge pull request #316 from ozkriff/i143_publish_zcomponents
+    
+    Publish `zcomponents` crate
+
+commit d1b5887629fe1592f09586c41c9670d8a09a48a6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 9 16:12:39 2018 +0300
+
+    Cargo.lock: Update to zcomponents v0.1.1
+
+commit 9e06c79fe61f471e88bb44350eb603fcf3c13adf
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 9 15:56:04 2018 +0300
+
+    Publish zcomponents crate on crates.io
+
+commit 72d1262652fa3cd156ed7c539a4ea50457877d8d
+Merge: d218d38 3fd5c17
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 5 19:33:19 2018 +0300
+
+    Merge pull request #313 from ozkriff/i264_new_sprites
+    
+    Integrate new sprites + add "BombDemonic" ability
+
+commit 3fd5c17e65430476914b7fd5a9d5ad54cc634a72
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 5 17:45:43 2018 +0300
+
+    cargo update
+
+commit b2ff172f4f8dc0be5c4c62999d5720ed661dd886
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 5 17:22:56 2018 +0300
+
+    #264: New sprites + BombDemonic ability
+
+commit d218d38adfc67dd244d8658b74147bc461dc147b
+Merge: 3fb70f2 6f64433
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 9 00:38:35 2018 +0300
+
+    Merge pull request #309 from ozkriff/i302_unit_to_agent
+    
+    s/unit/agent/
+
+commit 6f64433e2e1f712420506e7288c76fc77536d14e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 23:23:58 2018 +0300
+
+    Layers: 'agents' -> 'objects'
+
+commit 2821430efe50b699933e5bb1639748091c9d45f5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 23:17:30 2018 +0300
+
+    #302: s/unit/agent/
+
+commit 3fb70f27eedbfc59e2d2b046c1546ccc1dc6ffef
+Merge: 77df60a 4f51de0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 23:11:57 2018 +0300
+
+    Merge pull request #308 from ozkriff/i171_move_closer
+    
+    Teach AI to move closer to targets even if there's no direct path to them
+
+commit 4f51de0547be066cf1f251d428bd886791349877
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 22:26:33 2018 +0300
+
+    Teach AI to move closer to targets even if there're no direct path to them
+
+commit a139d4733583c83da095cc9760a3b97aedfe1e1f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 22:10:51 2018 +0300
+
+    ai/battle.rs: map::Distance -> Distance
+
+commit 984282eeeacf37df5a9a34ba6c8c8b5de7322e24
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 22:09:56 2018 +0300
+
+    cargo fmt
+
+commit 77df60a6d011cd4ebc585454706880b3cf1ca1ef
+Merge: e983b68 7765d14
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 21:51:19 2018 +0300
+
+    Merge pull request #307 from ozkriff/i305_greater_distance_for_ai_summoner
+    
+    Increase distance range for imp_summoner
+
+commit 7765d14438b275a94c89ac752395c9c7cc4de84b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 20:51:33 2018 +0300
+
+    ai/battle.rs: Don't use type names, check the abilities instead
+
+commit a613f0808f9f2f9215f292e7eae77db9ede3ae7d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 20:41:53 2018 +0300
+
+    #305: Different distance range for imp_summoner
+
+commit e983b68cef30a56e3aae2ba3a00afb8b2b45617c
+Merge: e7203ef b182a7f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 19:40:13 2018 +0300
+
+    Merge pull request #306 from ozkriff/i303_ai_agents_turn_order
+    
+    AI agents act in the order of remoteness from enemies
+
+commit b182a7fa635f6cbce4223559c68d3a40286986aa
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 18:47:29 2018 +0300
+
+    Map::height: Change return type from i32 to Distance
+
+commit b62cd71c87bd63793dd436a544d584393aaf30ac
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 8 18:34:13 2018 +0300
+
+    AI agents act in the order of remoteness from enemies (#303)
+
+commit e7203ef063c8216f5b4cf39421741d8099fc6355
+Merge: df66555 c2c8688
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 6 09:08:34 2018 +0300
+
+    Merge pull request #304 from ozkriff/remove_some_type_hints
+    
+    Remove 'Vec<Box<dyn Action>>' type hints
+
+commit c2c8688d26df568252a29a496c8d3049a0db3d3a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 6 07:43:03 2018 +0300
+
+    screen/battle/visualize.rs: Remove 'Vec<Box<dyn Action>>' type hints
+
+commit df6655548a016992c266d1651bcce73bc1dd1512
+Merge: 6eaf2c5 415e41b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jul 3 20:52:35 2018 +0300
+
+    Merge pull request #300 from ozkriff/i299_move_battle_modules
+    
+    restructure modules
+
+commit 415e41bfa92b4abc6f7dea7360972ad36943defe
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jul 3 19:27:10 2018 +0300
+
+    #299: Move src/ai.rs to src/core/ai/battle.rs
+
+commit 47eb14356c88be31e49b8e20a785f44f35619063
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jul 3 19:22:26 2018 +0300
+
+    #299: Move battle_view.rs and visualize.rs into screen/battle mod
+
+commit 6eaf2c505e6ad7a6a641d469f1be24e0b9817284
+Merge: d84040e 3c7014b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 2 23:27:17 2018 +0300
+
+    Merge pull request #298 from ozkriff/i297_keep_distance
+    
+    Teach AI to keep the distance for bomber and summoner
+
+commit 3c7014b28fc3a5f4cb7ceee6818f9835ba4f8f18
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 2 21:52:51 2018 +0300
+
+    #297: Teach AI to keep the distance
+
+commit e4c9e3ba3ac50e3b6e57083f52ee70e50af276e8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 2 21:51:16 2018 +0300
+
+    src/core/map.rs: Add helper 'dump_map' function
+
+commit d84040e6088b6186ff3bcb70106eb7c27757d241
+Merge: 1e1843f 57f3639
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 13:10:16 2018 +0300
+
+    Merge pull request #296 from ozkriff/i286_commutative_bombs
+    
+    Commutative bombs
+
+commit 57f3639fa0bec172889648805acae29ea609e118
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 11:46:26 2018 +0300
+
+    Split Bomb into BombPush (instant) and BombDamage (delayed)
+
+commit fc948c38bf893b03feece8b7356fcff6ddb97f20
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 10:41:48 2018 +0300
+
+    src/visualize.rs: Add 'seq' and 'fork' helper funcs
+
+commit 026fd57b8ce01403a9bdc1c43c44b27f02b06131
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 09:55:40 2018 +0300
+
+    Planned abilities: separate tick function
+
+commit 0741eeb944bfcd8214bfe64c212c6f5135b45433
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 09:38:13 2018 +0300
+
+    Use more '.ids_collected()'
+
+commit 1e1843ff66a79f53a13625df4a4dc6f182efebd7
+Merge: 6148d26 59652dd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 09:08:11 2018 +0300
+
+    Merge pull request #295 from ozkriff/small_things
+    
+    Path tests + some misc fixes
+
+commit 59652dd9a02b4b7f54ff1eb263787426489fc67e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 01:50:13 2018 +0300
+
+    apply.rs: Make update_cooldowns private
+
+commit 04ef82842d5858867638db154839c233b1628d1f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 01:48:48 2018 +0300
+
+    zgui: More RcWidget
+
+commit 0f57f242e9bdb8abbf393f8001a4630f6f99df1a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 01:43:47 2018 +0300
+
+    src/core/movement.rs: Add simple tests for Path
+
+commit 864f7e2cb6041e315d85ddc0120d021a36a722ca
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 1 01:32:01 2018 +0300
+
+    Fix warning about unused Path::from()
+
+commit 6148d26efe8859f97163dbf9ca957eaa8bf99e91
+Merge: da63174 423ea71
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 29 21:03:36 2018 +0300
+
+    Merge pull request #294 from ozkriff/i293_dyn_trait
+    
+    dyn trait
+
+commit 423ea7138d3378fefbac66ec8f743f9f28a2cdbc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 29 18:53:19 2018 +0300
+
+    Fix clippy warnings
+
+commit 7d6598884a039e81ef81ac4d0bba6310ee9d4c04
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 29 18:49:40 2018 +0300
+
+    #293: dyn Trait + warn(bare_trait_objects)
+
+commit da63174e2099957c4e6bc317ad6237cd14ee1bdb
+Merge: feb3f65 b0ddd4d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 27 20:50:30 2018 +0300
+
+    Merge pull request #292 from ozkriff/i287_fix_bad_movement_interruption
+    
+    Fix movement interruption
+
+commit b0ddd4d9dc9782599d95c01113ab7b10a3de0e6d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 27 20:03:48 2018 +0300
+
+    Fix movement interruption
+    
+    ...when an agent was pushed back by a reaction attack
+
+commit feb3f655750d424cbf30dddf1a9ec16485e18be0
+Merge: 1c3ea40 5d8d0e4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 25 22:50:38 2018 +0300
+
+    Merge pull request #290 from ozkriff/i288_forbid_command_enemy_agents
+    
+    Forbid giving UseAbility commands to enemy agents
+
+commit 5d8d0e4ef0a73becdb06909af4e2eeb35885c1de
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 25 21:55:37 2018 +0300
+
+    Forbid giving UseAbility commands to enemy agents
+
+commit 1c3ea408c47b4e8e20bc0d3b6a3e4c2289a9be03
+Merge: a890829 c40375a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 21 10:43:21 2018 +0300
+
+    Merge pull request #284 from ozkriff/update_ron_0_3
+    
+    Update ron to 0.3
+
+commit c40375aabd59417aadd3a0ff02f20d9f0c52fca2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 21 09:57:26 2018 +0300
+
+    cargo update
+
+commit bb25a8742bdb9f7860263907c0248265af55801c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 21 09:51:24 2018 +0300
+
+    Update ron to 0.3
+
+commit a890829e97e968701c1c21b3f01885313c5b6456
+Merge: 2940cbc 4fd1c4b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 17 20:16:33 2018 +0300
+
+    Merge pull request #282 from ozkriff/i236_i263_flatten_tiles_and_shadows
+    
+    Flatten tiles and add blob shadows
+
+commit 4fd1c4ba7e79a3e78857d71da7e36bb0a6028bd0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 17 18:41:28 2018 +0300
+
+    Shadows
+
+commit 2940cbcc893f1343dee727a72d000374d54e7804
+Merge: d715b4c 0557247
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 17 17:10:33 2018 +0300
+
+    Merge pull request #281 from ozkriff/i235_ai_avoid_spikes_fire_poison
+    
+    Increase cost of tiles with fire/fire/spikes
+
+commit 05572477e0cdd0c71d97a1304a9639584ee05919
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 17 16:32:17 2018 +0300
+
+    Increase cost of tiles with fire/fire/spikes
+
+commit b9fc61321408f832508cdc6fa1e463ab69bdfd7f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 16 14:24:33 2018 +0300
+
+    geom::FLATNESS_COEFFICIENT
+
+commit 87cc1b6d4d329bc0eebbb8f09c15358bd056f51b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 12 17:51:54 2018 +0300
+
+    Move object sprites to an isometric-like position
+
+commit 60f85d51d8704160e530d88ea30e1e94925044af
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 12 17:51:15 2018 +0300
+
+    zscene: Add Sprite::set_offset function
+
+commit d715b4c4d0d823138b321074b46dadf7e253bc69
+Merge: e574ef5 5b8694c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 11 23:39:34 2018 +0300
+
+    Merge pull request #279 from ozkriff/i255_reuse_loaded_images
+    
+    Reuse loaded images with `battle_view::Images` struct
+
+commit 5b8694c834978d796d7cbe35ae839a22fb8111c1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 11 22:54:00 2018 +0300
+
+    cargo fmt
+
+commit 4de8395ec5ed107c35c4e62ac726f0fef45dae60
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 11 22:50:55 2018 +0300
+
+    #255: Reuse loaded images with battle_view::Images struct
+
+commit e574ef55fcf864e909f22688bb24b8f29d44158f
+Merge: 37ae360 d9470e7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 10 15:11:07 2018 +0300
+
+    Merge pull request #278 from ozkriff/dots
+    
+    Use 'dot.png' for brief agent info
+
+commit d9470e7b787fb2ce17056100a633befb7a559567
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 10 10:13:44 2018 +0300
+
+    Use 'dot.png' for brief agent info
+
+commit 37ae360ac46eff734b788b3a8b44f007682e1d84
+Merge: 03c8f66 bf77d74
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 7 01:22:18 2018 +0300
+
+    Merge pull request #275 from ozkriff/i260_i261_create_objects_only_on_empty_tiles
+    
+    Create objects only on completely empty tiles
+
+commit bf77d74844bbe749eb985f6c42637a131e3e8f55
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jun 7 00:50:47 2018 +0300
+
+    Create objects only on completely empty tiles
+
+commit 03c8f6632a2705a434ce377221278a40bba9d3d6
+Merge: e710e81 d13bc8f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 20:29:08 2018 +0300
+
+    Merge pull request #274 from ozkriff/i145_zgui_zscene_readme
+    
+    zgui, zscene: Add READMEs, fix examples and demo resources
+
+commit d13bc8fbb282d29ccb6ff6ef78945f36a61c62b9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 19:24:41 2018 +0300
+
+    zscene: action::Empty: Fix clippy warning about default
+
+commit 32ecbbe6bb613c16ef6dae5785ecddd310fe00c0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 19:23:56 2018 +0300
+
+    zgui, zscene: Add READMEs
+
+commit f95b302c3fb709df9ac4f3d82bd6ac0d499fef4c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 19:23:26 2018 +0300
+
+    zgui, zscene: Remove not relevant keywords
+
+commit 9032b37416dc7e36b3a842184f07c80538c0d8b0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 19:17:26 2018 +0300
+
+    zgui, zscene: Update examples & resources
+
+commit e710e81c6ca8eac4c9f7eafb02f15a6fbc610d9c
+Merge: 835d49c 597f884
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 13:06:29 2018 +0300
+
+    Merge pull request #273 from ozkriff/zcomponets_doc_comment_fix
+    
+    zcomponents: doc-comment fix
+
+commit 597f884d41be31cc1782c121fa18e32978a267af
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 10:42:29 2018 +0300
+
+    zcomponents: doc-comment fix
+    
+    Remove that silly TODO
+
+commit 835d49c08580b50733627d6d30fc19027441018b
+Merge: 30278b4 dcb3452
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 11:37:31 2018 +0300
+
+    Merge pull request #272 from ozkriff/readme_debug_fix
+    
+    README: debug -> release
+
+commit dcb3452f50e90cc50553cc4e6f66b4fc185001a0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jun 6 10:38:11 2018 +0300
+
+    README: debug -> release
+
+commit 30278b472b08d9c483762bc6ebc9cce314a5ceb8
+Merge: 5d4e874 8f58380
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 5 18:48:06 2018 +0300
+
+    Merge pull request #270 from ozkriff/i244_mention_subcrates_in_readme
+    
+    README: fix warnings, mention ggez and subcrates
+
+commit 8f5838035533464f772709a4598cc6701ae86584
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 5 17:56:20 2018 +0300
+
+    README.md: Mention ggez and subcrates
+
+commit 62dd02a578a6709a7ad9dead3408b674e2fca441
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 5 17:48:04 2018 +0300
+
+    README.md: Document that SDL2 native libraries are required
+
+commit 73e6b720db3aee74431fb4f6b9bb5cbf676be12d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jun 5 17:42:29 2018 +0300
+
+    README.md: Fix markdownlint warnings
+
+commit 5d4e874588614c576cd06d7646d6d2fc7126d239
+Merge: 9c757e6 19d7923
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 4 20:37:22 2018 +0300
+
+    Merge pull request #269 from ozkriff/travis_build_everything
+    
+    .travis.yml: Build everything
+
+commit 19d7923e4f4eb72a865f79e70739f6e6626327cd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 4 19:26:25 2018 +0300
+
+    .travis.yml: Two-space indent
+
+commit 1db119817543aede129b64db660d27174eaf8867
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jun 4 19:05:35 2018 +0300
+
+    .travis.yml: Build everything
+
+commit 9c757e6cd9fe21de9c3f89330d4f97dd96c67c76
+Merge: cea71da c41e06a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 23:42:19 2018 +0300
+
+    Merge pull request #267 from ozkriff/i144_zcomponents_examples_test
+    
+    ZComponents: Add `ids_collected` method, readme and example/test
+
+commit c41e06a292f653aae23a22fe27b397f80c298589
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 23:00:22 2018 +0300
+
+    Add zcomponents/README.md
+
+commit d204e9890ca134e6d049475db009e1de2efc723f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 22:59:35 2018 +0300
+
+    .travis.yml: cargo test --all
+
+commit 4346f5ee15f652432f81a34b75371ae786fbb00b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 22:57:42 2018 +0300
+
+    zcomponents: Add a doc-comment with an example
+
+commit dc374670893d87d901f4bd6a5e6c4eb4575e638e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 22:56:34 2018 +0300
+
+    zcomponents: Nicer err messages
+
+commit 6e45b6809b49ceab996b364d69b6c222ea3c6600
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 22:55:18 2018 +0300
+
+    zcomponents: Add notes about panics
+
+commit ff7ee67148e8b755acd688d817861186cf263a89
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 22:53:37 2018 +0300
+
+    zcomponents: Add 'fn ids_collected(&self) -> Vec<Id>' method
+    
+    Because it's boring to write 'parts.ids().collect::<Vec<_>>()'
+    in client code
+
+commit 21d16a968b9f4f7251faca462c336ac8efcad9c7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jun 3 22:50:06 2018 +0300
+
+    zcomponents: Remove logging from the macro
+    
+    As it breaks client code that has no 'extern crate log;'
+
+commit cea71da04ae7ce0edeed023212da9909555d770c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jun 2 16:10:44 2018 +0300
+
+    #262: Fix panic in screen::Battle::set_mode (#266)
+
+commit 0655a7b785a1a23970f3141a946f9f40d954acb4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jun 1 00:47:28 2018 +0300
+
+    zscene: trait Boxed (#265)
+    
+    * zscene: trait Boxed
+    
+    * visualize_event_use_ability: Removed unneeded use
+
+commit 3c4573e128a85e234b414b817bfcbbc7b11efd51
+Merge: 57efaba 4ba1498
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed May 30 08:53:26 2018 +0300
+
+    Merge pull request #253 from ozkriff/action_empty
+    
+    zscene::action::Empty + HexMap::height
+
+commit 4ba149847b10efc3433f6e98c4df9818f7fd6b9b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 29 16:48:19 2018 +0300
+
+    action::Empty
+
+commit f01a7f4e8d03b2d55356261d9915c704bd7a25e5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 29 16:33:31 2018 +0300
+
+    src/visualize.rs: Add 'fn empty()' that returns empty action
+
+commit dac17681f9c4127a0be716f2f2814d59162783f6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 28 18:55:45 2018 +0300
+
+    battle_view.rs: Extract 'tile_size' func
+
+commit 57efaba826f154869ced187dbbae98edea7c4365
+Merge: d36340e 350aa4b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed May 30 08:19:52 2018 +0300
+
+    Merge pull request #252 from ozkriff/i250_zscene_point2_to_vector2
+    
+    zscene: Point2 to Vector2
+
+commit 350aa4b9a88c8a77218114620c6a3b498a204512
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 29 16:31:32 2018 +0300
+
+    action::MoveBy: Point2 -> Vector2
+
+commit b9d5cf589caddecc50f3f4f2f9592fa1108e9ba2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 28 23:07:20 2018 +0300
+
+    src/map.rs -> src/geom.rs
+
+commit 2681bb145be682d392af473022cdd6514e8e84af
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 28 22:59:53 2018 +0300
+
+    core/movement: Steps: Employ new slice pattern syntax
+
+commit d36340e1757964720f6c321be3716079bd2e0d6c
+Merge: 8b2cfc8 0079142
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon May 28 00:44:50 2018 +0300
+
+    Merge pull request #247 from ozkriff/i237_ggez
+    
+    häte -> ggez
+
+commit 00791420ace437f720688db181cff9c25f54fade
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 27 23:15:29 2018 +0300
+
+    Fix CI configs
+
+commit fe66dd9c7da984c134618242153f39226c6b72a7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 27 19:50:21 2018 +0300
+
+    README.md: Add --release flag
+    
+    because debug build are slow as hell now
+
+commit 071f3303b4d7be79fd4f4e8234dce27dc64376b8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 27 19:48:35 2018 +0300
+
+    Remove do_android script
+
+commit ba3d42614a20c2d86ce2cdc49d0a5f1013025d3a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 27 19:34:48 2018 +0300
+
+    Remove android info from README
+
+commit 41702a1f048a031ebb0e125e923e61ab80ea7d91
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 27 19:31:41 2018 +0300
+
+    GGEZ
+    
+    - Kill hate
+    - rancor -> zcomponents
+    - extract ggwp-zgui and ggwp->zscene from hate's dead body
+    - update some deps
+    - game_view -> battle_view
+    - remove all android stuff (circleci config, do_android script, metadata)
+    - add time_s helper func
+
+commit 8b2cfc86476906919d71caa3a339f0beca85d111
+Merge: 0cb2b39 d31ce6b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 13 20:00:09 2018 +0300
+
+    Merge pull request #242 from ozkriff/i240_clippy_fixes
+    
+    Clippy fixes
+
+commit d31ce6bcb3104d99d21be20db2617a992a33683d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 13 18:55:41 2018 +0300
+
+    cargo update
+
+commit ba5e7243a4bad723492c53d2a1353a219f67a657
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun May 13 18:55:29 2018 +0300
+
+    #240: Fix clippy v0.0.198 warnings
+
+commit 0cb2b39f56cdc5e0062dee30cb82ff5f0e122113
+Merge: c871309 6020bbe
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat May 12 19:12:51 2018 +0300
+
+    Merge pull request #239 from ozkriff/use_groups
+    
+    New rustfmt + update deps
+
+commit 6020bbe113b90c6242bdfa5de1f5251e462186f6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat May 12 18:24:54 2018 +0300
+
+    Update deps + cargo update
+
+commit 63fe6c041844f3ac066bc9c92e8d75ac90ed261a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat May 12 17:10:38 2018 +0300
+
+    Update to rustfmt-nightly v0.3.6
+
+commit 875098bb7826b416835aba57135535edc509bac8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat May 12 17:07:51 2018 +0300
+
+    Split use groups with newlines
+
+commit c871309995545e5450fdb21c7fc9e4624aed02cb
+Merge: 1179dab 50f214c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 1 19:50:40 2018 +0300
+
+    Merge pull request #238 from ozkriff/update_deps
+    
+    Update deps + cargo update
+
+commit 50f214cb4f767b393010c84e80e681d0d1fce9df
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue May 1 18:56:53 2018 +0300
+
+    Update deps + cargo update
+
+commit 1179dabf8e532b41488652474598a13ef7a6d5b8
+Merge: 62d9a1f 058967e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Mar 7 10:56:19 2018 +0300
+
+    Merge pull request #233 from ozkriff/i232_fix_boulder_fire_panic
+    
+    Fix panic when boulder is pushed into fire/spikes
+
+commit 058967eb92ba4e721cca1d1b2a9c46264b2bddeb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Mar 7 10:20:46 2018 +0300
+
+    #232: Fix panic when boulder is pushed into fire/spikes
+
+commit 62d9a1f2511780cf74a135b39480a6cd6649b7d6
+Merge: 2ff1b22 1d1adad
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Mar 7 10:03:36 2018 +0300
+
+    Merge pull request #231 from ozkriff/i218_spikes
+    
+    Spike traps
+
+commit 1d1adade2079b2e38d3f92fef24d615aff817034
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 6 22:58:34 2018 +0300
+
+    #218: Spike traps
+
+commit 2ff1b22c787a1775cf06d69495208b7116aa8c40
+Merge: 4abef51 ea7f2e5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 6 10:21:13 2018 +0300
+
+    Merge pull request #230 from ozkriff/show_ability_parameters
+    
+    Show ability's parameters
+
+commit ea7f2e5f0e056ecd20efc255549167c12e8259fc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 6 09:14:37 2018 +0300
+
+    Show ability's parameters - 'Jump-2', 'Summon-3', etc
+
+commit 4abef5144bf65eb5b38fca4cd1990341deb0127c
+Merge: 3506500 c6858c0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Mar 6 00:04:44 2018 +0300
+
+    Merge pull request #229 from ozkriff/i190_duration
+    
+    Migrate to `std::time::Duration`
+
+commit c6858c0639476ac1e2a3e3f585819237a2b165bc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Mar 5 23:00:16 2018 +0300
+
+    #190: Migrate to std::time::Duration
+
+commit 350650005e4143a05fc343e42915e33b2e6056fe
+Merge: de177cb f86bb8c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 4 11:05:10 2018 +0300
+
+    Merge pull request #226 from ozkriff/i196_help_wanted_label
+    
+    README.md: Add a note about 'help-wanted' issues
+
+commit f86bb8c2b2af7c2fa655c1147b98578592c19577
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 4 10:17:00 2018 +0300
+
+    #196: README: Add a note about 'help-wanted' issues
+
+commit de177cb80d3a1187717e6fab41789d12c337f499
+Merge: 416a23e b6d01a0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 4 09:21:57 2018 +0300
+
+    Merge pull request #225 from ozkriff/update_glutin_deps
+    
+    Update `glutin` and `gfx_window_glutin` deps
+
+commit b6d01a0e600d3cf6d6e4ef87e3b211c2da4fb969
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Mar 4 08:39:39 2018 +0300
+
+    Update glutin and gfx_window_glutin deps + cargo update
+
+commit 416a23e91d82893e2414d1457a4b50b6f22822e4
+Merge: 2ff2338 339d6ae
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 25 23:08:21 2018 +0300
+
+    Merge pull request #222 from ozkriff/i209_readme_gifs
+    
+    README: New screenshot and GIFs
+
+commit 339d6ae35524eb4d004ef4a868e62fcab98379d4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 25 12:29:32 2018 +0300
+
+    README.md: Removed two GIFs
+    
+    4 is enough
+
+commit 942f699a8f7260f6ae537127416e14d4088cdbfa
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 25 08:38:59 2018 +0300
+
+    README.md: Update screenshots & gifs
+
+commit 2ff2338b838ad88150ad25b4e2e75df38402f5ef
+Merge: eee65b7 624c41c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Feb 24 16:56:25 2018 +0300
+
+    Merge pull request #220 from DarkEld3r/subsystem-windows
+    
+    Add 'windows_subsystem' attribute
+
+commit 624c41c707d7ede577a5c58d7fbba7c8a525f704
+Author: Stanislav Tkach <stanislav.tkach@gmail.com>
+Date:   Sat Feb 24 15:22:58 2018 +0200
+
+    Add 'windows_subsystem' attribute
+
+commit eee65b7af6ecc4c1024b6a3c0062638b7bea709a
+Merge: 4b1b079 aed5104
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 21 09:58:14 2018 +0300
+
+    Merge pull request #213 from ozkriff/i211_i135_release_v0_4
+    
+    v0.4
+
+commit aed5104f2d87072b5028c4e09e08c1d0794cf05f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Feb 21 09:10:56 2018 +0300
+
+    #211 #135: Release v0.4
+
+commit 4b1b079e998f44b6966aff5770ea02d28fb864b0
+Merge: ae2fb5f 9efdac6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Feb 19 10:52:57 2018 +0300
+
+    Merge pull request #208 from ozkriff/tile_color
+    
+    *_TILE_COLOR -> TILE_COLOR_*
+
+commit 9efdac68822db714b97661e29abc7cf354400a56
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Feb 19 09:25:54 2018 +0300
+
+    game_view.rs: *_TILE_COLOR -> TILE_COLOR_*
+
+commit ae2fb5ffb5a9ee54caf1879a598e399e42bc8fd4
+Merge: ee219c5 9a2afeb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Feb 19 08:14:54 2018 +0300
+
+    Merge pull request #207 from ozkriff/i206_path_from_to
+    
+    Add Path::from and Path::to methods
+
+commit 9a2afeb63082c68a65637505ddd9ad49546fcb7c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Feb 19 01:55:36 2018 +0300
+
+    #206: Add Path::from and Path::to methods
+
+commit ee219c5e6da0eec0e9132a77585322d6b3dce53f
+Merge: 5c8b824 56ede9f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 18 23:25:12 2018 +0300
+
+    Merge pull request #202 from ozkriff/WIP_abilities_and_lasting_effects
+    
+    Abilities, lasting effects and some new unit types
+
+commit 56ede9fb00a3a8acabfaf79b4fa7404b45808d37
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 18 22:16:03 2018 +0300
+
+    Add abilities, lasting effects and new unit types
+    
+    Yep, this commit is about 4K lines long. I'M SORRY!
+
+commit 37455fd1c4bfe1e7234c0ab0887078b21a599994
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 18 22:25:30 2018 +0300
+
+    Update deps: rusttype & ron + cargo update
+
+commit 0346449d47b9c1768e6f9743138eb8f034eb1349
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Feb 18 22:12:19 2018 +0300
+
+    main.rs: pub fn main -> fn main
+
+commit ebf6dacd302b81b0e8448607f4c0cbf52cf77865
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jan 9 18:16:23 2018 +0300
+
+    event::apply: Apply an event before effects
+
+commit 5c8b82414ba47377068042b8fcd75c443b485e8e
+Merge: 0023844 fdcb8d2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 13 09:26:46 2018 +0300
+
+    Merge pull request #201 from ozkriff/update_deps
+    
+    Update deps + cargo update
+
+commit fdcb8d2484b8ac0da2fd322c440af121158b83dd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 13 08:16:51 2018 +0300
+
+    Update deps + cargo update
+
+commit 0023844e8093a1d2bc33e6a141a56fe5fd99e474
+Merge: 6be9653 f3693e3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 13 08:16:15 2018 +0300
+
+    Merge pull request #200 from ozkriff/readme_deps_rs
+    
+    deps.rs badge
+
+commit f3693e34f06d0de62f9538ee95e214161bd8dcc9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Feb 13 07:40:59 2018 +0300
+
+    #199: Add deps.rs badge to README.md
+
+commit 6be965304969dc05df535097d9f4b86e08e30f50
+Merge: 5707653 fc69133
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jan 30 11:13:31 2018 +0300
+
+    Merge pull request #197 from ozkriff/i185_dots_layer
+    
+    Added a separate layer for 'dots'
+
+commit fc69133034df6ab5e5d2f6739141d3b9ddaa8d5f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jan 30 00:27:13 2018 +0300
+
+    #185: Added a separate layer for 'dots'
+
+commit 5707653cfa90e863a9e8211fac818c4b0fa5454c
+Merge: 137b8f1 acc6e3c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 27 18:48:56 2018 +0300
+
+    Merge pull request #194 from ozkriff/i193_i189_state_and_apply
+    
+    Added `state.rs` and `apply.rs` mods
+
+commit acc6e3cba5245deffd81b4054d3c4b1f31616dab
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 27 18:00:15 2018 +0300
+
+    #189: Moved all apply_* funcs to 'apply.rs' mod
+
+commit 7c536c6bdd88f5ae0d61f92d8aa4de639274c826
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 27 17:22:35 2018 +0300
+
+    #193: Moved State struct to a separate mod
+
+commit 94ee1e9ac1accb5b32703070d605fba350b1e592
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jan 27 17:21:44 2018 +0300
+
+    cargo fmt
+
+commit 137b8f101d44f7feb1c5a840e43b6c2361d56f9e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jan 8 19:19:42 2018 +0300
+
+    README.md: Fixed https://www.rust-lang.org link
+
+commit 772a6148e27d04fa07e9afd11384b87a025727bb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jan 8 19:03:44 2018 +0300
+
+    #182: Explicitly set Compat GL profile
+
+commit cc3c4aff243335cf9eb2ace6b773a181e0e769e2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 31 19:32:19 2017 +0300
+
+    Updated to gfx v0.17
+
+commit 79c3c95bb58af64e7a6a0a8aa7f49a8a4d123923
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 31 17:48:08 2017 +0300
+
+    Cargo.toml: log: v0.3 -> v0.4, rand: v0.3 -> v0.4
+
+commit 7a94bbe0918368ab3a00b7380a23d04e340eed0c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 31 17:34:38 2017 +0300
+
+    cargo update
+
+commit 45c549cb0c6b77022eb575321befad54b1241894
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 31 17:33:44 2017 +0300
+
+    #176: Added some simple walking animation
+
+commit 4de7d96800d47fc89560132241e2989767374def
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 31 17:32:59 2017 +0300
+
+    Speeded up melee animation
+
+commit 14cb9d45822f2262dfa8faacbd54ef864b75f788
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 17 14:34:53 2017 +0300
+
+    #172: execute.rs: Replaced monomorphized callbacks with trait objects
+
+commit b6e66e210225eec7fcc7d63e61764dadbcb78deb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Dec 15 18:50:00 2017 +0300
+
+    Calculate tile's size from map's size
+
+commit 8f479ccc13f2c542cb7b519be0c344b37ac77413
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 10 00:23:17 2017 +0300
+
+    Fixed #168: Crashes when clicking on a boulder
+
+commit 16baf1917cb9e13cbc5cac16a0115a704c6f955f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Dec 8 23:41:33 2017 +0300
+
+    execute.rs: execute_create: Extracted 'name' var
+
+commit acf852a525a7b42650c1a645f9b7b66e0ff34721
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Dec 8 23:22:29 2017 +0300
+
+    src/visualize.rs: visualize_event: event -> ev
+
+commit 851fe67c003b40be793ecb3d75de21a85c9cca45
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Dec 7 23:09:24 2017 +0300
+
+    circleci: rustup show
+
+commit 4dd2022192e32bb8def8c17874bb0f2850eb65d8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Dec 7 20:58:55 2017 +0300
+
+    cargo update
+
+commit 200fd997bb1e3ce41c1ca245f7bc5f6130cf2c19
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Dec 7 20:57:33 2017 +0300
+
+    Updated glutin to v0.11 and rusttype to v0.3
+
+commit ec756ad16a089e46e5120f97fd2837d542da990e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Dec 7 01:47:45 2017 +0300
+
+    Use 'tile_rocks.png' for TileType::Rocks
+
+commit 9f34f76394edb16622a2cf13fd386e2662f541b2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Dec 3 02:05:45 2017 +0300
+
+    README: Add a blog to the news section
+
+commit 645df8bb54ca29ba9c79e098ee7ee141695bb33d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Dec 1 09:46:52 2017 +0300
+
+    hate: cargo fmt
+
+commit 41d8592f4d665575167cebaee66fb46fe0e8b05d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Dec 1 09:48:45 2017 +0300
+
+    TileType: Floor->Plain, Lava->Rocks + added 'execute::create_terrain'
+
+commit efc36eb087ba2a3872e0f7812165f4543a813512
+Author: dylanhart <dylan96hart@gmail.com>
+Date:   Tue Nov 28 01:06:57 2017 -0800
+
+    fix coordinate conversion for hidpi displays
+
+commit a2b8e1f61894941ae963ee0922020ba282e9f499
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 21 12:37:55 2017 +0300
+
+    hate/examples/gui.rs: Removed the 'env' assets hack
+
+commit 77f732875288bee5b5c4ddde212c87d2ea6e611d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 21 12:32:14 2017 +0300
+
+    README: 'Gameplay gifs' -> 'Gifs'
+
+commit 838c8541a2494477a7b72980e2701f5d0a6b614d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 21 12:31:33 2017 +0300
+
+    README: Fixed license header link
+
+commit b831224fb42d259a3742fc7e0862d7627e4b666d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Nov 21 12:30:49 2017 +0300
+
+    #159: hate: Decouple examples/gui.rs from Zemeroth's assets
+
+commit af03f12228577011197790a8d41e59b1fc416a76
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Nov 20 10:12:23 2017 +0300
+
+    cargo update
+
+commit 90f845c548c2c87d8a8da6aaf352d2140111315e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Nov 20 10:10:19 2017 +0300
+
+    Fixed clippy warnings
+
+commit 16a833a27b7c9f41dcf68650020382f2278ecb57
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Nov 19 21:10:47 2017 +0300
+
+    .travis.yml: Tmp allowed fails on beta
+    
+    See https://github.com/rust-lang/cargo/issues/4699
+
+commit 26ebeb0321ef405bdf0b7e2d58e04dc5fd4bf2ad
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Nov 19 10:36:38 2017 +0300
+
+    #155: Fixed readme for mobile + restructured it a litle bit
+
+commit 1f0fc2b751e747cb0a6ffbeb07a644f94d33b382
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Nov 19 00:08:16 2017 +0300
+
+    README: Custom text for CI badges
+
+commit 6ef09cb277ac237cfe86cbb4c50b23cbd3ebf55a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Nov 18 23:31:29 2017 +0300
+
+    #156: README.rst -> README.md
+
+commit 3b6f1478f850e983809db298b4034f02fa75b2e0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 15 15:09:08 2017 +0300
+
+    src/visualize.rs: Made most of the functions private
+
+commit e7d1d01b429792136009422bb2730a883611db48
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 15 15:06:12 2017 +0300
+
+    Consider the view size when drawing stat dots
+
+commit c84dbf097ea6ee5a928c70e964d2cf2f7530d5c2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 15 15:03:16 2017 +0300
+
+    cargo update
+
+commit cd6545ed4de166f63c4fd8c3e42a42a81567b6a6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Nov 15 14:59:04 2017 +0300
+
+    Updated to rustfmt-nightly v0.2.15
+
+commit e13f0f5d305841210156fc93d1fafcfb42bf6269
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Nov 9 08:39:27 2017 +0300
+
+    .gitignore: Exclude 'target' and 'assets' dirs only from root
+
+commit 7529ecd1f3f6aca634a3532e6caabf0b31398f83
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Nov 9 08:21:48 2017 +0300
+
+    Fixed license info
+
+commit 0ab762ed1566ea7b80e823b713c0a5cd7da2acd2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 30 23:54:15 2017 +0300
+
+    appveyor.yml: cache + stable only + release only
+
+commit 5783eecfd4e6adda4bf50c12246a2cb026ea3d50
+Author: Edward Yang <edward.yang6771@gmail.com>
+Date:   Sun Oct 29 04:30:46 2017 -0500
+
+    Move gui_test.rs into häte examples (#152)
+
+commit f4ced4641623ffc93aa4b2c2ee96392cec471998
+Author: Aaron Meese <ajmeese7@gmail.com>
+Date:   Thu Oct 26 20:26:30 2017 -0500
+
+    Update README.rst
+    
+    Added proper capitalization
+
+commit 56dc8ddc6b2b034216500191043cff7bae4e0a6d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 20 09:20:38 2017 +0300
+
+    Moved select/deselect logic to GameView
+
+commit 94a1aa7ccc7fcdc8473a41cfd45d835bcd4b3e57
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Oct 14 14:26:45 2017 +0300
+
+    core: Simplified reaction attack's logic with the help of 'enemy_agent_ids' func
+
+commit 67d72c3950ccf6ea42040786e5e8a9ec13aac8eb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 13 22:10:02 2017 +0300
+
+    execute.rs: Employed 'core::player_agent_ids'
+
+commit 669372069e43c560cf6f1f93cd870df0bd493c5a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 13 14:29:30 2017 +0300
+
+    core/mod.rs: Simplified object_ids_at func (iterators)
+
+commit d3f91b43d60905282a05060d0afc7a9b16bda9b6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 13 11:18:13 2017 +0300
+
+    ai.rs: Iterator filters
+
+commit 5c8199f3233ea29d746ca0cf2efe7b12afc70c2f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 13 10:25:09 2017 +0300
+
+    ai.rs: Extracted 'try_to_attack/move' methods
+
+commit 203c0c469788a3340e2e9b07522f70b95ec4f3d3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 10 14:45:59 2017 +0300
+
+    #142: Added Blocker component + Boulder objects
+
+commit 3dcad0fc63607092309d91d784cb81b19e3936cd
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 10 13:52:15 2017 +0300
+
+    cargo update
+
+commit cc0bf1f5792b3a5226b8f102aa0479dc778c3a38
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 10 11:22:58 2017 +0300
+
+    #105: Added a basic component system (rancor)
+
+commit 50a44fa4aaf30d82c66025de57b9bf7e6f95dfb1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 10 11:11:56 2017 +0300
+
+    hate: context.rs: Extracted load_font + MouseState::new funcs
+
+commit 29b948dfa5f2978a75ab5014234c553830bc2601
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 10 11:11:09 2017 +0300
+
+    hate: context.rs: fragment_shader: text -> header
+
+commit 15168ce240c53d99a0543c7d9dd05383c0493335
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 10 11:08:36 2017 +0300
+
+    hate: context.rs: Exracted gl_version func
+
+commit 754157232e1de4166f5268f32e570253bdd7d3d9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 10 11:07:26 2017 +0300
+
+    hate: context.rs: Removed double empty line
+
+commit 5a4ca271efe0483a561556127debcfdd5dee4a1b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Oct 6 14:43:32 2017 +0300
+
+    #139: Forbid pressing 'end turn' during enemy's turn
+
+commit 5bbe3fc35d849cdc1228137e9028ddc53e59b1d7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Oct 4 02:12:52 2017 +0300
+
+    #137: Special value hack for hate::Settings::font
+    
+    To avoid writing 'Some(font.ttf)' in the config.
+
+commit fe2a55f05cc5e3fc1f151601e30d9af38818ef4e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Oct 4 01:30:23 2017 +0300
+
+    #137: hate: Employed Settings::default() in the examples
+
+commit 291a59190d02c3f4d7ddd1bf740b9ce21415f2bb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Oct 4 01:17:56 2017 +0300
+
+    #137: Added Default impl for hate::Settings
+
+commit 6f019d38c2cf2d76ba0688b0adb197400142fac0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Oct 3 22:02:49 2017 +0300
+
+    hate: Updated glutin to 0.10 and gfx_window_glutin to 0.18
+
+commit 7db6ffd55910a4371323de60bc915fc98313b197
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 2 22:50:55 2017 +0300
+
+    cargo fmt
+
+commit ee569cf8d7ada36c93e1939466b18f6a93246274
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 2 20:10:05 2017 +0300
+
+    .travis.yml: Compile hate's examples
+
+commit 70d4c7bf9db97b84cf9140b2fc77125063961b14
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 2 20:03:39 2017 +0300
+
+    cargo update
+
+commit a5f26c53262bfd2cb7f1f40cca116aa048e4fcde
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 2 17:30:14 2017 +0300
+
+    #127: Moved src/actions_test.rs to hate/examples/actions.rs
+
+commit 9ae384810a4a35ad13618aad90755b820bb08847
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 2 17:10:30 2017 +0300
+
+    #127: hate: Created two basic examples
+
+commit bc0105e5d1199db9c922c0da16613464827f0628
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 2 15:28:48 2017 +0300
+
+    #130: hate: Baked Karla-Regular.ttf as a default font
+
+commit ee6f310dbdfacf5496897707f470f71322656770
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Oct 2 12:29:43 2017 +0300
+
+    #129: hate: Backed shaders into the code
+
+commit 4cf616c147e7d5ada955d04ec31f59fcebcb3150
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 22 19:37:48 2017 +0300
+
+    'ActionTest' screen
+
+commit 8ff7a1cf7a9b663e5944c659ea2174166dbb740c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 25 11:59:19 2017 +0300
+
+    Updated deps + cargo update
+
+commit a4e7ae40d67de4abebd94c357a20a7577d9040c1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 23 08:57:05 2017 +0300
+
+    Updated to rustfmt-nightly v0.2.7
+
+commit 673bf73e8a22dc33fc106ab04f7d8986fac5062d
+Author: hack3p <oleg@teasernet.com>
+Date:   Fri Sep 22 21:32:40 2017 +0300
+
+    #122 fix .gitignore
+
+commit 3c1092a522b16b831be24f2b84c313b3d0e58053
+Author: hack3p <oleg@teasernet.com>
+Date:   Fri Sep 22 20:50:20 2017 +0300
+
+    #122 remove unused crate serde
+
+commit 15ad94ecdf5cf8e2336be6f974c6fb0fcac139d2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Sep 18 14:19:17 2017 +0300
+
+    appveyor.yml: Disabled cache
+
+commit 0d2d4df20513ae4003ad1c2cdb3adbff30d679c6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 16 16:23:11 2017 +0300
+
+    #56: Auto-deploy to github releases from travis, appveyor and circleci
+
+commit 426497e099b7fc479eb9a8234267764bdaa347a6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Sep 12 16:30:16 2017 +0300
+
+    cargo update
+
+commit 44957ceab3f3c96d51d50c4e5af0c9b93439113b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Sep 6 11:04:35 2017 +0300
+
+    More random initial positions
+
+commit bd554fb7f628924cb6f369e9b63a8ea07b3be993
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 2 12:53:11 2017 +0300
+
+    Removed some outdated TODOs
+
+commit 7ee6283d1ee53fea10c1a34a131feab8c73eaa8a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Sep 2 12:10:01 2017 +0300
+
+    #81: Distance
+
+commit 4333c83684d5afca395126b710d0bc734f8944e2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 1 22:23:22 2017 +0300
+
+    GameView: fg -> units
+
+commit 19f5c9fe71d90a7f6f22436d8bb6df61316189d3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 1 21:37:21 2017 +0300
+
+    check_move_to: CHeck if all tiles are empty
+
+commit bcaaab1f0716ad151ddaa766fe841ff06c114abe
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 1 20:19:45 2017 +0300
+
+    Made 'execute' to return Result
+
+commit b29d4b13a11ce682011920326fd67327a7af3ae4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 1 20:18:55 2017 +0300
+
+    check.rs: Error::BadPos
+
+commit e0e1f64096125aead5c7d564a55486841f3629da
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 1 14:23:11 2017 +0300
+
+    cargo fmt
+
+commit 5b06433da5b4038311df7e312252a3f37d8ddc7c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Sep 1 12:41:17 2017 +0300
+
+    README: Added dot to 'Running' section
+
+commit 19dea43b96d53c7d2092fbd178a97874702a163b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 10:49:30 2017 +0300
+
+    #94: Select enemy units + deselect on second click
+
+commit d6025abf21f7fac5dc59d05556339252e23e4f40
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 09:25:26 2017 +0300
+
+    cargo update
+
+commit 34f43df1d48323bddeb5b668428ceb3b98f106a7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 09:20:27 2017 +0300
+
+    Fixed clippy warnings
+
+commit 06959b1a8433a4d7729be1ee90499583fe80e73c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 08:42:53 2017 +0300
+
+    Stop creating new units on a simple click
+
+commit 32a29f160d2b9184e2d8b1071699561c0796d620
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 08:41:44 2017 +0300
+
+    execute.rs: Employ command::Create
+
+commit 75a25d75e59d554da6454a192a64ce833c37b07d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 08:41:01 2017 +0300
+
+    screen/game.rs: check commands
+
+commit e43dabc87ef03621b15cab99e90244a9ec95b698
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 08:38:58 2017 +0300
+
+    execute: Log error if check fails
+
+commit 5defe0eae59119997d68b3ebbf5211e63249a877
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 31 00:26:41 2017 +0300
+
+    README: Updated screenshots and gifs
+
+commit 630d13930ef65cb1359d2a357351d5c34ed8dce5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 30 21:57:44 2017 +0300
+
+    Added brief unit info: dots
+
+commit a1e1dc04a002111312f080adbf6c9151bf8d4dfc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 30 21:51:42 2017 +0300
+
+    Event: Added 'actor_ids' field
+
+commit 5cdcc151186376ad13ceaa9dd13a56dc19822b22
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 30 21:33:23 2017 +0300
+
+    execute.rs: 'FnMut(&mut State, &Event)' -> 'FnMut(&State, &Event)'
+
+commit 5d216bef78bc0210ee30664c6649857cca5ab1ec
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 30 21:28:14 2017 +0300
+
+    game.rs: Extracted 'prepare_map_and_state' fn
+
+commit b0168af5e43a578363d890b76eee73475b96460e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 30 21:18:21 2017 +0300
+
+    Made core::execute public
+
+commit bf51d13c7a550b6f0d058b3270718a61d2d7d1ab
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 30 21:12:00 2017 +0300
+
+    Fixed enemy's initial positions
+
+commit ba9e26fba74480dc3f5398ce16d342480da6fb88
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 30 20:08:54 2017 +0300
+
+    Walkable tiles: Show all at once, without delays
+
+commit b91d288770191c122284532dad3798d643c09a71
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 27 23:57:40 2017 +0300
+
+    Made walkable tiles color more opaque
+
+commit d0c82fd87e6aa89dd22545cc2187266f52021bab
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 27 11:17:03 2017 +0300
+
+    Moved make_map_action from game_view.rs to screen/game.rs
+
+commit c54452877ff5f2b45835bc8d254b8f51025417d1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Aug 27 01:47:43 2017 +0300
+
+    #93: hate::Context: Cache text textures
+
+commit d52bab91ceec5689fa9bb6b3062ec71a86ed6459
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 22:00:11 2017 +0300
+
+    #57: Added a panel with info about selected unit
+
+commit 389e4414c854ff32a27ca943f8849dc43a35409b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 21:58:50 2017 +0300
+
+    gui_test.rs: Formatting
+
+commit c813df530a0b4904b783f6211e50a08f2c41742b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 19:31:24 2017 +0300
+
+    hate: Added 'Gui::remove' method
+
+commit 61933d5d62d3dd7e6d8609759b25ed4082d94168
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 19:23:19 2017 +0300
+
+    game_view.rs: Increased tile_size + fixed sprites size
+
+commit abce0fb8a129211e33a70cb43fa3c86c260ad289
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 15:11:38 2017 +0300
+
+    Moved 'next map' button to GuiTest screen
+
+commit b42e036edd5ce9f521ad6c3ec1c991af42bf44af
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 14:56:44 2017 +0300
+
+    Added Strength to UnitType + updated the scenario
+
+commit 6be9e197d10cbd68f24e7586c3d8e36efbdada79
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 14:40:44 2017 +0300
+
+    Spearman: moves->0, jokers->1
+
+commit 2259eeee1df452b06d98d7b0aab784ac390831e5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 14:36:23 2017 +0300
+
+    cargo fmt
+
+commit c01a4e32505ca76376d99b9b473bdbe8c4aa9ed9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 11:54:36 2017 +0300
+
+    cargo update
+
+commit fee4bed55a4bc495d8c2249c77cc42155eaeff72
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 11:53:32 2017 +0300
+
+    #83: Replaced printlns with real logs
+
+commit 99ebd59aaca502781aed77bc2c772852ce9fdba3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 11:31:19 2017 +0300
+
+    #59: Jokers
+
+commit 2e73900669205bcf2f8054790cb52d720c2e3cd4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 11:23:51 2017 +0300
+
+    More blood
+
+commit d3782b7ca5b54fb7a86ce5e05c09e051fc50cc5f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 26 11:23:22 2017 +0300
+
+    Get reaction attacks count from type
+
+commit acfb028256ae34211df9deaae004166018947e05
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 25 21:11:12 2017 +0300
+
+    #80: Vec<PosHex> -> Path
+
+commit 4f36f8988d387e15d390bbe1ecdd3bd215168e05
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 25 10:25:25 2017 +0300
+
+    #32: Check assets dir from every fs::load call
+
+commit aa7426b4470bb3c72c236d8e10283e83487c484b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 24 21:58:17 2017 +0300
+
+    Updated to rustfmt-nightly v0.2.2
+
+commit ef8cd99fd2ed4c1969f2c0911760c14931a32a06
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 24 21:56:15 2017 +0300
+
+    #42: Basic blood pools
+
+commit 52613e49e354207ce61af4c3d186899754296e50
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 24 20:18:48 2017 +0300
+
+    #73: Grass
+
+commit eeeea0df40b536eda78cb6b958bf4f1f7deadd65
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 21 19:59:10 2017 +0300
+
+    #65: Added 'spearman' unit type
+
+commit a1f5abc019d69fcd19c34ae59c0333546ea441f5
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 21 19:55:58 2017 +0300
+
+    UnitType struct
+
+commit 9a4e34b9623a628232f5dcb9ed4624333ff6b28d
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 11 07:36:38 2017 +0300
+
+    execute.rs: Added make_unit fn
+
+commit 5bc7d142dffd5e23b7fa481f077b239d482e3e03
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Aug 11 16:45:58 2017 +0300
+
+    #62: Update to gfx_device_gl v0.14.2 to fix osx
+
+commit 88db6c6cabc78760343d8218e30609d2097420b7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Aug 10 00:21:14 2017 +0300
+
+    #61: toml -> ron
+
+commit ab1ee7220cb9872fb99b02d1090e98ef152576c4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Aug 9 00:15:00 2017 +0300
+
+    #25: Movement interruptions
+
+commit afb5d90f2a82067a91375b343464cb717d4717a7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Aug 8 19:01:57 2017 +0300
+
+    #63: Added basic hitpoints - "strength"
+
+commit 75f5691587704734bd6d772a9315c104611952c6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Aug 7 21:20:43 2017 +0300
+
+    Random start positions
+
+commit 8116e8e6e3fa6fccbafe36f976d29c2a051d84a6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 5 17:18:46 2017 +0300
+
+    #25: Basic reaction attacks
+
+commit 722e284f177ccfbb41035553e0f5654853ae599e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Aug 5 15:00:33 2017 +0300
+
+    cargo update
+
+commit 93d3c5b36d584e5eba4c048b264691d1edc2251e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 30 20:12:49 2017 +0300
+
+    hate: ChangeColorTo: Added end method
+
+commit f28b9f526192da060c18d443fa21a540fad9cecb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 30 11:35:36 2017 +0300
+
+    movement.rs: Removed outdated '#[allow(dead_code)]'
+
+commit e528c1b9775cb0c45fbe453ac9beb9ca17ecf9c3
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 30 11:23:04 2017 +0300
+
+    Pathfinder: Removed commented-out is_reachable method
+
+commit 8cc294d05b43a067746a248ec3157d652e8939fb
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 19:56:12 2017 +0300
+
+    execute.rs: Simplified 'tick' method impl
+
+commit 79cbe1b2c420dfc43087fdd29d4790a2cb903ab2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 19:53:35 2017 +0300
+
+    movement.rs: Vec -> VecDeque
+
+commit 1d615692ef0db21fa32954d9a1ff7dc0e46e8344
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 08:11:30 2017 +0300
+
+    README: Added LoC badge
+
+commit d6f4eea65c2bf3a93a7fe3a6456387554b1e3e20
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 08:11:05 2017 +0300
+
+    #10: README: Added CI badges
+
+commit 1601b15c715e5f12e2720346ad14230b82ddec05
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 08:09:58 2017 +0300
+
+    README: Added photo of the android build
+
+commit c4e75da9a677232957098f5f172899603b50bd75
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 08:09:34 2017 +0300
+
+    README: Removed todo-note about the release build
+
+commit 5d0e6ef49d8c0a2909291aa5d45a7d1f0354782f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 08:08:54 2017 +0300
+
+    #2: README: Added link to twitter and imgur devlog
+
+commit 8f1fbc30cc25ea15062a30a100d0ca79bb4cd370
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 29 00:35:00 2017 +0300
+
+    CircleCI: Disabled cache
+
+commit 44bce9115a1b96e3d9126a24aede081ca1ca80d0
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 28 23:51:50 2017 +0300
+
+    Make endturn button smaller
+
+commit 19591027f05d2bbe81efe2b61b80cb1c694899bf
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 28 23:51:30 2017 +0300
+
+    Added short action::Sleep to the begining of the enemy turn
+
+commit 19124877943404ff15674f375a848609dfedb694
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 28 21:42:38 2017 +0300
+
+    #50: Added circleci for android
+
+commit c7ba45c259ee57806c269f6fad2cc1504f00c1d1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 28 20:23:44 2017 +0300
+
+    Splitted game UI into three panels
+
+commit 287dd5cd180f31bfc456b44532e5d00ce802fcaf
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 27 21:33:10 2017 +0300
+
+    screen/game.rs: Command -> GuiCommand
+
+commit 626b82ab048d99b58100a9afac2197ba456f962a
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 27 21:29:19 2017 +0300
+
+    Extracted screen::GuiTest from screen::Game
+
+commit f834609b453c49d0d1a6e1fa1c0042b093f0bada
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jul 25 11:48:12 2017 +0300
+
+    Updated to rustfmt-nightly v0.2.1
+
+commit 17768b695af74de7b3c16dfbc2e7ed100c90bbae
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 24 10:48:35 2017 +0300
+
+    Updated glutin to 0.9.2
+
+commit d333f4bde4d0374e6ea5072fc5eef0515039fc8f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 24 09:17:53 2017 +0300
+
+    #41: Updated glutin to 0.9
+
+commit 6d6d0abd5a9a569b90a84efd2867ac1260d60454
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 23 15:49:24 2017 +0300
+
+    cargo update
+
+commit 59024fe6e3a30ec287d0acc78b663cdd9f8e49f4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 23 13:27:33 2017 +0300
+
+    #46: android: Forced landscape orientation
+
+commit 4f3fb88e4aa518f5c26c20396a98acb5deb5a973
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 21:05:39 2017 +0300
+
+    #23: Basic AI
+
+commit 30fa50f44eceffb174b514a3273979ab90c84262
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 20:57:55 2017 +0300
+
+    #22: Added Attacks and Moves
+
+commit 89313c4b9e4da8e5188f5a286cfc7772e02629d2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 20:50:09 2017 +0300
+
+    visualizer.rs: message: Moved initial sprite pos tile_size up
+
+commit b3bd84d87a0e5c7768df92016025b86cdd4dfda9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 20:44:25 2017 +0300
+
+    visualize_event_create: 0.5s -> 0.25s
+
+commit 211eefa7e20024aeda5e7aa5d89e374d81a3614b
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 20:43:50 2017 +0300
+
+    visualizer.rs: Fixed attack visualization
+
+commit 3d3f9704215bdfafafebfdfdf5a5168fbac0e0a9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 19:53:52 2017 +0300
+
+    visualize.rs: Simplified the time handling
+
+commit ffa6371c46652083a0a245d0f24a7662824bbc87
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 19:30:41 2017 +0300
+
+    #23: Turns
+
+commit 6e9637c96a98b5d797f1608bcec0520d72ee21f4
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 10:59:46 2017 +0300
+
+    README: Removed menu screen, added gameplay gif
+
+commit b5e9c0d91a3f82d628ae36d93dbd9af0f65f3813
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 22 08:53:02 2017 +0300
+
+    Clippy fixes
+
+commit 64ede9bda2e9d3300e72bd3041e4d2d4ee2523f8
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 19 13:56:00 2017 +0300
+
+    Chance to miss an attack
+
+commit 3f8c51addfe5fd658b937c7ab3008f4d96c65b62
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 19 10:33:37 2017 +0300
+
+    game_view: Simplified layers ordering
+
+commit 217100d56a99da820817f50097f5a9ba23eef5ab
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 19 09:42:58 2017 +0300
+
+    #31: Pop-up messages
+
+commit 5ead37122147d74500e0c60d00db7580de01f245
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jul 18 12:06:55 2017 +0300
+
+    #33: hate: cargo fmt
+
+commit 398e4fa2beb540f69b0dac79e57257e9421ccc61
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Tue Jul 18 11:50:55 2017 +0300
+
+    #8: Removed all 'use ::' imports
+
+commit 65da641fce1f88ba4211c2f259da64a6756febbc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 17 15:49:03 2017 +0300
+
+    scene::action::Show/Hide: check if sprite exists
+
+commit d56d3b9c1df405be4dc96a9a20704e8027bb906c
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Mon Jul 17 00:35:35 2017 +0300
+
+    README: Updated screenshot
+
+commit d4c9d4e38a3b8ed82078a23a060179b0688c2404
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 16 22:56:25 2017 +0300
+
+    #21: highlighted attackable enemies
+
+commit 649f1e9e59c66cd520572fefc8bd2edfb11a82d6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 16 20:02:34 2017 +0300
+
+    game.rs: Removed redundant Fork actions
+
+commit 82f0705b911403c95a0e75ff56150438b87152e9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 16 17:40:41 2017 +0300
+
+    #19: Show movement range
+
+commit 0b55e6cc69d1b5539191c6f60d1abe3a741283a1
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 16 17:20:32 2017 +0300
+
+    src/visualize.rs: Normalized time f32 literal
+
+commit 14ce85c71c05275dd8572af62cb54ec6ea0a12f2
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sun Jul 16 17:19:02 2017 +0300
+
+    hate: Fixed multifork
+
+commit b46d4d72915b8c2a27a7b7e1dbb32c0ca1f56248
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 15 23:25:54 2017 +0300
+
+    #16: Added selection marker
+
+commit f386d553d697374f0d972047c340949eab169f44
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 15 18:54:45 2017 +0300
+
+    #7: get real blocking time from 'visualize' func
+
+commit 350437c2a9298d5c41350577fb8f95fce0b0f537
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 15 18:13:24 2017 +0300
+
+    #7: block user input for one second after every command
+
+commit 77e85c88c34f9cb2d7345dc88fcf79407b6c562f
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Sat Jul 15 16:51:47 2017 +0300
+
+    hate: Added 'duration' method to 'scene::Action'
+
+commit 1700c9023146f19571ef64e04d47595db0847794
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 14 23:31:28 2017 +0300
+
+    Updated to rustfmt-nightly v0.1.9
+
+commit f04026f850f52bc5e0dfcac22acedb722913c6bc
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 14 18:01:45 2017 +0300
+
+    #11: hate: Converted 'pub(super) to pub(crate)
+
+commit f0512fdcad5205aa070e550e6f9bf14865d84568
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Fri Jul 14 14:18:05 2017 +0300
+
+    #5: Added basic appveyor.yml
+
+commit 54a8d3f199d0089e9215afbc7aeed0e4065c9122
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 13 16:25:17 2017 +0300
+
+    #6: Moved mods from hate/src/lib.rs into separate files
+
+commit 6380ea14d65ec19df709db25aad5140b9cae4d0e
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Thu Jul 13 12:14:56 2017 +0300
+
+    #3: Added basic travis config
+
+commit 903e18bbe00acbe9b9a555e476c955485c2ddcb9
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 12 13:57:36 2017 +0300
+
+    #1: Readme: added screenshots
+
+commit 374a38726717f4b5f864e0aa5581f3110359a8b6
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 12 12:50:50 2017 +0300
+
+    Added README
+
+commit ace8df421551eca2654a0116f4a3bb96da80abd7
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 12 12:50:17 2017 +0300
+
+    Added .gitignore
+
+commit 7bd3839666df350c0ad5426294639fac03473765
+Author: Andrey Lesnikov <ozkriff@gmail.com>
+Date:   Wed Jul 12 12:42:06 2017 +0300
+
+    Init

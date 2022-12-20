@@ -1,0 +1,2316 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit d612b324a64bfc3f09eacdab31bae722f77daff7
+Author: Eric Cook <eric@simpload.com>
+Date:   Fri Apr 10 12:09:45 2015 -0500
+
+    Make config.example.yml sort of functional out of the box
+
+commit 6c0ef6b63ff77a82b2ed2133f527679f98e99b54
+Merge: 9e7f6dd c5e0eac
+Author: Eric Cook <eric@simpload.com>
+Date:   Sat Jan 24 14:31:14 2015 -0600
+
+    Merge pull request #118 from marccardinal/patch-1
+    
+    Added missing redis requirement
+
+commit c5e0eac1ebb269102dd17107a937b9e646d9f1de
+Author: Marc Vieira-Cardinal <marc.cardinal@gmail.com>
+Date:   Sun Jan 18 19:36:15 2015 -0500
+
+    Added missing redis requirement
+
+commit 9e7f6ddf9c7d7ab711847ad82ff15ac26b87b0c3
+Author: Eric Cook <eric@simpload.com>
+Date:   Fri Jan 9 14:54:39 2015 -0600
+
+    Update config example to include info about setting up profit switching
+
+commit a9638ce0133fcfe42000742b7a65a2f135a082ab
+Author: Eric Cook <eric@simpload.com>
+Date:   Mon Dec 22 18:48:02 2014 -0600
+
+    Adds profit switching jobmanager
+
+commit f8a927a320ebdb18328a151289c1145234d7695a
+Author: Eric Cook <eric@simpload.com>
+Date:   Tue Dec 16 21:11:34 2014 -0600
+
+    Update config example for VTC/lyra2re
+
+commit 7d0cdf7cfc36b469f316706e70d00b0f5250d89b
+Author: Eric Cook <eric@simpload.com>
+Date:   Thu Dec 11 16:16:02 2014 -0600
+
+    Add lyra2re hashing algo
+
+commit dd5f139626098c830f399db224948376aac286be
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Dec 2 14:39:54 2014 -0600
+
+    Add mailing list link
+
+commit ebf173149883a84d38d837af97733397d4995b5f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Dec 1 20:16:20 2014 -0600
+
+    Tag as release
+
+commit 43a2aee2bf01aa58bb354d07b6fe2a24fe4a6392
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Nov 30 03:14:54 2014 -0600
+
+    push jobs significantly less on vardiff
+
+commit c79e642da1a36d98e1337d77185c78a17ed6bc16
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Nov 30 02:45:22 2014 -0600
+
+    Optimize out several debug statements
+
+commit 2ebb219720a928362ba4e47fdda259d547ca80e2
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Nov 28 00:45:31 2014 -0600
+
+    Allow specifying warn and crit levels, and support standard nagios output
+
+commit bd08e7e8d23b3cd0acb09eae1c59beadb11d2d5d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Nov 13 14:56:14 2014 -0600
+
+    Avoid tossing job mappers when the jobmanager is spammy
+
+commit 912b4e7087f60450de814b288d7a9eb607d6fd0d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Nov 13 14:16:52 2014 -0600
+
+    Swap the active jobs before pushing to everyone
+
+commit 9d03541b581549f7d5c7a657c462961f7353a630
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Nov 13 12:21:54 2014 -0600
+
+    Pass the stale job to the reporter...
+
+commit 0fc73bd1c77d0e4f9a32f699cb84629c631741a7
+Author: sbwdlihao <sbwdlihao@gmail.com>
+Date:   Thu Nov 6 11:24:46 2014 +0800
+
+    don't push user_shares to chain_slice when merged
+    
+    well, i'm not very clear about why push user_shares to chain_slice when log merged coin share, it will inflate chain_slice when there are many merged coins
+
+commit a8613cd7fdb43b461afdb09162bf5614346c3b43
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 12 16:04:39 2014 -0600
+
+    Start logging job creation/flush/push events as well
+
+commit 611eeae53a47825783256a4c86a7fc3a63631c50
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 12 15:52:57 2014 -0600
+
+    A few docs corrections.
+
+commit c30a8191122b80ec60505aeac44c577110432c80
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 12 15:51:49 2014 -0600
+
+    Fixes #90 -- seed the stratum client id with unique starting number
+
+commit 18b5a40f8ced4d5a180ed4ba28bd20f95544eb16
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 12 15:50:38 2014 -0600
+
+    Keep around recent stale jobs for reporting
+    
+    Before this patch stale jobs were tossed immediately. This meant we couldn't
+    tell what currency the stale submit was for, which prevented tracking stales by
+    currency.
+
+commit b6865771aa5b044f5ae45385316788e93757eb7b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 12 15:29:12 2014 -0600
+
+    Improve decoupling between components
+    
+    the stratum_server component had to reach in to grab jobs from the jobmanager.
+    Now the job references are stored in the stratum server as they should have
+    been
+
+commit 8c6252f0182ab949efb6fb8827b43d6eea0ebcf5
+Author: Eric Cook <eric@simpload.com>
+Date:   Wed Nov 12 15:12:51 2014 -0600
+
+    Updates config example to include up to date info + better docs. WIP
+    Deletes defaults.yml
+
+commit 4f0e7f71a0ee2565d457ed91612949e229e2a0dc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 12 12:55:13 2014 -0600
+
+    Change to Markdown README
+
+commit 2527c4cfa750e518afc0f5e71485a7ff824e3a2e
+Author: Eric Cook <eric@simpload.com>
+Date:   Mon Nov 10 12:51:01 2014 -0600
+
+    Correct default SHA256 hashes per share
+
+commit 6cf55d6777963954d23a0aa011cee246c7cdfe62
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Nov 8 17:16:20 2014 -0600
+
+    Hopefully fix RTD
+
+commit 9df634b35dee4af1139160a1a32cb7ad5a1c713e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Nov 8 16:40:56 2014 -0600
+
+    Add basic docs
+
+commit 79c76019c351cfbd57eb32b0877066ace7f4390c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Nov 8 16:09:51 2014 -0600
+
+    Default Sphinx setup
+
+commit bd98a1b1119b34a5435855478d733ca582ebcf0c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Nov 8 15:43:24 2014 -0600
+
+    Update version to dev
+
+commit d469ebf1679d4ddef91a1cc84bbfe125d735a9a0
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 5 15:04:44 2014 -0600
+
+    Version bump
+
+commit c81b10cb79725326a1956444ec1c7db0b5dbb502
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Nov 7 14:00:24 2014 -0600
+
+    Adds a really basic check script
+
+commit 93d56335012877a16f48869aa8feb00cb9b67997
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 5 15:24:14 2014 -0600
+
+    Adds latest job information to aux network status
+
+commit bf011668e5b3b50a94091d1064ac19f8fa52f7d6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Nov 5 15:04:44 2014 -0600
+
+    Fix error message printing the wrong component :/
+
+commit 65c20011241301bb1d7fd833d1112a9e061e662d
+Author: Eric Cook <eric@simpload.com>
+Date:   Fri Nov 7 00:11:33 2014 -0600
+
+    Change logging level of a couple things to reduce spam at the INFO level
+
+commit 761eaba204de7148d2b89be8083e9090519c161f
+Author: Eric Cook <eric@simpload.com>
+Date:   Thu Nov 6 20:48:45 2014 -0600
+
+    Updates README.rst with info on how to setup push block notifications instead of polling
+
+commit 551cdc244bc5ad285c4dbc83aeca7c3353bfe33a
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Oct 30 23:25:45 2014 -0500
+
+    Remove old job_mapper values every 10 pushes. Closes #98
+
+commit 28fce5eeb726d8378e89344d1f4478b841eecc91
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 28 10:41:46 2014 -0500
+
+    Start recording the "start" slice index on block data
+
+commit d2e382c4f6869e43e6ed097869c55d5547ff1a74
+Author: Eric Cook <eric@simpload.com>
+Date:   Sun Oct 26 18:59:51 2014 -0500
+
+    Use GBT to determine MN payout enforcement automatically
+
+commit 83eacb0979f72fb06d6eb2a893f7c6eda8f932f6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 25 22:08:50 2014 -0500
+
+    Slightly more helpful output to object dump
+
+commit ad70393db6ed750c6d591b1319b6f183d18a48ea
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 25 21:56:04 2014 -0500
+
+    Handle SIGHUP, and dump objects when requested
+
+commit b22179751b6181e245e7d370a97d40057d687f0b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 25 12:38:28 2014 -0500
+
+    Update to correct version
+
+commit 99cecd79fe4400b4d4f8b030ced7cf56d8a20a01
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 25 12:32:41 2014 -0500
+
+    Adds a sanitized production config example
+
+commit 626df2b93a2dedcae48e88105d296df9a59f75ae
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 25 12:22:27 2014 -0500
+
+    Updates the upstart contrib file to what we actually use in production
+
+commit f26815de2b935437428681f22ef03f53059a81a3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 25 12:21:41 2014 -0500
+
+    Removes unused deploy script code
+
+commit e4ed8febfea3c6799f035af63705d43e5f902b8d
+Author: Eric Cook <eric@simpload.com>
+Date:   Wed Oct 22 23:36:47 2014 -0500
+
+    Allow setting profitability to 0 at a specific blockheight
+
+commit d660603f130474e1e9d3b962f015783c3d1e0691
+Author: Eric Cook <eric@simpload.com>
+Date:   Tue Oct 21 02:53:49 2014 -0500
+
+    Parse manual difficulty arg as a float
+
+commit 4757dac2ffc64fbd536f15d14b67e5611be07f81
+Author: Eric Cook <eric@simpload.com>
+Date:   Mon Oct 20 19:21:41 2014 -0500
+
+    Remove some clutter
+
+commit f8a9537fa24a7088af33ce2788d58729fd92b3ac
+Author: Eric Cook <eric@simpload.com>
+Date:   Mon Oct 20 02:55:15 2014 -0500
+
+    add configurable option to payout Darkcoin masternodes
+
+commit 50ac0b0b2ba348594077d81dd4198a2ed9acc42d
+Author: Eric Cook <eric@simpload.com>
+Date:   Mon Oct 20 02:50:01 2014 -0500
+
+    Updates defaults.yml to properly reflect the default "poll" value
+
+commit 0582a76fc80b4fee93021f249b9ab778de7d1956
+Author: Eric Cook <eric@simpload.com>
+Date:   Fri Oct 17 10:53:35 2014 -0500
+
+    Updates defaults.yml for the fix on #72
+
+commit 10b89c893969717a4329358c8af9b470d9039e65
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 14 23:11:51 2014 -0500
+
+    Oops
+
+commit cda5a0d03ee4b894b904822c5a99439719ae9e24
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 14 22:06:19 2014 -0500
+
+    One more missed spot
+
+commit 0ba803d30edaeb6a5d21e9dc48102dd65c21a2b3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 14 17:21:26 2014 -0500
+
+    Handle missing job condition
+
+commit f620e8dbc857a98d093e3e203758c65c6c2f4440
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 14 16:23:23 2014 -0500
+
+    Actually report one minute shares on close
+    
+    * Also move failed queue items to the back of the queue for retry
+
+commit c9cf879a205b49c7729e94f3a3cc43a788f24441
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 14 15:43:05 2014 -0500
+
+    Fix typo
+
+commit 777c365b2bc3cbf19a8d800cefd570b50874c0b6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 14 15:42:48 2014 -0500
+
+    Closes #88
+    
+    * Port offset can now be specified in config as well as on commandline
+
+commit e91690090143b34cb24c52588d6a140f7d55bfbf
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 14 00:11:04 2014 -0500
+
+    Add some health information about coinservers to jobmanagers
+    
+    * Show number of live and non-live
+    * Show how long it's been connected
+    * Show result of last getinfo call (not hearbeated yet, will be eventually)
+    * Records round trip time for communication with coinserver
+
+commit e3d68729f03cc644fb08fc2c6050c9e27289d068
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 18:43:40 2014 -0500
+
+    Fixes #86 by changing the config values
+
+commit 9956f7d9f92003c69d62d276d03b9695152ae7d9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 18:14:13 2014 -0500
+
+    Fixes #72
+
+commit 679d5d88c79480d1a7714ece08781dfa7ff69186
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 18:10:49 2014 -0500
+
+    Fixes #82
+
+commit c82f463c2f318d8f65a954cfbe35759771c8b71b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 17:51:37 2014 -0500
+
+    Fixes #85
+
+commit e88a087bc6e51e0ee87f8ff348b01aa06fdc90ee
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 17:02:31 2014 -0500
+
+    Default to not sorting or pretty printing for performance
+
+commit 5b3c4df1d970a41c916798eee68c124fbe887f01
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 16:43:15 2014 -0500
+
+    Add reverse proxy X-Script-Name support
+
+commit fa384019494e545cb0bc4f4ccea8d46d602767f4
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 14:51:37 2014 -0500
+
+    Adds convenient links to json statuses in monitor
+
+commit dd5b6a54c905ecc84f7449028ee55c1648538fe5
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 13 14:28:21 2014 -0500
+
+    A bit of cleanup for monitor views
+    
+    * Added a config view for components
+    * Improved debug view to dump a bit more info
+    * Changed client view to be per stratum server
+    * Removed the viewer since it's really out of date now
+    * Use component key instead of object id to produce global status view
+    * Removed share percs from stratum since it's no longer populated
+
+commit e8eeaacd908e41934f49a910029194607b420e88
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Oct 8 22:09:55 2014 -0500
+
+    Adds a blocking detector to sniff out occasional high p95 times
+    
+    * Small fix in double reporter for block submissions
+
+commit 0991a8d5dda4c37dce932dd97eea493afa0e82fc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Oct 8 21:57:31 2014 -0500
+
+    Fix a few typos
+
+commit 4408779e6eed1e3e04f8628aee29e3f56c5d6c3e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 7 18:36:53 2014 -0500
+
+    Add information about the last job sent from the stratum server
+
+commit d1c04b20f86821744891969019ff473765190e44
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 7 18:36:28 2014 -0500
+
+    Adds logging for job generation time and job details
+
+commit b4d32d974511cceb2b8b91e463858e0df13b3da3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Oct 7 16:43:45 2014 -0500
+
+    Adds a UDP control server
+    
+    * RPC UDP packets can now be sent to perform any function on any component
+
+commit 4c021c4efa3b84c3bb74bf2e9775503415a5fbaa
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 6 19:38:34 2014 -0500
+
+    Store latest job as object instead of string
+
+commit ba95d4395a5acdec2f3e66b809e7bf696ea284fc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Oct 6 11:19:14 2014 -0500
+
+    Change job mapping to use actual job objects instead of ID mappings
+
+commit b2c34a8e8f07cc97170a45642e408243db916f24
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Oct 5 16:53:48 2014 -0500
+
+    Fix hashrate accounting for frontend
+
+commit b587a9359241383a51540ceded39ec70d8811e8c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Oct 5 14:28:12 2014 -0500
+
+    Add a requirement for testing
+
+commit bed3e8cb744f01d0ff4e5bf8d0ecd8136e29a69c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 4 23:15:37 2014 -0500
+
+    A few fixes
+
+commit 0f260f6eaf0b5b7c6fcf89dcafcb7e6bda166fd4
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 4 21:19:46 2014 -0500
+
+    Improves stats output a bit
+    
+    * Removes transmission of per-user for banning, needs to be sent to a different instance
+    * Adds logging of submission time and share handling time
+
+commit d4321dc0cb5b300640827bf260ef0cd5a8c325a6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Oct 4 17:33:32 2014 -0500
+
+    Send stats in one packet
+
+commit 42811e850ceec5e796729b7044a3d73a675a3051
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Sep 14 02:11:32 2014 -0500
+
+    Basic event logging setup
+
+commit 3fbbda114e4f960bc1bc6bed4924ff53e0baa5f7
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Oct 1 19:58:25 2014 -0500
+
+    Don't depend on first rpc call not throwing exception
+
+commit 41dd35dd91876abd6f598e15f6036f567a40701a
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Sep 29 21:30:44 2014 -0500
+
+    Add a nice litte warning about python optimize mode.
+
+commit a0837249cddb235815700546f25fbba82b7cdc4a
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Sep 25 21:12:17 2014 -0500
+
+    Update version
+
+commit 331cdc44b7f2cef454f0e1d03b2808c5ca997714
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Sep 24 15:28:44 2014 -0500
+
+    Don't let nested defaults bleed between components
+
+commit 18ac9fc244e2277dcc7e18ac829d3b68e38900d3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Sep 14 02:10:54 2014 -0500
+
+    Catch and don't log get_transactions
+
+commit a88374aa15dccdf61d025a0d6c8beb280fd6158f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Sep 13 22:12:26 2014 -0500
+
+    Only print logging output when flushing or pushing new template.
+    * Flush is also a push
+
+commit 846b944cc5176bfa7578a5d0e2581ba8939d9f98
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Sep 13 22:08:36 2014 -0500
+
+    Yeah... don't push a new job every time we generate one...
+
+commit 75fde27edede9217fbe8fe0c8ff33c0c8600d96c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Sep 13 22:00:50 2014 -0500
+
+    Adds tracking for stale Aux blocks. Removes extra logging
+
+commit 05caa9e11fb8ece91c4e1222e73e814442812c15
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Sep 13 20:11:41 2014 -0500
+
+    Cleans up aux block find to not rely on enable wallet and not make an un-needed call
+
+commit 99a3f374f5a8e5f021ee16763a9c4269ac17fc68
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Sep 13 20:11:18 2014 -0500
+
+    Improves logging of block finds and new work announcements
+
+commit 226dc2e8fdcdef45e051f426d3bf8be3c7eb6dab
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Sep 9 14:28:17 2014 -0500
+
+    Catch non-existent components in monitor
+
+commit 4539df2e61e702a5bd280532247f0610fefbcc08
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Sep 9 02:48:40 2014 -0500
+
+    Fix for power_block_hash
+
+commit 7196781e3fac605a5589f8fb0eeda2ceccfc0ecc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Sep 8 15:47:40 2014 -0500
+
+    Adds trailing slashes to make all urls redirect if needed
+
+commit e5a80ebbd0e3fce1928e006ba04d574a68b3797b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Sep 7 14:27:02 2014 -0500
+
+    Catch a few lingering exceptions
+
+commit 42473a09fc655e1a0ab5afc7959cd5a966e14274
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Sep 6 23:32:44 2014 -0500
+
+    Fixes connection hanging open from greenlet killing itself
+
+commit 1e1963c290e6965db8d2111d8088e5979642ec5e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Sep 6 23:12:14 2014 -0500
+
+    Insert boolean as int since redis stores strings
+
+commit 2cebe5a7c3078cb1fe2cf2b2b164f94b2da581a9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Sep 2 02:19:17 2014 -0500
+
+    Add vardiff capability to the double reporter
+
+commit 2164f200c604053c8556640423302abc616370fa
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Sep 2 02:19:01 2014 -0500
+
+    Slot all the ppagent data
+
+commit bffc6eef0353caf1d446229b393476a547f9d0de
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Sep 1 22:07:49 2014 -0500
+
+    Report for each device... and don't print out junk
+
+commit e99f06f3b1e2ef7e986e598740c93612730a279b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Sep 1 21:50:43 2014 -0500
+
+    Implements basic redis reporter support for ppagent
+
+commit c01de16a32e97b7cb4e0f9ed8fbd2247715f589f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Sep 1 16:47:06 2014 -0500
+
+    Stop printing full JSON dumps from agents...
+
+commit eb60db151066a7bd858a95e96f8993dd1283266f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Sep 1 11:43:06 2014 -0500
+
+    Fix broken main stats view
+
+commit 643bdd8dd72c64bc9011f70bf1a491befc3d6d77
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Sep 1 11:19:13 2014 -0500
+
+    Add component oriented client views.
+
+commit e304c0d85c32a534b8421d44cff41b4be65f5409
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 31 21:30:52 2014 -0500
+
+    Updates example config
+
+commit 9a7af2d4e998c704a93cdd6b81f3d023a49f3753
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 31 20:07:43 2014 -0500
+
+    Change double reporter to use new system
+
+commit 38a28d3034e0bbc284a3cec0543f48dbb4a9a778
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 31 15:29:08 2014 -0500
+
+    Moves configuration to final form, allowing multiple jobmanagers/reporters/stratums etc
+
+commit e7a47b417ba783ca76d9e84071505d1b8244b15e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 30 15:03:11 2014 -0500
+
+    Oops
+
+commit d80f3dff91215c69d7f9642f9a027678238a3dbf
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 30 15:00:10 2014 -0500
+
+    Update dependencies to not install celery by default.
+
+commit d3abce99b04a614b321a1818b88d09b72b8d6936
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 30 14:42:09 2014 -0500
+
+    Load site specific reqs from a req.txt and symlink until we have more utilities
+
+commit 07eb518143f72d1b14d8f6c1aef74688e383a229
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 30 14:30:22 2014 -0500
+
+    Remove invalid escaped newline
+
+commit a57939196dd87a01e3017c6fcd20baaf7b1eb71e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 30 01:51:55 2014 -0500
+
+    Adds a simple hacky reporter that reporters using multiple reporters
+
+commit d1e63f9813ea6fad783c2f64774e9359bcd6143f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 30 00:28:41 2014 -0500
+
+    Set hash before install and don't set editable
+
+commit 52de255520b19fdf074a11bdb69c2616cc1bd14e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 22:54:28 2014 -0500
+
+    Correctly allow and support extranonce 4 and pull nonce sizes from main
+
+commit 92a3ff5535cc329ea186fe93d2a4c5a4afa63d42
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 22:27:25 2014 -0500
+
+    A basic deploy script to build a virtual env
+
+commit e093b2f81223b8cb904f83bec49165cbc33b7efe
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 21:01:18 2014 -0500
+
+    Handle sigterm properly
+
+commit f376fe268695c1cd88d6b4e713935581bf278369
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 20:54:28 2014 -0500
+
+    Fixes broken currency diplay bit
+
+commit 9ca3fe11fa3a9450f27fd6bf288d44ff079f94ec
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 20:52:45 2014 -0500
+
+    Fixes handling failed aux block submission.
+
+commit 7e3fbed1a15c59a50b7e1700ec46457c5c91e4bf
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 18:02:32 2014 -0500
+
+    Record last signal recieved time and last new block time. Add currency name to monitor outputs.
+
+commit 66495e40ed731a20f6df601e0d43be8de5a0803f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 18:01:51 2014 -0500
+
+    Show all components, instead of only one of each type
+
+commit a3bce67de1f4f6a8152109c44e4ccb350374e1d7
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 17:49:55 2014 -0500
+
+    Changes default extranonce to 4 since nicehash doesn't like 8 sometimes?
+
+commit 9f2082febbcbc3789fd25a76b9d42c5eec8ee7e5
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 17:45:43 2014 -0500
+
+    Remove stat counters from default output
+
+commit d1e6ee622e591d78afa265412a25c1ea417f7872
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 16:47:14 2014 -0500
+
+    Removes broken counter data from redis_reporter
+
+commit 69f0ff8c162a1147c1d11415aa7a2037fb3fb057
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 16:45:20 2014 -0500
+
+    Fixes broken aux jobmanger status message
+
+commit bd3fb9cc2b9d9c2b00ab25dcbdf7521884676359
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 16:44:33 2014 -0500
+
+    Moves code out of jobmanager init file
+
+commit a75656c64cbc0875e63a7212764ae1a9eb6a9516
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 16:35:02 2014 -0500
+
+    Don't pull algo information from the job since it might not exist. Fix a few errors assuming job isn't None
+
+commit af1c83d534731c2f97e9af8cd4c06317c602dc8e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 14:16:49 2014 -0500
+
+    Adds an endpoint to view all counters
+
+commit 91733d92183571b130bcc1ced52bac2b9aa8ffea
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 14:16:31 2014 -0500
+
+    Fixes mistake in 0.5 compat api
+
+commit 9c491e980cf1960f795905c30f912008845889b9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 14:16:02 2014 -0500
+
+    Fixes mhps key float issue and adds hps. mhps is deprecated and will be removed.
+
+commit 79936383de14e5307f732342424e83f6243ceb6e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 02:51:41 2014 -0500
+
+    Resolves issues trying to setup block notification listener too early
+
+commit f4f32f9be9a0ba6f0ac176496dc3bd68306f0e58
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Aug 29 02:29:52 2014 -0500
+
+    Several fixes from refactoring AuxMonitor without testing
+
+commit 9cf74f2eae320b54f13625313d4abcaeae127c05
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 23:27:05 2014 -0500
+
+    One more typo...
+
+commit 21cecf5f5550481705e21f65ef53a331b3bfc8f8
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 22:31:22 2014 -0500
+
+    Remove setting name for components, generate instead
+
+commit 3c86b13093ae20a3b5c26b9100d5bf2e3a306a57
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 22:31:02 2014 -0500
+
+    Update agent server to new Component design pattern
+
+commit 1a9a73c5b0f9c70502b64dfc6c38ac69b1ebb775
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 22:30:30 2014 -0500
+
+    Refactor generic client to implement that start and stop functions, and change id -> _id on client.
+
+commit 4c8c34402c1ad289581f07bb9ec521e84de6f5de
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 22:28:56 2014 -0500
+
+    Fix celery reporter add_block compatibility
+
+commit cab82e829a3f2c328828bdf6de87656d81b7e66b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 20:40:19 2014 -0500
+
+    Fix refactor bug in celeryreporter
+
+commit b5cab34b531ca664f57882fd05082bc28e667481
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 20:34:15 2014 -0500
+
+    Sets up a few legacy monitor views and fixes all the status messages
+    * Adds hashes_per_share to information of algos at global level
+    * Moves share counter logging back out of the reporter since reporter will be algo agnostic, it can't give hashrate numbers
+    * Resolves the WSGIServer hanging exit request by setting a handling pool
+
+commit 5d2c0219ace8b0a4cb443099b322c8447399c6bd
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 19:47:07 2014 -0500
+
+    Readd default disabled support for filtering addresses based on address version. Allow configurable donation fallback, since static 'donate' doesn't make much sense...
+
+commit cbe19add1f28122840afedc66422057ee5b57552
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 19:45:52 2014 -0500
+
+    Updated celery reporter work with 0.6 in a legacy support only fashion
+
+commit e2604d409c22d53eaee4c859132b7962537b566b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 19:45:20 2014 -0500
+
+    Abstracted redis reporters queueing structure to QueueStatReporter
+
+commit d404e489ef208dff141653f6149dba5ae4c5a868
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 25 19:43:31 2014 -0500
+
+    Fixes bug causing precise to get set to a string if interval is pulled from config val...
+
+commit 5121f5634138017850f9dadd022aa593737e5b10
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 24 02:30:41 2014 -0500
+
+    Minor fixes for one minute share reporting...
+
+commit f0de7ea4d8bae999ad0459f6ea58ae12870ae357
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 24 00:40:52 2014 -0500
+
+    Adds missed default
+
+commit 07f14c9bf4f732d847744faac79f30b0c55715f1
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 24 00:17:41 2014 -0500
+
+    Requires fixed cryptokit and adds forgoten slice index recording.
+
+commit fbb6194bed1225289b82f22188749d14419e5e16
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 24 00:04:34 2014 -0500
+
+    New slice base redis reporter implementation
+
+commit b43e638e6b02a7126211d055789726204307c3eb
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 23 20:32:50 2014 -0500
+
+    Adds defaults file
+
+commit d8a9e1f3517d8bd9f3e457e845d473f33c8563b1
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 23 20:10:27 2014 -0500
+
+    Adds almost complete example configuration file, along with adjusting some default/required configs as needed.
+
+commit 9c97e38039b154fa07375e41450d46e3dbd72c2b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 23 17:31:58 2014 -0500
+
+    90% of big 0.6 rework complete, ready for more intensive testing
+    
+    Jobmanager
+    ==========
+    * Multi-connection (and all connection management really) functionality has been moved out to a mixin class for use in AuxMonitor as well
+    * Block submission values are now passed back via Greenlet return semantics. This is much cleaner, especially now that the Reporter is doing the submission, then it can easily pass the information to the appropiate add_block call. Also means that the reporter doesn't have to care where the stratum client got the job from...
+    * All new job annoucements are now handled via events. Much cleaner since stratum servers can now subscribe to the jobmanager that they want. Main downside is no ability to partially move clients from one jobmanager to another.
+    * MonitorAuxNetwork finally got reworked to follow new Component semantics. Network data is now pulled by the Jobmanager that want's it, instead of being pushed (messy...)
+    * All actions that require a live connection now wait for a _connected event to prevent spamming RPC connection problems (only logged by _node_monitor).
+    * All calls to RPCs now properly use call_rpc to centrally handle downing connections and raising a single exception
+    
+    Library
+    =======
+    * Added several useful utilities to the loop decorator, allowing setup and teardown functions and exceptions that should exit
+    * Eliminated the default __init__ in Components, introduced too much magin and boilerplate/workarounds...
+    * Moved stat managers there, makes more sense than the monitor file
+    
+    Manager
+    =======
+    * Now supports loading an arbitrary number of Components via a list based configuration file. Each component then has semantics to lookup which components it interfaces with. Allows multiple stratum ports to use multiple jobmanagers in the same process.
+    * Exit procedure now supports multiple SIGINT calls to do immediate shutdown
+    
+    Monitor
+    =======
+    * Has now been reorganized into a class for cleanliness sake. Assumes there's only one of each type of component and shows stats for that component, so support is quite tenuous atm. Still needs work for sure
+    * Most status messages are still broken, so not yet ready for Simplecoin
+    
+    Reporter
+    ========
+    * Several bug fixes, and adaptation to process return values from jobmanagers
+    
+    StratumServer
+    =============
+    * Completely removed concept of stratum manager. Each server is now a discreet component that tracks all it's own stats, etc. Sources that need composites should just ask all servers. This is mostly only needed by stats collection, and can be easily wrapped, so it makes more sense I think.
+    * Concept of donation addresses have been removed. It makes more logical sense to just filter invalid addresses to something and allow the payout processing to determine what to do with invalid addresses (or valid addresses for the wrong currency.) Reduces duplicate configuration info
+    * Server now handles actual pushing of jobs triggered by the jobmanager's evemt
+    * Manages it's own Agent server, although support is still broken
+    
+    StratumClient
+    =============
+    * No real functionality changes, but a lot of tweaks and cleanup. Class now uses two greenlets that get spawned by the Client's start method, and "handle" is run in raw mode by the Gevent Hub which makes much more logical sense flow wise.
+    * A few methods have been inlined, parsing is a bit more resiliant to bad data.
+    * All loops now use @loop deco because of improved functionality
+    * A few useless/superfluous attributes have been eliminated
+    * Shutdown is now handled by a unified `stop` method allowing external callers and internal callers to stop the client in a clean and complete way
+
+commit 33ab1c76d5a80f23aee09148aacb94ba8058b4a0
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Aug 21 01:23:33 2014 -0500
+
+    First half of a codebase wide rework
+    * Moving even more towards a loosely coupled Component architecture in an attempt to make more flexible
+    * A lot of common configuration handling/logging/stats collecting patterns have been moved to a Component object. Instead of inheriting from Greenlet it actually just manages starting and stopping class methods as their own Greenlet. This is because most Components manage several separate threads, and merging them into an overriden Greenlet was cumbersome and messy.
+    * Removed the currently unused client manager (was changing into StratumManager a while ago)
+    * The manager reference was moved to a global, but this was later changed back...
+    * All stat counter references are now held at the component level, although they're still rotated by the managers _tick_stats thread
+    
+    Reporters
+    =========
+    * Pretty much completely reworked reporter flow into heigharical abstraction model. Base `Reporter` handles block submission in it's log_share method and no-ops for all actual logging methods
+    * StatManager collects shares into one minute groupings and calls log_one_minute once the minute has passed. Also tracks shares per address for vardiff, although this might need to change
+    * RedisReporter now follows a pattern that puts a processing Queue on top of the regular report calls. This will likely be abstracted since the queue pattern is useful for many things.
+
+commit 5e623e824bab19ba87ea0ad4360df5bce5824c38
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 18:27:19 2014 -0500
+
+    Eliminate dependency on forked python-bitcoinrpc
+
+commit f8976bc1a1620b4fd518ded3230b9e24b1d17fd6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 17:57:50 2014 -0500
+
+    Fix broken log reporting by adding proper share information.
+
+commit 607fc2fd0df1f7976b9c8f54daad897c534f3bb3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 17:57:23 2014 -0500
+
+    Fix more imports from the move. Rename files to not conflict with pre-existing package names.
+
+commit 4cbba3bcc624753e6d49348ba9c7d38644b214fc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 16:33:27 2014 -0500
+
+    Moved redis reporter to proper home. Fixed imports.
+
+commit cbaa57ffeb8b91bdad36149f6e2c90b62dd05b50
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 30 14:02:17 2014 -0500
+
+    Make simulating profitability a toggleable option
+
+commit d9446bc9d8212bc6bd1b8e387f1100eb26bb2c39
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jul 27 12:44:44 2014 -0500
+
+    A few fixes from the class refactor, don't aggregate regular shares * Quick hack to simulate profitability
+
+commit 72314dc93afdd05bf7c355cf9266dc3dc4816383
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Jul 25 16:44:15 2014 -0500
+
+    Abstracted monkey patches for single network monitor into a proper subclass
+    
+    * Updated params for found block
+    * added a new param for log share to allow logging for merged mining as well
+    * Add offline toggle modes and logic handling
+
+commit 4b0e720547287828d9fd3412f5f69c9be5bcfcad
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jul 20 22:13:37 2014 -0500
+
+    Full naive profit switching
+
+commit 00d057a30b4edc0bc12a2df3fe52679c4d191789
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jul 13 22:53:59 2014 -0500
+
+    Complete basic reporter. Still rough around the edges
+
+commit dd4f3e9c33f1f4662a27f2f38bf02410bb1781e9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 9 19:33:01 2014 -0500
+
+    Initial commit
+
+commit bb954622fb3f17ebe93bd2efce5bffc4715421b0
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 15:54:21 2014 -0500
+
+    Refactor jobmanager and reporter classes into their own subfolders
+
+commit b19192ff3a5d7ce8ed69136727fcb9b364d8b4c2
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 15:19:12 2014 -0500
+
+    Should add support for blake256, although haven't solved any blocks with it. #54
+
+commit c100464ff3de11e3ddefd9cfae57ce1567487793
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 15:14:04 2014 -0500
+
+    Fixed a few merge mistakes and made new algorithms dynamically loadable.
+
+commit a865b4cf5a9d127d25f09bf9a0ee14eed0781f2c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 14:07:07 2014 -0500
+
+    Mentions lack of multi-coinserver support for merge chains
+
+commit 697c568eef831aa66b42cb8ccc4359a11effc55d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 13:55:14 2014 -0500
+
+    Removes experimental code from mainline.
+
+commit f9c6c208a1b45951186fe8bc5e3021593a1a5bef
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 13:54:08 2014 -0500
+
+    Cleans up some phrasing and details on the README
+
+commit 050f1a11938b61a904f5719ddf1609cfda49ab3f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 18 13:47:48 2014 -0500
+
+    Cleans up all requirements to be completely pinned and decently labeled. Removes Powerpool's requirement on future for now.
+
+commit a02cd249a964c2b3fe4ab4066e66ea178dbe77ec
+Author: Eric Cook <eric@simpload.com>
+Date:   Thu Jul 31 21:47:35 2014 -0500
+
+    Allow donate address to be a bitcoin address
+
+commit 378fdfd4e98d44c62adaf74b22c374d79813d1b9
+Author: Eric Cook <eric@simpload.com>
+Date:   Thu Jul 31 21:30:01 2014 -0500
+
+    Fix for allowing mining with bitcoin addresses. BC addresses evaluate to 0
+
+commit d6076caff7628ec4f7085bf6442ab39b5a61d49e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Jul 25 13:43:17 2014 -0500
+
+    Passes the job to log share function to make more context available
+
+commit 48b8c8bc658f923bc5e2566fe0dd27b261b7c6e2
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jul 22 13:35:37 2014 -0500
+
+    More sensible config values
+
+commit ead3bbc298de20c8f0d2d984138dcf6b170b0028
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jul 20 22:13:09 2014 -0500
+
+    Properly pass new_block if polling identifies a new block
+
+commit 03872f9b04643da4f0a22902867599158c08f345
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 16 18:01:26 2014 -0500
+
+    Minor changes to facilitate switching jobmanager
+    
+    Conflicts:
+            powerpool/jobmanager.py
+
+commit ef0d16c7642f4c42e00e12b1e5d9554fd67167b6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Aug 17 16:50:37 2014 -0500
+
+    Fixes bug closing connection when invalid merge mined block is submitted.
+
+commit aa0a648ce34af95d72f93f23d57e63177883ddf9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Aug 16 22:24:48 2014 -0500
+
+    Fixes bad logging on failed submit
+
+commit aea209391200aedd22fa2a6ca95759d8c936ec25
+Merge: a4a26d5 c130645
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Aug 11 15:58:22 2014 -0500
+
+    Merge pull request #55 from patricklodder/config-aux-conserv-fix
+    
+    [minor] fix example config auxpow coinserv param
+
+commit c1306456a05ffbd43356ef959dfe9ccef859b9f1
+Author: Patrick Lodder <patrick.lodder@intellibiz.org>
+Date:   Tue Jul 29 11:21:52 2014 +0200
+
+    Change aux chain coinserv config param name
+    
+    software looks for 'coinservs', example config has those as
+    'coinserv' in jobmanager->merged[]
+
+commit a4a26d51bd0aba50dc5dc6a662e7c6337972e315
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 23 23:15:50 2014 -0500
+
+    Return that we support changing extranone1 on the fly (even though it will never actually happen
+
+commit 355a333255e6833b4653aab03227b548412a62f1
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jul 22 20:34:23 2014 -0500
+
+    Fix stupid issue with failed subit of merged mining block
+
+commit f0cfb118dfcaddbe554e031357dc951cf4e214ea
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jul 22 14:07:21 2014 -0500
+
+    Fix slow main network block submits
+
+commit 3ef44ada153f980819f767b91549552ff6ca7a29
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 16 18:06:12 2014 -0500
+
+    Now recording start to finish speed of block submission
+
+commit 8956df9223868d89d5826696c4c5ca97e704ab36
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jul 10 23:29:16 2014 -0500
+
+    Adds raw tcp data to detailed info for debugging
+
+commit 0cda558eb2b8e6b317fa0317cc6133a9f16c7790
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jul 10 18:36:12 2014 -0500
+
+    v0.5.1 official
+
+commit d661bf6a74f938b67b8c2168688eaa3c4493ad0e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jul 10 18:31:35 2014 -0500
+
+    Adds all config files to ignore
+
+commit 677693c26111adba3f935e5ef4c6cad4a27a40ee
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 9 13:55:06 2014 -0500
+
+    Copy and paste gets me again...
+
+commit e8f921d98095f6de1580ab4eacc7fb0027507b66
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Jul 7 17:55:56 2014 -0500
+
+    Correct kwarg... smh
+
+commit 5f7b4602bac39eed1cdd70a0a755b4c063216d4f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Jul 7 17:37:51 2014 -0500
+
+    Adjust down workers that have a tough time finding first share
+
+commit 772029bfba6db43dd5f926fc3625d8d1df7964bb
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Jul 7 17:20:27 2014 -0500
+
+    Oops
+
+commit d60e0834626350c3c4c2a2e2be279abd5d51b0b5
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Jul 7 17:06:51 2014 -0500
+
+    Adds support for Darkcoin, along with some config cleanups
+
+commit 4f95570a6640f03bde992280841711423c30b4dd
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Jul 7 14:35:21 2014 -0500
+
+    Return proper id values on method or decode errors
+
+commit 56bf565377c22c6bc4950f7b2b999ed3cc71dadb
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jul 6 16:37:10 2014 -0500
+
+    Fix minor manual diff setting issue
+
+commit e1063ebec4e19d555b98b9db3a7d982ade54627c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Jul 4 11:01:51 2014 -0500
+
+    Fixes stratum client bookeeping mistake
+
+commit d062cf3da74e55453a725c2a04aabac784815923
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jul 3 18:37:32 2014 -0500
+
+    Added more details to the summary and status display for client monitor, along with an IP lookup endpoint
+
+commit f9693590e02c53e4c74084788a7a3369272aa27d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 2 22:41:08 2014 -0500
+
+    Somewhat inelegant fix to make vardiff actually adjust after the job push optimizations.
+
+commit 014b555db12f37e715ba837f0c6d6df15b0d0b16
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 2 16:27:50 2014 -0500
+
+    Resolves #49 - error messages for invalid json format are now more descriptive
+
+commit 1e24072989e9e5c1201d4a0ad207373299822301
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 2 16:22:07 2014 -0500
+
+    Resolves #46 - blocks will only ever get logged/recorded once now
+
+commit 4b2d49f816a97056d5617d8db46499c85cbe3986
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jul 2 15:12:33 2014 -0500
+
+    Basic JSON stats viewer
+
+commit 368d6c55b5dc14d59784d0a706b87110eaaccd75
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jul 1 13:44:53 2014 -0500
+
+    Adds an idle connection disconnect setting.
+
+commit 8c23bede47c1cbfcb4aa50a2fc9ee27d5f6d622f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jul 1 12:34:42 2014 -0500
+
+    Adds a bunch of comments and starts recording last solve blockhash
+
+commit 9567adbf9c8d9ed39a75c7d412fb86a027174a2f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 28 17:05:33 2014 -0500
+
+    Update version to be correct
+
+commit fa3dab5a5529e2a9df16dd436c9d9254b7056270
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 28 17:03:36 2014 -0500
+
+    Don't report 0 share entries...
+
+commit 3cc4859958b94a1793e971beabe6c15cef85ca8c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 28 16:37:47 2014 -0500
+
+    Task name typo
+
+commit 53647fd10321369ab6d856ac14a6b99881c89bee
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 28 16:34:06 2014 -0500
+
+    Finished agent server refactor
+
+commit c80a3076729e85117cd783a2672047993351f837
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Jun 27 21:51:36 2014 -0500
+
+    Another stupid interleaving error....
+
+commit 8bc938313c751268d68f88b666214faf18ab3f64
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Jun 27 18:44:32 2014 -0500
+
+    A few more stats fixes, along with what should resolve active worker count problems
+
+commit ada38f8146a6ceaddd4a66242cd5729508196e54
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Jun 27 17:03:14 2014 -0500
+
+    Lots of fixes, including block submission failure fix
+    * Several stat counters weren't getting incremented or set
+    * Block find was relying on non-interleaving code, which is no longer true. Fixed.
+
+commit e34b4384612441f12de325f3fc514577c625e09e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jun 26 21:28:46 2014 -0500
+
+    Aaand another tiny one..
+
+commit 1c8bc4a0e23f6935987953efb3fa8207e1e09642
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jun 26 21:14:49 2014 -0500
+
+    Minor bugfixes
+
+commit 1abc5b1a8dbd335ea3e672c3d0e3f9c37feff6d3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jun 26 18:01:05 2014 -0500
+
+    Fixes typo
+
+commit 845c037c9d05dea7e61eebd7ef82575cc6daa18f
+Author: Eric Cook <eric@simpload.com>
+Date:   Wed Jun 25 01:36:09 2014 -0500
+
+    Fixes duplicate constant declaration
+    Catches one more job id return val
+
+commit 7f8d0daa02359a1c142c019433aa1d87f59384e2
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jun 24 06:24:06 2014 -0500
+
+    Setup logging trap for unhandled exception
+
+commit 4a905d333feba3d212b740474e6550caf62cc705
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jun 17 20:55:04 2014 -0500
+
+    Fixed a few bugs in Auxchain code
+
+commit 7d428c8d133ece0796b5db3070dc95a4e5b272f8
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jun 15 21:04:30 2014 -0500
+
+    Removes portion that seems to hang exit occasionally.
+
+commit bb2a3a3683b353dad97a83e7f85464d64c8e534d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jun 15 09:21:28 2014 -0500
+
+    Fix some configuration mismatches
+
+commit 64037559785127f203bc9622fbfd860e6ecd00d6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jun 15 08:36:14 2014 -0500
+
+    README update
+
+commit 3c0788ef920cdf586fe23588b54085addfb476a7
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jun 15 08:08:14 2014 -0500
+
+    Redo the config example to match 0.5 configuration style.
+
+commit f2940bb84ada7447e6b97945e38b94cf41728a0d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jun 15 07:22:12 2014 -0500
+
+    Return proper message ids on reject notices. Possible resolution to #35
+
+commit 3b93c4c3266ed92b28f5be68b02de09d4c3de5b3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jun 15 07:06:05 2014 -0500
+
+    Refinement of job pushing conservation
+    * Jobs will get pushed for keepalive only when a new job actually hasn't been sent for x seconds, rather than every x seconds
+    * Since pushed jobs from new block notifs don't push new difficulty adjustments then a pending diff adj will shortcircuit timeout block notif. This actually needs to be improved since a 20 sps sender won't ever trip the timeout, thus difficulty adjustments won't get sent
+    * Jobs never get double pushed now, just ignored if requested to be double sent (except for timeout reqs...)
+
+commit a9eab9537ba69461c4d8661f134adf71c6943ad4
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Jun 15 05:04:45 2014 -0500
+
+    Adds support for validating address versions. Resolves #45
+
+commit 690895058d9fd3b66af4c5a5074955d8fcd14b38
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 14 22:25:18 2014 -0500
+
+    Fixes problem with providing invalid username, adds support for idle worker status
+
+commit 37f05068ab9ec3a1100cc98778adb001d685e581
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 14 21:44:00 2014 -0500
+
+    Added a lot more stat counters to various mondules and improved status return format
+
+commit 9017ed32322b87a1656cdeb24dcd42e14865ac8f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 14 18:10:00 2014 -0500
+
+    Rework StatCounters, flush reporter queues on shutdown, a few bugs
+    * Stat counters are now more precise and require less scheduling. Also, a one minute stat counter is the new default since second precision is usually not needed at all
+    * Fixed a few startup race condition bugs, along with a divide by zero stat calc
+    * Added proper flushing of aggregated stats and reporter queues on shutdown request
+    
+    Almost ready for RC testing
+
+commit 738885861c49a1fc64ef4103d334123fc81be754
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Jun 11 19:09:40 2014 -0500
+
+    Migrated most of the old monitoring stats server, and fixed a few bugs
+    * Push block notifications didn't flush jobs
+    * Most main components now render their own status, and monitor just asks for a rendered status dict from them
+    * Monitor now makes use of LocalProxy for convenience and brevity
+    * WSGI logging is now rerouted through a proper logger
+
+commit 67d9ffb1d0c5fe7874cb21881b7a060df544de90
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jun 10 18:41:52 2014 -0500
+
+    Fixes block poller spawning and killing bugs:
+
+commit aad31a1f1043a400286bf8425de08b5925f436a3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jun 10 00:36:41 2014 -0500
+
+    ~15x speedup on pusing new work from a block to users, along with minor fixes
+    * Fixed an import loop from central powerpool module
+    * Heavy code reduction and optimization in method of transmitting new block to clients
+    * Moved the "manager" file to be called "main" which makes a bit more sense
+    * Added some profiling utils
+    * Added a direct entry point for running with -OO for optimal speed
+
+commit a09949ebddc4b2a7b77fd3ad9306b15d84f2f0fb
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jun 10 00:36:22 2014 -0500
+
+    Internal bridge replacement for regular jobmanager, using zeromq. Will work in conjunction with the standalone jobmanager
+
+commit 64ea403392915df66ae3a804b89d16703abd6b20
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jun 10 00:35:00 2014 -0500
+
+    Finishes out implementation of push block notifications for main chain.
+    
+    * Separates out polling block height from generating new jobs periodically
+    * Toggles block polling when using push block notifications
+
+commit d50d304b48dcf0ce03e6809b0a6f1b9a3478146a
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Jun 10 00:31:42 2014 -0500
+
+    Adds a rough (non-working) outline of the ZeroMQ jobmanager bridge for external job management
+
+commit 48d041ab2c1153fbad43e7a8e1ece511e9b3997b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Jun 7 19:21:32 2014 -0500
+
+    Moving block sumbission to the jobmanager section
+
+commit 6e8e727731a60280f2c931f5dcc81b9765a72033
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jun 5 19:35:46 2014 -0500
+
+    More corrections and tweaks to get vardiff and reporting to celery properly working
+
+commit f090991c5604049ded136dee87b59cec9be19f37
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jun 5 16:18:19 2014 -0500
+
+    More fixes from big refactor, stratum client loop now basically functional
+    * Shutdown now occurs cleanly
+    * Reporter now spawn separate greenlet for reporter (oops)
+    * Trackers now get created on demand and flushed after an expiry time
+
+commit c44a0f32e70c8830ae58e54744ab846ef9e75abc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jun 5 02:16:56 2014 -0500
+
+    Closer to actually working after the large refactor
+    
+    * loggers now register themselves to allow more dynamic (and specific) logger names
+    * beginning of stratum client main body rework
+
+commit 6d44f77f326112f728eb4562a3a10e0241996f14
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Jun 5 00:56:04 2014 -0500
+
+    More massiv reworks across the whole codebase
+    
+    * Moved from a central configuration to module based configuration, each module implementing it's own defaults, etc
+    * Reworked the configuration schema significantly, but haven't updated the example
+    * Renamed netmon -> jobmanager
+    * Setup the jobmanager and reporter module to use dynamic module loading
+    * Moved share aggregation and accounting to the reporter instead of the lut manager (now StratumManager)
+    * Added a StratumManager that is responsible for starting stratum servers and agent servers
+    * Moved most logging of starting/closing to the module, instead of the manager
+    * removed the statmanager and built it in as a simple greenlet on the powerpool singleton
+
+commit 2f3b30b26a0e68ee0231d209edd25ad23b52ea5b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat May 31 02:52:51 2014 -0500
+
+    Started writing a simple fuzz tester to test integration with ppreporter. Fixed a few bugs with inital running
+
+commit fb5ac1e1a06df40fa1c90beb0bdbab99e8295c25
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri May 30 22:55:03 2014 -0500
+
+    First draft of a client manager that handles share logging separately from clients. Allows for batching of shares per-address and per-worker instead of per-connection.
+
+commit e1094827299e1bd88eb35e46eb899d3ef12365ce
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri May 30 00:48:20 2014 -0500
+
+    Cleaned up RPC message semantics for network monitors and added defaults for aux monitor configuration. Setup signal based new work notification for aux network chain
+
+commit b93e17d0c3f7dcb8c6a4be7ca3ee21e1adfd2244
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu May 29 21:48:44 2014 -0500
+
+    Second half of the massive refactor for 0.5. Everything is basically functional, although a lot of refinement to go
+
+commit af9b37afc7e6010086a4552480243d9ec6a7aca2
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 28 23:12:56 2014 -0500
+
+    Quick proof of concept for signal driven block notifications
+
+commit 66f5754af9c515c16d0b9af2190953c3a67b2494
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 28 20:58:37 2014 -0500
+
+    Half way done migrating the main data structures as a singleton
+
+commit a0cae3e098ad75f61eaeb6f056d8b981422a4c2f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu May 29 00:22:08 2014 -0500
+
+    Fix for stupid 2.7 float issues
+
+commit f94e7800d8078c665020bad0786a1f948465cb86
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 28 23:55:59 2014 -0500
+
+    A couple stats improvements and re-add of time jitter on share submission checks
+    
+    * Jitter is now subtracted when comparing last_graph_submit to current time instead of changing last graph submit
+    * Stale, duplicate, and low diff percentages are now shown in main stats
+    * User hashrate is now correct, and labeled to help show scale
+    * User share acceptance counts are now corrected
+
+commit 38b55edf98709f75769b66bd52d244ee3d30dd42
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 28 19:05:25 2014 -0500
+
+    Try to sniff out potential over-reporting of shares edge case
+
+commit 2d36c46790e48637dee45b3e3113a00fac7faada
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 28 21:04:02 2014 -0500
+
+    Trial for the share over-report fix
+
+commit 4563d6c3302153b7f320be15b08d0d0f28c39346
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun May 25 14:08:44 2014 -0500
+
+    Adds a process title for the daemon
+
+commit 3bcdcbc5c8971a584f7e2f8b3223ebb66173e347
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun May 25 13:26:45 2014 -0500
+
+    Version bump
+
+commit 0b726ade9d797a07e54d79ec55a0e968044399dc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 21 23:42:51 2014 -0500
+
+    Adds more detailed statistics about successfully submitted blocks, rejects, and fixes a blockheight mismatch bug
+
+commit c3ffaf772d1892ddfb2aaca4fb040aae51683db8
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 21 23:40:46 2014 -0500
+
+    Removing caching of transactions in flawed manner should resolve failed block submits from "Input missing/spent"
+
+commit f04cf06d6a352d07443c39f14b3c85f42cb9b7d9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu May 15 23:38:43 2014 -0500
+
+    Catch another minor edge case
+
+commit 46c40999df5a3a67317eb87c0587dcd016dd4f75
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu May 15 23:29:26 2014 -0500
+
+    Fix minor edge case in connection area, switch around monitor view rendering a bit
+
+commit 105a27872db0560397dac6103318324402832a0a
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu May 15 23:12:15 2014 -0500
+
+    Adds timing jitter to several common actions to offset CPU load.
+
+commit f1abd55d18a55d2e781ae0cf5baf682cd2f8a397
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 14 01:35:12 2014 -0500
+
+    Shores up a few more edge cases that caused dangling connections
+
+commit 71ee29006332e21959dfe261fee81c6658317738
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 14 01:02:26 2014 -0500
+
+    Fixes minor bug when disabling block notifications
+
+commit 71bb3aaddc91fdb3ecbe261c1df186b6ab55298b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun May 11 19:41:44 2014 -0500
+
+    Fixes incorrect installation of 0.12.0 of future.
+
+commit 8fa81d74f7b51d71939e424ddd415edc59886f4f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun May 11 18:23:47 2014 -0500
+
+    Minor bugfixes
+    * Add ntime to the key used to identify duplicate shares, preventing some false positives
+    * Properly terminate socket connections by closing the file wrapper as well as socket...
+    * Don't throw exceptions is GBT doesn't support submitblock...
+
+commit 822bc8c2ed0f9b7997863aa5871ecfcb583046c1
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu May 8 00:32:33 2014 -0500
+
+    Fixes a few bugs and general cleanup
+    * Transactions are not cleared when pushing blocks, this was a bad copy and paste bug
+    * Locks are instated for extra safety. Make generating jobs and updating block template exclusive operations
+    * Fix for mm_later being None and crashing with no merged coins
+    * Fees are now calculated at block template building stage, not at job generation. Avoids mismatch between fees
+    * Work restarts for aux blocks are now handled properly. Job updates are different than new blocks...
+
+commit 754bcbd9d982c20edc0738f6dd8bcae3f46cdb2a
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 7 13:46:44 2014 -0500
+
+    Reduce our massive log files...
+
+commit 683c4265b421182b740472a8044dc9edfae36a0e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed May 7 01:30:34 2014 -0500
+
+    Initial support added. Still needs cleanup
+
+commit 45087a5ed851a1b468e2134396ccbaf43ac6cf52
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun May 4 18:19:21 2014 -0500
+
+    Oops... That's embarassing
+
+commit 038ffaeb50a2d79cefa028f455af92afb13f54be
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun May 4 18:07:09 2014 -0500
+
+    A likely fix for #29 -- connections not getting completely closed out and stuck in CLOSE_WAIT
+
+commit 4b83ae6845e24484feb5886ed1560d408db400e6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat May 3 19:42:40 2014 -0500
+
+    Fixes incorrect reporting of new merge mined blocks total value
+
+commit 9dc442a66489b89e276825f0af8198a249292920
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat May 3 15:00:39 2014 -0500
+
+    Remove some unused code
+
+commit 7447da6934137775054d2d3ef10f5fee2e93964f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat May 3 03:18:52 2014 -0500
+
+    Properly supplies correct information to celery
+
+commit a7518db7805e8e6c43638c77af04e44bdf45175e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri May 2 20:47:54 2014 -0500
+
+    Adds error catching for connection to aux rpc and absense of mm data
+
+commit b2e8c17792dc0bb9c5046d1ab202bf5e277aa11e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri May 2 20:15:28 2014 -0500
+
+    Iniital working version
+
+commit 603d5618397c9d4029146655a3db01cf8460f476
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu May 1 19:06:40 2014 -0500
+
+    Fixes handling closed connections gracefully for agent disconnects.
+
+commit 76f179d9477205058e0ab1c93c60fef764581b34
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Apr 30 12:30:40 2014 -0500
+
+    Changed default from simplecoin -> celery to avoid duplicate queue problem.
+
+commit e84a447a609628239295bdb64170e7a7de61ccf6
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Apr 30 12:26:47 2014 -0500
+
+    Don't fail if we can't close socket.
+
+commit 0445fdc3936f0cbe4c95ae2320ae9f01a69807b9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Apr 29 23:36:06 2014 -0500
+
+    Add support for getblocktemplate submitblock method. Pretty sloppy, definitely could be improved.
+
+commit 111ddf3157265dc3dc3831a013c98da040844293
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Apr 28 21:47:56 2014 -0500
+
+    Fix for #24 -- file descriptors for sockets were getting left open
+
+commit 9398b2557a7d7b1598fd857f55b7e095efb0c112
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Apr 28 21:35:00 2014 -0500
+
+    Fixes #9 -- add ability to disable new_block notifications
+
+commit 09b5e965e6bb4dbc6c538be8df3ff5d2bbe9d668
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Apr 28 21:31:26 2014 -0500
+
+    Fix for #23 -- only push jobs to authed workers
+
+commit d108ea64b089fd8a6fae44225fddf2a32cb0d990
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Apr 28 21:09:11 2014 -0500
+
+    Allow server to be properly restarted with  without losing any data
+
+commit 1e91c450b5bdb6e169538142bcd8774fdc9788bb
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Apr 28 20:39:09 2014 -0500
+
+    Fixes logging of shares upon term
+
+commit 955635945f6c08fca4f179d7d9d460e585bcacd8
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Apr 13 08:33:59 2014 -0500
+
+    Added darkcoin pow as an option
+
+commit 90de8443cd64b3641e8c6b3ce2f1b77bb4e3ed6d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Apr 24 17:17:17 2014 -0500
+
+    Adds a fix that should fix the low diff share problem.
+
+commit 1d9d47ce576f3d36524eee4c2186e25b6a5d47d9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Apr 2 22:36:47 2014 -0500
+
+    Oops, don't divide ideal diff by mins twice...
+
+commit 91f814588415a6d1244390ab8cd033aa137ae54e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Apr 2 22:14:13 2014 -0500
+
+    Vardiff trail #2 -- much accurate, very improved
+    
+    Conflicts:
+            powerpool/stratum_server.py
+
+commit ad0bdd84efa1da159ebca8e25821fa3a67d1d10f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Apr 6 23:54:16 2014 -0500
+
+    A bit more logging...
+
+commit 0680fdb51ecf295f0e5ba8d2e2442c5d653c864d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Apr 6 23:44:35 2014 -0500
+
+    Added more logging for invalid commands sent
+
+commit 1c5494abe0d3712b0b3eb3f698b0417e81002150
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Apr 6 02:47:57 2014 -0500
+
+    Added a logging message for authentication requests
+
+commit 95c24945f451e656c764627aec64a9339c32219c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Mar 28 01:36:46 2014 -0500
+
+    Quick hack to disable transactions.
+
+commit 8ef4698f937f09aaf69a5967ad84c6b4822046ea
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Mar 31 23:48:15 2014 -0500
+
+    Add increased file descriptor limit to upstart example
+
+commit 8dc49ae55a6bb69ccdfb20a721bb9f508976d9f1
+Author: Eric Cook <eric@simpload.com>
+Date:   Fri Mar 28 18:05:53 2014 -0500
+
+    adds regex matching to try and replace spaces and special chars with dashes
+
+commit 14d3e564242868594e5a1ac9749e5a80779d53a4
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Mar 28 15:35:59 2014 -0500
+
+    Version bump
+
+commit 6bc84697a0358e9d96d82b2e2090220d7f204e31
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Mar 28 01:36:10 2014 -0500
+
+    Bugfix for rpc disconnect function
+
+commit 97decee66026f725d67ad6420e4534ae6d865f30
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 27 20:00:07 2014 -0500
+
+    Two minor hotfixes
+
+commit 188602e518d77d20e77344fc5407162971a28f57
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 27 19:28:08 2014 -0500
+
+    Added a sleep and alert message to block sumission retry. Paranoid try except
+
+commit ff7e2bce5465bfc0014e1e0302a502e0e0efc5fe
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 27 17:55:04 2014 -0500
+
+    Added a bit of logging for agent recieve on level INFO
+
+commit 7bd702eb0615a584f3c35f1b8644ae15a4741121
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 27 17:07:19 2014 -0500
+
+    Complete rework of the RPC connection management. Includes priorities for selecting an active polling RPC for GBT. Submits new blocks to all RPCs using separate greenlets in case retries pause for a while. Connections going down is caused by a failed poll, not by connection monitor setting to down.
+
+commit 3b9f3e6e45844a58ce81b6b0ee359df15ee1a095
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Mar 25 20:28:01 2014 -0500
+
+    Changed default start_difficulty to a more reasonable number. Added a maxsize default of 10 for each connection pool for conservers (default was 1?).
+
+commit 64ffcc208c28b01506fe865348f67edb84a195dd
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Mar 25 19:21:29 2014 -0500
+
+    More tweaks. Added a default queue that matches reference simplecoin implementation.
+
+commit 0006e1fc78123db642ba94d418eeac03a2cc050f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Mar 24 23:40:48 2014 -0500
+
+    Altered log levels to make a bit more sense. Added a lot more logging around the block submission area. Added retries to block submission
+
+commit efe7fcc47574c61831c9474f0f9b2c3a752dbe11
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Mar 24 22:44:12 2014 -0500
+
+    Completed functional vardiff implementation. Could still use some tweaking on interval mechanics
+
+commit 02ad5737983081d7ef463629947ffe8588f1b3b8
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 20 23:56:11 2014 -0500
+
+    Part way through porting stratum implementation
+    
+    Conflicts:
+    
+            powerpool/stratum_server.py
+
+commit f08a1e02f53b41e53710adfaac8df9ce8daeaf1c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Mar 23 20:25:00 2014 -0500
+
+    Added basic pow switching ability.
+
+commit 8c0de6b4deb4b5c68e48d2296c04773f401e6b47
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Mar 19 20:03:45 2014 -0500
+
+    Fix typo
+
+commit 799fce0fd7fc09906fedad32f6f54c658721ba19
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Mar 19 19:53:36 2014 -0500
+
+    Changed over AgentServer to pattern after the new StratumServer
+    
+    * Fixed disconnect bugs with the StratumServer
+
+commit 68dd552f91b20708482de361a57018464ab3650e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Mar 19 14:55:30 2014 -0500
+
+    Bug squashing on the refactor. Everything seems to be stable and operational now. Further testing need obviously...
+
+commit 60ab89cc98472ce97e783820eff45109ffd3e924
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Mar 19 11:47:30 2014 -0500
+
+    Added git link for cryptokit. Fixed share flushing on disconnect.
+
+commit 44391b4c578f3ff4a4c8d7efebe189806cf71e76
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Mar 19 11:33:53 2014 -0500
+
+    Fixed timeout problem on agent_client
+
+commit b9a4d6415027075169c8f2fc93fd0443015078b8
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Mar 19 11:23:04 2014 -0500
+
+    Completely refactored the client area from a single function closure with a single async loop to a Client class with a separate read and write loop.
+
+commit 98cc65eb7f5c56d8f50e2230f525ff029cb6b6f9
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Mar 19 15:17:50 2014 -0500
+
+    Added some basic getting started docs and an upstart config file
+
+commit d5aa17369e59880537e7adc14cf232f2e1c4775c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Mar 16 14:36:47 2014 -0500
+
+    Added threshold as a default accepted type
+
+commit e85192701353ffa65458eea25c1d43efe94841ba
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Mar 17 15:36:13 2014 -0500
+
+    Fixes #17 -- connection time now added
+
+commit 454b83cc6a715f8291499219e71a94a744fdfeb0
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Mar 14 10:51:10 2014 -0500
+
+    Removed no longer needed requirements
+
+commit 65dc018822e6da202d679fae5fa5b35c7e694d58
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Mar 9 16:45:30 2014 -0500
+
+    Fixed stupid name error for no worker being specified
+
+commit 0a34dfbbbc40e942dedd042fae490df143218ecd
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Mar 9 14:28:26 2014 -0500
+
+    Changed accepting data from agents slightly to forward to one task after a basic valid type check
+
+commit e7ca3d1dfc1a023700794b91acc8ed24fd45478c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Mar 9 12:35:10 2014 -0500
+
+    Refactored monitor_config and agent_config to omit unneeded config
+    Changed default celery to omit simpledoge
+    Adjusted all params from powerpool agent to take a timestamp as well
+
+commit 1816879d2f83a78b42c24a17f5418728daea434f
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Mar 8 19:57:51 2014 -0600
+
+    Removed arbitrary connection limit, and accidental print..
+
+commit bfb05ae85bb58089294e6c2ded62c61f323598fb
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Mar 8 19:34:56 2014 -0600
+
+    Added much more powerful statistical collection
+    Added several monitor sections to allow viewing of server statistics
+    Built out a helper class to managing stats and reporting them to the server
+    Setup an address based LUT to find clients by their mining address easier
+
+commit 43be1882bb9429b125491b80ffeab027655e684c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Mar 8 11:46:54 2014 -0600
+
+    Fixed some minor bugs in the agent loop
+
+commit 8d81974c32e03698b800a1c328bb9fec21ffac98
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Mar 7 22:54:52 2014 -0600
+
+    Completed a basic agent server to connect with ppagent
+    
+    * Changed default stratum address to 0.0.0.0
+    * Added default agent server configs
+    * Added calls to setup the stratum worker LUT
+    * Added actual thread runner section for AgentServer
+
+commit 4803e2f16f677f78551dac317ec5473d1425a1aa
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 6 21:23:49 2014 -0600
+
+    Abstracted username parsing to the stream server
+
+commit 0625e8a16c98d3b5c84c1e3753e5d1a5ada337fc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 6 21:11:26 2014 -0600
+
+    Changed the stats_config to monitor_config since the the http server is now called monitor thread
+    Thread exit now properly announces its exit
+    Added logger name to default formatter
+
+commit 5b34a653d7bbd3e26df712ae40b02abac0831013
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 6 20:20:05 2014 -0600
+
+    A lot of refactoring that needed to happend for a while. Much more logically organized, ready for 0.2
+    
+    * Example config now has all defaults commented out, as per standard
+    * Abstracted basic stream server actions to a GenericServer class.
+    * Changed configuration to not require importing simpledoge. Celery task prefix is now a configurable value
+    * Added recursive dictionary overriding for changing single default values on dictionary config settings
+    * Split out Flask monitoring thread from statistics rotater. Flask is now disableable
+    * Renamed server_states -> stratum_clients since it is more specific, makes more sense
+    * Added a server_state object that carries global health information, as opposed to putting it in the net_state object
+    * Setup celery as another top level data object that gets passed to worker threads
+    * Difficulty is now stored in client state object to prepare for vardiff implementation instead of net_state which didn't make any sense
+    * A few more startup check were added to make it tougher to shoot yourself
+
+commit e31a5f21239763817f916ebb21ce2fe17bec28a3
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 6 13:26:47 2014 -0600
+
+    Completed reporting of bad shares in addition to valid shares. Added a fair bit of commenting to the main server loop for clarity.
+
+commit d88dd885d513c4507fc9d32e3156983ccd68b2ac
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Thu Mar 6 10:15:43 2014 -0600
+
+    Added worker reporting
+
+commit 0d895e56618911afecaffa229cf6b3516e0eb07e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Mar 3 16:57:44 2014 -0600
+
+    Bugfix where certain addresses will cause failure to connect from exception
+
+commit b9f2093a9d5bb67cd552ebfd21d1de43ea8aa0fd
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Fri Feb 28 20:17:47 2014 -0600
+
+    Added alias ability to let users send their hashing power to specific funds
+
+commit af7f5ab0d4bf56ba9d1ed8d6203be5672114c262
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Feb 25 23:46:29 2014 -0600
+
+    Improved README a bit
+
+commit a00c243008afa7df70e4015feadfc55e82bdd466
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 24 23:11:55 2014 -0600
+
+    Fixed bug, last commit wasn't quite right
+
+commit 25fd4273dbd77fb2dc0c1cc247656349735693fc
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 24 22:54:43 2014 -0600
+
+    Added additional arguments to the new_block call
+
+commit 06e3ca74f057fa1eb8fbfb5130931243b6337f3e
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 24 13:21:48 2014 -0600
+
+    Added backlink to mining pool
+
+commit 897548dcf38ebfd27abf7982417a5dcc37d133f1
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 24 13:20:04 2014 -0600
+
+    Create LICENSE
+
+commit 270f95894f7bee39a4f3b9dc7d33a55392efb45d
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 24 13:19:15 2014 -0600
+
+    Remove old README.md...:
+
+commit f8f1c39d8a3a52cb9443d079d5c8df68c5916c5c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 24 13:18:48 2014 -0600
+
+    Added a basic readme
+
+commit 565925ceafaeff55aa6ef65ffec01b2aeb8b9b54
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 24 13:08:03 2014 -0600
+
+    Added a push job timeout of 30 seconds
+
+commit c4dd96b1f8ccadc25e89fdf69a02ce6be47db113
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Feb 23 18:21:20 2014 -0600
+
+    Improved cpu percent calculator
+
+commit 41c66c9f8ef4028f22f25a6bcafa5fba77099491
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sun Feb 23 17:39:08 2014 -0600
+
+    Added stat endpoint for checking server health
+
+commit c9a705241f79aa1c7f06cc3690f66abb66980649
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 22 18:44:02 2014 -0600
+
+    Changed hash checking to now calc scrypt hash twice
+
+commit 40f231743da133d915f9bdaea865abf0b3fde910
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 22 17:54:09 2014 -0600
+
+    Moved sleep intervals to configurable values
+
+commit 4314b0f881e0c96f95cee7ef85cc77036db6a40b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 22 16:07:47 2014 -0600
+
+    Fixed block height recording bug, adding recording of the block hash
+
+commit 92536f036a04ec55db95fb22aee0299d96b67b0b
+Author: Eric Cook <eric@simpload.com>
+Date:   Sat Feb 22 21:28:17 2014 +0000
+
+    Remove accidental code commit
+
+commit ea409addefa3a7386d9ff038c93f6aa9f2ddb73b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 22 15:26:43 2014 -0600
+
+    Added minute share reporting for whole pool server
+
+commit 91e0b05b6da7929f18545555418967a17145c01b
+Author: Eric Cook <eric@simpload.com>
+Date:   Sat Feb 22 21:24:28 2014 +0000
+
+    Adds checking for duplicate share submission - tested
+
+commit 469aa426bf84931c991b74499890ee1b196a694c
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 22 13:54:22 2014 -0600
+
+    Fixed #6 -- donate address used for invalid peer usernames
+
+commit 8520138fd5dc570042a73fa1f0bbb25aff046780
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 22 13:53:09 2014 -0600
+
+    Fixes #4 -- CannotSendRequest now caught as down server state
+
+commit 2de6d7781065654197cfd1989cc326415a968083
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 22 10:26:01 2014 -0600
+
+    Fixed import mistake caused by globally installed package
+    Added task initialization for new_block call
+    Changed the keep alive to a more appropriate setting
+    Changed id to increment by one, no need to inc by 2
+
+commit 3869566c95a6dc2a0363a5237fbdd5e18ff7e6d7
+Author: Eric Cook <eric@simpload.com>
+Date:   Sat Feb 22 02:33:41 2014 +0000
+
+    Ensures valid pool + donation address
+    Closes #2
+
+commit a4a8019be0f0e7b267e732cbee1e4eeec19a71cd
+Author: Eric Cook <eric@simpload.com>
+Date:   Fri Feb 21 23:20:35 2014 +0000
+
+    Changes netmon to check for new blocks 5x per second
+    Checks for new transactions only ever 15 seconds
+    Adds default celery config var
+    Adds several requirements
+
+commit 9d94e4d271bb57f0b26c954cced787e4cca75662
+Author: Eric Cook <eric@simpload.com>
+Date:   Thu Feb 20 20:28:16 2014 +0000
+
+    Changed a few logging levels and adding some helpful logging messages
+
+commit 388bd48b32d613bbb72df432572277c594c79d7b
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Feb 19 20:37:35 2014 -0600
+
+    Changed logging to use native Python logging instead. Added reporting shares at minute intervals
+    
+    * Added configuration options for setting up builtin handlers for logging
+    * Added a deque for last 60 seconds of shares added for entire server
+    * Added a WSGI thread with basic internal structure access via JSON
+    * Cleaned up nesting on the submit share section
+    * Added a structure to track last 10 minutes of share submits for a single client in prep for vardiff support
+
+commit 0f4d4abd9f28bc55e9364174e929475851c11d02
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Feb 19 09:30:58 2014 -0600
+
+    Moved network monitor and gevent server into their own system threads for multicore use. Also got block reporting working properly.
+    
+    * Setup to properly respond to SIGINT with a configurable termination timeout
+    * Standard of two sigints tells it to exit immediately (convenient for command line testing...)
+    
+    * Moved block submission directly into stratum clients for simplicity and speed
+    * Instead of ignoring empty messages errors are sent forcing a disconnect with dead client. Sure this could be done better, but works for now
+
+commit 8a3dd14bf3f91c8cb58c9045131f4f07ff2c0202
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 17 15:57:18 2014 -0600
+
+    General cleanup of the stratum server section
+    
+    * Added some comments
+    * pushed new job with flush upon new block event, instead of ignoreing
+    * Moved authenticate and subscribe to their own functions
+    * Added a logging section for unrecognized commands
+    
+    * added some logging hooks
+
+commit d9a490bfa3d53fce0fc466050c9dd0e874612960
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 17 15:37:48 2014 -0600
+
+    Added an example config with comments, tossed a few things from defaults in module
+
+commit 0366839f09a299b30da31770074220b166e9b865
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 17 14:11:28 2014 -0600
+
+    Create README.md
+
+commit 3d9dbce27c28e4a5745453cf08d9a802f8871ff0
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Mon Feb 17 14:02:09 2014 -0600
+
+    Got share submission working.
+    
+    * Added config to ignore file
+    * Added definition of diff1 to config file
+    * Changed GBT call to include hex bits by specifying capabilities
+    * Several minor bugs with job assembly
+    * Lots of helpful debugging to track down hash problems
+    * Complete job submission code
+    * A few boundary checks in the main client loop
+
+commit b41e2aa9151f49ea92d592bdce2d4eb2d02e3796
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Wed Feb 12 17:02:05 2014 -0600
+
+    Moved coinserv declaration to config
+    Fixed minor bug in job generation, not quite right yet.
+    added unhandled excpetion handler to main netmon loop
+
+commit 232c2f661af9d7b95b6e8d2f350c38eaa8b15cf5
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Feb 11 13:06:48 2014 -0600
+
+    Fixed some minor bugs, started testing with cgminer
+
+commit bf6b650f84470417c043fe00760b2ed9b38b4633
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Tue Feb 11 12:01:29 2014 -0600
+
+    Heavy development still, tons more changes.
+    
+    * Changed logger to handle exceptions
+    * added tons of config and net state variables
+    * Wrote main stratum messages
+
+commit a5b57087d149cfec36f959c02802b753377997c4
+Author: Isaac Cook <isaac@simpload.com>
+Date:   Sat Feb 8 23:05:58 2014 -0600
+
+    Initial commit

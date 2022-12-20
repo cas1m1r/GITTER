@@ -1,0 +1,3645 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 45e3b8931ade8d410b1f060155120bee0c0181af
+Author: Anuradha Weeraman <aweeraman@gmail.com>
+Date:   Tue Jul 21 20:48:26 2020 -0400
+
+    Def config
+
+commit a0ad50f28fa086815dcd6c6b2b7178dd02894be6
+Author: Anuradha Weeraman <aweeraman@gmail.com>
+Date:   Sun Jul 19 20:28:57 2020 -0400
+
+    config for dmenu
+
+commit 08822da7efce86113f4da0ef09cd1ad259b7ff59
+Author: Anuradha Weeraman <aweeraman@gmail.com>
+Date:   Sat Jul 11 18:20:47 2020 -0400
+
+    Highlight patch
+
+commit 1613857805e901ffc79609bb7bc6c2d9abd8e1bb
+Author: Anuradha Weeraman <aweeraman@gmail.com>
+Date:   Fri Jul 10 21:02:42 2020 -0400
+
+    Changed font
+
+commit a96da9c8c2702cf51e29a9d68d6265dd7a3e2a57
+Author: Anuradha Weeraman <aweeraman@gmail.com>
+Date:   Sat Jun 27 19:05:58 2020 -0400
+
+    Font tweaks
+
+commit 1a13d0465d1a6f4f74bc5b07b04c9bd542f20ba6
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Wed Sep 2 18:30:56 2020 +0200
+
+    bump version to 5.0
+    
+    ... and bump LICENSE year.
+
+commit 9b38fda6feda68f95754d5b8932b1a69471df960
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Thu Jun 11 18:45:33 2020 +0200
+
+    Fix memory leaks in drw
+    
+    Synced from dwm.
+    Patch by Alex Flierl <shad0w73@freenet.de>, thanks.
+
+commit db6093f6ec1bb884f7540f2512935b5254750b30
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Mar 3 13:08:54 2019 +0100
+
+    revert IME support
+    
+    dmenu will not handle IME support (st will, atleast for now).
+    
+    revert parts of commit 377bd37e212b1ec4c03a481245603c6560d0be22
+    this commit also broke input focus.
+
+commit a9b1de384ae1ad30805e893af5cd6ea9b87c89da
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Feb 12 22:58:35 2019 +0100
+
+    improve xopenim error message
+    
+    die() already prints a newline.
+
+commit 43b0c2c3dd3e694cf674097d493ef6630efc5403
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Feb 12 22:13:58 2019 +0100
+
+    make dmenu_path script executable
+    
+    (as dmenu_run is)
+
+commit f5036b90efd9423d805923a0bc73cd54e30e72ab
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Feb 12 19:10:43 2019 +0100
+
+    fix crash when XOpenIM returns NULL
+    
+    for example when IME variables are set, but the program is not started (yet).
+
+commit 153aaf88bf9bf5c6c4b118bd871f8cf1eafdcab5
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Mon Feb 4 00:29:26 2019 +0100
+
+    Close when the embedding window is destroyed
+
+commit 65be875f5adf31e9c4762ac8a8d74b1dfdd78584
+Author: Anselm R Garbe <anselm@garbe.ca>
+Date:   Sat Feb 2 04:54:15 2019 -0800
+
+    Prepared 4.9 release.
+
+commit 7d19b2055d98e5c0249efe582c852b8b8b30cd41
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Jan 27 15:28:02 2019 +0100
+
+    dmenu.1: document improved fastgrab behaviour from previous patch
+
+commit 11a65377da8fc198d15cf041dbbbb9718e5798cd
+Author: dok <dok@grehack.fr>
+Date:   Sat Jan 26 15:49:15 2019 +0100
+
+    Use slow path if stdin is a tty
+    
+    If stdin is a tty and dmenu is ran with the fast option then it's
+    impossible to close stdin because the keyboard is already grabbed.
+
+commit bbc464dc80225b8cf9390f14fac6c682f63940d2
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sat Jul 21 12:47:43 2018 +0200
+
+    dmenu_path: always use the cachedir
+
+commit a314412f4b80af5100901344856a341f8ea4cc7a
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sat Jun 2 17:09:01 2018 +0200
+
+    Makefile: just show the compiler output
+    
+    Don't be fancy and just show the actual output so debugging is simpler.
+
+commit a9eae39e934d8dab7f1772570efb5f25825bfe01
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sat Jun 2 17:01:24 2018 +0200
+
+    Do not strip at link stage
+    
+    Building with debug symbols is worthless unless LDFLAGS are manually adjusted
+    as well.
+
+commit 851b73d178c8d7665c6d8a0bc34dbd4f9d1aa77b
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri May 25 13:07:17 2018 +0200
+
+    code-style for pledge: check the return code -1, not < 0
+    
+    this is the proper idiom
+
+commit 05c138f5b8f19070a190b97728c83b454855f52b
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri May 25 13:03:25 2018 +0200
+
+    code-style for pledge(2)
+    
+    feedback from Klemens, thanks
+
+commit cd132c8d5b17ac2f4a3e611836d4cde4995d7a0c
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri May 25 12:04:22 2018 +0200
+
+    Pledge on OpenBSD
+
+commit e75494b730ea6883e68072a106a09a301cfaf845
+Author: David Demelier <markand@malikania.fr>
+Date:   Wed May 9 21:27:29 2018 +0200
+
+    Use bold for keyboard shortcuts in dmenu.1
+    
+    Like dwm, use the same syntax for all keyboard shortcuts for
+    consistency.
+
+commit 0f76dd2fb89748eb5460adbc87c4e98bcce09763
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sun Apr 22 14:18:34 2018 +0200
+
+    Fix cursor drawn position with wide glyphs
+
+commit 0b5748021877b2f214474b034d8bf0122ee88ed2
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Thu Mar 22 11:18:56 2018 +0100
+
+    Makefile: bikesheddingly replace ${} with $()
+
+commit 377bd37e212b1ec4c03a481245603c6560d0be22
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Mon Mar 19 15:42:28 2018 +0100
+
+    Handle IME input
+    
+    Thanks to nzl <uruabi@gmail.com> for the patch!
+
+commit b6d2cc9aea979cb3557db39dbe65a2870d13e597
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri Mar 16 16:51:22 2018 +0100
+
+    Fix handling of input strings
+
+commit 2f398981feb562285b0a96cd315bf2b3244c7309
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Thu Mar 15 10:16:10 2018 +0100
+
+    Update LICENSE
+    
+    Only "meaningful" commits and contributors who made changes over the
+    years have been added.
+
+commit 23051d78dd80468042e2a5095533ec68bfb43a51
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Wed Mar 14 19:48:05 2018 +0100
+
+    bump version to 4.8
+
+commit e2a280541eab62717d6a9a72d047c832e5cb1edc
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Tue Mar 13 17:15:09 2018 +0100
+
+    add key bindings for moving to the word start or end
+    
+    Mod1+b/^Left and Mod1+f/^Right
+
+commit 889512811d7ae410eb4ab60be3568278b3e23f2e
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Thu Jan 4 23:45:49 2018 +0100
+
+    Fix regression in 84a1bc5
+    
+    Reported by Jochen Sprickerhof, thanks!
+    
+    Applied patch with minor change (only initialize `i` for XINERAMA).
+
+commit 84a1bc5d0d6b54eb23268e8f02a787be9ccbd919
+Author: Vincent Carluer <vince@bitfu.io>
+Date:   Thu Jan 4 12:27:37 2018 +0000
+
+    Instantiate j var outside #ifdef XINEMARA directive because it is used in loop outside directive
+
+commit f0a5b75d6a0d2a62da45e9f65d92ea4a6a2d5831
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri Nov 3 21:10:38 2017 +0100
+
+    drw: drw_scm_create: use Clr type
+    
+    in this context XftColor is a too low-level type.
+
+commit 1cabeda5505dcc35d4d2ca2a09151a7c449fb401
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri Nov 3 15:31:37 2017 +0100
+
+    fix a possible free of a uninitialize variable in paste()
+
+commit 41379f7c39e6aa0a17d7807b22b49ea148f5b0fa
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri Nov 3 21:05:29 2017 +0100
+
+    init colors using SchemeLast
+    
+    this makes it slightly easier to add colors to schemes.
+
+commit 64ab2801fbbbcc028c359080ae4bd546fc871f67
+Author: Omar Sandoval <osandov@osandov.com>
+Date:   Fri Nov 3 09:49:10 2017 -0700
+
+    Set class name on menu window
+    
+    WM_CLASS is a standard ICCCM property which is used to identify windows.
+    Window managers and compositors use it to allow per-application
+    configurable behavior.
+
+commit f428f3e01a4ced5b1df07ddf913bb022692f8035
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue May 2 18:32:04 2017 +0200
+
+    release 4.7
+
+commit 5cd66e2c6ca6a82e59927d495498fa6e478594d6
+Author: Andrew Gregory <andrew.gregory.8@gmail.com>
+Date:   Wed Dec 7 09:45:01 2016 -0500
+
+    Revert "fix input text matching"
+    
+    This reverts commit 09d0a36e0370f7ca9bdb171bf93c5ac3131c5a92.
+    
+    Using strncmp with the length of the user input turns it into a prefix
+    match rather than an exact match as it's supposed to be.
+
+commit e90b88e12a88d6214c00d5ee58ceb69446aa5ac4
+Author: Thomas Gardner <tmg@fastmail.com>
+Date:   Fri Nov 25 22:38:09 2016 +1000
+
+    Xinerama: correct variable declarations in preprocessor conditional
+
+commit a280bdad1f16943a70eaff086852d3b11043b060
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sat Nov 5 11:36:42 2016 +0100
+
+    die() on calloc failure
+    
+    thanks Markus Teich and David!
+
+commit a9a5c6cc2d7d55ed7e556a4fe9d75307c6df2e84
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sat Oct 8 14:08:28 2016 +0200
+
+    add embedding support with -w option
+
+commit a97f550aa7b81d2add1d2a99e594c038da01fc19
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sat Oct 8 14:42:53 2016 +0200
+
+    dmenu.1: group single options
+
+commit ff8daf88475960f6ccc4e3ded3214147ecb21809
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sat Oct 8 14:36:04 2016 +0200
+
+    dmenu.1: fix -l option
+
+commit 026827fd65c1163a92a984c4eae3882a6d69f8df
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Fri Aug 12 14:39:30 2016 +0200
+
+    die() consistency: always add newline
+
+commit d14670b9959f8b3760b63dd40a70687a90312b8a
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Jul 26 23:13:06 2016 +0200
+
+    fix crash if negative monitor (< -1) was passed
+    
+    for example: dmenu -m '-9001'
+
+commit aa92cd68bdff95c181cc854043598e6c6007d45e
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Jul 26 23:02:34 2016 +0200
+
+    Revert "Print highlighted input text only on single match"
+    
+    This reverts commit a4053bc4e403ae57343f43b7e363a0911bba5a3a.
+    
+    My bad, was working on the wrong branch and accidently pushed it...
+    *facepalm*
+
+commit a4053bc4e403ae57343f43b7e363a0911bba5a3a
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Tue Jul 26 12:48:23 2016 +0200
+
+    Print highlighted input text only on single match
+    
+    When the input text fully matches a single item, do not draw the item
+    and highlight the input text to show that it matches an item in
+    opposition to regular input text not matching anything.
+
+commit 657122f7819fd74d66706ffb607deb44884401b7
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Mon Jul 25 11:33:25 2016 +0200
+
+    Partially revert 44c7de3: fix items text width offset calculation
+    
+    Without this, we discard the item if it's longer than assigned width
+    instead of truncating it.
+
+commit 3c91eed0fb74657c3fa25bc4fd65cd0aa88464c0
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Jun 28 17:56:25 2016 +0200
+
+    config.def.h: style improvement, use color Scheme enum
+
+commit 76eb5783046cf89ba6b7e9f8cdab35fe86d07a82
+Author: S. Gilles <sgilles@math.umd.edu>
+Date:   Tue Jun 28 01:11:50 2016 -0400
+
+    fix: Do not crash on e.g. dmenu < /dev/null
+
+commit 44c7de3dcf49ee568863f55610f40c7a05b4dfe7
+Author: Markus Teich <markus.teich@stusta.mhn.de>
+Date:   Sat May 21 21:51:14 2016 +0200
+
+    import new drw from libsl and minor fixes.
+    
+    - extract drawitem function (code deduplication)
+    - fix bug where inputw was not correctly calculated from the widest item, but
+      just from the one with the longest strlen() which is not the same. It's better
+      now, but does not account for fallback fonts, since it would be too slow to
+      calculate all the correct item widths on startup.
+    - minor code style fixes (indentation, useless line breaks)
+
+commit b3d9451c2ddfad7c1b10e9a868afed4d92b37e41
+Author: Lucas Gabriel Vuotto <l.vuotto92@gmail.com>
+Date:   Mon Feb 22 11:03:36 2016 -0300
+
+    arg.h: fixed argv checks order
+    
+    This prevents accessing to a potentially out-of-bounds memory section.
+    
+    Signed-off-by: Lucas Gabriel Vuotto <l.vuotto92@gmail.com>
+
+commit 3de85ca21cedf2a9f67755afc8ef031a9170b96a
+Author: Klemens Nanni <kl3@posteo.org>
+Date:   Mon Jan 11 13:26:37 2016 +0100
+
+    Typofix
+
+commit bf3deb6357f1c864ba6b9771a33dc31e18a68e16
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sat Dec 19 19:58:03 2015 +0100
+
+    Shut up glibc about _BSD_SOURCE being deprecated
+
+commit 120e8401074254d39be916ad83bafda9ef25e6a9
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sat Dec 19 09:32:55 2015 +0100
+
+    Add config option for word delimiters
+    
+    Let the user configure word boundaries other than ' ', only works with
+    the portable character set.
+
+commit 32f2564dbbbf5aeafb7190a3d35066142f34448f
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Nov 8 23:37:47 2015 +0100
+
+    arg.h: remove unused ARGNUM* macros
+
+commit cc596365ac9c522beb8978cfca741d23d3bf83ae
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Nov 8 23:03:34 2015 +0100
+
+    unboolify dmenu
+
+commit c9e4e152e61b22186ba4f4ca58ae8c8d3d83e81e
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Nov 8 16:46:34 2015 +0100
+
+    Makefile: package config.def.h on make dist
+
+commit cc99007809b18c27ef441b1a2ccb38cbbec664c7
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Nov 8 16:44:41 2015 +0100
+
+    remove .hgtags file
+
+commit 34f549adb2f586b58467345c89a0082bcc8833f2
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sat Nov 7 12:53:00 2015 +0100
+
+    dmenu.1: clarify monitor numbers are starting from 0 (first mon)
+
+commit da0b9eb6c98288e7f9455352a78ba30d4b8b17f5
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sat Nov 7 12:43:00 2015 +0100
+
+    fix: multimon: always spawn client on first monitor if specified with -m 0
+    
+    This was always broken.
+    
+    Reproduce:
+            focus client on second monitor, spawn dmenu with -m 0.
+    
+    Result:
+            Old wrong behaviour: dmenu spawns on second monitor (focused client).
+            Now: dmenu spawns on specified monitor (first).
+
+commit 44b242c76359e21b97418675f253d45feb7c04e0
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Oct 20 22:56:57 2015 +0200
+
+    drw: cleanup drw_text, prevent gcc warning false-positive of unused var
+    
+    ... we don't allow passing text is NULL anymore either, for that behaviour
+    just use drw_rect() (it is used in dwm).
+
+commit e2e7fcb2198d40e2a50591932ee2b2a8f9969a5f
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Oct 20 22:55:39 2015 +0200
+
+    drw: simplify drw_font_xcreate and prevent a potential unneeded allocation
+
+commit 1f2226df1380f178240bb81dddcad6c5ff2e9d62
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Oct 20 22:53:55 2015 +0200
+
+    drw: a valid (non-NULL) Drw and Fnt context must be passed
+    
+    don't do these checks on this level. However for resource drw_*_free
+    we will allow it.
+
+commit 5a20b409c673a6736c3f9326cb54edc32908f717
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Tue Oct 20 22:51:57 2015 +0200
+
+    add sbase-style ecalloc(), calloc: or die
+    
+    ... remove intermediary variables
+
+commit 164986763a29db97abb52b15cbd282b5636d83c0
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Oct 18 18:37:20 2015 +0200
+
+    free schemes as array
+    
+    this makes it slightly easier to add custom schemes aswell
+
+commit 09d0a36e0370f7ca9bdb171bf93c5ac3131c5a92
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Sun Oct 4 14:47:52 2015 +0200
+
+    fix input text matching
+    
+    just compare the size of the input string
+
+commit acbf35a5e35b6f6a7dd3f8da49a6e5ec5ac075ce
+Author: Davide Del Zompo <davide.delzompo@gmail.com>
+Date:   Sun Oct 4 14:01:22 2015 +0200
+
+    fix incorrect ordering of match results
+    
+    look for exact matches comparing the user input against the item text
+
+commit 240a7810e492ec01075614729a1a1c45ef9f7af2
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Oct 4 12:32:07 2015 +0200
+
+    fix paste from clipboard (ctrl+shift+y)
+    
+    from Joshua Lloret on the ML:
+    
+    "attached is a small patch to enable pasting from clipboard, as well as primary.
+    
+    It seems like there was already code in there to allow this, but since there was never any case to match the upper case 'Y', that inline if would always evaluate to false."
+
+commit d5ce8df9d9a86bf0d1cb97e4cfe4cd6951f2f1f5
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Mon Sep 28 00:38:17 2015 +0200
+
+    minor style fix
+
+commit ba75bb30fa1f458ea4d80a2858ffeaf9d49afbcc
+Author: FRIGN <dev@frign.de>
+Date:   Mon Sep 28 00:19:36 2015 +0200
+
+    Remove function prototypes and reorder functions accordingly
+
+commit 10fd4f275feaef0b505cc8e65a2deccae69a0968
+Author: FRIGN <dev@frign.de>
+Date:   Mon Sep 28 00:15:03 2015 +0200
+
+    Untypedef struct item
+    
+    Adds clarity. Typedefs for structs are definitely a discussion matter,
+    but there's no reason to hide a simple data-structure behind a
+    meaningless typedef.
+
+commit b048eacc9ddc6ca995783411d4df84c23f3a0351
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Mon Sep 28 00:18:35 2015 +0200
+
+    Fix the conversion from microseconds to nanoseconds
+
+commit c42c3780274e6b12eaeab918cf7c13d2c36cf253
+Author: Quentin Rameau <quinq@fifth.space>
+Date:   Mon Sep 28 00:06:05 2015 +0200
+
+    Replace deprecated usleep() with nanosleep()
+
+commit c15a95a061bdb8235220b37638d1b586611f0ac6
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Mon Sep 28 00:02:28 2015 +0200
+
+    config.mk: use -std=c99
+
+commit cf0fb79cd8303f6d1089b7e919add4b0fc8d9069
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Sep 27 23:57:39 2015 +0200
+
+    dmenu: style improvements
+    
+    - move main to bottom, usage above main.
+    - dont use variable names with function prototypes.
+    - space before if, for, while, etc: 'if(' -> 'if ('.
+    
+    this makes the code-style more consistent
+
+commit 03cb1ec55abebb6355858f582d68e33dabcfe6f5
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Sep 27 23:56:02 2015 +0200
+
+    drw style improvements
+    
+    this makes the code-style more consistent aswell.
+
+commit bc20c13db0fdb73a5ef2c0d4b791e05e3f324aba
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Sep 27 23:02:33 2015 +0200
+
+    separate program-specific c99 bool and X11
+    
+    True, False are X11-specific, make sure to use c99 stdbool for
+    program-specific things.
+    
+    ... also remove left-over vim mode string in config.
+
+commit 96e60c66bc85985fe34cfdcd989abc08fc46a5e2
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Sep 27 22:55:21 2015 +0200
+
+    config.mk: fix _XOPEN_SOURCE=700 for getline()
+
+commit 2d2175ff6f67e2bc85138d3f359d2f7580bcb754
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Sep 27 22:38:14 2015 +0200
+
+    config.mk: improve feature test check
+    
+    this fixes a crash on NetBSD because it requires -D_XOPEN_SOURCE (strdup, usleep).
+    
+    thanks k0ga and stateless for reporting and fixing this issue!
+
+commit bbf7b95dc93a47dbb5a4143b903797dc97197515
+Author: Eric Pruitt <eric.pruitt@gmail.com>
+Date:   Wed Aug 5 19:19:14 2015 -0700
+
+    Fixed typo introduced by shared code
+
+commit d6742ef8a6ce03f28ee9431ef51901ef712ffd76
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Jul 19 21:34:51 2015 +0200
+
+    stest: get rid of getopt, use suckless arg.h
+    
+    ... also some style improvements.
+
+commit 5feb0c689dd815a31d48e2007b364057f6fec773
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Jul 19 20:32:08 2015 +0200
+
+    config.mk: add FREETYPELIBS and FREETYPEINC
+    
+    These variables make it simpler to change the paths to this for ports.
+    `pkg-config` is avoided because it sucks, in particular for cross-compilation.
+    
+    A commented path for *BSD is added, the Xft includes are located at:
+    /usr/X11R6/include there.
+    
+    Also already bump the version number to 4.6, a release will come
+    approximately in August.
+
+commit 1c242df1244af10cf5d2c2640ac0d2a7ad1ad878
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Sun Jul 19 20:29:26 2015 +0200
+
+    fix prompt color style how it used to be
+    
+    This is the style how it was before the big Xft change. The colors were
+    inverted, this was not the case before the change.
+    
+    Reported by "zvz" on #suckless IRC, thanks!
+
+commit 4b1fecd44e8376594c418663351fcb30c4e841de
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Mon May 4 21:54:46 2015 +0200
+
+    Use libdraw: add Xft and fallback-fonts support to graphics lib
+    
+    - libdraw, util: add drw.{c,h}, util.{c,h} and update code.
+    - libdraw: fix drw_rect(): use w and h parameter.
+    - libdraw: print errstr if last character in string was ":" (sbase).
+    - libdraw: drw_clr_free() allow valid free(NULL).
+    - config.def.h: set default font to monospace.
+    - cleanup() on exit.
+    - LICENSE: update license string for dmenu -v to 2015.
+    - LICENSE: add myself to LICENSE
+
+commit 13a529ce63364544bdc851dfd5d3aa2ef8740914
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Sep 17 13:40:11 2014 +0200
+
+    applied Hiltjo's patch as suggested on the ml to fix ControlMask for C-j and C-m
+
+commit aa69426670bf0ae480db127ff8d4fc62d6da2593
+Author: Hiltjo Posthuma <hiltjo@codemadness.org>
+Date:   Thu Jul 24 19:10:23 2014 +0000
+
+    fix crash with ctrl-enter as input
+    
+    reproduce: ./dmenu; send EOF; press ctrl+enter.
+
+commit 4c50e43df46e486a0fac632d34eaed37359ceba7
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Thu May 29 18:03:53 2014 +0200
+
+    updated copyright notices in LICENSE and dmenu.c file
+
+commit 5ed5e90bfb7760f24661281cf7156087afbe49d3
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Tue Aug 13 19:15:04 2013 +0200
+
+    applied Martin Kühl's inverse matching flag to stest
+
+commit 13f787306f46a5f838987e3b546d85d1bb1c3c01
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Fri Aug 2 22:30:20 2013 +0200
+
+    applied Martti Kühne's dmenu monitor patch
+    https://gist.github.com/mar77i/3349298/raw/f6581ca96627f4c71c0bd1faf531daaf2a613b95/monarg.patch becomes upstream now
+
+commit 597d4b43379433a5bf86d490f747c0eeda38bba8
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Fri Jun 28 22:06:02 2013 +0200
+
+    accepted vi'is exit approach ^[ (suggested by Arkaduisz)
+
+commit 55c9be06ca5a527e14e3f0b5b08845f0fcbf4999
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Wed Apr 17 21:16:51 2013 +0200
+
+    forgot to add config.def.h, thanks William
+
+commit 14f72a276334de4a46543cf648a4922bc54f1e9f
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Wed Apr 17 21:04:05 2013 +0200
+
+    adopted Alex Sedov's config.h revival patch to tip
+
+commit ec64f273fb7660d3746eb765dc02e40726a54294
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Wed Apr 17 20:59:12 2013 +0200
+
+    applied Alex Sedov's Tab buffer termination patch, thanks
+
+commit 0d12a47415edba5db73f56dba76f123394581387
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Wed Apr 17 20:56:54 2013 +0200
+
+    applied multisel patch to mainline
+
+commit dec9a28863f388072be105e0950deb72ac719d48
+Author: Quentin Glidic <sardemff7+hg@sardemff7.net>
+Date:   Mon Jul 30 17:02:12 2012 +0200
+
+    dmenu_run: Split cache logic to dmenu_path again
+    
+    This allows to run dmenu_path to update the cache using
+    a packager manager hook system
+
+commit 1299e41447fe5850d127857a68f37c5badd491ce
+Author: Moritz Wilhelmy <moritz+hg@wzff.de>
+Date:   Tue May 15 11:47:54 2012 +0200
+
+    ignore prompt if it is empty in addition to NULL
+
+commit 38fccafada4eee3e4e0301d7c6eadd3c5788b305
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Apr 6 16:38:01 2012 +0100
+
+    _POSIX_C_SOURCE=200809L
+
+commit 1f11faf7b505ac94bee1242e90dbd3ae37a086b4
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Feb 10 00:37:42 2012 +0000
+
+    listen for C-S-[jm]
+
+commit 50145384c821bb05f5497e80a006fee2db9f145b
+Author: Karl F <karlf@thep.lu.se>
+Date:   Thu Jan 19 22:52:17 2012 +0000
+
+    add ^G escape keybinding
+
+commit 7707111c109f105b8b404c3250dca879bb94407c
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jan 18 23:56:13 2012 +0000
+
+    remove _POSIX_C_SOURCE cflag
+
+commit 7f45b3f7aa590755d42986585b9936a186920ac2
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jan 8 13:13:00 2012 +0100
+
+    update version 4.5-hg
+
+commit 0f91dd1c74554bd19a0f06e7e851026e85efeb98
+Author: anselm@garbe.us <unknown>
+Date:   Wed Jan 4 13:30:47 2012 +0100
+
+    config.mk cleanup
+
+commit 3402a8d53a95bd60b434bd26139d398392489b28
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Jan 2 19:48:11 2012 +0100
+
+    align M-[hjkl] closer to vi keys
+
+commit d3e9bd152ed007682b339f3a07a5720ad53cb675
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jan 1 20:33:56 2012 +0100
+
+    happy new year!
+
+commit b95fb20269f55c9fe649d971c53efb8040d3ceea
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jan 1 20:32:40 2012 +0100
+
+    add Mod1Mask keybindings
+
+commit 6664e4233faa3d6b677a24196e9af4ac5b1920fd
+Merge: 26c78cd 6b1d658
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Dec 19 16:52:48 2011 +0100
+
+    merge stest -> default
+
+commit 26c78cd95291d980f8978113cd6daa9841553c93
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Dec 19 16:05:55 2011 +0100
+
+    comment xdg fallback behaviour
+
+commit 6b1d658d1224cd108d64a6c340d47b66ad99816d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Dec 9 11:49:44 2011 +0100
+
+    stest: restore stream testing
+
+commit 56a0d1fa14de915419c037ac2604fe5c5b1fe4a3
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Dec 9 11:36:26 2011 +0100
+
+    fork dmenu_run to disown child shell
+
+commit 32ef0f5662bfe8b8891ba6341d3a27818fb55508
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Nov 27 23:40:48 2011 +0100
+
+    stest: cleanup
+
+commit dcd6e771a1867353c14c46fc37e28d6d313cb3b1
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Nov 27 23:37:01 2011 +0100
+
+    stest: remove unneeded lstat
+
+commit 8cc28cb4265b0c088ea909e58f42342b2214722e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Nov 27 23:35:09 2011 +0100
+
+    simplify stest
+
+commit 942199ccd05bb0d55fe068bf9f5367946bbdc88d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Nov 23 15:17:32 2011 +0100
+
+    dmenu_run: use $SHELL
+
+commit 3f9b10c86abe3e6403b09c92f30c02050aa9d456
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Nov 23 14:40:21 2011 +0100
+
+    set window background_pixel
+
+commit 5162d1b37adc51d75f058be1244f38a72117a087
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Nov 19 21:31:18 2011 +0100
+
+    fix dmenu_path exec sh
+
+commit a02a1a662362a1e74f627c7f47335b5aeda79c67
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Nov 19 21:24:07 2011 +0100
+
+    faster dmenu_run -f
+
+commit bb4424df072332243890714b055e978a5c70adf3
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Nov 19 19:54:55 2011 +0100
+
+    replace lsx with stest
+
+commit 8ac44eb75a3e2190aa7b89548956b2de33c5a6ce
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Nov 16 11:26:15 2011 +0100
+
+    update manpage
+
+commit ebd94a6c00e0726d271d4f0c88ec67b4e290b1bd
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Nov 15 20:32:39 2011 +0100
+
+    limit direction keys in vline
+
+commit 2b31952731bc1c15d9a9521579b7609d50a65f01
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Nov 14 20:02:16 2011 +0100
+
+    fix C-n / C-p directions (thanks bastien)
+
+commit c01f36a1f30c9a8846b75269522219b8f5ff6821
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Nov 14 00:46:56 2011 +0100
+
+    new default colour scheme
+
+commit 168221b2f825c42c874e1d9590505f29e35465aa
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Oct 26 14:16:12 2011 +0100
+
+    makefile: *.o depend on draw.h
+
+commit dc77337ef35a52e1da8a74339bc39f32e6e5ab56
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Oct 26 13:28:15 2011 +0100
+
+    add paste from clipboard
+
+commit 7b1493a63162875ba591883e480bd36a063cf222
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Oct 26 13:20:14 2011 +0100
+
+    add lots of comments
+
+commit dd29c5d48084ae0f61a43bfbd5119fb480d83fb7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Oct 26 12:14:50 2011 +0100
+
+    input focus: calculate areas of intersection
+
+commit 70b3418e3e44a562cec860033d2a3bbf640f3084
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Oct 17 10:22:23 2011 +0100
+
+    simplify dmenu_run
+
+commit cf641ae49677ae0435780e0641d9b347a4325044
+Merge: 5e0156c 2456560
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Oct 17 10:11:48 2011 +0100
+
+    merge xim -> default
+
+commit 5e0156c0727fa8f225c3309f265da241a98edc08
+Merge: ca7ef6d 7bbd4c5
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Oct 17 10:08:04 2011 +0100
+
+    merge lsx -> default
+
+commit ca7ef6d2c901b2f302e735da369b730edb3575cf
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Oct 17 02:12:33 2011 +0100
+
+    use ~/.dmenu_cache if no xdg cache
+
+commit 7bbd4c56ebe1c91b90561e7f22e875f58e7facc9
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Oct 17 01:44:07 2011 +0100
+
+    lsx: detect read errors
+
+commit 24565608cbf8572211a4a1b3fe7bbe1cf0c4fbbd
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Oct 17 01:18:57 2011 +0100
+
+    xim: check for corner cases
+
+commit 05026fb5ce6dcf7a894e7a31876e1cb30db4b04c
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Oct 16 18:26:11 2011 +0100
+
+    fix extra warning
+
+commit c71abdc65c8a7ff9597f7b6b5bf60a59be174224
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Oct 16 18:14:51 2011 +0100
+
+    lsx: return failure on error
+
+commit 4126b1e32379ee206c5c9bda2bf3699f171c9899
+Merge: 07d452e 1cf3864
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Oct 16 18:13:29 2011 +0100
+
+    merge default -> lsx
+
+commit c8f0a3763843966ad480e22b18fe61ff54dc9a39
+Author: Troels Henriksen <athas@sigkill.dk>
+Date:   Sun Oct 16 17:21:33 2011 +0100
+
+    add xim support
+
+commit 1cf386446458d9b12f6bdca9e34a340c10f79c26
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Oct 13 20:43:59 2011 +0100
+
+    limit lines to input
+
+commit 8e302717cb2d03c79c2f372f5e0489ea54dbb440
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Oct 4 21:39:56 2011 +0100
+
+    input focus: fix for reparenting wms
+
+commit e30ad490b2b9048bc7e70fc81f0be2b378985f89
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Sep 30 21:08:37 2011 +0100
+
+    fix monitor select when no focus
+
+commit 50207344084b385839cef251f77f5129dc85874e
+Merge: f1848a3 4c8d43a
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Sep 20 00:11:01 2011 +0100
+
+    merge token -> default
+
+commit 4c8d43ab7382910f3577d6ed03ebaf3026db8419
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Sep 20 00:09:20 2011 +0100
+
+    tweak match
+
+commit 0582480801d5815ef39fd624cb4ba108d0d21b35
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Sep 20 00:06:13 2011 +0100
+
+    update manpage
+
+commit f1848a3ef0d5e230761b6b9b5b7490d7be945154
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Sep 19 18:15:03 2011 +0100
+
+    detect active monitor using input focus
+
+commit b26d3f54ee853f5983425a50c93054744fb27af4
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Sep 19 10:40:56 2011 +0100
+
+    add token matching
+
+commit 3af80cd7d8ebc6dd72d4d756fc2767c17d1caa0a
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Sep 19 10:40:07 2011 +0100
+
+    change version to 'hg'
+
+commit 4692f84ff01e2187e2e3c642bcc68a15a77a6d9f
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jul 24 20:04:58 2011 +0100
+
+    dmenu_run: sh -c
+
+commit c805dcbeaff38dfcf78bdcc10c863eb7e1bbc32d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 22 18:16:57 2011 +0100
+
+    fix loadfont
+
+commit a6cbc6c9a7b8cfbf7382a6a81450bf4466980a21
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Jul 19 21:30:14 2011 +0100
+
+    Added tag 4.4 for changeset 2b105eaae831
+
+commit bae58f61cf03260d018796edf2bd3fd5e07450ed
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Jul 19 21:30:09 2011 +0100
+
+    add lsx.1 to dist
+
+commit 1636e122101501ddb907119c61d0961ccaa89a99
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jul 17 14:06:53 2011 +0100
+
+    tweaks
+
+commit 2b92c95230fbbdcf47f701d9cc4fd133a7972fae
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jul 14 20:03:08 2011 +0100
+
+    efficiency tweaks
+
+commit 16a0c0d52aa947b3fe8c9285986567189537d339
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jul 14 20:03:00 2011 +0100
+
+    fix extra warning
+
+commit 5867c533909b8b6fd8318f307460e894ca8fee3b
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jul 6 13:40:36 2011 +0100
+
+    simpler vline
+
+commit 34a816f87d382de2891ba2ed734e2de48ed0b357
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Jul 4 16:55:09 2011 +0100
+
+    rebind ^N ^P
+
+commit 0288b576cabc42c649250dbbfe8bd93f7f3b5e8c
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Jun 25 17:02:14 2011 +0100
+
+    include limits.h
+
+commit 59dafc4ad67d0d4318d03b5f40da94af2bdf41fb
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 23 22:39:20 2011 +0100
+
+    make clean lsx
+
+commit 49672e9d05540fdde14af64723f2f861918031d4
+Merge: f7cbe71 07d452e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 23 20:27:28 2011 +0100
+
+    merge lsx -> default
+
+commit 07d452e0c8b158e571fb0adf528897829850ecf5
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 23 20:26:57 2011 +0100
+
+    close lsx branch
+
+commit 88d44169e9ea6c208412691c5767edca32718472
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 23 20:04:50 2011 +0100
+
+    lsx: check snprintf
+
+commit f7cbe710a266448122d89a02b8ba8c70423fc750
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Jun 18 22:11:19 2011 +0100
+
+    update draw.c
+
+commit 86e9e6f1ecc4711d8fe447f5c0f2c1bd0feb8568
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Jun 18 07:50:46 2011 +0100
+
+    simpler lsx
+
+commit eadf090413c530e69e8568492ebeb4b4087bd2ad
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Jun 13 21:50:31 2011 +0100
+
+    new dmenu_run
+
+commit 8ec1b41cacb33be39bc53fc67a4fe51d2d3ab3a0
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Jun 13 19:32:45 2011 +0100
+
+    add lsx.1
+
+commit ab3bcac0bf42c1e63367a0f319a66524d5acdfe3
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Jun 13 19:28:30 2011 +0100
+
+    new lsx branch
+
+commit 723cbabc122292cc87474fd203e199e392206640
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Jun 13 19:25:40 2011 +0100
+
+    add ^M
+
+commit 86775cc44bf605495854f98bf466b5e78ed5aa1f
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed May 18 17:01:59 2011 +0100
+
+    Added tag 4.3.1 for changeset 34a2d77049a9
+
+commit 2103ae289197037dbce41d9c0284d08dd8aa6876
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed May 18 17:01:44 2011 +0100
+
+    bugfix
+
+commit b028ec0e0766f85eaccda09a52b93948c8d262ff
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed May 18 16:21:45 2011 +0100
+
+    Added tag 4.3 for changeset 14c79f054bdf
+
+commit bb3e33def3e5156594ac59b75dc52798accbebcd
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed May 18 16:20:03 2011 +0100
+
+    no -m, cleanup
+
+commit 3a60b19514705f7f61908fd727d2e69565ee1947
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon May 16 23:35:14 2011 +0100
+
+    fix possible overflow
+
+commit dd2f298252fc21ff7d3b14296068443cb39c38d9
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon May 16 12:59:31 2011 +0100
+
+    fixed extra warnings
+
+commit 11ea52d1709423e0f4e6702aaee2dff2a3b0107e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 15 21:54:26 2011 +0100
+
+    portability
+
+commit 43540746077d4fd8ef963b5939934d32d59c9417
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 15 16:05:32 2011 +0100
+
+    efficient incremental search
+
+commit 4776d6dc6148498a1eab11dd3a15c03736f15d42
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 15 14:21:00 2011 +0100
+
+    match first
+
+commit d0051e7bb858815866fbaf3a8fd5b50319c0c86d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 15 14:13:31 2011 +0100
+
+    faster grab
+
+commit fb67bd666ed22a28caff505f3319184735e05311
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 15 13:58:54 2011 +0100
+
+    cleanup
+
+commit f5bd1eed8d746414f5fbf9645124ccd54a095386
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 15 13:02:33 2011 +0100
+
+    fast but inexact
+
+commit 1654d6cd6269bc784ee99045edd89e4bda24149f
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 15 02:37:49 2011 +0100
+
+    cleanup
+
+commit 6cc0b0dc086feaf944b166d0b459ac407192ea5e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 23:26:41 2011 +0100
+
+    increment version
+
+commit b2bb6ebec9054f5e3106abcea90c3ba1386acdeb
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 23:21:38 2011 +0100
+
+    only match links
+
+commit a662fc6e0abeacb64b5b37cedccaeee782f9454e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 23:14:31 2011 +0100
+
+    follow symlinks
+
+commit d066975e78d98f368ab0e3106e00804a28697373
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 22:43:42 2011 +0100
+
+    cleanup
+
+commit 26236a4900657e8e6e9c5fcf277b51ca242fa3e8
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 22:12:28 2011 +0100
+
+    whoops, wrong dmenu_path version
+
+commit 15505bd711d77fbd88dbdcbc464c78d863e03250
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 20:43:11 2011 +0100
+
+    fast dmenu_path script
+
+commit 86468aafe52a94ce6ba1a3601a587c65724a61aa
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 18:39:27 2011 +0100
+
+    instant ^E
+
+commit be9afce03548e8110744064d1c9c67795c13cdb6
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 17:47:12 2011 +0100
+
+    fix typo
+
+commit 3c067598fc3070243ae0c784bfea906dce0a6fbb
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat May 14 17:46:20 2011 +0100
+
+    use array for items
+
+commit 86019c58555b5d9514cfe2eba14248588a812f16
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu May 12 13:17:41 2011 +0100
+
+    fixed xinerama corner case
+
+commit 0291c722fb298768d1942824ea2900399566e8a1
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed May 11 12:25:50 2011 +0100
+
+    fixed -m bug (thanks Rob)
+
+commit e0e6b071c63f960c398b43b2fbf0dec66a9b3ab6
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 8 15:15:24 2011 +0100
+
+    fast grab patch (thanks Rob)
+
+commit cd3b4915c3358b93f8dbff531bff82c0cd833c0b
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri May 6 21:13:02 2011 +0100
+
+    helpful errors
+
+commit 210b303941e517a9d7df1cba1e3229165fb4037b
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu May 5 15:46:48 2011 +0100
+
+    paring
+
+commit 47e3e8be7b7df3ed37929dab8941f71cbee19fa9
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jan 7 18:55:00 2011 +0000
+
+    update license
+
+commit d515d2758fab55809ef9dcb9b1b8dfb18a5b1606
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jan 7 18:54:40 2011 +0000
+
+    cache option in config.mk
+
+commit a8ea79715fd2ca85d0b08e8255357c042029ab19
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Dec 1 20:25:10 2010 +0000
+
+    gmake spews
+
+commit 3e0a14101605b7d0d19c02bd8fe738aa1427746d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Dec 1 20:23:16 2010 +0000
+
+    posix makefile
+
+commit cbd8257914a03dfee8716ca24a0199e312e9fe3c
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sat Nov 20 09:25:08 2010 +0000
+
+    Added tag 4.2.1 for changeset abb6579a324f
+
+commit 22cf9626c770cef164de5254169abb1031e8e000
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sat Nov 20 09:25:04 2010 +0000
+
+    fixed dist target bug
+
+commit 9e13ecabe883a18234eadaf9a3beb01f745ff2ba
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Fri Nov 19 11:51:01 2010 +0000
+
+    Added tag 4.2 for changeset 379813a051f0
+
+commit 266f3dd311517c7048cbe805fa9cea33ef1a1af2
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Nov 17 04:51:30 2010 +0000
+
+    removed unnecessary defines
+
+commit 8d9ade36de4666835e49fe4366ff04cfe540dce6
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Nov 17 04:33:34 2010 +0000
+
+    moved main, updated args
+
+commit da81f57f6d7ef2149b1d6db55178b4beaa70c5d7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Nov 12 00:30:03 2010 +0000
+
+    fixed config.mk dep
+
+commit c1241bcba3dc41787a4f38a8d123c8a81690c985
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Nov 12 00:01:54 2010 +0000
+
+    updated manpage
+
+commit eeba6221b1f2863800dc3490eb80f3b7adb14675
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Nov 12 00:00:32 2010 +0000
+
+    rebound paste to ^Y
+
+commit a0a99d10e1a019f74a8b2af4d5f8b47348e08a75
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Nov 11 23:56:39 2010 +0000
+
+    removed libdc dependence
+
+commit 7cf66b443ad1cc9a698db477401b843f3c14184b
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Nov 2 12:15:15 2010 +0000
+
+    -m flag to fix dwm selmon bug
+
+commit 038a78a3f4ac507a819a12035c379c20077a0051
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Oct 8 23:40:11 2010 +0100
+
+    updated manpage
+
+commit e0add428d2ebf6998af80a5deeadb3d972be5a82
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Oct 8 23:36:45 2010 +0100
+
+    cleaned up
+
+commit bf7b8e37ee2a53f0f1bed75dd84e5214269cfac8
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Oct 8 23:24:22 2010 +0100
+
+    dmenu_path.c (shell is a bottleneck)
+
+commit 610a0a8d126b5caa7fec60632c999ca326ca2eff
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Sep 13 14:22:02 2010 +0100
+
+    fixed linking bug (thanks Jacob Nixdorf) & iscntrl corner case
+
+commit f0818217b3d2d0e527f11a5708badf6ddc72e99d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Sep 11 19:48:10 2010 +0100
+
+    simplification
+
+commit 3c366bd73d1812845b0afc185ccaba9bbc871854
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Sep 11 13:37:01 2010 +0100
+
+    update to libdc, fixed utf8 bug
+
+commit 75a19c35bd9c880bbfdc5cbf3fd807803d04de89
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Aug 20 19:57:13 2010 +0100
+
+    arrow offset
+
+commit a5f31f570774ca1d4a504d8c13c96af0217635a7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Aug 20 19:42:58 2010 +0100
+
+    fixed width bug
+
+commit b81c1e88cdf637e184c5733c87a728df8471fe4e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Aug 20 13:50:44 2010 +0100
+
+    rebound paste, removed useless max widths
+
+commit 53761130390f517a9d750759fc80b9148b1b176f
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Aug 19 16:43:39 2010 +0100
+
+    new libdraw
+
+commit c7a8f17bd20d3ba05e38a91430c565579d9f55bb
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Aug 19 16:17:57 2010 +0100
+
+    new libdraw
+
+commit 128d4cf376beffbef82b93d6305ed7856eea10bd
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Aug 18 17:35:23 2010 +0100
+
+    resorted globals
+
+commit e4fdaba88d94d049c4140593cb2fd3208c8cf0f1
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Aug 18 17:33:34 2010 +0100
+
+    signed ints, ignore negative -l value
+
+commit 849f1dd7a3ac1fc6d6a88a9e2b7d7dedbcd0befc
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Aug 12 15:35:51 2010 +0100
+
+    fixed insert segfault, added nextrune
+
+commit 402dc2bc951a27924c963e7227932194616559f4
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Aug 11 15:02:03 2010 +0100
+
+    fixed paste
+
+commit 00a60cb7b28b671ae0ba5302e3fb1cbaea6695ec
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Aug 11 14:24:25 2010 +0100
+
+    new libdraw, replaced cistrstr with fstrstr, simpler readstdin
+
+commit e149c531b876e666a42870816834723d97a656f4
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Aug 10 18:09:02 2010 +0100
+
+    more efficient initfont
+
+commit 605e9b6c035979935f658c52938df56e2d0387ef
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Aug 10 14:14:37 2010 +0100
+
+    reverted calcoffsets
+
+commit caf524626894bdee3756c4065bca44152d0efe9a
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Aug 10 13:38:49 2010 +0100
+
+    simplifications
+
+commit 93af72e116a528baac490e528b416dee65c79d3e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Aug 9 11:54:46 2010 +0100
+
+    cursor fix + style
+
+commit 0b8072a5a93cfa6869983748932f9e5679fbfe2d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Aug 6 14:16:08 2010 +0100
+
+    added ^D, removed ^M
+
+commit 31ffcd3b9a2beccb8b8830055748e52e07b3b258
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Aug 5 15:41:56 2010 +0100
+
+    new libdraw, typo fixes
+
+commit 9cf07b4b9b0d8feb53492ac11aa97a1405246cb4
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Aug 3 18:19:59 2010 +0100
+
+    another typo fix (thanks, Gene Auyeung)
+
+commit 7a2782d02d10d6841fb024e5f9907faf782a2a88
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Aug 3 17:29:53 2010 +0100
+
+    typo fix
+
+commit 1c91c2a99c076b0878be42cf1ea6ca9a5c4120a3
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Aug 3 17:18:24 2010 +0100
+
+    cleaned up
+
+commit b7695fa98cb75c1f2ac342227bbebf4e648f37e7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Aug 3 17:10:29 2010 +0100
+
+    merged *{h,v} functions
+
+commit b54c179d585871d9c96311696f58824edeff09e4
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Aug 2 15:13:33 2010 +0100
+
+    retyped promptw
+
+commit 06c18808b6f23bc5120533559e70fbcbff753e84
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Aug 2 14:49:14 2010 +0100
+
+    replaced promptw
+
+commit a7aee433ccfd2590e0785a7b93a89d8d0593a234
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Aug 2 14:22:54 2010 +0100
+
+    fixed bugs, no more config.h, updated manpage, new libdraw
+
+commit a3606ecb0eeaffa752fdf26565ebaaba29b83239
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Jul 31 14:56:27 2010 +0100
+
+    updated manpage, added paste, cleaned up, new libdraw
+
+commit 7d5fe17391fefd978eab281a6cbebe2aa601e9ce
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 30 13:40:56 2010 +0100
+
+    merged dmenu & dinput (clunky interface)
+
+commit 7f36736d11418b0b11d02da8aa0cb663406706c2
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 30 10:26:12 2010 +0100
+
+    underline match
+
+commit 115c01b74ebd57382679bec5c6e1ff5604370cbf
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 30 10:25:55 2010 +0100
+
+    new libdraw
+
+commit d77340ed53ab7b04e289569b00cb46bd6f3ec06b
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 30 09:18:35 2010 +0100
+
+    fixed vlist select
+
+commit da7a79912124743e7fbbef81c2450aeaf4ccca87
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Jul 27 13:40:32 2010 +0100
+
+    updated to libdraw tip
+
+commit 855a56631916bdff1438e11c232b88450f973648
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 2 06:49:05 2010 +0100
+
+    added dmenu.h, common.c
+
+commit 29e8faed6cf4b296382439651cf04596d276f080
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 2 05:50:19 2010 +0100
+
+    updated to new libdraw
+
+commit d9c24564d2f46312a9ed94539e0299a9859e87d9
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jul 2 03:44:01 2010 +0100
+
+    atexit cleanup
+
+commit 6ba5103df4552a330ba29fdac88ae3a2897b94cf
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 30 22:42:15 2010 +0100
+
+    removed -e flag (too buggy), cleaned up
+
+commit 309d071df557142e6efc328bd1475760b4f576e6
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 30 10:45:24 2010 +0100
+
+    fixed no-input invisible text bug
+
+commit 26b9f3de0ffe471e5335b07454147457e373c037
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 30 01:36:15 2010 +0100
+
+    libdraw now has own repo
+
+commit 7afd296c40a2e8af9477add1c3d02a7c4b444747
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 30 00:52:14 2010 +0100
+
+    resizing vlist, new dinput binding
+
+commit cc8b3b999ba0153029b1e5a97ebbd59563f9e7bb
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 30 00:05:32 2010 +0100
+
+    cleaned up
+
+commit f2abaf8b308bc25d9c5f26d3ea3818516dd477d9
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Jun 29 19:19:20 2010 +0100
+
+    decosmetics
+
+commit 340b176de6db87471610c0a75450e0de9535b6ae
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Jun 29 16:07:31 2010 +0100
+
+    dinput with dmenu flags, fixed usage & -v, cosmetics
+
+commit 18dcf738967a45208e880b72ce273afdd93ee6c7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Mon Jun 28 06:09:34 2010 +0100
+
+    extended libdraw
+
+commit 9f3b0c6ea843340b87a045ea0afd2d1b33425eee
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jun 25 04:33:41 2010 +0100
+
+    cleaned up
+
+commit 4508fd2c4ee3171bdc1bffb7e53ecda8290292ef
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 24 17:44:35 2010 +0100
+
+    moved draw.c to libdraw.a
+
+commit 723361fa124aa666d637e3fc9f5df1210a9e02b4
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 24 16:24:04 2010 +0100
+
+    removed colors from dc
+
+commit 96c65400ccdcb76cf20ec7721920f944e6b490ec
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 24 16:18:18 2010 +0100
+
+    decoupled draw.c from dmenu & dinput
+
+commit 6c1d0e4d60b239e9533def6feaf8eb2138858c3e
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 24 14:22:34 2010 +0100
+
+    fixed offsets, updated eprint, cleaned up
+
+commit 6efe1932be9425896c34f54501a6194286dd0503
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Thu Jun 24 11:30:30 2010 +0100
+
+    fixed static symbols in config.def.h
+
+commit 8f7b62e2b6d0c171233a3eb44e9a9ba6b1c9d1f6
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 23 14:29:32 2010 +0100
+
+    fixed makefile
+
+commit 2ec16d9cb2661c834e346b4cdef29449ddc2f29c
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 23 13:49:24 2010 +0100
+
+    cleaned up
+
+commit 146bc23c118c40c26df7f2e96b46100649673fc7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 23 13:31:11 2010 +0100
+
+    cleaned up
+
+commit 595e7976601fc77acf12015d3f5f6843e2cdd706
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 23 13:29:15 2010 +0100
+
+    added draw.h
+
+commit bba30e26863c75e66678f9d028d394883d86150a
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 23 12:42:08 2010 +0100
+
+    overlapping code
+
+commit 08b264393d41321c1b7ae3644f73c67cb825c95c
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 23 12:15:07 2010 +0100
+
+    typo fixes
+
+commit b4e63454e5768d38682405d252a81b1149273c0b
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 23 12:04:54 2010 +0100
+
+    initial dmenu / dinput separation
+
+commit bff1526d31faaf289804174f6477d61736e82443
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Jun 22 10:45:07 2010 +0100
+
+    fixed vlist cursor
+
+commit 9a33a72c6afd9042c8395f4318bf5d21e235694d
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jun 20 15:04:15 2010 +0100
+
+    updated manpage, changed keybinds
+    M- binds tend to be wm level, and there were up to 3 binds for the same action
+    M-{hjkl} also no longer made sense in vlist mode
+
+commit 97797d90a6396c2fc0109a7bd47bb260d1143c8a
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jun 20 01:19:17 2010 +0100
+
+    cleaned up
+
+commit 4983707c706d399e8af8d40c60c1b8b25e4c590a
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun Jun 20 00:44:26 2010 +0100
+
+    added ^K, optimisations
+
+commit 4229fb7b783e0b6ab706e6825857a22c904fc688
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sat Jun 19 21:44:32 2010 +0100
+
+    added sselp requirement to readme
+
+commit b27ffbd78bc2f88b4e55a39d1d53258305e2a6e7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 16 15:36:17 2010 +0100
+
+    cleaned up
+
+commit 6366f94e36e958d9856738a4dbed0a5e1c3926eb
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Fri Jun 11 09:24:33 2010 +0100
+
+    fixed vlist paging, cleaned up
+
+commit 645f1d0dfcb3dada105b3633fb3b7c3d053fbd43
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Jun 9 10:13:26 2010 +0100
+
+    updated manpage
+
+commit d7d14e53dadaef99fdd754e82864cca20c816e23
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sat May 29 12:56:37 2010 +0100
+
+    Added tag 4.1.1 for changeset 72749a826cab
+
+commit 851672cadcd8e07533d9afa757186f58df7f92f2
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sat May 29 12:56:33 2010 +0100
+
+    prepared bugfix release 4.1.1
+
+commit 504b797be8ed4535a038974355a301fbf82e2509
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sat May 29 12:55:38 2010 +0100
+
+    applied Ramils patch
+
+commit 503ca75af46d7b2756cad03b546f9570a1b57850
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Fri May 28 11:42:54 2010 +0100
+
+    Added tag 4.1 for changeset 844587572673
+
+commit 8623bf5d196cb0bed4bdca025f23664b2bdcdd8b
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Fri May 28 11:42:49 2010 +0100
+
+    prepared dmenu-4.1 release
+
+commit 5bc288b2b1270957baab2142e1e8b20b796fed11
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed May 5 11:42:39 2010 +0100
+
+    fixed vlist alignment
+
+commit a6835349dfeafb994f250fcf98acc6dd74f010c2
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Sun May 2 23:17:02 2010 +0100
+
+    cleaning up
+
+commit 518c9b72d1c84bde7de49c2fb04c0d0a7cbe725b
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Apr 14 17:35:19 2010 +0000
+
+    fixed bad parenting, simpler vlist
+
+commit 09db46f54fa671728498e14e8711b20301b266b7
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Tue Apr 13 20:14:45 2010 +0000
+
+    fixed ^U cursor support
+
+commit e3623cd7f24af660ef2b8cce89a232495d654237
+Author: Connor Lane Smith <cls@lubutu.com>
+Date:   Wed Apr 7 16:15:34 2010 +0000
+
+    fixed 3 bugs and some inconsistency
+
+commit 0ba3bae98196ec8a0887f494cb8a2dd5b645f763
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Thu Apr 1 21:40:11 2010 +0100
+
+    applied Troels' patch, thanks Troels!
+
+commit ebeb4e4752e33e9a87cbe0725f65595cba0037fa
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Thu Apr 1 21:32:06 2010 +0100
+
+    added Connor to LICENSE file
+
+commit 3472085f59123384fa99252c195fee31160a7764
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Thu Apr 1 21:31:09 2010 +0100
+
+    commited Connor's sanity patch
+
+commit 7ffe51981607c72abc969b23e79a1a46f6e2e422
+Author: pancake <nopcode.org>
+Date:   Thu Apr 1 19:30:21 2010 +0200
+
+    apply nibble patch removing per-item length limit
+
+commit 29686bd1b8513ba7512ab089cfdbc7df44986409
+Author: pancake <nopcode.org>
+Date:   Thu Apr 1 19:10:41 2010 +0200
+
+    add ^a and ^e keybindings
+
+commit 052ffae1924a2760baa32f41e01de82e73e0bc5e
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Wed Mar 31 22:43:49 2010 +0100
+
+    applied Connor's subwindow patch
+
+commit eededaa76fb12c10d6de3cb5fcf1479efd39ad75
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Wed Mar 31 22:37:41 2010 +0100
+
+    applied Connor's next nice patch, thanks a lot!
+
+commit 8e3e61170bd34d8a8269e376c30cb3afa25343a2
+Author: anselm@garbe.us <unknown>
+Date:   Mon Mar 22 07:50:26 2010 +0000
+
+    applied cls' patch, thanks Connor!
+
+commit 37236f8840624d5e9d590e7be9ba365bc61913a6
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sun Mar 7 08:32:16 2010 +0000
+
+    applied Connor's patch, thanks!
+
+commit 7082ba1e1050664309de707bbc5b7194a53ed5ac
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sat Dec 5 16:52:53 2009 +0000
+
+    this is only a temporary workaround, the command executed by -p must be configurable through some switch, that was the initial idea, just using sselp is too limited, I'll look into the other issues soon
+
+commit 569a1f925a7cf351e6ec3e38529f46a1d9becf3f
+Author: Anselm R Garbe <anselm@garbe.us>
+Date:   Sat Nov 28 12:28:15 2009 +0000
+
+    applied cursor, vertical and paste patches for upcoming 4.1 dmenu version (due to the fact that surf is using dmenu as well)
+
+commit 0f4d3ffdb5759070682b241c6fcc864bbd329037
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Sat Apr 18 12:50:12 2009 +0100
+
+    Added tag 4.0 for changeset 78f9f72cc9c6
+
+commit a1ad9c2a1c42abdc1309f9a7052b06968050a6c1
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Sat Feb 21 19:21:54 2009 +0000
+
+    applied Matthias Christian Ott's sanity fixes (thanks a lot!)
+
+commit 51224dcb79aef90ff53c0d6edbd7233ca9ccdb26
+Author: a@null <unknown>
+Date:   Fri Dec 12 19:58:52 2008 +0000
+
+    next release will be 4.0
+
+commit 4e74263ba02edc7da07f23b2737a1e471375a6e8
+Author: a@null <unknown>
+Date:   Tue Dec 9 21:55:47 2008 +0000
+
+    minor modification
+
+commit bab59a980716e5f210f27e92b11a53517412bc5f
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Tue Sep 9 20:45:07 2008 +0100
+
+    Added tag 3.9 for changeset 21a1ed9a69b9
+
+commit ef00902fd91dba280aba605b1a812c2f0cdc3657
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Fri Aug 29 10:09:40 2008 +0100
+
+    simplified initfont
+
+commit 3e60c5d836c1f9f3b4415782de48476663943274
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Aug 25 09:38:19 2008 +0100
+
+    reverted setlocale() call
+
+commit c24f22a36bb986287f2b53116dff6479c434bc7d
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Sat Aug 23 09:33:56 2008 +0100
+
+    removed artifact from wmii menu
+
+commit 44e372bb31407f896a75d921cf97a29b4d84a4d8
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Aug 18 19:24:29 2008 +0100
+
+    fixed a problem when backporting dwm's drawtext()
+
+commit 17232f493b07973bacd60abb2e957ccae829eb7e
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Aug 18 10:20:53 2008 +0100
+
+    abc...
+
+commit b95e61c9b7310deb452a5dfe404cc1a8f9930117
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Aug 18 10:17:15 2008 +0100
+
+    removed the i = textnw... as remarked by Martin Hurton
+
+commit cf7e4c15a97fa4e0921985d8e31bf9d6d4414b9a
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Aug 18 10:03:28 2008 +0100
+
+    backported drawtext() simplifications to dmenu
+
+commit c43c692a4db35c1527d1beb0edadef671588cb04
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Aug 18 09:31:01 2008 +0100
+
+    getting rid of setlocale(), it doesn't seem to make sense with Xmb, artifact of Xutf8 times
+
+commit abd9fbb79a2497444a42671937e0c476217ca371
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Tue Jul 29 19:20:53 2008 +0100
+
+    Added tag 3.8 for changeset 644b0798fccc
+
+commit 698ec259afd804316922a9092493b69e0470292f
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Fri Jul 18 20:20:19 2008 +0100
+
+    similiar change as in dwm
+
+commit 88efbf3dd1d5df15581fb83566c0e087b89bf33d
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Thu Jul 17 17:40:42 2008 +0100
+
+    removed compiler warning if XINERAMA is disabled
+
+commit 4d8a646958fa2e0c8fe9d8da3dd26357e8bb4317
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Jul 16 18:38:53 2008 +0100
+
+    got rid of compile time xidx, grabbing the mouse pointer instead, falling back to screen 0 if no pointer available
+
+commit b89a9501c75744f1393ec943ca520c8b59501610
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Jul 16 18:18:38 2008 +0100
+
+    reverted uint/ulong introduction
+
+commit 65d655b371cbe2472ee0dd905b427b30311d9355
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Jun 30 10:00:00 2008 +0100
+
+    minor update regarding locale support
+
+commit 2cef0ddb014622fe96ad38614b540325911a8696
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Sat Jun 21 16:43:12 2008 +0100
+
+    removed emalloc, used only once so obsolete
+
+commit 3f244b1d52d5409776467704ca95d561cdab78e9
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Thu Jun 19 09:18:17 2008 +0100
+
+    minor fix
+
+commit a6945d509456e64ff0b011c691f9e186240685b6
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Jun 18 18:21:45 2008 +0100
+
+    Added tag 3.7 for changeset 0508a3a6ee10
+
+commit 8911aa10606b4fda9d766973b1c3e0e23bb2c266
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Jun 18 18:20:21 2008 +0100
+
+    minor fix
+
+commit d2305e4b136b3bdfccf7de897a9f14583a1ca35a
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Sat Jun 14 10:55:13 2008 +0100
+
+    reusing config.h's color values, note we have to use const char *, instead of const char [] here, because the pointer might change
+
+commit fcf26a38f1ad291cd794daa52e44af252b728b6a
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Fri Jun 13 12:04:04 2008 +0100
+
+    using xidx
+
+commit 4fc6cbe6086ed940c9a8eacc9ba8c2405c3f96ac
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Fri Jun 13 11:53:53 2008 +0100
+
+    yet another cosmetic change
+
+commit a45f106d3c6e253109dd47b6a193f991c7bde203
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Fri Jun 13 11:46:50 2008 +0100
+
+    cosmetic fixes
+
+commit 596033b7818f5ff126ec6c62c375afc4c1e32dda
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Thu May 22 11:15:11 2008 +0100
+
+    s/unsigned int/uint/, s/unsigned long/ulong/
+
+commit 357558798c435f1737b13085b30e2e9e7be3616a
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Tue May 20 15:07:42 2008 +0100
+
+    foo
+
+commit 1f6af5e78f74c80fcb9853dcc2fc7940538808b0
+Author: anselm@anselm1 <unknown>
+Date:   Mon May 19 20:29:32 2008 +0100
+
+    added Xinerama support to dmenu, reverted -b behavior, removed -x, -y, -w
+
+commit f3617bd7caf83a6e184cbdfeeebed0be88f158fa
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Thu Apr 10 18:12:00 2008 +0100
+
+    no exe should be unquoted, agreed to Peter Hartlich
+
+commit 096fb3723bb26e04b5f2798038fc3b2a7f0d6a5f
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Thu Apr 10 16:46:32 2008 +0100
+
+    fixed unquoted dmenu_run $exe-use reported by Jukka
+
+commit 64232883947e37ac64938c8dd0ecd878f1547656
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Apr 9 23:32:46 2008 +0100
+
+    though sticking to |uniq
+
+commit 7195e941c1cb91e347a9c906203ad39245deabd6
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Apr 9 23:31:49 2008 +0100
+
+    re-applied Peter Hartlich's and Jukkas dmenu-related patches, for odd reasons they disappeared
+
+commit 12805b69acac4b2daa09ef7570cf1c3161ba6c9d
+Author: anselm@anselm1 <unknown>
+Date:   Thu Apr 3 21:56:42 2008 +0100
+
+    Added tag 3.6 for changeset 0bc2751d06e8
+
+commit 1538bb7426af201f632f6de38114caf91100d698
+Author: Sander van Dijk <a.h.vandijk@gmail.com>
+Date:   Tue Mar 25 19:18:16 2008 +0100
+
+    fix typo
+
+commit cbe5e88e4f6b1ae147ba9c8adf958b9bf584058a
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Tue Mar 25 10:18:17 2008 +0000
+
+    using limits.h
+
+commit 2fe3ccdf581105f4232d5714cee1ebe40870087f
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Tue Mar 25 09:43:34 2008 +0000
+
+    bugfix of the -0 case in dmenu (thanks to Sander for his hint)
+
+commit 07d82c0c2a377fa7cadfa91a8d89123fc7321a2a
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Mon Mar 24 15:56:41 2008 +0000
+
+    applied Jukkas hotfix
+
+commit e7423f8fc69d9b7dc8c04e4ed8bb546938449084
+Author: Sander van Dijk <a.h.vandijk@gmail.com>
+Date:   Sun Mar 23 22:06:09 2008 +0100
+
+    more cosmetics
+
+commit 61976c292bf575859390eeefca087cb60a57ee8b
+Author: Sander van Dijk <a.h.vandijk@gmail.com>
+Date:   Sun Mar 23 21:17:35 2008 +0100
+
+    cosmetics
+
+commit 63c9e30a7638a1e8e845fb32c9284f118b3102ed
+Author: Sander van Dijk <a.h.vandijk@gmail.com>
+Date:   Sun Mar 23 21:11:42 2008 +0100
+
+    made some whitespacing consistent.
+
+commit 015f51ac46adac6befd81754a8f01676eaf1f6a4
+Author: sander@localhost <unknown>
+Date:   Sun Mar 23 12:09:29 2008 +0100
+
+    removed unused variable nitem.
+
+commit 542c58d8d00e26f23a5e0f09a9d1e68a7259db5e
+Author: anselm@anselm1 <unknown>
+Date:   Sat Mar 22 14:52:00 2008 +0000
+
+    several performance tweaks
+
+commit 745c46d8fa810bbf45ef16e79a0f84c787f1a670
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Tue Mar 18 16:52:51 2008 +0000
+
+    fixed match() to prefer prefix-matches to strstr-matches in the match list, extended the -y handling, next version is 3.6
+
+commit d058e835708d530d74f7e82d643f48d4ad62e3a4
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Thu Mar 13 16:53:25 2008 +0000
+
+    Added tag 3.5 for changeset 05e5bd706b3b
+
+commit 301b4e55912dc611bd941002b27c72f17fcc5b39
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Thu Mar 13 12:02:29 2008 +0000
+
+    applied next patch of Sander
+
+commit 38b866ba3453e2a7567b084a353e50a36ed92221
+Author: anselm@anselm1 <unknown>
+Date:   Wed Mar 12 21:37:43 2008 +0000
+
+    applied Sanders patch
+
+commit 540a78761b26b2af4f47e46d27ad6406548c8a1c
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Wed Mar 12 15:41:19 2008 +0000
+
+    removed ido-matching, changed behavior of -i meaning case insensitive matching now, commented -x, -y, -w arguments in dmenu.1
+
+commit 7804354106e713871f9e341d74d81eb0b1b00176
+Author: Anselm R Garbe <garbeam@gmail.com>
+Date:   Tue Feb 12 09:42:48 2008 +0000
+
+    removed set
+
+commit 6d8e68dcfd22a4f1d428f75f5cae64502dedbf94
+Author: anselm@aab <unknown>
+Date:   Mon Feb 11 11:22:38 2008 +0000
+
+    updated
+
+commit d8688f7a4fe734b827cac3c156cae0db5aa4d740
+Author: anselm@anselm1 <unknown>
+Date:   Sat Dec 22 12:20:20 2007 +0000
+
+    added dmenu run
+
+commit 09d0926bb96989304646c4b4e0c51031a85dc2a2
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Thu Oct 25 20:26:17 2007 +0200
+
+    Added tag 3.4 for changeset 9ab649b3b3e5
+
+commit adc4ec02c039f6d2ffa9071707ed77c92f7ec895
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Wed Oct 10 18:57:51 2007 +0200
+
+    adapted c99 for pedantic checks, even if those checks are somewhat broken
+
+commit 8b2f132973f0fc8150ea66debbed057d849b5cfe
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Mon Oct 1 15:28:42 2007 +0200
+
+    implemented strcasestr for dmenu (I call it cistrstr) for portability issues (cygwin has no strcasestr, oh dear)
+
+commit 1c488e6dac6e327ce06685556b1989bd75faf241
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Mon Oct 1 11:44:25 2007 +0200
+
+    fixed font definition
+
+commit 03c546c6b30ae4d5920ca8fc1ef154ca4a6ccf52
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sun Sep 30 19:20:31 2007 +0200
+
+    fixed dmenu
+
+commit fdc1dba7ce832797953807bbbb17e13f4857298a
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sun Sep 30 12:47:40 2007 +0200
+
+    using saner defaults
+
+commit 3439470a47c935529b0fd692898e36d623e2a4b0
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Thu Sep 27 18:55:05 2007 +0200
+
+    applied new color nuance
+
+commit 6674bac1d3d0e1180fc4f9ea114f574eeb20f263
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Wed Sep 26 19:15:47 2007 +0200
+
+    applied my favorite color scheme
+
+commit 72a8eb412f48edb6c3b113d2582722d1bc7c68ce
+Author: arg@suckless.org <unknown>
+Date:   Mon Sep 24 15:04:31 2007 +0200
+
+    casting char to int when using tolower (thanks to Jukkas careful cosmetic checking!)
+
+commit 975dfb41634f8f262def2549419cffb809e6f54f
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sun Sep 23 18:49:24 2007 +0200
+
+    switching to white
+
+commit 2e898a308ff4c668220a6832e15d0d30424bf85a
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sun Sep 23 18:32:08 2007 +0200
+
+    yet another cosmetic fix
+
+commit 6514b07ad24e9066252c418cdec1d6ccae570cf6
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sun Sep 23 18:31:19 2007 +0200
+
+    small cosmetic fix
+
+commit 724fe3cf7fc456db96bf10c2caeb7c307e529d73
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sun Sep 23 18:26:41 2007 +0200
+
+    applied Michał Janeczek dmenu patch, made dmenu match case-insensitive by default, added -i command line option to enable ido matching, added Michał to Copyright holders
+
+commit 70cb32b021848255907ac0a4e3341f81f1d2ae24
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sat Sep 22 09:12:50 2007 +0200
+
+    Added tag 3.3 for changeset 709df5a4bad7
+
+commit 56f9e26b7268d653afb6db82aac9bad71abde0dd
+Author: arg@suckless.org <unknown>
+Date:   Wed Sep 19 17:33:35 2007 +0200
+
+    applied yiyus initfont fix
+
+commit d094ebea968e3d08b985a754aa9df30f56f649c6
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Mon Sep 17 20:53:14 2007 +0200
+
+    reorganized
+
+commit ccf4d7166fa6c70c6bfef3d8094e018b78ee4df7
+Author: arg@suckless.org <unknown>
+Date:   Mon Sep 17 09:13:21 2007 +0200
+
+    next version is 3.3
+
+commit 06ae8944344cd6f7d0aa007b7b036e77cb87fdf1
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sun Sep 16 20:14:09 2007 +0200
+
+    micromizing dmenu step 1
+
+commit b97783b07feae30f9df12c1a720d17a2dc877018
+Author: Anselm R. Garbe <garbeam@gmail.com>
+Date:   Sat Sep 15 20:28:20 2007 +0200
+
+    fixed fallback
+
+commit 11cb2e7dcc341e8c7409b26420a18de3fea99323
+Author: arg@f00b4r <unknown>
+Date:   Tue Jul 24 18:19:09 2007 +0200
+
+    applied ido-matching to dmenu
+
+commit 07239bbddd22a6333495e3fab4e0a1e4878b0ca9
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Jun 1 12:28:30 2007 +0200
+
+    foooooo
+
+commit 124bfd4a0859a3cbaf658d29b97d3aa13ae1d750
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed May 30 12:22:38 2007 +0200
+
+    Added tag 3.2 for changeset e4c81a78ffba
+
+commit d27e3c1092bb53e82c2781798082c354313dde21
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed May 30 12:19:06 2007 +0200
+
+    referred to LICENSE file
+
+commit 3a9f3a51ce25717813da7321d4771dca11a25af8
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu May 24 10:34:44 2007 +0200
+
+    I agree with the race fix of JG, but I dislike the SUSV3-breaking find, and I don't care about PATH changes, keep it simple, stupid
+
+commit 53e92b5c1797ae5d259942b0a3f20a63c1a02f1e
+Author: Kris Maglione <jg@suckless.org>
+Date:   Wed May 23 19:38:23 2007 -0400
+
+    Fix the uptodate logic (uptodate if !find newer dirs than the cache).
+
+commit d50ff5ca11564237f4f3f4a3b2d28f282c787acf
+Author: Kris Maglione <jg@suckless.org>
+Date:   Wed May 23 18:35:05 2007 -0400
+
+    Silence the first find in dmenu_path.
+
+commit 383e40dc21ec7a2d484314199ea930f09f86dd77
+Author: Kris Maglione <jg@suckless.org>
+Date:   Wed May 23 16:59:38 2007 -0400
+
+    Fix grouping in dmenu_path.
+
+commit 8369e1736b4778e766f55d5476bbbd38a8b46331
+Merge: c04b688 4ebd7c4
+Author: Kris Maglione <jg@suckless.org>
+Date:   Wed May 23 16:44:15 2007 -0400
+
+    Merge.
+
+commit c04b688cc0fdfdf28eec8ca0133b7a89065ce499
+Author: Kris Maglione <jg@suckless.org>
+Date:   Wed May 23 16:42:51 2007 -0400
+
+    Changed dmenu_path (fixed race, improved speed, check that $PATH is the same as the last run).
+
+commit 4ebd7c4a219bae1a0d38a7c85e5299d0cef81c95
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed May 23 22:32:43 2007 +0200
+
+    removed some superflous strncmp's
+
+commit dfe95cb5468618b2eb3d53d41e2ec9f4d167f3f9
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed May 23 22:13:46 2007 +0200
+
+    made dmenu_path the way anydot proposed in response to Jukka
+
+commit 8b633bf17de71ffec76b2413c23c01bb705c36b8
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed May 23 13:22:27 2007 +0200
+
+    applied Jukka's fix
+
+commit 64697cdd0c25ee19413a57d723c1bcaff883f122
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon May 21 14:36:03 2007 +0200
+
+    Added tag 3.1 for changeset 8f0f917ac988
+
+commit 5a3dfb1c40a58647cd55147cc93fec9811a0a6a1
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue May 15 13:44:41 2007 +0200
+
+    removed strip, added -s to LDFLAGs
+
+commit 4042a11e5174633e9beeeec120937856e1d0f74f
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon May 14 11:56:41 2007 +0200
+
+    applied anydot's dmenu_path caching patch, thank you!
+
+commit aa2f73fc88ef3e6946e75bab54a3c0f83f887b3b
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed May 2 15:25:52 2007 +0200
+
+    fixed a small bug in dmenu when an empty font is supplied
+
+commit f189781bbd9d6519a31630c857e21407a5dac610
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Apr 19 09:27:08 2007 +0200
+
+    Added tag 3.0 for changeset 59b3024854db
+
+commit 0e19146d5f89def3a1cf55545fdc72dbab7b60e3
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Apr 13 11:36:44 2007 +0200
+
+    making copyright notice more compact
+
+commit 85a151c6a43407b0fbd74562f46744e0e825c691
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Mar 28 08:17:57 2007 +0200
+
+    next version is 2.9
+
+commit 1fa4fa386aa7c03f8fa3bf2ffedd78bfe24fe9d4
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Mar 27 16:52:50 2007 +0200
+
+    allowing numpad keys as inpyt
+
+commit e1515a2fdcf60987d964b0d616bd44ec3980a89b
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Mar 7 13:30:57 2007 +0100
+
+    Added tag 2.8 for changeset dd3d02b07cac
+
+commit f555908cef580106a50c53e096ec12bf4d2bb2e2
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Mar 7 11:01:14 2007 +0100
+
+    attempt to grab the keyboard only 1000 times, not forever.
+
+commit 73120414e2e4a3a8031b243fb0d893506d4a0dc1
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Mar 7 10:54:21 2007 +0100
+
+    reverting keyboard grab to root window - invoking several dmenu's now works again...
+
+commit 9911455f5b7787c999a570faf33cf6ad0bec056c
+Author: Kris Maglione <jg@suckless.org>
+Date:   Tue Mar 6 03:24:40 2007 -0500
+
+    Wait for an Expose and draw the menu immediately after mapping the window.
+
+commit 2772c51e79a5bfdf60103da02af63d972fecf9cf
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Mar 5 11:25:18 2007 +0100
+
+    Added tag 2.7 for changeset fbd9e9d63f20
+
+commit d57c873f104cb8be34299efe70e02df4bf275d92
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Mar 2 21:48:48 2007 +0100
+
+    keyboard grab works on the dmenu window now (not on the root window) - thx for Kris for this hint
+
+commit 724f72142f6dc880068a92e412f3f3366e643569
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Mar 2 15:16:36 2007 +0100
+
+    also, don't set the font all the time
+
+commit 5b8dce15d3e4d1e50fc4f1df10665260f74a0a02
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Mar 1 15:47:54 2007 +0100
+
+    Added tag 2.6 for changeset 775f761a5647
+
+commit 063c3d26e9eea7184db23953edf540db431dc77f
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Feb 27 14:44:21 2007 +0100
+
+    useless var declaration prev_nitem
+
+commit 03c2b05bb2265e0ef7ba33b7f6df36bd6e0ce54d
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Feb 26 14:07:19 2007 +0100
+
+    changed Backspace/C-w behavior (now it only removes a single character)
+
+commit 8a066fabd9796ca80f5a359c3c6cf57c947b1b95
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Feb 26 11:44:41 2007 +0100
+
+    if isatty() first read from stdin and then grab the keyboard, otherwise first grab the keyboard and then read from stdin
+
+commit 6c0e05eb0d297a0d26080bea3b6040ab14ad65ae
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Feb 26 10:47:52 2007 +0100
+
+    next is 2.6, but not yet ;)
+
+commit 900d34347bd6d35e965ad54b7b4a3f67128b3a2b
+Author: Kris Maglione <jg@suckless.org>
+Date:   Sun Feb 25 16:41:05 2007 -0500
+
+    Escape -s in dmenu.1
+
+commit 4d0cc17794952502dd2d1336877b17e9355b2dcf
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Sat Feb 24 15:38:26 2007 +0100
+
+    Added tag 2.5 for changeset 041143e9fc54
+
+commit 28b6ea0f67ee02b0ff04a267671a255b47c21559
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Sat Feb 24 15:38:10 2007 +0100
+
+    I also dislike sort -u, I support that each Unix tool does one job and does it right ;)
+
+commit 598d72fba9cb6551ddfe8cf4ab470e3a9185bb72
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Sat Feb 24 14:07:40 2007 +0100
+
+    removed superfluous externs as well
+
+commit 007be12f2bf7648f79138e834477e77f612766bb
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 15:28:25 2007 +0100
+
+    using the old-style fashion we uses earlier
+
+commit 6b5b580affe4f1f5315afd375c86a87d44799778
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 14:39:54 2007 +0100
+
+    fixed a bug when dmenu is run with -v
+
+commit d8b48d64e168d515ade6631e75ce202f26e00f2d
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 13:51:23 2007 +0100
+
+    Added tag 2.4.2 for changeset 1ca5d430524e
+
+commit a71424ac0e74f05274a8009f07487112730fa472
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 13:51:06 2007 +0100
+
+    ok 2.4.2
+
+commit f1ab687c628f0ee4e71c33c4a8d304534e60141a
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 13:28:43 2007 +0100
+
+    Added tag 2.4.1 for changeset 03e83e2788c8
+
+commit 68a24f5535030473e90426c30fafe75262add419
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 13:28:38 2007 +0100
+
+    hotfix
+
+commit 47b37834c4a594632492bb29ac7ab556918638b8
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 10:42:00 2007 +0100
+
+    Added tag 2.4 for changeset 9e9036cbfb4b
+
+commit 5f436fdcb733cf9c669a0c94ad95878163f04b9a
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Feb 23 10:16:43 2007 +0100
+
+    added dmenu_path convenience script
+
+commit de3463988319271f504b5e3deb13f598470acd0d
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Feb 22 18:16:35 2007 +0100
+
+    made Fnt an anonymous struct
+
+commit 18592825d253dbab35238063806c6c67876841f5
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Feb 21 11:05:19 2007 +0100
+
+    Added tag 2.3 for changeset b6e09682c8adcb6569656bee73c311f9ab457715
+
+commit 3bc1f99e3cc645b0160cba51805afb3f9f711fa0
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Feb 21 10:59:36 2007 +0100
+
+    applied the fix inspired by a recent wmii commit
+
+commit 8a10b35c64ebe8791ed5c7325b31d86e269b308c
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Feb 20 13:57:05 2007 +0100
+
+    renamed getcolor to initcolor
+
+commit e4fc9053178152332722d93f0ac81855629b93da
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Feb 20 13:54:37 2007 +0100
+
+    s/setfont/initfont/
+
+commit a1913a6af7c9cd6de18e15e989050690fdaa6600
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Feb 20 13:54:00 2007 +0100
+
+    readded draw.c again (except getcolor and setfont)
+
+commit 66b2e8379f0b851d0535a50321e22b58fdaa247d
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Feb 19 21:18:36 2007 +0100
+
+    removed -t, now using isatty() instead of select() to prevent execution from an interactive shell
+
+commit 665488a6eedeecf743e44bd9624105c8b47c4f97
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Feb 19 15:49:50 2007 +0100
+
+    removed draw.c, implemented C-w handling (backward word deletion)
+
+commit 1e01ca03176e6e845a2a300545061e7384c4836d
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Feb 14 09:42:02 2007 +0100
+
+    Added tag 2.2 for changeset 90f0e34e7f11
+
+commit f3c12a7bfff4480cf749a951bcb7d4e1f1b4aab9
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Feb 8 14:10:17 2007 +0100
+
+    fixed Copyright notice in Makefile
+
+commit 3ba8b71abafdd52adaf8c2d4bfa56dc9023c865e
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Feb 8 11:17:11 2007 +0100
+
+    nah nah nah, I can't get used to the  bottom bar, pushing the conditional dmenu again
+
+commit 2bac5599b3e7629875d692b65a336915ecfee49d
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Feb 8 11:10:29 2007 +0100
+
+    letting dmenu appear at the bottom by default
+
+commit dbccf6fbff01dce1e4349ab8ccff4357e360da4c
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Feb 5 11:10:41 2007 +0100
+
+    got rid of LD, inspired by JGs patch to wmii
+
+commit aea9bfec5eaa6e1954f1faa73e791a70a1c01fe6
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Jan 17 11:10:31 2007 +0100
+
+    Added tag 2.1 for changeset 7656557298c9
+
+commit 6175a39e8e743dce985c5ba80801d88df9ee2dce
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Jan 17 11:10:26 2007 +0100
+
+    hotfix changes
+
+commit 2c7ff85f242781083a44067c2156a96efef849c7
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Jan 17 11:10:09 2007 +0100
+
+    Added tag 2.1 for changeset d91c79020430
+
+commit 447046f7aeee496208ecaaad5f960e9cb69b1ad7
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Jan 16 11:42:09 2007 +0100
+
+    Added tag 2.0 for changeset 1fce5c464fcd
+
+commit b76632b9e3e40cb3178bfa3fed6199194bc4b13b
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Jan 16 11:39:26 2007 +0100
+
+    small fix
+
+commit f8f5b270361c4a985d1737d20c71d372f12bb614
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Jan 16 11:38:31 2007 +0100
+
+    removed useless mx, my
+
+commit d6bf35caad9b8bb1c719a512842fa91e2b43d12d
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Jan 16 11:24:51 2007 +0100
+
+    applied new default colors
+
+commit 507c030b5b9aac65324df64eafa2863495bb0783
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Tue Jan 16 11:07:30 2007 +0100
+
+    small fix of Control-j in dmenu.1
+
+commit 0245394e4d2e91af19998e37c0342215d9bdac46
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Fri Jan 12 12:43:44 2007 +0100
+
+    Added tag 1.9 for changeset c7f5f4d54317
+
+commit b6cd6ed2661693c90c1c6e7119a8ac4a0b09e7e1
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Jan 11 15:52:37 2007 +0100
+
+    added evil key support to dmenu
+
+commit 09813fcf2c7929fbfe5bc2f9d877c4e2e83e14b8
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Jan 11 13:51:15 2007 +0100
+
+    s/Mod1-Shift-g/Mod1-G/ in fact Sander is right
+
+commit 64d68b7de9fb413b147124f0c76b65d5f3070430
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Jan 11 11:41:16 2007 +0100
+
+    documenting undocumented vi-alike shortcuts of dmenu
+
+commit eaf89093783733bb6b5da6fa87fd6bdcd6d68996
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Thu Jan 11 10:17:01 2007 +0100
+
+    commented recent Control-shortcut additions
+
+commit c0fcfb782793ec6cc10531a1f76d4a25d1cbe48a
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Jan 10 23:07:03 2007 +0100
+
+    applied Sanders  dmenu_ctrlchars.patch (thanks!)
+
+commit a45d6983ab401fa9765c33de0c24394ae698cce0
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Wed Jan 10 18:06:16 2007 +0100
+
+    applied Alexis Hildebrandts patches
+
+commit 08420a935b96bf1bd8531c3a9cda66ee87e31855
+Author: arg@mig29 <unknown>
+Date:   Tue Jan 2 15:44:32 2007 +0100
+
+    corrections
+
+commit deea1fb5abbb6c23d7d1e0be6f2936d15cc334be
+Author: arg@mig29 <unknown>
+Date:   Tue Jan 2 15:41:13 2007 +0100
+
+    corrected
+
+commit 771c0cb6072b3e90d4ed7007073552736c49e655
+Author: arg@mig29 <unknown>
+Date:   Tue Jan 2 15:38:44 2007 +0100
+
+    next version will contain updated copyright notice
+
+commit 43a19425af43f89f44dea85ad8cfe10d6317048d
+Author: arg@mig29 <unknown>
+Date:   Tue Dec 19 11:49:38 2006 +0100
+
+    Added tag 1.8 for changeset d3e6fa22ae45b38b1bdb0d813390365e5930360b
+
+commit bbfd5391ac0ca3173904a4ba9353c5098a3850f2
+Author: arg@mig29 <unknown>
+Date:   Tue Dec 19 11:49:28 2006 +0100
+
+    fixed a typo in dmenu.1
+
+commit 0e96ae6f4842b4ef4c79eaea821658e24bc03d5e
+Author: arg@mig29 <unknown>
+Date:   Tue Dec 19 11:39:07 2006 +0100
+
+    prepared dmenu-1.8, shortened command line options (-font is -fn, -selbg is -sb, -selfg is -sf, -normbg is -nb, -normfg is -nf now)
+
+commit 989649b5a5d6a23c18d137946cec16e8096b4783
+Author: arg@mig29 <unknown>
+Date:   Mon Dec 18 13:46:44 2006 +0100
+
+    added wmii reference to dmenu(1)
+
+commit f8d2a29a20bfb93c701cf8091931ac84ba3fac5e
+Author: arg@mig29 <unknown>
+Date:   Mon Dec 18 13:25:11 2006 +0100
+
+    agreed with Sander
+
+commit 3438af001adcb1d8ff840f89ae7cb5ef8589bde6
+Author: arg@mig29 <unknown>
+Date:   Mon Dec 18 12:52:58 2006 +0100
+
+    applied Stefan Tibus' sun patch, added -bottom option to dmenu which makes it appear in the bottom (for wmii compliance), slightly modified version than the patch proposed by Stefan Tibus
+
+commit 201b056e39267ab34ee777f7766457ef51a9da12
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 14:41:53 2006 +0100
+
+    hotfix
+
+commit 3dcdbe2a57a19bf727113eca6aa35b1c7cb0ef28
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 14:40:58 2006 +0100
+
+    added vi-like key-bindings for keyboards without cursor keys (they are undocumented features)
+
+commit 5336608a86b2b85b769f654312f851796a4512b0
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 09:45:11 2006 +0100
+
+    Added tag 1.7.1 for changeset 3696d77aaf02f5d15728dde3b9e35abcaf291496
+
+commit d398a2e3186a4f48ae54df3bbc9b35bd7eeba0ac
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 09:45:06 2006 +0100
+
+    foo
+
+commit 2829009138c6d2491a3f500fcf7b1991f2f78ea1
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 09:34:24 2006 +0100
+
+    silent hotfix
+
+commit cae2fbdf38e6575223dd7653035c87e0c4232c4a
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 09:30:31 2006 +0100
+
+    Added tag 1.7.1 for changeset 8e0b9b09bf83c429c73e60a23997f32877a645bf
+
+commit 225cd764c321b3c33f6da892a7599e4e8d86ab85
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 09:30:23 2006 +0100
+
+    applied hotfix of sander
+
+commit 279966a16f32c60f698bf70161c243c4cd1f1c5e
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 14 08:51:21 2006 +0100
+
+    Added tag 1.7 for changeset 58dbef4aef3d45c7a3da6945e53c9667c0f02d5b
+
+commit 9bd80b3968a20ad91565e6090ea1d370221eb23a
+Author: arg@mig29 <unknown>
+Date:   Wed Dec 13 14:36:09 2006 +0100
+
+    changed text in dmenu manpage
+
+commit 65912f2a96d32600a07b963e9149f70ca22e73bb
+Author: arg@mig29 <unknown>
+Date:   Wed Dec 13 14:14:41 2006 +0100
+
+    added prompt option (-p 'prompt text'), documented in man page as well
+
+commit 4bd34662153f0b2cabac485d01ac2e1300c254c1
+Author: arg@mig29 <unknown>
+Date:   Tue Dec 12 09:57:42 2006 +0100
+
+    ordered switch branches in kpress alphabetically, applied Sanders patch for PgUp/Dn and Home/End scrolling
+
+commit e19e42adbba5ea74778bcd10c6e8720d0755f812
+Author: arg@mig29 <unknown>
+Date:   Fri Dec 8 11:12:11 2006 +0100
+
+    fixed diagnostic error message
+
+commit 796c4fb9e542d3e14c9a2a62a4a673d210c9ad12
+Author: arg@mig29 <unknown>
+Date:   Fri Dec 8 10:41:16 2006 +0100
+
+    removed hardcoded 'fixed' fallback, useless and misleading
+
+commit 93c3f930c537ff5275fe4383ea00e8f13edcf13c
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 7 14:54:47 2006 +0100
+
+    Added tag 1.6 for changeset dcc5427f99f51a978386a0dd770467cd911ac84b
+
+commit c69f397bb9a2234173726e5703eee8c123afacb4
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 7 14:38:31 2006 +0100
+
+    found compromise
+
+commit b9fbd59c8a424d8aecd59634d66e5b379f72b316
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 7 12:03:47 2006 +0100
+
+    people should define fixed being compatible with their locale
+
+commit da2b90ddd166d59efa0ed2a79b585252a882c392
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 7 11:55:46 2006 +0100
+
+    using -*-fixed-*-*-*-*-*-*-*-*-*-*-iso10646-* fixed by default
+
+commit dd7ee0dae1e8cb9ffd58fbcab7708e9042eb560c
+Author: arg@mig29 <unknown>
+Date:   Thu Dec 7 10:06:06 2006 +0100
+
+    also fixing dmenu accordingly
+
+commit 250aa199bbc3f12a538ac3162d8065d44fab8c22
+Author: arg@mig29 <unknown>
+Date:   Tue Dec 5 13:30:37 2006 +0100
+
+    only setting LC_CTYPE
+
+commit 5d43e9243ce7b3273f2438bec2da170dcc8e329b
+Author: arg@mig29 <unknown>
+Date:   Tue Dec 5 10:31:20 2006 +0100
+
+    enforcing using imcomplete fonsets anyways
+
+commit 1026eb83089c3e79a12d2d74f3b6b01703e6f55a
+Author: arg@mig29 <unknown>
+Date:   Thu Nov 30 09:21:14 2006 +0100
+
+    Added tag 1.5 for changeset e071fb045bd9e8574947acff7196360bc0270e68
+
+commit c65fdd62529bb5d2007d3ebf6435da9d4ebcabcc
+Author: arg@mig29 <unknown>
+Date:   Sun Nov 26 15:49:47 2006 +0100
+
+    next version will be 1.5
+
+commit 8c20e5dbd3aac1aa45902c6bce3bc32d57c2d598
+Author: arg@mig29 <unknown>
+Date:   Sun Nov 26 15:49:33 2006 +0100
+
+    fixing sizeof stuff
+
+commit 26fbf124fa337502136e8465516bb376e9ca8a20
+Author: arg@mig29 <unknown>
+Date:   Thu Oct 26 12:14:03 2006 +0200
+
+    Added tag 1.4 for changeset df3fbb050004c544d14e43c36f6a94cca6ed4a69
+
+commit 194d890517ef3b9efce9e51976ebc19fbbd498b8
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Oct 23 12:53:35 2006 +0200
+
+    removed misleading input cursor
+
+commit f63327677421a07cca69b86c7dd5f01047fe14b1
+Author: Anselm R. Garbe <arg@suckless.org>
+Date:   Mon Oct 23 10:12:09 2006 +0200
+
+    fixing arg handling in dmenu (thanks to Sander for his report)
+
+commit bb480fb4b0fd06207b2ee1b88eb32b8588e698dc
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Oct 13 11:08:35 2006 +0200
+
+    Added tag 1.3 for changeset 2eb9997be51cb1b11a8900728ccc0904f9371157
+
+commit 95b19f75cce1ba994790ccf7ccdf1815d5d52d75
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Oct 12 12:59:37 2006 +0200
+
+    changing order
+
+commit 3d25a327aad95e38ecd1642af58a49fc555a9d01
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Oct 12 12:58:34 2006 +0200
+
+    simplified util.c
+
+commit d78bcf247fe03e23e7980b246ccf5d57d256ecfc
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Tue Oct 10 19:15:06 2006 +0200
+
+    simplified main event loop
+
+commit afaf66dc999fba8a5fa8269c600218609cda8b56
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Oct 6 13:44:22 2006 +0200
+
+    Added tag 1.2 for changeset bee7fe6d1189174d0204ca3195b83cdc1bb4f82e
+
+commit 63be0ee22abf2293062d612cfc656e568f79e2a1
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Oct 6 12:40:49 2006 +0200
+
+    small change
+
+commit ca973eb64e9303b9bc5d84062189e397726e1fdd
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Oct 6 12:39:06 2006 +0200
+
+    changing version info
+
+commit 5fd7af18c6b24bffd4701156feffcbc0db3b1d69
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Oct 6 11:52:57 2006 +0200
+
+    removed useless newlines
+
+commit 02238725f6b580ea8b6356377e359f933c5ca720
+Author: arg@zarathustra <unknown>
+Date:   Tue Sep 26 17:51:22 2006 +0200
+
+    small update to man page (backported)
+
+commit 2d5afd7c01150b9fa60de1c746205c72d75c9b68
+Author: arg@zarathustra <unknown>
+Date:   Tue Sep 26 17:39:04 2006 +0200
+
+    Added tag 1.1 for changeset e8c1e9733752db12f2dbd1fa93c46f5806242ba9
+
+commit f7615e220e980524bf4051bb181952e0afcbf9a9
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 14:31:42 2006 +0200
+
+    updated README
+
+commit e7ecae0d58b33b5c6afb4b6c14fc1347072f976d
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 14:30:48 2006 +0200
+
+    removed crap from Makefile
+
+commit b661ca75deda910fbbba38970b58a867c13a59a0
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 13:45:41 2006 +0200
+
+    error handling
+
+commit c02da9f87e5925ecbe7b3c75c14727508a0426c8
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 13:41:51 2006 +0200
+
+    foo
+
+commit 14133be5bd4d819579d62ad99c2b6de20040ff13
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 13:39:00 2006 +0200
+
+    reverting
+
+commit 3b590beda2fb23400f74394badd7a5231d4d7920
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 13:37:36 2006 +0200
+
+    added fallback to color initialization
+
+commit 5c0d28e4ff9909059ac1247aa71f9b1e906fea3a
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 13:20:47 2006 +0200
+
+    removed config.h stuff, made dwm configurable due to command line options
+
+commit e0fe9f2fcac32f04f7fda5236f48d1a705cbdcce
+Author: arg@mmvi <unknown>
+Date:   Tue Sep 26 08:47:10 2006 +0200
+
+    uriel didn't understood dmenu code, he broke nearly everything
+
+commit c9465859a6eac7763d0b9049dca6bd34c163d8f6
+Author: arg@wmii.de <unknown>
+Date:   Tue Sep 26 08:43:41 2006 +0200
+
+    applied a change made by Uriel to dmenu (though I didn't applied everything)
+
+commit 1716159e05e712962c3a4c60091f6cd6b573461f
+Author: arg@mmvi <unknown>
+Date:   Mon Sep 25 08:29:20 2006 +0200
+
+    applied something similiar to Jukkas patch
+
+commit 11b64016687f01e6498b7d1433ae334adf473804
+Author: arg@mmvi <unknown>
+Date:   Sat Sep 16 11:20:54 2006 +0200
+
+    Added tag 1.0 for changeset 9e11140d4cc3eecac3b0ab752f91528fd5e04be8
+
+commit 81bcf078f6c510314f140471efb8952160fdb3ad
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Tue Sep 12 10:59:00 2006 +0200
+
+    made function signatures more consistent to my coding style
+
+commit 0e5f467aa85e318ed27fc5d6d3826426a06ef3c3
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Mon Sep 11 13:18:09 2006 +0200
+
+    commented dmenu
+
+commit c51406b27944fc37628f29ef04df6a9537bca5ed
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Sep 8 08:31:19 2006 +0200
+
+    Added tag 0.9 for changeset d046c818ea467555cc338751c9bf3024609f1f12
+
+commit 32f7fe483538be60e529415c8cbd9cfbb4ab86d9
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Sep 8 07:33:20 2006 +0200
+
+    implemented early keyboard grab for dmenu with a timeout for stdin data writers to prevent endless grabbings of the keyboard
+
+commit 0fa5a339ffac530eb596cc1b93c4ee696ef0ec74
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Sep 7 19:12:04 2006 +0200
+
+    new version of dmenu
+
+commit 358f078c0b8e235bd14cded2330b78a2e1c08685
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Sep 7 09:40:09 2006 +0200
+
+    another fix
+
+commit 1f207893e6162f8ae8be17440830ca1eb1e80746
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Sep 7 09:36:53 2006 +0200
+
+    made dmenu.1 also concise
+
+commit 1c5be1c553b8510c23e29dbec82bffc17fb4767e
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Wed Sep 6 10:53:15 2006 +0200
+
+    Added tag 0.8 for changeset 409667a57221f7e50ba8b5248f638915cd61b366
+
+commit 32ea45084b389d604369d74c6806d4a12613099a
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Mon Sep 4 19:47:09 2006 +0200
+
+    fixed man page
+
+commit cc7d863b6e46f250129b4b135d7a13a99c7b4df2
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Mon Sep 4 17:17:08 2006 +0200
+
+    Added tag 0.7 for changeset 5fc20d7158bd16b4d5f8d1c25e177680b6d54252
+
+commit 04eade6a767a4145388585f666c6d1628285e96d
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Mon Sep 4 07:28:03 2006 +0200
+
+    small change of main event loop
+
+commit 49ce444d3228ef00f1ad3b2deab9e133b3495b6b
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Mon Aug 28 12:26:25 2006 +0200
+
+    updated version
+
+commit 2e9515ee27c5250422a1ab1190b6daa9b910e717
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Mon Aug 28 10:20:10 2006 +0200
+
+    Added tag 0.6 for changeset 25f679fb19686140a907684ffcb423b9e9d44b53
+
+commit d4a4cc1ab8c316c22f3d6f2a47b287a6db6fa1d7
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Mon Aug 28 07:22:38 2006 +0200
+
+    updated man page
+
+commit 11bda99968c6c755065b35605d5c00846db0665f
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Aug 25 18:15:24 2006 +0200
+
+    fixed
+
+commit 82b0bc83f81ec98f483ea2468c1c677da0691510
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Aug 25 18:03:30 2006 +0200
+
+    switching back to a dark color scheme with larger font
+
+commit bd1172e6892f3fcb353905ec5c17c8059e3002af
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Aug 25 17:44:40 2006 +0200
+
+    small color fixes
+
+commit 13ef97e65ea5a713a3d5ab46916d1ac6d071b825
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Aug 25 14:45:17 2006 +0200
+
+    updated dmenu to borderless drawing as well
+
+commit 65be999a3f76ad51fb97e12f2fb481f5038f6817
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Fri Aug 25 07:54:20 2006 +0200
+
+    back to 3 colors
+
+commit 37faefb1aab1a6a36c5a8017e24bbca22fd23530
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Aug 24 12:04:41 2006 +0200
+
+    removed useless call
+
+commit 18ec376aa903d620f3586af4974116a82c74024f
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Aug 24 12:03:40 2006 +0200
+
+    fixed minor bug
+
+commit 6c1e46654dae69bb7b3fe3935358a53e44628a75
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Aug 24 11:57:58 2006 +0200
+
+    small color change
+
+commit e980c7ff1814b533f674eec535af6c5658b1bc62
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Aug 24 11:47:08 2006 +0200
+
+    migrated dmenu to use 4 instead of 3 colors
+
+commit 7848b53dc3c8c05bd2cf1f10d59db2310456acf7
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Aug 24 10:22:51 2006 +0200
+
+    Added tag 0.5 for changeset 4a0ecd881c4fc15de4a0bebd79308b064be020ef
+
+commit 865c93885668995972848463366d277c5744cf45
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Aug 24 10:22:30 2006 +0200
+
+    prepared dmenu-0.5
+
+commit 30d72e5f8730bd8e16ead1b3ed40663d1f850fa4
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Thu Aug 24 09:27:01 2006 +0200
+
+    removed unnecessary Xlib call
+
+commit 0ffd139f2c06c3cfb1f6dffbb81ff170a84a1f8a
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Wed Aug 23 19:05:20 2006 +0200
+
+    sanitizing my colorscheme
+
+commit 86512ce930b1171145b069569079d47477054dea
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Wed Aug 23 18:55:48 2006 +0200
+
+    back to terminus font
+
+commit d3206194c18fe0b925892da7cbf8c3942481cba8
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Tue Aug 22 10:01:45 2006 +0200
+
+    font fix
+
+commit 8148b515a155c66d5ad5ce0ed8ae1cbc13e4374d
+Author: Anselm R. Garbe <arg@10kloc.org>
+Date:   Tue Aug 22 09:49:56 2006 +0200
+
+    fixed
+
+commit 35210e3998a3795fff844fff4de5fd8a2cf46e9f
+Author: arg@localhost.10kloc.org <unknown>
+Date:   Mon Aug 21 17:45:46 2006 +0200
+
+    applied OpenBSD changes..
+
+commit df85dd743c9924bb2925943dbaf57acf0d0fc31f
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Mon Aug 21 07:34:16 2006 +0200
+
+    renamed bad_malloc into badmalloc as well
+
+commit d9f6fa426bceb37c65f3f43f491742892d0a58b2
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Mon Aug 21 07:31:33 2006 +0200
+
+    small changes in dmenu.1
+
+commit bbb2cc2a729cac8d0b2f0233924ad0491f00c2d7
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Wed Aug 16 19:25:04 2006 +0200
+
+    fixed a typo in config.mk, fixed cleanup code in dmenu (now frees all allocated stuff)
+
+commit 02ddc93c9483214533824576cc219bd2f269ddc2
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Wed Aug 16 12:37:01 2006 +0200
+
+    applied sanders patch
+
+commit 0faf441367a57a8a249a0b03ac88f29284916e48
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Wed Aug 16 08:57:10 2006 +0200
+
+    applied sanders Makefile patch
+
+commit be6b534520a2da16b9813a4f954b98fa90beb513
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Tue Aug 15 16:56:55 2006 +0200
+
+    fixed the same issue in dmenu
+
+commit db76b0f9a5823798ea51bfab3359bdaf8eccf7d5
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Tue Aug 15 10:39:26 2006 +0200
+
+    Added tag 0.4 for changeset 7acf0dde1120542917bae12e0e42293f9d2cc899
+
+commit 26fc52fcf69e690f8ed4c3f0db297f2d8b5ea46c
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Mon Aug 14 16:11:38 2006 +0200
+
+    removed finished message
+
+commit 6a26e97f741d732a68a978bbcde4331a6a1610c2
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Mon Aug 14 10:56:57 2006 +0200
+
+    fixed string cutting
+
+commit 0e21ef5f3701cafb9936b5fcbfc204bc477cb215
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Mon Aug 14 08:52:28 2006 +0200
+
+    fixed string cutting
+
+commit 2f3068fb77aed6c5128b7df1571bee1edaa35d92
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Mon Aug 14 08:44:54 2006 +0200
+
+    added comment
+
+commit b7f891145503257759c44f5737eabe3010eae2af
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Mon Aug 14 08:42:23 2006 +0200
+
+    applied Sanders LD patch
+
+commit 35a06ccd2edd6990628a715316b88258ecc7a660
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Fri Aug 11 18:12:07 2006 +0200
+
+    applied my new color scheme
+
+commit 67649463c802d68fa2c5c9dbece8aba3a2ca9d9a
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Fri Aug 11 11:52:34 2006 +0200
+
+    simplified drawborder
+
+commit d1415ea4970cba350d9d4af5c8699e9278899707
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Thu Aug 10 15:19:03 2006 +0200
+
+    Added tag 0.3 for changeset d352e9dc112ee96aa5cad961a0ed880ae9ce7276
+
+commit c6113a3b2775f83ae552394c000ee6cc8b20316f
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Thu Aug 10 11:13:21 2006 +0200
+
+    readded border colors, this sucks least
+
+commit dd902868dfbb32f3520abe30c640f06bedf4ca9b
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Thu Aug 10 11:07:06 2006 +0200
+
+    drawing border around sel item
+
+commit 4318bf2905a8da290ec83cb67f26bd06ba2e4dc9
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Thu Aug 10 10:28:58 2006 +0200
+
+    removed unnecessary border color
+
+commit 25f71b382953630a48e321737498f9c561e66433
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Thu Aug 10 10:21:50 2006 +0200
+
+    swapping my default colors
+
+commit 0af369ba65fdcdc40e5c49007c1b19097fba2496
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Thu Aug 10 10:10:32 2006 +0200
+
+    added uppercase chars for C-u and C-h as well
+
+commit e4fbc432534bfb42a0b0d97bcdd687274780e95e
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Thu Aug 10 10:09:44 2006 +0200
+
+    removed C-[ from source and man page
+
+commit 66f2a93eaa25255daac4316bbaf5f41098a7fd45
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Wed Aug 9 18:45:32 2006 +0200
+
+    removed control sequences which actually aren't implemented anymore (only the real unix control sequences are implemented)
+
+commit a381b3a8196d7b28b4a0f107f86974741abfdfac
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Tue Aug 8 17:14:35 2006 +0200
+
+    fixes to README
+
+commit 2a4b146fc423a56950b7153e02f36de25358567a
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Tue Aug 8 12:47:58 2006 +0200
+
+    default colors are best
+
+commit 84d7f7bccf2d016f80f24296f119dc6be56c540e
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Tue Aug 8 11:47:58 2006 +0200
+
+    noborder
+
+commit 00dce8cc395e1a71d080e71d020005f8c7bd5201
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Tue Aug 8 11:18:23 2006 +0200
+
+    dito
+
+commit 170b977288fdf06db87089b5e0d6df5a17ab58d5
+Author: Anselm R.Garbe <arg@10ksloc.org>
+Date:   Tue Aug 8 11:07:12 2006 +0200
+
+    using a better colorscheme
+
+commit 366b2afd6cac918c8de2e0d4e04f0e7cee9363fa
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 17:17:27 2006 +0200
+
+    removed unnecessary typedef
+
+commit 4e009770d657ffdcd89f2d202e383ca432449391
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 14:07:04 2006 +0200
+
+    made dmenu(1) more dwm(1) alike
+
+commit b24aa8312b8067226e469d15c0a103a3016670f0
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 12:21:31 2006 +0200
+
+    font size changed as well
+
+commit 5146c3f27f730b3b37805c1f7b19bbebe312959f
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 11:58:23 2006 +0200
+
+    appliead Sanders manpage/Makefile pacth
+
+commit 6a332a043a0674884dcb3b449628be3fb3a07017
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 11:11:17 2006 +0200
+
+    fixed dmenu.1 version info
+
+commit 9d574f5ebe7849d7c1c8c1f209a075526db4ddde
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 11:10:05 2006 +0200
+
+    settle with grey
+
+commit 1fb8a6b898371a3decfd3fa8385c899f551d49d5
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 10:32:18 2006 +0200
+
+    next version is 0.3
+
+commit 7fb4c2b8187ef519ede676953d536914f13cf57c
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 10:28:42 2006 +0200
+
+    also made my colors tasting better with my overall colorscheme
+
+commit f3a60b583f1e556916dc7a2f2fc64f98709830fc
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 09:40:28 2006 +0200
+
+    next attempt for bright background switch
+
+commit 48e2ce8709c0f1256fed63a9c913b856fec7d236
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 08:52:37 2006 +0200
+
+    Added tag 0.2 for changeset 656be0f47df545dfdd2e1e0663663b8b1b26f031
+
+commit 4c7866ec55d284e8a29ca682ab79c11893a9cb6c
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 08:45:47 2006 +0200
+
+    added stripping to dmenu target
+
+commit fe94aeb4686b62dd5c3505ebca4a1e1661740e53
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 08:40:26 2006 +0200
+
+    fixed a bad mistake setting the dmenu border to False;
+
+commit d32fd15ea47bab2bb9cc2674b75c3cc008ef04aa
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 07:39:31 2006 +0200
+
+    renamed some functions to make it more readable
+
+commit bb393554fda90ce4016ab7236a9a47428bac45a9
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 07:37:32 2006 +0200
+
+    updated man page
+
+commit 38bc664ef6d4cd7e248fca06dd121724ea9595ea
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 07:36:18 2006 +0200
+
+    updated man page
+
+commit ee03052e73c344cac6840d379a792fb135dce371
+Author: arg@10ksloc.org <unknown>
+Date:   Mon Aug 7 07:30:13 2006 +0200
+
+    removed -t title crap from dmenu
+
+commit 62a7d4074671ac8dd37d3c2640eae5e488741a16
+Author: arg@10ksloc.org <unknown>
+Date:   Sat Aug 5 14:57:51 2006 +0200
+
+    menu now also uses -Os
+
+commit 2535072fd81839326621851b9052375d11d11de5
+Author: arg@10ksloc.org <unknown>
+Date:   Sat Aug 5 14:05:04 2006 +0200
+
+    small change
+
+commit d8d17f369ee098f3e71cea1769797a2e9c25025d
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 17:17:03 2006 +0200
+
+    yet another fix
+
+commit f1495a11b6a020c94f98c563632960dc50594dcf
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 17:15:07 2006 +0200
+
+    fixed README of dmenu
+
+commit 84b56075f4f8ab6326fa99acd57e0ef272092fce
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 10:34:44 2006 +0200
+
+    fixed dist target
+
+commit 7aae7fac9c565199ae0aa1eca3c94a7916e69569
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 10:32:15 2006 +0200
+
+    removed config.h
+
+commit b862ed5a540fc94241762430cbfa77fce7814e8a
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 10:31:51 2006 +0200
+
+    Added tag 0.1 for changeset fcc8a282cb52c6a9343b461026b386825590cd31
+
+commit a8f4930e54da43027712eec5e0400ad809559ce3
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 10:31:25 2006 +0200
+
+    prepared 0.1
+
+commit b497a13bde8a02ea42a1f475d76a47eca37babd1
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 10:31:05 2006 +0200
+
+    remove stderr spitting
+
+commit 5077207088b08e6b21601cb19925d20e9d5af573
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 10:23:36 2006 +0200
+
+    rearranged several stuff
+
+commit 7817523a685f0dbba2e074a448099558a54b1b9c
+Author: arg@10ksloc.org <unknown>
+Date:   Fri Aug 4 09:35:27 2006 +0200
+
+    initial import

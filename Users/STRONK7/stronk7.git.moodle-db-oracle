@@ -1,0 +1,246 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 68054b60c8f15bbf3cb3becd7e54a7db21f4015a
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Mon Jul 25 15:29:18 2022 +0200
+
+    Make Oracle 11g database ready output compatible with Oracle 21c
+    
+    Till now, in various places we are using the "Database opened."
+    output to determine when the Oracle database is up and accepting
+    connections. We use that, for example, in moodle-docker:
+    
+    https://github.com/moodlehq/moodle-docker/blob/master/bin/moodle-docker-wait-for-db#L17
+    
+    But, the init scripts with Oracle 21c are more complex and require
+    to restart the database once more, so that strings isn't a good
+    candidate any more, because the first start is detected and the
+    wait script returns too early.
+    
+    So, instead, what we are doing here is to ensure that the Oracle 11g
+    version does add "DATABASE IS READY TO USE!" at the end of the
+    init, because that exact string is also output by the 21c version.
+    
+    That way we have a consistent string to be be checked no matter the
+    version of the Oracle database.
+
+commit 6c3e810d07838567d872e48ca80db90b6c37506e
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue May 31 19:51:29 2022 +0200
+
+    Show all information in master
+
+commit 338a2d1ae566649d691f6fd60587f84db22e53f5
+Merge: aead20e 9332a47
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Wed Apr 20 11:50:48 2022 +0100
+
+    Merge pull request #12 from stronk7/master
+    
+    Change git URL to https and small tweaks
+
+commit 9332a47a92377ee6d2647d0ebf771c88ea7aa1f2
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Wed Apr 20 12:42:24 2022 +0200
+
+    Change git URL to https and small tweaks
+    
+    Will help with #11
+
+commit aead20e1dd96d79841223e3d15c6d8f1e9f11673
+Merge: 6ca2fcb 10c5b2e
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sat Dec 26 13:12:31 2020 +0100
+
+    Merge pull request #9 from stronk7/moodle-db-oracle-r2
+    
+    Introduce moodlehq/moodle-db-oracle-r2, aiming to be public again
+
+commit 10c5b2e4cee5f2fead006ad4d5b64142e87c01d7
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sat Dec 26 12:52:09 2020 +0100
+
+    Introduce moodlehq/moodle-db-oracle-r2, aiming to be public again
+    
+    - See MDLSITE-5669 / ICT-759 for more information.
+    - Added ORACLE_DISABLE_ASYNCH_IO to get better performance.
+    
+    Fixes #8
+
+commit 6ca2fcb1772b9decccff08839653811864fcbece
+Merge: 597b1fd 75fd83d
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Thu Oct 15 23:14:32 2020 +0200
+
+    Merge pull request #7 from stronk7/travis_com
+    
+    Move badges to travis-ci.com
+
+commit 75fd83dee4425e6cfef165cc5d3132b8d5b7e22d
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Tue Sep 22 16:24:04 2020 +0200
+
+    Move badges to travis-ci.com
+
+commit 597b1fd45e3949ef84ce548fb4e034e697c41c87
+Merge: 369d3e2 9951a26
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Sun Feb 23 12:28:04 2020 +0100
+
+    Merge pull request #6 from kabalin/oracle-xe-11g-r2
+    
+    Use wnameless/oracle-xe-11g-r2
+
+commit 9951a2652212070ede78e8666b4535bc509a8d5c
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Fri Feb 21 23:21:05 2020 +0000
+
+    Use wnameless/oracle-xe-11g-r2
+    
+    This updated image has been re-listed on Dockerhub in 09/19 following
+    author's communication with Oracle.
+
+commit 369d3e21257956f19fe6e3256d246e478346c4ea
+Merge: 9d31295 bf635b1
+Author: Eloy Lafuente <stronk7@moodle.org>
+Date:   Fri Aug 23 18:11:11 2019 +0200
+
+    Merge pull request #5 from kabalin/readme-local-build
+    
+    MDLSITE-5669: Add local build instruction to readme.
+
+commit bf635b1ba9270404154e764c2eb4e99d4b7d00f2
+Author: Ruslan Kabalin <ruslan.kabalin@gmail.com>
+Date:   Fri Aug 23 17:04:51 2019 +0100
+
+    MDLSITE-5669: Add local build instruction to readme.
+
+commit 9d3129560282109a448781dd5bfc05e75870c720
+Author: Eloy Lafuente (stronk7) <stronk7@moodle.org>
+Date:   Sun Jan 20 00:20:45 2019 +0100
+
+    Testing webhooks...
+
+commit 10a671b01ceeed9a437ffa64190145bbd743f5c6
+Merge: 3ceb996 22ee1b4
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu Sep 14 10:04:37 2017 +0100
+
+    Merge pull request #3 from abias/patch-1
+    
+    Update README.md
+
+commit 22ee1b4886101547ca6e3bc6349faf78dccc3491
+Author: Alexander Bias <alexander.bias@uni-ulm.de>
+Date:   Wed Sep 13 16:12:00 2017 +0200
+
+    Update README.md
+
+commit 3ceb9965f12bc8b41f9e6dfd662e54bdc6678e94
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Sep 7 10:02:33 2017 +0100
+
+    Update to latest upstream image
+
+commit 459ef68ed9321ffacdb7885de5e5455198e6a1f5
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Sep 7 08:22:24 2017 +0100
+
+    Remove moodle package creation from image
+    
+    Moodle will create the package on initial install, this creation of the
+    Moodle package was not working correctly.
+    
+    Fixes #1
+
+commit 540f9165c4c697432ef7e60617ee7f273fe8aa47
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Sep 5 12:24:55 2017 +0100
+
+    Update references to point to Moodle HQ
+
+commit 56af8d20fde378b0177204ad2548948f1b444f52
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:42:13 2017 +0100
+
+    Update README.md
+
+commit 553bda7b700f97ff61228c299cfaca30484e8607
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:41:43 2017 +0100
+
+    Update README.md
+
+commit 62792b2341d7e13b20511f2eb3972a18434e2a9c
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Thu May 25 14:36:28 2017 +0100
+
+    Update README.md
+
+commit fa5855a18d91ba284351d834c17242f69d2156c7
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 14:41:58 2017 +0100
+
+    [tests] Get oracle version
+
+commit 35f27dd2d2346b143fedcda879ac68ccb348fffa
+Author: Dan Poltawski <talktodan@gmail.com>
+Date:   Wed May 24 11:07:19 2017 +0100
+
+    Fix stray |
+
+commit 9dea0aab121764d82943f3533a5730c17c839d00
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Wed May 24 11:03:01 2017 +0100
+
+    Add travis configuration
+
+commit 10067c28eb8a05db569341286d00ec9e726a3075
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Mon May 22 11:08:28 2017 +0100
+
+    Tidy up docker files to implement a best practice
+
+commit 108df0189c5ddb42de62b1b90e682be4be7d6f0c
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 5 17:21:49 2017 +0100
+
+    Add a restart after changing process limit
+    
+    Combined with previous commit fixes the problems found in
+    auth_db_testcase::test_deleting_with_many_users
+    https://tracker.moodle.org/browse/MDL-58748
+
+commit 594f98346d7f73128c8056ef5e7f08abb80f57d9
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Fri May 5 15:54:00 2017 +0100
+
+    More oracle tweaks
+
+commit af9f94b27cdc903244e1d55150b05706557b1e3b
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 10:48:39 2017 +0100
+
+    Oracle tablespace..
+
+commit c53ac6611d22f66dfe35116822aeb90ef110c6ca
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Thu Apr 27 09:24:09 2017 +0100
+
+    Fix oracle pass
+
+commit e5c47c2eb68c722fbb8b21a74ce5c439b2e936be
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Apr 25 15:30:22 2017 +0100
+
+    Improvements to oracle iamge
+    
+    * Create explict moodle users
+    * Split setup into two scripts
+
+commit 3ac4b662723b13b9e9cf436249c16072f4ae8928
+Author: Dan Poltawski <dan@moodle.com>
+Date:   Tue Apr 25 12:59:13 2017 +0100
+
+    Initial commit of combined repo
