@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> {{repo}} by {{user}} </title>
+</head>
+<body>
+	<h> <i>Git History for</i> <b>{{repo}}</b> </h>
+	{% for line in data %}
+		<p> {{line}} </p>
+	{% endfor %}
+</body>
+</html>

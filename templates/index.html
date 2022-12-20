@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head style="background-color:#222222;">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> {{title}} </title>
+</head>
+<style type="text/css">
+
+#container {
+    background-color: #333;
+}
+
+</style>
+
+<body>
+<body style="background-color:#777;">
+
+<img src="/i/avatar_{{title}}.png">
+
+  <!--   <script>
+      const jsonfile = JSON.parse({{jsonfile|tojson}});
+      console.log(jsonfile);
+      document.querySelector(".container").innerHTML = JSON.stringify(jsonfile,(',',':'), 3);
+    </script> -->
+    <div class="container">
+        <ul> Repositories</ul>
+            {% for repo in repos %}
+                <li> <a href="/r/{{title}}/{{repo}}">{{repo}}</a></li>
+            {% endfor %}
+    </div>
+
+<div class="container">    
+    <ul> Followers </ul>
+    {% for f in followers %}
+        <li> <a href="/u/{{f.upper()}}">{{f}}</a></li>
+    {% endfor %}
+</div>
+<div class="container">
+    <ul> Following </ul>
+    {% for fo in following %}
+    <li> {{fo}}</li>
+    {% endfor %}
+</div>
+
+</body>
+</html>
