@@ -1,6 +1,6 @@
 # BAD GIT
 Crawling github for malicious repositories
-
+![there-there](https://github.com/cas1m1r/GITTER/blob/main/assets/comfort?raw=true)
 
 # Step One: Discovery
 Using `gitstuff.py` we can search github for keywords and return JSON data organized by username with a list of repositories related to that search term. 
