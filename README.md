@@ -1,4 +1,4 @@
-# BAD GIT
+# GITTER [Github Threat Extended Recon]
 Crawling github for malicious repositories
 <img src="https://github.com/cas1m1r/GITTER/blob/main/assets/comfort.gif?raw=true" width="100%"> 
 
@@ -8,7 +8,7 @@ Using `gitstuff.py` we can search github for keywords and return JSON data organ
 
 # Step Two: Classification
   - take md5 hashes of the files in repos and check them against known malware.
-  	o weight the emails in  commits creating these files **very heavily**!
+    o weight the emails in  commits creating these files **very heavily**!
   - check whether the repository mentions the fact there should be malware in README, comments, etc
   - look at network of followers and history of the author's other repositories
 

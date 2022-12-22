@@ -120,18 +120,21 @@ def load_repositories(rpath:str):
 	repos = {}
 	for f in os.listdir(rpath):
 		try:
-			if rpath.find('.json'):
-				r = f.split('gitrepos_')[1].split('.json')[0]
-				repos[r] = json.loads(open(f,'r').read())
-		except:
+			if f.find('.json') and f.find('gitrepos_')==0:
+				topic = f.split('gitreposc_')[-1].split('.json')[0]
+				rdata = json.loads(open(os.path.join(rpath, f),'r').read())
+				if type(rdata) == str:
+					repos[topic] = eval(rdata)
+				else:
+					repos[topic] = rdata
+		except json.decoder.JSONDecodeError:
 			print(f'Unable to load {f}')
 			pass
 	return repos
 
 if __name__ == '__main__':
 	if '--research' in sys.argv:
-		repos = load_repositories(os.getcwd())
-
+		repos = load_repositories('git_repos')
 		crawler = GitStuff()
 
 		for key in repos.keys():
@@ -140,6 +143,47 @@ if __name__ == '__main__':
 				if user.upper() not in os.listdir('Users'):
 					crawler.visit_user(user)
 				else:
-					print(f'[>] Skipping {user} (Already Visited)')		
-					
+					print(f'[>] Skipping {user} (Already Visited)')	
+
+	# downlaod and parse through users' repositories
+	if '--code-crawl' in sys.argv:
+		uname_folders = os.listdir('Users/')
+		sketchy_repos = load_repositories('git_repos')
+		sketchy_topics = list(sketchy_repos.keys())		
+		users = []
+		checkouts = []
+		for topic in sketchy_topics:
+			if 'repos' in sketchy_repos[topic]:
+				users = list(sketchy_repos[topic]['repos'])
+				for uname in users:
+					ufold = uname.upper()
+					upath = f'Users/{uname.upper()}'
+					if ufold in uname_folders:
+						userinfo = json.loads(open(f'{upath}/{uname}.json','r').read())
+						if type(userinfo) != dict:
+							print(f'\t{ufold} is malformed?')
+							userdata = eval(userinfo)
+						else:
+							userdata = userinfo
+							del userinfo
+						# if 'search_term' not in userdata:
+						# 	data['search_term'] = topic
+						hrepos = sketchy_repos[topic]['repos'][uname]
+						for hrepo in hrepos:
+							repo = hrepo.split("/")[-1]
+							dumpf = f'{upath}/{uname}.git.{repo}'
+							if not os.path.isfile(dumpf):
+								print(f'[?] Unable to find: {dumpf}')
+								print(f'\t\033[1m[+] Exploring new repository \033[31m{repo}\033[0m about {topic} by \033[1m{uname}\033[0m')
+								os.system(f'./gitcode.sh {uname} {repo}')
+							else:
+								print(f'\033[1m[-] Already have \033[32m{repo} about {topic} by \033[1m{uname}\033[0m')
+						# TODO: launch gitcode.sh
+
+					elif not os.path.isdir(uname.upper()):
+						print(f'[+] Creating folder Users/{uname.upper()}')
+						# os.mkdir(f'Users/{uname.upper()}')
+			else:
+				print(f'No userdata for {topic}')
+
 
