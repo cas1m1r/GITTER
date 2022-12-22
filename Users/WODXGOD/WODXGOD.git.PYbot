@@ -1,0 +1,450 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<h1 align="center">PYbot Botnet</h1>
+
+<p align="center">
+    <img width="629" height="370" src="https://raw.githubusercontent.com/WodxTV/PYbot/master/preview.png">
+</p>
+
+**PYbot** is a basic open source [denial of service](https://en.wikipedia.org/wiki/Denial-of-service_attack) [botnet](https://en.wikipedia.org/wiki/Botnet) system written in Python 3, consists of a connect and control server and a bot malware script.
+
+# C&C Commands
+Command | Description
+--------|------------
+help, ? | Shows list of commands
+methods | Shows list of attack methods
+clear, cls | Clears the console window screen
+exit, logout | Disconnects from the C&C server
+.syn \<host> \<port> \<duration> | Starts a TCP SYN flood attack
+.tcp \<host> \<port> \<duration> \<size> | Starts a TCP junk flood attack
+.udp \<host> \<port> \<duration> \<size> | Starts a UDP junk flood attack
+.vse \<host> \<port> \<duration> | Starts a VSE query flood attack
+.http \<host> \<duration> | Starts a HTTP GET request flood attack
+
+# Layer 4 Attack Vectors
+- **[TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) Flood**
+    - Floods target with trashed TCP data packets.
+- **[TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) SYN Flood**
+    - Floods target with SYNchronize TCP packets.
+    - Read more about the attack method [here](https://en.wikipedia.org/wiki/SYN_flood).
+- **[UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) Flood**
+    - Floods target with trashed UDP data packets.
+    - Read more about the attack method [here](https://en.wikipedia.org/wiki/UDP_flood_attack).
+
+# Layer 7 Attack Vectors
+- **[VSE](https://en.wikipedia.org/wiki/Source_(game_engine)) Flood**
+    - Floods target with [VSE server queries](https://developer.valvesoftware.com/wiki/Server_queries).
+    - Designed to take down Source based game servers by sending legitimate traffic to the target server.
+- **[HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) GET Request Flood**
+    - Floods target with HTTP GET requests.
+    - Read more about the attack method [here](https://en.wikipedia.org/wiki/HTTP_Flood).
+
+# Installation
+1. Install Git and Python 3 on your server.
+2. Clone the PYbot Github repository to your server via Git: `$ git clone https://github.com/WodxTV/PYbot.git`.
+3. Change the host address and C&C port in the configuration section in [bot.py](/bot.py) to your server address and C&C port.
+4. Start the CnC server by executing the command: `$ python cnc.py <cnc port>`.
+5. Add accounts in [logins.txt](/logins.txt) using the format: `username:password`.
+6. Connect to the server through [PuTTY](https://www.putty.org/) on a raw socket connection.
+
+*Compiling the malware and installing it on vulnerable devices won't be told as it's highly illegal to get remote access to devices without permission. Use of this project for illegal activities is at own risk! I'm not responsible for any of your taken actions!*
+
+# Author
+- **wodx**
+    - [Twitter](https://twitter.com/wodxgod)
+    - [YouTube](https://youtube.com/wodxgod)
+    - [PayPal](https://www.paypal.com/paypalme2/wodx)====================== GIT HISTORY: ======================
+bddd10c HEAD@{0}: clone: from https://github.com/wodxgod/PYbot
+commit bddd10ce03ffeba167a2fea88d110a1f3f193743
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Apr 10 19:28:49 2020 +0200
+
+    Update README.md
+
+commit 21745910f56ad3430665c3c74878c32836271cb8
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Apr 10 19:27:53 2020 +0200
+
+    Update README.md
+
+commit d5426ba13c70ac9ca16c817c4c07470c6efe2ad1
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Apr 9 23:11:55 2020 +0200
+
+    Fixed HTTP and TCP flood errors
+
+commit 6768237f929d1af1386d56296d67180643ead76e
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Mar 6 11:16:22 2020 +0100
+
+    Update cnc.py
+
+commit 67c71883345df859a926cfd3465f39083c83c3a5
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Feb 6 23:18:54 2020 +0100
+
+    Updated & upgraded
+
+commit d07ef3237f1befa178a35955ad1969650e45f700
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Feb 6 23:13:33 2020 +0100
+
+    Update README.md
+
+commit dea0ca4d3d8d91d684de7b7cc1c54ba697599d70
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Feb 6 23:09:59 2020 +0100
+
+    Updated
+
+commit ebcc75d5ee98af3834ea8591e8a09b218e490ade
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Tue Nov 26 14:11:37 2019 +0100
+
+    Update README.md
+
+commit f20582e82ae49f6dd18d2f157a29e1784364b931
+Merge: ad6592e 538d002
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Wed Oct 23 14:42:10 2019 +0200
+
+    Merge branch 'master' of https://github.com/WodxTV/PYbot
+
+commit 538d0021a34d9291606882f2caf00f6e74d26b56
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 14:53:17 2019 +0200
+
+    Update README.md
+
+commit 27708d3143092837db7f930ff26091d7a2e24cdb
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 13:02:23 2019 +0200
+
+    Update README.md
+
+commit 2638278e53ea0d752b1acfe0a136d692758f541a
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 13:00:36 2019 +0200
+
+    Update README.md
+
+commit 4a256a9b677d38bd188befd59c91114311446a80
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 12:59:59 2019 +0200
+
+    Update README.md
+
+commit d76c945741b3b9bd33ec57f9a3b9388e77cc51ad
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Tue Oct 1 18:13:32 2019 +0200
+
+    Update README.md
+
+commit b0d1fdade0c1ad43cd76e0856fa76ce0e3860bbc
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sun Sep 29 01:06:49 2019 +0200
+
+    Update cnc.py
+
+commit 98ad5eaff06184d8603752e1af74e5faec28b0ed
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sun Sep 29 01:05:37 2019 +0200
+
+    Update cnc.py
+
+commit b2f0d56cb325da360a6dc5293e9336b242ed4739
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:18:21 2019 +0200
+
+    Update README.md
+
+commit 0bd98d16ba8bd66fb6dbdc9829078266105f7efb
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:16:28 2019 +0200
+
+    Update README.md
+
+commit cd2cd797a3ab17bc15c97e53886f907f90eab3fb
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:14:26 2019 +0200
+
+    Update cnc.py
+
+commit ca005e10f86c0ec5c855bbce1edf3b8cf53ac938
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:13:28 2019 +0200
+
+    Update README.md
+
+commit ad6592e8d25c7514b0b44a00697954906405f661
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 01:29:37 2019 +0200
+
+    Updated
+
+commit e7229739b2592b317dee8aaefbba723b4f9cb5b5
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:58:13 2019 +0200
+
+    Update README.md
+
+commit 560c5dca2dcf0b2a68ba786c6720cc477c61e45d
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:57:20 2019 +0200
+
+    Updated
+
+commit df379e91dbaddd1ecb5966a29963d3ce35702ae1
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:53:19 2019 +0200
+
+    Update README.md
+
+commit 88dc088459d38513104ecb429da47e06155ed7b2
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:50:52 2019 +0200
+
+    Added preview
+
+commit 9742b3e1070a4016f58699710e586abc97ddac9e
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:46:11 2019 +0200
+
+    Update README.md
+
+commit 3f3242ab906f62ac28652b0aa710ec9f6ed9cd99
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:40:30 2019 +0200
+
+    Updated
+
+commit 2580f2191307bf7c9fa5543d23abeff93100adff
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Sep 27 21:36:24 2019 +0200
+
+    Initial commit
+======================: FILES :======================
+======================: README CONTENT :======================
+<h1 align="center">PYbot Botnet</h1>
+
+<p align="center">
+    <img width="629" height="370" src="https://raw.githubusercontent.com/WodxTV/PYbot/master/preview.png">
+</p>
+
+**PYbot** is a basic open source [denial of service](https://en.wikipedia.org/wiki/Denial-of-service_attack) [botnet](https://en.wikipedia.org/wiki/Botnet) system written in Python 3, consists of a connect and control server and a bot malware script.
+
+# C&C Commands
+Command | Description
+--------|------------
+help, ? | Shows list of commands
+methods | Shows list of attack methods
+clear, cls | Clears the console window screen
+exit, logout | Disconnects from the C&C server
+.syn \<host> \<port> \<duration> | Starts a TCP SYN flood attack
+.tcp \<host> \<port> \<duration> \<size> | Starts a TCP junk flood attack
+.udp \<host> \<port> \<duration> \<size> | Starts a UDP junk flood attack
+.vse \<host> \<port> \<duration> | Starts a VSE query flood attack
+.http \<host> \<duration> | Starts a HTTP GET request flood attack
+
+# Layer 4 Attack Vectors
+- **[TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) Flood**
+    - Floods target with trashed TCP data packets.
+- **[TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) SYN Flood**
+    - Floods target with SYNchronize TCP packets.
+    - Read more about the attack method [here](https://en.wikipedia.org/wiki/SYN_flood).
+- **[UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) Flood**
+    - Floods target with trashed UDP data packets.
+    - Read more about the attack method [here](https://en.wikipedia.org/wiki/UDP_flood_attack).
+
+# Layer 7 Attack Vectors
+- **[VSE](https://en.wikipedia.org/wiki/Source_(game_engine)) Flood**
+    - Floods target with [VSE server queries](https://developer.valvesoftware.com/wiki/Server_queries).
+    - Designed to take down Source based game servers by sending legitimate traffic to the target server.
+- **[HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) GET Request Flood**
+    - Floods target with HTTP GET requests.
+    - Read more about the attack method [here](https://en.wikipedia.org/wiki/HTTP_Flood).
+
+# Installation
+1. Install Git and Python 3 on your server.
+2. Clone the PYbot Github repository to your server via Git: `$ git clone https://github.com/WodxTV/PYbot.git`.
+3. Change the host address and C&C port in the configuration section in [bot.py](/bot.py) to your server address and C&C port.
+4. Start the CnC server by executing the command: `$ python cnc.py <cnc port>`.
+5. Add accounts in [logins.txt](/logins.txt) using the format: `username:password`.
+6. Connect to the server through [PuTTY](https://www.putty.org/) on a raw socket connection.
+
+*Compiling the malware and installing it on vulnerable devices won't be told as it's highly illegal to get remote access to devices without permission. Use of this project for illegal activities is at own risk! I'm not responsible for any of your taken actions!*
+
+# Author
+- **wodx**
+    - [Twitter](https://twitter.com/wodxgod)
+    - [YouTube](https://youtube.com/wodxgod)
+    - [PayPal](https://www.paypal.com/paypalme2/wodx)====================== GIT HISTORY: ======================
+bddd10c HEAD@{0}: clone: from https://github.com/wodxgod/PYbot
+commit bddd10ce03ffeba167a2fea88d110a1f3f193743
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Apr 10 19:28:49 2020 +0200
+
+    Update README.md
+
+commit 21745910f56ad3430665c3c74878c32836271cb8
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Apr 10 19:27:53 2020 +0200
+
+    Update README.md
+
+commit d5426ba13c70ac9ca16c817c4c07470c6efe2ad1
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Apr 9 23:11:55 2020 +0200
+
+    Fixed HTTP and TCP flood errors
+
+commit 6768237f929d1af1386d56296d67180643ead76e
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Mar 6 11:16:22 2020 +0100
+
+    Update cnc.py
+
+commit 67c71883345df859a926cfd3465f39083c83c3a5
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Feb 6 23:18:54 2020 +0100
+
+    Updated & upgraded
+
+commit d07ef3237f1befa178a35955ad1969650e45f700
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Feb 6 23:13:33 2020 +0100
+
+    Update README.md
+
+commit dea0ca4d3d8d91d684de7b7cc1c54ba697599d70
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Feb 6 23:09:59 2020 +0100
+
+    Updated
+
+commit ebcc75d5ee98af3834ea8591e8a09b218e490ade
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Tue Nov 26 14:11:37 2019 +0100
+
+    Update README.md
+
+commit f20582e82ae49f6dd18d2f157a29e1784364b931
+Merge: ad6592e 538d002
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Wed Oct 23 14:42:10 2019 +0200
+
+    Merge branch 'master' of https://github.com/WodxTV/PYbot
+
+commit 538d0021a34d9291606882f2caf00f6e74d26b56
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 14:53:17 2019 +0200
+
+    Update README.md
+
+commit 27708d3143092837db7f930ff26091d7a2e24cdb
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 13:02:23 2019 +0200
+
+    Update README.md
+
+commit 2638278e53ea0d752b1acfe0a136d692758f541a
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 13:00:36 2019 +0200
+
+    Update README.md
+
+commit 4a256a9b677d38bd188befd59c91114311446a80
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Thu Oct 10 12:59:59 2019 +0200
+
+    Update README.md
+
+commit d76c945741b3b9bd33ec57f9a3b9388e77cc51ad
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Tue Oct 1 18:13:32 2019 +0200
+
+    Update README.md
+
+commit b0d1fdade0c1ad43cd76e0856fa76ce0e3860bbc
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sun Sep 29 01:06:49 2019 +0200
+
+    Update cnc.py
+
+commit 98ad5eaff06184d8603752e1af74e5faec28b0ed
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sun Sep 29 01:05:37 2019 +0200
+
+    Update cnc.py
+
+commit b2f0d56cb325da360a6dc5293e9336b242ed4739
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:18:21 2019 +0200
+
+    Update README.md
+
+commit 0bd98d16ba8bd66fb6dbdc9829078266105f7efb
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:16:28 2019 +0200
+
+    Update README.md
+
+commit cd2cd797a3ab17bc15c97e53886f907f90eab3fb
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:14:26 2019 +0200
+
+    Update cnc.py
+
+commit ca005e10f86c0ec5c855bbce1edf3b8cf53ac938
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 02:13:28 2019 +0200
+
+    Update README.md
+
+commit ad6592e8d25c7514b0b44a00697954906405f661
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 01:29:37 2019 +0200
+
+    Updated
+
+commit e7229739b2592b317dee8aaefbba723b4f9cb5b5
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:58:13 2019 +0200
+
+    Update README.md
+
+commit 560c5dca2dcf0b2a68ba786c6720cc477c61e45d
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:57:20 2019 +0200
+
+    Updated
+
+commit df379e91dbaddd1ecb5966a29963d3ce35702ae1
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:53:19 2019 +0200
+
+    Update README.md
+
+commit 88dc088459d38513104ecb429da47e06155ed7b2
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:50:52 2019 +0200
+
+    Added preview
+
+commit 9742b3e1070a4016f58699710e586abc97ddac9e
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:46:11 2019 +0200
+
+    Update README.md
+
+commit 3f3242ab906f62ac28652b0aa710ec9f6ed9cd99
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Sat Sep 28 00:40:30 2019 +0200
+
+    Updated
+
+commit 2580f2191307bf7c9fa5543d23abeff93100adff
+Author: wodx <38795504+WodxTV@users.noreply.github.com>
+Date:   Fri Sep 27 21:36:24 2019 +0200
+
+    Initial commit

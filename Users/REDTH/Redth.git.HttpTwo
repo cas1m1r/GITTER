@@ -1,0 +1,760 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 89a5c7d94f11214c55d9031726b8e9aa1fe1a398
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 10:20:14 2018 -0400
+
+    Added editorconfig
+
+commit 1bc1a3dc4a4de3e824a0a8802738c5c8919595f0
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 10:19:59 2018 -0400
+
+    Code cleanup
+
+commit d9b67b4048a94750bb0a62cf85b9bdf2629bfcd9
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 10:19:52 2018 -0400
+
+    Add support for ALPN on NETCOREAPP2_1
+
+commit cd052e5349162befcb861e6853cc3880da45fad8
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 08:47:04 2018 -0400
+
+    Migrate to SDK style project, target dotnetcore 2.1
+
+commit f33696da4bc26e2cd9cf1912d48daf944e1b1917
+Merge: 7ba7b0e 0d7a1a3
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Dec 1 08:17:02 2016 -0500
+
+    Merge pull request #1 from Garciat/patch-1
+    
+    Mark singleton instances `readonly`
+
+commit 7ba7b0e814d326b063f45e95376b264bfd288980
+Author: Redth <jondick@gmail.com>
+Date:   Fri Jan 15 15:24:03 2016 -0500
+
+    Fixed bug DATA frame buffer wasn't instantiated
+    Also can now send EndStream with HEADERS if no data is going to be sent (instead of waiting to send an empty data frame).
+
+commit 959b6fd71e68c0dc110ff7659db5b6230d762b33
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:18:13 2016 -0500
+
+    Update README
+
+commit 90e9fb99cf2030a207a291c0dbc574cbd99d915e
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:15:40 2016 -0500
+
+    Track connection level rx'd data and send WINDOW_UPDATEs
+    Right now this needs to be manually invoked (and is done so with a http request), but it should be sent out based on the remaining size or some similar calculation.  Also this needs to be implemented on a per stream basis too (but since we are done with streams after a request in this library this should work well enough for now).
+
+commit d92c1376ea4650e166ce3bccbddaa6e8c74e7718
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:14:01 2016 -0500
+
+    readonly optimization of field
+
+commit 2ddb97e13d5ffe061a1d12aa47629894a695465a
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:13:23 2016 -0500
+
+    Disable node runner logging
+
+commit ac530649388ef7c89ceb7884c4aeea05508a57c2
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 20:31:00 2016 -0500
+
+    Move namespace classes to folder
+
+commit adeecd8dc6313959a7a1d4dee3284a91081c84ed
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 20:29:40 2016 -0500
+
+    Code cleanup
+     - ConfigureAwait (false) all the things
+     - Clean up whitespace
+     - Clean up usings
+
+commit 0bb0787ebaba43990c9950a09b6cf7a803aca342
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:40:32 2016 -0500
+
+    Fix appveyor badge link in README
+
+commit 5f74195a749187861d88ae5f5639b284572b5c75
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:34:13 2016 -0500
+
+    Update example in readme
+
+commit acb3f949993a964323bee675971f3f0bd6f06ba2
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:30:48 2016 -0500
+
+    Updated documentation
+
+commit 6a24fbc597cab0399f3e28dd01ae66d6f3d41ff5
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:13:53 2016 -0500
+
+    Fixed bug in killing node process
+
+commit 210bc0b0722fce3ed69290225173b7339b09c68e
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:08:25 2016 -0500
+
+    Change test logger to Console.WriteLine (for release)
+
+commit 3c40a7cfa9816fae7ae659499f59517ff71a2b39
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:45:30 2016 -0500
+
+    Add nuspec
+
+commit 8e723ce5eb41f17765c9db92a1304dd44f05f9b6
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:45:25 2016 -0500
+
+    Enable node launching in tests
+
+commit 9ab6ad324237b0612192302567408a12ee77554e
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:36:30 2016 -0500
+
+    Added icon
+
+commit e80b236fcede0fa6ce25c2daf20e939da3a73a42
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:28:21 2016 -0500
+
+    Added more tests
+
+commit 83390597a27c3f76a7741ab1e911182afa878423
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:28:11 2016 -0500
+
+    Much refactoring
+     - extracted interfaces for many types to make future mocking/testing easier
+     - added preliminary flow control support (still doesn't send WINDOW_UPDATES to server)
+     - Fixed various frame format issues
+     - Created a single unified outgoing frame queue with internal priorities (it will pause data frames also i the window size is depleted)
+     - Added some logging methods
+     - Fixed frames with headers to split up into continuations if they are too long
+     - Added Ping and disconnect methods
+     - Added ability to disable push promise support
+     - Other fixes / refactorings
+
+commit 0383ffed5f9c128c1b065a5c68058e6505f3a317
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 11 15:54:00 2016 -0500
+
+    Added tostring output for frames
+
+commit 71b662da1effe7a00cd344686261a612735d2c79
+Author: Redth <jondick@gmail.com>
+Date:   Wed Jan 6 19:32:15 2016 -0500
+
+    Fix Data frame - don't add padding length if not padded
+
+commit 4bf0b5b4deb3ab3bd73ea92457a3cb94f9fe1916
+Author: Redth <jondick@gmail.com>
+Date:   Wed Jan 6 19:30:39 2016 -0500
+
+    Move stream id logic into connection
+
+commit a105032b18ecfe9a20dae861fce4aa13ff805fbe
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:52:44 2016 -0500
+
+    Added license info to README
+
+commit 673ec3d3d3f168a931fad857448c781266d40cfb
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:52:36 2016 -0500
+
+    Attribute HPACK project in README
+    and license
+
+commit f844f6758858bfac4d9628262cabe967b935917b
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:50:35 2016 -0500
+
+    Added notice
+
+commit 5a9d6c3278705b62f65de045c435dfe84a6bd695
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:11:23 2016 -0500
+
+    Keep track of connection Settings
+    Also respond to un-ack'd ping frames
+
+commit 8a8ad61852c5fba65522800d71e9de59ba206dd1
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 16:34:00 2016 -0500
+
+    Apple didn't like setting EnablePush to 0 in the initial setttings frame
+
+commit 5503143dec8f11a8ec2053e02b1a3e75a12528c3
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 15:44:15 2016 -0500
+
+    fix bool EnablePush parsing in SettingsFrame
+
+commit ee64a1367a79383f37755a447172c4448b426473
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 14:40:55 2016 -0500
+
+    Disable Push for now until it is properly implemented
+
+commit 96788ebd833f433f50304baf8919c6d9cd0cf9e7
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 5 14:27:13 2016 -0500
+
+    Added more documentation to readme
+
+commit dcae5cbb763cd26872a6269063e17870d9eb8253
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:23:40 2016 -0500
+
+    Update readme
+
+commit 82cc8098563af322b910aec24fdf5a583de599d5
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:21:30 2016 -0500
+
+    Start node once per fixure
+
+commit 7936dcf0f71ad394b461775a1b191002fa759206
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:21:18 2016 -0500
+
+    quote arg in node test runner
+
+commit aad990931e15e2411dd50ed028b236716b2fc7d2
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:19:47 2016 -0500
+
+    Base Http2MessageHandler on Http2Client
+
+commit b6e9d531e87743b7d670d0cb83989a9e6c425f36
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:19:34 2016 -0500
+
+    Start processing sent frames
+    Don't wait on a settings frame upon connection
+    add method to cleanup closed streams so they can be GC'd
+
+commit e4ac9bd53434e949e19464ebc38bffe276e9ec34
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:18:07 2016 -0500
+
+    Fix up state detection for closing stream
+    Also add cancellation token support for waiting
+
+commit bbb3fb7e15bc7eade63f69c752d810cdbd2367b0
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:16:00 2016 -0500
+
+    Cleanup, the cleanup
+
+commit d06d0be037e5c5aa08224091639c474f58adc5f8
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:15:39 2016 -0500
+
+    Detect push promise frames (still not properly handled)
+
+commit cbc877d6a98d91f3ac027acc6394a6890a659c94
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:15:09 2016 -0500
+
+    Only add data if it exists to DataFrame
+
+commit 3277cf95c065ebfc923781f38ad1305a6b82927b
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:14:59 2016 -0500
+
+    start tracking sent frames and better state management
+
+commit 18f0b6bfb2c6add46a7e16aa3868f3200fc177dd
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:14:27 2016 -0500
+
+    Add identifier to RstStreamFrame ctor
+
+commit 06fd22e566fb3d93c4898b26245ae527cbb4860b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 5 08:24:29 2016 -0500
+
+    Update README.md
+
+commit 6ede318482970ef066a6bf8445cb432279e8d496
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 5 08:23:47 2016 -0500
+
+    Update README.md
+
+commit 0d7a1a32352360dba6235b0ffdd139eaac44037b
+Author: Gabriel Garcia <garciat@live.com>
+Date:   Mon Jan 4 23:36:06 2016 -0400
+
+    Mark singleton instances `readonly`
+
+commit eb86a179b56738036d33261ac9e395a8b290cdde
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:32:58 2016 -0500
+
+    Add streamidentifier ctor to assign id
+
+commit d22609acea393ea975dff389794f4051752a06ed
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:32:44 2016 -0500
+
+    Fix parsing of GoAway frame additional data
+
+commit 6971fe24f34e56604202fb253744631cc819cfc3
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:32:24 2016 -0500
+
+    Better end of stream logic
+    Switch to host/port usage instead of IPEndPoint (Apple didn't like us reverse dns'ing)
+
+commit 6f459bbd781bec855cfc9da51f4f5f67e707351c
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:31:29 2016 -0500
+
+    Revert to event based stream ending
+
+commit a43e4a1675047ad0de374d0059930508a05e29e1
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 13:22:14 2016 -0500
+
+    Improve wait for end of stream logic
+    add Http2Response object
+
+commit 1d2e0db81aa52f4bfc33ec8931228dda1dc496c1
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 13:21:15 2016 -0500
+
+    Authenticate ssl with certs
+
+commit 799a0d3f8d04714eea1a13dfe91d00f1dcc6fbe6
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:40:27 2015 -0500
+
+    Added barebones readme
+
+commit c434ed44ad6c94596fe2b947366e945b90dab721
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:37:37 2015 -0500
+
+    Added HTTP/2 node.js test server
+
+commit 5ed03fe06229d18f0de11fb94bcf738afaef3f10
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:37:20 2015 -0500
+
+    Added tests
+
+commit a19a752b40bf3402abc110e2985634c45fa97b60
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:36:58 2015 -0500
+
+    Added HTTP/2 implementation
+
+commit 3948359f63e0ff8ab0017735f460af4b63170460
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:36:11 2015 -0500
+
+    Added HPack implementation
+
+commit 4485b123ff32d6a5151d42283180d2c9d2836f2c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Dec 26 13:28:17 2015 -0500
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 89a5c7d94f11214c55d9031726b8e9aa1fe1a398
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 10:20:14 2018 -0400
+
+    Added editorconfig
+
+commit 1bc1a3dc4a4de3e824a0a8802738c5c8919595f0
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 10:19:59 2018 -0400
+
+    Code cleanup
+
+commit d9b67b4048a94750bb0a62cf85b9bdf2629bfcd9
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 10:19:52 2018 -0400
+
+    Add support for ALPN on NETCOREAPP2_1
+
+commit cd052e5349162befcb861e6853cc3880da45fad8
+Author: Redth <jondick@gmail.com>
+Date:   Wed Aug 8 08:47:04 2018 -0400
+
+    Migrate to SDK style project, target dotnetcore 2.1
+
+commit f33696da4bc26e2cd9cf1912d48daf944e1b1917
+Merge: 7ba7b0e 0d7a1a3
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Dec 1 08:17:02 2016 -0500
+
+    Merge pull request #1 from Garciat/patch-1
+    
+    Mark singleton instances `readonly`
+
+commit 7ba7b0e814d326b063f45e95376b264bfd288980
+Author: Redth <jondick@gmail.com>
+Date:   Fri Jan 15 15:24:03 2016 -0500
+
+    Fixed bug DATA frame buffer wasn't instantiated
+    Also can now send EndStream with HEADERS if no data is going to be sent (instead of waiting to send an empty data frame).
+
+commit 959b6fd71e68c0dc110ff7659db5b6230d762b33
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:18:13 2016 -0500
+
+    Update README
+
+commit 90e9fb99cf2030a207a291c0dbc574cbd99d915e
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:15:40 2016 -0500
+
+    Track connection level rx'd data and send WINDOW_UPDATEs
+    Right now this needs to be manually invoked (and is done so with a http request), but it should be sent out based on the remaining size or some similar calculation.  Also this needs to be implemented on a per stream basis too (but since we are done with streams after a request in this library this should work well enough for now).
+
+commit d92c1376ea4650e166ce3bccbddaa6e8c74e7718
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:14:01 2016 -0500
+
+    readonly optimization of field
+
+commit 2ddb97e13d5ffe061a1d12aa47629894a695465a
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 21:13:23 2016 -0500
+
+    Disable node runner logging
+
+commit ac530649388ef7c89ceb7884c4aeea05508a57c2
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 20:31:00 2016 -0500
+
+    Move namespace classes to folder
+
+commit adeecd8dc6313959a7a1d4dee3284a91081c84ed
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 20:29:40 2016 -0500
+
+    Code cleanup
+     - ConfigureAwait (false) all the things
+     - Clean up whitespace
+     - Clean up usings
+
+commit 0bb0787ebaba43990c9950a09b6cf7a803aca342
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:40:32 2016 -0500
+
+    Fix appveyor badge link in README
+
+commit 5f74195a749187861d88ae5f5639b284572b5c75
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:34:13 2016 -0500
+
+    Update example in readme
+
+commit acb3f949993a964323bee675971f3f0bd6f06ba2
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:30:48 2016 -0500
+
+    Updated documentation
+
+commit 6a24fbc597cab0399f3e28dd01ae66d6f3d41ff5
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:13:53 2016 -0500
+
+    Fixed bug in killing node process
+
+commit 210bc0b0722fce3ed69290225173b7339b09c68e
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 16:08:25 2016 -0500
+
+    Change test logger to Console.WriteLine (for release)
+
+commit 3c40a7cfa9816fae7ae659499f59517ff71a2b39
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:45:30 2016 -0500
+
+    Add nuspec
+
+commit 8e723ce5eb41f17765c9db92a1304dd44f05f9b6
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:45:25 2016 -0500
+
+    Enable node launching in tests
+
+commit 9ab6ad324237b0612192302567408a12ee77554e
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:36:30 2016 -0500
+
+    Added icon
+
+commit e80b236fcede0fa6ce25c2daf20e939da3a73a42
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:28:21 2016 -0500
+
+    Added more tests
+
+commit 83390597a27c3f76a7741ab1e911182afa878423
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 12 15:28:11 2016 -0500
+
+    Much refactoring
+     - extracted interfaces for many types to make future mocking/testing easier
+     - added preliminary flow control support (still doesn't send WINDOW_UPDATES to server)
+     - Fixed various frame format issues
+     - Created a single unified outgoing frame queue with internal priorities (it will pause data frames also i the window size is depleted)
+     - Added some logging methods
+     - Fixed frames with headers to split up into continuations if they are too long
+     - Added Ping and disconnect methods
+     - Added ability to disable push promise support
+     - Other fixes / refactorings
+
+commit 0383ffed5f9c128c1b065a5c68058e6505f3a317
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 11 15:54:00 2016 -0500
+
+    Added tostring output for frames
+
+commit 71b662da1effe7a00cd344686261a612735d2c79
+Author: Redth <jondick@gmail.com>
+Date:   Wed Jan 6 19:32:15 2016 -0500
+
+    Fix Data frame - don't add padding length if not padded
+
+commit 4bf0b5b4deb3ab3bd73ea92457a3cb94f9fe1916
+Author: Redth <jondick@gmail.com>
+Date:   Wed Jan 6 19:30:39 2016 -0500
+
+    Move stream id logic into connection
+
+commit a105032b18ecfe9a20dae861fce4aa13ff805fbe
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:52:44 2016 -0500
+
+    Added license info to README
+
+commit 673ec3d3d3f168a931fad857448c781266d40cfb
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:52:36 2016 -0500
+
+    Attribute HPACK project in README
+    and license
+
+commit f844f6758858bfac4d9628262cabe967b935917b
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:50:35 2016 -0500
+
+    Added notice
+
+commit 5a9d6c3278705b62f65de045c435dfe84a6bd695
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 20:11:23 2016 -0500
+
+    Keep track of connection Settings
+    Also respond to un-ack'd ping frames
+
+commit 8a8ad61852c5fba65522800d71e9de59ba206dd1
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 16:34:00 2016 -0500
+
+    Apple didn't like setting EnablePush to 0 in the initial setttings frame
+
+commit 5503143dec8f11a8ec2053e02b1a3e75a12528c3
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 15:44:15 2016 -0500
+
+    fix bool EnablePush parsing in SettingsFrame
+
+commit ee64a1367a79383f37755a447172c4448b426473
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 14:40:55 2016 -0500
+
+    Disable Push for now until it is properly implemented
+
+commit 96788ebd833f433f50304baf8919c6d9cd0cf9e7
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 5 14:27:13 2016 -0500
+
+    Added more documentation to readme
+
+commit dcae5cbb763cd26872a6269063e17870d9eb8253
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:23:40 2016 -0500
+
+    Update readme
+
+commit 82cc8098563af322b910aec24fdf5a583de599d5
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:21:30 2016 -0500
+
+    Start node once per fixure
+
+commit 7936dcf0f71ad394b461775a1b191002fa759206
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:21:18 2016 -0500
+
+    quote arg in node test runner
+
+commit aad990931e15e2411dd50ed028b236716b2fc7d2
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:19:47 2016 -0500
+
+    Base Http2MessageHandler on Http2Client
+
+commit b6e9d531e87743b7d670d0cb83989a9e6c425f36
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:19:34 2016 -0500
+
+    Start processing sent frames
+    Don't wait on a settings frame upon connection
+    add method to cleanup closed streams so they can be GC'd
+
+commit e4ac9bd53434e949e19464ebc38bffe276e9ec34
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:18:07 2016 -0500
+
+    Fix up state detection for closing stream
+    Also add cancellation token support for waiting
+
+commit bbb3fb7e15bc7eade63f69c752d810cdbd2367b0
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:16:00 2016 -0500
+
+    Cleanup, the cleanup
+
+commit d06d0be037e5c5aa08224091639c474f58adc5f8
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:15:39 2016 -0500
+
+    Detect push promise frames (still not properly handled)
+
+commit cbc877d6a98d91f3ac027acc6394a6890a659c94
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:15:09 2016 -0500
+
+    Only add data if it exists to DataFrame
+
+commit 3277cf95c065ebfc923781f38ad1305a6b82927b
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:14:59 2016 -0500
+
+    start tracking sent frames and better state management
+
+commit 18f0b6bfb2c6add46a7e16aa3868f3200fc177dd
+Author: Redth <jondick@gmail.com>
+Date:   Tue Jan 5 11:14:27 2016 -0500
+
+    Add identifier to RstStreamFrame ctor
+
+commit 06fd22e566fb3d93c4898b26245ae527cbb4860b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 5 08:24:29 2016 -0500
+
+    Update README.md
+
+commit 6ede318482970ef066a6bf8445cb432279e8d496
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 5 08:23:47 2016 -0500
+
+    Update README.md
+
+commit 0d7a1a32352360dba6235b0ffdd139eaac44037b
+Author: Gabriel Garcia <garciat@live.com>
+Date:   Mon Jan 4 23:36:06 2016 -0400
+
+    Mark singleton instances `readonly`
+
+commit eb86a179b56738036d33261ac9e395a8b290cdde
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:32:58 2016 -0500
+
+    Add streamidentifier ctor to assign id
+
+commit d22609acea393ea975dff389794f4051752a06ed
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:32:44 2016 -0500
+
+    Fix parsing of GoAway frame additional data
+
+commit 6971fe24f34e56604202fb253744631cc819cfc3
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:32:24 2016 -0500
+
+    Better end of stream logic
+    Switch to host/port usage instead of IPEndPoint (Apple didn't like us reverse dns'ing)
+
+commit 6f459bbd781bec855cfc9da51f4f5f67e707351c
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 21:31:29 2016 -0500
+
+    Revert to event based stream ending
+
+commit a43e4a1675047ad0de374d0059930508a05e29e1
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 13:22:14 2016 -0500
+
+    Improve wait for end of stream logic
+    add Http2Response object
+
+commit 1d2e0db81aa52f4bfc33ec8931228dda1dc496c1
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 4 13:21:15 2016 -0500
+
+    Authenticate ssl with certs
+
+commit 799a0d3f8d04714eea1a13dfe91d00f1dcc6fbe6
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:40:27 2015 -0500
+
+    Added barebones readme
+
+commit c434ed44ad6c94596fe2b947366e945b90dab721
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:37:37 2015 -0500
+
+    Added HTTP/2 node.js test server
+
+commit 5ed03fe06229d18f0de11fb94bcf738afaef3f10
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:37:20 2015 -0500
+
+    Added tests
+
+commit a19a752b40bf3402abc110e2985634c45fa97b60
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:36:58 2015 -0500
+
+    Added HTTP/2 implementation
+
+commit 3948359f63e0ff8ab0017735f460af4b63170460
+Author: Redth <jondick@gmail.com>
+Date:   Sat Dec 26 13:36:11 2015 -0500
+
+    Added HPack implementation
+
+commit 4485b123ff32d6a5151d42283180d2c9d2836f2c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Dec 26 13:28:17 2015 -0500
+
+    Initial commit

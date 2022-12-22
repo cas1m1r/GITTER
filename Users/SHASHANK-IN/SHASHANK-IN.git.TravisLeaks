@@ -1,0 +1,254 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# TravisLeaks :rocket:
+A tool to find sensitive keys and passwords in Travis logs
+
+![travis gif](https://user-images.githubusercontent.com/41824020/57980167-ef242900-7a44-11e9-8425-73560b1d1e0a.gif)
+
+</br>
+
+## Description
+Read the Blog post [here](https://blog.shashank.co/2019/05/finding-leaks-in-travis-logs-automated.html)
+
+
+Just enter the Travis user name of the organization. The script will automatically find out all jobs and then do two things:
+1. Look for ED's keywords for potential leaks
+2. Use the concept of entropy to find potential API keys in the logs 
+
+
+## Requirements (using travisleak.py script)
+
+> Python 3.X  
+> ``` pip install -r requirements.txt ```
+> 
+> Optional: Github Token for scanning GitHub Org's members 
+> 
+> ```export GITHUB_API_KEY="" ```
+
+## Usage
+> python travisleak.py -o travis_user_name -m -out Directory_to_write_output_to
+>
+> -m Optional to scan Organization's members  
+
+
+<br>
+
+<div style='float: center'>
+  <img style='width: 600px' src="travisleak.png"></img>
+</div>
+
+
+</br>
+
+![travis_exe2](https://user-images.githubusercontent.com/41824020/57980170-f3e8dd00-7a44-11e9-9e03-f8e68aef96a9.png)
+
+</br></br>
+
+Credits:-
+
+
+The keywords for the potential leak was taken from ED's blog post [here](https://edoverflow.com/2019/ci-knew-there-would-be-bugs-here/)
+
+
+The concept of entropy was adapted from [here](https://github.com/dxa4481/truffleHog)
+
+
+
+## Note
+This tool still needs a lot of development. I would be glad if someone would like to contribute to this project.
+
+## Goals
+- [x] Better output format 
+- [ ] Support CircleCI scans
+====================== GIT HISTORY: ======================
+80d5fc1 HEAD@{0}: clone: from https://github.com/Shashank-In/TravisLeaks
+commit 80d5fc16528d122a05b38ef8e1261401420ce35d
+Merge: ff17177 3e08edf
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sun Jun 27 13:35:30 2021 +0530
+
+    Merge pull request #5 from alifathi-h1/master
+    
+    Adding GitHub Org's members scan
+
+commit 3e08edf02bc37780d8da523ea4c1144b0f6376ab
+Author: Ali Fathi Ali Sawehli <55149010+alifathi-h1@users.noreply.github.com>
+Date:   Sat Feb 27 23:38:00 2021 +0800
+
+    Update travisleak.py
+
+commit 2547b5aed416918d9094adb39506a1b90d8d1ff1
+Author: Ali Fathi Ali Sawehli <55149010+alifathi-h1@users.noreply.github.com>
+Date:   Sat Feb 27 23:30:47 2021 +0800
+
+    Update README.md
+
+commit b9399c25e22934bb015743d98264790cd05c6fb8
+Author: Ali Fathi Ali Sawehli <55149010+alifathi-h1@users.noreply.github.com>
+Date:   Sat Feb 27 23:27:41 2021 +0800
+
+    Update README.md
+
+commit d0f2492505c0d35bcb57787b7b3ea55775df27cc
+Author: Ali Fathi Ali Sawehli <55149010+alifathi-h1@users.noreply.github.com>
+Date:   Sat Feb 27 23:24:15 2021 +0800
+
+    Update README.md
+
+commit 99dcb74903691dcc27fe5e1b5488396fefa32c1c
+Author: Ali Fathi <aliswehli37@gmail.com>
+Date:   Sat Feb 27 23:10:26 2021 +0800
+
+    Support scanning GitHub Org's members
+
+commit ff171770959701eab5997809ce2517b05bed115a
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Mon Jun 3 17:58:51 2019 +0530
+
+    Update README.md
+
+commit b7e8b0bbb8d1e2c5b039c043dec215ebce9d055b
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sun Jun 2 01:41:02 2019 +0530
+
+    No plan to support exe builds
+    
+    No plan to support exe builds
+
+commit 9d4f2ba3e8affdb6702e5a92af9a3fd9a1113838
+Merge: bad5488 e9c039f
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sun Jun 2 01:13:12 2019 +0530
+
+    Merge pull request #4 from tauh33dkhan/user-not-found-exception
+    
+    Adding user not found exception
+
+commit e9c039ff26bf547f093d26f2cadd360ae0eee036
+Author: root <root@localhost.localdomain>
+Date:   Mon May 27 19:05:36 2019 +0530
+
+    Added user not found exception
+
+commit bad54886e1f6485be11f99213891e3492f38df96
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Mon May 20 04:47:14 2019 +0530
+
+    Update README.md
+
+commit 29267564e858e562ad25008fd0f5f80c53ee1a5c
+Merge: e30f64e f8fd5ee
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Mon May 20 04:29:00 2019 +0530
+
+    Merge pull request #2 from D-E-F-E-A-T/master
+    
+    Hi, Please have a look on this.
+
+commit f8fd5ee5bd479938b2307fbbca5ea1974ec199f7
+Merge: 4ae3f5f e30f64e
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Mon May 20 04:28:03 2019 +0530
+
+    Merge branch 'master' into master
+
+commit 4ae3f5f8fb1779a575b46b3bcadc58be81cb50b3
+Author: Kush Choudhary <kushchoudhary8@gmail.com>
+Date:   Sun May 19 14:53:23 2019 +0530
+
+    Output format improved and exe added.
+    
+    - Output format is improved to make it look cool and more readable
+     -- ASCII art is added
+     -- Made it more readable
+    
+    - Made and exe application
+     -- Platform Independent
+     -- No pre-requirements are needed to use.
+
+commit e94273084eb9337c20d0141905529f03eeb46d70
+Author: Kush Choudhary <kushchoudhary8@gmail.com>
+Date:   Sun May 19 14:49:30 2019 +0530
+
+    Modified by kush
+    
+    - Format improved.
+    - GIF
+    - Images
+    - Several additions
+
+commit e30f64e95ed0f2925978a9e7eb5cb3be78301b8e
+Merge: 16cc3b7 5098ad4
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sun May 19 11:57:51 2019 +0530
+
+    Merge pull request #1 from c0rvax/master
+    
+    Moved all the lines to a separate wordlist.txt file
+
+commit 5098ad45148a99754c7afec046cea8674445ce93
+Author: c0rvax <bmth@me.com>
+Date:   Sun May 19 02:41:10 2019 +0300
+
+    Moved all the lines to a separate wordlist.txt file
+    Added .* to the end of each entry on the list
+
+commit 16cc3b703ddd7f6f4b0f8992581cbb13b56651b4
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sun May 19 03:46:07 2019 +0530
+
+    Update README.md
+
+commit 86a6e583a63fd3404252e42ccf869ad99ee450d9
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sun May 19 03:45:58 2019 +0530
+
+    Update README.md
+
+commit 9ba63b52978e30312a0f46caff36c16ce88c072d
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 23:46:46 2019 +0530
+
+    Update README.md
+
+commit df9c549d63315595175be514bd61004d7aac7980
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 23:43:10 2019 +0530
+
+    Update README.md
+
+commit b39270d86391cedc34524573d8c48816599087dc
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 23:41:47 2019 +0530
+
+    Update README.md
+
+commit 4d5d2638b54d0687e49329810dc3f0494dd94f6f
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 23:41:16 2019 +0530
+
+    Update README.md
+
+commit a1e755b93062843530d6fed689237760ce5ac495
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 21:25:28 2019 +0530
+
+    Create travisleak.py
+
+commit bef83c9d366e595d2979f6d567163fe4d332e5a1
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 21:24:38 2019 +0530
+
+    Update README.md
+
+commit d5c1ee5cb9f482b44db478ad57cb7c407a425ebd
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 21:23:04 2019 +0530
+
+    Update README.md
+
+commit fc92bee4a66cdf380d2f294fd827505a27d61395
+Author: Shashank <Shashank-In@users.noreply.github.com>
+Date:   Sat May 18 16:59:18 2019 +0530
+
+    Initial commit

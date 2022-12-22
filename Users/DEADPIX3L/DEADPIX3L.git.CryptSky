@@ -1,0 +1,169 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# CryptSky
+
+CryptSky is an open source, fully python ransomware PoC. It's main purpose is
+not to be run like most software projects, but to be read for educational
+purposes.
+
+Aside from very minor testing to ensure there are no syntax errors, no testing
+has been done. This may occur at a later time to ensure it performs in all
+expected environments,but that is not the point. The point is to be a simple
+to read PoC that makes for an easy example of what ransomware is and how it
+works. And hopefully, this can lead to a better understanding of ransomware in 
+the network defense and sysadmin communities.
+
+**Warning: This project is young and incomplete. It will encrypt and decrypt
+files. That's about it. No key generation, no sending the key back over a
+secure channel, no dropping new files or wallpapers or whatever. I'll get to
+that. Maybe. Open an issue if you so desire, pull requests welcome.**
+
+## Why?
+
+There is a severe lack of open source ransomware, and for good reason! But by
+having so few examples, and those examples being inaccurate (intentionally bad
+code with flaws), or just too complicated, it doesn't leave much to analyze
+and learn from. People seem to think that ransomware is hard to write. That
+it's this complex, hard to develop, hard to RE, and hard to prevent beast. A
+quick read through of this codebase will prove that's not true. Im hoping this
+can lead to better signatures, a better understanding of how ransomware works
+and what can be done to stop it, and an overall safer internet.
+
+## Objections!
+
+But aren't you worried someone will abuse it for profit?
+
+- Not really. There are plenty of much better, more advanced ransomware out there.
+ Even if they do, it's hopefully few compared to the good it will do.
+
+But when they do, it would be your fault!
+
+- Nope! I only wrote it. I didnt deploy it, I didnt sell it, it's not my
+problem. Hopefully nobody uses it for evil but thats the price to be paid for
+good. There's always someone who will do it.
+
+But...
+
+- Alright. Bottom line. Security is a very reactive business. To make the
+world more secure you first have to make it less secure. To make better AV and
+signatures, you must first make better malware. And that's what we're doing
+here.
+====================== GIT HISTORY: ======================
+c76f13b HEAD@{0}: clone: from https://github.com/deadPix3l/CryptSky
+commit c76f13bc6eb943a68843e381e625e39d876284e4
+Merge: c481806 c7ccaec
+Author: Skyler Curtis <deadPix3l@users.noreply.github.com>
+Date:   Mon Jun 22 18:15:11 2020 -1000
+
+    Merge pull request #11 from MrWhite9/patch-1
+    
+    Update LEGAL to fix typos
+
+commit c7ccaec02782a58e66d9724af7c645449a4f1a7c
+Author: Filippo Maniaci <filippo.maniaci.work@gmail.com>
+Date:   Tue Jun 23 00:43:59 2020 -0300
+
+    Update LEGAL
+    
+    I made small adjustments to the text.
+
+commit c481806b3570913957ab4d44656b6b718a585033
+Author: Skyler Curtis <deadPix3l@users.noreply.github.com>
+Date:   Thu Apr 19 09:52:19 2018 -1000
+
+    Corrected Improper mode, fixes #7
+    
+    'rw+b' is not a proper mode. Linux and OSX understood it to mean 'r+b' and continued silently. Windows was less forgiving, requiring correctness.
+
+commit 07d4f0ebfa0fd71434e0832f7df6da85dcdb01b2
+Author: cclauss <cclauss@bluewin.ch>
+Date:   Fri Dec 15 15:31:13 2017 +0100
+
+    hardcoded_key --> HARDCODED_KEY
+    
+    flake8 testing of https://github.com/deadPix3l/CryptSky on Python 2.7.14
+    
+    $ __flake8 . --count --select=E901,E999,F821,F822,F823 --show-source --statistics__
+    ```
+    ./main.py:46:12: F821 undefined name 'hardcoded_key'
+    '''.format(hardcoded_key)
+               ^
+    ```
+
+commit 7152fae7c2c5c9c903164e522a1a2c9c4841df4c
+Merge: 34df41a c2bacf5
+Author: Skyler Curtis <deadPix3l@users.noreply.github.com>
+Date:   Thu Dec 14 10:37:42 2017 -1000
+
+    Merge pull request #2 from lukeberry99/master
+    
+    Update spelling/grammar on README
+
+commit c2bacf52caaa68e6c8a838a9e32519a1ab52f527
+Author: Luke Berry <luke@payzip.co.uk>
+Date:   Thu Dec 14 10:51:54 2017 +0000
+
+    Update spelling/grammar on README
+
+commit 34df41a5ce86e5792d74241f23291b13bc587ca4
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Fri Oct 27 10:50:56 2017 +0000
+
+    added readme and unlicense
+
+commit 41dd9a50e029da2dc7aff4068ed30db22cc46cc0
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Fri Oct 27 09:38:45 2017 +0000
+
+    some simple cleanup
+    
+    - renamed walk.py to discover.py to avoid confusion with os.walk()
+    - moved HARDCODED_KEY to better location near top of file
+
+commit 65c5a327c7eb2c3b622c75fa27d4f996b27f2a83
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Fri Oct 27 09:37:11 2017 +0000
+
+    removed bad extension
+    
+    extension 'tar.gz' would never match because it would break on the
+    period and only match 'gz'
+
+commit b3162e93165b734edde20fc7b16727350e77fe1d
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Tue Oct 24 11:29:41 2017 +0000
+
+    added Legal Disclaimer
+
+commit e2032630737ad4744b0a499d4f9b28cd3e50d0cb
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Tue Oct 24 11:23:09 2017 +0000
+
+    fix minor typos and syntax errors
+
+commit 13ac4fd6b3a239d9535cc1cc89b9dcc964584ee1
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Tue Oct 24 11:07:21 2017 +0000
+
+    modified some extensions
+    
+    moved and changed certain extensions to avoid making a linux system
+    unbootable
+
+commit 135ac89872fcc1706d225985aa600f9db7768e34
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Tue Oct 24 10:37:28 2017 +0000
+
+    change decrypt message and hardcode key
+
+commit d076667c5ebb29af821167897680221a3b1163e6
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Tue Oct 24 10:35:17 2017 +0000
+
+    simple style changes
+
+commit 877b1372493952253bcbd595c14468496b111c1f
+Author: Skyler Curtis <skylerr.curtis@gmail.com>
+Date:   Tue Oct 24 09:50:50 2017 +0000
+
+    initial commit

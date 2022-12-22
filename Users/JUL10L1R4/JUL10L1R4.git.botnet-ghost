@@ -1,0 +1,201 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center">
+  <img src="img/logo.svg" alt="Logo botnet-ghost" width="200px">
+</p>
+
+# Run
+⚠️ __Warning:__ This project are development
+```go
+go build main.go
+./main.go <file template .html>
+```
+
+## C2 server
+Server in GO with Sqlite and api, see endpoints:
+* /some-string-random?gclid=base-64
+
+* * For new client: `details of machine==ip address` (Response: `Command for run==id of db;id-of-command`)
+
+* * For synchronize exists client: `id-of-command;id-database==response==status exited` (Response: `command for run==time for new request;id-of-command`)
+
+## Response
+The response command of server running within HTML in specific tag with template.
+Ex:
+```html
+...
+<img src='trump-idiot.jpg' class='<command-response>'/>
+...
+```
+
+Encrypted: base64 [[See T1132 technique](https://attack.mitre.org/techniques/T1132/)] [T1132.002](https://attack.mitre.org/beta/techniques/T1132/002/)
+
+Protocol: HTTP(s) [[See T1071 technique](https://attack.mitre.org/techniques/T1071/)]
+
+* /victim (for attacker)
+
+API for some frontend use
+====================== GIT HISTORY: ======================
+ce8fd57 HEAD@{0}: clone: from https://github.com/Jul10l1r4/botnet-ghost
+commit ce8fd57f37c59426823d412f5c0f9d5de88f01d3
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Thu Jun 18 11:20:45 2020 -0300
+
+    Add id-of-command
+
+commit 38b423ed975d170a27c219cecb84801560b4a947
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Thu Jun 18 11:18:06 2020 -0300
+
+    :unicorn: Add querycommand function and update old command with id
+
+commit 376da4eb6957b458ba1985fea5e4d5c379a1decb
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Thu Jun 18 11:15:07 2020 -0300
+
+    :fire: add new schema
+
+commit 4b26416bc46920d90cc40cd105b45099bcb1e84d
+Merge: 9c103c3 146e452
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Thu Jun 18 07:25:37 2020 -0300
+
+    Merge branch 'master' of https://github.com/jul10l1r4/botnet-ghost
+
+commit 9c103c330adb57d952aac2d090efe13303f915bc
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Thu Jun 18 07:24:52 2020 -0300
+
+    :tada: addCommand endpoint. :fire: in playground!
+
+commit 146e4525903c059dd76941b7623f031b53516101
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Thu Jun 18 05:07:14 2020 -0300
+
+    Add subtechnique
+
+commit 9f154701c1fdd915679475b078cb32f7f5a24093
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Thu Jun 11 15:41:04 2020 -0300
+
+    update endpoint for api
+
+commit 528872930e1bdee60f90b8dc3f6591f52afd0eec
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Thu Jun 11 15:40:27 2020 -0300
+
+    :tada: Fix issue #1. For performance
+
+commit 7c8586a05c35342672b9a80b136b6195c9a0232a
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Thu Jun 11 15:38:43 2020 -0300
+
+    :tada: Add endpoint /victim for list all and fix sql model
+
+commit 8c9be44f80ec7a867e8773d83739739379359ad4
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Wed Jun 3 15:28:09 2020 -0300
+
+    :unicorn: The base64 now are class of paragraph
+
+commit 6424089f0f1b138e007fff1d8bed0fedfca29335
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Wed Jun 3 15:27:42 2020 -0300
+
+    :tada: Render now are base64 for template
+
+commit c1de6978a782942380e23c3883dd2ab2d1794009
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Wed Jun 3 13:29:45 2020 -0300
+
+    Add response details
+
+commit 15b9b679ec30c5ab28028f5163b650c60bbb57a8
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Wed Jun 3 11:12:33 2020 -0300
+
+    :tada: Fix update and complete record label
+
+commit b0189598002598b8c68f10f61e4603dfc9ce825d
+Author: jul10l1r4 <jul10l1r4@disroot.org>
+Date:   Wed Jun 3 11:10:16 2020 -0300
+
+    Ignoring database/
+
+commit 282a83fc189cb4acd703b4ec7ed622c9f692a802
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Sun May 3 10:32:25 2020 -0300
+
+    Update docs for request
+
+commit 5a29d905271a0026367d264970e06499e8bf09fe
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Sun May 3 10:25:42 2020 -0300
+
+    Documentation add obfuscation technique
+
+commit 45c87861fe5ab08442ea1c7a18835ad39350df26
+Author: jul10l1r4 <jul10l1r4@ap.ap>
+Date:   Sun Apr 26 22:19:41 2020 -0300
+
+    Add deps for runnning
+
+commit 9f4ee3cfbe788c546ac796b50f2681bcbc94dce9
+Author: jul10l1r4 <jul10l1r4@ap.ap>
+Date:   Thu Apr 23 15:54:17 2020 -0300
+
+    :unicorn: .db add to ignore
+
+commit 34b67970f97abe358672fe2b5ff3f1f954bbd7af
+Author: Julio Lira <jul10l1r4@disroot.org>
+Date:   Sat Apr 11 00:10:33 2020 -0300
+
+    :unicorn: Add create and save command function
+
+commit ed6582de7c7569d50a45c618c1f55460966d46f5
+Author: Julio Lira <jul10l1r4@disroot.org>
+Date:   Sat Apr 11 00:09:55 2020 -0300
+
+    :tada: Db scheme
+
+commit de1bc76ff18c05bc8612c50713095d9f9733b6fc
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Thu Apr 9 12:57:48 2020 -0300
+
+    death robot
+
+commit bc5b749c60395813f7fd6465969de01a460027e7
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Thu Apr 9 12:55:00 2020 -0300
+
+    Update README.md
+
+commit 54d35f703c8e87e2a9228d69870336ee9d87cb43
+Author: Julio Lira <julio.lira@owasp.org>
+Date:   Thu Apr 9 12:53:30 2020 -0300
+
+    Update README.md
+
+commit bc5b7eec566c68ac0863859f101e0fe7b2d3d7e2
+Author: Julio Lira <jul10l1r4@disroot.org>
+Date:   Thu Apr 9 12:46:41 2020 -0300
+
+    -.-"
+
+commit a740a0cbf0d9803de5b334656c1e1f511f0eb4e6
+Author: Julio Lira <jul10l1r4@disroot.org>
+Date:   Thu Apr 9 12:44:18 2020 -0300
+
+    :tada: READ
+
+commit ea1386a49b9f0d19f346d7c1d87fa4ba47ac1f73
+Author: Julio Lira <jul10l1r4@disroot.org>
+Date:   Thu Apr 9 12:13:22 2020 -0300
+
+    Example template
+
+commit 09282855447dbfc22d614d726708efaa93084f87
+Author: Julio Lira <jul10l1r4@disroot.org>
+Date:   Thu Apr 9 12:13:09 2020 -0300
+
+    :unicorn: Server motor

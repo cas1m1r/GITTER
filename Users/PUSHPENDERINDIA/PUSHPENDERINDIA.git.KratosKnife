@@ -1,0 +1,305 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center">
+  <img src="https://github.com/PushpenderIndia/KratosKnife/blob/master/img/banner.png" alt="KratosKnife Logo" width=265 height=243/>
+</p>
+
+<h1 align="center">KratosKnife</h1>
+<p align="center">
+    <a href="https://python.org">
+    <img src="https://img.shields.io/badge/Python-3.7-green.svg">
+  </a>
+  <a href="https://github.com/PushpenderIndia/KratosKnife/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-BSD%203-lightgrey.svg">
+  </a>
+  <a href="https://github.com/PushpenderIndia/KratosKnife/releases">
+    <img src="https://img.shields.io/badge/Release-1.0-blue.svg">
+  </a>
+    <a href="https://github.com/PushpenderIndia/KratosKnife">
+    <img src="https://img.shields.io/badge/Open%20Source-%E2%9D%A4-brightgreen.svg">
+  </a>
+</p>
+
+
+KratosKnife is a Advanced BOTNET Written in python 3 for Windows OS. Comes With Lot of Advanced Features such as Persistence &amp; VM Detection Methods, Built-in Binder, etc
+
+## Disclaimer
+<p align="center">
+  :computer: This project was created only for good purposes and personal use.
+</p>
+
+THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. YOU MAY USE THIS SOFTWARE AT YOUR OWN RISK. THE USE IS COMPLETE RESPONSIBILITY OF THE END-USER. THE DEVELOPERS ASSUME NO LIABILITY AND ARE NOT RESPONSIBLE FOR ANY MISUSE OR DAMAGE CAUSED BY THIS PROGRAM.
+
+## Note: Some Features are under development
+
+## Commands Available In Attacker/Admin Panel
+
+| **Clients Command**        | **Location**                | **Stealer**                                |
+|----------------------------|-----------------------------|--------------------------------------------|
+| 1.	Ping 	                 | 1. Get Location Information | 1. Steal Firefox Cookie                    |
+| 2.	Upload & Execute File  | 2. Show Location On Map     | 2. Steal Chrome Cookie                     |
+| 3.	Show MessageBox        | **Computer Commands**       | 3. Steal Bitcoin Wallet                    |
+| 4.	Take Screenshot        | 1. Shutdown                 | 4. Steal WiFI Saved Password               |
+| 5.	Installed Software     | 2. Restart                  | **Keylogger**                              |
+| 6.	Execute Scripts  	   	 | 3. Logoff	                 | 1. Start Keylogger [**Under Development**] |
+| 7.	Elevate User Status    | **Open Webpage**            | 2. Stop Keylogger  [**Under Development**] |
+| 8.	Clear TEMP Folder      | 1. Open Webpage (Visible)   | 3. Retrive Logs    [**Under Development**] |
+
+
+| **Clients Commands**                        | **DDOS Attack**                    |                           
+|---------------------------------------------|------------------------------------|
+| 1. Close Connection                         | Start DDOS [**Under Development**] |
+| 2. Move Client      [**Under Development**] | Stop DDOS  [**Under Development**] |
+| 3. Blacklist IP	    [**Under Development**] |
+| 4. Update Client	  [**Under Development**] |
+| 5. Restart Client	  [**Under Development**] |
+| 6. Uninstall	      [**Under Development**] |
+                              
+## Generator Features
+- [x] Encrypt Source Code Using AES 256 Bit Encryption 
+- [x] Encrypt Source Code Using Base64 Encoding
+- [x] Packing Evil Exe Using UPX Packer
+- [x] Interactive Mode [**Generator Ask Required Parameter**] 
+- [x] Debug Mode [**Can Be Used In Debugging Payload**]
+- [x] Persistence Payload
+- [x] 3 Powerfull Methods to Detect/Bypass VM (such as VirtualBox, VMware, Sandboxie)
+- [x] Built-in File Binder 
+- [x] Useful Icons Inside **icon** Folder
+
+
+| Virtual Machine Bypass Methods Includes |
+|-----------------------------------------|
+| Registry Check                          |
+| Processes and Files Check               |
+| MAC Adderess Check                      |
+
+## Screenshots
+
+#### Login Page 
+![](/img/loginpage.JPG)
+
+#### Dashboard (Attacker Control Panel)
+![](/img/adminpanel.JPG)
+
+#### Show Victim Location On Map [NOTE: Location is IP Based, Not GPS]
+![](/img/location.JPG)
+
+## Prerequisite
+- [x] Python 3.X
+- [x] Few External Modules
+
+## Server Setup
+
+1. Upload & Unzip `panel.zip` on your hosting available in this repo 
+2. Create a database with any name you want
+3. Change the data in classes/Database.php
+4. Change files and folders permission to 777 [**Uploads Folder, Scripts Folder**]
+5. Go to `install.php` to create the botnet tables automatically
+
+* [**For Testing Locally**]
+
+1. Install XAMPP, & Put panel files inside htdocs folder and Run Apache & MySQL Service In XAMPP Controller
+2. Create a database with any name you want
+3. Change the data in classes/Database.php
+4. Go to `install.php` to create the botnet tables automatically
+
+## Usage
+```bash
+# Install dependencies 
+$ Install latest python 3.x
+
+# Clone this repository
+$ git clone https://github.com/PushpenderIndia/KratosKnife.git
+
+# Go into the repository
+$ cd KratosKnife/Botnet-Generator
+
+# Installing dependencies
+$ python -m pip install -r requirements.txt
+
+# Update pyinstaller.exe path, in Generator.py (line 9) 
+
+# Getting Help Menu
+$ python Generator.py --help
+
+# Making Payload/BOTNET
+$ python Generator.py -s localhost/panel -o output_file_name --icon icon/exe.ico
+
+```
+
+## Available Arguments 
+* Optional Arguments
+
+| Short Hand         | Full Hand                       | Description                                                                 |
+| ------------------ | ------------------------------- | --------------------------------------------------------------------------- |
+| -h                 | --help                          | show this help message and exit                                             |
+|                    | --interactive                   | Takes Input by asking Questions                                             |
+|                    | --icon ICON                     | Specify Icon Path, Icon of Evil File [**Note : Must Be .ico**]              |
+| -i INTERVAL        | --interval INTERVAL             | Time between reports in seconds. default=12.       [**Under Development**]  |
+| -t TIME_PERSISTENT | --persistence TIME_PERSISTENT   | Becoming Persistence After __ seconds. default=10                           |
+| -b file.txt        | --bind LEGITIMATE_FILE_PATH.pdf | Built-In Binder : Specify Path of Legitimate file. [**Under Development**]  |
+
+* Required Arguments
+
+| Short Hand  | Full Hand       | Description                          |
+| ----------  | --------------- | ------------------------------------ |
+| -s SERVER   | --server SERVER | Command & Control Server for Botnet. |
+| -o OUT      | --output OUTPUT | Output file name.                    |
+
+## Removing BOTNET
+
+#### Method 1:
+
+   * Go to start, type regedit and run the first program, this will open the registry editor.
+   * Navigate to the following path Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run There should be an entry called "WindowsUpdate", right click this entry and select Delete.
+   * Go to your user path > AppData > Roaming, you’ll see a file named “svchost.exe”, this is the RAT, right click > Delete.
+   * Restart the System.
+
+#### Method 2:
+   * Run "RemoveBOTNET.bat" in Infected System.
+   * Restart Infected PC to stop the current Running Evil File.
+   * Run "RemoveBOTNET.bat" again.
+
+## Contributors
+
+* Panel Files are contributed by [BlackHacker511](https://github.com/BlackHacker511)
+
+## TODO
+
+- [ ] Add New features
+- [ ] Add GUI BOTNET Generator
+
+## More Features Coming Soon...
+====================== GIT HISTORY: ======================
+6edfa9d HEAD@{0}: clone: from https://github.com/PushpenderIndia/KratosKnife
+commit 6edfa9d06c4cd8569161bf598956cfd162f59193
+Author: Pushpender Singh <56433698+PushpenderIndia@users.noreply.github.com>
+Date:   Wed Apr 20 11:26:53 2022 +0530
+
+    Update README.md
+
+commit 7bfa07168f8a7f908df7bb417169852f045d1070
+Author: Pushpender <56433698+PushpenderIndia@users.noreply.github.com>
+Date:   Sat May 29 15:06:27 2021 +0530
+
+    Update README.md
+
+commit 88fa382532b4307678b4312e478d18ebe6499a6c
+Author: Pushpender <56433698+PushpenderIndia@users.noreply.github.com>
+Date:   Sun Jan 10 08:37:33 2021 +0530
+
+    Update README.md
+
+commit 9042f8de78caad0ed41b1db6cd70920ebde5dd1f
+Author: Pushpender <56433698+PushpenderIndia@users.noreply.github.com>
+Date:   Wed Sep 2 09:57:49 2020 +0530
+
+    Update README.md
+
+commit dc225f46b6fe184f023d70695cc0bc5bc32663bb
+Author: Pushpender <56433698+PushpenderIndia@users.noreply.github.com>
+Date:   Wed Sep 2 09:56:52 2020 +0530
+
+    Update README.md
+
+commit ff80631c2d1d865806e2da1e810239aa401891e8
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 19:28:52 2020 +0530
+
+    Update README.md
+
+commit 2d6970ec40028e519131cd1ca3f511f73e3419f9
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 14:25:34 2020 +0530
+
+    Add files via upload
+
+commit 555f999592371adb7e1d11d36bce7060984edd34
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 14:22:43 2020 +0530
+
+    Add files via upload
+
+commit 48797cc3611d561b5d46939211dc77b719a32ad1
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 13:51:41 2020 +0530
+
+    Create LICENSE
+
+commit 51eff2b4d3ce4f5e47e1c1f8428ba7a28e7d4062
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 13:48:45 2020 +0530
+
+    Update README.md
+
+commit fba66cc75939f7acd42a410733ac981b21b1cc17
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 13:48:01 2020 +0530
+
+    Update
+
+commit 2405d4a9abc8ec66272886c88a0b45920f8f3c46
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 13:10:13 2020 +0530
+
+    Update README.md
+
+commit 3670c4f92d8377da0b5fcef4b6e483da04a68b56
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 13:06:00 2020 +0530
+
+    Add files via upload
+
+commit a52725e6ffce4af97acc189fa3e1288dbde737ae
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 13:03:53 2020 +0530
+
+    Update README.md
+
+commit fefd32184de37e510b3b1e5261fe6ee68b209a14
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 12:59:54 2020 +0530
+
+    Add files via upload
+
+commit e4a84777444997b3f8f32029944cb9a32f9ded95
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 12:59:10 2020 +0530
+
+    Delete requirements.txt.txt
+
+commit 24ccdbdeb956697291eb14f7201c29f664201dc9
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 12:50:04 2020 +0530
+
+    Add files via upload
+
+commit 279290ec32898ca243645efe7f3d73acca3413a9
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 12:47:48 2020 +0530
+
+    Update README.md
+
+commit e336b373bd11be07a29b607f577aa8f72619e8d5
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 12:47:33 2020 +0530
+
+    Add files via upload
+
+commit 4e36c45cec7ccedf9eca5534b7ffc17be94eef8a
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 10:42:47 2020 +0530
+
+    Add files via upload
+
+commit 0a0dc023929f3e2c0b919828c1a30ab608c7acfb
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 10:37:44 2020 +0530
+
+    Add files via upload
+
+commit c2be0289a353f08df7350b97846a5f1a51b6206a
+Author: Pushpender <56433698+Technowlogy-Pushpender@users.noreply.github.com>
+Date:   Thu Apr 30 08:56:39 2020 +0530
+
+    Initial commit

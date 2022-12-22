@@ -1,0 +1,391 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center"> <img src="https://raw.githubusercontent.com/qeeqbox/url-sandbox/master/readme/url-sandbox_.png"></p>
+
+[![Generic badge](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/qeeqbox/url-sandbox/master/info&label=version&query=$.version&colorB=blue&style=flat-square)](https://github.com/qeeqbox/url-sandbox/blob/master/changes.md)  [![Generic badge](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/qeeqbox/url-sandbox/master/info&label=build&query=$.dockercomposebuild&colorB=green&style=flat-square)](https://github.com/qeeqbox/url-sandbox/blob/master/changes.md) [![Generic badge](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/qeeqbox/url-sandbox/master/info&label=test&query=$.automatedtest&colorB=green&style=flat-square)](https://github.com/qeeqbox/url-sandbox/blob/master/changes.md) [![Generic badge](https://img.shields.io/static/v1?label=%F0%9F%91%8D&message=!&color=yellow&style=flat-square)](https://github.com/qeeqbox/url-sandbox/stargazers)
+
+URL Sandbox automate the daily task of analyzing URL or Domains internally without external resources' interaction. It contains a sandbox module that executes the target in an isolated environment (Customizable). The output from that environment is parsed and structured into useful categories. Some of those categories are visualized for better user experience. This project is scalable and can be integrated into your SOC.
+
+## Install
+```git clone https://github.com/qeeqbox/url-sandbox.git && cd url-sandbox && chmod +x run.sh && ./run.sh auto_configure```
+
+## Interface
+<img src="https://raw.githubusercontent.com/qeeqbox/url-sandbox/master/readme/intro.gif" style="max-width:768px"/>
+
+## Features  
+<ul>
+<li>Runs locally</li>
+<li>DNS info</li>
+<li>Headers info</li>
+<li>Brwoser info</li>
+<li>Certifcate extraction</li>
+<li>Target screenshot</li>
+<li>Network graph image</li>
+<li>Internal sniffer</li>
+<li>Custom User Agent</li>
+<li>Custom DNS and Proxy options</li>
+<li>Auto Tor configuration</li>
+<li>HTML and JSON output</li>
+<li>No-redirect option</li>
+</ul>
+
+## Running
+#### One click auto-configure
+git clone https://github.com/qeeqbox/url-sandbox.git <br>
+cd url-sandbox <br>
+chmod +x run.sh <br>
+./run.sh auto_configure <br>
+
+The project interface http://127.0.0.1:8000/ will open automatically after finishing the initialization process
+
+## Resources
+`ChromeDriver - WebDriver for Chrome, Docker SDK`
+
+## Other Licenses
+By using this framework, you are accepting the license terms of all the following packages: `chromedriver, dnspython, docker, docker-compose, firefox-esr, flask, flask_admin, flask_bcrypt, flask_login, Flask-Markdown, flask_mongoengine, geckodriver, gevent, gunicorn, iptables, iptables-persistent, jinja2, jq, libleptonica-dev, libtesseract-dev, matplotlib, netifaces, net-tools, networkx, phantomjs, pymongo, pysocks, pytesseract, python-dateutil, python-magic, pyvirtualdisplay, requests[socks], scapy, selenium, supervisor, tcpdump, termcolor, tesseract, tldextract, unzip, urllib3, validator_collection, werkzeug, wget, xvfb, useragentstring`
+
+## Disclaimer\Notes
+- Do not deploy without proper configuration
+- Setup some security group rules and remove default credentials
+
+## Other Projects
+[![](https://github.com/qeeqbox/.github/blob/main/data/social-analyzer.png)](https://github.com/qeeqbox/social-analyzer) [![](https://github.com/qeeqbox/.github/blob/main/data/analyzer.png)](https://github.com/qeeqbox/analyzer) [![](https://github.com/qeeqbox/.github/blob/main/data/chameleon.png)](https://github.com/qeeqbox/chameleon) [![](https://github.com/qeeqbox/.github/blob/main/data/honeypots.png)](https://github.com/qeeqbox/honeypots) [![](https://github.com/qeeqbox/.github/blob/main/data/mitre-visualizer.png)](https://github.com/qeeqbox/mitre-visualizer) [![](https://github.com/qeeqbox/.github/blob/main/data/woodpecker.png)](https://github.com/qeeqbox/woodpecker) [![](https://github.com/qeeqbox/.github/blob/main/data/docker-images.png)](https://github.com/qeeqbox/docker-images) [![](https://github.com/qeeqbox/.github/blob/main/data/seahorse.png)](https://github.com/qeeqbox/seahorse) [![](https://github.com/qeeqbox/.github/blob/main/data/rhino.png)](https://github.com/qeeqbox/rhino) [![](https://github.com/qeeqbox/.github/blob/main/data/raven.png)](https://github.com/qeeqbox/raven)
+====================== GIT HISTORY: ======================
+9a16941 HEAD@{0}: clone: from https://github.com/qeeqbox/url-sandbox
+commit 9a169412f4be8ed2bf1782ffc5823fa1774d0ae9
+Author: qb-auto <qbactions@gmail.com>
+Date:   Sun Oct 30 17:10:05 2022 +0000
+
+    🤖
+
+commit 1ef978940dcbe3fc2dd5a2c88e4817ee37bcac2f
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Sun Oct 30 10:09:52 2022 -0700
+
+    Update webinterface-requirements.txt
+
+commit f1c0fe586c6441e6ed963ff6f8f2a47ddfcacb74
+Author: qb-auto <qbactions@gmail.com>
+Date:   Sun Oct 30 17:09:51 2022 +0000
+
+    🤖
+
+commit 30494b3fc08c503901f8960aa5fa84edd457f8ac
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Sun Oct 30 10:09:36 2022 -0700
+
+    Update box-requirements.txt
+
+commit 359d08bef06202b2c6cdbd0526465219bb6834a4
+Author: qb-auto <qbactions@gmail.com>
+Date:   Sun Oct 30 17:09:34 2022 +0000
+
+    🤖
+
+commit aa077e5247d662fa3db480b6fc071933d2ca62d3
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Sun Oct 30 10:09:19 2022 -0700
+
+    Update backend-requirements.txt
+
+commit f8211328dad0f92d0eba21a171161097fb7f79b8
+Author: qb-auto <qbactions@gmail.com>
+Date:   Wed Sep 28 01:59:13 2022 +0000
+
+    🤖
+
+commit 026b3fd2ffd6fb0fc9ac46b8533c36ce4286f133
+Merge: 2ecf865 66ac7fa
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Tue Sep 27 18:58:55 2022 -0700
+
+    Merge pull request #4 from w3tmo/patch-1
+    
+    Fixed typo in container name
+
+commit 66ac7fa338b02fea12f947afd66adc49803158f2
+Author: w3tmo <zchreichert@gmail.com>
+Date:   Tue Sep 27 14:21:34 2022 -0400
+
+    Fixed typo in container name
+    
+    Changed "url-sandbox_box" to "url-sandbox-box" so Docker could find and run the correct container.
+
+commit 2ecf865d4c793a622f87e63b86966ceeae8b8789
+Author: qb-auto <qbactions@gmail.com>
+Date:   Fri Jul 8 15:11:16 2022 +0000
+
+    🤖
+
+commit 706bfcf7024f0379a031727382189b2ef076c30e
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Fri Jul 8 08:10:59 2022 -0700
+
+    Update run.sh
+
+commit 09dd3e5ec65371f04192d61d207fcc439feeff66
+Author: qb-auto <qbactions@gmail.com>
+Date:   Fri Jul 8 15:05:55 2022 +0000
+
+    🤖
+
+commit dd3a525867c26069512a2e715120dfaa0bb3e36f
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Fri Jul 8 08:05:37 2022 -0700
+
+    Update run.sh
+
+commit 0ede6a8c5c65094441d769682c63f2af23792a89
+Author: qb-auto <qbactions@gmail.com>
+Date:   Fri Jul 8 02:53:37 2022 +0000
+
+    🤖
+
+commit d97544349944ecb2554ca788545920c20a643501
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Thu Jul 7 19:53:15 2022 -0700
+
+    Update run.sh
+
+commit 9ee0f297c196e0ed6ae990d0df4c7238d988d0aa
+Author: qb-auto <qbactions@gmail.com>
+Date:   Mon Jun 6 16:51:50 2022 +0000
+
+    🤖
+
+commit c8f852870f9d3ed2e6827190ca44257f35070a03
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Mon Jun 6 09:51:32 2022 -0700
+
+    [auto-b] fixed https://github.com/qeeqbox/url-sandbox/issues/3
+
+commit a17073469583e7ea7496f4a013048384a664d8cc
+Author: qb-auto <qbactions@gmail.com>
+Date:   Mon Apr 18 02:04:49 2022 +0000
+
+    🤖
+
+commit 37dc3f9e5c9dfacbcea67577a4e2df2c6ad05e75
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Sun Apr 17 19:04:37 2022 -0700
+
+    Update README.md
+
+commit 184a8fbcc2e5f611b40ff5b13baa63e8ea461af4
+Author: qb-auto <qbactions@gmail.com>
+Date:   Tue Jan 4 00:23:46 2022 +0000
+
+    🤖
+
+commit 59f4c5ff2c01e18a9830132fea1ac984f85fad59
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Mon Jan 3 16:23:31 2022 -0800
+
+    [auto-b] fixed
+
+commit 91fb057231c4f9b57a26379e48d25356985686a3
+Author: qb-auto <qbactions@gmail.com>
+Date:   Tue Jan 4 00:03:38 2022 +0000
+
+    🤖
+
+commit 73b984ebd768cff8d6fe17554bf262949738f7db
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Mon Jan 3 16:03:21 2022 -0800
+
+    Update box-Dockerfile
+
+commit f12d709717be297a51334b87ecafd4128400aa7d
+Author: qb-auto <qbactions@gmail.com>
+Date:   Thu Nov 11 01:23:41 2021 +0000
+
+    🤖
+
+commit 7841c5c5702e5e9fde06f176e71b9c3f58e91526
+Author: Giga <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Nov 10 17:23:24 2021 -0800
+
+    Update README.md
+
+commit 4d38d4b8c397a9cba039c58f02f29c3fefcacb5c
+Author: qb-auto <qbactions@gmail.com>
+Date:   Fri Mar 26 06:24:13 2021 +0000
+
+    🤖
+
+commit e553277374d7f9df1d71437ae447a4d7a6f83d66
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Thu Mar 25 23:23:55 2021 -0700
+
+    Update README.md
+
+commit 358bcf3e56e88bc42ed98d916bb7b00f9fa83423
+Author: qb-auto <qbactions@gmail.com>
+Date:   Thu Mar 25 05:37:47 2021 +0000
+
+    🤖
+
+commit 3ffae4b03a01b22f223137c2e035000cc482f369
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Mar 24 22:37:24 2021 -0700
+
+    Create main.yml
+
+commit 31211ed2ca3f3e96ac48911e2edff0df1d8c089d
+Author: G <gigaqeeq@gmail.com>
+Date:   Sun Mar 21 16:18:53 2021 -0700
+
+    [auto-b] ref 90e73d90
+
+commit 965e22047fe480a828f11215e5f22866830eb838
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Thu Mar 18 14:23:39 2021 -0700
+
+    Add files via upload
+
+commit eac3a6b57753083ddc3e186de964e038035618f1
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Sat Jan 16 10:11:03 2021 -0800
+
+    moved to .github
+
+commit c2ca4f8eaa09631c33fe7dff80dedc7492a965a9
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Mon Jan 4 21:22:01 2021 -0800
+
+    Create CONTRIBUTING.md
+
+commit 1a5b93204ec50b4c7f719437ca4bdab715a5b9b0
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Mon Jan 4 19:18:49 2021 -0800
+
+    Update README.md
+
+commit ca04cc2d3f9994d84ba18adec88528f2785c27e8
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Mon Jan 4 18:53:45 2021 -0800
+
+    Update README.md
+
+commit 1ff835b95b2882f2d6563b4932bcdbb0cc547122
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Dec 16 22:49:18 2020 -0800
+
+    Update README.md
+
+commit 26015753e1247d213aa0a08fe4affb6d3cda298c
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Dec 16 22:48:55 2020 -0800
+
+    Add files via upload
+
+commit 2b22b8a3b2f83f3a5f48d197091790d5d55bfe01
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Dec 16 22:48:44 2020 -0800
+
+    Delete url-sandbox.png
+
+commit 4fed096b9bbc5f189f51586cb9773c4d9ff535a7
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Dec 16 22:48:25 2020 -0800
+
+    Add files via upload
+
+commit 89c6c59cbdba4073b938af9e2f1079cb9d1c7875
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Dec 16 22:48:14 2020 -0800
+
+    Delete url-sandbox.png
+
+commit 3c7195bab12b29201d44bcbf1dde9a7261e7c587
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Dec 16 22:47:33 2020 -0800
+
+    new
+
+commit 205be1c6611c5c17f429d3fb5cd6ee754e1fa794
+Author: G <52905881+giga-a@users.noreply.github.com>
+Date:   Wed Dec 16 22:47:15 2020 -0800
+
+    Add files via upload
+
+commit 3cae70b745542d8d627fb5d53f465fe599c80b64
+Merge: c55fbee 2fdeee7
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Thu Oct 15 20:40:15 2020 -0700
+
+    Merge pull request #1 from qeeqbox/add-license-1
+    
+    Create LICENSE
+
+commit 2fdeee70934bffe1ef664da5ac6298a912f80549
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Thu Oct 15 20:40:02 2020 -0700
+
+    Create LICENSE
+
+commit c55fbee7d3b452f9f780f1f2bea175ec187d549e
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Tue Oct 13 16:51:31 2020 -0700
+
+    Update box-requirements.txt
+
+commit 0291817e2fb6eaa33352945b36d0401e42d63547
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Tue Oct 13 16:50:30 2020 -0700
+
+    Update worker.py
+
+commit db815e9a1cb8b088dcb66c24577fa8bbe3d67fe0
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 11:37:59 2020 -0700
+
+    Update README.md
+
+commit 016794d47b62e264bc58693738e7f9c2384bb7f0
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 09:37:38 2020 -0700
+
+    Update README.md
+
+commit 5383521ce13d2f75e01e07b0be3563d76d7f91a2
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 09:36:02 2020 -0700
+
+    Update README.md
+
+commit 81d58cd13cdfa6df85fa718eae897fe87d2f62fa
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 09:35:23 2020 -0700
+
+    Add files via upload
+
+commit 8d6284c063091aeefe80b8ce36755394ee6e0529
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 09:29:59 2020 -0700
+
+    Update README.md
+
+commit 817f208523d0156ab63dae1ff72317815c4f85c1
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 09:22:04 2020 -0700
+
+    Update README.md
+
+commit 308d4c0840e3d1298c4a4d0663cb435b8fea8be0
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 09:20:14 2020 -0700
+
+    Update README.md
+
+commit d5bced69c85d8d4e74f93d02e253545428f0da53
+Author: G <52905881+bd249ce4@users.noreply.github.com>
+Date:   Mon Oct 12 09:12:01 2020 -0700
+
+    Update README.md
+
+commit 21d0514033e304885b20dfa0e1bfa2c2481025d7
+Author: qeeqbox <qeeqbox@gmail.com>
+Date:   Mon Oct 12 09:07:22 2020 -0700
+
+    v1.0

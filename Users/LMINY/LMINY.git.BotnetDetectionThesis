@@ -1,0 +1,586 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# BotnetDetectorThesis
+
+This implementation was realized for my master thesis on "Botnet detection in encrypted traffic - a machine learning approach" 
+
+## Configuration
+The configuration has to be done in config.py file. A template is provided in example_config.py
+
+
+## Run
+
+Follow these steps:
+1. run features_extraction/MainBro.py to extract the features in results/features.csv
+2. run machine_learning/normalize_and_split.py to generate data to feed to ML
+3. run train.py to generate models
+
+## Choosing the set of features to train
+
+Pass the setname of the features to use through 
+```Python
+Get_normalize_data.get_all_data("model_folder", "set_name")
+```
+setname can take the value "all", "dns", "https", "reduced", "reduced_30", "reduced_40" and "enhanced_30".
+To create a new set of features, just complete the *features_set* dictionnary present in the *get_all_data(...)* function
+
+## Generate the enhanced features set
+The enhanced features set contains cipher suites from ClientHello packets.
+Unfortunately the information is not available by default in Bro logs.
+Therefore it is required to extract them by hand. The tls_finger.bro script from [securityartwork.es](https://www.securityartwork.es/2017/02/02/tls-client-fingerprinting-with-bro/) has been used in order to do this extraction
+Moreover, to avoid re-computing the whole features set (which is time and ressources consuming),
+the features are calculated separately then added to the csv with all features.
+
+Here are the steps to generate the enhanced features set:
+
+1. Install [Bro](https://www.bro.org/download/index.html) or install [SecurityOnion](https://securityonion.net/) and put the **tls_finger.bro** file into the folder **"/usr/local/share/bro/site"**
+2. Use **extract_bro_ciphers.py** to extract cipher suites from Bro logs
+3. Use **feature_extraction/compute_ciphersuites_features.ipynb** to compute the features from Bro logs and store them in **results/model/features_enhanced.csv**
+
+
+## Project structure
+- **dataset_tools/** -> contains all the tools related to the datasets (download, collect infected IPs, label and discard datasets)
+    - **download_datasets.py**: to download the desired datasets
+    - **discard_unuseful_datasets.py**: to discard datasets that have no flows labelled
+    - **collect_infected_ips.py**: to collect infected and normal IPs from README.html files present in the dataset folders (uses a regex to parse the files)
+    - **label_normal_datasets.py**: to label normal datasets
+    - **label_mcfp_datasets.py**: to label MFCP datasets (excluding the "CTU-13 Dataset" which is already labelled)
+- **features_extraction/** -> contains the scripts that extract the features. Credits go to [Frantisek Strasak](https://github.com/frenky-strasak) for HTTPS features extractions.
+- **machine_learning/** -> contains the scripts to normalize the data from the features extracted and train the model
+- **results/{graphs|logs|model}** -> default folders for generated graphs, models and logs
+- **results_backup/** -> contains the backup results of the different experiments
+- **statistics/** -> contains the scripts to analyze the features extracted and the models generated
+- **tools/** -> Various tools: 
+    - **tls_finger.bro**: Bro script to extract cipher suites
+    - **extract_bro_ciphers.py**: Python script to extract logs + cipher suites from pcap's
+    - **backup_results.py**: to backup the result folder (requires "results_folder_backup" to be set in config file)
+    - **delete_results.py**: to delete the result folder
+    - **split_alexa.py**: to sort and split alexa top websites in multiple files for quicker lookups
+
+## Main requirements
+- [Python 2.7](https://www.python.org/download/releases/2.7/)
+- [Jupyter notebook](https://jupyter.org/install)
+- [Numpy](http://www.numpy.org/)
+- [SciPy](https://www.scipy.org/install.html)
+- [sklearn](http://scikit-learn.org/stable/install.html)
+- [XGBoost](https://github.com/dmlc/xgboost/tree/master/python-package)
+
+
+## License
+BotnetDetectorThesis is released under the MIT license. Credits go to František Střasák for some parts of the code (https://github.com/frenky-strasak/HTTPSDetector).====================== GIT HISTORY: ======================
+5a54541 HEAD@{0}: clone: from https://github.com/lminy/BotnetDetectionThesis
+commit 5a54541229a6d7255f0eebe65aaf8b1c35b9be04
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Thu Nov 15 11:48:50 2018 +0100
+
+    Create LICENSE.md
+
+commit 9798e5005f559d003eb50a8be8e38faec11be72d
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Thu Nov 15 11:47:33 2018 +0100
+
+    Statistics reloaded
+
+commit 99cd1c5671503f2862137b3aac489e5b92720b89
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Thu Nov 15 11:40:58 2018 +0100
+
+    Improved README
+
+commit b8dca8c75f85f1a20587a3a661b343875f6aa582
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Aug 10 12:16:10 2018 +0200
+
+    Statistics reloaded
+
+commit d1e484b0bb4bbb6fb07e8eedf0445baeedeb1d6e
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Thu Aug 9 18:30:10 2018 +0200
+
+    Tune XGBoost on Hydra
+
+commit 6d44931676da44bf4b03558fee06501e1c651bed
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 20:19:06 2018 +0200
+
+    Bug corrected in models_metric_summary
+
+commit 1adaa235a7a7304648d9cefbe96e719a7e076723
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 19:29:06 2018 +0200
+
+    Bug corrected in models_metric_summary
+
+commit 329a85a5464955f7cd3a809de726fd5f594809be
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 19:28:50 2018 +0200
+
+    Removed the rounding of the metrics
+
+commit 2d69e6785a9168fa4d7c28a8da0ccf2529567fef
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 19:28:10 2018 +0200
+
+    Bug in logger resolved : append now working
+
+commit ce79ff4d8920ed3a69e49fff0658f3002de11f06
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 17:08:58 2018 +0200
+
+    Bug corrected in models_metric_summary
+
+commit 6f4ade5b2c050e7c3461f561bfcfee75bae491d2
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 16:42:39 2018 +0200
+
+    Run all algorithms on enhanced_30 features set on Hydra
+
+commit 3b0b00e7c9d2da0cdd795bf7e6e19a7a3ca63b92
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 16:39:10 2018 +0200
+
+    Run all algorithms on enhanced_30 features set on Hydra
+
+commit ef6eaab9022531fb3f3f33b9c9521c2e8d9358a9
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 16:33:48 2018 +0200
+
+    Run all algorithms on enhanced_30 features set on Hydra
+
+commit 1867b17fdf1d46cf66bed79ff7ea749fe082df11
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Aug 8 15:00:43 2018 +0200
+
+    Enhanced feature sets computed and script to extract cipher suites from Bro created
+
+commit aefda46aa33b5827fc029f3495c1f28e0adc1a82
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Aug 6 23:11:48 2018 +0200
+
+    Now using pandas to feed algorithms + option to choose feature set
+
+commit de6d8f35124c0a02755dba178ddae0ea99b1e89a
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Aug 6 23:10:38 2018 +0200
+
+    Now download also pcaps
+
+commit 242d123c0d93b0e5b52b9d2f89e28fd86529116a
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Aug 6 14:53:26 2018 +0200
+
+    Python notebook to create statistics of DNS features + analyze the models
+
+commit e1dd8d1d814019696a61692040d1c70ba894bdc7
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Aug 6 14:50:59 2018 +0200
+
+    Compute statistics on DNS features : updated
+
+commit a61a95913c5f127ee4b35bcdd08df6ff070146b0
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Aug 6 14:43:44 2018 +0200
+
+    Option added in the logger config to append logs
+
+commit dcd4b7b5d3a1d9f6f26eaf697d8c462309394348
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Aug 6 14:41:53 2018 +0200
+
+    Updated files to generate latex tables
+
+commit ed39224a6b3f1548e29c5c8370266c8cdf1b3b98
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Aug 6 14:41:16 2018 +0200
+
+    Now saving models, and added a way to choose ony HTTPS features or HTTPS + DNS
+
+commit 21bbbc7bfe1f3a0a2505f34e602dedfa4b25ecac
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 17:16:41 2018 +0200
+
+    Machine Learning Hydra : HTTPS + DNS Features
+
+commit 13055b2d55c1d1b72e53bc04818f367e66cd6bb4
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 17:07:42 2018 +0200
+
+    Machine Learning: append results of classifier to a file
+
+commit 228f0a850035965a7cd48930de2703993483c18f
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 17:04:42 2018 +0200
+
+    Machine Learning: append results of classifier to a file
+
+commit 62505f64b2192122f6f1ee2bec15214a1057102f
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 16:14:47 2018 +0200
+
+    Machine Learning test Hydra : Changing models to test
+
+commit a8247881dce885fe6505a8ca706817f421070629
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 13:26:10 2018 +0200
+
+    Machine Learning test Hydra : Putting n_jobs = -1 for grib search = use all core available
+
+commit 24d5adbb612f0bace586476305b48b14f8e3e721
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 12:38:44 2018 +0200
+
+    Machine Learning test Hydra : Only read HTTPS features
+
+commit c2e5a6e46fdcc29d020985d08325e0761fadd24a
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 00:25:24 2018 +0200
+
+    Machine Learning test Hydra : NO LIMIT !!! :D
+
+commit bf4964a043db3947667e74c921cc598b7f5b83ed
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 28 00:05:14 2018 +0200
+
+    Machine Learning test Hydra : Optimizing
+
+commit 24a544d9c5f19142309505e8619f491202cc0b69
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 27 22:40:22 2018 +0200
+
+    Machine Learning test Hydra : bug corrected
+
+commit 46c1f996339ad7ea08dfe62157220dc8a06eae36
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 27 22:38:23 2018 +0200
+
+    Machine Learning test Hydra : bug corrected
+
+commit 7a3ad46f095893af6de79558fbba3c6145c175cb
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 27 22:37:01 2018 +0200
+
+    Machine Learning test Hydra : bug corrected
+
+commit 079763d5f37a9e44024e87ff135c51b1a36d1dba
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 27 19:27:01 2018 +0200
+
+    Machine Learning test Hydra
+
+commit 095890adfb8ae45026bf13ebfb7ad03f333a3978
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 27 16:34:00 2018 +0200
+
+    Bug corrected
+
+commit 41e8f1d215bba24ea83d62d27bc4485c6feaaef6
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Thu Jul 26 21:19:15 2018 +0200
+
+    Removed custom made std and mean and using numpy instead
+
+commit 7635171b964d209272b921c025761e48e12c8591
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 23:38:04 2018 +0200
+
+    imports solved for Hydra
+
+commit 256214ccaf2d583aa76dd1b45fde2b48afa7780d
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 21:30:37 2018 +0200
+
+    DNS Feature added : std TTLs
+
+commit 09e11a1545a86b4ed955e9819c07e80ad38c072b
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 20:26:17 2018 +0200
+
+    imports solved for Hydra
+
+commit 93f5b04c68e2063ed7e97a1d6d9e2b66c7489a8d
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 18:32:25 2018 +0200
+
+    Converting prettytable code to simple one for Hydra
+
+commit 0b34c5f59aff32e5cc91d8d64d3e3692c480230b
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 18:31:10 2018 +0200
+
+    Converting prettytable code to simple one for Hydra
+
+commit 6ff49ec9fb01aa5b3ec5332837f26c28cab8a7cd
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 18:16:31 2018 +0200
+
+    Converting prettytable code to simple one for Hydra
+
+commit 6586e89faca0c46c2e79fa87de5afea7c92ddf78
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 18:16:31 2018 +0200
+
+    Converting prettytable code to simple one for Hydra
+
+commit 8b86b01fe4f363c3a785e680a397e0faed9442ce
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 18:15:48 2018 +0200
+
+    bug corrected
+
+commit 9292a8489346cf1345c911e249596520e7ad55f4
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 18:09:42 2018 +0200
+
+    bug corrected
+
+commit b7e63af2f86f2fa3b4203b26d3aecf3c8e86ec5e
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 17:48:43 2018 +0200
+
+    print statistics corrected
+
+commit f0559b034a948ec74da37eaa6a13b0381d768920
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 17:44:57 2018 +0200
+
+    conflict between tools folder and file tools.py resolved
+
+commit 913f138876c9828bd78dbe802912f4b904dd5dad
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 17:25:46 2018 +0200
+
+    imports in Hydra solved
+
+commit 785d86ced26c5b438701d2e02b3c8707293690cf
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 17:23:05 2018 +0200
+
+    Tools added to backup results and delete current one
+
+commit 9b03e9a84e9e9b70b90ed91dc333acadb1131a91
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 17:04:35 2018 +0200
+
+    mean() and stddev() function added in tools to avoid Numpy for Hydra
+
+commit 110da1d105aa637fa2913b2dbb39a055ee248cb5
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 16:06:48 2018 +0200
+
+    top_level_domain_file added in config.py file
+
+commit 388fd152d5da369ba96fa8004eabe9df343c22ab
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 15:56:23 2018 +0200
+
+    alexa_folder added in config.py file
+
+commit e8786d0db3df7b41bff63f54d818bb1a21f2619c
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 15:48:13 2018 +0200
+
+    Try to solve imports for Hydra
+
+commit 493831887a9fde80841ee182d3bcb0f9486126b2
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 15:24:57 2018 +0200
+
+    __init.py__ added in each folder to makes Python consider folders as packages
+
+commit a2edc439405e928f8ef4d765f62fe38baa146dd1
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 15:10:47 2018 +0200
+
+    DatasetInformation.py : cleaned
+
+commit b6ff772d788b2ac987347d49c4704da1a1d1a74e
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 15:05:05 2018 +0200
+
+    pytz module removed
+
+commit 932225266bac0191d611b194aeb0f64b3249b332
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 14:55:39 2018 +0200
+
+    Script to download datasets from Google drive created
+
+commit 722c61db8e6cd15a4be3a7ee20362253a3258735
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 14:38:20 2018 +0200
+
+    example config updated
+
+commit 06ddcf587955e7f1be113757ff1c9e9676ef05d3
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 14:19:29 2018 +0200
+
+    Logs added
+
+commit f0a6beb6506947b32cb52b695bd94887c0d0aaea
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 11:53:47 2018 +0200
+
+    Normal & infected IPs for all MCFP datasets collected
+
+commit 521d136195983a0b3a58a7e97b1cb15a80bccd1b
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Wed Jul 25 11:52:37 2018 +0200
+
+    Whole project restructured
+
+commit 74cbacfa0afdbc99be46571aa89cab437327546c
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Jul 23 22:05:54 2018 +0200
+
+    Refactored Machine Learning + Collecting statistics from datasets (like the size, nb flows, etc.)
+
+commit bfab0d9fef4df2d46d18ebbca0a6871248ec68db
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 20 18:04:48 2018 +0200
+
+    Computing DNS Statistics
+
+commit 485faa4c2d4ed9875b96180bcaef641fa649d14f
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 20 18:04:09 2018 +0200
+
+    Computing HTTPS + DNS Features : OK!
+
+commit 047d618abd0f580811354525b5fa467ab50b9caf
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Thu Jul 19 22:42:23 2018 +0200
+
+    Various tools created
+
+commit e33e9cb91ebf51a2fb6e3e451d254470cfb15eab
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Thu Jul 19 22:40:49 2018 +0200
+
+    DNS Features computed
+
+commit e4f5a2e6aa99a291f2853bc1912ead39a4a105f6
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Jul 16 16:00:59 2018 +0200
+
+    .idea added in gitignore
+
+commit 40e2ee132228baeb88491772dbe946202a9a783a
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Jul 16 15:59:40 2018 +0200
+
+    Cleaning project
+
+commit 6d3908bfb10612e4d54aadbc6be2e2868a295be6
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Mon Jul 16 15:40:13 2018 +0200
+
+    Now extracting all features in CSV format
+
+commit fc1a7fbf41da483f1fccfe6e29474a1bc3b60abd
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sun Jul 15 20:23:24 2018 +0200
+
+    Restructuring the download of datasets
+
+commit 34acf3f9c65584b4282bca84e204da2024e00508
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sun Jul 15 13:26:21 2018 +0200
+
+    Project cleaned & global config file added
+
+commit 045224a0e0489a2977f53ba7a3fd44d47a1f7ce8
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 14 12:35:13 2018 +0200
+
+    Configuration management improved & ignore datasets folder beginning by '.'
+
+commit 03cdd81f23e5e0b5a17d25f5d3a88b325131ba7c
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Sat Jul 14 11:30:21 2018 +0200
+
+    Fixing paths
+
+commit 8c8f064b9637acf2dc436ba201f4ed39e905da32
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 13 19:14:55 2018 +0200
+
+    Added example config file
+
+commit 4f4036a8d285fd69e6574b0fea96b1efdd78d395
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 13 19:11:24 2018 +0200
+
+    Added example config file
+
+commit 419a5ad78676e6f19e86fa98813b51dc3fa70ce6
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 13 18:49:10 2018 +0200
+
+    Checked Features.
+
+commit 75bda9d96d9e8c4bdbf7e982701ae72161128b79
+Author: lminy <laurent.miny@hotmail.com>
+Date:   Fri Jul 13 18:34:32 2018 +0200
+
+    statistics + download datasets modified
+
+commit 071da8e864a3254318db628b61fc4c2d30251c93
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Thu Sep 7 20:19:27 2017 +0200
+
+    Checked Features.
+
+commit cc7909f0f001535f3069a75a52d4f12df33a12c0
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Fri Sep 1 19:06:51 2017 +0200
+
+    Checked Features.
+
+commit d7489d91c469545c3795f3859613ae6c4620b356
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Fri Aug 25 19:22:10 2017 +0200
+
+    Experiment 2.
+
+commit df32776d677889ce7bffda373be0aec8fab32728
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Wed Aug 23 10:43:45 2017 +0200
+
+    Second test commit.
+
+commit dcf5194872587556df31b34e608c6353acae1171
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Sun Aug 20 12:20:08 2017 +0200
+
+    Test commit.
+
+commit ad8b6f4ab8708e7e72b07a391ca354a3c4dcb1c3
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Sun Aug 20 00:41:05 2017 +0200
+
+    First commit
+
+commit a36bf0fb4cb8383b943c1b9f210c5084b3bc5ae8
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Tue Aug 8 23:35:38 2017 +0200
+
+    Labeling and extracting 2.
+
+commit de8bed3b11e8fa4547df0aef5f0760f4d03cc4a8
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Tue Aug 8 23:23:06 2017 +0200
+
+    Labeling and extracting 2.
+
+commit 3667478b805d67e1a1c59623b36fdf29db5c6d6b
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Tue Aug 8 22:48:03 2017 +0200
+
+    Labeling and extracting.
+
+commit 416e8df032facdbaf068ecfafd3b77f0d2723851
+Author: frenky-strasak <frenky.picasso@seznam.cz>
+Date:   Tue Aug 8 22:45:13 2017 +0200
+
+    Labeling.

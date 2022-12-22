@@ -1,0 +1,4890 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 876ed6c252803e3b79149dd302ef4873a564ff7c
+Author: John Wells <madmodmail@gmail.com>
+Date:   Tue Aug 8 08:56:18 2017 -0600
+
+    Cast web pages with DashCast (#184)
+    
+    * Add chromecast-dashboard controller.
+    
+    * Add example for chromecastDashboard controller.
+    
+    * Fix chromecastDashboard example comment.
+    
+    * Fix chromecast_dasboard component linting errors.
+    
+    * Fix launch callback function
+    
+    * Add .editorconfig file for consistent indentation.
+    
+    * Fix launch callback function for PR #185
+    
+    * Use DashCast instead of chromecast-dashboard.
+    Move app id to config.py. Make app id and namespace configurable.
+    
+    * Fix typo in youtube.py launch callback.
+    
+    * Fix linting errors in dashcast.py.
+    
+    * Handle messages from DashCast receiver. Add callback to load_url with test.
+    
+    * Remove .editorconfig.
+    
+    * Fix linting errors from flake8.
+
+commit 7aef382e4d3385fbef57b8eb1d9d9b202711ceb9
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jul 31 22:20:04 2017 -0700
+
+    Pin lint versions
+
+commit ad5ccf3cc65aa7be20b2ab83d77bcc79280ffc69
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jul 31 22:11:26 2017 -0700
+
+    Lint
+
+commit 2a72b0b2bf247bae2fdc46b763e1e80fad0c41f3
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Jul 25 23:07:33 2017 -0700
+
+    Version bump to 0.8.2
+
+commit 75beb09f2ec80ae2fef9684db0d26d457f2317c1
+Author: emontnemery <erik@montnemery.com>
+Date:   Thu Jul 13 15:00:16 2017 +0200
+
+    Fix send message deadlock (#180)
+    
+    * Fix deadlock in SocketClient.send_message
+    
+    * Fix for #179
+
+commit 819ccb66e735482e0d124b9e4a5488b338564d8b
+Author: emontnemery <erik@montnemery.com>
+Date:   Thu Jul 13 03:06:17 2017 +0200
+
+    Fix race in SocketClient.send_message (#179)
+
+commit a867ac9a2cbbdda7f1cd747259009b8dc073e3a2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Mar 19 11:38:10 2017 -0700
+
+    Version bump to 0.8.1
+
+commit a44a2cad02cca65c6d85fdac67e1f1259853290b
+Author: theychx <theychx@users.noreply.github.com>
+Date:   Sun Mar 19 19:06:26 2017 +0100
+
+    Fix bug in ReceiverController._send_launch_message (#166)
+
+commit e807a6e7e714840c056092efa16a7f03e20e9c04
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Mar 5 09:13:19 2017 -0800
+
+    Avoid reporting stack traces for expected errors (#162)
+
+commit fc3b975067a0cd9520718489e1e45dab0ac841f2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Mar 5 09:13:03 2017 -0800
+
+    Update README.rst
+
+commit e1c6e41419a1bd144383d33e9b83c48a3f36c3d7
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Feb 1 20:43:27 2017 -0800
+
+    Version bump to 0.8.0
+
+commit 97ae11bc1a0e28978e062ae8d8b4921afb7044c5
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Feb 1 20:40:26 2017 -0800
+
+    Upgrade minimum zeroconf requirement to 0.17.7
+
+commit aa1b98252d25fcfb323ea9893fda3456cb1b5d11
+Author: Adam Mills <adam@armills.info>
+Date:   Fri Jan 6 18:03:37 2017 -0500
+
+    Include block_until_active in README (#152)
+
+commit 35742b617231a62a34bc5b3e072d79c03a2d25fa
+Author: Adam Mills <adam@armills.info>
+Date:   Thu Jan 5 15:04:43 2017 -0500
+
+    Add media controller wait method (#145)
+    
+    * Add media controller wait method
+    
+    * Media controller commands wait by default
+    
+    * Revert "Media controller commands wait by default"
+    
+    This reverts commit a2a937d1394307bac8b51a89a3d5655445df2987.
+    
+    * Rename wait method to block_until_status_received
+    
+    * Allow event to reset when session deactivated
+
+commit 414991628dac2c05b422c6bb204bff7e11ecd516
+Author: theychx <theychx@users.noreply.github.com>
+Date:   Sat Dec 17 03:24:23 2016 +0100
+
+    Update protobuf requirement (#143)
+    
+    * Update protobuf requirement
+    
+    * Update protobuf requirement (3.0.0)
+    
+    * Update proto and _pb2.py files
+
+commit a0734f02238ce9da1c293bf6c77b9dca199294f2
+Author: Stephen Blott <smblott+github@gmail.com>
+Date:   Fri Dec 16 07:51:33 2016 +0000
+
+    Specify volume delta. (#104)
+    
+    * Specify volume delta.
+    
+    Allow the user to specify the delta value for `volume_up()` and `volume_down()`.
+    
+    (I find the hardwired delta of `0.1` too coarse for my own set up.)
+    
+    * Remove rounding from volume up/down.
+    
+    See discussion in #104.
+    
+    * Remove stale import.
+    
+    * Raise ValueError on negative volume delta.
+    
+    See discussion in #104.
+    
+    * Fix line too long.
+
+commit dac71620f6faa22a2da79a2432eb9126f30292e1
+Author: Adam Mills <adam@armills.info>
+Date:   Wed Dec 14 19:52:24 2016 -0500
+
+    Remove the filters feature from get_chromecasts (#141)
+    
+    * Remove the filters feature from get_chromecasts
+    
+    * Remove unused logger
+
+commit 980826e8210380af1a24f44369314d00e22668da
+Author: Adam Mills <adam@armills.info>
+Date:   Wed Dec 14 18:07:04 2016 -0500
+
+    Callback provides no arguments (#140)
+    
+    * Callback provides no arguments
+    
+    * Added docstring
+
+commit 262e4b85c43016e30ed489d2d50c7938acf6de2c
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 16:01:54 2016 -0500
+
+    Remove get_chromecasts_as_dict (#138)
+
+commit cda7a0c5ef804f5306be845f8ccbbc57f11e0421
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 11:55:14 2016 -0500
+
+    Non-blocking discovery in get_chromecasts (#136)
+    
+    * Non-blocking discovery in get_chromecasts
+    
+    * Linter fixes
+    
+    * More fixes
+
+commit e84498a00d7cb7643a808be1cd2ce8635b069e48
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 10:39:55 2016 -0500
+
+    callback_function doesn't provide any arguments (#135)
+
+commit f7cb0b1b95a2ea0094a4e2f7a7f3d533176395c7
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 01:41:41 2016 -0500
+
+    Support for non-blocking callback-based discovery (#134)
+
+commit 64472f2be3ebf33633f2f27643f2c72c7b1dca52
+Author: dominikkarall <dominik.karall@gmail.com>
+Date:   Tue Dec 13 07:38:07 2016 +0100
+
+    Support own main loop and non-blocking functions (#131)
+    
+    * support non-blocking function calls
+    
+    * code style cleanup
+    
+    * more code cleanup
+    
+    * more code cleanup
+    
+    * more code cleanup
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * examples for blocking and non-blocking
+
+commit 71ba587bb336bbb41abfbe124ecdef58e3568422
+Author: Hugo <hugovk@users.noreply.github.com>
+Date:   Sat Nov 26 00:41:36 2016 +0200
+
+    Python 3.5 is out (#129)
+
+commit 65e5eff30af956ab2581ae8984dadbd6524ec345
+Author: Aviv Palivoda <palaviv@gmail.com>
+Date:   Sun Oct 30 01:51:24 2016 +0200
+
+    Improve subtitles (#126)
+    
+    * Activate subtitles automatically
+    
+    * Remove subtitles background and add edge
+    
+    * Add current_subtitle_tracks to MediaStatsu
+
+commit 7f4258dff0ee62c986af06388e4d0aa3c8dea4b0
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Oct 20 22:13:06 2016 -0700
+
+    Version bump to 0.7.7
+
+commit 15398bbb7239e5b73eb54c7ad2ae360a74dd4f7d
+Author: Andreas Angerer <wa4557@users.noreply.github.com>
+Date:   Fri Oct 21 07:12:16 2016 +0200
+
+    Fixes typo and list-requirement in subtitle support (#110)
+
+commit 594bcd00a3f1ad569ef9a57c6a83d62ce8f3a2bc
+Author: Erik Eriksson <molobrakos@users.noreply.github.com>
+Date:   Fri Oct 21 00:49:25 2016 +0200
+
+    Update socket_client.py (#124)
+    
+    catch more generic ValueError since different json implementations seems to raise either ValueError, json.JSONDecodeError or json.decoder.JSONDecodeError
+
+commit 9fb688069897d24050044acdb61c22a616292535
+Merge: a1c7076 ea4c41b
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Oct 13 07:40:04 2016 -0700
+
+    Merge pull request #121 from jaharkes/buffering-state
+    
+    Add buffering state to media player
+
+commit ea4c41b793b248e7c79948ece894a0ea331bfda3
+Author: Jan Harkes <jaharkes@cs.cmu.edu>
+Date:   Wed Oct 12 12:30:24 2016 -0400
+
+    Update version to 0.7.6
+
+commit 2c2e254b73fa0fc1f0a479aa5aaf25cf95a1f854
+Author: Jan Harkes <jaharkes@cs.cmu.edu>
+Date:   Wed Oct 12 02:03:41 2016 -0400
+
+    Add buffering state to media player
+    
+    During playback, my chromecast fairly frequently reports a buffering state
+    although playback is uninterrupted. Because this state was previously unknown,
+    home-assistant would report an "off" state for the device.
+    
+    This fills up the logbook/history with many unnecessary state transitions.
+    Treating buffering as playing avoids these transitions.
+
+commit a1c707626ddafb46b1d0122d982b0e57b57de11b
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Oct 11 00:32:56 2016 -0700
+
+    Version bump to 0.7.5
+
+commit 1b61721676801a88e9b996266d5c1c1153c63b41
+Author: Erik Eriksson <molobrakos@users.noreply.github.com>
+Date:   Tue Oct 11 09:32:21 2016 +0200
+
+    Handle invalid json (#119)
+
+commit f66308460b8b3bbf6efb13a05a215b79fb940fb2
+Author: Ainsley Escorce-Jones <ains@users.noreply.github.com>
+Date:   Wed Sep 21 05:25:24 2016 +0100
+
+    Fix typo in media.py (#116)
+    
+    LIFE -> LIVE
+
+commit e39fa31029459784b2e78b5a68efddedc7bb5c42
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Sep 15 20:56:50 2016 -0700
+
+    Version bump to 0.7.4
+
+commit 7b9a037c840a5fdafbc4af063ffffc20c958069c
+Author: noob4life <varunsurap@gmail.com>
+Date:   Thu Sep 15 09:53:38 2016 -0500
+
+    Ignore benign error in destructor. Fix #113 (#114)
+    
+    It’s not really an issue, but when the Chromecast object gets garbage
+    collected after failing to connect to a device (before creating a
+    SocketClient instance), its __del__ is called, which in turn calls
+    `self.socket_client.stop.set()`. This leads to the error described in
+    the mentioned issue being logged/printed.
+
+commit d1b47ecafe2841f30598ac7c90d21864c107e3ad
+Author: Andreas Angerer <wa4557@users.noreply.github.com>
+Date:   Wed Aug 24 08:34:19 2016 +0200
+
+    Adds support for own app-id (#108)
+
+commit ff8777673fd0a10dfa559626cd29e8531386cca4
+Author: Andreas Angerer <wa4557@users.noreply.github.com>
+Date:   Sun Aug 21 20:07:19 2016 +0200
+
+    Adds support for subtitles (#105)
+    
+    * Adds support for subtitles
+    
+    * Fixes a few formatting issues
+    
+    * Even more formatting issues
+
+commit 4c10e89223fc79ba95efd8b404c61187cb05f64d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Aug 21 09:50:07 2016 -0700
+
+    Fix flake8
+
+commit 9ad7d53aaa15be857bfd5f57b2b259ef0d79adfe
+Author: Stephen Blott <smblott+github@gmail.com>
+Date:   Wed Aug 17 16:50:30 2016 +0100
+
+    Fix typo: 'Plex' -> 'Youtube' (#103)
+    
+    This just fixes a trivial typo in a comment.
+
+commit 97aa41a4c573765a9d642fcca9e991b62a4222ba
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Apr 28 14:17:59 2016 +0200
+
+    Version bump to 0.7.3
+
+commit fc19c57f077a64fdf0084f621b2cd7f7c7ddb132
+Merge: 8e291ed d334ae1
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Apr 28 14:13:11 2016 +0200
+
+    Merge pull request #88 from noob-4-life/master
+    
+    (Re)Attempt to Fix #80
+
+commit d334ae13dfaa7104b3f080616d512cccdc9c882f
+Author: noob4life <noob4life@users.noreply.github.com>
+Date:   Thu Apr 28 06:53:32 2016 -0500
+
+    (Re)Attempt to Fix #80
+    
+    Fixes the issue of the MediaStatus’s metadata not reflecting values
+    passed for the ’title’ and ‘thumb’ parameters of the play_media()
+    method.
+    
+    It seems there’s no reason to define these values in ‘customData’, so
+    this was removed altogether.
+
+commit 8e291ed666ef0f6b9105be75b796e74032cc76f0
+Author: Paulus Schoutsen <paulus.schoutsen@mycase.com>
+Date:   Thu Mar 3 21:58:00 2016 -0800
+
+    Fix protobuf to 3.0.0b2
+
+commit 90d1571330b1f6b6a241a6a1ca21e72a7fdc5029
+Merge: a5254c2 fa5b401
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Feb 25 11:34:07 2016 +0100
+
+    Merge pull request #77 from kharts/master
+    
+    Add metadata support to default media receiver
+
+commit fa5b4013396d7e2db1ed0acdbf51ca8de1b54f54
+Author: kharts <kharts@ukr.net>
+Date:   Sun Feb 21 00:02:25 2016 -0800
+
+    Add params description and docs link to docstring of play_media() method
+
+commit 19884b72f6205e987db8884af9cf33e2811aa008
+Author: kharts <kharts@ukr.net>
+Date:   Tue Feb 16 11:49:07 2016 -0800
+
+    Add metadata support to default media receiver
+
+commit a5254c26f133fc4e562413de82d114e9d813f40d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 17:22:19 2016 -0800
+
+    Version bump to 0.7.1
+
+commit 220622d3cce57e7c60c6afa4371e359b2fc981bb
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 17:20:15 2016 -0800
+
+    Update requirements
+
+commit 2f4494b039d3d78b18546c2a0db1266ddd157e15
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 17:00:34 2016 -0800
+
+    Convert README to RST format
+
+commit a025d2bb850e771b4ed560e4d3b75123355e4bc3
+Merge: 511c952 6889bb8
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Jan 24 00:34:46 2016 +0100
+
+    Merge pull request #76 from balloob/python3-compat
+    
+    Fix discovery for Python 3
+
+commit 6889bb8ece0825b02539ad4fab0d443b1987d5d5
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 14:50:10 2016 -0800
+
+    Fix discovery for Python 3
+
+commit 511c952e007bee042e42f14e23c77a76fc8c013e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 17:36:41 2016 +0100
+
+    Placed build log in build folder
+
+commit 1dea20d4aec8cc31280865a51bd9670ed6c3e316
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 17:30:05 2016 +0100
+
+    Added Fabric file for automating the build process
+    
+    It has a task 'build' which ensures that all required distribution
+    files are required.
+    It also converts the README.md from markdown to README.rst, this file
+    can then be used on PyPi. Converting the file requires pandoc
+    installed.
+
+commit e1e18fd1d61aca483f4680273babd3466ef2701b
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:43:24 2016 +0100
+
+    Fixed typo in controller example
+    
+    Also made the code adhere to PEP8.
+
+commit 64194980dbf3b2a06e728f262ee361cadc646882
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:40:07 2016 +0100
+
+    Enabled syntax highlighting in the README examples
+    
+    Changed examples to use Fenced code blocks which is github flavoured
+    markdown. This enables setting the syntax to python in the examples.
+
+commit 818beef628c89881a080de2b968d7e15eb648498
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:35:33 2016 +0100
+
+    Getting ready for 0.7 release
+
+commit 8eb57cf5e2cd04c9778a6a7043053fe51842292d
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:35:11 2016 +0100
+
+    Updated README with new features
+    
+    Mentioned multi-room support.
+    The repr output has changed also, so update examples to reflect this.
+
+commit 676db8778d9c79259703f28d92a67ea06c2f46c5
+Merge: 4a10c6b f2cdd91
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 22:43:36 2016 +0100
+
+    Merge pull request #75 from am0s/feature/multiroom
+    
+    Feature/multiroom
+
+commit f2cdd917a2d0d6bbb3bf03df71227585d3a2c4e0
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 21:00:51 2016 +0100
+
+    Added version information to main package
+
+commit 2bcdaaabd128f8fa2e880651a7730456eb73fdeb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 20:43:10 2016 +0100
+
+    Added proper docblock for get_device_status()
+
+commit d49e91a383da4d65713a5549b6006ff9546c096e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 20:42:54 2016 +0100
+
+    Explained DeviceStatus merging with regards to dial information
+
+commit bb4cb3ef796d2ca5a1253b9677604b08c4f813c6
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 20:20:34 2016 +0100
+
+    Don't copy the DeviceStatus tuple, just assign as-is
+    
+    There is no need to copy a tuple when we want all the fields as
+    they are, instead assign it.
+
+commit 864d41fff7a6be398ed06ec500f6075c5938d5a8
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 23:20:00 2016 +0100
+
+    Avoid too long lines (PEP8)
+
+commit eb8f74d8b47f0382d46fb7f5c0bd9d7734bb0501
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 22:59:26 2016 +0100
+
+    Always send the network address in ConnectionStatus updates
+    
+    The address is now sent as a named tuple called NetworkAddress.
+
+commit f189dc90cb8fca1d9cd3c97d040f629f7de0e52b
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 22:58:48 2016 +0100
+
+    Don't read from device status if it is None
+
+commit b50f47325c7719f83f5285f6c61340081f1770ac
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 22:58:26 2016 +0100
+
+    Allow the socket timeout value to be set
+    
+    This allows clients to dictate how fast it the connection fails when
+    socket the chromecast device disappears.
+    If unset it uses the default which is 30 seconds.
+
+commit 3167178dff1bfa14d31ba070e8e877079c0c9a32
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Jan 7 22:25:05 2016 +0100
+
+    Expose name, uuid, model name and cast type on the main Cast class
+    
+    This makes it easier to work with the cast instance.
+
+commit 884161d25e7e8497a55b0a304e3cf7fe5c41320e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Jan 7 22:24:25 2016 +0100
+
+    Turn uuid strings into UUID instances
+    
+    This gives better flexibility in working with uuid values avoids
+    problems if they are formatted differently.
+
+commit 316d1ec5badbfa657e41e45eae1deca13a51fa14
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Jan 7 22:23:03 2016 +0100
+
+    Avoid tearing down discovery thread if get_service_info fails
+    
+    If a running program is interrupted while get_service_info() is running
+    in a thread we might end up with an IOError. We catch this in the
+    service discovery and skip adding the device.
+    
+    This avoids showing a stack-trace for the failed thread while stopping
+    the main thread.
+
+commit f6bb3995ddb4e4a14fdabb0ccffb19f9f10d3e99
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:49:19 2015 +0100
+
+    Decode the uuid value from device description
+
+commit be2289bad714145862204d3d295a5c59c7be47f8
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:44:59 2015 +0100
+
+    Don't use unicode() as it does not exist in Python 3.x
+    
+    Besides the texts are now always returned as unicode so no need for
+    the cast anymore.
+
+commit e51dc42f3527247d4a55c2ca68dd46b7bdbbb225
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:43:12 2015 +0100
+
+    Avoid too many arguments to constructors (flake8)
+
+commit cabe84cda691f5bee75d06c6e6787dc0bdd4e344
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:37:50 2015 +0100
+
+    More fixes to unicode strings for Python 2.x
+    
+    Use decode('utf-8') instead of six.u() to get text properly decoded.
+    Added decode steps to the text returned from zeroconf.
+
+commit b9426081e0c0aefd8e97c7487b8d190777b506bc
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 20:26:00 2015 +0100
+
+    Store the cast type in the DeviceStatus
+    
+    The type can be used to determine if the device is a regular chromecast,
+    audio cast or cast group.
+    If the device is of type audio or group then 'is_active_input' and
+    'is_stand_by' reports as None as they do not have these features.
+
+commit 78eff5ea7395564c7bfe9258bb24e238dadd3834
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 19:52:40 2015 +0100
+
+    Added support for Multiroom Audio casting
+    
+    Multiroom devices appear as extra devices but has a different model
+    name and uses a different port, but shares the IP as one of the
+    existing devices.
+    
+    * The port value of each discovered device is now stored and used when
+      connecting.
+    * The reported information from mDNS is now used as the primary source
+      of information, the use of /ssdp/device-desc.xml is only used to
+      fetch additional information as it cannot report information on
+      Multiroom devices since they use the same IP.
+    * The model name for regular chromecast devices now show Chromecast
+      instead of 'Eureka Dongle'. Audio devices report as
+      'Chromecast Audio' and multiroom devices as 'Google Cast Group'.
+
+commit 4a10c6b546693ac0459fab397b17aa6c4a252c43
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 9 16:18:19 2016 -0800
+
+    Version bump to 0.6.14
+
+commit c9ac62bb8ea6888e88b53ba2f0a75722c139a750
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 9 16:18:09 2016 -0800
+
+    Add maintainers to README
+
+commit b6500b6df0d12d94c01084b26023aca6a1c7db01
+Merge: 230eca5 bbcf72c
+Author: Ryan Kraus <rmkraus@users.noreply.github.com>
+Date:   Sat Jan 9 14:59:39 2016 -0500
+
+    Merge pull request #71 from rmkraus/master
+    
+    Demoted many log levels in socket_client
+
+commit bbcf72c3618a31a306ce85e4b7678b59277113b7
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Fri Jan 8 23:58:01 2016 -0500
+
+    Demoted many log levels in socket client.
+    
+    1) Changed logging for repeated connection failures. First attempt is
+    logged as EXCEPTION, the rest are logged as DEBUG. If not connection is
+    made and tries expire, an error is still logged at ERROR.
+    2) All issues the cause the socket to be reset (read/write errors) are
+    now logged at INFO and the general message was demoted to WARNING as
+    the IO errors are handled exceptions that will not generally cause the
+    application to crash.
+    3) Unhandled messages to defined namespaces have been demoted to DEBUG.
+    This was done to match the logging level used to indicate an unhandled
+    namespace.
+    4) Status updates have been demoted to DEBUG as they might be too
+    verbose for INFO.
+
+commit a35229a513a12cb617aab76ece8918448dfd165d
+Merge: 86e3abe 230eca5
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Fri Jan 8 23:39:42 2016 -0500
+
+    Merge remote-tracking branch 'balloob/master'
+
+commit 230eca5c66cf079d9706931ad5ae9981c3377748
+Merge: 19a6083 86e3abe
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jan 7 20:13:59 2016 -0800
+
+    Merge pull request #69 from rmkraus/master
+    
+    Increasing socket reliability
+
+commit 19a6083f7c580fd798b81522ab484f920b2baacb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:37:50 2015 +0100
+
+    More fixes to unicode strings for Python 2.x
+    
+    Use decode('utf-8') instead of six.u() to get text properly decoded.
+
+commit 86e3abe3122590cd38f3c09c4966a167e742144b
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 18:21:49 2016 -0500
+
+    Changed test order while checking connection
+    
+    Changed order to test if the socket has been flagged as broken before
+    checking if the heartbeat has expired. This helps prevent sending a
+    Ping command before fixing a broken socket.
+
+commit 279230b43f42b13566ca41f32e42a1a8ed7b39f5
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 18:17:47 2016 -0500
+
+    Handle NotConnected exception while pinging.
+    
+    NotConnected exceptions were not being caught be the
+    HeartbeatController. This was causing exceptions while trying to Ping
+    the Chromecast after the socket dropped out.
+
+commit 089bddd49ad62635a687b4a2b46d1bc7959186ff
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 17:19:06 2016 -0500
+
+    Fixed error during socket reconnections.
+    
+    Reset the force_recon indicator immediately after a new connection was
+    made. An exception was being erroneously raised when updating the
+    status after a reconnect because the class assumed it was waiting on a
+    reconnect when, in reality, it had just established a new connection.
+
+commit 99bed7a4d5c04af5f397b7a38414d4329b4eceb8
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 10:48:28 2016 -0500
+
+    Socket stability debugging
+    
+    1. Split the logged errors for expired heartbeat and socket
+    communication error for easier debugging.
+    2. Changed the error raised when reading from a broken socket from
+    RuntimeError to socket.error so it would be caught by the thread’s run
+    loop.
+
+commit 3d901ded0f17f563add1bf868a3686d09fdf20dd
+Merge: 7fbb3aa b1f9a3f
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sat Jan 2 23:02:42 2016 -0500
+
+    Merge remote-tracking branch 'balloob/master'
+
+commit b1f9a3fd51d06ae45a6f1c5086261d99cbf5494e
+Merge: e7f0953 9d7c206
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Jan 1 20:24:10 2016 -0800
+
+    Merge pull request #68 from umbc-hackafe/master
+    
+    Fix error using title or thumb in play_media
+
+commit 9d7c206539b9838adb647920136ef02f1952d873
+Author: Dylan Whichard <dylan@whichard.com>
+Date:   Fri Jan 1 21:22:49 2016 -0500
+
+    Fix error using title or thumb in play_media
+
+commit e7f0953a28ba66770e859bd0b661d630f35cb4bd
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:17:12 2015 +0100
+
+    Added example playing a url to readme
+
+commit 3cf8146eec7ba27b1b94f3fe7dc3fa072e2e1261
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:14:40 2015 +0100
+
+    Added a wait() call to the readme
+
+commit bae7b27ad22d1fdc6a287ef563bf1fa655b89cbd
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:14:08 2015 +0100
+
+    Remove lines about YouTube controller from readme
+    
+    The YouTube controller does not currently work anymore.
+
+commit 45cfe8233f794429277e446ba1e4927964f80ef7
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:13:34 2015 +0100
+
+    Python 2.x. Don't cast to Unicode if already in unicode format
+    
+    six.u() will fail if the string is already Unicode. For Python 2.x
+    we might get str or unicode objects, if it is unicode we return it
+    as-is.
+
+commit c787c886dfa9fe29417137de4735d9630028fcc2
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 16:40:49 2015 +0100
+
+    Make use of Python lib six for 2/3 compatibility
+    
+    Instead of casting to Unicode with unicode() (which does not exist in
+    Python 3.x) we use six.u() which handles everything for us.
+
+commit a629df6ee21deadde28d9144f4abd5b3ac139992
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 18:43:14 2015 +0100
+
+    Chromecast.__repr__ now returns a proper representation
+    
+    The repr function should return a representation that can actually
+    be used as Python code.
+    
+    The original output has been kept as a unicode conversion.
+
+commit 3a9f2e03059ec4905911fd3db80d72975da8754e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 18:32:37 2015 +0100
+
+    Minor fix for unicode characters in Chromecast.__repr__
+    
+    The repr function cannot return Unicode in Python 2.x as it may
+    fail with REPLs. Since the friendly name may contain Unicode characters
+    we need to take care of this.
+    When Python 2.x is detected we encode the text to utf-8.
+
+commit 5299ae7a5ab7665aecdc059ff03e62a9cee8aa48
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 18:44:00 2015 +0100
+
+    Force text values from the device description to unicode
+
+commit d6f4d61229b89757ad7367a4f726e17ee4b24f6d
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Nov 26 00:17:50 2015 +0100
+
+    Make sure _message_func is reset to None when controller is torn down
+
+commit 90ad2f1df9b75b108dcaa191dc34789d22d516c1
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Nov 25 23:28:27 2015 +0100
+
+    Never reset the status_event Event
+    
+    If we receive an empty status value it does not mean that the cast
+    device is no longer ready for use.
+
+commit 1b9f517a584c5882bdfa5d982a5c4d07c1494ad7
+Merge: 0c7c7c8 7529458
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 01:26:57 2015 +0100
+
+    Merge pull request #66 from molobrakos/patch-1
+    
+    unicode fix
+
+commit 0c7c7c8612980030004a09d2f69f09c3d75c2bca
+Merge: 7bc5046 d3419e2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Dec 29 00:07:24 2015 -0800
+
+    Merge pull request #67 from noob-4-life/master
+    
+    Fixed a small typo
+
+commit d3419e2c79f71a7e22826ff2abe0251b9822772e
+Author: noob4life <varunsurap@gmail.com>
+Date:   Mon Dec 28 21:59:35 2015 -0600
+
+    Fixed a small typo
+
+commit 7529458eedb0e62490460e14f16f7d1917f59adf
+Author: Erik <saturlight@gmail.com>
+Date:   Tue Dec 22 00:50:33 2015 +0100
+
+    added comment/description
+
+commit e9d1457b0d3913938d499abb8eecb37acda61358
+Author: Erik <molobrakos@users.noreply.github.com>
+Date:   Mon Dec 21 00:33:16 2015 +0100
+
+    Update dial.py
+
+commit f7453f9f15a71668a47900939d0697a6c9e23d6a
+Author: Erik <molobrakos@users.noreply.github.com>
+Date:   Sun Dec 20 23:36:25 2015 +0100
+
+    unicode fix
+    
+    Explicitly set the encoding of the response to UTF-8, which it (what I understand from the standard) should be anyway.
+    
+    I don't know about the new Chromecast, but my first generation Chromecast doesn't return any encoding in the HTTP response. Example: {'Content-Length': '1100', 'Application-URL': '<url>', 'Content-Type': 'application/xml'}, and it seems like the fallback to guessing the encoding fails, since the response containing UTF-8 encoded Swedish characters (the assigned name of my Chromecast) gets detected as iso-8859-2
+    
+    The DIAL specification, 6.1.2 Server Response: "The MIME type of the response SHALL be text/xmland the character encoding SHALL be UTF-8 and SHALL be explicitly indicated with the charsetMIME parameter."
+    
+    The requests library, Encodings (http://docs.python-requests.org/en/latest/user/advanced/#encodings): "When you receive a response, Requests makes a guess at the encoding to use for decoding the response when you access the Response.text attribute. Requests will first check for an encoding in the HTTP header, and if none is present, will use chardet to attempt to guess the encoding."
+
+commit 7bc504676c086638463d8934f515618d14a0a775
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Dec 18 08:59:16 2015 -0800
+
+    Fix lint issue
+
+commit 450e3f65bd81d9bc6b787b571913cdd806d5c9ab
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Dec 18 08:56:51 2015 -0800
+
+    Upgrade protobuf dependency
+
+commit 9b2a57013f1b97ff5d048ca09a02d968d5aae26d
+Merge: a6f5b5f 4b1dd63
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Oct 27 20:26:03 2015 -0700
+
+    Merge pull request #64 from am0s/feature/connection
+    
+    Improved handling of connection
+
+commit 4b1dd63072547766ceb058a5906822daefb37898
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Oct 28 01:43:02 2015 +0100
+
+    Added missing docstring
+
+commit 3aa523a94dbe4277fbce88afa6d7bc1dc8f130fc
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Oct 28 01:39:34 2015 +0100
+
+    Reset status object to None when the socket client is disconnected
+
+commit 173893b3fa483dd24f36f1130bcc3fd90eb00dc3
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Oct 28 00:07:16 2015 +0100
+
+    Added support for listening for connection changes
+    
+    The connection listener will be called whenever the socket connection
+    changes status. This allows the caller to keep track of the connection,
+    for instance if the Chromecast device is powered off or there are
+    network issues.
+    
+    Note: The initial status when setting up the cast device cannot be
+    caught as the cast object has not yet been returned to the caller.
+
+commit 9682602eae58d8cf7543a50a61bd8e52b3c023bb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:58:50 2015 +0100
+
+    Expose the status and launch listener methods in the Cast API
+
+commit 864745d1f09332a1b93215377254c38d729604bf
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:20:21 2015 +0100
+
+    Reverse to boolean values returned from _check_connection
+    
+    It makes more sense to return True if the connection is still valid,
+    and False if it was reset.
+
+commit 6ff480738ad0145d9ec743fc4f34441f664daf44
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:05:53 2015 +0100
+
+    Added property is_connected to socket client
+    
+    The property returns True as long as the socket connection is active,
+    False when disconnected or trying to connect.
+
+commit fdbb2378220ddcf24d3c4e514fb6707c7392aca1
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:02:36 2015 +0100
+
+    Check the stop flag in the reconnection loop
+    
+    If the stop flag has been set it needs to break out of the reconnect
+    loop as soon as possible. Without this it would try to reconnect
+    forever even if it was told to stop.
+    
+    Also handle ChromecastConnectionError in the socket client main loop
+    to ensure a clean shutdown process.
+
+commit 0a671408c53dae09476cf786ac1c163cff259c40
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 22:56:39 2015 +0100
+
+    The connection retry wait time is no longer hardcoded
+    
+    The time can be specified when setting up the cast device and will
+    default to 5 seconds if unset (or None).
+
+commit a6f5b5f14ce8354cd28cf0fcacd349dbac161756
+Merge: a4d7881 39fbcd2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Oct 27 15:54:58 2015 -0700
+
+    Merge pull request #63 from am0s/feature/launch
+    
+    Added wait() method to make it easier to wait for the initial status
+
+commit 39fbcd20ed3267ecd5671cbaa3aba8c7f76437a3
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 21:44:25 2015 +0100
+
+    Added missing import of 'threading' module
+
+commit 850606c92b0f0f106eb43022f7e636326ceac038
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 21:41:51 2015 +0100
+
+    Move the status_event code to ChromeCast
+    
+    As the wait event relates to the ChromeCast device it should be handled
+    directly in that class.
+
+commit a1d457990f9b923993929070b606a97f8703abd0
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 02:32:18 2015 +0100
+
+    Added wait() method to make it easier to wait for the initial status message
+    
+    This removes the need to make a custom status listener that waits for
+    the initial status message. Once the status message has been received
+    the method will return, if a status is already present it returns
+    immediately.
+
+commit a4d7881aa6193404fb4f7bc0f52b7bd3df1aed5a
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 01:56:42 2015 +0100
+
+    Reduce the number of statements in SocketClient.run by splitting into multiple methods
+
+commit e738997b95cc5eb6e22b6c8494e77ed787818312
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 01:39:22 2015 +0100
+
+    pyflake and pylint fixes
+
+commit 549e46863e1b7117c40461c2eb8a3c5734877938
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 00:47:13 2015 +0100
+
+    Moved StopError from the public error file and into the socket client
+    
+    Moved it from error.py to socket_client.py and renamed to InterruptLoop
+    to make it clearer that it is not an error but rather an interruption
+    mechanism.
+
+commit d163b12c5224be43ae6f270904c0cf6972cb9758
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 00:18:03 2015 +0100
+
+    Added return statement to BaseController.send_message
+
+commit cf27fd66042f31ef7400b2f24d9953c2e7c18344
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 00:14:57 2015 +0100
+
+    Improved documentation for SocketClient.is_stopped
+
+commit 745973cf2a6d367911afde7687575c752c13f70e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 19:23:48 2015 +0100
+
+    Improved blocking while waiting for app to launch
+    
+    If an app fails to launch the launch_app method will detect this
+    and raise an LaunchError exception. Otherwise it checks the response
+    message to see if a status change was detected with the wanted app,
+    if not it will wait until the proper status message is received.
+    
+    * The send_message methods are now modified to return the response
+      message if there is one.
+    * A message is no longer reported as unhandled if it has a request ID
+      and there is a callback for that ID.
+
+commit 8bbb28f01454510ea969aa00030f9dc19596b318
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 19:14:38 2015 +0100
+
+    Launch errors are now parsed and sent to listeners
+    
+    If an app fails to launch (wrong ID or not allowed on the device) then
+    a LAUNCH_ERROR message is sent to the receiver. We parse this and send
+    it to any listeners. Listeners can register by calling
+    register_launch_error_listener.
+
+commit 8c1eb8cd6d4041f33c4cf8dd4c04b35e8c5536a5
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 19:01:22 2015 +0100
+
+    Added support for manually stopping the chromecast connection
+    
+    Calling cast.disconnect() will cause the socket connection to stop
+    as soon as possible (socket read or message parsing).
+    It will also wait for the client to finish and join with the thread
+    unless blocking is False.
+    
+    Also added a 'join' method to allow the caller to wait for the cast
+    connection to finish.
+    
+    The stop detection is improved by checking the 'stop' Event after
+    parsing and handling the message and also after reading from the socket.
+    This ensures that the processing loop stops as soon as possible, but
+    if a message has been fully received we still allow it to be sent to
+    any handlers.
+
+commit fa9a742f484ca0d726526b212d08b565fb9b05cb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 18:46:34 2015 +0100
+
+    Handle SSL EOF errors
+    
+    When shutting down the socket client we might get an SSL EOF exception,
+    we catch it and allow it if the stop signal has been set, we then break
+    out of the message loop. Otherwise the exception is raised again.
+
+commit 4f04aa0368ea2ae27ab2e09db2ec5b70cb619bc2
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 18:44:37 2015 +0100
+
+    Handle socket/SSL timeouts gracefully
+    
+    If we get a timeout exception when receiving incoming data we need to
+    continue the receiving loop.
+    Older SSL implementations does not raise a socket.timeout exception
+    but rather ssl.SSLError, we then need to inspect the message to
+    figure out if it is a timeout.
+    
+    In addition the stop signal is checked in every receive loop to ensure
+    we can break out as soon as possible.
+
+commit 1fd60193b7cbea77cfac86b9d844b0bd1d2a4738
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Aug 30 01:04:55 2015 -0700
+
+    Version bump to 0.6.12
+
+commit 83aceda74792e1e36809ae2127b2781f8ebbed2a
+Merge: 62a08e0 c8be12e
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Aug 30 01:03:30 2015 -0700
+
+    Merge pull request #57 from rmkraus/socket-updates
+    
+    Socket updates
+
+commit c8be12efea4f2be3170fe76bf7c92f1d134b7e2c
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sat Aug 29 15:54:07 2015 -0400
+
+    Added force_recon check before writing to socket.
+
+commit 59f54506792ff342e3c4c7f32d99c67a8b3abbb1
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sat Aug 29 15:50:25 2015 -0400
+
+    Small typo fix in socket client.
+
+commit db343dac91544d3959b3edcc7702e4f9e291228c
+Merge: 724a045 62a08e0
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Aug 27 01:09:27 2015 -0400
+
+    Merge remote-tracking branch 'balloob/master' into socket-updates
+
+commit 724a0457b96b43a23bddc4cb7221b6fc0d44ee10
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Aug 27 01:09:18 2015 -0400
+
+    Force reconnection if there is an IO error.
+
+commit 62a08e0fb1e12370c4fa4aae879bb7acbce81866
+Merge: e7530e7 e802952
+Author: Ryan Kraus <rmkraus@users.noreply.github.com>
+Date:   Sun Aug 23 17:36:48 2015 -0400
+
+    Merge pull request #56 from rmkraus/socket-updates
+    
+    Updated socket client
+
+commit e80295273deef634448774a2d6a5649152097cd1
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Aug 23 03:37:54 2015 -0400
+
+    Style fix to socket client.
+    
+    Changed expired property in the socket client’s PING handler to a
+    function.
+
+commit 78cdb23afc9cb00f2469b9ece857967c54c1e9a3
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Aug 23 03:30:19 2015 -0400
+
+    Rolling back cast_channel_pb2.py
+
+commit beaa6c79899a7986d8599ed95f93a6d339d94a95
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Aug 23 03:19:54 2015 -0400
+
+    Updated socket client.
+    
+    The socket client was updated to eliminate nuisance errors. Before,
+    errors were regularly thrown that the socket connection was dropped and
+    the pychromecast would be reconnecting. This no longer happens.
+    
+    An error also existed where Chromecast connections were dropped after a
+    few hours. It is my guess that this commit will fix this issue, but
+    that has not yet been confirmed.
+    
+    The PING command is also now sent to the Chromecast and the PONG
+    response is now handled. Pychromecast now uses this mechanism to
+    determine if a socket connection is dropped. PINGs are set every 10
+    seconds and a PONG is expected back within 10 seconds. The Chromecast
+    will usually automatically PING the client, but not always. Because of
+    this, the PINGs sent to the client were not relied upon.
+    
+    All hardcoded times were brought to the top and put in constants. The
+    timeout time was reduced to 30 seconds from 60.
+
+commit 7fbb3aa9c7393d18301c1ffdd21f097017af67bd
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Wed Jul 15 23:16:30 2015 -0400
+
+    Bumped version number in setup.py
+
+commit 4199b2284a3ec319684fbd550af88d42c9753802
+Merge: 34085e4 e7530e7
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Wed Jul 15 23:15:47 2015 -0400
+
+    Merge with balloob/master
+
+commit 34085e435e596b703e001239add1f80ab072caec
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Wed Jul 15 23:13:35 2015 -0400
+
+    Increased Windows Compatibility
+    
+    Windows protobuf descriptors don’t seem to accept the syntax argument.
+    Removing it seems to cause to issues. This update will remove the
+    syntax argument if it is not present in the FileDescriptor. It will
+    assume that if the syntax argument is not in one, then it is not any of
+    the Descriptors.
+
+commit e7530e77a2ff79c4c1438266a00c4353b183e65d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jul 11 01:58:30 2015 -0700
+
+    Migrate travis to new infra
+
+commit 3f6ec26e5211a672bd04d40b12126b56fedd9df2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Jul 10 21:10:07 2015 -0700
+
+    Version bump
+
+commit 5c11f5d0ffd32207bf68344792d0b69e404ab950
+Merge: abfc6f8 b3644aa
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Jul 10 21:08:35 2015 -0700
+
+    Merge pull request #51 from rmkraus/master
+    
+    Added Ignore CEC Capability
+
+commit b3644aa7a9652978d90788340902c96d21e6b947
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Fri Jul 10 00:57:45 2015 -0400
+
+    Added docstring
+    
+    Added docstring to ignore_cec property.
+
+commit 1a0d36f7f77e175b01ac4981e9e5ff5ed4cf4609
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Jul 9 21:44:56 2015 -0400
+
+    Fixed Typo
+    
+    Fixed typo in the README file.
+
+commit a727e0494b94c5083ab3939c84d4b2b077be079d
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Jul 9 21:43:01 2015 -0400
+
+    Updated README
+    
+    Added paragraph about ignoring CEC to the README.
+
+commit 50489d6cee364b3460f7dbe5bd71f1423ac992d0
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Jul 9 21:32:19 2015 -0400
+
+    Added Ignore CEC capability
+    
+    Added the ability to ignore CEC information from the Chromecast if it
+    is returning incorrect data.
+
+commit abfc6f8568bd2a09bc23c1a22e40dd3bca78f2a2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 25 00:14:13 2015 -0700
+
+    Restore 0.6.6 API compatibility and version bump
+
+commit 9712471af06151e130761c0fcd47e597e89aad3b
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jun 24 20:45:30 2015 -0700
+
+    Version bump
+
+commit dcd2dc05dc0d4710b4bbfef101064de6284934a8
+Merge: 73e8834 2868642
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jun 24 20:29:56 2015 -0700
+
+    Merge pull request #49 from bowans/support_subtitle
+    
+    Support subtitle
+
+commit 28686426fcd6c25859dd6cfd60c1f69b3c8d9a0d
+Author: Kevin Syong <bowans@gmail.com>
+Date:   Thu Jun 25 10:23:08 2015 +0800
+
+    Support subtitle
+    
+    Rename self.track to self.tracks
+    Get tracks info from "media_data"
+    Control subtitle via MESSAGE_TYPE "EDIT_TRACKS_INFO"
+
+commit 73e88345843bb13d43df64c898bfab1b63daaa48
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 11 09:36:56 2015 -0700
+
+    Remove UTF8 character from socket client
+
+commit c105d73ea79855e0d0f274266b71a8b6172023c2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 11 09:11:53 2015 -0700
+
+    Version bump to 0.6.6
+
+commit 484910cd0ca8338335c738985eecb01cd1407e4e
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 11 09:11:44 2015 -0700
+
+    Clean up connection code and fix timeout issue
+
+commit 0a2189ef210a878c7cb1fe2d55eeaf4d00e54088
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jun 8 22:13:43 2015 -0700
+
+    Teaching Media Controller about what is playing
+    
+    Based on https://developers.google.com/cast/docs/reference/messages
+    
+    Fixes #46
+
+commit 161eb5acf522adc6b881b8b4cc22c02725b6a9c8
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jun 1 23:19:08 2015 -0700
+
+    Mention pip upgrade in README to workaround protobuf issues
+
+commit 001c9c05fd6a6e536cbbbabb6276251cfd1c81a6
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jun 1 21:03:07 2015 -0700
+
+    Update protobuf dependency to 3.0.0a3
+
+commit fe278d7d91076504c435c86787d33242341374ad
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 18:48:58 2015 -0700
+
+    Bump version to expose mute function
+
+commit 7c63fa5b23e64b75a3463ac1625b1ad1924eaa0a
+Merge: fae3123 cd0ce4a
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 18:48:26 2015 -0700
+
+    Merge pull request #45 from wind-rider/master
+    
+    Expose mute function
+
+commit cd0ce4a9c90c4e71a5fc0327f03b737beb453749
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 01:00:36 2015 +0200
+
+    small refactoring
+
+commit 8439dfa23572e403c13235d2d61538f5d80ca1ef
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 00:58:41 2015 +0200
+
+    fix pylint
+
+commit d25501e7255bd2ec32226b45e3314665bdd00ac3
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 00:49:58 2015 +0200
+
+    Remove redundant method
+
+commit 45c7dff0600c87be0bb8a0d5a1618a7897f232da
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 00:21:00 2015 +0200
+
+    Expose mute function
+
+commit fae31237a68591ebf5bf850130e67ba242e777d1
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 14:53:06 2015 -0700
+
+    Version bump to 0.6.3
+
+commit 83aa115ab4e538c5bb96d96650c282e202ede331
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 12:38:33 2015 -0700
+
+    Allow muting the volume
+
+commit e4064d501c72935b0bee1074610f422b6ae1532d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 01:28:21 2015 -0700
+
+    Make app quiting block till done
+
+commit 8801de3de5267fe390515fe639bb220471d08527
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 01:27:56 2015 -0700
+
+    Better idle detection
+
+commit 4b92a62cc9909f6f49aa72bdf8321cf660bb178f
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 00:27:31 2015 -0700
+
+    Version bump to 0.6.2
+
+commit 46b4cb2ca3adc57127c2275792b86e86e2675636
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 00:27:14 2015 -0700
+
+    Improve idle detection
+
+commit 8cdef514c3a863ef26c81d0fb6c6cddc65063f40
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 23:31:32 2015 -0700
+
+    Bump version to 0.6.1
+
+commit 056ee23bf457414803ee93ad6167375b2f2f7793
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 23:29:11 2015 -0700
+
+    Support skipping song
+
+commit e47526479ef5258ea8aa57a0421fe34f64e3ed4c
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 23:10:03 2015 -0700
+
+    Clean up after channel disconnected
+
+commit fe4892d476eadeaac18e41967fb71544cbf12ce1
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 22:46:30 2015 -0700
+
+    Reset media status when channel disconnects
+
+commit 36328c21171b4668a37b86c981c5154597c8c567
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 22:03:40 2015 -0700
+
+    Make flake8 happy
+
+commit 51b3b228f0bcb72ad8a67fb195a38ad76e188240
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 21:58:22 2015 -0700
+
+    Making Pylint happy
+
+commit b73f4e7a2a2e439d9daefcd643f13177ddebfc1a
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 00:42:56 2015 -0700
+
+    PyChromecast 0.6.0.3 with Python 3 support
+    
+    Big thanks to @wind-rider for fixing it.
+
+commit e04ec728c85a4a45ec953614333b4ff01f771a64
+Merge: 79fd561 a9f798d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri May 29 08:41:00 2015 -0700
+
+    Merge pull request #44 from wind-rider/python3-support
+    
+    Python3-support using protobuf-3.0.0a2
+
+commit a9f798d3cc25f9d69b6e5aaaaf362a7567d57793
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Thu May 28 23:25:12 2015 +0200
+
+    Exclude generated protobuf files from pylint
+
+commit d4ec766ca8d7eedaed43b02614eca0fb879187a7
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Thu May 28 20:14:31 2015 +0200
+
+    Update protobuf to version 3
+    Generate new protobuf-scripts from https://chromium.googlesource.com/chromium/src.git/+/master/extensions/common/api/cast_channel
+    Update socket-reading code in socket_client to work with python3 (byte-arrays are not strings in python3)
+
+commit 79fd561c0f2c5bca1fe241596e6ccdb04b9ec1c8
+Merge: 9d14219 468af42
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed May 27 07:38:02 2015 -0700
+
+    Merge pull request #43 from noplay/patch-1
+    
+    Typo PYPY => PyPI
+
+commit 468af425c58fa343f1ef525d4f7465b087053c10
+Author: Julien Duponchelle <julien@duponchelle.info>
+Date:   Wed May 27 10:39:13 2015 +0200
+
+    Typo PYPY => PyPI
+
+commit 9d1421943af11dd8b61d7ed49fc97514edb15f43
+Merge: 1700988 ec6bc3f
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Mar 27 08:32:43 2015 -0700
+
+    Merge pull request #42 from am0s/master
+    
+    Stability fixes for the message loop
+
+commit ec6bc3f62b8f323495d073566a6586b7c8424437
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Mar 27 16:24:04 2015 +0100
+
+    Encode JSON data differently on Python 2.x vs 3.x
+    
+    _json_to_payload will be defined differently depending on the Python
+    version.
+    
+    When the new protof code for Python 3.x is released this should be
+    re-evaluated to see if there is any need to encode to utf-8 at all.
+    
+    ensure_ascii is also set False to encode to a more space efficient
+    JSON format
+
+commit a646af6cfdfa0b61e3760f8773de0da611e6d173
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Mar 25 09:03:05 2015 +0100
+
+    Fixed compatibility with Python 3, don't use unicode() to enforce type
+    
+    .format() will handle the conversion for us as long as the string
+    which we call format() on is unicode.
+
+commit 673077f779d0626121822254f35a12064f2b70ec
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 23:08:00 2015 +0100
+
+    Catch any exceptions which might occur when tearing down controllers and closing channels
+    
+    All controllers must be allowed to tear down even if one or more of
+    them triggers an exception.
+    Similar for closing the channels.
+
+commit 4e38d618ebc8aa8d94475796564211e5d6e5173c
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 23:06:48 2015 +0100
+
+    Avoid having the message loop in the SocketClient being interrupted by errors in controllers
+    
+    Any exceptions that a controller might trigger will be caught and
+    logged, the message loop will continue as normal.
+
+commit 0e57fad9c52d75b470effc77dae9cf30b7528e22
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:59:35 2015 +0100
+
+    Make the heartbeat more resilient against exceptions/errors
+    
+    Added extra checks on the socket client to see if it has stopped before
+    processing the heartbeat message.
+    Also catch errors that might happen when sending the heartbeat response.
+
+commit 0d14a0868b93bf5f0e8701537fe2d795e59d1742
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:54:27 2015 +0100
+
+    Added property is_stopped to SocketClient
+
+commit cea0bb27cb19dd17fa14a1f459cf4385fb115c3a
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:50:03 2015 +0100
+
+    Allow the disconnect channel message to be sent even if the connection is stopped
+    
+    We enforce the message by using the new force parameter, this makes
+    the connection send the message even if it is flagged as stopped.
+    This is needed for when the connection has been stopped but still need
+    to handle the shutdown gracefully.
+
+commit 3e051fcd5fcbf90a7a7f5358f22840c34e43875e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:47:39 2015 +0100
+
+    Don't send received message to controllers if the socket connection is meant to stop
+    
+    If we don't stop immediately the controllers might try to send new
+    messages (like the heartbeat controller) and that will fail as
+    stop has been flagged.
+    Instead we break out from the receive-loop immediately.
+
+commit 8e3d2d166fd923db352c12b2aed996271ad455f6
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:43:53 2015 +0100
+
+    JSON data should not be enforced to ASCII, just dump to a string and the output will be utf8
+    
+    Enforcing the output to ASCII makes it impossible to send non-ASCII
+    characters. JSON is already meant to be encoded in utf8 so we just
+    send that as it is.
+
+commit 170098837f56d0b5f96c0e8f2d2a798da7936ac2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Jan 25 09:34:19 2015 -0800
+
+    Fix error in example in README.
+
+commit d32ec088c6ab7a21015a51c2b66cb30e17399647
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jan 14 22:00:12 2015 -0800
+
+    Convert hostnames to IPs inside discovery.py
+
+commit 2bee5464eef8a9cd700e93c86645c308f2799f5d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jan 14 21:33:14 2015 -0800
+
+    Discovery was broken in some cases.
+
+commit 9caff9c56bc8ebdc8a2185db9025a7faba43b802
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Jan 6 20:20:24 2015 -0800
+
+    Added some error checking to discovery
+
+commit e85bd75f693b1220fb47a2cb2ebd304351a8b0b5
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 3 23:48:20 2015 -0800
+
+    Make Flake8 happy
+
+commit e250c80b82cdc2c66bbfadb5044248dfdb2d9334
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 3 23:45:45 2015 -0800
+
+    Discovery is now done using zeroconf/mDNS
+
+commit 9a38db0ccc4f95f4a15ea00c176cab2d508b19f0
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 3 12:32:37 2015 -0800
+
+    Code style test with Flake8 instead of PEP8
+
+commit ac4eb58ac19eddc773f1756573b7db462d9a5439
+Merge: 903ebe8 dc11822
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Nov 26 20:37:42 2014 -0800
+
+    Merge pull request #33 from chrisvis/master
+    
+    Fixed incorrect variable name 'filter'
+
+commit dc118222c4af1def89c119b8df2e7557afdcd179
+Author: Chris Mulder <chris@saait.com>
+Date:   Wed Nov 26 20:36:18 2014 +0100
+
+    Fix incorrect variable name 'filter'
+
+commit 903ebe89cd8e1ac6ec4bc5b83b4ec77d96ad7f43
+Merge: 6544d4f dac1afa
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Nov 16 22:09:44 2014 -0800
+
+    Merge pull request #30 from Raynes/reconnection
+    
+    Reconnection
+
+commit 6544d4f9626b625245152c2528f375a758dbfda2
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 22:03:11 2014 -0800
+
+    Added basic YouTube controller
+
+commit 7f2e3ad4209678a96c5aac807e71d82dcf6fdf18
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 21:52:58 2014 -0800
+
+    Improved logging output
+
+commit dac1afa9d317e81d7828c6b1e12b89675cb425d6
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 21:25:49 2014 -0800
+
+    Fix pylint notes.
+
+commit 71abdeafe029a178d23de8e7b40743d4b53c5505
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 21:14:31 2014 -0800
+
+    Call all waiting requests.
+
+commit edbc9c1d73612ff75c250574b3006005d3048c9b
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:52:31 2014 -0800
+
+    Use logger.error rather than logger.exception.
+
+commit ef2b437e4710533dcffaee71c090f23dbabf5921
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:51:42 2014 -0800
+
+    Move handlers back into the constructor.
+
+commit daf5fcd819fc6d3df06048574c4e98544e795f1f
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 20:38:17 2014 -0800
+
+    Style fixes to pass Pylint/PEP8
+
+commit 31effbad6e3bf667e06f8f92bd680250339cef31
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:40:14 2014 -0800
+
+    Move sender id back to constructor.
+
+commit 1b62306e2995bb984b8b42de71bb178972a4b101
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:38:37 2014 -0800
+
+    Greater than 0.
+
+commit a4489d5a6cdd7857f62a4bf78827e4035aa2f9d3
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 20:26:10 2014 -0800
+
+    Add travis style checking
+
+commit a70b1b7d6b5545d864f188e654cf3e02c30c7e6a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 20:25:24 2014 -0800
+
+    Minor controller improvements
+
+commit 6cc984c6354c6fac67c8d12e7d6297c479064099
+Merge: 702017d 18ce44e
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Nov 10 08:46:43 2014 -0800
+
+    Merge pull request #31 from Raynes/volume_fix
+    
+    Don't round in set_volume, do round in volume_up/down
+
+commit 18ce44e37125024fca4609c4a551cc758f4f3bc5
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 19:27:08 2014 -0800
+
+    Don't round in set_volume, do round in volume_up/down.
+
+commit eaee09dcb163f4a359bdb960109bc94f9c99ea37
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:59:03 2014 -0800
+
+    Stop excluded chromecasts.
+
+commit 3504d3ec00a794b9bc668c06735956c76d03cad4
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:55:13 2014 -0800
+
+    Document tries.
+
+commit bd10426fbc1c99676c03e7744e71e78269f70445
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:52:56 2014 -0800
+
+    Pass tries to all the usual suspects.
+
+commit c38adeb2174f52cde3bfcc9ba7246555fd978589
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:52:30 2014 -0800
+
+    Clean up and improve connection and error handling.
+
+commit beb79aa0d0d39be6272f4058b57a700a94a7d9ff
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 15:10:08 2014 -0800
+
+    Move these back into init so we don't clobber registered objects.
+
+commit 9539f784e7175a8cff4eb54f3d423dd07ee1a2ae
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 13:51:36 2014 -0800
+
+    First pass at reconnection logic.
+
+commit 702017d84c91eb976e066d9ffcb495fec7e6fc58
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 16 22:55:56 2014 -0700
+
+    Update requirements setup.py
+
+commit 0565dc5c68c82b68848896df9f8218e6fde70d79
+Merge: d422a8e 9b448ff
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Oct 16 22:52:43 2014 -0700
+
+    Merge pull request #23 from touchandgo-devs/master
+    
+    adding controllers module to setup.py
+
+commit 9b448ff8dd02db4696a6c55cc72d919e3dda0fa1
+Author: Felipe Lerena <felipelerena@gmail.com>
+Date:   Mon Oct 13 15:06:55 2014 -0300
+
+    adding controllers module
+
+commit d422a8e01310d3d215b26e8c5704dc9ee6dcebd5
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Oct 12 15:52:18 2014 -0700
+
+    MediaController.play_media: made stream_type an optional parameter.
+
+commit 969be4fbfee3b82fea1d50695c3dd8160650b9fc
+Merge: 17c9cc3 11f4167
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Oct 12 15:38:16 2014 -0700
+
+    Merge pull request #22 from Raynes/master
+    
+    Extend volume controls
+
+commit 11f4167a27cc72a487da08bd4e3e92d175eb3e8b
+Author: Anthony Grimes <i@raynes.me>
+Date:   Fri Oct 10 23:27:33 2014 -0700
+
+    Fix mistake in docs.
+
+commit f33609d0d2cd4e494b4bb494dde470985c38b2aa
+Author: Anthony Grimes <i@raynes.me>
+Date:   Fri Oct 10 23:11:18 2014 -0700
+
+    Add volume controls/validation.
+
+commit 17c9cc396c456fcdcc164bd6d1d750f29eb9a8a8
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Oct 10 19:51:06 2014 -0700
+
+    README.md: Added instructions to discover namespaces
+
+commit d6268432fa9a291796ca26ee9a18d37e96d3c97a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Oct 10 07:50:11 2014 -0700
+
+    Updated example.py to be in line  with example from README.md
+
+commit 211cfeb8a2ccc31ee752f93524f6381bb4c5f75f
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Oct 10 07:43:59 2014 -0700
+
+    Fixing requirements.txt
+
+commit aef6fe3d06585450d17479d616fb685acd2a7ed3
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:54:54 2014 -0700
+
+    Added support for Plex customData in mediaStatus
+
+commit 7d92d2acce70ba7ba0e6e76890e4685e4cab1c30
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:54:13 2014 -0700
+
+    DIAL requests will timeout if unresponsive Chromecast
+
+commit 7125dc6dfbab3ef1a07270e3c470a142b5cbb753
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:53:41 2014 -0700
+
+    Added initial plex support
+
+commit 69839a2b67d7e78edf532394c7708b098e31d863
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:34:00 2014 -0700
+
+    MediaStatus would crash if media=None
+
+commit ca46e05f3d56b6ae2470e797ba356efbbb61fd61
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:33:34 2014 -0700
+
+    Added method to change volume on Chromecast
+
+commit 3379120cd861c509f42ee47f22f0f1a04e7c42e9
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:20:06 2014 -0700
+
+    Added support for media.seek
+
+commit ce11fd0ea6ffa78ebb387cc013f5e806ee4f4c57
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 22:19:43 2014 -0700
+
+    Detecting chromecasts while using filters was broken
+
+commit e7e41c0d107059b07e4b3bfaf7bae0ea22bc0d65
+Merge: 67a84a7 c3b0250
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 21:51:06 2014 -0700
+
+    Merge branch 'chromecast_api_v2'
+    
+    Conflicts:
+            README.md
+            pychromecast/__init__.py
+
+commit 67a84a7458235a858a7befa5377dce1eee6d4307
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 21:47:58 2014 -0700
+
+    Disabled developer console stuff as it is blocked by google.
+
+commit c3b0250d35ba6ee8100ec8b66a4a2342bca85ea7
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 21:45:15 2014 -0700
+
+    Major clean up. No Python 3 support yet.
+
+commit 3cb5ff4ae1d9907c6284c36fd4c9b272e714c6c1
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 8 08:25:18 2014 -0700
+
+    Added support for Chromecast api v2 - clean up needed
+
+commit 7bbf334d4bf5071fb4b79001fce40f03d6036b9d
+Merge: 309fa35 9bcf3cc
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Aug 18 17:37:20 2014 +0200
+
+    Merge pull request #19 from minektur/master
+    
+    support for loading arbitrary URL for devices in dev mode.
+
+commit 9bcf3cca2aaf3c55d80076307bf458688805f2e6
+Author: Fred Clift <fred@clift.org>
+Date:   Fri Aug 15 10:39:53 2014 -0600
+
+    pylint/pep8 cleanup
+
+commit c1929a92a58f197b2770292c0ae180cf54805b20
+Author: Fred Clift <fred@clift.org>
+Date:   Thu Aug 14 23:56:50 2014 -0600
+
+    added notes and example for development devices
+
+commit b7da77a11f39ec03ef2f5b46b106abbceea69bb3
+Author: Fred Clift <fred@clift.org>
+Date:   Thu Aug 14 23:34:17 2014 -0600
+
+    support for loading URL on whitelisted cast devices
+
+commit 309fa35dbb83c92d6298253f939a7dab32cd3d57
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Aug 13 16:55:43 2014 +0200
+
+    RAMP expects no value given for duration. Bump to 0.5.1
+
+commit acc59e211e21c907d2f402fa519fbc8d7b914815
+Merge: 96dc47c 7e40426
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Aug 4 08:54:55 2014 -0700
+
+    Merge pull request #17 from dkkline/master
+    
+    Fixed the ConnectionError name errors. Simple typo
+
+commit 7e4042613747bb206662f125859d6246a124f892
+Author: Jeppe Klitgaard <jeppe@dapj.dk>
+Date:   Sun Aug 3 20:08:36 2014 +0200
+
+    Fixed the ConnectionError name errors. Simple typo
+
+commit 96dc47c5ee7a4f24698f76267be8b7122f8dd04f
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Jun 24 23:49:47 2014 -0700
+
+    Code cleanup/minor reorg and version bump to 0.5
+
+commit c11f185e59be15adafef97accacf7919b6e5b022
+Merge: ad59bc5 40088bd
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Jun 24 09:57:14 2014 -0700
+
+    Merge pull request #14 from rcludwick/master
+    
+    Simplifications for selecting multiple chromecasts
+
+commit 40088bd3b4230a270bf10bf8f56dc885507da969
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Mon Jun 23 19:03:37 2014 -0600
+
+    Fixing example
+
+commit 42f62cbe0099546e251e1cf27ce0a5e9504f8fd3
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Mon Jun 23 18:43:54 2014 -0600
+
+    Added filters to play_youtube_*
+
+commit 24b140e9c9ef9e5634119a17c510d428a10ddcd5
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Mon Jun 23 18:29:31 2014 -0600
+
+    Code cleanups
+    
+      * if filters is {}, return all the chromecasts.
+      * removed _auto_select_chromecast
+      * renamed functions to get_chromecasts, get_chromecast, and
+           get_chromecasts_as_dict
+      * added strict flag to get_chromecast function.
+      * pep8/pylint cleanups.
+
+commit 57ffbf4fba4e8a801741026e4b222a4f16f98777
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:46:14 2014 -0600
+
+    'filter' is a python keyword. Use 'filters'.
+
+commit 85835666df193f9d94d1327dff8d2442dd9e8814
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:40:06 2014 -0600
+
+    Make threads daemon threads
+
+commit be133c7ead71a2a089fe9ba746a3f3c098132e57
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:18:03 2014 -0600
+
+    Added get_chromecasts_with_friendly_name()
+    
+    get_chromecasts_with_friendly_name() retuns a dictionary
+    with the friendly name as a key and the PyChromecast object
+    as the value.
+
+commit 17aa25aa9ba1ab84c64d924ac1625f0f1f3fbf70
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:02:19 2014 -0600
+
+    Updated documentation
+
+commit a5a3667352d019107e4c9770af24e265cfe06c35
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 16:51:52 2014 -0600
+
+    Added filtering for finding local chromecasts.
+    
+    If you have more than one chromecast, figuring out which ip address
+    is the one you want to talk to isn't obvious.
+    
+    I added a set of filtering functions so that it's a little easier
+    to find the chromecast that you want to talk to.
+    
+    E.g.:
+    get_single_chromecast(friendly_name="Living Room") will return the
+    chromecast with the name "Living Room" to you.
+    
+    Filtering is enabled for ip address, anything in the device_status
+    or app_status tuples in the PyChromecast object.
+
+commit ad59bc563617838e33c441be74f2823460ce7a08
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Apr 27 10:40:35 2014 -0700
+
+    Make requirements.txt more flexible
+
+commit 082b9718bf6214479f36adce166253c33fafda76
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Apr 13 15:38:49 2014 -0700
+
+    Add support for Python 3
+
+commit 0bdbf5d47d5dffbefe2e964e412b6e4acd0cfa77
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 11 22:43:33 2014 -0700
+
+    Minor code cleanup
+
+commit 693498a86fb640ce21774fe2eaa6a5ea8a378335
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 11 17:52:05 2014 -0700
+
+    Version bump to release bugfix in last commit
+
+commit 2a24caad37dd55b699f5ab2180aa3ab8fd9f2c3e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Mar 10 17:14:49 2014 -0700
+
+    App IDs now use v2 API urls
+
+commit 912a0790998e97598be6099a473c4690ab375ddf
+Merge: 541ad6d 6f6bbed
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 23:26:47 2014 -0700
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+    
+    Conflicts:
+            pychromecast/__init__.py
+
+commit 541ad6de80645655393fe5ee18f5502ca0ee82e4
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 22:37:28 2014 -0700
+
+    Bugfix for crash if new and old app status were both none
+
+commit 6f6bbed4d76e03742137ec4416cc928d49e62a29
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 22:37:28 2014 -0700
+
+    Bugfix for crash if new and old app status were both none
+
+commit 3d9f302aaec4261dd16127335083d4d4a9c396ea
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 20:31:57 2014 -0700
+
+    Proper UTF-8 encoding in DIAL protocol + version bump
+
+commit 95e3276452b137f231241142732503ccf99ece27
+Merge: c5db37e 2305f1a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 20:19:59 2014 -0700
+
+    Merge pull request #5 from parksddd/patch-1
+    
+    UTF-8 encoding fix for dial.get_device_status
+
+commit 2305f1ae01f72663c12c54ea583915e1d043c090
+Author: parksddd <parksddd@gmail.com>
+Date:   Sat Mar 8 12:38:39 2014 -0500
+
+    Update dial.py
+    
+    Adding support for special characters in Device Name
+
+commit c5db37e66687952eb3061f60885b756b07500742
+Merge: 11254b5 4de9f3d
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sat Mar 8 01:26:44 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 11254b5a45b320222d6b80cf964eeb4ed6a9b548
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sat Mar 8 01:26:28 2014 -0800
+
+    Make better decisions when to start a new websocket client
+
+commit 4de9f3da63d2daee2cd812571a6be70d86e22395
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Mar 7 09:23:11 2014 -0800
+
+    Update README.md to reflect changed dependencies
+
+commit 90cad556f4f4d8133824b70bcb4acf4534efde29
+Merge: 744307f ccb7488
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 19:06:44 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 744307f8c2085f8427d6597a6460f4c248d51977
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 19:04:32 2014 -0800
+
+    Use ws4p instead of Twisted for Websocket implementation
+
+commit ccb7488031d0e9a4cb5d4cc4c449eb82a4bb3a02
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 19:04:32 2014 -0800
+
+    Use ws4p instead of Twisted for Websocket implementation
+
+commit 1672adc99298c252de0f4b1c999d8f845b55c0a5
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 18:43:45 2014 -0800
+
+    Wrong call to launch YouTube video in examples
+
+commit 3825ac14821745ed6f81811a2ade2e6f75a7e994
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:40:47 2014 -0800
+
+    Cleaning up the Twisted code
+
+commit 77d19e2e3356b606a9021777b7c5d0808d1a048d
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:26:22 2014 -0800
+
+    Updated README.md with UPNP support
+
+commit 3f389fd709a7cc73d72bcb84d0adc2d09a58257c
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:21:31 2014 -0800
+
+    Version bump because of added UPNP support.
+
+commit b7eac4d174d643ec42ee14e45a097850b00af63d
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:16:42 2014 -0800
+
+    Added UPNP support to discover Chromecasts.
+
+commit 38fe7d2fcd5c78e1f610218c5939a284053cfe9c
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:14:50 2014 -0800
+
+    Better reporting if a subprotocol is active
+
+commit 11b075a8b2bd6b915829be9b6ced86cda2a71531
+Merge: 6654925 d17bcf4
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 20:51:50 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 665492567110f0cc4c63bc068a90ff33d11b0196
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 20:49:37 2014 -0800
+
+    Remove the call to set logging to INFO-level
+
+commit d17bcf4ca769ce5598eecdab853d231cea102d5d
+Merge: 29deb74 0bd02db
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 08:23:13 2014 -0800
+
+    Merge pull request #2 from jaapz/setup
+    
+    Added setup.py to enable adding the package on PyPI.
+
+commit 29deb74acaa8b9536fc91647dfa34728c6d59b22
+Merge: 4330bd8 7d41498
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 08:22:41 2014 -0800
+
+    Merge pull request #1 from jaapz/requirements
+    
+    Added requirements.txt for easier dependency management
+
+commit 0bd02dbde64a31c83d82cd460b6600679fc73266
+Author: Jaap Broekhuizen <jaapz.b@gmail.com>
+Date:   Tue Mar 4 17:16:00 2014 +0100
+
+    Added setup.py to enable adding the package on PyPI.
+
+commit 7d414983a2cab9fd98e1c9343999bcd10b9498a5
+Author: Jaap Broekhuizen <jaapz.b@gmail.com>
+Date:   Tue Mar 4 17:04:12 2014 +0100
+
+    Added requirements.txt for easier dependency management
+
+commit 4330bd8e49c4e1abc2f281f23962a768ef403d40
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 01:10:03 2014 -0800
+
+    Added dependencies to the README
+
+commit ac72b470e4e3de6c8ad85a7d357c438dfcb4b9fa
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 01:01:59 2014 -0800
+
+    Added a YouTube as idle screen replacement.
+
+commit 949a4dda0ea7a106454921cc201f5e4864732686
+Merge: 786d7fc 3d697b5
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 00:45:27 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+    
+    Conflicts:
+            pychromecast.py
+
+commit 786d7fce1a9f31227d7a14c484cb81a2d9cff992
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 00:44:39 2014 -0800
+
+    Revamped code, added initial websocket and RAMP support
+
+commit 3d697b56a4a9178b9970e0596340a5e507ffd67c
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Feb 2 22:07:50 2014 -0800
+
+    Fixed an UnicodeEncoding issue that sometimes arose
+
+commit c033b2c502af1a0ed555dd406dc2fed2824d6690
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Jan 5 12:48:19 2014 -0800
+
+    bugfix: quit_app() crashes if chromecast in standby (no app id)
+
+commit 95c94393c2873358f957c9cac500fa420e299d75
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 23:09:12 2013 -0800
+
+    PEP8 styling fixes
+
+commit aad59486bc73c60a1bb440892f2a9598f4c8fddd
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 19:28:23 2013 -0800
+
+    Code style fixes
+
+commit 1ecc07ff9b4904f829b9397accba02c40b393a4e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 19:25:25 2013 -0800
+
+    Bugfix within quit_app
+
+commit 7a83d3e664d8ef8c534498b6e1d339c7fe051f3e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 19:23:16 2013 -0800
+
+    Add more APP IDs
+
+commit 8f294e6a339e3ff2d5370e1d10084f04398776e4
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 08:07:44 2013 -0800
+
+    PyChromecast returns None instead of raising exceptions.
+
+commit f6e26a38c8da95614697eae1d75505e374e96871
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 00:29:46 2013 -0800
+
+    Added APP IDs for Pandora and HBO
+
+commit d1084d263ab9a2a8ac9028f52989fbe3f2c6ad36
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Dec 1 19:25:07 2013 -0800
+
+    PEP8
+
+commit b9bb1ebb3e2b158dd779ba4ed3b50bd4c6f9aed8
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Oct 8 21:18:00 2013 -0700
+
+    Renamed LICENSE file
+
+commit 22af2589b840991220788b5e93921b89433cd02e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Oct 7 23:48:10 2013 -0700
+
+    PyLint won't whine as much anymore when checking the style.
+
+commit 6b8999574c8f70cb28686ef8d19f1e4bf0c8c056
+Merge: b972ba4 5ac7a65
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Oct 7 19:00:52 2013 -0700
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit b972ba47357ed9dd996639c1390e65d3b2da1292
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Oct 7 19:00:14 2013 -0700
+
+    Added __init__.py so Git repo can be included as module
+
+commit 5ac7a656e2493b43ec88c4ec37b218fa10d2c40a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 10:13:22 2013 -0700
+
+    Added app_id for Hulu Plus
+
+commit 2805e3eec945ef58fef02c5c755d914f49026ff4
+Merge: 355738a 8247156
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 01:03:37 2013 -0700
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 8247156643646e95190e366995e0e95e1d969d9e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 01:00:15 2013 -0700
+
+    Create LICENSE.md
+
+commit 355738a642294741bf5d0da7128d8fad9b9e97a9
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 00:59:56 2013 -0700
+
+    Initial version
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 876ed6c252803e3b79149dd302ef4873a564ff7c
+Author: John Wells <madmodmail@gmail.com>
+Date:   Tue Aug 8 08:56:18 2017 -0600
+
+    Cast web pages with DashCast (#184)
+    
+    * Add chromecast-dashboard controller.
+    
+    * Add example for chromecastDashboard controller.
+    
+    * Fix chromecastDashboard example comment.
+    
+    * Fix chromecast_dasboard component linting errors.
+    
+    * Fix launch callback function
+    
+    * Add .editorconfig file for consistent indentation.
+    
+    * Fix launch callback function for PR #185
+    
+    * Use DashCast instead of chromecast-dashboard.
+    Move app id to config.py. Make app id and namespace configurable.
+    
+    * Fix typo in youtube.py launch callback.
+    
+    * Fix linting errors in dashcast.py.
+    
+    * Handle messages from DashCast receiver. Add callback to load_url with test.
+    
+    * Remove .editorconfig.
+    
+    * Fix linting errors from flake8.
+
+commit 7aef382e4d3385fbef57b8eb1d9d9b202711ceb9
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jul 31 22:20:04 2017 -0700
+
+    Pin lint versions
+
+commit ad5ccf3cc65aa7be20b2ab83d77bcc79280ffc69
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jul 31 22:11:26 2017 -0700
+
+    Lint
+
+commit 2a72b0b2bf247bae2fdc46b763e1e80fad0c41f3
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Jul 25 23:07:33 2017 -0700
+
+    Version bump to 0.8.2
+
+commit 75beb09f2ec80ae2fef9684db0d26d457f2317c1
+Author: emontnemery <erik@montnemery.com>
+Date:   Thu Jul 13 15:00:16 2017 +0200
+
+    Fix send message deadlock (#180)
+    
+    * Fix deadlock in SocketClient.send_message
+    
+    * Fix for #179
+
+commit 819ccb66e735482e0d124b9e4a5488b338564d8b
+Author: emontnemery <erik@montnemery.com>
+Date:   Thu Jul 13 03:06:17 2017 +0200
+
+    Fix race in SocketClient.send_message (#179)
+
+commit a867ac9a2cbbdda7f1cd747259009b8dc073e3a2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Mar 19 11:38:10 2017 -0700
+
+    Version bump to 0.8.1
+
+commit a44a2cad02cca65c6d85fdac67e1f1259853290b
+Author: theychx <theychx@users.noreply.github.com>
+Date:   Sun Mar 19 19:06:26 2017 +0100
+
+    Fix bug in ReceiverController._send_launch_message (#166)
+
+commit e807a6e7e714840c056092efa16a7f03e20e9c04
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Mar 5 09:13:19 2017 -0800
+
+    Avoid reporting stack traces for expected errors (#162)
+
+commit fc3b975067a0cd9520718489e1e45dab0ac841f2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Mar 5 09:13:03 2017 -0800
+
+    Update README.rst
+
+commit e1c6e41419a1bd144383d33e9b83c48a3f36c3d7
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Feb 1 20:43:27 2017 -0800
+
+    Version bump to 0.8.0
+
+commit 97ae11bc1a0e28978e062ae8d8b4921afb7044c5
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Feb 1 20:40:26 2017 -0800
+
+    Upgrade minimum zeroconf requirement to 0.17.7
+
+commit aa1b98252d25fcfb323ea9893fda3456cb1b5d11
+Author: Adam Mills <adam@armills.info>
+Date:   Fri Jan 6 18:03:37 2017 -0500
+
+    Include block_until_active in README (#152)
+
+commit 35742b617231a62a34bc5b3e072d79c03a2d25fa
+Author: Adam Mills <adam@armills.info>
+Date:   Thu Jan 5 15:04:43 2017 -0500
+
+    Add media controller wait method (#145)
+    
+    * Add media controller wait method
+    
+    * Media controller commands wait by default
+    
+    * Revert "Media controller commands wait by default"
+    
+    This reverts commit a2a937d1394307bac8b51a89a3d5655445df2987.
+    
+    * Rename wait method to block_until_status_received
+    
+    * Allow event to reset when session deactivated
+
+commit 414991628dac2c05b422c6bb204bff7e11ecd516
+Author: theychx <theychx@users.noreply.github.com>
+Date:   Sat Dec 17 03:24:23 2016 +0100
+
+    Update protobuf requirement (#143)
+    
+    * Update protobuf requirement
+    
+    * Update protobuf requirement (3.0.0)
+    
+    * Update proto and _pb2.py files
+
+commit a0734f02238ce9da1c293bf6c77b9dca199294f2
+Author: Stephen Blott <smblott+github@gmail.com>
+Date:   Fri Dec 16 07:51:33 2016 +0000
+
+    Specify volume delta. (#104)
+    
+    * Specify volume delta.
+    
+    Allow the user to specify the delta value for `volume_up()` and `volume_down()`.
+    
+    (I find the hardwired delta of `0.1` too coarse for my own set up.)
+    
+    * Remove rounding from volume up/down.
+    
+    See discussion in #104.
+    
+    * Remove stale import.
+    
+    * Raise ValueError on negative volume delta.
+    
+    See discussion in #104.
+    
+    * Fix line too long.
+
+commit dac71620f6faa22a2da79a2432eb9126f30292e1
+Author: Adam Mills <adam@armills.info>
+Date:   Wed Dec 14 19:52:24 2016 -0500
+
+    Remove the filters feature from get_chromecasts (#141)
+    
+    * Remove the filters feature from get_chromecasts
+    
+    * Remove unused logger
+
+commit 980826e8210380af1a24f44369314d00e22668da
+Author: Adam Mills <adam@armills.info>
+Date:   Wed Dec 14 18:07:04 2016 -0500
+
+    Callback provides no arguments (#140)
+    
+    * Callback provides no arguments
+    
+    * Added docstring
+
+commit 262e4b85c43016e30ed489d2d50c7938acf6de2c
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 16:01:54 2016 -0500
+
+    Remove get_chromecasts_as_dict (#138)
+
+commit cda7a0c5ef804f5306be845f8ccbbc57f11e0421
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 11:55:14 2016 -0500
+
+    Non-blocking discovery in get_chromecasts (#136)
+    
+    * Non-blocking discovery in get_chromecasts
+    
+    * Linter fixes
+    
+    * More fixes
+
+commit e84498a00d7cb7643a808be1cd2ce8635b069e48
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 10:39:55 2016 -0500
+
+    callback_function doesn't provide any arguments (#135)
+
+commit f7cb0b1b95a2ea0094a4e2f7a7f3d533176395c7
+Author: Adam Mills <adam@armills.info>
+Date:   Tue Dec 13 01:41:41 2016 -0500
+
+    Support for non-blocking callback-based discovery (#134)
+
+commit 64472f2be3ebf33633f2f27643f2c72c7b1dca52
+Author: dominikkarall <dominik.karall@gmail.com>
+Date:   Tue Dec 13 07:38:07 2016 +0100
+
+    Support own main loop and non-blocking functions (#131)
+    
+    * support non-blocking function calls
+    
+    * code style cleanup
+    
+    * more code cleanup
+    
+    * more code cleanup
+    
+    * more code cleanup
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * some more improvements
+    
+    * examples for blocking and non-blocking
+
+commit 71ba587bb336bbb41abfbe124ecdef58e3568422
+Author: Hugo <hugovk@users.noreply.github.com>
+Date:   Sat Nov 26 00:41:36 2016 +0200
+
+    Python 3.5 is out (#129)
+
+commit 65e5eff30af956ab2581ae8984dadbd6524ec345
+Author: Aviv Palivoda <palaviv@gmail.com>
+Date:   Sun Oct 30 01:51:24 2016 +0200
+
+    Improve subtitles (#126)
+    
+    * Activate subtitles automatically
+    
+    * Remove subtitles background and add edge
+    
+    * Add current_subtitle_tracks to MediaStatsu
+
+commit 7f4258dff0ee62c986af06388e4d0aa3c8dea4b0
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Oct 20 22:13:06 2016 -0700
+
+    Version bump to 0.7.7
+
+commit 15398bbb7239e5b73eb54c7ad2ae360a74dd4f7d
+Author: Andreas Angerer <wa4557@users.noreply.github.com>
+Date:   Fri Oct 21 07:12:16 2016 +0200
+
+    Fixes typo and list-requirement in subtitle support (#110)
+
+commit 594bcd00a3f1ad569ef9a57c6a83d62ce8f3a2bc
+Author: Erik Eriksson <molobrakos@users.noreply.github.com>
+Date:   Fri Oct 21 00:49:25 2016 +0200
+
+    Update socket_client.py (#124)
+    
+    catch more generic ValueError since different json implementations seems to raise either ValueError, json.JSONDecodeError or json.decoder.JSONDecodeError
+
+commit 9fb688069897d24050044acdb61c22a616292535
+Merge: a1c7076 ea4c41b
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Oct 13 07:40:04 2016 -0700
+
+    Merge pull request #121 from jaharkes/buffering-state
+    
+    Add buffering state to media player
+
+commit ea4c41b793b248e7c79948ece894a0ea331bfda3
+Author: Jan Harkes <jaharkes@cs.cmu.edu>
+Date:   Wed Oct 12 12:30:24 2016 -0400
+
+    Update version to 0.7.6
+
+commit 2c2e254b73fa0fc1f0a479aa5aaf25cf95a1f854
+Author: Jan Harkes <jaharkes@cs.cmu.edu>
+Date:   Wed Oct 12 02:03:41 2016 -0400
+
+    Add buffering state to media player
+    
+    During playback, my chromecast fairly frequently reports a buffering state
+    although playback is uninterrupted. Because this state was previously unknown,
+    home-assistant would report an "off" state for the device.
+    
+    This fills up the logbook/history with many unnecessary state transitions.
+    Treating buffering as playing avoids these transitions.
+
+commit a1c707626ddafb46b1d0122d982b0e57b57de11b
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Oct 11 00:32:56 2016 -0700
+
+    Version bump to 0.7.5
+
+commit 1b61721676801a88e9b996266d5c1c1153c63b41
+Author: Erik Eriksson <molobrakos@users.noreply.github.com>
+Date:   Tue Oct 11 09:32:21 2016 +0200
+
+    Handle invalid json (#119)
+
+commit f66308460b8b3bbf6efb13a05a215b79fb940fb2
+Author: Ainsley Escorce-Jones <ains@users.noreply.github.com>
+Date:   Wed Sep 21 05:25:24 2016 +0100
+
+    Fix typo in media.py (#116)
+    
+    LIFE -> LIVE
+
+commit e39fa31029459784b2e78b5a68efddedc7bb5c42
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Sep 15 20:56:50 2016 -0700
+
+    Version bump to 0.7.4
+
+commit 7b9a037c840a5fdafbc4af063ffffc20c958069c
+Author: noob4life <varunsurap@gmail.com>
+Date:   Thu Sep 15 09:53:38 2016 -0500
+
+    Ignore benign error in destructor. Fix #113 (#114)
+    
+    It’s not really an issue, but when the Chromecast object gets garbage
+    collected after failing to connect to a device (before creating a
+    SocketClient instance), its __del__ is called, which in turn calls
+    `self.socket_client.stop.set()`. This leads to the error described in
+    the mentioned issue being logged/printed.
+
+commit d1b47ecafe2841f30598ac7c90d21864c107e3ad
+Author: Andreas Angerer <wa4557@users.noreply.github.com>
+Date:   Wed Aug 24 08:34:19 2016 +0200
+
+    Adds support for own app-id (#108)
+
+commit ff8777673fd0a10dfa559626cd29e8531386cca4
+Author: Andreas Angerer <wa4557@users.noreply.github.com>
+Date:   Sun Aug 21 20:07:19 2016 +0200
+
+    Adds support for subtitles (#105)
+    
+    * Adds support for subtitles
+    
+    * Fixes a few formatting issues
+    
+    * Even more formatting issues
+
+commit 4c10e89223fc79ba95efd8b404c61187cb05f64d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Aug 21 09:50:07 2016 -0700
+
+    Fix flake8
+
+commit 9ad7d53aaa15be857bfd5f57b2b259ef0d79adfe
+Author: Stephen Blott <smblott+github@gmail.com>
+Date:   Wed Aug 17 16:50:30 2016 +0100
+
+    Fix typo: 'Plex' -> 'Youtube' (#103)
+    
+    This just fixes a trivial typo in a comment.
+
+commit 97aa41a4c573765a9d642fcca9e991b62a4222ba
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Apr 28 14:17:59 2016 +0200
+
+    Version bump to 0.7.3
+
+commit fc19c57f077a64fdf0084f621b2cd7f7c7ddb132
+Merge: 8e291ed d334ae1
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Apr 28 14:13:11 2016 +0200
+
+    Merge pull request #88 from noob-4-life/master
+    
+    (Re)Attempt to Fix #80
+
+commit d334ae13dfaa7104b3f080616d512cccdc9c882f
+Author: noob4life <noob4life@users.noreply.github.com>
+Date:   Thu Apr 28 06:53:32 2016 -0500
+
+    (Re)Attempt to Fix #80
+    
+    Fixes the issue of the MediaStatus’s metadata not reflecting values
+    passed for the ’title’ and ‘thumb’ parameters of the play_media()
+    method.
+    
+    It seems there’s no reason to define these values in ‘customData’, so
+    this was removed altogether.
+
+commit 8e291ed666ef0f6b9105be75b796e74032cc76f0
+Author: Paulus Schoutsen <paulus.schoutsen@mycase.com>
+Date:   Thu Mar 3 21:58:00 2016 -0800
+
+    Fix protobuf to 3.0.0b2
+
+commit 90d1571330b1f6b6a241a6a1ca21e72a7fdc5029
+Merge: a5254c2 fa5b401
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Feb 25 11:34:07 2016 +0100
+
+    Merge pull request #77 from kharts/master
+    
+    Add metadata support to default media receiver
+
+commit fa5b4013396d7e2db1ed0acdbf51ca8de1b54f54
+Author: kharts <kharts@ukr.net>
+Date:   Sun Feb 21 00:02:25 2016 -0800
+
+    Add params description and docs link to docstring of play_media() method
+
+commit 19884b72f6205e987db8884af9cf33e2811aa008
+Author: kharts <kharts@ukr.net>
+Date:   Tue Feb 16 11:49:07 2016 -0800
+
+    Add metadata support to default media receiver
+
+commit a5254c26f133fc4e562413de82d114e9d813f40d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 17:22:19 2016 -0800
+
+    Version bump to 0.7.1
+
+commit 220622d3cce57e7c60c6afa4371e359b2fc981bb
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 17:20:15 2016 -0800
+
+    Update requirements
+
+commit 2f4494b039d3d78b18546c2a0db1266ddd157e15
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 17:00:34 2016 -0800
+
+    Convert README to RST format
+
+commit a025d2bb850e771b4ed560e4d3b75123355e4bc3
+Merge: 511c952 6889bb8
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Jan 24 00:34:46 2016 +0100
+
+    Merge pull request #76 from balloob/python3-compat
+    
+    Fix discovery for Python 3
+
+commit 6889bb8ece0825b02539ad4fab0d443b1987d5d5
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 23 14:50:10 2016 -0800
+
+    Fix discovery for Python 3
+
+commit 511c952e007bee042e42f14e23c77a76fc8c013e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 17:36:41 2016 +0100
+
+    Placed build log in build folder
+
+commit 1dea20d4aec8cc31280865a51bd9670ed6c3e316
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 17:30:05 2016 +0100
+
+    Added Fabric file for automating the build process
+    
+    It has a task 'build' which ensures that all required distribution
+    files are required.
+    It also converts the README.md from markdown to README.rst, this file
+    can then be used on PyPi. Converting the file requires pandoc
+    installed.
+
+commit e1e18fd1d61aca483f4680273babd3466ef2701b
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:43:24 2016 +0100
+
+    Fixed typo in controller example
+    
+    Also made the code adhere to PEP8.
+
+commit 64194980dbf3b2a06e728f262ee361cadc646882
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:40:07 2016 +0100
+
+    Enabled syntax highlighting in the README examples
+    
+    Changed examples to use Fenced code blocks which is github flavoured
+    markdown. This enables setting the syntax to python in the examples.
+
+commit 818beef628c89881a080de2b968d7e15eb648498
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:35:33 2016 +0100
+
+    Getting ready for 0.7 release
+
+commit 8eb57cf5e2cd04c9778a6a7043053fe51842292d
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sat Jan 23 16:35:11 2016 +0100
+
+    Updated README with new features
+    
+    Mentioned multi-room support.
+    The repr output has changed also, so update examples to reflect this.
+
+commit 676db8778d9c79259703f28d92a67ea06c2f46c5
+Merge: 4a10c6b f2cdd91
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 22:43:36 2016 +0100
+
+    Merge pull request #75 from am0s/feature/multiroom
+    
+    Feature/multiroom
+
+commit f2cdd917a2d0d6bbb3bf03df71227585d3a2c4e0
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 21:00:51 2016 +0100
+
+    Added version information to main package
+
+commit 2bcdaaabd128f8fa2e880651a7730456eb73fdeb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 20:43:10 2016 +0100
+
+    Added proper docblock for get_device_status()
+
+commit d49e91a383da4d65713a5549b6006ff9546c096e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 20:42:54 2016 +0100
+
+    Explained DeviceStatus merging with regards to dial information
+
+commit bb4cb3ef796d2ca5a1253b9677604b08c4f813c6
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Jan 22 20:20:34 2016 +0100
+
+    Don't copy the DeviceStatus tuple, just assign as-is
+    
+    There is no need to copy a tuple when we want all the fields as
+    they are, instead assign it.
+
+commit 864d41fff7a6be398ed06ec500f6075c5938d5a8
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 23:20:00 2016 +0100
+
+    Avoid too long lines (PEP8)
+
+commit eb8f74d8b47f0382d46fb7f5c0bd9d7734bb0501
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 22:59:26 2016 +0100
+
+    Always send the network address in ConnectionStatus updates
+    
+    The address is now sent as a named tuple called NetworkAddress.
+
+commit f189dc90cb8fca1d9cd3c97d040f629f7de0e52b
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 22:58:48 2016 +0100
+
+    Don't read from device status if it is None
+
+commit b50f47325c7719f83f5285f6c61340081f1770ac
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Jan 11 22:58:26 2016 +0100
+
+    Allow the socket timeout value to be set
+    
+    This allows clients to dictate how fast it the connection fails when
+    socket the chromecast device disappears.
+    If unset it uses the default which is 30 seconds.
+
+commit 3167178dff1bfa14d31ba070e8e877079c0c9a32
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Jan 7 22:25:05 2016 +0100
+
+    Expose name, uuid, model name and cast type on the main Cast class
+    
+    This makes it easier to work with the cast instance.
+
+commit 884161d25e7e8497a55b0a304e3cf7fe5c41320e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Jan 7 22:24:25 2016 +0100
+
+    Turn uuid strings into UUID instances
+    
+    This gives better flexibility in working with uuid values avoids
+    problems if they are formatted differently.
+
+commit 316d1ec5badbfa657e41e45eae1deca13a51fa14
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Jan 7 22:23:03 2016 +0100
+
+    Avoid tearing down discovery thread if get_service_info fails
+    
+    If a running program is interrupted while get_service_info() is running
+    in a thread we might end up with an IOError. We catch this in the
+    service discovery and skip adding the device.
+    
+    This avoids showing a stack-trace for the failed thread while stopping
+    the main thread.
+
+commit f6bb3995ddb4e4a14fdabb0ccffb19f9f10d3e99
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:49:19 2015 +0100
+
+    Decode the uuid value from device description
+
+commit be2289bad714145862204d3d295a5c59c7be47f8
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:44:59 2015 +0100
+
+    Don't use unicode() as it does not exist in Python 3.x
+    
+    Besides the texts are now always returned as unicode so no need for
+    the cast anymore.
+
+commit e51dc42f3527247d4a55c2ca68dd46b7bdbbb225
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:43:12 2015 +0100
+
+    Avoid too many arguments to constructors (flake8)
+
+commit cabe84cda691f5bee75d06c6e6787dc0bdd4e344
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:37:50 2015 +0100
+
+    More fixes to unicode strings for Python 2.x
+    
+    Use decode('utf-8') instead of six.u() to get text properly decoded.
+    Added decode steps to the text returned from zeroconf.
+
+commit b9426081e0c0aefd8e97c7487b8d190777b506bc
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 20:26:00 2015 +0100
+
+    Store the cast type in the DeviceStatus
+    
+    The type can be used to determine if the device is a regular chromecast,
+    audio cast or cast group.
+    If the device is of type audio or group then 'is_active_input' and
+    'is_stand_by' reports as None as they do not have these features.
+
+commit 78eff5ea7395564c7bfe9258bb24e238dadd3834
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 19:52:40 2015 +0100
+
+    Added support for Multiroom Audio casting
+    
+    Multiroom devices appear as extra devices but has a different model
+    name and uses a different port, but shares the IP as one of the
+    existing devices.
+    
+    * The port value of each discovered device is now stored and used when
+      connecting.
+    * The reported information from mDNS is now used as the primary source
+      of information, the use of /ssdp/device-desc.xml is only used to
+      fetch additional information as it cannot report information on
+      Multiroom devices since they use the same IP.
+    * The model name for regular chromecast devices now show Chromecast
+      instead of 'Eureka Dongle'. Audio devices report as
+      'Chromecast Audio' and multiroom devices as 'Google Cast Group'.
+
+commit 4a10c6b546693ac0459fab397b17aa6c4a252c43
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 9 16:18:19 2016 -0800
+
+    Version bump to 0.6.14
+
+commit c9ac62bb8ea6888e88b53ba2f0a75722c139a750
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 9 16:18:09 2016 -0800
+
+    Add maintainers to README
+
+commit b6500b6df0d12d94c01084b26023aca6a1c7db01
+Merge: 230eca5 bbcf72c
+Author: Ryan Kraus <rmkraus@users.noreply.github.com>
+Date:   Sat Jan 9 14:59:39 2016 -0500
+
+    Merge pull request #71 from rmkraus/master
+    
+    Demoted many log levels in socket_client
+
+commit bbcf72c3618a31a306ce85e4b7678b59277113b7
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Fri Jan 8 23:58:01 2016 -0500
+
+    Demoted many log levels in socket client.
+    
+    1) Changed logging for repeated connection failures. First attempt is
+    logged as EXCEPTION, the rest are logged as DEBUG. If not connection is
+    made and tries expire, an error is still logged at ERROR.
+    2) All issues the cause the socket to be reset (read/write errors) are
+    now logged at INFO and the general message was demoted to WARNING as
+    the IO errors are handled exceptions that will not generally cause the
+    application to crash.
+    3) Unhandled messages to defined namespaces have been demoted to DEBUG.
+    This was done to match the logging level used to indicate an unhandled
+    namespace.
+    4) Status updates have been demoted to DEBUG as they might be too
+    verbose for INFO.
+
+commit a35229a513a12cb617aab76ece8918448dfd165d
+Merge: 86e3abe 230eca5
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Fri Jan 8 23:39:42 2016 -0500
+
+    Merge remote-tracking branch 'balloob/master'
+
+commit 230eca5c66cf079d9706931ad5ae9981c3377748
+Merge: 19a6083 86e3abe
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jan 7 20:13:59 2016 -0800
+
+    Merge pull request #69 from rmkraus/master
+    
+    Increasing socket reliability
+
+commit 19a6083f7c580fd798b81522ab484f920b2baacb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:37:50 2015 +0100
+
+    More fixes to unicode strings for Python 2.x
+    
+    Use decode('utf-8') instead of six.u() to get text properly decoded.
+
+commit 86e3abe3122590cd38f3c09c4966a167e742144b
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 18:21:49 2016 -0500
+
+    Changed test order while checking connection
+    
+    Changed order to test if the socket has been flagged as broken before
+    checking if the heartbeat has expired. This helps prevent sending a
+    Ping command before fixing a broken socket.
+
+commit 279230b43f42b13566ca41f32e42a1a8ed7b39f5
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 18:17:47 2016 -0500
+
+    Handle NotConnected exception while pinging.
+    
+    NotConnected exceptions were not being caught be the
+    HeartbeatController. This was causing exceptions while trying to Ping
+    the Chromecast after the socket dropped out.
+
+commit 089bddd49ad62635a687b4a2b46d1bc7959186ff
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 17:19:06 2016 -0500
+
+    Fixed error during socket reconnections.
+    
+    Reset the force_recon indicator immediately after a new connection was
+    made. An exception was being erroneously raised when updating the
+    status after a reconnect because the class assumed it was waiting on a
+    reconnect when, in reality, it had just established a new connection.
+
+commit 99bed7a4d5c04af5f397b7a38414d4329b4eceb8
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Jan 3 10:48:28 2016 -0500
+
+    Socket stability debugging
+    
+    1. Split the logged errors for expired heartbeat and socket
+    communication error for easier debugging.
+    2. Changed the error raised when reading from a broken socket from
+    RuntimeError to socket.error so it would be caught by the thread’s run
+    loop.
+
+commit 3d901ded0f17f563add1bf868a3686d09fdf20dd
+Merge: 7fbb3aa b1f9a3f
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sat Jan 2 23:02:42 2016 -0500
+
+    Merge remote-tracking branch 'balloob/master'
+
+commit b1f9a3fd51d06ae45a6f1c5086261d99cbf5494e
+Merge: e7f0953 9d7c206
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Jan 1 20:24:10 2016 -0800
+
+    Merge pull request #68 from umbc-hackafe/master
+    
+    Fix error using title or thumb in play_media
+
+commit 9d7c206539b9838adb647920136ef02f1952d873
+Author: Dylan Whichard <dylan@whichard.com>
+Date:   Fri Jan 1 21:22:49 2016 -0500
+
+    Fix error using title or thumb in play_media
+
+commit e7f0953a28ba66770e859bd0b661d630f35cb4bd
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:17:12 2015 +0100
+
+    Added example playing a url to readme
+
+commit 3cf8146eec7ba27b1b94f3fe7dc3fa072e2e1261
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:14:40 2015 +0100
+
+    Added a wait() call to the readme
+
+commit bae7b27ad22d1fdc6a287ef563bf1fa655b89cbd
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:14:08 2015 +0100
+
+    Remove lines about YouTube controller from readme
+    
+    The YouTube controller does not currently work anymore.
+
+commit 45cfe8233f794429277e446ba1e4927964f80ef7
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 17:13:34 2015 +0100
+
+    Python 2.x. Don't cast to Unicode if already in unicode format
+    
+    six.u() will fail if the string is already Unicode. For Python 2.x
+    we might get str or unicode objects, if it is unicode we return it
+    as-is.
+
+commit c787c886dfa9fe29417137de4735d9630028fcc2
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 16:40:49 2015 +0100
+
+    Make use of Python lib six for 2/3 compatibility
+    
+    Instead of casting to Unicode with unicode() (which does not exist in
+    Python 3.x) we use six.u() which handles everything for us.
+
+commit a629df6ee21deadde28d9144f4abd5b3ac139992
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 18:43:14 2015 +0100
+
+    Chromecast.__repr__ now returns a proper representation
+    
+    The repr function should return a representation that can actually
+    be used as Python code.
+    
+    The original output has been kept as a unicode conversion.
+
+commit 3a9f2e03059ec4905911fd3db80d72975da8754e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 18:32:37 2015 +0100
+
+    Minor fix for unicode characters in Chromecast.__repr__
+    
+    The repr function cannot return Unicode in Python 2.x as it may
+    fail with REPLs. Since the friendly name may contain Unicode characters
+    we need to take care of this.
+    When Python 2.x is detected we encode the text to utf-8.
+
+commit 5299ae7a5ab7665aecdc059ff03e62a9cee8aa48
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Dec 20 18:44:00 2015 +0100
+
+    Force text values from the device description to unicode
+
+commit d6f4d61229b89757ad7367a4f726e17ee4b24f6d
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Nov 26 00:17:50 2015 +0100
+
+    Make sure _message_func is reset to None when controller is torn down
+
+commit 90ad2f1df9b75b108dcaa191dc34789d22d516c1
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Nov 25 23:28:27 2015 +0100
+
+    Never reset the status_event Event
+    
+    If we receive an empty status value it does not mean that the cast
+    device is no longer ready for use.
+
+commit 1b9f517a584c5882bdfa5d982a5c4d07c1494ad7
+Merge: 0c7c7c8 7529458
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Thu Dec 31 01:26:57 2015 +0100
+
+    Merge pull request #66 from molobrakos/patch-1
+    
+    unicode fix
+
+commit 0c7c7c8612980030004a09d2f69f09c3d75c2bca
+Merge: 7bc5046 d3419e2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Dec 29 00:07:24 2015 -0800
+
+    Merge pull request #67 from noob-4-life/master
+    
+    Fixed a small typo
+
+commit d3419e2c79f71a7e22826ff2abe0251b9822772e
+Author: noob4life <varunsurap@gmail.com>
+Date:   Mon Dec 28 21:59:35 2015 -0600
+
+    Fixed a small typo
+
+commit 7529458eedb0e62490460e14f16f7d1917f59adf
+Author: Erik <saturlight@gmail.com>
+Date:   Tue Dec 22 00:50:33 2015 +0100
+
+    added comment/description
+
+commit e9d1457b0d3913938d499abb8eecb37acda61358
+Author: Erik <molobrakos@users.noreply.github.com>
+Date:   Mon Dec 21 00:33:16 2015 +0100
+
+    Update dial.py
+
+commit f7453f9f15a71668a47900939d0697a6c9e23d6a
+Author: Erik <molobrakos@users.noreply.github.com>
+Date:   Sun Dec 20 23:36:25 2015 +0100
+
+    unicode fix
+    
+    Explicitly set the encoding of the response to UTF-8, which it (what I understand from the standard) should be anyway.
+    
+    I don't know about the new Chromecast, but my first generation Chromecast doesn't return any encoding in the HTTP response. Example: {'Content-Length': '1100', 'Application-URL': '<url>', 'Content-Type': 'application/xml'}, and it seems like the fallback to guessing the encoding fails, since the response containing UTF-8 encoded Swedish characters (the assigned name of my Chromecast) gets detected as iso-8859-2
+    
+    The DIAL specification, 6.1.2 Server Response: "The MIME type of the response SHALL be text/xmland the character encoding SHALL be UTF-8 and SHALL be explicitly indicated with the charsetMIME parameter."
+    
+    The requests library, Encodings (http://docs.python-requests.org/en/latest/user/advanced/#encodings): "When you receive a response, Requests makes a guess at the encoding to use for decoding the response when you access the Response.text attribute. Requests will first check for an encoding in the HTTP header, and if none is present, will use chardet to attempt to guess the encoding."
+
+commit 7bc504676c086638463d8934f515618d14a0a775
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Dec 18 08:59:16 2015 -0800
+
+    Fix lint issue
+
+commit 450e3f65bd81d9bc6b787b571913cdd806d5c9ab
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Dec 18 08:56:51 2015 -0800
+
+    Upgrade protobuf dependency
+
+commit 9b2a57013f1b97ff5d048ca09a02d968d5aae26d
+Merge: a6f5b5f 4b1dd63
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Oct 27 20:26:03 2015 -0700
+
+    Merge pull request #64 from am0s/feature/connection
+    
+    Improved handling of connection
+
+commit 4b1dd63072547766ceb058a5906822daefb37898
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Oct 28 01:43:02 2015 +0100
+
+    Added missing docstring
+
+commit 3aa523a94dbe4277fbce88afa6d7bc1dc8f130fc
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Oct 28 01:39:34 2015 +0100
+
+    Reset status object to None when the socket client is disconnected
+
+commit 173893b3fa483dd24f36f1130bcc3fd90eb00dc3
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Oct 28 00:07:16 2015 +0100
+
+    Added support for listening for connection changes
+    
+    The connection listener will be called whenever the socket connection
+    changes status. This allows the caller to keep track of the connection,
+    for instance if the Chromecast device is powered off or there are
+    network issues.
+    
+    Note: The initial status when setting up the cast device cannot be
+    caught as the cast object has not yet been returned to the caller.
+
+commit 9682602eae58d8cf7543a50a61bd8e52b3c023bb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:58:50 2015 +0100
+
+    Expose the status and launch listener methods in the Cast API
+
+commit 864745d1f09332a1b93215377254c38d729604bf
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:20:21 2015 +0100
+
+    Reverse to boolean values returned from _check_connection
+    
+    It makes more sense to return True if the connection is still valid,
+    and False if it was reset.
+
+commit 6ff480738ad0145d9ec743fc4f34441f664daf44
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:05:53 2015 +0100
+
+    Added property is_connected to socket client
+    
+    The property returns True as long as the socket connection is active,
+    False when disconnected or trying to connect.
+
+commit fdbb2378220ddcf24d3c4e514fb6707c7392aca1
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 23:02:36 2015 +0100
+
+    Check the stop flag in the reconnection loop
+    
+    If the stop flag has been set it needs to break out of the reconnect
+    loop as soon as possible. Without this it would try to reconnect
+    forever even if it was told to stop.
+    
+    Also handle ChromecastConnectionError in the socket client main loop
+    to ensure a clean shutdown process.
+
+commit 0a671408c53dae09476cf786ac1c163cff259c40
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Tue Oct 27 22:56:39 2015 +0100
+
+    The connection retry wait time is no longer hardcoded
+    
+    The time can be specified when setting up the cast device and will
+    default to 5 seconds if unset (or None).
+
+commit a6f5b5f14ce8354cd28cf0fcacd349dbac161756
+Merge: a4d7881 39fbcd2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Oct 27 15:54:58 2015 -0700
+
+    Merge pull request #63 from am0s/feature/launch
+    
+    Added wait() method to make it easier to wait for the initial status
+
+commit 39fbcd20ed3267ecd5671cbaa3aba8c7f76437a3
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 21:44:25 2015 +0100
+
+    Added missing import of 'threading' module
+
+commit 850606c92b0f0f106eb43022f7e636326ceac038
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 21:41:51 2015 +0100
+
+    Move the status_event code to ChromeCast
+    
+    As the wait event relates to the ChromeCast device it should be handled
+    directly in that class.
+
+commit a1d457990f9b923993929070b606a97f8703abd0
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 02:32:18 2015 +0100
+
+    Added wait() method to make it easier to wait for the initial status message
+    
+    This removes the need to make a custom status listener that waits for
+    the initial status message. Once the status message has been received
+    the method will return, if a status is already present it returns
+    immediately.
+
+commit a4d7881aa6193404fb4f7bc0f52b7bd3df1aed5a
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 01:56:42 2015 +0100
+
+    Reduce the number of statements in SocketClient.run by splitting into multiple methods
+
+commit e738997b95cc5eb6e22b6c8494e77ed787818312
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 01:39:22 2015 +0100
+
+    pyflake and pylint fixes
+
+commit 549e46863e1b7117c40461c2eb8a3c5734877938
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 00:47:13 2015 +0100
+
+    Moved StopError from the public error file and into the socket client
+    
+    Moved it from error.py to socket_client.py and renamed to InterruptLoop
+    to make it clearer that it is not an error but rather an interruption
+    mechanism.
+
+commit d163b12c5224be43ae6f270904c0cf6972cb9758
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 00:18:03 2015 +0100
+
+    Added return statement to BaseController.send_message
+
+commit cf27fd66042f31ef7400b2f24d9953c2e7c18344
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Oct 26 00:14:57 2015 +0100
+
+    Improved documentation for SocketClient.is_stopped
+
+commit 745973cf2a6d367911afde7687575c752c13f70e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 19:23:48 2015 +0100
+
+    Improved blocking while waiting for app to launch
+    
+    If an app fails to launch the launch_app method will detect this
+    and raise an LaunchError exception. Otherwise it checks the response
+    message to see if a status change was detected with the wanted app,
+    if not it will wait until the proper status message is received.
+    
+    * The send_message methods are now modified to return the response
+      message if there is one.
+    * A message is no longer reported as unhandled if it has a request ID
+      and there is a callback for that ID.
+
+commit 8bbb28f01454510ea969aa00030f9dc19596b318
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 19:14:38 2015 +0100
+
+    Launch errors are now parsed and sent to listeners
+    
+    If an app fails to launch (wrong ID or not allowed on the device) then
+    a LAUNCH_ERROR message is sent to the receiver. We parse this and send
+    it to any listeners. Listeners can register by calling
+    register_launch_error_listener.
+
+commit 8c1eb8cd6d4041f33c4cf8dd4c04b35e8c5536a5
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 19:01:22 2015 +0100
+
+    Added support for manually stopping the chromecast connection
+    
+    Calling cast.disconnect() will cause the socket connection to stop
+    as soon as possible (socket read or message parsing).
+    It will also wait for the client to finish and join with the thread
+    unless blocking is False.
+    
+    Also added a 'join' method to allow the caller to wait for the cast
+    connection to finish.
+    
+    The stop detection is improved by checking the 'stop' Event after
+    parsing and handling the message and also after reading from the socket.
+    This ensures that the processing loop stops as soon as possible, but
+    if a message has been fully received we still allow it to be sent to
+    any handlers.
+
+commit fa9a742f484ca0d726526b212d08b565fb9b05cb
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 18:46:34 2015 +0100
+
+    Handle SSL EOF errors
+    
+    When shutting down the socket client we might get an SSL EOF exception,
+    we catch it and allow it if the stop signal has been set, we then break
+    out of the message loop. Otherwise the exception is raised again.
+
+commit 4f04aa0368ea2ae27ab2e09db2ec5b70cb619bc2
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Sun Oct 25 18:44:37 2015 +0100
+
+    Handle socket/SSL timeouts gracefully
+    
+    If we get a timeout exception when receiving incoming data we need to
+    continue the receiving loop.
+    Older SSL implementations does not raise a socket.timeout exception
+    but rather ssl.SSLError, we then need to inspect the message to
+    figure out if it is a timeout.
+    
+    In addition the stop signal is checked in every receive loop to ensure
+    we can break out as soon as possible.
+
+commit 1fd60193b7cbea77cfac86b9d844b0bd1d2a4738
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Aug 30 01:04:55 2015 -0700
+
+    Version bump to 0.6.12
+
+commit 83aceda74792e1e36809ae2127b2781f8ebbed2a
+Merge: 62a08e0 c8be12e
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Aug 30 01:03:30 2015 -0700
+
+    Merge pull request #57 from rmkraus/socket-updates
+    
+    Socket updates
+
+commit c8be12efea4f2be3170fe76bf7c92f1d134b7e2c
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sat Aug 29 15:54:07 2015 -0400
+
+    Added force_recon check before writing to socket.
+
+commit 59f54506792ff342e3c4c7f32d99c67a8b3abbb1
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sat Aug 29 15:50:25 2015 -0400
+
+    Small typo fix in socket client.
+
+commit db343dac91544d3959b3edcc7702e4f9e291228c
+Merge: 724a045 62a08e0
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Aug 27 01:09:27 2015 -0400
+
+    Merge remote-tracking branch 'balloob/master' into socket-updates
+
+commit 724a0457b96b43a23bddc4cb7221b6fc0d44ee10
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Aug 27 01:09:18 2015 -0400
+
+    Force reconnection if there is an IO error.
+
+commit 62a08e0fb1e12370c4fa4aae879bb7acbce81866
+Merge: e7530e7 e802952
+Author: Ryan Kraus <rmkraus@users.noreply.github.com>
+Date:   Sun Aug 23 17:36:48 2015 -0400
+
+    Merge pull request #56 from rmkraus/socket-updates
+    
+    Updated socket client
+
+commit e80295273deef634448774a2d6a5649152097cd1
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Aug 23 03:37:54 2015 -0400
+
+    Style fix to socket client.
+    
+    Changed expired property in the socket client’s PING handler to a
+    function.
+
+commit 78cdb23afc9cb00f2469b9ece857967c54c1e9a3
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Aug 23 03:30:19 2015 -0400
+
+    Rolling back cast_channel_pb2.py
+
+commit beaa6c79899a7986d8599ed95f93a6d339d94a95
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Sun Aug 23 03:19:54 2015 -0400
+
+    Updated socket client.
+    
+    The socket client was updated to eliminate nuisance errors. Before,
+    errors were regularly thrown that the socket connection was dropped and
+    the pychromecast would be reconnecting. This no longer happens.
+    
+    An error also existed where Chromecast connections were dropped after a
+    few hours. It is my guess that this commit will fix this issue, but
+    that has not yet been confirmed.
+    
+    The PING command is also now sent to the Chromecast and the PONG
+    response is now handled. Pychromecast now uses this mechanism to
+    determine if a socket connection is dropped. PINGs are set every 10
+    seconds and a PONG is expected back within 10 seconds. The Chromecast
+    will usually automatically PING the client, but not always. Because of
+    this, the PINGs sent to the client were not relied upon.
+    
+    All hardcoded times were brought to the top and put in constants. The
+    timeout time was reduced to 30 seconds from 60.
+
+commit 7fbb3aa9c7393d18301c1ffdd21f097017af67bd
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Wed Jul 15 23:16:30 2015 -0400
+
+    Bumped version number in setup.py
+
+commit 4199b2284a3ec319684fbd550af88d42c9753802
+Merge: 34085e4 e7530e7
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Wed Jul 15 23:15:47 2015 -0400
+
+    Merge with balloob/master
+
+commit 34085e435e596b703e001239add1f80ab072caec
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Wed Jul 15 23:13:35 2015 -0400
+
+    Increased Windows Compatibility
+    
+    Windows protobuf descriptors don’t seem to accept the syntax argument.
+    Removing it seems to cause to issues. This update will remove the
+    syntax argument if it is not present in the FileDescriptor. It will
+    assume that if the syntax argument is not in one, then it is not any of
+    the Descriptors.
+
+commit e7530e77a2ff79c4c1438266a00c4353b183e65d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jul 11 01:58:30 2015 -0700
+
+    Migrate travis to new infra
+
+commit 3f6ec26e5211a672bd04d40b12126b56fedd9df2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Jul 10 21:10:07 2015 -0700
+
+    Version bump
+
+commit 5c11f5d0ffd32207bf68344792d0b69e404ab950
+Merge: abfc6f8 b3644aa
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Jul 10 21:08:35 2015 -0700
+
+    Merge pull request #51 from rmkraus/master
+    
+    Added Ignore CEC Capability
+
+commit b3644aa7a9652978d90788340902c96d21e6b947
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Fri Jul 10 00:57:45 2015 -0400
+
+    Added docstring
+    
+    Added docstring to ignore_cec property.
+
+commit 1a0d36f7f77e175b01ac4981e9e5ff5ed4cf4609
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Jul 9 21:44:56 2015 -0400
+
+    Fixed Typo
+    
+    Fixed typo in the README file.
+
+commit a727e0494b94c5083ab3939c84d4b2b077be079d
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Jul 9 21:43:01 2015 -0400
+
+    Updated README
+    
+    Added paragraph about ignoring CEC to the README.
+
+commit 50489d6cee364b3460f7dbe5bd71f1423ac992d0
+Author: Ryan Kraus <rmkraus@gmail.com>
+Date:   Thu Jul 9 21:32:19 2015 -0400
+
+    Added Ignore CEC capability
+    
+    Added the ability to ignore CEC information from the Chromecast if it
+    is returning incorrect data.
+
+commit abfc6f8568bd2a09bc23c1a22e40dd3bca78f2a2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 25 00:14:13 2015 -0700
+
+    Restore 0.6.6 API compatibility and version bump
+
+commit 9712471af06151e130761c0fcd47e597e89aad3b
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jun 24 20:45:30 2015 -0700
+
+    Version bump
+
+commit dcd2dc05dc0d4710b4bbfef101064de6284934a8
+Merge: 73e8834 2868642
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jun 24 20:29:56 2015 -0700
+
+    Merge pull request #49 from bowans/support_subtitle
+    
+    Support subtitle
+
+commit 28686426fcd6c25859dd6cfd60c1f69b3c8d9a0d
+Author: Kevin Syong <bowans@gmail.com>
+Date:   Thu Jun 25 10:23:08 2015 +0800
+
+    Support subtitle
+    
+    Rename self.track to self.tracks
+    Get tracks info from "media_data"
+    Control subtitle via MESSAGE_TYPE "EDIT_TRACKS_INFO"
+
+commit 73e88345843bb13d43df64c898bfab1b63daaa48
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 11 09:36:56 2015 -0700
+
+    Remove UTF8 character from socket client
+
+commit c105d73ea79855e0d0f274266b71a8b6172023c2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 11 09:11:53 2015 -0700
+
+    Version bump to 0.6.6
+
+commit 484910cd0ca8338335c738985eecb01cd1407e4e
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Jun 11 09:11:44 2015 -0700
+
+    Clean up connection code and fix timeout issue
+
+commit 0a2189ef210a878c7cb1fe2d55eeaf4d00e54088
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jun 8 22:13:43 2015 -0700
+
+    Teaching Media Controller about what is playing
+    
+    Based on https://developers.google.com/cast/docs/reference/messages
+    
+    Fixes #46
+
+commit 161eb5acf522adc6b881b8b4cc22c02725b6a9c8
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jun 1 23:19:08 2015 -0700
+
+    Mention pip upgrade in README to workaround protobuf issues
+
+commit 001c9c05fd6a6e536cbbbabb6276251cfd1c81a6
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Jun 1 21:03:07 2015 -0700
+
+    Update protobuf dependency to 3.0.0a3
+
+commit fe278d7d91076504c435c86787d33242341374ad
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 18:48:58 2015 -0700
+
+    Bump version to expose mute function
+
+commit 7c63fa5b23e64b75a3463ac1625b1ad1924eaa0a
+Merge: fae3123 cd0ce4a
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 18:48:26 2015 -0700
+
+    Merge pull request #45 from wind-rider/master
+    
+    Expose mute function
+
+commit cd0ce4a9c90c4e71a5fc0327f03b737beb453749
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 01:00:36 2015 +0200
+
+    small refactoring
+
+commit 8439dfa23572e403c13235d2d61538f5d80ca1ef
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 00:58:41 2015 +0200
+
+    fix pylint
+
+commit d25501e7255bd2ec32226b45e3314665bdd00ac3
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 00:49:58 2015 +0200
+
+    Remove redundant method
+
+commit 45c7dff0600c87be0bb8a0d5a1618a7897f232da
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Mon Jun 1 00:21:00 2015 +0200
+
+    Expose mute function
+
+commit fae31237a68591ebf5bf850130e67ba242e777d1
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 14:53:06 2015 -0700
+
+    Version bump to 0.6.3
+
+commit 83aa115ab4e538c5bb96d96650c282e202ede331
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 12:38:33 2015 -0700
+
+    Allow muting the volume
+
+commit e4064d501c72935b0bee1074610f422b6ae1532d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 01:28:21 2015 -0700
+
+    Make app quiting block till done
+
+commit 8801de3de5267fe390515fe639bb220471d08527
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 01:27:56 2015 -0700
+
+    Better idle detection
+
+commit 4b92a62cc9909f6f49aa72bdf8321cf660bb178f
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 00:27:31 2015 -0700
+
+    Version bump to 0.6.2
+
+commit 46b4cb2ca3adc57127c2275792b86e86e2675636
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun May 31 00:27:14 2015 -0700
+
+    Improve idle detection
+
+commit 8cdef514c3a863ef26c81d0fb6c6cddc65063f40
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 23:31:32 2015 -0700
+
+    Bump version to 0.6.1
+
+commit 056ee23bf457414803ee93ad6167375b2f2f7793
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 23:29:11 2015 -0700
+
+    Support skipping song
+
+commit e47526479ef5258ea8aa57a0421fe34f64e3ed4c
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 23:10:03 2015 -0700
+
+    Clean up after channel disconnected
+
+commit fe4892d476eadeaac18e41967fb71544cbf12ce1
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 22:46:30 2015 -0700
+
+    Reset media status when channel disconnects
+
+commit 36328c21171b4668a37b86c981c5154597c8c567
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 22:03:40 2015 -0700
+
+    Make flake8 happy
+
+commit 51b3b228f0bcb72ad8a67fb195a38ad76e188240
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 21:58:22 2015 -0700
+
+    Making Pylint happy
+
+commit b73f4e7a2a2e439d9daefcd643f13177ddebfc1a
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat May 30 00:42:56 2015 -0700
+
+    PyChromecast 0.6.0.3 with Python 3 support
+    
+    Big thanks to @wind-rider for fixing it.
+
+commit e04ec728c85a4a45ec953614333b4ff01f771a64
+Merge: 79fd561 a9f798d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri May 29 08:41:00 2015 -0700
+
+    Merge pull request #44 from wind-rider/python3-support
+    
+    Python3-support using protobuf-3.0.0a2
+
+commit a9f798d3cc25f9d69b6e5aaaaf362a7567d57793
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Thu May 28 23:25:12 2015 +0200
+
+    Exclude generated protobuf files from pylint
+
+commit d4ec766ca8d7eedaed43b02614eca0fb879187a7
+Author: Hans Bakker <hansmbakker@gmail.com>
+Date:   Thu May 28 20:14:31 2015 +0200
+
+    Update protobuf to version 3
+    Generate new protobuf-scripts from https://chromium.googlesource.com/chromium/src.git/+/master/extensions/common/api/cast_channel
+    Update socket-reading code in socket_client to work with python3 (byte-arrays are not strings in python3)
+
+commit 79fd561c0f2c5bca1fe241596e6ccdb04b9ec1c8
+Merge: 9d14219 468af42
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed May 27 07:38:02 2015 -0700
+
+    Merge pull request #43 from noplay/patch-1
+    
+    Typo PYPY => PyPI
+
+commit 468af425c58fa343f1ef525d4f7465b087053c10
+Author: Julien Duponchelle <julien@duponchelle.info>
+Date:   Wed May 27 10:39:13 2015 +0200
+
+    Typo PYPY => PyPI
+
+commit 9d1421943af11dd8b61d7ed49fc97514edb15f43
+Merge: 1700988 ec6bc3f
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Fri Mar 27 08:32:43 2015 -0700
+
+    Merge pull request #42 from am0s/master
+    
+    Stability fixes for the message loop
+
+commit ec6bc3f62b8f323495d073566a6586b7c8424437
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Fri Mar 27 16:24:04 2015 +0100
+
+    Encode JSON data differently on Python 2.x vs 3.x
+    
+    _json_to_payload will be defined differently depending on the Python
+    version.
+    
+    When the new protof code for Python 3.x is released this should be
+    re-evaluated to see if there is any need to encode to utf-8 at all.
+    
+    ensure_ascii is also set False to encode to a more space efficient
+    JSON format
+
+commit a646af6cfdfa0b61e3760f8773de0da611e6d173
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Wed Mar 25 09:03:05 2015 +0100
+
+    Fixed compatibility with Python 3, don't use unicode() to enforce type
+    
+    .format() will handle the conversion for us as long as the string
+    which we call format() on is unicode.
+
+commit 673077f779d0626121822254f35a12064f2b70ec
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 23:08:00 2015 +0100
+
+    Catch any exceptions which might occur when tearing down controllers and closing channels
+    
+    All controllers must be allowed to tear down even if one or more of
+    them triggers an exception.
+    Similar for closing the channels.
+
+commit 4e38d618ebc8aa8d94475796564211e5d6e5173c
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 23:06:48 2015 +0100
+
+    Avoid having the message loop in the SocketClient being interrupted by errors in controllers
+    
+    Any exceptions that a controller might trigger will be caught and
+    logged, the message loop will continue as normal.
+
+commit 0e57fad9c52d75b470effc77dae9cf30b7528e22
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:59:35 2015 +0100
+
+    Make the heartbeat more resilient against exceptions/errors
+    
+    Added extra checks on the socket client to see if it has stopped before
+    processing the heartbeat message.
+    Also catch errors that might happen when sending the heartbeat response.
+
+commit 0d14a0868b93bf5f0e8701537fe2d795e59d1742
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:54:27 2015 +0100
+
+    Added property is_stopped to SocketClient
+
+commit cea0bb27cb19dd17fa14a1f459cf4385fb115c3a
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:50:03 2015 +0100
+
+    Allow the disconnect channel message to be sent even if the connection is stopped
+    
+    We enforce the message by using the new force parameter, this makes
+    the connection send the message even if it is flagged as stopped.
+    This is needed for when the connection has been stopped but still need
+    to handle the shutdown gracefully.
+
+commit 3e051fcd5fcbf90a7a7f5358f22840c34e43875e
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:47:39 2015 +0100
+
+    Don't send received message to controllers if the socket connection is meant to stop
+    
+    If we don't stop immediately the controllers might try to send new
+    messages (like the heartbeat controller) and that will fail as
+    stop has been flagged.
+    Instead we break out from the receive-loop immediately.
+
+commit 8e3d2d166fd923db352c12b2aed996271ad455f6
+Author: Jan Borsodi <jborsodi@gmail.com>
+Date:   Mon Mar 23 22:43:53 2015 +0100
+
+    JSON data should not be enforced to ASCII, just dump to a string and the output will be utf8
+    
+    Enforcing the output to ASCII makes it impossible to send non-ASCII
+    characters. JSON is already meant to be encoded in utf8 so we just
+    send that as it is.
+
+commit 170098837f56d0b5f96c0e8f2d2a798da7936ac2
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Jan 25 09:34:19 2015 -0800
+
+    Fix error in example in README.
+
+commit d32ec088c6ab7a21015a51c2b66cb30e17399647
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jan 14 22:00:12 2015 -0800
+
+    Convert hostnames to IPs inside discovery.py
+
+commit 2bee5464eef8a9cd700e93c86645c308f2799f5d
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Jan 14 21:33:14 2015 -0800
+
+    Discovery was broken in some cases.
+
+commit 9caff9c56bc8ebdc8a2185db9025a7faba43b802
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Tue Jan 6 20:20:24 2015 -0800
+
+    Added some error checking to discovery
+
+commit e85bd75f693b1220fb47a2cb2ebd304351a8b0b5
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 3 23:48:20 2015 -0800
+
+    Make Flake8 happy
+
+commit e250c80b82cdc2c66bbfadb5044248dfdb2d9334
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 3 23:45:45 2015 -0800
+
+    Discovery is now done using zeroconf/mDNS
+
+commit 9a38db0ccc4f95f4a15ea00c176cab2d508b19f0
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sat Jan 3 12:32:37 2015 -0800
+
+    Code style test with Flake8 instead of PEP8
+
+commit ac4eb58ac19eddc773f1756573b7db462d9a5439
+Merge: 903ebe8 dc11822
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Wed Nov 26 20:37:42 2014 -0800
+
+    Merge pull request #33 from chrisvis/master
+    
+    Fixed incorrect variable name 'filter'
+
+commit dc118222c4af1def89c119b8df2e7557afdcd179
+Author: Chris Mulder <chris@saait.com>
+Date:   Wed Nov 26 20:36:18 2014 +0100
+
+    Fix incorrect variable name 'filter'
+
+commit 903ebe89cd8e1ac6ec4bc5b83b4ec77d96ad7f43
+Merge: 6544d4f dac1afa
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Nov 16 22:09:44 2014 -0800
+
+    Merge pull request #30 from Raynes/reconnection
+    
+    Reconnection
+
+commit 6544d4f9626b625245152c2528f375a758dbfda2
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 22:03:11 2014 -0800
+
+    Added basic YouTube controller
+
+commit 7f2e3ad4209678a96c5aac807e71d82dcf6fdf18
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 21:52:58 2014 -0800
+
+    Improved logging output
+
+commit dac1afa9d317e81d7828c6b1e12b89675cb425d6
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 21:25:49 2014 -0800
+
+    Fix pylint notes.
+
+commit 71abdeafe029a178d23de8e7b40743d4b53c5505
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 21:14:31 2014 -0800
+
+    Call all waiting requests.
+
+commit edbc9c1d73612ff75c250574b3006005d3048c9b
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:52:31 2014 -0800
+
+    Use logger.error rather than logger.exception.
+
+commit ef2b437e4710533dcffaee71c090f23dbabf5921
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:51:42 2014 -0800
+
+    Move handlers back into the constructor.
+
+commit daf5fcd819fc6d3df06048574c4e98544e795f1f
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 20:38:17 2014 -0800
+
+    Style fixes to pass Pylint/PEP8
+
+commit 31effbad6e3bf667e06f8f92bd680250339cef31
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:40:14 2014 -0800
+
+    Move sender id back to constructor.
+
+commit 1b62306e2995bb984b8b42de71bb178972a4b101
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 16 20:38:37 2014 -0800
+
+    Greater than 0.
+
+commit a4489d5a6cdd7857f62a4bf78827e4035aa2f9d3
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 20:26:10 2014 -0800
+
+    Add travis style checking
+
+commit a70b1b7d6b5545d864f188e654cf3e02c30c7e6a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Nov 16 20:25:24 2014 -0800
+
+    Minor controller improvements
+
+commit 6cc984c6354c6fac67c8d12e7d6297c479064099
+Merge: 702017d 18ce44e
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Mon Nov 10 08:46:43 2014 -0800
+
+    Merge pull request #31 from Raynes/volume_fix
+    
+    Don't round in set_volume, do round in volume_up/down
+
+commit 18ce44e37125024fca4609c4a551cc758f4f3bc5
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 19:27:08 2014 -0800
+
+    Don't round in set_volume, do round in volume_up/down.
+
+commit eaee09dcb163f4a359bdb960109bc94f9c99ea37
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:59:03 2014 -0800
+
+    Stop excluded chromecasts.
+
+commit 3504d3ec00a794b9bc668c06735956c76d03cad4
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:55:13 2014 -0800
+
+    Document tries.
+
+commit bd10426fbc1c99676c03e7744e71e78269f70445
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:52:56 2014 -0800
+
+    Pass tries to all the usual suspects.
+
+commit c38adeb2174f52cde3bfcc9ba7246555fd978589
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 18:52:30 2014 -0800
+
+    Clean up and improve connection and error handling.
+
+commit beb79aa0d0d39be6272f4058b57a700a94a7d9ff
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 15:10:08 2014 -0800
+
+    Move these back into init so we don't clobber registered objects.
+
+commit 9539f784e7175a8cff4eb54f3d423dd07ee1a2ae
+Author: Anthony Grimes <i@raynes.me>
+Date:   Sun Nov 9 13:51:36 2014 -0800
+
+    First pass at reconnection logic.
+
+commit 702017d84c91eb976e066d9ffcb495fec7e6fc58
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 16 22:55:56 2014 -0700
+
+    Update requirements setup.py
+
+commit 0565dc5c68c82b68848896df9f8218e6fde70d79
+Merge: d422a8e 9b448ff
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Thu Oct 16 22:52:43 2014 -0700
+
+    Merge pull request #23 from touchandgo-devs/master
+    
+    adding controllers module to setup.py
+
+commit 9b448ff8dd02db4696a6c55cc72d919e3dda0fa1
+Author: Felipe Lerena <felipelerena@gmail.com>
+Date:   Mon Oct 13 15:06:55 2014 -0300
+
+    adding controllers module
+
+commit d422a8e01310d3d215b26e8c5704dc9ee6dcebd5
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Oct 12 15:52:18 2014 -0700
+
+    MediaController.play_media: made stream_type an optional parameter.
+
+commit 969be4fbfee3b82fea1d50695c3dd8160650b9fc
+Merge: 17c9cc3 11f4167
+Author: Paulus Schoutsen <paulus@paulusschoutsen.nl>
+Date:   Sun Oct 12 15:38:16 2014 -0700
+
+    Merge pull request #22 from Raynes/master
+    
+    Extend volume controls
+
+commit 11f4167a27cc72a487da08bd4e3e92d175eb3e8b
+Author: Anthony Grimes <i@raynes.me>
+Date:   Fri Oct 10 23:27:33 2014 -0700
+
+    Fix mistake in docs.
+
+commit f33609d0d2cd4e494b4bb494dde470985c38b2aa
+Author: Anthony Grimes <i@raynes.me>
+Date:   Fri Oct 10 23:11:18 2014 -0700
+
+    Add volume controls/validation.
+
+commit 17c9cc396c456fcdcc164bd6d1d750f29eb9a8a8
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Oct 10 19:51:06 2014 -0700
+
+    README.md: Added instructions to discover namespaces
+
+commit d6268432fa9a291796ca26ee9a18d37e96d3c97a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Oct 10 07:50:11 2014 -0700
+
+    Updated example.py to be in line  with example from README.md
+
+commit 211cfeb8a2ccc31ee752f93524f6381bb4c5f75f
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Oct 10 07:43:59 2014 -0700
+
+    Fixing requirements.txt
+
+commit aef6fe3d06585450d17479d616fb685acd2a7ed3
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:54:54 2014 -0700
+
+    Added support for Plex customData in mediaStatus
+
+commit 7d92d2acce70ba7ba0e6e76890e4685e4cab1c30
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:54:13 2014 -0700
+
+    DIAL requests will timeout if unresponsive Chromecast
+
+commit 7125dc6dfbab3ef1a07270e3c470a142b5cbb753
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:53:41 2014 -0700
+
+    Added initial plex support
+
+commit 69839a2b67d7e78edf532394c7708b098e31d863
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:34:00 2014 -0700
+
+    MediaStatus would crash if media=None
+
+commit ca46e05f3d56b6ae2470e797ba356efbbb61fd61
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:33:34 2014 -0700
+
+    Added method to change volume on Chromecast
+
+commit 3379120cd861c509f42ee47f22f0f1a04e7c42e9
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 23:20:06 2014 -0700
+
+    Added support for media.seek
+
+commit ce11fd0ea6ffa78ebb387cc013f5e806ee4f4c57
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 22:19:43 2014 -0700
+
+    Detecting chromecasts while using filters was broken
+
+commit e7e41c0d107059b07e4b3bfaf7bae0ea22bc0d65
+Merge: 67a84a7 c3b0250
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 21:51:06 2014 -0700
+
+    Merge branch 'chromecast_api_v2'
+    
+    Conflicts:
+            README.md
+            pychromecast/__init__.py
+
+commit 67a84a7458235a858a7befa5377dce1eee6d4307
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 21:47:58 2014 -0700
+
+    Disabled developer console stuff as it is blocked by google.
+
+commit c3b0250d35ba6ee8100ec8b66a4a2342bca85ea7
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Oct 9 21:45:15 2014 -0700
+
+    Major clean up. No Python 3 support yet.
+
+commit 3cb5ff4ae1d9907c6284c36fd4c9b272e714c6c1
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 8 08:25:18 2014 -0700
+
+    Added support for Chromecast api v2 - clean up needed
+
+commit 7bbf334d4bf5071fb4b79001fce40f03d6036b9d
+Merge: 309fa35 9bcf3cc
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Aug 18 17:37:20 2014 +0200
+
+    Merge pull request #19 from minektur/master
+    
+    support for loading arbitrary URL for devices in dev mode.
+
+commit 9bcf3cca2aaf3c55d80076307bf458688805f2e6
+Author: Fred Clift <fred@clift.org>
+Date:   Fri Aug 15 10:39:53 2014 -0600
+
+    pylint/pep8 cleanup
+
+commit c1929a92a58f197b2770292c0ae180cf54805b20
+Author: Fred Clift <fred@clift.org>
+Date:   Thu Aug 14 23:56:50 2014 -0600
+
+    added notes and example for development devices
+
+commit b7da77a11f39ec03ef2f5b46b106abbceea69bb3
+Author: Fred Clift <fred@clift.org>
+Date:   Thu Aug 14 23:34:17 2014 -0600
+
+    support for loading URL on whitelisted cast devices
+
+commit 309fa35dbb83c92d6298253f939a7dab32cd3d57
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Aug 13 16:55:43 2014 +0200
+
+    RAMP expects no value given for duration. Bump to 0.5.1
+
+commit acc59e211e21c907d2f402fa519fbc8d7b914815
+Merge: 96dc47c 7e40426
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Aug 4 08:54:55 2014 -0700
+
+    Merge pull request #17 from dkkline/master
+    
+    Fixed the ConnectionError name errors. Simple typo
+
+commit 7e4042613747bb206662f125859d6246a124f892
+Author: Jeppe Klitgaard <jeppe@dapj.dk>
+Date:   Sun Aug 3 20:08:36 2014 +0200
+
+    Fixed the ConnectionError name errors. Simple typo
+
+commit 96dc47c5ee7a4f24698f76267be8b7122f8dd04f
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Jun 24 23:49:47 2014 -0700
+
+    Code cleanup/minor reorg and version bump to 0.5
+
+commit c11f185e59be15adafef97accacf7919b6e5b022
+Merge: ad59bc5 40088bd
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Jun 24 09:57:14 2014 -0700
+
+    Merge pull request #14 from rcludwick/master
+    
+    Simplifications for selecting multiple chromecasts
+
+commit 40088bd3b4230a270bf10bf8f56dc885507da969
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Mon Jun 23 19:03:37 2014 -0600
+
+    Fixing example
+
+commit 42f62cbe0099546e251e1cf27ce0a5e9504f8fd3
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Mon Jun 23 18:43:54 2014 -0600
+
+    Added filters to play_youtube_*
+
+commit 24b140e9c9ef9e5634119a17c510d428a10ddcd5
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Mon Jun 23 18:29:31 2014 -0600
+
+    Code cleanups
+    
+      * if filters is {}, return all the chromecasts.
+      * removed _auto_select_chromecast
+      * renamed functions to get_chromecasts, get_chromecast, and
+           get_chromecasts_as_dict
+      * added strict flag to get_chromecast function.
+      * pep8/pylint cleanups.
+
+commit 57ffbf4fba4e8a801741026e4b222a4f16f98777
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:46:14 2014 -0600
+
+    'filter' is a python keyword. Use 'filters'.
+
+commit 85835666df193f9d94d1327dff8d2442dd9e8814
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:40:06 2014 -0600
+
+    Make threads daemon threads
+
+commit be133c7ead71a2a089fe9ba746a3f3c098132e57
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:18:03 2014 -0600
+
+    Added get_chromecasts_with_friendly_name()
+    
+    get_chromecasts_with_friendly_name() retuns a dictionary
+    with the friendly name as a key and the PyChromecast object
+    as the value.
+
+commit 17aa25aa9ba1ab84c64d924ac1625f0f1f3fbf70
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 17:02:19 2014 -0600
+
+    Updated documentation
+
+commit a5a3667352d019107e4c9770af24e265cfe06c35
+Author: Rob Ludwick <rcludw@gmail.com>
+Date:   Sat Jun 21 16:51:52 2014 -0600
+
+    Added filtering for finding local chromecasts.
+    
+    If you have more than one chromecast, figuring out which ip address
+    is the one you want to talk to isn't obvious.
+    
+    I added a set of filtering functions so that it's a little easier
+    to find the chromecast that you want to talk to.
+    
+    E.g.:
+    get_single_chromecast(friendly_name="Living Room") will return the
+    chromecast with the name "Living Room" to you.
+    
+    Filtering is enabled for ip address, anything in the device_status
+    or app_status tuples in the PyChromecast object.
+
+commit ad59bc563617838e33c441be74f2823460ce7a08
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Apr 27 10:40:35 2014 -0700
+
+    Make requirements.txt more flexible
+
+commit 082b9718bf6214479f36adce166253c33fafda76
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Apr 13 15:38:49 2014 -0700
+
+    Add support for Python 3
+
+commit 0bdbf5d47d5dffbefe2e964e412b6e4acd0cfa77
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 11 22:43:33 2014 -0700
+
+    Minor code cleanup
+
+commit 693498a86fb640ce21774fe2eaa6a5ea8a378335
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 11 17:52:05 2014 -0700
+
+    Version bump to release bugfix in last commit
+
+commit 2a24caad37dd55b699f5ab2180aa3ab8fd9f2c3e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Mar 10 17:14:49 2014 -0700
+
+    App IDs now use v2 API urls
+
+commit 912a0790998e97598be6099a473c4690ab375ddf
+Merge: 541ad6d 6f6bbed
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 23:26:47 2014 -0700
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+    
+    Conflicts:
+            pychromecast/__init__.py
+
+commit 541ad6de80645655393fe5ee18f5502ca0ee82e4
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 22:37:28 2014 -0700
+
+    Bugfix for crash if new and old app status were both none
+
+commit 6f6bbed4d76e03742137ec4416cc928d49e62a29
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 22:37:28 2014 -0700
+
+    Bugfix for crash if new and old app status were both none
+
+commit 3d9f302aaec4261dd16127335083d4d4a9c396ea
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 20:31:57 2014 -0700
+
+    Proper UTF-8 encoding in DIAL protocol + version bump
+
+commit 95e3276452b137f231241142732503ccf99ece27
+Merge: c5db37e 2305f1a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Mar 9 20:19:59 2014 -0700
+
+    Merge pull request #5 from parksddd/patch-1
+    
+    UTF-8 encoding fix for dial.get_device_status
+
+commit 2305f1ae01f72663c12c54ea583915e1d043c090
+Author: parksddd <parksddd@gmail.com>
+Date:   Sat Mar 8 12:38:39 2014 -0500
+
+    Update dial.py
+    
+    Adding support for special characters in Device Name
+
+commit c5db37e66687952eb3061f60885b756b07500742
+Merge: 11254b5 4de9f3d
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sat Mar 8 01:26:44 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 11254b5a45b320222d6b80cf964eeb4ed6a9b548
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sat Mar 8 01:26:28 2014 -0800
+
+    Make better decisions when to start a new websocket client
+
+commit 4de9f3da63d2daee2cd812571a6be70d86e22395
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Fri Mar 7 09:23:11 2014 -0800
+
+    Update README.md to reflect changed dependencies
+
+commit 90cad556f4f4d8133824b70bcb4acf4534efde29
+Merge: 744307f ccb7488
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 19:06:44 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 744307f8c2085f8427d6597a6460f4c248d51977
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 19:04:32 2014 -0800
+
+    Use ws4p instead of Twisted for Websocket implementation
+
+commit ccb7488031d0e9a4cb5d4cc4c449eb82a4bb3a02
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 19:04:32 2014 -0800
+
+    Use ws4p instead of Twisted for Websocket implementation
+
+commit 1672adc99298c252de0f4b1c999d8f845b55c0a5
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Thu Mar 6 18:43:45 2014 -0800
+
+    Wrong call to launch YouTube video in examples
+
+commit 3825ac14821745ed6f81811a2ade2e6f75a7e994
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:40:47 2014 -0800
+
+    Cleaning up the Twisted code
+
+commit 77d19e2e3356b606a9021777b7c5d0808d1a048d
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:26:22 2014 -0800
+
+    Updated README.md with UPNP support
+
+commit 3f389fd709a7cc73d72bcb84d0adc2d09a58257c
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:21:31 2014 -0800
+
+    Version bump because of added UPNP support.
+
+commit b7eac4d174d643ec42ee14e45a097850b00af63d
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:16:42 2014 -0800
+
+    Added UPNP support to discover Chromecasts.
+
+commit 38fe7d2fcd5c78e1f610218c5939a284053cfe9c
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 23:14:50 2014 -0800
+
+    Better reporting if a subprotocol is active
+
+commit 11b075a8b2bd6b915829be9b6ced86cda2a71531
+Merge: 6654925 d17bcf4
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 20:51:50 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 665492567110f0cc4c63bc068a90ff33d11b0196
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 20:49:37 2014 -0800
+
+    Remove the call to set logging to INFO-level
+
+commit d17bcf4ca769ce5598eecdab853d231cea102d5d
+Merge: 29deb74 0bd02db
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 08:23:13 2014 -0800
+
+    Merge pull request #2 from jaapz/setup
+    
+    Added setup.py to enable adding the package on PyPI.
+
+commit 29deb74acaa8b9536fc91647dfa34728c6d59b22
+Merge: 4330bd8 7d41498
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 08:22:41 2014 -0800
+
+    Merge pull request #1 from jaapz/requirements
+    
+    Added requirements.txt for easier dependency management
+
+commit 0bd02dbde64a31c83d82cd460b6600679fc73266
+Author: Jaap Broekhuizen <jaapz.b@gmail.com>
+Date:   Tue Mar 4 17:16:00 2014 +0100
+
+    Added setup.py to enable adding the package on PyPI.
+
+commit 7d414983a2cab9fd98e1c9343999bcd10b9498a5
+Author: Jaap Broekhuizen <jaapz.b@gmail.com>
+Date:   Tue Mar 4 17:04:12 2014 +0100
+
+    Added requirements.txt for easier dependency management
+
+commit 4330bd8e49c4e1abc2f281f23962a768ef403d40
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 01:10:03 2014 -0800
+
+    Added dependencies to the README
+
+commit ac72b470e4e3de6c8ad85a7d357c438dfcb4b9fa
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 01:01:59 2014 -0800
+
+    Added a YouTube as idle screen replacement.
+
+commit 949a4dda0ea7a106454921cc201f5e4864732686
+Merge: 786d7fc 3d697b5
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 00:45:27 2014 -0800
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+    
+    Conflicts:
+            pychromecast.py
+
+commit 786d7fce1a9f31227d7a14c484cb81a2d9cff992
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Mar 4 00:44:39 2014 -0800
+
+    Revamped code, added initial websocket and RAMP support
+
+commit 3d697b56a4a9178b9970e0596340a5e507ffd67c
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Feb 2 22:07:50 2014 -0800
+
+    Fixed an UnicodeEncoding issue that sometimes arose
+
+commit c033b2c502af1a0ed555dd406dc2fed2824d6690
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Jan 5 12:48:19 2014 -0800
+
+    bugfix: quit_app() crashes if chromecast in standby (no app id)
+
+commit 95c94393c2873358f957c9cac500fa420e299d75
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 23:09:12 2013 -0800
+
+    PEP8 styling fixes
+
+commit aad59486bc73c60a1bb440892f2a9598f4c8fddd
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 19:28:23 2013 -0800
+
+    Code style fixes
+
+commit 1ecc07ff9b4904f829b9397accba02c40b393a4e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 19:25:25 2013 -0800
+
+    Bugfix within quit_app
+
+commit 7a83d3e664d8ef8c534498b6e1d339c7fe051f3e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 19:23:16 2013 -0800
+
+    Add more APP IDs
+
+commit 8f294e6a339e3ff2d5370e1d10084f04398776e4
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 08:07:44 2013 -0800
+
+    PyChromecast returns None instead of raising exceptions.
+
+commit f6e26a38c8da95614697eae1d75505e374e96871
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Dec 10 00:29:46 2013 -0800
+
+    Added APP IDs for Pandora and HBO
+
+commit d1084d263ab9a2a8ac9028f52989fbe3f2c6ad36
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Sun Dec 1 19:25:07 2013 -0800
+
+    PEP8
+
+commit b9bb1ebb3e2b158dd779ba4ed3b50bd4c6f9aed8
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Tue Oct 8 21:18:00 2013 -0700
+
+    Renamed LICENSE file
+
+commit 22af2589b840991220788b5e93921b89433cd02e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Oct 7 23:48:10 2013 -0700
+
+    PyLint won't whine as much anymore when checking the style.
+
+commit 6b8999574c8f70cb28686ef8d19f1e4bf0c8c056
+Merge: b972ba4 5ac7a65
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Oct 7 19:00:52 2013 -0700
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit b972ba47357ed9dd996639c1390e65d3b2da1292
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Mon Oct 7 19:00:14 2013 -0700
+
+    Added __init__.py so Git repo can be included as module
+
+commit 5ac7a656e2493b43ec88c4ec37b218fa10d2c40a
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 10:13:22 2013 -0700
+
+    Added app_id for Hulu Plus
+
+commit 2805e3eec945ef58fef02c5c755d914f49026ff4
+Merge: 355738a 8247156
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 01:03:37 2013 -0700
+
+    Merge branch 'master' of ssh://github.com/balloob/pychromecast
+
+commit 8247156643646e95190e366995e0e95e1d969d9e
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 01:00:15 2013 -0700
+
+    Create LICENSE.md
+
+commit 355738a642294741bf5d0da7128d8fad9b9e97a9
+Author: Paulus Schoutsen <Paulus@PaulusSchoutsen.nl>
+Date:   Wed Oct 2 00:59:56 2013 -0700
+
+    Initial version

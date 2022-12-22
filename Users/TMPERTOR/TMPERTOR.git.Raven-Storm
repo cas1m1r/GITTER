@@ -1,0 +1,4244 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Raven-Storm Toolkit
+
+<img src="https://img.shields.io/badge/Python-3.8-blue"> <img src="https://img.shields.io/badge/Status-Beta-orange"> <img src="https://img.shields.io/badge/Version-4-red"> <img src="https://img.shields.io/badge/Licence-MIT-yellowgreen"> <a href="https://taguar258.github.io/Raven-Storm/INSTALLATION"><img src="https://img.shields.io/badge/Download-Now-green"></a>
+
+**Raven-Storm is a powerful DDoS toolkit for penetration tests, including attacks for several protocols written in python(3.8).**
+
+Takedown WiFi access points, devices in your network, servers, services, and Bluetooth devices with ease.
+
+Raven(abbreviation) is desinged to help you to **test, understand, and learn from stress-testing** attacks.
+
+Raven can **deal with strong servers** and **can be optimized** for non typical targets.
+
+Raven will fit your purpose, even if it is **jamming down wifi networks or bluetooth devices**.
+
+_I archived this repository because I currently do not want to work on it._
+
+![MOSHED](https://user-images.githubusercontent.com/36562445/90558504-77d7ca80-e19c-11ea-9dd5-6ba902934866.gif)
+
+## What makes it different
+
+- [x] Raven-Storm includes tools for creating shorcuts and working more efficiently.
+- [x] Raven is **Effective** and **powerful** in shutting down hosts and servers.
+- [x] **Testing** and understanding are the goals of Raven-Storm.
+- [x] Raven lets you connects clients together to create a botnet.
+- [x] Features different protocols such as UDP/TCP, ICMP, HTTP, L2CAP, ARP and IEEE.
+
+## Installation
+
+Just enter the following line to install Raven-Storm on Linux.
+
+```bash
+curl -s https://raw.githubusercontent.com/Taguar258/Raven-Storm/master/install.sh | sudo bash -s
+```
+
+<a style="color: grey" href="https://taguar258.github.io/Raven-Storm/INSTALLATION"><b>Click here for the more detailed installation guide.</b></a>
+
+
+<a style="color: grey" href="https://github.com/Taguar258/Raven-Storm/blob/master/README.md#info-and-warning"><b>Terms of Use</b></a>
+
+<a style="color: grey" href="https://github.com/Taguar258/Raven-Storm/blob/master/LICENSE">Licence</a>
+
+<a style="color: grey" href="https://github.com/Taguar258/Raven-Storm/projects/1">Project status/ToDo</a>
+
+<a style="color: grey" href="https://github.com/Taguar258/CLIF/">CLIF Framework</a>
+
+## What module to use
+
+| Method | Module  |
+| ------- | --- |
+| ping | l3 |
+| udp/tcp services | l4 |
+| websites | l7 |
+| local devices | arp |
+| bluetooth | bl |
+| wifi | wifi |
+| botnet | server |
+
+_Try using the L4 attack if L7 fails._
+
+<!--![Screenshot_20190405_181220](https://user-images.githubusercontent.com/36562445/55641522-60c65180-57ce-11e9-8c65-084edc2bfb45.jpg)-->
+![Preview1](https://user-images.githubusercontent.com/36562445/98484349-152c2300-220f-11eb-84a0-1c3c57415d64.png)
+
+![Preview2](https://user-images.githubusercontent.com/36562445/98694260-8552ba00-2371-11eb-9e20-fd5432c90849.png)
+<!--![Screenshot_20190405_181220](https://user-images.githubusercontent.com/36562445/63696325-bdc4b180-c81a-11e9-89b8-a7ce24df08ca.png)-->
+
+## Example
+
+![Gif](https://user-images.githubusercontent.com/36562445/98694347-a0252e80-2371-11eb-95ec-925e8c98948f.gif)
+<!--![render1581110570685](https://user-images.githubusercontent.com/36562445/74067207-f9ce8600-49f8-11ea-9d54-97a056169cf7.gif)-->
+
+## How to run a DDoS attack
+
+_You probably already know the difference between DoS and DDoS:_
+_A DoS Attack is run by a single Maschine and a DDoS Attack by multiple._
+
+_But how do we perform a DDoS Attack using Raven-Storm?_
+
+
+To connect multiple instances of Raven-Storm, you will then need to open a host.
+Just execute the command `server` and define a custom password to prevent others from interfering.
+When run, you will receive a URL that you can connect to when executing the `ddos` command.
+
+
+## Info and Warning
+
+__THE CREATOR (Taguar258) OF THE RAVEN-STORM TOOLKIT DOES NOT TAKE ANY RESPONSIBILITY FOR DAMAGE CAUSED. THE USER ALONE IS RESPONSIBLE, BE IT: ABUSING RAVEN-STORM TO FIT ILLEGAL PURPOSES OR ACCIDENTAL DAMAGE CAUSED BY RAVEN-STORM.
+THE CREATOR DID NOT INTEND RAVEN-STORM AS A TOOL FOR ILLEGAL PURPOSES AND THEREFORE DOES NOT SUPPORT ANY ILLEGAL ABUSE OF THIS TOOL.
+BY USING THIS SOFTWARE, YOU MUST AGREE TO TAKE FULL RESPONSIBILITY FOR DAMAGE CAUSED BY RAVEN-STORM IN ANY WAY ON YOUR OWN.
+THE CREATOR DOES NOT WANT PEOPLE TO USE RAVEN-STORM IF THEY DO NOT HAVE EXPERIENCE WITH THE ATTACKS INCLUDED.
+EVERY ATTACK WILL CAUSE TEMPORARY DAMAGE, BUT LONG-TERM DAMAGE IS DEFFINITIFLY POSSIBLE.
+RAVEN-STORM SHOULD NOT SUGGEST PEOPLE TO PERFORM ILLEGAL ACTIVITIES.__
+
+__THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.__
+
+**MIT Taguar258 2020**
+
+====================== GIT HISTORY: ======================
+82fb00b HEAD@{0}: clone: from https://github.com/Tmpertor/Raven-Storm
+commit 82fb00b608727c934dcdc0a5a43dab6482430a0c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 21 15:35:19 2020 +0100
+
+    Archive note
+
+commit d4fa5100bd63ba25d4f68675cb7e30a2859ca949
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Dec 12 19:43:39 2020 +0100
+
+    Update README.md
+    
+    Additional information
+
+commit 350c78a50786dca86c3d78d4bca69a052e6ce202
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Dec 9 20:44:26 2020 +0100
+
+    Important fix
+
+commit 3e15f5d742a63a4200a6dd1d1677d959d9b40d2d
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Wed Dec 9 20:31:52 2020 +0100
+
+    Improved L4 and L7
+
+commit c10ee13d3f52a45e69162a615f81482e92997f86
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Dec 3 16:19:07 2020 +0100
+
+    Update README.md
+
+commit f8344b1d4038301b440fb205243349ceb89f2184
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Dec 3 16:17:29 2020 +0100
+
+    Update README.md
+    
+    More information.
+
+commit 51cf4a3935cb44ce727415a6dac98114fcf36cc7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 27 19:31:46 2020 +0100
+
+    Added additional info
+
+commit 005c0008e621456dd8b31c954255919db4fc8077
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 27 19:28:17 2020 +0100
+
+    Added additional info for windows.
+
+commit 8c0c138f2f8068ae3d0fdddb6e6f0149d925fafc
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Wed Nov 25 20:20:10 2020 +0100
+
+    Spelling
+
+commit 7a5b2b88c0227d9138c30733149d2a1376bf0b0a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 21 11:37:05 2020 +0100
+
+    Update INSTALLATION.md
+    
+    Improved: Install on other OS
+
+commit 0e6e459c55d054750930e10f3e213c1943331ae1
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Tue Nov 10 16:30:17 2020 +0100
+
+    Removed false information
+
+commit 8a4ab07b1314b8e87abc33cf95331963e7dacddd
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Tue Nov 10 16:28:38 2020 +0100
+
+    Improvement and new Previews
+
+commit dbe375556715b97d2aba32dbe0be875d4ebfe36e
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Tue Nov 10 14:43:04 2020 +0100
+
+    UPDATED TERMS OF USE
+
+commit 51a76d6d41b30a5bf2af5bfa80d63fdfa9bc4a0e
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Tue Nov 10 14:32:58 2020 +0100
+
+    UPDATED TERMS OF USAGE
+
+commit 9364b08468802bf59b4b82f54f0557b9f602cae5
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sun Nov 8 22:11:11 2020 +0100
+
+    New Preview
+
+commit 5faa9ac5a7cf218ff1063380e0d8b9f2b687c1c7
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sun Nov 8 22:00:32 2020 +0100
+
+    Updated installation preview.
+
+commit 14787ef15a3ea2a2de8eedc6af15e06be5a312dd
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sat Nov 7 23:46:27 2020 +0100
+
+    Not important change
+
+commit 596e1b0daa3e62026c9758742cb39455dea6347d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 4 14:01:56 2020 +0100
+
+    Update INSTALLATION.md
+    
+    Incompatibility
+
+commit edc29259f5e02557dd63c462bbd0ffa8f97b4c07
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 4 13:54:45 2020 +0100
+
+    Update README.md
+    
+    Capital letter.
+
+commit deea8227a9c44fc0544a49cd3960a8568d5b44c8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 4 13:54:12 2020 +0100
+
+    Update README.md
+    
+    Added download badge.
+
+commit acd58914b138be87d77a4d24a6c636cd8103edca
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 29 19:09:51 2020 +0100
+
+    Update INSTALLATION.md
+    
+    Updated tutorial
+
+commit e48322ca90a3e6c6f9a7d523716441b41c586b05
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Wed Oct 28 12:10:44 2020 +0100
+
+    4.1
+    
+    Improved debugging mode, added minor fixes.
+
+commit fd1b735931e18474680bf674270e607710da343f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 28 08:38:17 2020 +0100
+
+    Update README.md
+    
+    Even better badge
+
+commit c4c21f9165575630f3115011446a61f951469273
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 28 08:37:27 2020 +0100
+
+    Update README.md
+    
+    Better badge
+
+commit 5d4439bb842913553473a98923431e52ce4c3398
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 28 08:36:38 2020 +0100
+
+    Update README.md
+    
+    Removed Twitter
+
+commit 634c8b5defc993b70dc0f94ff62cfe7ae7650b53
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 28 08:34:56 2020 +0100
+
+    Update README.md
+    
+    Added tweet button.
+
+commit fe8dd6aca53adcfa66ce9c616ae4c20b4981496b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 28 08:17:29 2020 +0100
+
+    Update README.md
+    
+    Label spacing
+
+commit 4a3226c3f95884f412b3cf1ac870be57503d92a4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 28 08:16:44 2020 +0100
+
+    Update README.md
+    
+    Minor changes
+
+commit 04bd153d3106eeca69e3199e791e48190f9e17e7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Oct 27 13:50:20 2020 +0100
+
+    Update README.md
+    
+    More specific
+
+commit 9713c903aea5e1ecd721a8b27a9f03a18b89bd40
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Oct 27 13:48:57 2020 +0100
+
+    Update INSTALLATION.md
+    
+    Spelling
+
+commit 2e5dbcd4e0f645f5cb341717e0e60888b24807cc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Oct 27 13:47:27 2020 +0100
+
+    Added instructions for other os.
+
+commit 34d920c0065771722ddd9784015343e1717db2ae
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Oct 26 20:18:47 2020 +0100
+
+    Update README.md
+    
+    Spelling
+
+commit f1911f82647bff6716ac435fcaea42a665547d6e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Oct 26 08:24:26 2020 +0100
+
+    Layout
+    
+    Better Layout.
+
+commit 6f352bf8332564ab3195a8f3a93aa90a43739b2a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Oct 24 19:41:47 2020 +0200
+
+    Minor BugFix
+
+commit 0727a9c80f083c74c16d930638234e5634507d94
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Oct 24 19:39:36 2020 +0200
+
+    Update INSTALLATION.md
+
+commit af4e0b2d9c213b1cbc166e640be145c0d3bae191
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sat Oct 24 19:36:26 2020 +0200
+
+    Major bug fix
+
+commit 3ef1d23e0a5262b828b7b1a5717a9bf6f34b144c
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sat Oct 24 17:15:41 2020 +0200
+
+    Simplifications
+
+commit 487282faaf4b54c82585511892a594dfd3840c39
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Oct 24 10:10:41 2020 +0200
+
+    Update README.md
+    
+    Small addition.
+
+commit 78093c3c6c549010bde6382585ca799686da7808
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Oct 24 10:02:45 2020 +0200
+
+    Update README.md
+    
+    Small addition
+
+commit dc94c02fcffdcc1109b3d62f99581533a38e19e8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Oct 24 09:51:28 2020 +0200
+
+    Update README.md
+    
+    Better layout
+
+commit b9564f74531a4cb7deeb284db6bccba3c79842bc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 21:58:06 2020 +0200
+
+    Update README.md
+    
+    Small change
+
+commit 9ccb232171e75155a40ec063a32e5d13fee4d495
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:26:07 2020 +0200
+
+    Update README.md
+    
+    Addition
+
+commit b29afb5baf99218297453e08c72a833e6a96bd98
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:18:55 2020 +0200
+
+    Update install_to_bin.sh
+    
+    Better backup.
+
+commit e3f7f7e9687cdb088196f9c868aff3011400c094
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:17:11 2020 +0200
+
+    Update install_to_bin.sh
+    
+    Little addition.
+
+commit 81e5ae3cf7c38c9d995a32d7b1c85646e4d85058
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:15:33 2020 +0200
+
+    Update install_to_bin.sh
+    
+    Improvement.
+
+commit 6a26bc7fd302f34aa7d7272633287f7115e9c04b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:13:52 2020 +0200
+
+    Update install.sh
+    
+    Requirements installation.
+
+commit e6676d3323b6457f98ab6ea748bed07dfdf7f558
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:11:11 2020 +0200
+
+    Update README.md
+    
+    Design
+
+commit cac626e5de39cf8ed5dd5cae98d6ade303195654
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:07:28 2020 +0200
+
+    Update install_to_bin.sh
+    
+    A minor mistake, backup was not working.
+
+commit c8db796143f3fb87897b0a0938d7a279a1802a16
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:05:25 2020 +0200
+
+    Update main.py
+    
+    Small difference
+
+commit a633083c968617709907b661f6611a39beab5ec8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:04:10 2020 +0200
+
+    Update install.sh
+    
+    Verbose
+
+commit e9cf668c45f59498fcc1b763be283d60c1cd97b9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Oct 23 20:01:21 2020 +0200
+
+    Update README.md
+    
+    Misspelling
+
+commit 1377b336b2433c51d356bdcb4bb6faa070685717
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Fri Oct 23 19:57:35 2020 +0200
+
+    Prerelease 4
+
+commit b24a27087be0819faf4fabe70f9a7e5fcaf8c896
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sun Sep 13 10:55:51 2020 +0200
+
+    Renamed flood to l4.
+
+commit 554b03d3b95c8f29277a097577d34e4b69d391aa
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Sep 12 13:35:09 2020 +0200
+
+    Delete package-requirements-.txt
+    
+    Too irritating
+
+commit 32590fcc85e0500eb52c0726e8a9867b2e53fa1a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 17:08:11 2020 +0200
+
+    Update README.md
+    
+    Fixed broken Link.
+
+commit ab2fa173a19b555cadf4dc0b30938046709ec52c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 17:07:14 2020 +0200
+
+    Update README.md
+    
+    Fixed broken Link.
+
+commit 02f8124c2e761d29d199dda443fe0a218b9d5290
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 17:06:22 2020 +0200
+
+    Update README.md
+    
+    Fixed broken Link.
+
+commit cb33ee16da6e11f7857ab78155ec2b5508dfc331
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 17:05:27 2020 +0200
+
+    Update README.md
+    
+    Updated the Terms and Links.
+
+commit b687f100c59a34136effbfbf179f6f68c7848868
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 16:59:21 2020 +0200
+
+    Update README.md
+    
+    Updated Terms
+
+commit 171ac29e64eda2931a73eab5a6e69af114b154ab
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 16:57:01 2020 +0200
+
+    Update README.md
+    
+    Added Link
+
+commit 43f935fbd7ea5ebae308d828919209bb51ca6fce
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 16:55:33 2020 +0200
+
+    Update README.md
+    
+    Updated warnings.
+
+commit 87642b202edbda8f0c8f113807abe3768a652da6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 00:11:45 2020 +0200
+
+    Update README.md
+    
+    Added missing punctuation mark.
+
+commit 13b303977ca3111247e0b65611792454a89a1d2c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 10 00:07:32 2020 +0200
+
+    Update main.py
+    
+    Added privilege warning.
+
+commit fe430940d545ab1f047815dff1108dbbb84a217b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 9 22:48:37 2020 +0200
+
+    Update main.py
+    
+    Changed default thread value again and decreased it
+
+commit dcb8920d7fa919714779bbb984d71a28e6774f2f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 9 22:42:35 2020 +0200
+
+    Update main.py
+    
+    Increased default threads
+
+commit 2a7a7e7f5058df3b7fea9feb2996625d10615db4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 9 12:47:55 2020 +0200
+
+    Create polls.md
+    
+    Please Vote
+
+commit 91c9b9a9cb52f885e678191b9125f90016f10430
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 9 11:58:46 2020 +0200
+
+    Update README.md
+    
+    Changed Footer
+
+commit 4ce5fa27b3da493eaa7e3bbcdb8d95c908d6d633
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 9 11:46:15 2020 +0200
+
+    Rename other-requirements.txt to package-requirements-.txt
+    
+    Renamed for better understanding.
+
+commit 0ee500a29cb0435e78c471fb6a18f2bddc55f412
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Sep 7 23:02:40 2020 +0200
+
+    Update main.py
+    
+    Fixed missing update of debugging variable.
+
+commit 2452201f1c2971f250af161171755df537ac767e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Sep 7 23:01:54 2020 +0200
+
+    Update README.md
+    
+    Version update
+
+commit c41b56766dbef8353b8469080f5cf1b67a0832da
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Mon Sep 7 23:00:03 2020 +0200
+
+    Improved Style
+
+commit 80ccb8f1c230ebaa9cc0dc69cf7972a3eecbf38e
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Mon Sep 7 22:59:09 2020 +0200
+
+    Improved Style
+
+commit 4af7b0f3fbf3d07004531d6aab809838b7344938
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 6 20:17:42 2020 +0200
+
+    Update installer.sh
+
+commit 72cf4d8fc46bbe29291a4329be46413b3f451a4d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 6 20:12:06 2020 +0200
+
+    Update bug_report.md
+    
+    Improvements
+
+commit acb8252cc5dadc180357601d772f907de06546d9
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sun Sep 6 20:04:00 2020 +0200
+
+    3.1 Bug Fixes + Framework update
+
+commit 41f76b14c88ca9a61eba3c03760ab39d96286a7d
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sun Sep 6 20:00:34 2020 +0200
+
+    3.1
+
+commit 6b5bb0ab483b5c265a73610e131da5b844c55a0e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Aug 27 11:18:24 2020 +0200
+
+    Update README.md
+
+commit 8380e6a2afd9d2ec3bf07522bcbcdbe776a42328
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Aug 27 01:29:02 2020 +0200
+
+    Added Share Button.
+    
+    Added Twee Button
+
+commit 1575f0e7d06ce03f3fec84b34346be195cf0e4ed
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 25 16:13:08 2020 +0200
+
+    Added upgrade
+    
+    Added option to upgrade Raven-Storm.
+
+commit e29a9a49c1173db56f6b9bfb9f1ab4f030265568
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 23 21:44:51 2020 +0200
+
+    Spelling
+    
+    Spelling
+
+commit 0f3222958609dce445374a86efc2c65c8e2afa2d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 23 21:42:42 2020 +0200
+
+    Spelling
+    
+    Spelling
+
+commit 84195906172936cc63bde237d4df84ecc82c4072
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 23 20:41:40 2020 +0200
+
+    Update README.md
+
+commit 0725ea6d7d10a2af9521c5fe6c39c761d506bd6b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 23 17:48:20 2020 +0200
+
+    Update README.md
+
+commit 9c7620a39f540caba6362199931ac7c3e0dc9cab
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 23 03:59:45 2020 +0200
+
+    Update main.py
+
+commit cffab59c03b063bed6204fdd344fdddba7e82047
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 23 03:59:26 2020 +0200
+
+    Update main.py
+
+commit 6f5c7c3a86f1a5ba697c4b864f7dd36b4037662f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 23 02:26:51 2020 +0200
+
+    Update README.md
+    
+    Added link to CLIF
+
+commit 081d75d9c0a36172f7109a3f851e0566c97b5d47
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Aug 19 15:52:03 2020 +0200
+
+    Update README.md
+
+commit db2d016b3cd8a2d781865f4136bf9e0ff025a31b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 18 21:51:50 2020 +0200
+
+    Update README.md
+
+commit bb6eac87f00b89317fba7ff9866c4c70718ea34e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 18 21:50:06 2020 +0200
+
+    Update README.md
+
+commit b661c3017c26f57d49e17ac5139c50bcbb2dfae2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 18 21:49:24 2020 +0200
+
+    Update README.md
+
+commit dc335df7e1eb39f5c187b7983207006907fc9822
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 19:54:22 2020 +0200
+
+    Update main.py
+
+commit c6b0bd4e5178ca9683448a9332b1b280d4da51cb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 19:40:03 2020 +0200
+
+    Update main.py
+    
+    Minor change to banner
+
+commit 69be88af64cc5e67ccae2b280f240d6f124a395a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 15:28:35 2020 +0200
+
+    Delete python-app.yml
+
+commit b7f947ba101ad04208f77a6135e901e1be70959b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 15:26:34 2020 +0200
+
+    Create python-app.yml
+
+commit 4d15c510bc644f3157767ff7d06d512b60fa5249
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 12:25:54 2020 +0200
+
+    Update installer.sh
+
+commit eae13876e3bc2287db6a7552e972b8f6bb622e21
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 12:18:08 2020 +0200
+
+    Update README.md
+
+commit c05bf534f1f3428f7e6b3ea66bb59b26a4830dab
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 12:12:29 2020 +0200
+
+    Email changed
+    
+    Changed Email
+
+commit e347e31e0c742944c430831f37361fbb8bf5d93a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 08:49:38 2020 +0200
+
+    Update README.md
+    
+    Spelling
+
+commit 6bbf9d505c2dd77a8dd819862e1cc1d3a7dba072
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 01:18:51 2020 +0200
+
+    Update README.md
+
+commit 90ababaf6f50275517e624209aa51382d2854c63
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 01:18:29 2020 +0200
+
+    Update README.md
+
+commit 3741d45b40e90453ac7f17ff2f4bfd237de1c5bb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 16 01:11:40 2020 +0200
+
+    Update README.md
+
+commit 23faa28ea489b1eb1195055dedde75f3228b1289
+Author: Taguar258 <taguar466@gmail.com>
+Date:   Sun Aug 16 00:58:26 2020 +0200
+
+    Rewrite V.3
+
+commit 38f087b58d66f5489ee5c98f676bc9b4569fab27
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 10 01:06:43 2020 +0200
+
+    Update README.md
+
+commit 9acbad726dfb4d67d30dab6dc12e1895b806a00f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 21 15:53:21 2020 +0200
+
+    Update README.md
+
+commit 6b2ec411358b8e78e0a9f45a15ff45559204602f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 21 15:49:17 2020 +0200
+
+    Update README.md
+
+commit e062ddf93c464de29fcdd05473a91f2b689a4455
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 21 15:42:54 2020 +0200
+
+    Update README.md
+
+commit 4f734539786fe52c10379f8d272b82037be6bfe8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 20 23:28:04 2020 +0200
+
+    Update README.md
+
+commit 2e672e0643720f4c16551eb0bc3e0bc947166daa
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 20 23:26:48 2020 +0200
+
+    Update rs.py
+    
+    Temporary fix
+
+commit c51fcd5873361200d193bd0ba867180f613dcb27
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Apr 26 15:33:15 2020 +0200
+
+    Update README.md
+
+commit b3798f268e64ff102dbe23e67ce2ddad9b725a9d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 13 00:20:49 2020 +0200
+
+    Update README.md
+
+commit 93f11e399c81631dd917567dfa45b1a3c5192c18
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 22:07:57 2020 +0200
+
+    Update rs.py
+
+commit 6ca2ed33ea5096de1e03d8e42be90c3deb393270
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 22:04:25 2020 +0200
+
+    Update rs.py
+
+commit d03727fffee0ed42753586a2e7e73db264398adb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:22:04 2020 +0200
+
+    Update rs.py
+
+commit 024dfd3d3c4bcb347e0ab8f6da15ae1eeb204346
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:17:23 2020 +0200
+
+    Update README.md
+
+commit cad334c781f3b939ca157a5eb70e6dcacd4c1f7f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:16:45 2020 +0200
+
+    Update README.md
+
+commit c87157d82db0febb50cf284a4ef43b2aa4bff920
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:16:07 2020 +0200
+
+    Update README.md
+
+commit 0f18dec38d9c238806b501af5b451d4f76dea0a0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:14:59 2020 +0200
+
+    Update bird.txt
+
+commit a9762350a3cd9dbf29dbd8b7c620eb38e6425e49
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:14:27 2020 +0200
+
+    Delete raven-storm-documentation-2.7.md
+
+commit 0909165e1cd4b335c79c415d0305a07793942ea0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:14:11 2020 +0200
+
+    Change false call
+
+commit 9011c7c48799e076793747b1f906bb17049f62d3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:12:33 2020 +0200
+
+    Change false call
+
+commit ad3a7f940d0c9876c6748ab960d767c920488474
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:11:27 2020 +0200
+
+    Change false call
+
+commit f606304ac71ffe76f7c13da63f027339827a5456
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:07:50 2020 +0200
+
+    Source coder publish
+
+commit 3cff3e81140d8330e5525b5a8c36b033c0d0f1dc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 20:06:38 2020 +0200
+
+    Delete rs.pyo
+
+commit 73ff488931c8885e0ac9456f84aaf0e7ba81bae6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 6 19:37:06 2020 +0200
+
+    Going to work on project again
+
+commit 0bb4cbe41f5a8316458aba897202135231c88a20
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Mar 27 23:34:17 2020 +0100
+
+    Update README.md
+
+commit 3259f6abc2e58d5266f6f9aedbc56b53d24c89f8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 12 16:09:12 2020 +0100
+
+    Update README.md
+
+commit cdb39b73122e63fe00d6d89ff0456ba138cfecae
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 12 16:00:07 2020 +0100
+
+    Update README.md
+
+commit 5e6d23c67b3105daa4ec459453614e5e019ba923
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 12 15:57:20 2020 +0100
+
+    Update README.md
+
+commit 752a8ca5a8c375f515a09cce744b0adb1e1ed9b5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 12 15:55:35 2020 +0100
+
+    Update README.md
+
+commit 1ff1f6e492c73a1add0d8ca732a11c85c841e450
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 12 13:41:46 2020 +0100
+
+    Update README.md
+
+commit 9d9c7b8f9ebef5bd8acd84b24a3d4607ea909097
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Feb 11 16:50:30 2020 +0100
+
+    Delete CONTRIBUTING.md
+
+commit 41e0761efd245120e3f65686556d496401a58387
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Feb 11 13:17:16 2020 +0100
+
+    Delete mainlangage.py
+
+commit c74f0703b5277ea16e67948f4f8c78fc2c9aecf0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Feb 11 07:26:22 2020 +0100
+
+    Update .gitattributes
+
+commit a01e5aae43f446dd5514a877333ef00385c92a3a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Feb 11 07:20:53 2020 +0100
+
+    Create mainlangage.py
+
+commit bd7b43fb9c1dd630d87b11e695bece39e414ed12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 9 21:28:23 2020 +0100
+
+    Update README.md
+
+commit d9998b2c61ab4ab42bc3f0e0f103081fe956ee64
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 9 16:31:13 2020 +0100
+
+    Update README.md
+
+commit c4ea1ad0291739c7acef84b9850a8028d88f551d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 9 16:29:52 2020 +0100
+
+    Update README.md
+
+commit 2be6ec5155d503946d04800049b600f01f86dc43
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 9 16:28:23 2020 +0100
+
+    Update README.md
+
+commit cbb9efeca0cfb64d5bd1ba63a0d95c88408d8701
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 02:01:43 2020 +0100
+
+    Update README.md
+
+commit 3dfd0c15a786bebf401cf3fae81d8dfe698cea30
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 01:15:59 2020 +0100
+
+    Update README.md
+
+commit f687c31253c8d6361ecc4b32078b89d0a423fe7c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:46:15 2020 +0100
+
+    Create README.md
+
+commit 4526f677281054533f829fc4d1429020230dae6a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:35:27 2020 +0100
+
+    Update README.md
+
+commit b38d3b02388c052b20ee94c16a5885d6af85dc8a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:31:48 2020 +0100
+
+    Update README.md
+
+commit 5a445a9a5a2924a283cce4fe0b12d07cefb04767
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:30:54 2020 +0100
+
+    Update README.md
+
+commit 40e1470f07e1f3c242b5cdae8418e2373a0e3d75
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:30:32 2020 +0100
+
+    Create README.md
+
+commit 88cc52f5b4c3efee4893e76f81c628bea4c16b14
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:12:14 2020 +0100
+
+    Create _config.yml
+
+commit da2a254bfd4f594cb025784dab3358a6660277d1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:11:53 2020 +0100
+
+    Create _config.yml
+
+commit 308fa634f19dff536796e692ff07e1818d3e84d5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Feb 8 00:11:08 2020 +0100
+
+    Update README.md
+
+commit 382c1d217666721b09550e90f292e2eea89b79b8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 23:30:59 2020 +0100
+
+    Update README.md
+
+commit 44a2408ec9c0d6412cb5b25856591300d303df03
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 23:29:24 2020 +0100
+
+    Update README.md
+
+commit daed4d9728d3bc0bd764427982273daf0fb15c02
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 23:28:31 2020 +0100
+
+    Update README.md
+
+commit 97ce37acdcfd5444b7bb55b1e3a486e78e6c68bd
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 23:24:36 2020 +0100
+
+    Update README.md
+
+commit 7d9e9c8021bf9fc09e3f639a9ad88b4223ee4eee
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 23:19:51 2020 +0100
+
+    Update README.md
+
+commit aa5fa2cf763fa64a89663d0ae12510bb8bb9f28a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 23:07:29 2020 +0100
+
+    Update README.md
+
+commit 55cedfc4710a5ae969e28f3da9186a9befc58f84
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:58:45 2020 +0100
+
+    Update README.md
+
+commit 7ce7076ae33a2e5c2f731d596adc883d6e5387dc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:57:39 2020 +0100
+
+    Update README.md
+
+commit effd4bd7b2d8d9615a0caa09597bc9fa249628d6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:50:39 2020 +0100
+
+    Update README.md
+
+commit 102b42f450b357b6cd416b8e9b89c7416c5d3a7d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:50:21 2020 +0100
+
+    Delete _config.yml
+
+commit c66705ec8541a24d3cc61285c07b099c16c0e598
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:50:08 2020 +0100
+
+    Rename tutorial/exp/README.md to tutorial/README.md
+
+commit 9f66fd00756f63a38cfa033321b74ca8fc686eb6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:49:56 2020 +0100
+
+    Update README.md
+
+commit 22e10f0c4331133fa82b4c7fdbe49fa77a31162e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:49:27 2020 +0100
+
+    Delete README.md
+
+commit 76a27a59f444439330891f67dd1e63de05ac34f9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:48:33 2020 +0100
+
+    Rename tutorial/exp/installation/_config.yml to tutorial/installation/_config.yml
+
+commit c9b08fe8bb8df04cafdf1a5dde7fb364b0febc2c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:48:03 2020 +0100
+
+    Rename tutorial/exp/installation/README.md to tutorial/installation/README.md
+
+commit a78eab5158badfd4e7d40e9312a53e1b436a5d2c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:47:33 2020 +0100
+
+    Rename tutorial/exp/basic1/_config.yml to tutorial/basic1/_config.yml
+
+commit 0df583a2490c9b1bb68902a6c56316fcb59c0132
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:47:03 2020 +0100
+
+    Rename tutorial/exp/basic1/README.md to tutorial/basic1/README.md
+
+commit 673e73eb2db90ab1958ba67926c81212abc3b30e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:46:35 2020 +0100
+
+    Delete _config.yml
+
+commit 9765ac0e4803f3051c418f2c3ad8641a702edf02
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:46:26 2020 +0100
+
+    Delete README.md
+
+commit 1a0f1eac50264b5627755888cd4ceee9f3e6b45c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:46:09 2020 +0100
+
+    Create README.md
+
+commit 503de01bf35191acdf027bd60c981f57148ac7da
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:42:34 2020 +0100
+
+    Update README.md
+
+commit 59715906f35e3044b496b566a93342b6357063d8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:32:47 2020 +0100
+
+    Create _config.yml
+
+commit f84057e250261350fb181e469b6cd23e3f3e57be
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:30:36 2020 +0100
+
+    Update README.md
+
+commit e9aa83899fb05618261a9e10b9054b0e4dd9a535
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:26:08 2020 +0100
+
+    Update README.md
+
+commit 0cd93462bbedc87921dbe177cf9f9819f853c6fc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:25:38 2020 +0100
+
+    Update README.md
+
+commit e3199106baddeac10f20d2df6333549b9921b5b5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 22:18:03 2020 +0100
+
+    Update README.md
+
+commit 29bc03efc321ff96d156e4af93b6bee579868a01
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:44:05 2020 +0100
+
+    Update README.md
+
+commit a7e20623a4e84c07806338153af0967ddc793555
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:43:44 2020 +0100
+
+    Update README.md
+
+commit 8c8f9a3b46fd42f83afdfbcbda4acf6ac61e6be9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:43:14 2020 +0100
+
+    Update README.md
+
+commit 9cff5d46e3385f5285c32b0b149ceaa7f643e250
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:42:55 2020 +0100
+
+    Update README.md
+
+commit bb9b014628848bc536abc8dd2818ab5c654d8045
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:42:14 2020 +0100
+
+    Update README.md
+
+commit 206abc39d91f06aca4a422d659eba81376f66796
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:41:43 2020 +0100
+
+    Update README.md
+
+commit 419d05728ccb336c7d59e0a3b00ac971a29d8f75
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:41:13 2020 +0100
+
+    Update README.md
+
+commit a0eae6b30e3159bb9a365568d111fe0d19269a07
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:39:39 2020 +0100
+
+    Create _config.yml
+
+commit ac64afe2cbbd4767b979ead0c5129ea62fe2dcdc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 21:25:39 2020 +0100
+
+    Update README.md
+
+commit 1f84e8dd681fbaec5de007fe6ad08b4719ad24cd
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 13:48:52 2020 +0100
+
+    Update installer.txt
+
+commit f6c68027f04bc06c7369ddc8144e834e26cd95de
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 13:41:26 2020 +0100
+
+    Create _config.yml
+
+commit 83b12912045ea7918c9ac7a9a50afb967e952a46
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Feb 7 13:40:59 2020 +0100
+
+    Create _config.yml
+
+commit f1f9833b7f06d2c86b0a9d30540e03ea4538b975
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 23:02:10 2020 +0100
+
+    Create README.md
+
+commit fe1420538a99d8df5d02f7d991e7485c611f8685
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:47:16 2020 +0100
+
+    Update README.md
+
+commit 8def3514aa493f27ac311cceaab91200c0c57032
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:46:35 2020 +0100
+
+    Update README.md
+
+commit ff47e04a7500872428e4d4d29a54f9db79e08e12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:44:12 2020 +0100
+
+    Create _config.yml
+
+commit 9fe9ec901bd10a8ec050072e8a83f57d55e879ce
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:43:19 2020 +0100
+
+    Update README.md
+
+commit 3936c9bd4664569f5e6a9a2f640ab547ec5ccb54
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:42:51 2020 +0100
+
+    Create README.md
+
+commit 43600fb967dde1cb59e1c9c6c3fbf7356309e40c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:42:23 2020 +0100
+
+    Create README.md
+
+commit 8b84c9a03eacb36da1e2b1ad191c63795c834c06
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:41:13 2020 +0100
+
+    Update README.md
+
+commit 261cdcd308429c85a08a8eadc636b27278520de0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:39:29 2020 +0100
+
+    Update README.md
+
+commit 892c2235671f48c5429455d6b7b0e15fd2e9a1a4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 22:34:21 2020 +0100
+
+    Update README.md
+
+commit 177e058cfa4d8a308dbb937cd48310dbaec365ab
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 21:10:53 2020 +0100
+
+    Create README.md
+
+commit dcadaea55c40caa41fa983bc1c821d08fb03ce23
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 21:09:57 2020 +0100
+
+    Update README.md
+
+commit 69cd5bc2deab63d2016081b81ce013b319c55244
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 17:43:43 2020 +0100
+
+    Update README.md
+
+commit 46d48c5eb5a8ce75e53d0d293802d531a0a614bc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 17:12:52 2020 +0100
+
+    Update requirements.txt
+
+commit e87a5d1c5e1af1d8e8f6650604c774e18b00d73c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Feb 6 17:11:00 2020 +0100
+
+    Update requirements.txt
+
+commit 2209ed092ae190f1d367fbf0227fcd6e5510b5da
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 5 20:23:17 2020 +0100
+
+    Update README.md
+
+commit 33653842d6394f8128f5a593d452bc3e692b7d49
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 5 16:59:46 2020 +0100
+
+    Update README.md
+
+commit 9416213acf4f254b6ee6cf55009b94d60878726e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Feb 5 16:59:21 2020 +0100
+
+    Update README.md
+
+commit 8fbf1510e7e19dcab8dc780b1136b4f050182c12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 2 02:13:39 2020 +0100
+
+    Improvement
+    
+    Updated installer.
+
+commit 888c28e9fa396b900d4573f9aed141b39cea866e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 2 02:07:25 2020 +0100
+
+    Improvement
+    
+    Updated Installer.
+
+commit 1c29728887fe348a9ece49c55770812ae0caeb2a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 2 01:53:19 2020 +0100
+
+    Improvement
+    
+    Updated installation system.
+
+commit 6a05eaecb859d27bd5383141ed9bb90d28dffe42
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 2 01:50:21 2020 +0100
+
+    Update README.md
+
+commit 84e9be3174ce8d547248350b89a633db83572b25
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Feb 2 01:48:38 2020 +0100
+
+    Improvement
+    
+    Updated installation system.
+
+commit 7015b29a5d8d8979dbb74aae11302c061176638d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:50:27 2020 +0100
+
+    Update installer.txt
+
+commit 566e8103022a98ff12b888af4e876b331f93f46e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:49:39 2020 +0100
+
+    Update installer.txt
+
+commit 41cc4906dfda760b2808756b24c987b4cb95c140
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:45:15 2020 +0100
+
+    Update README.md
+
+commit 1bc22cfcdf8fa25f5ec242318181b7b013cce16c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:44:39 2020 +0100
+
+    Update README.md
+
+commit 4682c6342ed303ffb3147411aa2ac2d0e1fcd003
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:40:50 2020 +0100
+
+    Update raven-storm-documentation-2.7.md
+
+commit c1dd5a657ec30e72252d00098739aac5c368dac5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:39:17 2020 +0100
+
+    Update installer.txt
+
+commit 4be98b2440722afe3511e94d6f9648fdee226329
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:38:14 2020 +0100
+
+    Update README.md
+
+commit a6355911461851fc800a3ce9f76d3f6482077f08
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:35:56 2020 +0100
+
+    Update README.md
+
+commit 9c13ace906000ac30530142c3d68683518dac3c9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:32:13 2020 +0100
+
+    Create installer.txt
+
+commit 6d04bba5b397d74e330fc4664140e5d0b61ec552
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:13:08 2020 +0100
+
+    Update README.md
+
+commit 8175a104fb31bdf43691dd63daf9627de641e06c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:10:51 2020 +0100
+
+    Update README.md
+
+commit b65584ff25aa932eee9fb59d6008d795eda204d9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:09:59 2020 +0100
+
+    Update README.md
+
+commit 1dff2508f71533f6aea2fa307e4d861ac8de741a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 23:08:57 2020 +0100
+
+    Update README.md
+
+commit f893c5e0f5335b621825a3a5f1ee8f31825ba14d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 22:56:44 2020 +0100
+
+    Update README.md
+
+commit 9e1164f121fc801ef8d76552db23218fdee43688
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 31 22:56:21 2020 +0100
+
+    Update raven-storm-documentation-2.7.md
+
+commit 540a83ecf3885b923e2908488233c6cea7c99264
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jan 30 17:22:26 2020 +0100
+
+    Update README.md
+
+commit fa6551c66ba7368f534d47fb8aa25968e520cf53
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jan 30 17:22:05 2020 +0100
+
+    Update raven-storm-documentation-2.7.md
+
+commit 11bb0b99046a4f7846332f8e7ebe9d1c5b3c0064
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jan 30 17:15:42 2020 +0100
+
+    Update README.md
+
+commit dc6611f61f48a8653cfdf6fdafb528c31659b621
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jan 12 11:00:16 2020 +0100
+
+    Update README.md
+
+commit a0ec7c97a0397e9a1ebc2d96cf6beacd80469f0e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Dec 26 20:55:30 2019 +0100
+
+    Update README.md
+
+commit e152e77cf67ebd9e19f6e4092f94a07bd7af0c6a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 24 16:20:47 2019 +0100
+
+    Update README.md
+
+commit 91d2a9c88c6525030d6091bf95331030ce7a69d9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 23:04:47 2019 +0100
+
+    Update README.md
+
+commit 673eade2c12d58b86e5f0faeb40c4363df6d4a5f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 21:25:13 2019 +0100
+
+    Update bird.txt
+
+commit 42a4489e5d5111fb0c3e9e37bafd5142c99ef654
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 21:24:11 2019 +0100
+
+    Update README.md
+
+commit 07ed5bb32bac718034adaf1fcb60c6b5c6b0af24
+Merge: 9337ff2 1a5f430
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 21:23:24 2019 +0100
+
+    2.8
+    
+    Happy new year
+
+commit 1a5f430b39b142d7fa77a3fcb51520ff5e731b40
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 21:22:42 2019 +0100
+
+    Add files via upload
+
+commit f412a667a9fa4b2274186a02684077a60819e42e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 20:00:33 2019 +0100
+
+    Update raven-storm-documentation-2.7.md
+
+commit d3467746328bad1a82950870ea6c48d0749221bb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 19:59:58 2019 +0100
+
+    Update README.md
+
+commit 27d11b0150f813f7734b651f7573e71336a8d751
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Dec 23 19:41:48 2019 +0100
+
+    Delete rs.pyo
+
+commit 9337ff21b5426f322c39700fecf6ddbf9d1cce6d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:18:53 2019 +0100
+
+    Update README.md
+
+commit 61ecf65793ef9f07d5b4ac4442c8272c8c321dc2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:18:16 2019 +0100
+
+    Update README.md
+
+commit 7ba5a5521a26ebd90facde91f5bcc0ee6e0e7567
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:16:39 2019 +0100
+
+    Update README.md
+
+commit cb6098137891befeca174e7499483885ecbafc3c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:12:29 2019 +0100
+
+    Update README.md
+
+commit 15b1c9650d0e2466e61856ef4154992adee55f21
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:09:32 2019 +0100
+
+    Update README.md
+
+commit 8448e7d43d77b42e3514402aa8c0789bd18ef8ca
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:08:21 2019 +0100
+
+    Update README.md
+
+commit 5a683c80f5cdcc28f183b632e4ecb5aea55030eb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:05:02 2019 +0100
+
+    Update README.md
+
+commit af9e35f8fe21c28a953d4d491224d52a5301e153
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:02:46 2019 +0100
+
+    Update README.md
+
+commit b9a9e712764360ef677d81bf68d57e2daa8841b3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:02:23 2019 +0100
+
+    Update and rename raven-storm-documentation-2.4.md to raven-storm-documentation-2.7.md
+
+commit 502dfc9241b272df3c3507d62c40c0e5a1c9883b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 23:00:47 2019 +0100
+
+    Update README.md
+
+commit b461a3f6d27692a514abbbe18c40c5cbd5de3559
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 22:59:20 2019 +0100
+
+    Update README.md
+
+commit 0c2936c5bbdc89be6f4200b9a3dcb116eedbe6ec
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 20:51:24 2019 +0100
+
+    Add files via upload
+    
+    2.7 Alpha
+
+commit 78ed915535b0092f112e6a6738be8019205062cd
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 20:50:52 2019 +0100
+
+    Delete rs.pyo
+
+commit db31cb2a1c8b528c2a033bdfc0884d7d6405d64f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 20:50:38 2019 +0100
+
+    Update bird.txt
+
+commit f81e5564d23222eb7f6d2966b56bd31b32f4c722
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 20:50:09 2019 +0100
+
+    Update README.md
+
+commit f8f02e61ef0dde3d4d7be0c12294c5ec4f7cd089
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 20:49:26 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit fe3c5a10256e3b4c02fd936d6a643904f4d41d89
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Dec 17 20:48:47 2019 +0100
+
+    Update README.md
+
+commit 935fcbd991e533cb870d867922ebbd1f5a5051f4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 21 17:19:20 2019 +0100
+
+    Update README.md
+
+commit 584152a3590473d30857650a8468bcf93b1cfdb5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 17 14:51:22 2019 +0100
+
+    Update README.md
+
+commit 5f67497fabdf8f09908ff502efd044f60038d6b0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 17 14:28:16 2019 +0100
+
+    Update README.md
+
+commit 8c6b9dbbcc7fce715521ee175e0499cf1ab5dd5d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 17 12:34:19 2019 +0100
+
+    Update README.md
+
+commit 71db99c4bd4f5e4083e9060d3ac843cdaecdd75d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 17 04:04:59 2019 +0100
+
+    Update README.md
+
+commit dc10602f84a9121077548df19637d5e187e596c0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 17 04:03:45 2019 +0100
+
+    Update README.md
+
+commit e000a93956739237d0882ac2aabfb0ae429965e6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 17 03:46:22 2019 +0100
+
+    Update README.md
+
+commit 2518b1a94d3b1eb8250ff81a89ca3e980ea4527c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 17 03:45:55 2019 +0100
+
+    Update README.md
+
+commit deae2302eeaf77cb2638dd617f897e0e41bcf599
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 15 14:34:46 2019 +0100
+
+    Update README.md
+
+commit 4a08e986336ade8f67147fb028aef7970c048b13
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 19:44:59 2019 +0100
+
+    Update README.md
+
+commit a4bddaf98e095858856b2d5cee29ff3c00ab4a7d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 18:38:18 2019 +0100
+
+    Update README.md
+
+commit 1bdf8bf4b5450bef653a39d65291d26b792fd4b6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 18:36:09 2019 +0100
+
+    Delete kali.yml
+
+commit dcb454c40fa6c02310150eb5afc01ac407d3dd38
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 18:31:18 2019 +0100
+
+    Create kali.yml
+
+commit d3d4fb591ef4ff5d493f5d162180bbdb24d6dd60
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 18:28:34 2019 +0100
+
+    Delete pythonpackage.yml
+
+commit dbfcb46a6cfbd9abcb0fcaf6bc907634f1d8100c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 18:27:09 2019 +0100
+
+    Update pythonpackage.yml
+
+commit cd531861615d92e7c9e2ad6bd49fd490b1b63c0b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 18:25:27 2019 +0100
+
+    Create pythonpackage.yml
+
+commit 24aa231eedcb1154461a191c6acc13421ba572c1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 15:36:33 2019 +0100
+
+    Add files via upload
+
+commit 51b49da6f36e5a50ba1911530f442b0e41f69e33
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 15:36:13 2019 +0100
+
+    Delete rs.pyo
+
+commit 1a3d9d31d6f7140ac01343bad5f9d98176a361d4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 00:17:04 2019 +0100
+
+    Add files via upload
+
+commit f24feba1cb3dddc9f21b54112719ae017803bb5a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Nov 14 00:16:38 2019 +0100
+
+    Delete rs.pyo
+
+commit 36ad3c90cad8cd30ab18888548a82ccefae1fc2a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 21:40:27 2019 +0100
+
+    Pod kali bug fixed.
+    
+    This should work properly.
+
+commit c866292c12759cf260d3a91f0992ff9c91e584ac
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 21:20:29 2019 +0100
+
+    Delete rs.pyo
+
+commit 8dc60998dfae02794132c9afc4c7c65a0bdff03d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 20:22:31 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit 04dc5e86511fb479e59a30cd91a85f10a37407d7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 20:21:56 2019 +0100
+
+    Update README.md
+
+commit 69bc1722d75b3a8af74929da6ea26431a6945d15
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 20:19:52 2019 +0100
+
+    Update README.md
+
+commit 059f42d19db1d89751fd992e30ac64118c9b054a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 13:29:44 2019 +0100
+
+    Update README.md
+
+commit 267834b0be5e32e2e9b00522b945751069f95907
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 13:28:41 2019 +0100
+
+    Update README.md
+
+commit a4db619acbf0d9cf7a3fb36980fb8f8c69518dcb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 13 07:41:50 2019 +0100
+
+    Update README.md
+
+commit 31b6bcc1025f12c78f41efa2424b9fe036d16a1c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 23:07:01 2019 +0100
+
+    Update CONTRIBUTING.md
+
+commit 588a2515ec2710f5df55cf2164dee09c6cff3bf0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 23:03:19 2019 +0100
+
+    Delete olddos.pyc
+
+commit 4832267d3145626de46619291febde1bd914897a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 23:02:52 2019 +0100
+
+    Update README.md
+
+commit 517b1f3d536dbba49eba9d1b57cb77a7184bfb68
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:19:15 2019 +0100
+
+    Update README.md
+
+commit 868958fb974018e3ecfb16a390b44f3b6aa5f31e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:18:48 2019 +0100
+
+    Update README.md
+
+commit a00f1d8297d7bf1e7b2e41bec2c73de0769bcbd7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:18:07 2019 +0100
+
+    Update README.md
+
+commit 41b67fbe03842657aa124c23db3ef4aca9e6c7ac
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:17:20 2019 +0100
+
+    Update README.md
+
+commit 437fce3792170ed74cf28b25a8f1a071c6274047
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:14:13 2019 +0100
+
+    Update README.md
+
+commit 78cfe5fcdddad26eda4a53c1b110cf387c5fcddc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:13:37 2019 +0100
+
+    Update README.md
+
+commit 65d46eb0b8a99abd7f2018f4353e117f3fb1cab4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:12:59 2019 +0100
+
+    Update README.md
+
+commit 6a59b7bab2e3a33580b7b4bde21bb4305a03ce9a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 19:04:21 2019 +0100
+
+    Update README.md
+
+commit 6ec093c1c3ec9c7f3f8b59c086ada24bbb8a758a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 18:42:36 2019 +0100
+
+    Update README.md
+
+commit 5efb58acdfd56e557a6fcbeed5765e3ca652b8de
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 14:44:24 2019 +0100
+
+    Update README.md
+
+commit b0ca5cec891b2a49c93fc65ed21808baff63cb7c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 14:35:21 2019 +0100
+
+    Update README.md
+
+commit 6f8744d5d7e622fe3b921a2e5c4753ac5154124d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 14:29:11 2019 +0100
+
+    Add files via upload
+
+commit 5fa6720532f0fe8b4823e3f6320c8afdd8eda1b6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 14:25:04 2019 +0100
+
+    Delete rs.pyo
+
+commit f9021a21de4cdb07ee6b10a820af4b4189371582
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 12 13:38:29 2019 +0100
+
+    Update README.md
+
+commit b40b042484932aa5010e721f06168eb43556b385
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 11 22:04:21 2019 +0100
+
+    Add files via upload
+
+commit d1b6a22401c3002374d3e408c6e217d5e133bb66
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 11 22:04:03 2019 +0100
+
+    Delete rs.pyo
+
+commit b043fb78bc63307e722cecc9ed55a992205a0852
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 11 13:24:32 2019 +0100
+
+    Update README.md
+
+commit 8dab613416681b6529ed49585524d732b2a00500
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 21:14:04 2019 +0100
+
+    Update other-requirements.txt
+
+commit 9110be4c685afcc1608438cf099447b9a02af286
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 21:04:34 2019 +0100
+
+    Add files via upload
+
+commit ca2cfd265edc2e3978e580b2a620168aa3af01a3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 21:04:18 2019 +0100
+
+    Delete rs.pyo
+
+commit 8442c93e1bfacba20555c82704ab811df6060f7d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 21:01:33 2019 +0100
+
+    Add files via upload
+
+commit c5fc7f1824aac193fee7f56d4107893024e43f99
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 21:01:18 2019 +0100
+
+    Delete rs.pyo
+
+commit 46019329b8ce1ecaf9673a8917473b4bbbbeaf31
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 18:10:04 2019 +0100
+
+    Update README.md
+
+commit 155bc9abf4e57d49c731fc156bae2a2e277c07c0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 18:09:45 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit 3ccb144e5aab274564448021fe208f0e7f0a0c83
+Merge: 6d4f986 efcc428
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 17:53:40 2019 +0100
+
+    Merge pull request #15 from Taguar258/Update2.6
+    
+    Update2.6
+
+commit efcc428fd043cca50245c501f9a0fc7d5951db12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 17:53:09 2019 +0100
+
+    Add files via upload
+
+commit 9eddb7705bc85e245d78a37579d7aef560d8f5b8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 17:52:39 2019 +0100
+
+    Delete rs.pyo
+
+commit d8cdc063403694286199df0a0c8d495feebd58c7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:59:52 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit 49a6cdac079b419377abc2ee0b5c5a89155ffdfe
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:57:14 2019 +0100
+
+    Update README.md
+
+commit f8afb70495ff76ed6bab83b4a77f524043f11541
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:56:08 2019 +0100
+
+    Update bird.txt
+
+commit 61fa99f479cf83ea9c22ee44170a3dfe1c59896d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:55:52 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit bbb7649e18a9829b43cd49653ee4a51c76ba17e7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:42:54 2019 +0100
+
+    Update requirements.txt
+
+commit c49ac657ff3d875d583f89f8fbd92bc50909ee03
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:42:38 2019 +0100
+
+    Create other-requirements.txt
+
+commit bb8129c70738cc932058a90c3738caf488ec28dd
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:40:53 2019 +0100
+
+    Update requirements.txt
+
+commit 57d11284cc6f43dc75e95f4df309df8a150c4c51
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 10 16:39:18 2019 +0100
+
+    Update README.md
+
+commit 6d4f9861d77efd390028e1dfde1c66794b0f72b3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 9 20:26:56 2019 +0100
+
+    Update README.md
+
+commit 9c257767729accfe48d7095ac6493d5eba139b81
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 9 19:33:33 2019 +0100
+
+    Update README.md
+
+commit 7560c9790252275d966aebe5a7bcde833e00974a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 9 17:00:26 2019 +0100
+
+    Update README.md
+
+commit 6ac132ca2eb2a0a5f9729fbd8eee346f342a57ee
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 8 00:15:45 2019 +0100
+
+    Update README.md
+
+commit d363d351d8c432907a962539fdc97be3c673490e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 6 20:17:58 2019 +0100
+
+    Update README.md
+
+commit 472bf0ee7675e3cb51fcd5a398eeb8f981173657
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 6 16:36:52 2019 +0100
+
+    Update README.md
+
+commit a31cd6ca2ca88044dc8f882b81c7159f6d440961
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 6 16:36:31 2019 +0100
+
+    Update README.md
+
+commit f4d494eb83c914e594c9458f138a56fae724d17e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Nov 6 13:02:21 2019 +0100
+
+    Update README.md
+
+commit 3440eda02c0e96866c2e3ad6d1cf5d6f4693f762
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 5 19:49:45 2019 +0100
+
+    Update README.md
+
+commit 6d01dc9892b3510d4455d5d9048164c3af48939e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 5 19:26:06 2019 +0100
+
+    Update README.md
+
+commit 72a986bca70d0a1e622acbcbf7c54e817ada3024
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Nov 5 19:23:28 2019 +0100
+
+    Update README.md
+
+commit 5e97a9d4dda24a7813a42578e6aa8f4096638ca5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 4 18:26:29 2019 +0100
+
+    Delete sitemap.xml
+
+commit b7bd077f3b51cdde0c2af89ece496d7289697855
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 4 18:26:13 2019 +0100
+
+    Delete robots.txt
+
+commit 74f94af61f142325ccc21cef131571dc1787ad29
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 4 18:26:02 2019 +0100
+
+    Delete googled6871768d80843fe.html
+
+commit 00f0386dd55cc847248b832126ebbf5bea4c9049
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 4 06:55:15 2019 +0100
+
+    Update README.md
+
+commit 466a000ef744771bd2c2eb74ebd0726d9d2a9804
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Nov 4 06:52:27 2019 +0100
+
+    Update issue templates
+
+commit bdaca3693c6f295576975281e6e36d154e7674c2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 3 20:18:34 2019 +0100
+
+    Add files via upload
+
+commit 3c2ad00aebaadc041093d408d636a2644c393bff
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 3 20:17:39 2019 +0100
+
+    Delete rs.pyo
+
+commit 117e286b95ca6e26f5aafef9dc0ffbadb690bf52
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 3 12:35:11 2019 +0100
+
+    Update README.md
+
+commit 049702fa4a877d9836d310473c01ecf40aabb80c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 3 01:14:15 2019 +0100
+
+    Update robots.txt
+
+commit be3f2b4bed5f4e70abd42979c9d9fd8cc9d63760
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Nov 3 01:12:44 2019 +0100
+
+    Create robots.txt
+
+commit dfc5450203b2dd0c9019695057f179b5387ead40
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 14:41:39 2019 +0100
+
+    Add files via upload
+
+commit d2ad2d40b6085ce24dc764c66ff86fedb148c076
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 14:39:39 2019 +0100
+
+    Delete sitemap.txt
+
+commit 43fe769b83e54d658601528f662f1c24f0677b22
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 14:38:54 2019 +0100
+
+    Rename .github/sitemap.txt to documentation/sitemap.txt
+
+commit 09ddadedba0c53e7d110d87623a411237dad5a10
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 14:38:23 2019 +0100
+
+    Create sitemap.txt
+
+commit bf27eff823146d5ef01e454ff6b862f4092aae64
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 13:36:14 2019 +0100
+
+    Add files via upload
+
+commit 31728936983d2f9eae947ae3707053a3286cb4ff
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 00:08:03 2019 +0100
+
+    Update pull_request_template.md
+
+commit b76e8ac7c4165e54c2e49868e1eb389fcc71e638
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 00:07:45 2019 +0100
+
+    Create pull_request_template.md
+
+commit d254512c897610cef8cc7b17564e284e17e60e65
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 00:04:36 2019 +0100
+
+    Update README.md
+
+commit cbcfe37d390a4133a5da31dacc4eaf060c25abc3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 00:04:06 2019 +0100
+
+    Update README.md
+
+commit efe7f5d04904879351062f6b94c29caf5b2dd8cf
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 00:02:23 2019 +0100
+
+    Update README.md
+
+commit 520180fade312132c06cf3fd794b7d441f44c19b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Nov 2 00:00:12 2019 +0100
+
+    Update README.md
+
+commit 130dcfece466fcfb3a5e44bf10ad5c1d0b375f08
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:58:48 2019 +0100
+
+    Update README.md
+
+commit 425253e25a6da91862d1a3760cb81e0758c2439b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:56:44 2019 +0100
+
+    Update README.md
+
+commit 06bf211d6673cabbd6088ab204ec17aefd250b1b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:54:29 2019 +0100
+
+    Update README.md
+
+commit 707db51ef695158cbc8b8b1c4a458cf3c123ec11
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:54:14 2019 +0100
+
+    Update README.md
+
+commit 4cc20be3dac0eb4a8372a73df2947fd0e02ab2dd
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:53:41 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit 8a1e7b96ab1f4b579c8b00a942ea83bcbed5c473
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:53:13 2019 +0100
+
+    Update README.md
+
+commit 275e632b070dbc787d7a56bb3b0b3e8d5f06e212
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:52:43 2019 +0100
+
+    Update README.md
+
+commit 9e5e39481fdd5d2280493cda36244b7a4083af1e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:52:16 2019 +0100
+
+    Update README.md
+
+commit e1672c0099cef8fc79ae4ff9771c9255bd22ab8e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:50:37 2019 +0100
+
+    Create README.md
+
+commit 43c663ecc900fa8acae596bd79abf312b388a6d3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 23:48:14 2019 +0100
+
+    Create config.yml
+
+commit 99dc9b7615b637ff879e7a03b8d997a394cb8a7a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 20:04:42 2019 +0100
+
+    Add files via upload
+
+commit 04146b0edd669b6a17d0294586e879d823ccb66c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 20:04:28 2019 +0100
+
+    Delete rs.pyo
+
+commit c7038e83b5d2815ebc1647b250bb02e6c00bdc55
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Nov 1 18:53:18 2019 +0100
+
+    Update README.md
+
+commit 4b910f8d070d71d8e33fce49b20719400e7c802c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 21:41:46 2019 +0100
+
+    Update bug_report.md
+
+commit 0024fb19b2a0d4e50c7d0a38f5ab3427a8fef8e7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 18:18:01 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit 6f1d1a08f9230e4b1f8d0a6ffb5ad33c8e1cee99
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:58:41 2019 +0100
+
+    Update README.md
+
+commit 90890fd796236a036ae3b41bf0e50d00e23df242
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:56:18 2019 +0100
+
+    Update raven-storm-documentation-2.4.md
+
+commit 394ef39f85108f0c2516c0c02048caeb5cd55483
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:54:59 2019 +0100
+
+    Update README.md
+
+commit 63b2f41bf6da7edfbeb2abd97e844f16c2ed417f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:51:40 2019 +0100
+
+    Update README.md
+
+commit eeaf4984f0be73ff47c41e8ef4b29601a532f112
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:50:06 2019 +0100
+
+    Update README.md
+
+commit 8a0b71267ff78367d389e3470444a7a4996bd498
+Merge: 56472cf 80e0907
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:49:01 2019 +0100
+
+    Merge pull request #10 from Taguar258/Newupdatesoon2.4
+    
+    Beta
+
+commit 80e090731cbea6015e73cbd6ed6f673a597be13f
+Merge: 2e6c825 56472cf
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:48:44 2019 +0100
+
+    Merge branch 'master' into Newupdatesoon2.4
+
+commit 2e6c82581ec2efc7ea6d6473064cdad6a66a06c2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:46:51 2019 +0100
+
+    Add files via upload
+
+commit c86a09c9c2bd737646039f340c8b7b110cb82936
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:46:17 2019 +0100
+
+    Update README.md
+
+commit 81dcafb70fc45231682af8666a8eec01dd6e296d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:44:58 2019 +0100
+
+    Add files via upload
+
+commit 3a8fde011cf949623ed716c73b53ef576ab565d0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:44:36 2019 +0100
+
+    Update README.md
+
+commit 12f612637da4d4e6431b7400a7e335209f9c6352
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:43:46 2019 +0100
+
+    Update README.md
+
+commit fd42a21183f0727bb786608b893aea37fc9d12d4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:38:45 2019 +0100
+
+    Delete dos.pyo
+
+commit f453dadb03fb43b817b7f7f5ac35c0073980a1b1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:38:35 2019 +0100
+
+    Delete dos-stable.pyc
+
+commit 8fba2d9677a4c12d999ab3a414dfc68a8c3cbe38
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:37:23 2019 +0100
+
+    Delete INSTALLATION.md
+
+commit b2bcb386fdf9da4b8515c0b6cc3d6dd016af32a3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:36:57 2019 +0100
+
+    Delete update.sh
+
+commit 83316cebaccff399c5cdca7379cda4897868025a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 15:36:35 2019 +0100
+
+    Delete thanksto.md
+
+commit 56472cfa30b758d3aba81660a73657a9f256fa67
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Oct 31 10:53:46 2019 +0100
+
+    Update README.md
+
+commit 2bbfe970cd0788fbd017ad6fc1402c0022750c90
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Oct 20 22:34:51 2019 +0200
+
+    Delete n
+
+commit a2f0ce05f932b3e92f04d31adf36b63de99b9a64
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Oct 20 22:34:33 2019 +0200
+
+    Update and rename bird.txt to documentation/bird.txt
+
+commit 830c9bd6b853bf36075cd1da8450b0cdf8d6547c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Oct 20 22:33:49 2019 +0200
+
+    Create n
+
+commit b965008fc556be6a37a555bcf559420dfbc79259
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Oct 20 22:33:00 2019 +0200
+
+    Rename other-redis.conf to redis-conf/linux/other-redis.conf
+
+commit c9f172df2b211cf427987a350a7f180b102dfe6c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Oct 20 22:31:26 2019 +0200
+
+    Rename mac-redis.conf to redis-conf/mac/mac-redis.conf
+
+commit 631886d596295939e876ef732e279e9ba3f9b992
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Oct 20 22:29:29 2019 +0200
+
+    Delete update-soon.md
+
+commit 001eec690c8ed90a6c7184de13b0c9f46e67a6e2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 29 01:03:26 2019 +0200
+
+    Update README.md
+
+commit 022b620023c14b709b026d53866aa0a35ac2393b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 26 13:36:21 2019 +0200
+
+    Create update-soon.md
+
+commit 14ed65db9227f867e2d439221f3be01515ed02d8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 26 13:31:41 2019 +0200
+
+    Update README.md
+
+commit f88bc0d02d91db00b5c4da4815b028122eba6794
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 26 13:28:28 2019 +0200
+
+    Update README.md
+
+commit c43099e46acef6459d62f9a4a0e86c8428dab82d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 25 20:10:26 2019 +0200
+
+    Update README.md
+
+commit 78f4e55c4361274b546e0f39963c530250715d8c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 25 20:08:04 2019 +0200
+
+    Update README.md
+
+commit 1ad77dc2f5e7c648528b6c7d34ba7750ce47666b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 25 13:28:52 2019 +0200
+
+    Update README.md
+
+commit 3d109f24b19a4a1bf5f00c0e8ceada352521ec42
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Sep 24 20:08:17 2019 +0200
+
+    Update README.md
+
+commit 34cd6fd746e2b4ff72795d57cd5a59b4b4dce530
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 22 11:27:21 2019 +0200
+
+    Update README.md
+
+commit b6ba7942a0d7ac665c3e790fe0e424f18a0a1e1d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 4 21:16:57 2019 +0200
+
+    Update requirements.txt
+
+commit 2acedce7646cf39d22e56bc7543064ad17e46526
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Sep 4 21:16:35 2019 +0200
+
+    Update README.md
+
+commit 9d99195ab95551f09c6ed2e6be8ee48817573c3e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Aug 28 10:25:39 2019 +0200
+
+    Update README.md
+
+commit 16dc2d25ee9006147f64189c844a2551f195b7e3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Aug 28 10:19:01 2019 +0200
+
+    Update README.md
+
+commit 5e60e2c2e6d8c0fb512c51710129a6275df7d5a5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 19:43:22 2019 +0200
+
+    Update INSTALLATION.md
+
+commit cf63a4d5b80d86f886288b845eb3146a1028a4e3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 19:20:24 2019 +0200
+
+    Create requirements.txt
+
+commit 6bc77a64a80d9d902a04455b438f656fc4f20003
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 19:19:51 2019 +0200
+
+    Update README.md
+
+commit 693c12bd3e5fb817bbfa7ca4ae61bcebb4d2260f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 19:08:59 2019 +0200
+
+    Add files via upload
+
+commit 08c245f8e2ccc922483884d2a66c394799901e85
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 19:08:39 2019 +0200
+
+    Delete dos.pyo
+
+commit 61570042bb553b967127e88cd3f3262735e997ec
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 09:01:16 2019 +0200
+
+    Update README.md
+
+commit adbe47ea910ac820190c6af6346073885735cf9b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 08:15:30 2019 +0200
+
+    Update README.md
+
+commit 3d97b9712411758ed436e7dbfdd30038b02a1576
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 08:14:01 2019 +0200
+
+    Update README.md
+
+commit 7f9a8bb0aa20e86a64d5ae81e2054289ef853254
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 08:09:08 2019 +0200
+
+    Update README.md
+
+commit 72814019eaf219e881fcd8e3db32f8c75c2adeec
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:59:40 2019 +0200
+
+    Update README.md
+
+commit 09dc818f3743ada931634dc56d0f96965455d089
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:59:06 2019 +0200
+
+    Update bird.txt
+
+commit b63741fc2827f89e52520f74f1d63bc9c9feb626
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:58:42 2019 +0200
+
+    Delete fastcli.sh
+
+commit 63553d32f5cb69622324aa251a860ab438116010
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:57:25 2019 +0200
+
+    Update fastcli.sh
+
+commit 060fb55396a3925088226d3e2341976a86167108
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:05:03 2019 +0200
+
+    Update README.md
+
+commit 7d572067861443a12a5a56b6fdb088b2e236d44d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:03:14 2019 +0200
+
+    Update update.sh
+
+commit d574d86d02820bb7e426700223f76e12b9dc6dd9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:02:36 2019 +0200
+
+    Update README.md
+
+commit 8688765d07cc24265d78986f902332e9ef3e1232
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 01:01:28 2019 +0200
+
+    Create fastcli.sh
+
+commit b4495ed5e9849bcfd964b4a30d40b293cad59322
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 00:59:46 2019 +0200
+
+    Update README.md
+
+commit 0a4345a6a8f6b2ba4cbfb8b724a7df1f5468207b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 00:58:13 2019 +0200
+
+    Add files via upload
+
+commit eb19973a146e807c44be617371a39e64b5f7cd97
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 00:55:49 2019 +0200
+
+    Update README.md
+
+commit 966e0efc7a0d006880a2639e23848475fe90ee41
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 00:47:06 2019 +0200
+
+    Add files via upload
+
+commit a2dc7a8e5c28ae0220de7bf1bea806fe4ebbeef3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Aug 27 00:46:20 2019 +0200
+
+    Delete dos.pyc
+
+commit cbf20c6ba707886ce7c62dd2f721c5bea27a819b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 26 20:29:28 2019 +0200
+
+    Update README.md
+
+commit ef4760e5de8007080bffb3496c5e88eb8ad55990
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 26 19:12:25 2019 +0200
+
+    Update README.md
+
+commit 7495a926022d5ae0e1707a5010c308514aab06b8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 26 18:58:39 2019 +0200
+
+    Update README.md
+
+commit ba48fa10756683fbcb7ccb8e9de7867200e36947
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 26 16:13:50 2019 +0200
+
+    Update README.md
+
+commit 4159ca484b215623dbb0dbeff1395b02375e0fb7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 26 16:09:41 2019 +0200
+
+    Update thanksto.md
+
+commit 3971fefab1d18039115bda7b39796ed00071ec06
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 26 16:06:21 2019 +0200
+
+    Update README.md
+
+commit 2c74bdc7ca4efb286d4b0de4372acebcfe0f4ddb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Aug 23 02:09:24 2019 +0200
+
+    Update README.md
+
+commit 773fb19648eccbd733804d35f2818dedcc65ef76
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Aug 22 16:57:58 2019 +0200
+
+    Update README.md
+
+commit 7232e77b72b971111b93130f94924e4ff8bc25f7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 19 17:00:41 2019 +0200
+
+    Create .gitattributes
+
+commit 90f4ac1afab7013c61aeac8d0883b825ada6a08d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 19 16:53:54 2019 +0200
+
+    Set theme jekyll-theme-hacker
+
+commit 44852b69b32980be4479d2a3fb58508f81d2daab
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 19 16:52:01 2019 +0200
+
+    Set theme jekyll-theme-minimal
+
+commit e98a6def894b132b087e71159d0c6a22e88c3483
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Aug 15 18:31:41 2019 +0200
+
+    Update README.md
+
+commit 2424baecf7349ec57d25959f28e8c3517018f4f9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 22:49:45 2019 +0200
+
+    Update README.md
+
+commit afda5a68f864f642aed5011c6ccafda392fa426d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 20:29:46 2019 +0200
+
+    Update README.md
+
+commit 9d2f530b31cf2169a87ccc11134a54c17abebb55
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 20:29:09 2019 +0200
+
+    Update README.md
+
+commit 54d491a4ca6585738d229754f78263777007331a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 20:27:14 2019 +0200
+
+    Update bird.txt
+
+commit fbfd72de0bb568f2eb803b888fd3323f9a8d234a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 20:26:56 2019 +0200
+
+    Update README.md
+
+commit 2fc59636f13c08a28ac14d4e0d311fde943b08c4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 20:25:45 2019 +0200
+
+    Add files via upload
+
+commit 41d64320f9fb4608f1c4fc34ca97ab25abeb2d60
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 20:24:31 2019 +0200
+
+    Delete dos.pyc
+
+commit 69e9b28c752dde8731f9f213be5e4c4e19718f6d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jul 10 13:46:36 2019 +0200
+
+    Update README.md
+
+commit 387304c834a6aadf44db8f141ea36cfde90e0019
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 9 22:04:05 2019 +0200
+
+    Delete updatetxt.txt
+
+commit a90dd3b16b663c81c93f7bc9a79878904af2a516
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 9 22:01:49 2019 +0200
+
+    Update updatetxt.txt
+
+commit 86dfb5b73495e03103ab53d971c80d5fd4407525
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 9 22:01:23 2019 +0200
+
+    Rename test.txt to updatetxt.txt
+
+commit 01bd04f5f515fd2bf1b09f88d7fcfe9d94868472
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 9 21:58:27 2019 +0200
+
+    Update test.txt
+
+commit 01f23220fc3e71394d152f6878ff8bc2458504c3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 9 21:57:59 2019 +0200
+
+    Create test.txt
+
+commit 9b447cb35bcb241137830453873015a7b063644a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 8 00:11:31 2019 +0200
+
+    Update README.md
+
+commit 12de79c366e8d6a66c428dc1629d72d531adba35
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 8 00:10:35 2019 +0200
+
+    Update README.md
+
+commit 884cde3712f60495eee9963a8b711a5b382999a9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 8 00:09:26 2019 +0200
+
+    Update README.md
+
+commit ddb1ecf458ad371766b35cd7b418be86f56425ac
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed May 1 10:29:14 2019 +0200
+
+    Update README.md
+
+commit b82bb479cdbc5689b999cba81f1a0ba823f4c83e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 22:04:55 2019 +0200
+
+    Update README.md
+
+commit b679b67e40f472d9519b070a9e0c2ea94aefdea1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 22:04:32 2019 +0200
+
+    Update README.md
+
+commit 84ae0e313cd81a44849d6281c2297ec37d3e27f8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 22:02:19 2019 +0200
+
+    Update README.md
+
+commit da9323c4a55bdece00a93bf39b3172ce33e4a1dc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:53:05 2019 +0200
+
+    Update thanksto.md
+
+commit 321130c9d59a91f679abd98565b23afe4f9d2d8f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:52:55 2019 +0200
+
+    Update thanksto.md
+
+commit 03a9e35c9b2cf1f637579a5903119fbe9a78614c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:52:10 2019 +0200
+
+    Update INSTALLATION.md
+
+commit 854670d76aee1c04e91da9701ebab2aaf28d009b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:51:05 2019 +0200
+
+    Update feature_request.md
+
+commit d37db45333e8a8eae0970b9fa363536eafd95ca6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:50:42 2019 +0200
+
+    Update feature_request.md
+
+commit ba23679243420268a547c95345220fa38a5d30dc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:49:26 2019 +0200
+
+    Update bug_report.md
+
+commit 68771f79ba50060c9456941a528fa7152f568130
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:46:54 2019 +0200
+
+    Update README.md
+
+commit 7ffc8a1c93b9ca3e3a9b378f402f0702e54dba1f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:46:30 2019 +0200
+
+    Update README.md
+
+commit f29bea1a900dbe093dfcc19756767968fa14953a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:44:59 2019 +0200
+
+    Update README.md
+
+commit a8bac76ef2df4f6b662dbdf0a4f568e5850a8aaa
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:41:51 2019 +0200
+
+    Update README.md
+
+commit e96002e056345dbc3dc18715a1620c541529064d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:40:14 2019 +0200
+
+    Update README.md
+
+commit 628b2c254f1684cf964e39621b0c3c7b9a68d29c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:38:03 2019 +0200
+
+    Update README.md
+
+commit 4138498ed89da556a4bb0eb666025904f44a423d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:36:26 2019 +0200
+
+    Update README.md
+
+commit 48fad59fbe96e7a7aa349a6e24af6320bbbda217
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 21:33:03 2019 +0200
+
+    Update README.md
+
+commit 34ab55646f1ddccaa61240566622ec549699ddd8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 30 20:43:28 2019 +0200
+
+    Update README.md
+
+commit 88c2423193700ec405cca6d6231ef80738824e2d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:17:48 2019 +0200
+
+    Update README.md
+
+commit 545783b44753439ddf1fd68e9829c5650a8e3c28
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:14:42 2019 +0200
+
+    Rename INSTALLATION to INSTALLATION.md
+
+commit ecec276341bc607928ef8af419bcb8f0736ea696
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:14:15 2019 +0200
+
+    Update INSTALLATION
+
+commit 1164d447e17ae6a3d3d99acb49c0ffbf8adee9d6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:12:28 2019 +0200
+
+    Create INSTALLATION
+
+commit fd1416bf6b209e56343bf11ccc6f2dcfa6198480
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:11:41 2019 +0200
+
+    Update bird.txt
+
+commit 633b0ac61ac914379272acd7cda1cd184e84850a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:10:48 2019 +0200
+
+    Update bird.txt
+
+commit 0c2c104b94bb2f00392a3c138a47ceb05ce4e3c0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:10:29 2019 +0200
+
+    Update bird.txt
+
+commit ce29333a41b58169eaa9965e4f5f9002d2bf9a3a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:08:09 2019 +0200
+
+    Update README.md
+
+commit 39a03f388f4b1bb8ba11b497a303c6eef187296b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:06:34 2019 +0200
+
+    Update README.md
+
+commit d05d30a31a9a2f5c4f5deab84ca50918529f80b9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:05:32 2019 +0200
+
+    Update README.md
+
+commit f0c770bfe09659c3cf92b275cf03932b00b76419
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 10:02:56 2019 +0200
+
+    Update README.md
+
+commit 6dd83464fe6dea9cece691dadffad78c5f3822d2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 25 09:58:40 2019 +0200
+
+    Update README.md
+
+commit dee0049da3bac03a7b80a62db8bc0885fef45e1d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Apr 21 20:35:12 2019 +0200
+
+    Update README.md
+
+commit 2e2e019cbd0bb0caa79fb7c1d449d809a47e22f3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Apr 15 16:07:53 2019 +0200
+
+    Update README.md
+
+commit 9ab726694c2697affd0ff82218fac3a97d524ec1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Apr 14 13:23:59 2019 +0200
+
+    Update README.md
+
+commit 17d03ace1efe250bd6afd7224f9de5314aaa7f25
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Apr 12 22:47:52 2019 +0200
+
+    Update README.md
+
+commit ed90c562bd8b5137adf8f4d7cc9b8ed8110285a6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 9 15:56:15 2019 +0200
+
+    Update README.md
+
+commit f67945703bd2ecc844d9eaca74ec74a30ae0acf3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 9 15:55:00 2019 +0200
+
+    Update README.md
+
+commit 3039608be76c098b53078710fb27029ca443e5f7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 9 15:53:03 2019 +0200
+
+    Update README.md
+
+commit 41c87b3d95cd122875b60b4643e6c40535e92e43
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Apr 5 18:13:37 2019 +0200
+
+    Update README.md
+
+commit acd1443c63e9a1375cedce10e2abe07416bbb0df
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Apr 5 18:09:30 2019 +0200
+
+    Add files via upload
+
+commit c8572aeb12b4092f0e2f7be489d5f8686120ca6e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Apr 5 18:09:14 2019 +0200
+
+    Delete dos.pyc
+
+commit cbf1af1e98ffeeb1cbd863bc6da4881c49aef439
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Apr 5 18:08:57 2019 +0200
+
+    Update README.md
+
+commit 79ee383ae523c36c1936237e829f7fe223df69af
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Apr 5 17:03:06 2019 +0200
+
+    Update README.md
+
+commit 62d2a0b6837ae5a246fdbc896f5c9ae7dcdade0f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Apr 5 17:01:51 2019 +0200
+
+    Update README.md
+
+commit 821e9da4707caff83fb1fb3911fd73cafd80f334
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 4 23:59:35 2019 +0200
+
+    Update README.md
+
+commit bedf5b8ee1918211049993fa58843ae316d258e6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 4 17:22:55 2019 +0200
+
+    Update README.md
+
+commit ce6b8b8cdc5eb03ec3efe348a12610199a82f628
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 4 13:36:00 2019 +0200
+
+    Update README.md
+
+commit 80a1d557615e27573253702331a0735daa3b72d0
+Merge: 060d6b6 17f0ca2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 4 01:52:10 2019 +0200
+
+    Merge pull request #5 from Taguar258/add-code-of-conduct-1
+    
+    Create CODE_OF_CONDUCT.md
+
+commit 17f0ca27ed35c1bcc8208a8cb4965d0ab43d7031
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 4 01:51:35 2019 +0200
+
+    Create CODE_OF_CONDUCT.md
+
+commit 060d6b69b0975dbc298f746c52206e684fe3c247
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Apr 4 01:37:34 2019 +0200
+
+    Update CONTRIBUTING.md
+
+commit 6c1cc0d4c62c706f75c0c78e8026033420c6fcee
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 21:28:57 2019 +0200
+
+    Delete PLEASEREADME.md
+
+commit 7bdfc9a8d20405f8b4997a58472f10ae6246606c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 21:25:20 2019 +0200
+
+    Rename PLEASREADME.md to PLEASEREADME.md
+
+commit 735d43f5c1ec422ed91059400a3d8539a4e0c637
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 21:23:33 2019 +0200
+
+    Update README.md
+
+commit 7ddd1dbdbdea6fb0fe85c72578172c0f89078367
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 20:29:01 2019 +0200
+
+    Update README.md
+
+commit 151e944b887c55e9facf8c161d106921c99876f7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 20:28:37 2019 +0200
+
+    Update bird.txt
+
+commit 771f755f3e8ddc12f149f0c76c5739f8c205a58a
+Merge: d5f629f a6a0ab2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 17:40:23 2019 +0200
+
+    Merge pull request #4 from Taguar258/add-license-3
+    
+    Create LICENSE
+
+commit a6a0ab2f2777b0f9ea88fd254abb057e6231d1c6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 17:39:23 2019 +0200
+
+    Create LICENSE
+
+commit d5f629faabf9b0747d77ad2260da623a66d49b8f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 16:40:58 2019 +0200
+
+    Update README.md
+
+commit 6643692479ab223019e2a80d7c3cbcb698c5ec41
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 16:37:47 2019 +0200
+
+    Add files via upload
+
+commit a88e619ec8838ce8908939e6304bcee1f206fea9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 16:37:13 2019 +0200
+
+    Add files via upload
+
+commit 9d887115dab6e385085cdebddccca51c065d4a16
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Apr 3 16:34:12 2019 +0200
+
+    Update README.md
+
+commit 5627c48b4d03cd1201c6c199effd70b7436b38ee
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 2 13:06:08 2019 +0200
+
+    Update README.md
+
+commit 98aa968c207b7aa187a8de3d004acf835e36775a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 2 12:57:45 2019 +0200
+
+    Update thanksto.md
+
+commit a95b4e0f0e0d1cf9f99dc93f990c5beaaf937f0c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 2 12:55:31 2019 +0200
+
+    Update README.md
+
+commit 42c428d86690b6b1c08d42f271dea91d80d5802b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 2 12:54:43 2019 +0200
+
+    Update README.md
+
+commit 1c693b1f254399fcd0c3021a2c7447aa57de11b9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 2 12:54:17 2019 +0200
+
+    Update README.md
+
+commit 29100811c00990b5314cad0a5bd50363cd1a251c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 2 12:53:39 2019 +0200
+
+    Update README.md
+
+commit 337d03e3fb8e994343d8b22de3cb753c12f20b59
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Apr 2 12:49:02 2019 +0200
+
+    Delete README-HINDI.md
+
+commit d42b8bf263ea194efc64640e1164ff25c96e0962
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jan 11 14:05:09 2019 +0100
+
+    Delete LICENSE
+
+commit db10a77a1bc0e3aa7b4813af8d402fc1e12e4a59
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Dec 27 10:03:56 2018 +0100
+
+    Update thanksto.md
+
+commit d4fb62f3b8f74d2616cb3c1bbfa3dd2f56ff8221
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Oct 29 18:51:38 2018 +0100
+
+    Update README-HINDI.md
+
+commit 974bc73113262e0cca052c3b279b9d8bbd99df0d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Oct 29 18:49:02 2018 +0100
+
+    Update README-HINDI.md
+
+commit 7a6f86fd9cf3629a052bdca08458a5bcafa1b54e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Oct 29 18:47:50 2018 +0100
+
+    Update README-HINDI.md
+
+commit f25c4d842db4229d890aa06b877ff61b6aca3712
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Oct 29 18:46:53 2018 +0100
+
+    Create README-HINDI.md
+
+commit 43b75698bc8835f191a179230ab555cd30158db3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 17 20:20:18 2018 +0200
+
+    Update README.md
+
+commit 7094dea2675d83b8877feed8fb6b989d5e3cc8ff
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 17 20:18:45 2018 +0200
+
+    Update README.md
+
+commit 38d0a3dbf39e498e6f72531c67c14765ef697f03
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Oct 14 17:42:50 2018 +0200
+
+    Update README.md
+
+commit 5444fdfc0a161e8964a51c5f7d936fb78ff74115
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 10 21:32:35 2018 +0200
+
+    Delete .gitattributes
+
+commit a87c33b1da96ed05a8944873af1706ad7c765df3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Oct 10 21:32:23 2018 +0200
+
+    Create .gitattributes
+
+commit 29cbbb9c569efc1be808362788f374df8b82f4c1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 30 17:59:07 2018 +0200
+
+    Update README.md
+
+commit dc75c0e9de88892e4a3267bbd4a76ef4849e25d3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Sep 27 17:09:43 2018 +0200
+
+    Update README.md
+
+commit 2d6730cfb8c5f76a2dae2fd97bddfdb03cba2dd9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 23 10:31:53 2018 +0200
+
+    Create CONTRIBUTING.md
+
+commit 700f4eef54fee3e12967256cee0b130794e9889d
+Merge: a26c791 fa964ba
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 23 08:48:43 2018 +0200
+
+    Merge pull request #2 from Taguar258/add-license-1
+    
+    Create LICENSE
+
+commit fa964ba0a45672ef53b2f6fad905cda2b14fd4b1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Sep 23 08:47:44 2018 +0200
+
+    Create LICENSE
+
+commit a26c791d5fcdf79aa7fc3c108fa7486b0729d94f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Aug 9 09:57:54 2018 +0200
+
+    Update issue templates
+
+commit d94004d5d4980f8a9f6dafa67868f5bbce4edb09
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Aug 6 10:04:51 2018 +0200
+
+    Update README.md
+
+commit a43419f9dcf92505f850d3747cfd4108f75fd6e1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 5 12:38:07 2018 +0200
+
+    Update README.md
+
+commit a51cc4ba1c01f87ba6725d3d58f022b1f2251eb6
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 5 12:35:12 2018 +0200
+
+    Update README.md
+
+commit 158365f2bedd9ea151ff0337f8f1176bc45a5ebd
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 5 12:34:05 2018 +0200
+
+    Delete dos.py
+
+commit eb299d3d7ddebdfe5031e6b20d52d79841b00f0e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 5 12:33:41 2018 +0200
+
+    Add files via upload
+
+commit 5866a2a2eaee5893cfb3bb7211372985065c4a58
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 5 12:33:15 2018 +0200
+
+    Delete dos.pyc
+
+commit b6265fa4a7302650b3741d955df2506d755f1721
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 5 12:07:17 2018 +0200
+
+    Update README.md
+
+commit 86cb1adb07eea8b55a400a4420bc82cb75e47378
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Aug 5 12:05:21 2018 +0200
+
+    Update README.md
+
+commit fb42c20281301b5005d675747b3db7ae755d0f8d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Aug 3 23:44:08 2018 +0200
+
+    Update thanksto.md
+
+commit 140fe3a6efb3275ba39aa370b39d6b9484661ea7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Aug 3 23:43:16 2018 +0200
+
+    Update thanksto.md
+
+commit b2b7b18440f4b3fc0f5f2a15c82cbea2033d268b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Aug 3 23:42:34 2018 +0200
+
+    Update thanksto.md
+
+commit 0fb58d8f494e4c5cf491657ce4addf7bcbc87e08
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Aug 3 22:13:05 2018 +0200
+
+    Update README.md
+
+commit 21096f2e000af050b1a0891daec3fe3767b8285d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Aug 3 22:12:17 2018 +0200
+
+    Add files via upload
+
+commit da79cab4df57ea6b43fb3a22970d4f6ff55eb74a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Aug 3 22:11:18 2018 +0200
+
+    Rename dos.py to etc/py/dos.py
+
+commit 84da3ed07844165977be18a71e71d371603d50f1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 16:52:04 2018 +0200
+
+    Update dos.py
+
+commit 8ff4f6a78cdf6264e4fc43e6ff933e0e4988942c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 11:22:16 2018 +0200
+
+    Update dos.py
+
+commit 9052a741442f102105d4ad7d2cd5ccc36c44e9d3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 11:20:03 2018 +0200
+
+    Update dos.py
+
+commit 30d553fd285bb27569944f8ff2217d89cae533c1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:36:27 2018 +0200
+
+    Update README.md
+
+commit e3a816f8dfaa21f4047f6f6d2230d9246397db12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:36:09 2018 +0200
+
+    Update README.md
+
+commit a52db4e86e855f4527fb363bd99a63db4b0d5dc4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:31:51 2018 +0200
+
+    Update dos.py
+
+commit dd997e45bb00abd67e63d2c6958ec433f153877a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:30:19 2018 +0200
+
+    Update dos.py
+
+commit 8fc42d18dba2bf3b2e877183b10f502cfdb6b0ed
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:27:50 2018 +0200
+
+    Update dos.py
+
+commit fa16fc579c16adfcf0ca37bff3bb343c9a90d907
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:26:11 2018 +0200
+
+    Update dos.py
+
+commit d5e675e43528af821493612c584ee09388e9a89f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:24:36 2018 +0200
+
+    Update dos.py
+
+commit 5aa7ae0a19f7d6df935221f75719d047aa561643
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jul 29 09:07:50 2018 +0200
+
+    Delete dos2_test_onley.py
+
+commit 68c2390631317f27c99e20e5b7ce94930d9f6716
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 17 23:16:46 2018 +0200
+
+    Update thanksto.md
+
+commit 0a63ebb36011e4583228a34b590ce80c490b7c12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 16 17:46:21 2018 +0200
+
+    Rename dos2.py to dos2_test_onley.py
+
+commit 574b673450d32786c2665d16cf40365829e6cf94
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 16 17:41:41 2018 +0200
+
+    Update README.md
+
+commit 27b46ccee69834a31899f2bac1ad86a1138f08f3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 16 17:41:07 2018 +0200
+
+    Create dos2.py
+
+commit 42fd2639230772b442f9cc803ccb89f55442d44a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jul 12 14:15:26 2018 +0200
+
+    Update bird.txt
+
+commit 55db4954cb7d9cfea662c527161ecccc11cd4f49
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jul 5 19:18:32 2018 +0200
+
+    Update thanksto.md
+
+commit 6adc633d15ed985b400a24d29e84b7af07b6e1cb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 18:24:52 2018 +0200
+
+    Update README.md
+
+commit c09b04632447fc3718a66741271962c3be1d63ac
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 18:24:09 2018 +0200
+
+    Rename ddos.py to dos.py
+
+commit f6ec9dab2b6571b78e76523862303ba5162c8baf
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 16:09:28 2018 +0200
+
+    Update thanksto.md
+
+commit 5ebf075c7a3dd5a842a6d1d93a7ac9ec4fd2a138
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 15:12:46 2018 +0200
+
+    Create thanksto.md
+
+commit c44a04a54bd7e0098ddf807af7af22cfa4815b1d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 13:56:14 2018 +0200
+
+    Update ddos.py
+
+commit 629eb651b58f7a33384c56d879ac3db416739030
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 13:51:01 2018 +0200
+
+    Update bird.txt
+
+commit 982823454a48f0ee66ab944181b791a6ec9d8a08
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 13:49:01 2018 +0200
+
+    Update ddos.py
+
+commit b359f1da7dde14959e4470d37bd96686209f658e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 13:42:38 2018 +0200
+
+    Update ddos.py
+
+commit 000a7bd41020b932297f3b68af2a1500c0854576
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jul 3 13:35:30 2018 +0200
+
+    Create bird.txt
+
+commit 1d9936a77b556c7f301b6554ef15448c7a249af3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 2 14:35:12 2018 +0200
+
+    Update README.md
+
+commit 3fb98f37bba3f6e762a54c92ec0e7c21f93affed
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 2 10:39:28 2018 +0200
+
+    Update ddos.py
+
+commit 9db957b707675b910c45a7b458ee57dfc86904fc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jul 2 10:37:54 2018 +0200
+
+    Update ddos.py
+
+commit 550f2fbeaab0ffb983a206d31da15dd2b9ab9d64
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Jun 30 21:22:32 2018 +0200
+
+    Update ddos.py
+
+commit 8a752b8cabbaf681d364e98b9b0c5a2ce96b0ad9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Jun 30 21:13:08 2018 +0200
+
+    Update ddos.py
+
+commit 5abe27d4b2592adc7ffb178864b2d8994e0217c7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sat Jun 30 14:31:10 2018 +0200
+
+    Update ddos.py
+
+commit 5482ac3775020a4f9e6c14cc20dc72f7eb16be12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Fri Jun 29 22:14:13 2018 +0200
+
+    Update ddos.py
+
+commit 4df4c51065cd485775a0472de4fde5db2a2f936b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 22:37:52 2018 +0200
+
+    Update ddos.py
+
+commit 465ceef659d3446d5a5cc8296487b64927786dab
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 16:29:40 2018 +0200
+
+    Update ddos.py
+
+commit 7baa77396b924f37f7c06e2de4eac659899dbd4f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 16:27:46 2018 +0200
+
+    Update ddos.py
+
+commit b113da55fe2e2fe096a5017c4ccb5425bf4ccf2d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 16:26:28 2018 +0200
+
+    Update ddos.py
+
+commit b090dcae5e0f4f6a50936ea1e9f68b3b0548414c
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 16:21:23 2018 +0200
+
+    Update ddos.py
+
+commit a9e832da54ec3f8139051516175323961f5dbb84
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 16:19:42 2018 +0200
+
+    Update ddos.py
+
+commit d614ac49d676af0337da1b0d8496d353592ca49f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 16:18:17 2018 +0200
+
+    Update ddos.py
+
+commit 81ac1d6e7c08929e093c739e4091e86eb0be0c4d
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Thu Jun 28 13:57:56 2018 +0200
+
+    Update ddos.py
+
+commit 01f720e34ac43f36fc3cd578e0df1819e64fa2e9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 21:01:49 2018 +0200
+
+    Update ddos.py
+
+commit a4aed6c98f72a8079fbb58bd7f40d3d35596df7a
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 20:43:28 2018 +0200
+
+    Update ddos.py
+
+commit 9fa83ced5636e3e9bc8b0183ac3d413d0c1058dc
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 20:40:26 2018 +0200
+
+    Update ddos.py
+
+commit 8a8b629d3f54ea87d7332d7abf16471c8125b5ba
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 20:39:00 2018 +0200
+
+    Update ddos.py
+
+commit d64ea422716deab8a9f459f7bcac0560105a7ec2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 17:48:05 2018 +0200
+
+    Update ddos.py
+
+commit f60697c2382d66475e8506a644c04733fa26a1f2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 16:53:28 2018 +0200
+
+    Update ddos.py
+
+commit 30514fbb9be963ebabff66217b0ff531b4f7b0b2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 16:50:22 2018 +0200
+
+    Update ddos.py
+
+commit 73e18b055632cbc84b9455af74f09c8219c2e82f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 16:31:35 2018 +0200
+
+    Update ddos.py
+
+commit 426be9c0b9f8b812e47ed797f584ec4ed6ec1410
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 16:30:10 2018 +0200
+
+    Update README.md
+
+commit 5fdc0078b854ffd41c5ea3bd9049f8ac47592c28
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 16:29:45 2018 +0200
+
+    Update ddos.py
+
+commit 63216ec59959da7948dd82c72aa67c5de64015f7
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 16:26:00 2018 +0200
+
+    Update ddos.py
+
+commit 943f45b0b04488b093280931168e4502a36a3c07
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 16:22:00 2018 +0200
+
+    Update ddos.py
+
+commit f9ed9e719b0ea19a25e816f7859a34836b6f8449
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 13:29:58 2018 +0200
+
+    Update ddos.py
+
+commit 8837e2158cff84c6001d350c3f68ca3f2db8c5c1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 13:28:39 2018 +0200
+
+    Update ddos.py
+
+commit 0b0c6a2af508fcdcdbbe0a5836ee8bac08b5208f
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 08:03:30 2018 +0200
+
+    Update ddos.py
+
+commit 657ccd1e5eae8cf5a34167b4158e3e4a3f7dfe70
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 07:59:34 2018 +0200
+
+    Update ddos.py
+
+commit 63ae6ac7b46ef04c80c1561f6234c6dfeda9dc3e
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 07:58:11 2018 +0200
+
+    Update ddos.py
+
+commit 323125cc6c16bfe20bbbedc711540f674dacffa1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 07:55:12 2018 +0200
+
+    Update ddos.py
+
+commit 3d2019b29587d944d31f5c45664562e19778c8b2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Wed Jun 27 07:47:55 2018 +0200
+
+    Update ddos.py
+
+commit ccd4b3a53021e0bc2f0d01bd292d5a5ca303c5e3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 21:11:25 2018 +0200
+
+    Update ddos.py
+
+commit 3dc932e628fc7590983ef8061ad38a1a5b7ec0ac
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 21:04:36 2018 +0200
+
+    Update ddos.py
+
+commit 689dfa00f42b3bdccccf27e20550432fa7db96be
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 21:03:48 2018 +0200
+
+    Update ddos.py
+
+commit 2541a37bb3b316c10866f12ca59077b0cd0f0ad5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 20:57:21 2018 +0200
+
+    Update ddos.py
+
+commit 4e6585fcbd23db57131fd64dcca4941226cf87e2
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 20:56:43 2018 +0200
+
+    Update ddos.py
+
+commit 8c5614f28a9d0538ba327c55e2caecbfa94b0eb1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 18:00:21 2018 +0200
+
+    Update ddos.py
+
+commit 46490f7766ca9ec1912542efb749a8784c424a03
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 15:35:49 2018 +0200
+
+    Update ddos.py
+
+commit 3fd4b3c91eafb9c701e3cf6f0c9361262e2a14f9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 15:26:43 2018 +0200
+
+    Update ddos.py
+
+commit a0b3c50a7c9635ccd69e06b6a46fa5f3ee34a6c5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 15:25:40 2018 +0200
+
+    Update ddos.py
+
+commit 1cd4240959776cd85a3058675815ba987bcea514
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 15:21:06 2018 +0200
+
+    Update ddos.py
+
+commit 5240119cb2b49b88a3a7f224301986fa03a603cf
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 15:19:22 2018 +0200
+
+    Update ddos.py
+
+commit da0c77b2e0b0c24119353afa913b85797953c937
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Tue Jun 26 15:11:27 2018 +0200
+
+    Update ddos.py
+
+commit d2999635c9a765845b84cd345d0475628c791d83
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 22:07:58 2018 +0200
+
+    Update README.md
+
+commit a0bb2562f00885dde554fd050a7163e4a967c103
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 21:43:22 2018 +0200
+
+    Update ddos.py
+
+commit 7d3be4d6931af8ac9c81a5b27c75ea25459175ba
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 21:37:41 2018 +0200
+
+    Update ddos.py
+
+commit 9dcf58cd724ac6894dfbd7668ae1d55ee0a2d3da
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 17:01:43 2018 +0200
+
+    Update README.md
+
+commit b91c890ec74b85f307e1a25898d08315d0c0c8a0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:59:53 2018 +0200
+
+    Update ddos.py
+
+commit 97d33f125cd7da70cbfe053fa174e2ab5b1a4905
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:54:47 2018 +0200
+
+    Update ddos.py
+
+commit 4a8ace7c5fcb358e98e4bca57bcf4736567c7e73
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:13:09 2018 +0200
+
+    Update ddos.py
+
+commit ed15a05b855f39606ccea8ca4d89e3be86ac7506
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:09:34 2018 +0200
+
+    Update README.md
+
+commit 69c09ed706f0f5a33afdaae161b89607d4ba29d5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:07:33 2018 +0200
+
+    Update ddos.py
+
+commit 43338f90941d2dc9c199d37fcccc6d09e6d455c8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:05:27 2018 +0200
+
+    Update ddos.py
+
+commit e9505cce4db39a2a9a5bf904b0145c9362f923f8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:02:34 2018 +0200
+
+    Update README.md
+
+commit 67e3563e57b61f94721ea8facac8f7ce654b1fa3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:02:01 2018 +0200
+
+    Update README.md
+
+commit 04d838b0f4ab100e1bcf83c783b4d968b7409bc9
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 16:00:10 2018 +0200
+
+    Update README.md
+
+commit 11b231467aa77a04dc67bbeffd5b81db6650e335
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 15:59:39 2018 +0200
+
+    Delete requirements.txt
+
+commit f01a724d2f1838d3304e351f41e135cfc70b56eb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 15:58:41 2018 +0200
+
+    Update ddos.py
+
+commit 77031ef3bdd3ca698e5002719b40c82c4a769ec4
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Mon Jun 25 15:47:08 2018 +0200
+
+    Update ddos.py
+
+commit f50b60b5193aec21e2f3e7966df9ce1e08228980
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 20:35:45 2018 +0200
+
+    Update README.md
+
+commit 7c384576d4c978994540909dd61a7ca07f2ed7f0
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 17:40:44 2018 +0200
+
+    Update ddos.py
+
+commit e9ee1a51054b4f9a08f970c19f9af34a29ec28d3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 17:12:18 2018 +0200
+
+    Update requirements.txt
+
+commit 4c2cc2f1fb53f2df071e9c5945ffd8734358a9bb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 16:48:55 2018 +0200
+
+    Create requirements.txt
+
+commit af9b2bf09612e655389f35e643512765e3bc2644
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 16:48:17 2018 +0200
+
+    Update README.md
+
+commit 876824fcd4d7d3b6684e7bbb9425929dd31ef93b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 16:44:45 2018 +0200
+
+    Rename ddos_stable.py to ddos.py
+
+commit 3cc415a7badc95d6ddf617a96e8efeb82a7bbb12
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 16:44:19 2018 +0200
+
+    Delete ddos.py
+
+commit 679edbca87da4276c8ed80a567fb4d6126cbcaf3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 16:42:56 2018 +0200
+
+    Update ddos_stable.py
+
+commit 3b9a9ca15ff36d45cc5417e50f13c812150bf5b1
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 16:02:17 2018 +0200
+
+    Update ddos_stable.py
+
+commit 891710a8a0165fe60a53ee5bf53f7035a1747d34
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 16:01:10 2018 +0200
+
+    Update ddos_stable.py
+
+commit e518e42c1687b38665cb9284093c89c345d1ecea
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 13:14:31 2018 +0200
+
+    Update ddos.py
+
+commit b3343d5c2b09ab70b4a4fd905ae4378b89950d72
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 13:14:04 2018 +0200
+
+    Update ddos.py
+
+commit 1a7c39ad2e6135ee3f4b8a32f145d53d775a30f3
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 13:13:03 2018 +0200
+
+    Create ddos_stable.py
+
+commit 12786cdf372efc614cf8b65358d27386e95aba20
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 13:00:43 2018 +0200
+
+    Update update.sh
+
+commit bb81e24fab2ff8e2612893da1fd49a7c9856ab13
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 12:56:27 2018 +0200
+
+    Update ddos.py
+
+commit 076c9b7d11954aaa560f08d936cdeed995ac727b
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 12:54:49 2018 +0200
+
+    Update ddos.py
+
+commit ed7cd03c9da9c55a8ac8b3077cd0ff0e34ad4ff5
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 12:44:40 2018 +0200
+
+    Update PLEASREADME.md
+
+commit 8df70309063dfdc2aed1e11166f22317b0c53c82
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 12:20:14 2018 +0200
+
+    Update README.md
+
+commit 80f9cc6224eb6fcfd364cd5e3334547577aaf006
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 12:00:41 2018 +0200
+
+    Update README.md
+
+commit 02182b010518a23fa988ef5a4a82fb93a83452e8
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 11:55:38 2018 +0200
+
+    Update update.sh
+
+commit 957e66c01ee31ff13befe767e12ce706338f7338
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 11:53:07 2018 +0200
+
+    Update PLEASREADME.md
+
+commit 117e1df2dbd7f698b82d0e67bfa8ac56ddaec6cb
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 11:51:06 2018 +0200
+
+    Add files via upload
+
+commit d44f371a036e20f1670f23576a1cbc75221b4d65
+Author: Taguar258 <36562445+Taguar258@users.noreply.github.com>
+Date:   Sun Jun 24 11:48:14 2018 +0200
+
+    Initial commit

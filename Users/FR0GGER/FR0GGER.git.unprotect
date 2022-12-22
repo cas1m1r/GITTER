@@ -1,0 +1,525 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# UNPROTECT [PROJECT]: Unprotect Malware for the Mass
+The Unprotect Project is an Open Source project that aims to propose a classification about Evasion Techniques to help to understand and analyze a malware. This project is dedicated to Windows PE malware. It is licensed under APACHE License version 2.0.
+
+![logo](LogoUnprotect.png)
+
+The Unprotect Project contains two main parts: 
+* A website with a complete database and evasion techniques classification.
+* A python standalone tool to detect evasion technique in a specific malware. 
+
+The standalone tool available in this repository contains the following features: 
+
+![features](features.png)
+
+## Disclaimer
+This tool is an attempt to bring a tool to the community dedicated to malware evasion techniques. It started as a side project and of course requires some improvements. Of course, it is not perfect nor magic! This version is an early prototype.  
+
+Please take notes of the following:
+* This project currently works with python2.7 (it will be upgraded to python3 in next versions). 
+* It might have some bugs or vulnerabilities.
+* This tool is currently working only with a valid PE file (support of additional format file will be added in a later version). 
+* There is currently no option supported, the standard output will provide you a full report.
+* The analysis can take time depending of the PE size (more than 5 minutes for a PE bigger than 1MB).
+* This tool has been tested on Mac OS and Linux, a Windows version can be found in the folder unprotect_windows. 
+
+## Getting Started
+### Prerequisites
+You must install some packages before to start. 
+#### Linux
+```bash
+sudo apt-get install python-pip
+sudo apt-get install build-essential libffi-dev python python-dev python-pip automake autoconf libtool
+sudo apt-get install libfuzzy-dev
+sudo apt-get install ssdeep
+```
+#### Mac OS
+```bash
+brew install virtualenv
+brew install ssdeep
+brew install libmagic
+```
+#### Windows
+```bash
+pip install virtualenv
+```
+### Variables To Modify 
+Before to run the installation setup, you will need to modify the config.py files to put your own VirusTotal API. 
+Put your Virustotal API Key in the [config.py](https://github.com/fr0gger/unprotect/blob/master/module/config.py) file:
+```
+APIKEY = "<enter_key>"
+```
+Additionally, the user might want to add his own Yara rules to scan a PE. This can be added in the file [module/yara-rules/user_rules.yar](https://github.com/fr0gger/unprotect/blob/master/module/yara-rules/user_rules.yar).
+
+
+### Virtualenv
+The tool is currently running under [Virtualenv](https://virtualenv.pypa.io/en/latest/), which creates a virtual python work environment to avoid any issue with the current OS as well with the versioning. 
+
+Create your own virtualenv: 
+```
+virtualenv -p python2.7 unprotect
+```
+Enable your virtual env: 
+```
+source unprotect/bin/activate
+```
+
+### Package requirements
+Install the dependencies: 
+```
+sudo pip install -r requirements.txt
+```
+Run unprotect: 
+```
+python unprotect.py
+```
+## Usage
+The current version of Unprotect doesn’t support any options. The simple way to use unprotect is to run it against a PE file:
+```
+python unprotect.py <PE_file>
+```
+## Report Example
+Report example can be found here: [Report](https://github.com/fr0gger/unprotect/tree/master/report_example)
+## Built With
+* [Capstone](http://www.capstone-engine.org/)
+* [PEfile](https://github.com/erocarrera/pefile)
+* [YARA](https://github.com/VirusTotal/yara)
+* [FLOSS](https://github.com/fireeye/flare-floss)
+ 
+## Licence
+This project is licensed under the APACHE License version 2.0 - see the [LICENSE.md](LICENSE.md) file for details.
+====================== GIT HISTORY: ======================
+113d8ce HEAD@{0}: clone: from https://github.com/fr0gger/unprotect
+commit 113d8cee36b7fe676f28b293df8b4573fc8b1cdd
+Merge: 59e8d61 3c17699
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Wed Jun 22 01:16:13 2022 +0200
+
+    Merge pull request #3 from fr0gger/dependabot/pip/numpy-1.22.0
+    
+    Bump numpy from 1.16.0 to 1.22.0
+
+commit 59e8d6144be45579ec5830d2fb0bb0d19e5cdf1e
+Merge: d51cb16 8111ec9
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Wed Jun 22 01:16:04 2022 +0200
+
+    Merge pull request #4 from fr0gger/dependabot/pip/windows_unprotect/numpy-1.22.0
+    
+    Bump numpy from 1.16.0 to 1.22.0 in /windows_unprotect
+
+commit 8111ec938dcc8319a31aef0114fd1a4e38106ebe
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue Jun 21 21:50:25 2022 +0000
+
+    Bump numpy from 1.16.0 to 1.22.0 in /windows_unprotect
+    
+    Bumps [numpy](https://github.com/numpy/numpy) from 1.16.0 to 1.22.0.
+    - [Release notes](https://github.com/numpy/numpy/releases)
+    - [Changelog](https://github.com/numpy/numpy/blob/main/doc/HOWTO_RELEASE.rst)
+    - [Commits](https://github.com/numpy/numpy/compare/v1.16.0...v1.22.0)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: numpy
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 3c176993690c374ce987b859d8e7ba0cf230068c
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue Jun 21 21:49:19 2022 +0000
+
+    Bump numpy from 1.16.0 to 1.22.0
+    
+    Bumps [numpy](https://github.com/numpy/numpy) from 1.16.0 to 1.22.0.
+    - [Release notes](https://github.com/numpy/numpy/releases)
+    - [Changelog](https://github.com/numpy/numpy/blob/main/doc/HOWTO_RELEASE.rst)
+    - [Commits](https://github.com/numpy/numpy/compare/v1.16.0...v1.22.0)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: numpy
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit d51cb16d18e545d1f38ed4c4e8bff91942626795
+Merge: 6047fae 9cce4b3
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Tue Mar 15 04:24:52 2022 +0100
+
+    Merge pull request #2 from brootware/patch-1
+    
+    Update unprotect.py
+
+commit 9cce4b32680cceb174879c19bc21bc452f9ea18e
+Author: Oaker Min <7734956+brootware@users.noreply.github.com>
+Date:   Tue Mar 8 12:48:58 2022 +0800
+
+    Update unprotect.py
+    
+    Minor spelling mistake change from `ressources` to `resources`
+
+commit 6047faeb5f6525345929e73be44345f9167b376b
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Fri Sep 11 10:44:34 2020 +0200
+
+    Update README.md
+
+commit cd44691681e199e46ad773165936e4fac8075657
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Jun 23 15:05:04 2019 +0200
+
+    Update requirements.txt
+
+commit 48da097aee338a389ced78b0cbb7d8feb8165017
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Jun 17 14:43:17 2019 +0200
+
+    Update requirements.txt
+
+commit 0f656cd09c4199c2714dbf9150b56ca5150386cb
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Jun 17 14:42:28 2019 +0200
+
+    Update requirements.txt
+
+commit edf1aa157d4322ede09305cfa91d35ce55bcf06b
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Thu Mar 28 14:13:07 2019 +0800
+
+    Update requirements.txt
+
+commit da78f67b5f1499c187280a81e48bb7b90376d54c
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Thu Mar 28 14:07:51 2019 +0800
+
+    Update README.md
+
+commit 1a088ec602de2237b4d43a24d4363648f6b815f7
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Thu Mar 28 09:32:57 2019 +0800
+
+    update report
+
+commit 0886fe3091d8cc581a9654444ece2701806ae883
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 12:41:32 2019 +0100
+
+    Update README.md
+
+commit 6d606a50ca61dba128e075c3d4e88ff26a7dec2c
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:12:46 2019 +0100
+
+    Update sofacy_unprotect_report.txt
+
+commit 350be37c864c3235d2a518cd18f4143008181504
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:12:27 2019 +0100
+
+    Update pinkslipbot_unprotect_report.txt
+
+commit 45190a9044b02b33f1f7223ef8358af066e11eb1
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:12:07 2019 +0100
+
+    Update njrat_unprotect_report.txt
+
+commit 0e550cf4714d8596bdee329ffa81809036d3d0ec
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:11:48 2019 +0100
+
+    Update lockergoga_unprotect_report.txt
+
+commit d0ee3bd79da2876619e2d3e1a24c9c6d5f62f080
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:11:28 2019 +0100
+
+    Update fakejump_unprotect_report.txt
+
+commit 6153e0ce20414f6347325dff95b3732b382a7e58
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:11:10 2019 +0100
+
+    Update calc_unprotect_report.txt
+
+commit 0ed21b3dea344ccd2152890a4e019c90cc991501
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:10:34 2019 +0100
+
+    Update utils.py
+
+commit 95de626630ba13517b133705540585c7d0ad9468
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:10:16 2019 +0100
+
+    Update strings.py
+
+commit 0b205a6867d5770204710a5eafb8d54c587469bc
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:09:22 2019 +0100
+
+    Delete unprotect.py
+
+commit 8f5c2d5ea1473ffd80d6f77dc61b9617ce955ed5
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:08:29 2019 +0100
+
+    Update pe_info.py
+
+commit 7575815f4a02338b900a83883b35c4bd3d5ea06c
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:07:09 2019 +0100
+
+    Update network_evasion.py
+
+commit c4e74b44072d2a5176fdef34627e6f83cda34d9d
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:06:19 2019 +0100
+
+    Update disas.py
+
+commit a198ba63821861893d8fe4820581db230dc08cc6
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:05:34 2019 +0100
+
+    Update config.py
+
+commit 28b98e5beb9be48195a6253f32b5627fc74b273b
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:04:11 2019 +0100
+
+    Update utils.py
+
+commit 37ba1b8e6c80611d7a75366aa7dc4e0c9f49e3e0
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:03:51 2019 +0100
+
+    Update strings.py
+
+commit 71734aaa540a40cb627ec45f2f1f39b0fab7f0aa
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:03:02 2019 +0100
+
+    Update pe_info.py
+
+commit 5a875a682ab66990b6b3ad8be874f8a0c1c580cd
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:01:44 2019 +0100
+
+    Update network_evasion.py
+
+commit 1797005021577852ef98eb74f196df52235c4520
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:00:52 2019 +0100
+
+    Update disas.py
+
+commit edf2c5bfe596e8660f949b2c38f5515c5348eedc
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 09:00:10 2019 +0100
+
+    Update antivm.py
+
+commit b1426b5b43eb13c4fd53e77b0607e02ea96f9e95
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 08:59:07 2019 +0100
+
+    Update config.py
+
+commit b0f60a15443203e3d61318032733f00da9ea62db
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 08:57:23 2019 +0100
+
+    Update README.md
+
+commit 57ed2b267e024da094a905d796d80548b6634b10
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 08:57:05 2019 +0100
+
+    Update unprotect.py
+
+commit 29662ec99d42cfb15b8633fdd91f47795b76a6f4
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 08:55:38 2019 +0100
+
+    Update unprotect.py
+
+commit 5196b703662a662263b79dd3ca8a3a1a9fa080ca
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 08:50:12 2019 +0100
+
+    Update README.md
+
+commit 8e34a791d9dbaf4fe119642b155368790b2e445c
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 25 08:41:32 2019 +0100
+
+    Update README.md
+
+commit b7bb4bf6d0aae83304854a0ce88f3a70559b14cd
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Mon Mar 18 12:02:36 2019 +0100
+
+    Update config.py
+
+commit f19d575d49e4ceda2582bc22dbbd0c3506d4bbde
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 17 18:49:16 2019 +0100
+
+    Update README.md
+
+commit f7ec7b758b2ab29719fecc7f2e5433f52556bcc4
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 17 18:37:19 2019 +0100
+
+    Update README.md
+
+commit 35f3676bcd453433da5cf283e1bfbe59bb4d778f
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 17 18:36:45 2019 +0100
+
+    Update README.md
+
+commit 775c1f579442bf826c400839b3f8d90ac1a570e8
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sat Mar 16 13:41:05 2019 +0100
+
+    Correct tls bug
+
+commit d3c97f07ad9d8d5cd4970535e6534df13015918c
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 19:01:59 2019 +0100
+
+    Create .gitattributes
+
+commit 1a31f56ccffdba307c1840d51665d4a90d8ed29f
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:53:04 2019 +0100
+
+    Update README.md
+
+commit f4d9e1a5dec73493596f51c1f3d1749e5fafe620
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:49:10 2019 +0100
+
+    Update README.md
+
+commit 6f5d35dbc65ee5bb0abc3bb25805196a09ef1e51
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:48:38 2019 +0100
+
+    Update README.md
+
+commit 84cf24105cceddfa52415ebf7e69cdbfcde33b23
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:47:08 2019 +0100
+
+    features.png
+
+commit 3f13713a7f991660bc2480558cac35e32e14c6ac
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:42:25 2019 +0100
+
+    Update README.md
+
+commit c8253354c8e18de78d5b2ebe1ba517165b0231e1
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:40:25 2019 +0100
+
+    Update README.md
+
+commit 94aad5060ae5b94dae02c08afb51c3711a6aa320
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:38:52 2019 +0100
+
+    Update README.md
+
+commit 2047d305b3a245e52eb2e65920f4208e1ea9100d
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:38:17 2019 +0100
+
+    Update README.md
+
+commit 79c1472a83dcbc4086a4a98660aea4ec37d6fe1b
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:35:35 2019 +0100
+
+    Update README.md
+
+commit cbf5c59307185b82131866b5353b7cdc23823d4d
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:33:53 2019 +0100
+
+    Update README.md
+
+commit be6041d3c92c29224c1deeecf6389279184ecda8
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:32:44 2019 +0100
+
+    Update README.md
+
+commit 057d4be4c2fff7e523eb8f7e9fd840e33c26fb26
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:27:44 2019 +0100
+
+    Update requirements.txt
+
+commit b074e3990c6f6b00c15fd42724d1ba7d5eba2dae
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:26:47 2019 +0100
+
+    Delete setup.py
+
+commit 5444b1c6aa8452c1215a68d38bf75ed9c82158e4
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:26:23 2019 +0100
+
+    Update README.md
+
+commit 53cb335004e79cd2d089cf9e7362c781581bd03a
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:25:33 2019 +0100
+
+    Update README.md
+
+commit 7da26cdb43c91c0b7a428070f5aa30d7ec08710f
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:22:42 2019 +0100
+
+    Update LICENCE.md
+
+commit e66a318e06e64b791472ed3c21f135e4a8e38d2d
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:22:20 2019 +0100
+
+    Update config.py
+
+commit 6d0715499fe86a564ec7e7489925f6765876de2f
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 18:20:28 2019 +0100
+
+    Update README.md
+
+commit a7bb8357fd515b2fa89419f3184b3cf6c4639ad1
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 17:51:12 2019 +0100
+
+    Update README.md
+
+commit fa799d25007aa0d949d70d103b3db93c84e57c82
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 17:48:31 2019 +0100
+
+    Initial Commit
+
+commit 3b7ba5cb0c025a5df595b83fbdb3f4e7729fcdd3
+Author: Thomas Roccia <thomas.roccia@gmail.com>
+Date:   Sun Mar 10 17:43:00 2019 +0100
+
+    Create README.md

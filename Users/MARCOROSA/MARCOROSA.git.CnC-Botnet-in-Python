@@ -1,0 +1,291 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# CnC-Botnet-in-Python
+C&#38;C Botnet written in Python
+
+## Description
+Simple botnet written in Python using fabric. 
+<p>
+The author is not responsible for the use of this code.
+
+## Hosts
+It is possible to load hosts from a file _hosts.txt_ included in the main directory of the project.
+The default format for this file is:
+```bash
+username@host:port password
+```
+
+If the port number is not declared, port 22 is used:
+```bash
+username@host password
+```
+SSH connection is the default authentication way, so if the host knows the public key of the user, it is not necessary to indicate the password:
+```bash
+username@host
+```
+
+## Usage
+To start the application, simply download the repository
+```bash
+git clone https://github.com/marcorosa/CnC-Botnet-in-Python
+cd CnC-Botnet-in-Python
+```
+
+Install the dependencies
+```bash
+pip install -r requirements.txt
+```
+
+Create the _hosts.txt_ file (optional, see above), and run the start script
+```bash
+python start.py
+```
+
+## Example
+```
+=================================
+MENU
+=================================
+[0] Load host from external file
+[1] Add a new host
+[2] Print selected hosts
+[3] Check active hosts
+[4] Select only active hosts
+[5] Select bots
+[6] Execute command locally
+[7] Execute command on bots
+[8] Run external script
+[9] Open shell in a host
+[10] Exit
+>>> 
+```
+====================== GIT HISTORY: ======================
+2ee458d HEAD@{0}: clone: from https://github.com/marcorosa/CnC-Botnet-in-Python
+commit 2ee458d2572c96cc242b70b76a6a509d6b64e332
+Merge: b1c66d8 ed1cda4
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Jun 20 14:39:45 2022 +0200
+
+    Merge pull request #2 from MAlba124/patch-1
+    
+    Fix typo
+
+commit ed1cda46e25dc168eb4e783549b8ec91a7613963
+Author: MAlba124 <83474682+MAlba124@users.noreply.github.com>
+Date:   Sat Jun 18 15:51:55 2022 +0200
+
+    Fix typo
+
+commit b1c66d8ddbd90d70fd9d3aa40cd1a0382af3a94f
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Wed May 25 15:27:11 2022 +0200
+
+    add dependencies installation
+
+commit 9e2eec181f21994e0c47d45db7d39fb2dc5980a6
+Merge: 23adc7a f099693
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Wed May 25 15:23:19 2022 +0200
+
+    Merge pull request #1 from marcorosa/py3-porting
+    
+    add compatibility with python3
+
+commit f099693e6ab75c9487571dbb80f14e9a204a522d
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Wed May 25 15:22:25 2022 +0200
+
+    add compatibility with python3
+
+commit 23adc7ae553239a0c23da63d6eb97da24054fd93
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Apr 10 23:06:47 2017 +0200
+
+    fix execution of remote bash script
+
+commit 5ff71f91183949d4589294a440c8001ce92f2ad3
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Apr 10 22:57:38 2017 +0200
+
+    add error message for invalid script
+
+commit e3f6e3b958eed9d46e07c19b8a5674b7681b8b43
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Apr 10 22:54:53 2017 +0200
+
+    code refactoring
+
+commit 173b059f6fbe3c91deb8b05c30920454d3f1c881
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Apr 10 22:47:47 2017 +0200
+
+    fix titles
+
+commit 62c9ea24a26dcd1da6e3b96e271d4133275afbe9
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Thu Jan 26 23:49:19 2017 +0100
+
+    change remote script directory to home
+
+commit 0ffd88aa5789828284e908dc96b79233ca0349b2
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Fri Jan 13 23:09:12 2017 +0100
+
+    small bugfixes
+
+commit 60c402ba00f30a67bfdde568ae163f8205c021ac
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Dec 27 18:54:28 2016 +0100
+
+    fix execution of sudo commands
+
+commit a131febf8940b058b9dd124be363481369cb1ca4
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Dec 27 17:10:38 2016 +0100
+
+    code refactoring
+
+commit a32220f13364a335b230964e1bed53a28b405ba8
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Dec 26 23:46:05 2016 +0100
+
+    add shell colors
+
+commit 300ab823f0c21f582d3bcfe26ccb13c9d0f78221
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Dec 26 22:15:07 2016 +0100
+
+    Code refactoring (pep8 + pep257)
+
+commit 462d394a755675347bbc3c9751ddc0def72dfd08
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Dec 26 12:00:05 2016 +0100
+
+    refactor add_host function
+    save host only if confirmed
+
+commit 90f4d22c389d164502d945a9d4db39119c10db9d
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Dec 26 11:56:15 2016 +0100
+
+    add python3 venv to gitignore
+
+commit f9d8520d01d4261f46e3b5cf91f0bc62b4f616d9
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Dec 20 11:25:46 2016 +0100
+
+    reorganize folder
+
+commit 1686d92d6248ba420d1d426a4bda709b2226f7be
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Mon Dec 19 14:41:44 2016 +0100
+
+    add requirements
+
+commit b4c47d54e367440347085004b5b573771d3e84d0
+Author: marcorosa <marcor165@hotmail.it>
+Date:   Tue Jan 26 09:20:31 2016 +0100
+
+    Rename from CC to CnC
+
+commit d3b87aa5b19d34bf413526a5428d915c654edda0
+Author: marcorosa <marcor165@hotmail.it>
+Date:   Thu Jan 14 15:20:05 2016 +0100
+
+    Update readme
+
+commit cb757eb68159046ea135dffc86baaaf794dd8740
+Author: marcorosa <marcor165@hotmail.it>
+Date:   Thu Jan 14 15:16:31 2016 +0100
+
+    Update readme
+
+commit 08a42e8365fabf4185763ea9004f7056a1166272
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Thu Jan 14 15:11:35 2016 +0100
+
+    Add sample hosts.txt file
+
+commit 0d475594f829322a673faa6fbd21543db5f05746
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Wed Jan 13 17:52:58 2016 +0100
+
+    Update feature for executing script
+
+commit 3ddacbe8e807a2dce529e958f4259e2447e34fda
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Wed Jan 13 15:32:46 2016 +0100
+
+    Add open shell on remote host feature.
+
+commit bb8c97fec7b163f87056b9834eae6539e6ab06d3
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Wed Jan 13 10:46:40 2016 +0100
+
+    Code refactoring: print bool instead of int if host is running.
+
+commit 3a0f8c45b5e34d5e832599bf4b632e76029bc580
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Wed Jan 13 10:38:35 2016 +0100
+
+    Check running hosts pinging them
+
+commit 97ad52b06492977dfabdd9f494e095480cf8d092
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 18:39:44 2016 +0100
+
+    Remove license duplicated
+
+commit e204cb03afcb86e7fd9e9bc234f63eb8278d4d0e
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 18:38:13 2016 +0100
+
+    Add external script execution feature.
+
+commit 8205729c4e4144b235ad77735c16bb4e8839e838
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 18:14:51 2016 +0100
+
+    Update readme
+
+commit 725ec6bc096ed69aceb76e43e34c92b2c9c8b3d9
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 18:12:43 2016 +0100
+
+    Update readme
+
+commit f8b8810e646011dce44950997d2fae0c08c07173
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 18:10:25 2016 +0100
+
+    Update readme
+
+commit 1f9ae9a35c015cff009c2d24b0c2aeb5fc84d203
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 18:06:52 2016 +0100
+
+    Add new features.
+
+commit 1867ecf20c8d1724d5e10e89b6502c498fba4f20
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 16:47:36 2016 +0100
+
+    Choose hosts for your botnet.
+
+commit be809cbe4d68e7e1a4166f12d0b387851e009225
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 15:40:24 2016 +0100
+
+    Fix print as table (using tabulate)
+
+commit 3fb275a99971423f02d65603c4518f9a1941ee00
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 15:07:28 2016 +0100
+
+    Initial commit
+
+commit 1670b199cdfc0a8e498e3f1f16c7da12bc6473dd
+Author: Marco Rosa <marcor165@hotmail.it>
+Date:   Tue Jan 12 14:51:14 2016 +0100
+
+    Initial commit

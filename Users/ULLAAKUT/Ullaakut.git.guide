@@ -1,0 +1,1586 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 8fdbf4c5946bcc53a9febb056dddef5a3e958266
+Author: Megidd <megiddgit@gmail.com>
+Date:   Tue Apr 21 09:23:05 2020 +0430
+
+    Fix missing type in example for naked parameters (#89)
+
+commit ccf37611cb2e7771addf820745641f8fbc76b2cb
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Feb 24 17:46:17 2020 -0800
+
+    Guidelines: Verify Interface Compliance (#86)
+    
+    This adds advice on verifying interface compliance with
+    `var _ Interface = (*Foo)(nil)`.
+    
+    As part of this guideline, we have to cover that if the receiver is on
+    the value type, the right side should be the zero value. Because of
+    that, the guideline is placed right before the section where we talk
+    about receiver types for interfaces.
+    
+    Resovles #25
+
+commit 06c04b704ba42f5d731932c8e429d827e6e09a0a
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 30 14:28:46 2020 -0800
+
+    Guideline: Use "time" to handle time (#76)
+    
+    This adds a new section recommending use of the time package when
+    dealing with time. It ports over recommendations for `time.Duration` and
+    `time.Time` from the internal guide, expanding on their usage in
+    interactions with external systems and limitations.
+
+commit 31748aec1d5b9383efb27c7b373e489c86fa2f1f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sat Jan 25 22:25:11 2020 -0800
+
+    CHANGELOG: Update for #84 (#85)
+    
+    This adds an entry to the changelog for #84.
+
+commit e039a3545478a8f8a5fd247fc23d7540f45c5ef3
+Author: Kris Kowal <kris@uber.com>
+Date:   Sat Jan 25 12:14:03 2020 -0800
+
+    Avoid embedding types in public structs (#84)
+
+commit 6a0fa1e0f8917325488f94f659e9ab61728cb316
+Merge: 79c56d7 2c17a49
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Wed Jan 15 13:15:02 2020 -0800
+
+    README: Add Russian translation (#83)
+    
+    This adds a link to sau00's Russian translation of the guide.
+
+commit 2c17a49adbaad30a65768a598b9c5708ad3aaec0
+Author: sau00 <sau00gm@gmail.com>
+Date:   Wed Jan 15 12:29:38 2020 +0300
+
+    README: Add Russian translation
+
+commit 79c56d7d389e6d281489dead4b45ee9e1f3dc58a
+Merge: d61205f e4c7550
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sat Jan 11 20:19:01 2020 -0800
+
+    Functional Options: Fix typo in loggerOption (#82)
+    
+    `opts.Logger = l.Log` should be `opts.logger = l.Log`.
+
+commit e4c75504792e82ef4ab82bb8b0287f9977021159
+Author: xxj <346944475@qq.com>
+Date:   Sat Jan 11 17:44:18 2020 +0800
+
+    opts.Logger = l.Log should be opts.logger = l.Log
+    
+    opts.Logger = l.Log should be opts.logger = l.Log
+
+commit d61205f4e561965c64c7dbe8403cb0f6f34c58bc
+Author: Rafael dos Santos <rafaveira3@gmail.com>
+Date:   Fri Jan 10 17:47:48 2020 -0300
+
+    Error Types: Fix missing function parameter (#81)
+    
+    This adds the missing parameter for the `open(..)` call.
+
+commit 1f4b461e211e809fa2454f9d68f87ed62f3ea0cb
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Tue Dec 17 11:43:37 2019 -0800
+
+    Functional Options: Don't recommend closures (#77)
+    
+    This changes the Functional Options example to not recommend closures,
+    instead favoring full implementations of the interface for each option.
+    
+    To help demonstrate that options don't have to be new types, a logger
+    option was added to the example. This made the examples too long so the
+    the timeout option was dropped; cache was kept around to demonstrate
+    readability of naked booleans versus `WithCache(false)`.
+    
+    Further, the function was renamed to Open and the Bad/Good side-by-side
+    comparison was reduced to just the user-facing API. The implementation
+    was moved to its own paragraph.
+
+commit 8e951dc31bbda9a704397b172802ec43ccfbe7a7
+Author: Damian Skrzypczak <damian.piotr.skrzypczak@gmail.com>
+Date:   Sun Dec 8 23:27:14 2019 +0100
+
+    README: Add Polish translation (#75)
+
+commit 33388e21572876d9bda25895db48a1da9b0304f5
+Author: Simon Newton <nomis52@gmail.com>
+Date:   Tue Dec 3 15:44:06 2019 -0800
+
+    Port over the section on mutable globals (#73)
+
+commit 85bf203f4371a8ae9e5e9a4d52ea77b17ca04ae6
+Author: Lucas Scaravelli <lucas.savioli.scaravelli@gmail.com>
+Date:   Mon Nov 11 14:34:16 2019 -0300
+
+    README: Link to Portuguese translation (#71)
+    
+    This adds a link to a Portuguese translation of the guide.
+
+commit 3845b5def0fcb8f391b30cace4558ea2344ab218
+Author: ferhat elmas <elmas.ferhat@gmail.com>
+Date:   Mon Nov 11 18:33:17 2019 +0100
+
+    Drop duplicate word (#70)
+    
+    This drops a duplicated word in the Be Consistent section.
+
+commit 7eb64c6cb304471c868273d919c2d34993e2daa7
+Author: pallat Anchaleechamaikorn <yod.pallat@gmail.com>
+Date:   Thu Oct 31 10:39:07 2019 +0700
+
+    README: Add Thai translation (#68)
+
+commit 425af66e56dde630e1a90a2eddaf4177af084f24
+Author: Sean Knight <git@seanknight.com>
+Date:   Thu Oct 24 05:30:36 2019 -0700
+
+    Minor fixes (#62)
+    
+    Use the correct tense of "use" and s/pre-defined/predefined/.
+
+commit 2db016419be2225804c7eb5ac890d793362b6363
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Tue Oct 22 16:11:27 2019 -0700
+
+    CHANGELOG: Updates for #55 and #58 (#61)
+    
+    This updates the changelog based on changes made in those two PRs.
+
+commit 9b171181c27f76568c87789ce6edf178438dd221
+Author: Adrian Perez <perezg.adrian@gmail.com>
+Date:   Wed Oct 23 00:53:24 2019 +0200
+
+    README: Add spanish translation (#60)
+    
+    This adds a link to friendsofgo/uber-go-guide-es, which provides a
+    Spanish translation of the guide.
+
+commit 33e7d1ecb7bed88a9d498169913b5d5c149c738a
+Merge: 5980baa d8179e0
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Mon Oct 21 14:05:38 2019 -0400
+
+    Merge pull request #55 from uber-go/mway/maps
+    
+    Add guidance for initializing maps
+
+commit 5980baab7ebc59ba59eac21eaedced263a79729a
+Merge: 7738ae5 218a47d
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Mon Oct 21 14:05:11 2019 -0400
+
+    Merge pull request #58 from uber-go/mway/consistency
+    
+    Add consistency section
+
+commit d8179e0dbca06e1c2cec5cbee85f8fbfbce94146
+Author: Matt Way <mway@uber.com>
+Date:   Mon Oct 21 13:47:58 2019 -0400
+
+    Feedback
+
+commit e810b3ffce1223155f5d83140989cd068dcaf61d
+Author: Matt Way <mway@uber.com>
+Date:   Mon Oct 21 13:47:08 2019 -0400
+
+    Feedback
+
+commit 218a47d458514e353ffeacbcb3926f3a6df12c25
+Author: Matt Way <mway@uber.com>
+Date:   Mon Oct 21 13:38:11 2019 -0400
+
+    Fix ToC
+
+commit 7738ae5182715368c5e48a63ec54cc2e2be613a4
+Merge: b622e8e 828733b
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Mon Oct 21 10:52:52 2019 -0400
+
+    Merge pull request #50 from TangoEnSkai/master
+    
+    update a comment for snapshot example
+
+commit 828733b7e4b0ed8cfa866318532eda9daee1f511
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Mon Oct 21 18:06:54 2019 +0900
+
+    update comments for snapshot
+
+commit 6b80552574a7afc440066bf98fe03de8563b2d6e
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 15:13:17 2019 -0400
+
+    Remove consistency link from map initialization
+
+commit 4e67644aa841981114e50475e72355a97e1ec326
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 15:11:23 2019 -0400
+
+    Typo
+
+commit 2556838c2e0709c7dbec266297813511cbcd0f63
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 15:09:46 2019 -0400
+
+    Add map capacity to performance section
+
+commit 121d8c706382c69b6b4778c5ce9aa9e2a7ca35bd
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 14:17:07 2019 -0400
+
+    Terser guidance
+
+commit 3711ebcdf219372f94eab4d5e4ea9d26435d876e
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 14:09:40 2019 -0400
+
+    Add capacity hint guidance
+
+commit dce5154306af79c3d6eee21ecf3d3935dcce50a2
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 13:58:17 2019 -0400
+
+    read/write/panic comments on map examples
+
+commit 9d3ca2a620738061b5ad718b965895c3fb2dbf5c
+Author: Matt Way <mway@uber.com>
+Date:   Sat Oct 19 22:01:16 2019 -0400
+
+    Add consistency section
+
+commit 9d6252a8fca562227b5d3e226ba63cbc219a2e23
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sun Oct 20 10:40:16 2019 -0700
+
+    more visually distinct => visually distinct
+    
+    Co-Authored-By: Prashant Varanasi <prashant@uber.com>
+
+commit 341752f5c824c146f47c7e522e5a684417599513
+Merge: 842dfef 551f1a5
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Sun Oct 20 12:05:22 2019 -0400
+
+    Merge pull request #57 from uber-go/abhinav-patch-2
+    
+    Initializing Maps: Refactor
+
+commit 551f1a5129ffcdd96cae3ada35c0173346d6943d
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sun Oct 20 09:03:33 2019 -0700
+
+    Initializing Maps: Refactor
+    
+    This changes the Initializing Maps guidance proposed in #55 to...
+    
+    - provide the guidance first
+    - include examples for both cases
+    - provide the rules last
+    
+    This drops the mention of rvalue as well because readers unfamiliar
+    with C++ will find that confusing.
+
+commit 842dfef0ce876d55cc94927bd5e0d2a12f924f15
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 11:39:27 2019 -0400
+
+    Remove slice guidance
+
+commit b622e8e79a4e69059e31d815365820620ee2cc37
+Merge: a80b760 ee46e89
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Sun Oct 20 11:13:04 2019 -0400
+
+    Merge pull request #52 from knsh14/add-japanese-guide
+    
+    Add link to Japanese
+
+commit c275755478421193d65d520ac8ecfe62534e6ca6
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Sun Oct 20 15:48:40 2019 +0900
+
+    fix diffs for toc
+
+commit 2dc6e6c29825ecad92a892b50412cba3f8259b09
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Sun Oct 20 15:47:05 2019 +0900
+
+    undo linter for the toc
+
+commit a4e62ebbb431ca2a07952487348b9e384216ba8f
+Merge: 1abcad6 a80b760
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Sun Oct 20 15:44:54 2019 +0900
+
+    undo linter for TOC
+
+commit ee46e89179b6389186af47ada78469404d86854e
+Merge: 8b74426 fe621fa
+Author: knsh14 <knsh14@mercari.com>
+Date:   Sun Oct 20 13:50:48 2019 +0900
+
+    Merge branch 'add-japanese-guide' of github.com:knsh14/guide into add-japanese-guide
+
+commit 8b74426e0f0b2eb091aa96937c3ba0b526315044
+Author: Kenshi Kamata <kenshi.kamata@gmail.com>
+Date:   Sat Oct 19 19:30:56 2019 +0900
+
+    update readme to add link to japanese
+    
+    fix list item
+
+commit a80b760dd644171d0aea44ae24a1eb9b0f0a30d3
+Merge: a1bbdcf 8f25fe3
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Sat Oct 19 22:47:10 2019 -0400
+
+    Merge pull request #53 from uber-go/abhinav-patch-1
+    
+    translations: Include English names
+
+commit bcfee50a8d94cf7a0a79234c514691d007dc2521
+Author: Matt Way <mway@uber.com>
+Date:   Sat Oct 19 22:30:43 2019 -0400
+
+    Add guidance for initializing maps and slices
+
+commit 8f25fe34e8aa13dd889f93e636c4d2cbaeec557f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sat Oct 19 11:05:19 2019 -0700
+
+    translations: Include English names
+    
+    This adds the English names of translations to the README.
+
+commit a1bbdcf80d906d26d1f83ea5ca7e731b69203a01
+Author: xiaojunxie <346944475@qq.com>
+Date:   Sun Oct 20 02:04:22 2019 +0800
+
+    README: Refer to translations in local languages (#48)
+
+commit fe621fa44a49a86969ba095ae044966d9186ec63
+Author: Kenshi Kamata <kenshi.kamata@gmail.com>
+Date:   Sat Oct 19 19:30:56 2019 +0900
+
+    update readme to add link to japanese
+
+commit 1abcad62e46c0a97a69a2839f6479588877e4efe
+Merge: 752d8e0 93183d5
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Fri Oct 18 22:50:13 2019 +0900
+
+    Merge branch 'master' of github.com:TangoEnSkai/guide
+
+commit 752d8e0a817099752b518ae1f8f22ca4e56b5dcb
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Fri Oct 18 22:50:02 2019 +0900
+
+    refine comment for snapshot example
+
+commit 02b30c11bef198a35cfe1645b64fc6ad3c5252a2
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Fri Oct 18 04:47:20 2019 +0900
+
+    README: Add korean translation by TangoEnSkai  (#47)
+    
+    This adds a link to TangoEnSkai/uber-go-style-guide-kr to the README.
+
+commit 93183d5fa1ede8c564ebb51c029edf4252576df7
+Author: Abhinav Gupta <mail@abhinavg.net>
+Date:   Thu Oct 17 12:45:18 2019 -0700
+
+    Fix translation link
+
+commit ad971cd9fa6168967943dc42034ab45ab0eb64e8
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Thu Oct 17 03:38:45 2019 +0900
+
+    add link for korean translation
+
+commit 6d45d7fced7fa44457b477ece444b22b6da0ae65
+Author: Prashant Varanasi <prashant@uber.com>
+Date:   Wed Oct 16 08:32:38 2019 -0700
+
+    Remove embedded mutex in exportd type (#45)
+
+commit d0f4f97ced3f0fbc67e6b64bb10a19530ea3bf2b
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Oct 14 15:39:47 2019 -0700
+
+    README: Add translations section (#41)
+    
+    This adds a translations section to the README with a link to the only
+    translation repository that we know of at this time.
+    
+    Resolves #31
+
+commit 8778e7b6cfcbd68ba97b9c009156a68af9892274
+Author: Qt <golang.chen@gmail.com>
+Date:   Mon Oct 14 19:50:53 2019 +0800
+
+    Don't Panic: add missing { in sample (#35)
+    
+    Resolves #37
+
+commit 603824f872091e4c8b3a655fa77495074b89ebc5
+Author: Prashant Varanasi <prashant@uber.com>
+Date:   Sat Oct 12 23:36:05 2019 -0700
+
+    Mutexes should only be embedded in unexported (#27)
+    
+    More explicitly call out that mutexes should only be embedded
+    in unexported types.
+    
+    Related to #23.
+
+commit 75f61371fc02877b46729f8a84d5b65e568b633f
+Author: wuchihsu <wuchi5457@gmail.com>
+Date:   Sun Oct 13 13:59:49 2019 +0800
+
+    Use Field Names to initialize Structs: Remove redundant braces (#30)
+
+commit 4f53733a35a5a55bfc2c87a397f0bd886837e198
+Author: Shude Li <lishude@aliyun.com>
+Date:   Sun Oct 13 00:28:35 2019 +0800
+
+    Fix slice typos (#24)
+
+commit 3baa2bdd4677d7ef650be138a7c53b49d36da645
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Oct 11 15:23:03 2019 -0700
+
+    Reduce Scope: Fix FD leak (#20)
+    
+    As pointed out in #19, the second Good example for "Reduce Scope of
+    Variables" leaks an open file descriptor if `io.WriteString` fails.
+    
+    Further, both sets of examples are manually closing files instead of
+    using `defer` as pointed out elsewhere in the guide.
+    
+    As these examples just need a pair of functions, one returning just an
+    error, another returning a value and an error, I've switched them to
+    using `ioutil.ReadFile`, `ioutil.WriteFile`, and a plausible
+    `Config.Decode([]byte) error` method on a `cfg` variable assumed to be
+    in-scope.
+    
+    Resolves #19
+
+commit a6bd881512fcbc183b58797791305c6994e2cb20
+Author: John Reese <john@reese.dev>
+Date:   Fri Oct 11 18:11:46 2019 -0400
+
+    Change index value from 0 to 1 (#18)
+
+commit a53ee0bef8c0b11b52340dbbc82e8be37f4a88d2
+Author: Emir Ribić <ribice@gmail.com>
+Date:   Fri Oct 11 22:06:49 2019 +0200
+
+    Package Names: Fix typos (#17)
+
+commit 3e44c6a7facf8381d2773725e6d4b821a5455ced
+Author: Cody Gibb <codyhgibb@gmail.com>
+Date:   Fri Oct 11 12:05:51 2019 -0700
+
+    Succinct error contexts (#12)
+
+commit 78e0b91d1a46e9e2a88e3f35cbd9478632ceac7a
+Author: Prashant Varanasi <prashant@uber.com>
+Date:   Fri Oct 11 12:05:18 2019 -0700
+
+    Add benchmarks for strconv vs fmt guideline (#16)
+
+commit b748e92b6476bb1e082865beeed170e2288720eb
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Oct 11 07:25:30 2019 -0700
+
+    Functional Options: Apply the interface method (#14)
+    
+    This fixes a typo in the functional options code sample. When Option is
+    an interface, we need to `.apply` it.
+    
+    Resolves #13
+
+commit 06baca4437af019acb47667fb3b59e0cd6e6b1ae
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Oct 11 07:25:15 2019 -0700
+
+    Zero-value mutexes: Remove leftover code sample (#15)
+    
+    We had a leftover code sample that set up a zero-value mutex and locked
+    and unlocked it right after the bad-good comparison.
+
+commit 58b78b423f30566d45e7e2fa42ea9b75d7904825
+Author: Kris Kowal <kris@cixar.com>
+Date:   Thu Oct 10 15:12:20 2019 -0700
+
+    Clarify guidance for option functions. (#11)
+    
+    Consistent with our guidance to avoid providing public functions that
+    accept private types and to give library authors full latitude to change
+    the underlying implementation of functional options, we now suggest
+    using a public Option interface with a private method.
+    
+    We have also learned not to mix the words option and configuration in
+    the same context. An option is a function parameter to override
+    behavior. Configuration is parsed from files and frequently maps to
+    options.
+
+commit 281e2630837ab43666c80f1cac3b350fedca8329
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Oct 10 14:13:00 2019 -0700
+
+    Add LICENSE (#10)
+    
+    As discussed, we'll use Apache 2 for this.
+
+commit e71b961f140fb552436d6cffb5c690c27ff85989
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Oct 10 13:08:54 2019 -0700
+
+    CHANGELOG: Update initial release date (#9)
+    
+    We're planning on open sourcing this on 2019-10-10.
+
+commit a930fb5d0b8e202dc45d31b0250199704b0ad9ff
+Author: barrmelissa <mbarr@uber.com>
+Date:   Wed Oct 9 14:38:30 2019 -0700
+
+    Full edit (copy edit and content edit) (#7)
+    
+    Overall this Style Guide looks fantastic. Prashant, Simon, and all of
+    the others working on this have done a great job. While I made edits,
+    they are all just suggestions that can be chosen to be included or not.
+    Feel free to reach out to me with any additional questions.
+    
+    In regards to the copy edit, I could not find anything that should not
+    be viewed externally. Almost everything can be found externally already
+    so I do not see a concern in that sense.
+    
+    From a writing perspective, I've made some changes to the style.md file
+    to improve consistency, readability, and the overall content flow for
+    readers. As the audience are users of Go already, this content overall
+    makes sense for any Go programmer outside of Uber. The changes can be
+    viewed here, however I would like to call out a few of the larger
+    edits.
+    
+    1. There are a few sections regarding errors, but they are spread out.
+       I consolidated them So it flows "Error Types" -> "Error Wrapping" ->
+       "Handle Type Assertion Failures" -> "Don't Panic" as that created
+       the most logical flow of information. NOTE: Since there are a good
+       amount of them, they could even be pulled out to make their own
+       group.
+    2. The "Defer to Clean Up" section noted how to clean up resources such
+       as locks so it flows best after locks are mentioned in the Mutexes
+       sections above.
+    3. I've updated the TOC to reflect these changes.
+    
+    The following additional changes were made:
+    
+    1. Dropped "usually" in "strconv is usually faster than fmt"
+    2. Added a code sample for `give`/`want` prefixes for test tables
+    3. Updated description of interface implementation to match modern Go
+       versions
+
+commit 60a61ccb607d0ee615362a02d5b8a51ccb43843f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Aug 16 11:13:06 2019 -0700
+
+    Avoid string-to-slice: Drop reference to issue (#6)
+    
+    The relevant GH issue was closed. This updates this section to a general
+    "avoid converting the same string to byte slices repeatedly"
+    recommendation.
+    
+    To justify the recommendation, I've included the relative performance of
+    the two cases in the output.
+
+commit 6c43d5d83743c4e5e6f418c8744aafa43238a71d
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 19:39:21 2019 -0700
+
+    Mutexes: Rewrite section
+    
+    Rather than talking about never needing pointers to mutexes, this
+    clarifies that we never need pointers to mutexes when zero-values would
+    suffice.
+
+commit 4d6a8aeb822c3b221e628116d9a4484edef5ad61
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 19:30:14 2019 -0700
+
+    function grouping: Include type declaration
+    
+    In the function grouping code snippet, we should include the type
+    declaration's location in the example.
+
+commit 9aaee084940e161a9d65cd248c95b0b89f8cb75c
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 19:27:42 2019 -0700
+
+    Import Aliasing: Use if basename doesn't match
+    
+    This adds a note to the import aliasing section that import aliasing
+    must be used if the base name doesn't match the package name.
+    
+    This is placed before the more general recommendation of avoiding import
+    aliasing otherwise because it's more important to use named imports when
+    the basename doesn't match.
+
+commit c1c23fe912e0fb0d7a2f41ed08b627a90d25ab67
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 20:31:54 2019 -0700
+
+    Add a changelog (#4)
+    
+    This adds a bare changelog to the repository. We can change the date
+    before we open source it.
+    
+    Note that we won't be versioning the repository or the style guide; only
+    a changelog will be maintained.
+    
+    Resolves #3.
+
+commit 8de5714cef9f576df97f7afee032b8e9fbc2d6aa
+Author: Abhinav Gupta <mail@abhinavg.net>
+Date:   Wed Jan 30 05:49:15 2019 -0800
+
+    Add Code of Conduct (#2)
+    
+    This adds a code of conduct to the repository.
+
+commit e7149de413da879e03601dcf286d2cfb8d981f4a
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:48:27 2019 -0800
+
+    Functional Options
+    
+    This adds information about the functional options pattern. This is a
+    rewrite of the internal style guide section "Options Pattern".
+
+commit 5620cf39075cf5e35d12faa3c70df3bfa90f056f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:44:42 2019 -0800
+
+    Initializing Struct References
+    
+    This adds a recommendation around initilaizing struct references
+    (`&T{}`). This is a version of the internal section "Using new(T) vs
+    &T{}".
+
+commit 123162f41540b5feafb0fa4b535a781bece8a758
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:43:46 2019 -0800
+
+    Avoid Naked Parameters
+    
+    This adds a section recommending against naked parameters like booleans.
+    This is a version of the internal section "Avoid naked parameters in
+    function calls."
+
+commit 5278a6c3234d36c8912e0e243a0625a64d01ab94
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:42:26 2019 -0800
+
+    nil is a valid slice
+    
+    This makes a recommendation to use nil as a slice. This is a rewritten
+    version of the internal style guide section with the same name.
+
+commit c351c1058d9ca8f05fa2594b1c179e29141c2b7a
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:41:07 2019 -0800
+
+    Use Field Names to initialize structs
+    
+    This adds a style recommendation to use field names when initializing
+    structs. This is a version of the section from the internal guide
+    "Struct initializers without field names."
+
+commit 66444c670ccec0c194fe0b5d9e48bf5ac3aae0e3
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:38:58 2019 -0800
+
+    Import Group Ordering
+    
+    This adds a styling recommendation around import group ordering. This is
+    a simplified version of the internal style guide section "Import groups
+    and ordering".
+
+commit 934afac77856769f4b668c47382a17c95eca18ad
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:37:32 2019 -0800
+
+    Defer to Clean Up
+    
+    This adds a section encouraging use of `defer` for resource clean up.
+    Internally, this is mentioned in the Performance section as "Use defer
+    to manage cleanup of resources" but I decided this belonged in the
+    Guidelines section since this wasn't a performance-specific guideline.
+
+commit 683638bda9b948b09645176901de6411fa048762
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:36:46 2019 -0800
+
+    Don't Panic
+    
+    This adds a recommendation to avoid panicking in production code. This
+    is a reworded version of the internal style guide section "Avoid panic()
+    in production code".
+
+commit 1dc82f6a49328dee4f9496dd2b2ccfc42072b7a0
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:35:49 2019 -0800
+
+    Use go.uber.org/atomic
+    
+    This adds a recommendation to use go.uber.org/atomic. This is a reworded
+    version of the same section from the internal guide.
+
+commit b30a534b68df039064f7315c8f05db9f92ca9615
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:34:16 2019 -0800
+
+    Error Types
+    
+    This adds general guidelines around error types. This is a version of
+    the internal style guide section, "Creating custom error types vs
+    fmt.Errorf".
+
+commit 6c50f083d487e6f5a80b21d074eb4039be436fe9
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:32:42 2019 -0800
+
+    Channel Size is One or None
+    
+    This adds a section warning against channels of sizes other than zero or
+    one. This is a reworded version of internal style guide section "Be wary
+    of channels with a size other than 1".
+
+commit 8c023801f5cae01fe09a5a12c180f967bf3e00ff
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:30:59 2019 -0800
+
+    Copy Slices and Maps at Boundaries
+    
+    This adds a guideline to copy slices and maps at boundaries. This is
+    condensed version of the following sections from the internal style
+    guide:
+    
+    - Explicitly copy slices and maps passed to functions if they are stored
+      for later use
+    - Be wary of maps and slices returned from functions
+
+commit bc9246f884a89ec88228c353a4130efdec996881
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:03:31 2019 -0800
+
+    Initial contents
+
+commit 245aa774d3130cbee69d11408abae066bcf49799
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Nov 12 12:34:37 2018 -0800
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 8fdbf4c5946bcc53a9febb056dddef5a3e958266
+Author: Megidd <megiddgit@gmail.com>
+Date:   Tue Apr 21 09:23:05 2020 +0430
+
+    Fix missing type in example for naked parameters (#89)
+
+commit ccf37611cb2e7771addf820745641f8fbc76b2cb
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Feb 24 17:46:17 2020 -0800
+
+    Guidelines: Verify Interface Compliance (#86)
+    
+    This adds advice on verifying interface compliance with
+    `var _ Interface = (*Foo)(nil)`.
+    
+    As part of this guideline, we have to cover that if the receiver is on
+    the value type, the right side should be the zero value. Because of
+    that, the guideline is placed right before the section where we talk
+    about receiver types for interfaces.
+    
+    Resovles #25
+
+commit 06c04b704ba42f5d731932c8e429d827e6e09a0a
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 30 14:28:46 2020 -0800
+
+    Guideline: Use "time" to handle time (#76)
+    
+    This adds a new section recommending use of the time package when
+    dealing with time. It ports over recommendations for `time.Duration` and
+    `time.Time` from the internal guide, expanding on their usage in
+    interactions with external systems and limitations.
+
+commit 31748aec1d5b9383efb27c7b373e489c86fa2f1f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sat Jan 25 22:25:11 2020 -0800
+
+    CHANGELOG: Update for #84 (#85)
+    
+    This adds an entry to the changelog for #84.
+
+commit e039a3545478a8f8a5fd247fc23d7540f45c5ef3
+Author: Kris Kowal <kris@uber.com>
+Date:   Sat Jan 25 12:14:03 2020 -0800
+
+    Avoid embedding types in public structs (#84)
+
+commit 6a0fa1e0f8917325488f94f659e9ab61728cb316
+Merge: 79c56d7 2c17a49
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Wed Jan 15 13:15:02 2020 -0800
+
+    README: Add Russian translation (#83)
+    
+    This adds a link to sau00's Russian translation of the guide.
+
+commit 2c17a49adbaad30a65768a598b9c5708ad3aaec0
+Author: sau00 <sau00gm@gmail.com>
+Date:   Wed Jan 15 12:29:38 2020 +0300
+
+    README: Add Russian translation
+
+commit 79c56d7d389e6d281489dead4b45ee9e1f3dc58a
+Merge: d61205f e4c7550
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sat Jan 11 20:19:01 2020 -0800
+
+    Functional Options: Fix typo in loggerOption (#82)
+    
+    `opts.Logger = l.Log` should be `opts.logger = l.Log`.
+
+commit e4c75504792e82ef4ab82bb8b0287f9977021159
+Author: xxj <346944475@qq.com>
+Date:   Sat Jan 11 17:44:18 2020 +0800
+
+    opts.Logger = l.Log should be opts.logger = l.Log
+    
+    opts.Logger = l.Log should be opts.logger = l.Log
+
+commit d61205f4e561965c64c7dbe8403cb0f6f34c58bc
+Author: Rafael dos Santos <rafaveira3@gmail.com>
+Date:   Fri Jan 10 17:47:48 2020 -0300
+
+    Error Types: Fix missing function parameter (#81)
+    
+    This adds the missing parameter for the `open(..)` call.
+
+commit 1f4b461e211e809fa2454f9d68f87ed62f3ea0cb
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Tue Dec 17 11:43:37 2019 -0800
+
+    Functional Options: Don't recommend closures (#77)
+    
+    This changes the Functional Options example to not recommend closures,
+    instead favoring full implementations of the interface for each option.
+    
+    To help demonstrate that options don't have to be new types, a logger
+    option was added to the example. This made the examples too long so the
+    the timeout option was dropped; cache was kept around to demonstrate
+    readability of naked booleans versus `WithCache(false)`.
+    
+    Further, the function was renamed to Open and the Bad/Good side-by-side
+    comparison was reduced to just the user-facing API. The implementation
+    was moved to its own paragraph.
+
+commit 8e951dc31bbda9a704397b172802ec43ccfbe7a7
+Author: Damian Skrzypczak <damian.piotr.skrzypczak@gmail.com>
+Date:   Sun Dec 8 23:27:14 2019 +0100
+
+    README: Add Polish translation (#75)
+
+commit 33388e21572876d9bda25895db48a1da9b0304f5
+Author: Simon Newton <nomis52@gmail.com>
+Date:   Tue Dec 3 15:44:06 2019 -0800
+
+    Port over the section on mutable globals (#73)
+
+commit 85bf203f4371a8ae9e5e9a4d52ea77b17ca04ae6
+Author: Lucas Scaravelli <lucas.savioli.scaravelli@gmail.com>
+Date:   Mon Nov 11 14:34:16 2019 -0300
+
+    README: Link to Portuguese translation (#71)
+    
+    This adds a link to a Portuguese translation of the guide.
+
+commit 3845b5def0fcb8f391b30cace4558ea2344ab218
+Author: ferhat elmas <elmas.ferhat@gmail.com>
+Date:   Mon Nov 11 18:33:17 2019 +0100
+
+    Drop duplicate word (#70)
+    
+    This drops a duplicated word in the Be Consistent section.
+
+commit 7eb64c6cb304471c868273d919c2d34993e2daa7
+Author: pallat Anchaleechamaikorn <yod.pallat@gmail.com>
+Date:   Thu Oct 31 10:39:07 2019 +0700
+
+    README: Add Thai translation (#68)
+
+commit 425af66e56dde630e1a90a2eddaf4177af084f24
+Author: Sean Knight <git@seanknight.com>
+Date:   Thu Oct 24 05:30:36 2019 -0700
+
+    Minor fixes (#62)
+    
+    Use the correct tense of "use" and s/pre-defined/predefined/.
+
+commit 2db016419be2225804c7eb5ac890d793362b6363
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Tue Oct 22 16:11:27 2019 -0700
+
+    CHANGELOG: Updates for #55 and #58 (#61)
+    
+    This updates the changelog based on changes made in those two PRs.
+
+commit 9b171181c27f76568c87789ce6edf178438dd221
+Author: Adrian Perez <perezg.adrian@gmail.com>
+Date:   Wed Oct 23 00:53:24 2019 +0200
+
+    README: Add spanish translation (#60)
+    
+    This adds a link to friendsofgo/uber-go-guide-es, which provides a
+    Spanish translation of the guide.
+
+commit 33e7d1ecb7bed88a9d498169913b5d5c149c738a
+Merge: 5980baa d8179e0
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Mon Oct 21 14:05:38 2019 -0400
+
+    Merge pull request #55 from uber-go/mway/maps
+    
+    Add guidance for initializing maps
+
+commit 5980baab7ebc59ba59eac21eaedced263a79729a
+Merge: 7738ae5 218a47d
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Mon Oct 21 14:05:11 2019 -0400
+
+    Merge pull request #58 from uber-go/mway/consistency
+    
+    Add consistency section
+
+commit d8179e0dbca06e1c2cec5cbee85f8fbfbce94146
+Author: Matt Way <mway@uber.com>
+Date:   Mon Oct 21 13:47:58 2019 -0400
+
+    Feedback
+
+commit e810b3ffce1223155f5d83140989cd068dcaf61d
+Author: Matt Way <mway@uber.com>
+Date:   Mon Oct 21 13:47:08 2019 -0400
+
+    Feedback
+
+commit 218a47d458514e353ffeacbcb3926f3a6df12c25
+Author: Matt Way <mway@uber.com>
+Date:   Mon Oct 21 13:38:11 2019 -0400
+
+    Fix ToC
+
+commit 7738ae5182715368c5e48a63ec54cc2e2be613a4
+Merge: b622e8e 828733b
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Mon Oct 21 10:52:52 2019 -0400
+
+    Merge pull request #50 from TangoEnSkai/master
+    
+    update a comment for snapshot example
+
+commit 828733b7e4b0ed8cfa866318532eda9daee1f511
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Mon Oct 21 18:06:54 2019 +0900
+
+    update comments for snapshot
+
+commit 6b80552574a7afc440066bf98fe03de8563b2d6e
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 15:13:17 2019 -0400
+
+    Remove consistency link from map initialization
+
+commit 4e67644aa841981114e50475e72355a97e1ec326
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 15:11:23 2019 -0400
+
+    Typo
+
+commit 2556838c2e0709c7dbec266297813511cbcd0f63
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 15:09:46 2019 -0400
+
+    Add map capacity to performance section
+
+commit 121d8c706382c69b6b4778c5ce9aa9e2a7ca35bd
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 14:17:07 2019 -0400
+
+    Terser guidance
+
+commit 3711ebcdf219372f94eab4d5e4ea9d26435d876e
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 14:09:40 2019 -0400
+
+    Add capacity hint guidance
+
+commit dce5154306af79c3d6eee21ecf3d3935dcce50a2
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 13:58:17 2019 -0400
+
+    read/write/panic comments on map examples
+
+commit 9d3ca2a620738061b5ad718b965895c3fb2dbf5c
+Author: Matt Way <mway@uber.com>
+Date:   Sat Oct 19 22:01:16 2019 -0400
+
+    Add consistency section
+
+commit 9d6252a8fca562227b5d3e226ba63cbc219a2e23
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sun Oct 20 10:40:16 2019 -0700
+
+    more visually distinct => visually distinct
+    
+    Co-Authored-By: Prashant Varanasi <prashant@uber.com>
+
+commit 341752f5c824c146f47c7e522e5a684417599513
+Merge: 842dfef 551f1a5
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Sun Oct 20 12:05:22 2019 -0400
+
+    Merge pull request #57 from uber-go/abhinav-patch-2
+    
+    Initializing Maps: Refactor
+
+commit 551f1a5129ffcdd96cae3ada35c0173346d6943d
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sun Oct 20 09:03:33 2019 -0700
+
+    Initializing Maps: Refactor
+    
+    This changes the Initializing Maps guidance proposed in #55 to...
+    
+    - provide the guidance first
+    - include examples for both cases
+    - provide the rules last
+    
+    This drops the mention of rvalue as well because readers unfamiliar
+    with C++ will find that confusing.
+
+commit 842dfef0ce876d55cc94927bd5e0d2a12f924f15
+Author: Matt Way <mway@uber.com>
+Date:   Sun Oct 20 11:39:27 2019 -0400
+
+    Remove slice guidance
+
+commit b622e8e79a4e69059e31d815365820620ee2cc37
+Merge: a80b760 ee46e89
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Sun Oct 20 11:13:04 2019 -0400
+
+    Merge pull request #52 from knsh14/add-japanese-guide
+    
+    Add link to Japanese
+
+commit c275755478421193d65d520ac8ecfe62534e6ca6
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Sun Oct 20 15:48:40 2019 +0900
+
+    fix diffs for toc
+
+commit 2dc6e6c29825ecad92a892b50412cba3f8259b09
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Sun Oct 20 15:47:05 2019 +0900
+
+    undo linter for the toc
+
+commit a4e62ebbb431ca2a07952487348b9e384216ba8f
+Merge: 1abcad6 a80b760
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Sun Oct 20 15:44:54 2019 +0900
+
+    undo linter for TOC
+
+commit ee46e89179b6389186af47ada78469404d86854e
+Merge: 8b74426 fe621fa
+Author: knsh14 <knsh14@mercari.com>
+Date:   Sun Oct 20 13:50:48 2019 +0900
+
+    Merge branch 'add-japanese-guide' of github.com:knsh14/guide into add-japanese-guide
+
+commit 8b74426e0f0b2eb091aa96937c3ba0b526315044
+Author: Kenshi Kamata <kenshi.kamata@gmail.com>
+Date:   Sat Oct 19 19:30:56 2019 +0900
+
+    update readme to add link to japanese
+    
+    fix list item
+
+commit a80b760dd644171d0aea44ae24a1eb9b0f0a30d3
+Merge: a1bbdcf 8f25fe3
+Author: Matt Way <mway@users.noreply.github.com>
+Date:   Sat Oct 19 22:47:10 2019 -0400
+
+    Merge pull request #53 from uber-go/abhinav-patch-1
+    
+    translations: Include English names
+
+commit bcfee50a8d94cf7a0a79234c514691d007dc2521
+Author: Matt Way <mway@uber.com>
+Date:   Sat Oct 19 22:30:43 2019 -0400
+
+    Add guidance for initializing maps and slices
+
+commit 8f25fe34e8aa13dd889f93e636c4d2cbaeec557f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Sat Oct 19 11:05:19 2019 -0700
+
+    translations: Include English names
+    
+    This adds the English names of translations to the README.
+
+commit a1bbdcf80d906d26d1f83ea5ca7e731b69203a01
+Author: xiaojunxie <346944475@qq.com>
+Date:   Sun Oct 20 02:04:22 2019 +0800
+
+    README: Refer to translations in local languages (#48)
+
+commit fe621fa44a49a86969ba095ae044966d9186ec63
+Author: Kenshi Kamata <kenshi.kamata@gmail.com>
+Date:   Sat Oct 19 19:30:56 2019 +0900
+
+    update readme to add link to japanese
+
+commit 1abcad62e46c0a97a69a2839f6479588877e4efe
+Merge: 752d8e0 93183d5
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Fri Oct 18 22:50:13 2019 +0900
+
+    Merge branch 'master' of github.com:TangoEnSkai/guide
+
+commit 752d8e0a817099752b518ae1f8f22ca4e56b5dcb
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Fri Oct 18 22:50:02 2019 +0900
+
+    refine comment for snapshot example
+
+commit 02b30c11bef198a35cfe1645b64fc6ad3c5252a2
+Author: Jun "Mark" Hahn <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Fri Oct 18 04:47:20 2019 +0900
+
+    README: Add korean translation by TangoEnSkai  (#47)
+    
+    This adds a link to TangoEnSkai/uber-go-style-guide-kr to the README.
+
+commit 93183d5fa1ede8c564ebb51c029edf4252576df7
+Author: Abhinav Gupta <mail@abhinavg.net>
+Date:   Thu Oct 17 12:45:18 2019 -0700
+
+    Fix translation link
+
+commit ad971cd9fa6168967943dc42034ab45ab0eb64e8
+Author: TangoEnSkai <21152231+TangoEnSkai@users.noreply.github.com>
+Date:   Thu Oct 17 03:38:45 2019 +0900
+
+    add link for korean translation
+
+commit 6d45d7fced7fa44457b477ece444b22b6da0ae65
+Author: Prashant Varanasi <prashant@uber.com>
+Date:   Wed Oct 16 08:32:38 2019 -0700
+
+    Remove embedded mutex in exportd type (#45)
+
+commit d0f4f97ced3f0fbc67e6b64bb10a19530ea3bf2b
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Oct 14 15:39:47 2019 -0700
+
+    README: Add translations section (#41)
+    
+    This adds a translations section to the README with a link to the only
+    translation repository that we know of at this time.
+    
+    Resolves #31
+
+commit 8778e7b6cfcbd68ba97b9c009156a68af9892274
+Author: Qt <golang.chen@gmail.com>
+Date:   Mon Oct 14 19:50:53 2019 +0800
+
+    Don't Panic: add missing { in sample (#35)
+    
+    Resolves #37
+
+commit 603824f872091e4c8b3a655fa77495074b89ebc5
+Author: Prashant Varanasi <prashant@uber.com>
+Date:   Sat Oct 12 23:36:05 2019 -0700
+
+    Mutexes should only be embedded in unexported (#27)
+    
+    More explicitly call out that mutexes should only be embedded
+    in unexported types.
+    
+    Related to #23.
+
+commit 75f61371fc02877b46729f8a84d5b65e568b633f
+Author: wuchihsu <wuchi5457@gmail.com>
+Date:   Sun Oct 13 13:59:49 2019 +0800
+
+    Use Field Names to initialize Structs: Remove redundant braces (#30)
+
+commit 4f53733a35a5a55bfc2c87a397f0bd886837e198
+Author: Shude Li <lishude@aliyun.com>
+Date:   Sun Oct 13 00:28:35 2019 +0800
+
+    Fix slice typos (#24)
+
+commit 3baa2bdd4677d7ef650be138a7c53b49d36da645
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Oct 11 15:23:03 2019 -0700
+
+    Reduce Scope: Fix FD leak (#20)
+    
+    As pointed out in #19, the second Good example for "Reduce Scope of
+    Variables" leaks an open file descriptor if `io.WriteString` fails.
+    
+    Further, both sets of examples are manually closing files instead of
+    using `defer` as pointed out elsewhere in the guide.
+    
+    As these examples just need a pair of functions, one returning just an
+    error, another returning a value and an error, I've switched them to
+    using `ioutil.ReadFile`, `ioutil.WriteFile`, and a plausible
+    `Config.Decode([]byte) error` method on a `cfg` variable assumed to be
+    in-scope.
+    
+    Resolves #19
+
+commit a6bd881512fcbc183b58797791305c6994e2cb20
+Author: John Reese <john@reese.dev>
+Date:   Fri Oct 11 18:11:46 2019 -0400
+
+    Change index value from 0 to 1 (#18)
+
+commit a53ee0bef8c0b11b52340dbbc82e8be37f4a88d2
+Author: Emir Ribić <ribice@gmail.com>
+Date:   Fri Oct 11 22:06:49 2019 +0200
+
+    Package Names: Fix typos (#17)
+
+commit 3e44c6a7facf8381d2773725e6d4b821a5455ced
+Author: Cody Gibb <codyhgibb@gmail.com>
+Date:   Fri Oct 11 12:05:51 2019 -0700
+
+    Succinct error contexts (#12)
+
+commit 78e0b91d1a46e9e2a88e3f35cbd9478632ceac7a
+Author: Prashant Varanasi <prashant@uber.com>
+Date:   Fri Oct 11 12:05:18 2019 -0700
+
+    Add benchmarks for strconv vs fmt guideline (#16)
+
+commit b748e92b6476bb1e082865beeed170e2288720eb
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Oct 11 07:25:30 2019 -0700
+
+    Functional Options: Apply the interface method (#14)
+    
+    This fixes a typo in the functional options code sample. When Option is
+    an interface, we need to `.apply` it.
+    
+    Resolves #13
+
+commit 06baca4437af019acb47667fb3b59e0cd6e6b1ae
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Oct 11 07:25:15 2019 -0700
+
+    Zero-value mutexes: Remove leftover code sample (#15)
+    
+    We had a leftover code sample that set up a zero-value mutex and locked
+    and unlocked it right after the bad-good comparison.
+
+commit 58b78b423f30566d45e7e2fa42ea9b75d7904825
+Author: Kris Kowal <kris@cixar.com>
+Date:   Thu Oct 10 15:12:20 2019 -0700
+
+    Clarify guidance for option functions. (#11)
+    
+    Consistent with our guidance to avoid providing public functions that
+    accept private types and to give library authors full latitude to change
+    the underlying implementation of functional options, we now suggest
+    using a public Option interface with a private method.
+    
+    We have also learned not to mix the words option and configuration in
+    the same context. An option is a function parameter to override
+    behavior. Configuration is parsed from files and frequently maps to
+    options.
+
+commit 281e2630837ab43666c80f1cac3b350fedca8329
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Oct 10 14:13:00 2019 -0700
+
+    Add LICENSE (#10)
+    
+    As discussed, we'll use Apache 2 for this.
+
+commit e71b961f140fb552436d6cffb5c690c27ff85989
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Oct 10 13:08:54 2019 -0700
+
+    CHANGELOG: Update initial release date (#9)
+    
+    We're planning on open sourcing this on 2019-10-10.
+
+commit a930fb5d0b8e202dc45d31b0250199704b0ad9ff
+Author: barrmelissa <mbarr@uber.com>
+Date:   Wed Oct 9 14:38:30 2019 -0700
+
+    Full edit (copy edit and content edit) (#7)
+    
+    Overall this Style Guide looks fantastic. Prashant, Simon, and all of
+    the others working on this have done a great job. While I made edits,
+    they are all just suggestions that can be chosen to be included or not.
+    Feel free to reach out to me with any additional questions.
+    
+    In regards to the copy edit, I could not find anything that should not
+    be viewed externally. Almost everything can be found externally already
+    so I do not see a concern in that sense.
+    
+    From a writing perspective, I've made some changes to the style.md file
+    to improve consistency, readability, and the overall content flow for
+    readers. As the audience are users of Go already, this content overall
+    makes sense for any Go programmer outside of Uber. The changes can be
+    viewed here, however I would like to call out a few of the larger
+    edits.
+    
+    1. There are a few sections regarding errors, but they are spread out.
+       I consolidated them So it flows "Error Types" -> "Error Wrapping" ->
+       "Handle Type Assertion Failures" -> "Don't Panic" as that created
+       the most logical flow of information. NOTE: Since there are a good
+       amount of them, they could even be pulled out to make their own
+       group.
+    2. The "Defer to Clean Up" section noted how to clean up resources such
+       as locks so it flows best after locks are mentioned in the Mutexes
+       sections above.
+    3. I've updated the TOC to reflect these changes.
+    
+    The following additional changes were made:
+    
+    1. Dropped "usually" in "strconv is usually faster than fmt"
+    2. Added a code sample for `give`/`want` prefixes for test tables
+    3. Updated description of interface implementation to match modern Go
+       versions
+
+commit 60a61ccb607d0ee615362a02d5b8a51ccb43843f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Fri Aug 16 11:13:06 2019 -0700
+
+    Avoid string-to-slice: Drop reference to issue (#6)
+    
+    The relevant GH issue was closed. This updates this section to a general
+    "avoid converting the same string to byte slices repeatedly"
+    recommendation.
+    
+    To justify the recommendation, I've included the relative performance of
+    the two cases in the output.
+
+commit 6c43d5d83743c4e5e6f418c8744aafa43238a71d
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 19:39:21 2019 -0700
+
+    Mutexes: Rewrite section
+    
+    Rather than talking about never needing pointers to mutexes, this
+    clarifies that we never need pointers to mutexes when zero-values would
+    suffice.
+
+commit 4d6a8aeb822c3b221e628116d9a4484edef5ad61
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 19:30:14 2019 -0700
+
+    function grouping: Include type declaration
+    
+    In the function grouping code snippet, we should include the type
+    declaration's location in the example.
+
+commit 9aaee084940e161a9d65cd248c95b0b89f8cb75c
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 19:27:42 2019 -0700
+
+    Import Aliasing: Use if basename doesn't match
+    
+    This adds a note to the import aliasing section that import aliasing
+    must be used if the base name doesn't match the package name.
+    
+    This is placed before the more general recommendation of avoiding import
+    aliasing otherwise because it's more important to use named imports when
+    the basename doesn't match.
+
+commit c1c23fe912e0fb0d7a2f41ed08b627a90d25ab67
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Aug 12 20:31:54 2019 -0700
+
+    Add a changelog (#4)
+    
+    This adds a bare changelog to the repository. We can change the date
+    before we open source it.
+    
+    Note that we won't be versioning the repository or the style guide; only
+    a changelog will be maintained.
+    
+    Resolves #3.
+
+commit 8de5714cef9f576df97f7afee032b8e9fbc2d6aa
+Author: Abhinav Gupta <mail@abhinavg.net>
+Date:   Wed Jan 30 05:49:15 2019 -0800
+
+    Add Code of Conduct (#2)
+    
+    This adds a code of conduct to the repository.
+
+commit e7149de413da879e03601dcf286d2cfb8d981f4a
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:48:27 2019 -0800
+
+    Functional Options
+    
+    This adds information about the functional options pattern. This is a
+    rewrite of the internal style guide section "Options Pattern".
+
+commit 5620cf39075cf5e35d12faa3c70df3bfa90f056f
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:44:42 2019 -0800
+
+    Initializing Struct References
+    
+    This adds a recommendation around initilaizing struct references
+    (`&T{}`). This is a version of the internal section "Using new(T) vs
+    &T{}".
+
+commit 123162f41540b5feafb0fa4b535a781bece8a758
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:43:46 2019 -0800
+
+    Avoid Naked Parameters
+    
+    This adds a section recommending against naked parameters like booleans.
+    This is a version of the internal section "Avoid naked parameters in
+    function calls."
+
+commit 5278a6c3234d36c8912e0e243a0625a64d01ab94
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:42:26 2019 -0800
+
+    nil is a valid slice
+    
+    This makes a recommendation to use nil as a slice. This is a rewritten
+    version of the internal style guide section with the same name.
+
+commit c351c1058d9ca8f05fa2594b1c179e29141c2b7a
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:41:07 2019 -0800
+
+    Use Field Names to initialize structs
+    
+    This adds a style recommendation to use field names when initializing
+    structs. This is a version of the section from the internal guide
+    "Struct initializers without field names."
+
+commit 66444c670ccec0c194fe0b5d9e48bf5ac3aae0e3
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:38:58 2019 -0800
+
+    Import Group Ordering
+    
+    This adds a styling recommendation around import group ordering. This is
+    a simplified version of the internal style guide section "Import groups
+    and ordering".
+
+commit 934afac77856769f4b668c47382a17c95eca18ad
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:37:32 2019 -0800
+
+    Defer to Clean Up
+    
+    This adds a section encouraging use of `defer` for resource clean up.
+    Internally, this is mentioned in the Performance section as "Use defer
+    to manage cleanup of resources" but I decided this belonged in the
+    Guidelines section since this wasn't a performance-specific guideline.
+
+commit 683638bda9b948b09645176901de6411fa048762
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:36:46 2019 -0800
+
+    Don't Panic
+    
+    This adds a recommendation to avoid panicking in production code. This
+    is a reworded version of the internal style guide section "Avoid panic()
+    in production code".
+
+commit 1dc82f6a49328dee4f9496dd2b2ccfc42072b7a0
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:35:49 2019 -0800
+
+    Use go.uber.org/atomic
+    
+    This adds a recommendation to use go.uber.org/atomic. This is a reworded
+    version of the same section from the internal guide.
+
+commit b30a534b68df039064f7315c8f05db9f92ca9615
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:34:16 2019 -0800
+
+    Error Types
+    
+    This adds general guidelines around error types. This is a version of
+    the internal style guide section, "Creating custom error types vs
+    fmt.Errorf".
+
+commit 6c50f083d487e6f5a80b21d074eb4039be436fe9
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:32:42 2019 -0800
+
+    Channel Size is One or None
+    
+    This adds a section warning against channels of sizes other than zero or
+    one. This is a reworded version of internal style guide section "Be wary
+    of channels with a size other than 1".
+
+commit 8c023801f5cae01fe09a5a12c180f967bf3e00ff
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:30:59 2019 -0800
+
+    Copy Slices and Maps at Boundaries
+    
+    This adds a guideline to copy slices and maps at boundaries. This is
+    condensed version of the following sections from the internal style
+    guide:
+    
+    - Explicitly copy slices and maps passed to functions if they are stored
+      for later use
+    - Be wary of maps and slices returned from functions
+
+commit bc9246f884a89ec88228c353a4130efdec996881
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Thu Jan 17 11:03:31 2019 -0800
+
+    Initial contents
+
+commit 245aa774d3130cbee69d11408abae066bcf49799
+Author: Abhinav Gupta <abg@uber.com>
+Date:   Mon Nov 12 12:34:37 2018 -0800
+
+    Initial commit

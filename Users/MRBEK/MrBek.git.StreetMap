@@ -1,0 +1,382 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 812903cd2761b13837dffc789b685c6d7d5f314b
+Merge: c6aa74f b06f685
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Thu Jan 26 20:45:30 2017 -0500
+
+    Merge pull request #11 from Hemofektik/master
+    
+    Fixing Longitude/Latitude to meters transformation
+
+commit b06f6854d00ca9201432058656a9222ac6ec625b
+Author: Richard Schubert <richardwerner.schubert.ext@siemens.com>
+Date:   Thu Jan 26 09:33:41 2017 +0100
+
+    Improved documentation of used projection
+
+commit 09d49ac8d33d90352f95155417094cce3c86a046
+Author: Richard Schubert <rs@directx9.de>
+Date:   Thu Jan 26 09:01:43 2017 +0100
+
+    Fixed Longitude/Latitude to meters transformation
+
+commit c6aa74f7141f6291a9157723ed04ecff23e42909
+Author: Mike Fricker <mike.fricker@epicgames.com>
+Date:   Tue Jan 17 21:17:56 2017 -0500
+
+    Fixed compiler warning on Mac
+    
+    Fixed Clang warning “Field 'CachedLocalBounds' will be initialized
+    after field 'StreetMap’” in StreetMapComponent.cpp
+
+commit 9d04a554fd6ce3c2a22dcbce7a697364372e7dde
+Merge: f8efba5 31d936c
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Tue Jan 17 21:14:38 2017 -0500
+
+    Merge pull request #10 from mhousse1247/master
+    
+    New updates : Mhousse1247
+
+commit 31d936cdb29c20ff24d32341fbf2bc7282aa8462
+Author: Elhoussine Mehnik <mehnikelhoussine@gmail.com>
+Date:   Mon Jan 16 19:57:01 2017 +0000
+
+    Update README.md
+
+commit 2537766a2c3c5b60a347b45789f41a8ce80aced1
+Author: Elhoussine Mehnik <mehnikelhoussine@gmail.com>
+Date:   Mon Jan 16 19:56:22 2017 +0000
+
+    Update README.md
+
+commit 38f53458688fe39cf5eb4a495399fdc7372773c8
+Author: Elhoussine Mehnik <mehnikelhoussine@gmail.com>
+Date:   Mon Jan 16 19:50:15 2017 +0000
+
+    New Update !
+    
+    - StreetMapImporting and StreetMapEditor modules are now combined.
+    - Added StreetMapActorFactory to spawn a new StreetMapActor when a Data
+    Asset is droped in the viewport
+
+commit abb47a9ffd6b05de89526b7e0b7beb07285f7007
+Author: elhoussine mehnik <mehnikelhoussine@gmail.com>
+Date:   Fri Jan 13 17:01:32 2017 +0000
+
+    New updates : Mhousse1247 New !
+    
+    *Street Map Runtime Module:
+    -Street Map Actor
+    -Collision Support
+    -Navigation Support
+    -Some bugs fixes
+    
+    *Added Street Map Editor Module:
+    - Street Map Details Customization: Build/Rebuild Button, Clear Mesh
+    Button, Create Static Mesh Asset Button, And Mesh info section.
+    - Street Map Slate Style : Class Editor Icons/Thumbnails
+    
+    *Engine version 4.14.1
+
+commit 7621d579ce03ded5691bd2f76ab0f46f65920fd0
+Author: elhoussine mehnik <mehnikelhoussine@gmail.com>
+Date:   Fri Jan 13 16:53:43 2017 +0000
+
+    Revert "New updates : Mhousse1247"
+    
+    This reverts commit 6fffb3e2c01d05304ef3372c1d9c2b0b11a106f7.
+
+commit 6fffb3e2c01d05304ef3372c1d9c2b0b11a106f7
+Author: elhoussine mehnik <elhoussine.mehnik@digiwincorp.com>
+Date:   Fri Jan 13 14:24:52 2017 +0000
+
+    New updates : Mhousse1247
+    
+    *Street Map Runtime Module:
+    -Street Map Actor
+    -Collision Support
+    -Navigation Support
+    -Some bugs fixes
+    
+    *Added Street Map Editor Module:
+    - Street Map Details Customization: Build/Rebuild Button, Clear Mesh
+    Button, Create Static Mesh Asset Button, And Mesh info section.
+    - Street Map Slate Style : Class Editor Icons/Thumbnails
+    
+    *Engine version 4.14.1
+
+commit f8efba5609ef9f34d3b7879c966bfe6744237ce7
+Merge: b1ffeca 64b12a8
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Sun Jan 8 08:14:54 2017 -0500
+
+    Merge pull request #9 from Matthias84/master
+    
+    Readme OSM Contributing back
+
+commit 64b12a84fb8135fbc795abedba735a2cbd0a54c9
+Author: Matthias84 <Matthias84@users.noreply.github.com>
+Date:   Fri Jan 6 12:32:29 2017 +0100
+
+    readme.md added OSM edit section
+    
+    Most important links to get startet with editors and the community
+
+commit 00cb07265126913fbcff9cb9da9212a618758a78
+Author: Matthias84 <Matthias84@users.noreply.github.com>
+Date:   Fri Jan 6 11:57:57 2017 +0100
+
+    Readme.md link legal FAQ
+
+commit b1ffecab37dfe2b7ac2b6e9bff5dafa9279efe34
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Tue Jan 3 08:39:21 2017 -0500
+
+    Fixed missing category name in StreetMapComponent
+    
+    The StreetMap property was missing a category, which could cause
+    UnrealHeaderTool to fail when the plugin was compiled as a "buiilt-in"
+    engine plugin.  Relates to
+    https://github.com/ue4plugins/StreetMap/pull/4
+
+commit 56533b2b566acdcd478f350447d18945fa171048
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:43:25 2017 -0500
+
+    Fixed VS 2017 compiler warning (attempt #2)
+    
+    A wide string was concatenated with a narrow string, which the VC++ 2017
+    compiler didn't like.
+
+commit 23d5ad7435d0db31102d1f590d50daae2b094e53
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:40:59 2017 -0500
+
+    Fixed .gitignore file name
+
+commit b9a18f51dac48937a19bf5875ec234ced2261b9d
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:38:11 2017 -0500
+
+    Revert "Fixed VS 2017 compiler warning"
+    
+    This reverts commit c5fdd4916156919aa04324bac30b4507bbd7498e.
+
+commit c5fdd4916156919aa04324bac30b4507bbd7498e
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:37:26 2017 -0500
+
+    Fixed VS 2017 compiler warning
+    
+    A wide string was concatenated with a narrow string, which the VC++ 2017
+    compiler didn't like.
+
+commit 53082377a6a0f1187c80afd47f3b2b5c863f1ee1
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Sun Jan 1 00:57:00 2017 -0500
+
+    Fixed typo in README.md
+    
+    Happy 2017!
+
+commit f823f53a41415943262304c5adb86ccfb965899f
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Sat Dec 31 22:54:44 2016 -0500
+
+    StreetMap plugin, initial commit
+    
+    Happy New Year!
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 812903cd2761b13837dffc789b685c6d7d5f314b
+Merge: c6aa74f b06f685
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Thu Jan 26 20:45:30 2017 -0500
+
+    Merge pull request #11 from Hemofektik/master
+    
+    Fixing Longitude/Latitude to meters transformation
+
+commit b06f6854d00ca9201432058656a9222ac6ec625b
+Author: Richard Schubert <richardwerner.schubert.ext@siemens.com>
+Date:   Thu Jan 26 09:33:41 2017 +0100
+
+    Improved documentation of used projection
+
+commit 09d49ac8d33d90352f95155417094cce3c86a046
+Author: Richard Schubert <rs@directx9.de>
+Date:   Thu Jan 26 09:01:43 2017 +0100
+
+    Fixed Longitude/Latitude to meters transformation
+
+commit c6aa74f7141f6291a9157723ed04ecff23e42909
+Author: Mike Fricker <mike.fricker@epicgames.com>
+Date:   Tue Jan 17 21:17:56 2017 -0500
+
+    Fixed compiler warning on Mac
+    
+    Fixed Clang warning “Field 'CachedLocalBounds' will be initialized
+    after field 'StreetMap’” in StreetMapComponent.cpp
+
+commit 9d04a554fd6ce3c2a22dcbce7a697364372e7dde
+Merge: f8efba5 31d936c
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Tue Jan 17 21:14:38 2017 -0500
+
+    Merge pull request #10 from mhousse1247/master
+    
+    New updates : Mhousse1247
+
+commit 31d936cdb29c20ff24d32341fbf2bc7282aa8462
+Author: Elhoussine Mehnik <mehnikelhoussine@gmail.com>
+Date:   Mon Jan 16 19:57:01 2017 +0000
+
+    Update README.md
+
+commit 2537766a2c3c5b60a347b45789f41a8ce80aced1
+Author: Elhoussine Mehnik <mehnikelhoussine@gmail.com>
+Date:   Mon Jan 16 19:56:22 2017 +0000
+
+    Update README.md
+
+commit 38f53458688fe39cf5eb4a495399fdc7372773c8
+Author: Elhoussine Mehnik <mehnikelhoussine@gmail.com>
+Date:   Mon Jan 16 19:50:15 2017 +0000
+
+    New Update !
+    
+    - StreetMapImporting and StreetMapEditor modules are now combined.
+    - Added StreetMapActorFactory to spawn a new StreetMapActor when a Data
+    Asset is droped in the viewport
+
+commit abb47a9ffd6b05de89526b7e0b7beb07285f7007
+Author: elhoussine mehnik <mehnikelhoussine@gmail.com>
+Date:   Fri Jan 13 17:01:32 2017 +0000
+
+    New updates : Mhousse1247 New !
+    
+    *Street Map Runtime Module:
+    -Street Map Actor
+    -Collision Support
+    -Navigation Support
+    -Some bugs fixes
+    
+    *Added Street Map Editor Module:
+    - Street Map Details Customization: Build/Rebuild Button, Clear Mesh
+    Button, Create Static Mesh Asset Button, And Mesh info section.
+    - Street Map Slate Style : Class Editor Icons/Thumbnails
+    
+    *Engine version 4.14.1
+
+commit 7621d579ce03ded5691bd2f76ab0f46f65920fd0
+Author: elhoussine mehnik <mehnikelhoussine@gmail.com>
+Date:   Fri Jan 13 16:53:43 2017 +0000
+
+    Revert "New updates : Mhousse1247"
+    
+    This reverts commit 6fffb3e2c01d05304ef3372c1d9c2b0b11a106f7.
+
+commit 6fffb3e2c01d05304ef3372c1d9c2b0b11a106f7
+Author: elhoussine mehnik <elhoussine.mehnik@digiwincorp.com>
+Date:   Fri Jan 13 14:24:52 2017 +0000
+
+    New updates : Mhousse1247
+    
+    *Street Map Runtime Module:
+    -Street Map Actor
+    -Collision Support
+    -Navigation Support
+    -Some bugs fixes
+    
+    *Added Street Map Editor Module:
+    - Street Map Details Customization: Build/Rebuild Button, Clear Mesh
+    Button, Create Static Mesh Asset Button, And Mesh info section.
+    - Street Map Slate Style : Class Editor Icons/Thumbnails
+    
+    *Engine version 4.14.1
+
+commit f8efba5609ef9f34d3b7879c966bfe6744237ce7
+Merge: b1ffeca 64b12a8
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Sun Jan 8 08:14:54 2017 -0500
+
+    Merge pull request #9 from Matthias84/master
+    
+    Readme OSM Contributing back
+
+commit 64b12a84fb8135fbc795abedba735a2cbd0a54c9
+Author: Matthias84 <Matthias84@users.noreply.github.com>
+Date:   Fri Jan 6 12:32:29 2017 +0100
+
+    readme.md added OSM edit section
+    
+    Most important links to get startet with editors and the community
+
+commit 00cb07265126913fbcff9cb9da9212a618758a78
+Author: Matthias84 <Matthias84@users.noreply.github.com>
+Date:   Fri Jan 6 11:57:57 2017 +0100
+
+    Readme.md link legal FAQ
+
+commit b1ffecab37dfe2b7ac2b6e9bff5dafa9279efe34
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Tue Jan 3 08:39:21 2017 -0500
+
+    Fixed missing category name in StreetMapComponent
+    
+    The StreetMap property was missing a category, which could cause
+    UnrealHeaderTool to fail when the plugin was compiled as a "buiilt-in"
+    engine plugin.  Relates to
+    https://github.com/ue4plugins/StreetMap/pull/4
+
+commit 56533b2b566acdcd478f350447d18945fa171048
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:43:25 2017 -0500
+
+    Fixed VS 2017 compiler warning (attempt #2)
+    
+    A wide string was concatenated with a narrow string, which the VC++ 2017
+    compiler didn't like.
+
+commit 23d5ad7435d0db31102d1f590d50daae2b094e53
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:40:59 2017 -0500
+
+    Fixed .gitignore file name
+
+commit b9a18f51dac48937a19bf5875ec234ced2261b9d
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:38:11 2017 -0500
+
+    Revert "Fixed VS 2017 compiler warning"
+    
+    This reverts commit c5fdd4916156919aa04324bac30b4507bbd7498e.
+
+commit c5fdd4916156919aa04324bac30b4507bbd7498e
+Author: MikeFricker <MikeFricker@users.noreply.github.com>
+Date:   Mon Jan 2 14:37:26 2017 -0500
+
+    Fixed VS 2017 compiler warning
+    
+    A wide string was concatenated with a narrow string, which the VC++ 2017
+    compiler didn't like.
+
+commit 53082377a6a0f1187c80afd47f3b2b5c863f1ee1
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Sun Jan 1 00:57:00 2017 -0500
+
+    Fixed typo in README.md
+    
+    Happy 2017!
+
+commit f823f53a41415943262304c5adb86ccfb965899f
+Author: Mike Fricker <MikeFricker@users.noreply.github.com>
+Date:   Sat Dec 31 22:54:44 2016 -0500
+
+    StreetMap plugin, initial commit
+    
+    Happy New Year!

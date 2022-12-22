@@ -1,0 +1,6292 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 31be25ad6692ce7400bb2806bb72c7250bcb8534
+Merge: 26acc66 393029b
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Sep 24 07:23:14 2021 +0300
+
+    Merge pull request #187 from CyberShadow/pull-20210922-173345
+    
+    containers.dynamicarray: Implement opSliceAssign with arrays
+
+commit 26acc66a448550b8af6297f1318209b9b0901822
+Merge: 116a028 5219a65
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Sep 24 07:21:58 2021 +0300
+
+    Merge pull request #184 from CyberShadow/assert-messages
+    
+    Add messages to assertions
+
+commit 393029b07e84ddb96018656a9aee449f89d56202
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Wed Sep 22 17:34:10 2021 +0000
+
+    containers.dynamicarray: Implement opSliceAssign with arrays
+
+commit 5219a65da526b98e48c31f796c84b3a103d1a8b6
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Wed Sep 22 17:01:20 2021 +0000
+
+    Add messages to assertions
+
+commit 116a02872039efbd0289828cd5eeff6f60bdf539
+Merge: 9eaa830 208f5b8
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:21:01 2021 +0000
+
+    Merge pull request #177 from JackStouffer/Issue-176
+    
+    Fix Issue #176: DynamicArray should use std.experimental.allocator.common.reallocate
+
+commit 9eaa830374636d8574f8836d14324fbca59bf846
+Merge: c0e932a f0d6b58
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:20:50 2021 +0000
+
+    Merge pull request #181 from CyberShadow/pull-20210916-062624
+    
+    Fix using keys with indirections
+
+commit f0d6b5835ddaa60b93f70f1d0d82e959f0321676
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Thu Sep 16 06:26:26 2021 +0000
+
+    Fix using keys with indirections
+
+commit 208f5b870d870251ae2aadb87b7cf055e87f213b
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:58:02 2021 +0000
+
+    containers.dynamicarray: Fix with allocators without `reallocate`
+    
+    Use UFCS to pull in the top-level fallback when the method is absent.
+
+commit c0e932ad237d4c2f597fd49da3a0853007d0e7c8
+Merge: 5977b0c dd5f0a1
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:06:11 2021 +0000
+
+    Merge pull request #182 from CyberShadow/move-for-dynamic-array
+    
+    containers.dynamicarray: Support non-copyable types
+
+commit 5977b0cdab7bc71b273a60ddecebdb3bf2f3eec4
+Merge: 6883362 b0896ae
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:05:54 2021 +0000
+
+    Merge pull request #183 from CyberShadow/pull-20210918-113251
+    
+    Support non-copyable types in HashMap and UnrolledList
+
+commit b0896ae49b6bfd71681bda6897e8a605e0421fc6
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:48:33 2021 +0000
+
+    containers.hashmap: Support non-copyable types
+
+commit 1b94c0783121330ca227a68e00cf4403129861ca
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:36:44 2021 +0000
+
+    containers.unrolledlist: Support removing non-copyable types
+
+commit 57ba8a335d588e0a322d19cb969feb6d675edd04
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:32:53 2021 +0000
+
+    containers.unrolledlist: Support non-copyable types
+
+commit 6883362858f5ecdf39c1c7e56c29669942a671db
+Merge: e49e32c c987d48
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Sat Sep 18 12:48:44 2021 +0000
+
+    Merge pull request #169 from Panke/fix-ctor
+    
+    fix: UnrolledList calls constructors only once on clear
+
+commit c987d484e29f83a50576e92dbb710731b0be7df8
+Author: Tobias Pankrath <tobias@pankrath.net>
+Date:   Tue May 4 21:21:03 2021 +0200
+
+    fix: UnrolledList calls constructors only once on clear
+
+commit dd5f0a11f6fb17453cf55561f3aaa61a3b3bc613
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 08:23:21 2021 +0000
+
+    containers.dynamicarray: Avoid copying in opIndex
+
+commit d969ebf06cb09b16351868998088d9509873e1d0
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 08:22:42 2021 +0000
+
+    containers.dynamicarray: Implement resize for non-copyable types
+
+commit f97ba7546a8ac235186a37643a20344d5856b118
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 08:07:28 2021 +0000
+
+    containers.dynamicarray: Support non-copyable types
+    
+    Replace the memset/memcpy hacks with core.lifetime primitives.
+    
+    Some operations which naturally involve copying, such as slice
+    assignment, are unavailable.
+
+commit 148cf16f92c78275a8e03f0dd9b89c1eb046ae4d
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 07:59:42 2021 +0000
+
+    containers.dynamicarray: Fix #88 unittest
+    
+    The unit test was testing the wrong thing - the number of destructions
+    performed during the insert. Not only does that miss the intent of the
+    test, but it was testing that an inefficiency exists (i.e. we were
+    creating a copy and then discarding it during insertion).
+
+commit 11a17445dcc33b0ce48708111f2cceb07ce5b57b
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 07:57:15 2021 +0000
+
+    containers.dynamicarray: Improve #109 unittest
+    
+    Calling the destructor for the .init value should be allowed;
+    otherwise, we would be forced to always copy instead of moving values.
+
+commit e49e32c0d44efa3a5acfa08d4aadc97fd9cb5626
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Fri Sep 17 00:03:38 2021 +0000
+
+    CI fix rollup (#180)
+    
+    * fix: use std.experimental allocator
+    
+    This removes the dependency on `stdx.allocator` by using the built-in `std.experimental.allocator`.
+    
+    * containers.unrolledlist: Fix unittest on LDC
+    
+    Patch based on https://github.com/dlang-community/containers/issues/164#issue-823151444
+    
+    Fixes #164.
+    
+    * Fix writing to dangling pointers to stack
+    
+    Unittest helper types S, C, Cls hold a pointer to a counter which
+    tracks the number of destructions. However, in some circumstances,
+    these destructions may be non-deterministic, i.e. occur as a result of
+    a garbage collection cycle. Should this occur after the unittest has
+    already exited, then the pointer held by these types will be invalid.
+    
+    This causes a cyclicbuffer unittest to segfault when compiled with
+    LDC.
+    
+    Fix this by always allocating the counter in the managed heap, so that
+    its lifetime is properly tracked by the garbage collector, along with
+    the test variables.
+    
+    Co-authored-by: Amin Yahyaabadi <aminyahyaabadi74@gmail.com>
+
+commit ad83e58ba5ec7ac539519a1ba8f8afe93a699057
+Author: Amin Yahyaabadi <aminyahyaabadi74@gmail.com>
+Date:   Wed Aug 25 01:29:36 2021 -0500
+
+    ci: use github actions instead of travis (#174)
+    
+    * ci: use github actions instead of travis
+    
+    * ci: add ci cache
+    
+    * ci: setup python 3
+    
+    * ci: install gcc multilib on linux
+    
+    * test: fix test\make_file for ldc
+    
+    * ci: run dub tests separately and continue on error for other os
+    
+    * fix: skip building tests on windows with meson
+    
+    * fix: build as an static library to fix windows builds
+    
+    * fix: macos make tests
+    
+    * ci: fail on UnrolledList test on ldc2
+    
+    * ci: don't cache ./.dub
+    
+    * ci: fix remove fetch-depth 0
+    
+    * chore: remove deprecated meson version keywords
+    
+    Fixes:
+    ```
+    ..\meson.build:38: WARNING: Passed invalid keyword argument "version".
+    WARNING: This will become a hard error in the future.
+    ..\meson.build:38: WARNING: Passed invalid keyword argument "soversion".
+    WARNING: This will become a hard error in the future.
+    ```
+
+commit 904a1adfb44a74a65a8eeeba9bcd441883153caf
+Author: foerdi <mail@foerdi.net>
+Date:   Thu Dec 17 14:06:15 2020 +0100
+
+    a simple fix for uninitialized dynamic array data
+
+commit fc1625a5a0c253272b80addfb4107928495fd647
+Author: Geod24 <pro.mathias.lang@gmail.com>
+Date:   Tue Sep 1 02:20:33 2020 +0900
+
+    -preview=in: Replace 'in ref' with 'const ref'
+    
+    Allow the code to compile with '-preview=in'.
+
+commit 8cdffc8bbc8c41d4697f2162b5d083c63a25dd88
+Merge: cc6fe5e ec8ff7a
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed May 6 05:51:33 2020 +0200
+
+    Merge pull request #159 from kubo39/replace-body-with-do
+    
+    Replace body with do
+    merged-on-behalf-of: Petar Kirov <PetarKirov@users.noreply.github.com>
+
+commit ec8ff7a64254062a65a01903a7238188eb5ba8cd
+Author: Hiroki Noda <kubo39@gmail.com>
+Date:   Wed May 6 07:20:48 2020 +0900
+
+    Replace body with do
+
+commit cc6fe5e1bed3bc46e3b9066d2530a9fe01cd71d7
+Merge: 4bf38f1 98b43c3
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Mar 6 19:25:25 2020 +0100
+
+    Merge pull request #158 from dayllenger/fix-segfault
+    
+    Fix a segfault
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit 98b43c3cd203c79110a913506bf28ff941801106
+Author: dayllenger <dayllenger@protonmail.com>
+Date:   Fri Mar 6 15:14:24 2020 +0300
+
+    Fix dynamic array calling `GC.removeRange` on wrong pointer
+
+commit 4bf38f1cabda7e9b678d724f3731c3eb503e661c
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 17:08:58 2020 +0200
+
+    [wip] Debug Travis CI failure
+
+commit 23258163cd2c6f0c98fb3df0bef539a32526073c
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 17:02:12 2020 +0200
+
+    [.travis.yml]: Use bionic dist and install dist packages via addons -> apt -> packages
+
+commit 0732b3b33f3f4042997261b4b042ab564e8220a4
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 17:00:14 2020 +0200
+
+    Update .editorconfig
+
+commit 3cea245c3881f0ef77ef53ac3771ed41faf1b1aa
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 14:44:25 2020 +0200
+
+    Set the targetPath to `build/` and add it to .gitignore
+    
+    In order to stop polluting the root repo dir with build artifacts.
+
+commit 5a30ccb3fe8514bf375b2971e482955084ad189d
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 14:42:14 2020 +0200
+
+    Update stdx-allocator dependency from 2.77.2 to 2.77.5
+    
+    To match the version used by the git submodule system.
+
+commit ab5693aaf8fa918cc74ad0bd8e8534b44b5c3c46
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 14:41:07 2020 +0200
+
+    Convert dub.json to dub.sdl
+
+commit f4e79375539554b3793adf1c557361a64a073524
+Merge: 82587ee a33f1dc
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Oct 10 22:27:47 2019 +0200
+
+    Merge pull request #154 from dlang-community/more-treemap-fixes
+    
+    Fix a few problems with TreeMap.getOrAdd
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit a33f1dc2009da7b7d843816feb865c693a89f058
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Thu Oct 10 13:21:35 2019 -0700
+
+    Fix the tests
+
+commit 5124688d4b819add80ab89f9eda51fc508a6ee2f
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Thu Oct 10 13:09:34 2019 -0700
+
+    Fix a few problems wit TreeMap.getOrAdd
+
+commit 82587ee0e1bae12c8127b62c3cd3a8ab9b1c4cf5
+Merge: 3f1b64e dd95cad
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Tue Oct 1 15:33:05 2019 -0700
+
+    Merge pull request #153 from dlang-community/ttree-fix
+    
+    Fix more dumb issues with tree ranges
+
+commit dd95cad3fa409a09ce03ada576e0f4e780d95b45
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Oct 1 15:15:56 2019 -0700
+
+    Fix more dumb issues with tree ranges
+
+commit 3f1b64e29c0c1a2a06e64b2271842ab0bf368575
+Merge: f0f6681 d44cb6a
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Sep 26 23:33:14 2019 +0200
+
+    Merge pull request #152 from dlang-community/tree-tweaks
+    
+    Make some enhancements to the treemap structure, and to the T-Tree do…
+    merged-on-behalf-of: Richard Andrew Cattermole <alphaglosined@gmail.com>
+
+commit d44cb6a6dde18de835ac88b82ce389a8e4a9d85c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Sep 26 13:41:50 2019 -0700
+
+    Make some enhancements to the treemap structure, and to the T-Tree documentation
+
+commit f0f66810bf6a68d6fbb9e13e7c19b6177d066f7b
+Merge: 4dcbcb9 da7d8ae
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Jul 16 21:30:05 2019 +0200
+
+    Merge pull request #150 from dlang-community/fix_ref_returns
+    
+    Fix #148
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit da7d8ae5863af2eea073db47313c7867acbd555d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 15 18:07:54 2019 -0700
+
+    Fix some unit tests that expected const containers to return references to mutable elements
+
+commit af7a9b970bee8a0a31cd7a9fa009f3a8b34a47ca
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 15 17:35:18 2019 -0700
+
+    Fix #148
+
+commit 4dcbcb99ecba333522262f44018392a7e4946d57
+Merge: 9f9b3f5 8ee112c
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Jul 15 17:07:24 2019 -0700
+
+    Merge pull request #149 from cspencer51/fix_initialize
+    
+    Register allocated memory with GC during initialization.
+
+commit 8ee112cc5d29fe39f7adc61d5fdc50a492eed831
+Author: Curtis Spencer <cspencer@economicmodeling.com>
+Date:   Mon Jul 15 16:59:28 2019 -0700
+
+    Register allocated memory with GC during initialization.
+
+commit 9f9b3f57fd608d3e5b003abc1b574ea44e4e9ad2
+Merge: a978c3c 38ec808
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Jul 15 16:28:47 2019 -0700
+
+    Merge pull request #147 from cspencer51/fix_addRange
+    
+    Fixed incorrect size passed to addRange.
+
+commit 38ec80880fd48c61c35e0bfe5acf04123727bf86
+Author: Curtis Spencer <cspencer@economicmodeling.com>
+Date:   Mon Jul 15 16:17:56 2019 -0700
+
+    Fixed incorrect size passed to addRange.
+
+commit a978c3cda3f6ec3ba7449ec5c08dd5cd4dd79c6e
+Merge: f718ec1 aa08d97
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Sat May 11 23:26:04 2019 +0200
+
+    Merge pull request #144 from dlang-community/issue-143
+    
+    fix #143 - Still issues in unrolled list
+    merged-on-behalf-of: Basile-z <Basile-z@users.noreply.github.com>
+
+commit f718ec122982bcfccf0fa70c81ea362bc6ff0f76
+Merge: 257c041 29149d2
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Apr 29 16:30:24 2019 -0700
+
+    Merge pull request #145 from dlang-community/fix_insert
+    
+    Fix use-after-free when an insert causes a rehash
+
+commit 29149d2c6c479c47ac1708171c6b388b6af646a4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 29 15:45:53 2019 -0700
+
+    oops
+
+commit bdaf3b91cd4e457bed703e24e3fd0e3ca9eccd46
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 29 15:23:27 2019 -0700
+
+    Fix use-after-free when an insert causes a rehash
+
+commit aa08d9750a2c621db4fd4a9ec3eb18d49afc48b0
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Thu Apr 18 15:38:43 2019 +0200
+
+    fix #143 - Still issues in unrolled list
+
+commit 257c0418f34709dd667f95b5dffabedc2b3099e4
+Merge: 18a0224 a954f70
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Sat Mar 16 13:15:13 2019 +0100
+
+    Merge pull request #141 from dlang-community/stdx-allocs+Meson
+    
+    Fix CI failure starting from DMD 2.085
+
+commit a954f7040f6a2e2fb1acb3cf3a095580a37cc5bf
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Tue Mar 12 13:41:17 2019 +0100
+
+    fix #136 - Error: cannot implicitly convert expression ~this.registry
+
+commit 87a48d7d9f127ac855a9d09d8c350858c6f9f9aa
+Author: Basile-z <16154339+Basile-z@users.noreply.github.com>
+Date:   Tue Mar 12 13:33:24 2019 +0100
+
+    Fix CI failure caused by wrong stdx allocs version
+
+commit 18a022418b8b613ed5c27437c04a49f2f3b5fd48
+Merge: 86e29cb 2acd71f
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Feb 19 11:55:33 2019 +0100
+
+    Merge pull request #140 from dlang-community/fix_139
+    
+    Fix incorrect import of walkLength
+    merged-on-behalf-of: Petar Kirov <ZombineDev@users.noreply.github.com>
+
+commit 2acd71f70e2f567445d0d55bce6b470585da4c3b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Feb 19 01:33:18 2019 -0800
+
+    Fix incorrect import of walkLength
+
+commit 86e29cbf36031a9f923051dbd9484403ce08940b
+Merge: d2ae062 d6e2257
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Wed Feb 13 13:56:11 2019 -0800
+
+    Merge pull request #138 from dlang-community/fix_containsKey
+    
+    Fix a bug where containsKey just didn't even compile
+
+commit d6e22579b22d1f3e27bedf8a692289a5298561d1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 13 13:48:56 2019 -0800
+
+    Add test for containsKey
+
+commit 83eb2b81a412078cb7c8128bd47d065d49a03a5c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 13 13:46:09 2019 -0800
+
+    Fix a bug where containsKey just didn't even compile
+
+commit d2ae06220dc9ca39d8a4fa6c1e3c18d0daa54367
+Merge: 22fe1e5 c2d7a6d
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Jan 28 15:50:34 2019 -0800
+
+    Merge pull request #135 from dlang-community/optimize_hashToIndex
+    
+    Optimize hash to index using LDC intrinsics
+
+commit c2d7a6dbfba2f1ae445bf7986057c64e64970d85
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jan 28 15:43:40 2019 -0800
+
+    Use bsf for consistency
+
+commit 96be8bc859c0e0a995b8af9bf115f891cdb6dbfa
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jan 28 15:11:52 2019 -0800
+
+    Use LDC intrinsics to speed up hashmap and unrolledlist
+
+commit 117c1d9bae06b5b8c1b6906d54a4def298f7bb7c
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Sat Jan 26 04:39:24 2019 -0800
+
+    Speed up hash-> index conversion
+
+commit 22fe1e5b385fbf64fb9647731291f377bdb117d3
+Merge: 836a0cc 57abb5a
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Jan 25 01:42:48 2019 +0100
+
+    Merge pull request #133 from dlang-community/fix_hashset_remove
+    
+    Fix crash when attempting to remove en element from an empty set
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit 57abb5aaa13885e8af20ba74bcdd4bd0b087099c
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Thu Jan 24 16:33:53 2019 -0800
+
+    Fix crash when attempting to remove en element from an empty set
+
+commit 836a0cc93a98815ac309294c45aab0ba98018073
+Merge: 760a040 1b05641
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Dec 14 09:26:56 2018 +0100
+
+    Merge pull request #132 from dlang-community/BBasile-patch-1
+    
+    fix CI failure due to Python environment and Meson
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 1b05641a6864c90a88d0785a9615b57f1bc9d81b
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Fri Dec 14 02:59:45 2018 +0100
+
+    fix CI failure due to Python environment and Meson
+
+commit 760a04072647c6ade4aecf00b6ab4ba8a429cddc
+Merge: c692722 f105d54
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Thu Nov 8 16:17:37 2018 -0800
+
+    Merge pull request #129 from Hackerpilot/hash-nonsense
+    
+    Improve hash code to array index translation
+
+commit f105d546d0d58cbae46407731760770545369d88
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Nov 8 15:10:29 2018 -0800
+
+    Code cleanup
+
+commit 743255382877cc6cf16ee06f58ca13b13d01bb0a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Nov 8 01:44:25 2018 -0800
+
+    Rework some of the hashing algorithms
+
+commit c6927223ae7ae6b6a1cc384451671f6c29f0dcdb
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Fri Nov 2 06:05:32 2018 +0100
+
+    Prevent running CI twice when PR branch is in origin (#128)
+    
+    Prevent running CI twice when PR branch is in origin
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 458387d5068394357fe2291c7daa1082bb11094e
+Merge: 9de0e4f 71adb34
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Oct 26 15:27:37 2018 +0200
+
+    Merge pull request #127 from dlang-community/stdxalloc-version
+    
+    update wrap file for stdx allocator
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 71adb34ae537a91ffafa7e82b2669fefe575eeae
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Fri Oct 26 15:06:16 2018 +0200
+
+    update wrap file for stdx allocator
+    
+    head requires to add mir-core as submodule
+
+commit 9de0e4fbf7b4f48bcac810ad78d8f4d9c86f8d43
+Merge: 03a5345 4a04cb3
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 16 14:02:36 2018 -0700
+
+    Merge pull request #124 from CyberShadow/revive-opapply
+    
+    containers.hashmap: Re-add opApply iteration
+
+commit 03a5345fb6051b2aeb49ccbd3b25ef2775f1d62a
+Merge: 02b2a82 937eb34
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Oct 16 14:55:15 2018 +0200
+
+    Merge pull request #125 from CyberShadow/pull-20181016-123552
+    
+    containers.hashmap: Fix HashMap.remove for storeHash==false
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 937eb344c90b0fe1b60ac05b155f2e13cbf6deae
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 12:35:53 2018 +0000
+
+    containers.hashmap: Fix HashMap.remove for storeHash==false
+    
+    Continuation of c07098167b1104354258bb87c72fac7908b3bdef
+
+commit 4a04cb3673740aee5f4a655b625c550472081ae1
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 12:20:20 2018 +0000
+
+    containers.hashmap: Re-add opApply iteration
+    
+    Commit 15eea7fbc89f073838d14d86d47c1247dbe8c3a1 intentionally removed
+    opApply iteration to make room for range-based iteration via
+    opSlice. The change caused code breakage (foreach (k, v; aa) was
+    broken as ranges, in lieu of language tuples, can only iterate as a
+    KeyValue struct at best). That wouldn't be so bad by itself assuming
+    the iterator range was implemented by keeping a pointer to the HashMap
+    node and allowing writing back to it / accessing the value by
+    reference... but, no, the KeyValue object used here actually created
+    wasteful copies of iterated keys/values.
+    
+    Furthermore, the new implementation of iteration accepted the
+    following code:
+    
+            foreach (ref v; map) v++;
+    
+    ... which compiled, but did not actually mutate the iterated hashmap.
+    
+    Improve the situation by adding opApply iteration back, thus
+    unbreaking:
+    
+    - iterating by key/value as distinct foreach parameters
+    - avoiding copying the key/value by providing it by ref
+    - writing values back to the HashMap.
+
+commit 02b2a828d6e91438cff67510f7e42649fef217b7
+Merge: fd5f7e3 4d332a4
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Oct 16 12:38:02 2018 +0200
+
+    Merge pull request #123 from CyberShadow/pull-20181016-103046
+    
+    containers.hashmap: Fix redundant hashFunction call in getOrAdd
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit fd5f7e3467b88624d9b1408fe0c6f705ace58337
+Merge: 37f7c16 c070981
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Oct 16 12:31:52 2018 +0200
+
+    Merge pull request #122 from CyberShadow/revive-storehash
+    
+    containers.hashmap: Re-add the storeHash parameter
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 4d332a43dbe673f041e3f6c204930ce21318893a
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 10:30:48 2018 +0000
+
+    containers.hashmap: Fix redundant hashFunction call in getOrAdd
+    
+    The result was being thrown away by being overwritten inside
+    find(). Additionally, when a hash function was specified with a return
+    value other than size_t, this resulted in a compilation error.
+    
+    The bug is a regression (introduced in commit
+    15eea7fbc89f073838d14d86d47c1247dbe8c3a1).
+    
+    Fix by letting find compute the hash as in other invocations.
+
+commit c07098167b1104354258bb87c72fac7908b3bdef
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 10:05:58 2018 +0000
+
+    containers.hashmap: Re-add the storeHash parameter
+    
+    In some cases, the hash can be extremely cheap to calculate (e.g. the
+    first few bytes of the key, when the key itself is a longer hash). In
+    these cases, storing the hash is an unnecessary overhead. As such, the
+    user should be able to specify when to store the hash within HashMap
+    nodes.
+    
+    The storeHash parameter was initially introduced in
+    fb998f0c440529f78d54f534e7407741355d46f7, and was later
+    removed (presumably accidentally) in
+    15eea7fbc89f073838d14d86d47c1247dbe8c3a1. As it was part of the API,
+    this was a breaking regression. This commit Fixes the regression and
+    adds the parameter again.
+
+commit 37f7c16aa7fbecea85781112d8d34b57f65cd983
+Merge: 9d25849 930df66
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 9 14:08:28 2018 -0700
+
+    Merge pull request #118 from eclipseo/link_with_shared_runtime
+    
+    Link test_dcontainers with shared runtime via LDC switch '-link-defau…
+
+commit 930df66092c761286ae452b044295bd193cde5e2
+Author: Robert-André Mauchin <zebob.m@gmail.com>
+Date:   Sat Sep 1 18:30:46 2018 +0200
+
+    Link test_dcontainers with shared runtime via LDC switch '-link-defaultlib-shared'.
+
+commit 9d25849e921c0e49397120d4ff7bf428241c474b
+Merge: fe6837d 09292dc
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Sep 27 13:12:12 2018 -0700
+
+    Merge pull request #119 from dlang-community/hashof
+    
+    hash without using explicitly typeid
+
+commit 09292dc40fdec7875d21fe54ab69396f16377ce7
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Wed Sep 26 02:16:12 2018 +0200
+
+    hash without using explicitly typeid
+    
+    Inspired by https://issues.dlang.org/show_bug.cgi?id=19197.
+    Add to this the fact that typeid added an indirection.
+
+commit fe6837df3910f7e1d644d0ba7ccc0c6be56811d9
+Merge: 43ecf2c dfa5098
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed Sep 26 11:24:31 2018 +0200
+
+    Merge pull request #120 from dlang-community/messon-reg
+    
+    Stick to Meson 0.47.2 due to a regression in latest release
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit dfa50987d6ee51b8910970dd89d7d3e1881e44cc
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Wed Sep 26 10:58:33 2018 +0200
+
+    Stick to Meson 0.47.2 due to a regression in latest release
+    
+    The same as https://github.com/mesonbuild/meson/issues/4248 appeared in #119.
+
+commit 43ecf2c7e7eb47e0c10943539d156d6cd542f0bb
+Merge: 931aad7 65c02c1
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Mon Aug 6 23:26:03 2018 +0200
+
+    Merge pull request #117 from dlang-community/issue-116
+    
+    fix #116 - unittest build type is always set
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 65c02c1b74eda0bc0732e3c307447c7d9e12a3bb
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Mon Aug 6 23:10:29 2018 +0200
+
+    fix #116 - unittest build type is always set
+
+commit 931aad7fbcdfa19ca267a854ef76b94c3a609a12
+Merge: 64ef163 e620c39
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Jun 22 12:23:28 2018 +0200
+
+    Merge pull request #114 from dlang-community/derp
+    
+    Correctly reset t-tree length field to zero when clearing
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit e620c397c8ba43bc2bf8a80b6d5792757a18a950
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Jun 22 03:17:03 2018 -0700
+
+    Remove unused imports
+
+commit f07d5cc48077da64ef29ce87848a49447ec40c2a
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Jun 22 03:16:52 2018 -0700
+
+    Fix bug caused by failing to reset _length to 0 on clearing a t-tree.
+
+commit 64ef16379bc23e225a925c433b9f5381dc9ae9f3
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Jun 18 16:11:35 2018 -0700
+
+    Support structs for key types in the hashmap/treemap. #71
+
+commit c0c4ce652c52f1a1bb2812a9c47e6fd41d3dc00a
+Merge: 5d85484 9016b3b
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed May 30 13:06:18 2018 +0200
+
+    Merge pull request #113 from wilzbach/bump-stdx
+    
+    Update stdx-allocator git submodule
+    merged-on-behalf-of: Sebastian Wilzbach <sebi.wilzbach@gmail.com>
+
+commit 9016b3bb45739fb25951bb23814452a1691e14cf
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Wed May 30 13:01:29 2018 +0200
+
+    Update stdx-allocator git submodule
+
+commit 5d85484707d9bb6bae374f352231e633518efe5a
+Merge: c261fa1 ee4d14c
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Wed May 30 12:23:35 2018 +0200
+
+    Merge pull request #112 from JinShil/patch-1
+    
+    Upgrade stdx.allocator to 2.77.2
+
+commit ee4d14c695cf4dadd58486aca945284db13a1618
+Author: Mike Franklin <JinShil@users.noreply.github.com>
+Date:   Wed May 30 15:49:00 2018 +0900
+
+    Upgrade stdx.allocator to 2.77.2
+    
+    This is to ensure Circle CI passes at dlang/phobos#6515
+
+commit c261fa119072ce788ef81b8d8fee9a2adddca5d1
+Merge: d045889 9933171
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu May 10 16:43:09 2018 -0700
+
+    Merge pull request #110 from CyberShadow/pull-20180510-052258
+    
+    dynamicarray fixes + resize method
+
+commit 993317147f8525ac35c6cf6ba3e54f7d67126c5f
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Thu May 10 06:36:20 2018 +0000
+
+    containers.dynamicarray: Add resize method
+    
+    Fixes issue #108.
+
+commit a7ca4ba98024a1ffcf23c2e397486e14218900d9
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Thu May 10 06:32:35 2018 +0000
+
+    containers.dynamicarray: Fix destroying uninitialized objects
+    
+    Fixes issue #109.
+
+commit 8e0d481af35e945881d4628185389b5d38b45d36
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Thu May 10 05:22:59 2018 +0000
+
+    Fix walkLength symbol visibility warning
+    
+    Fixes compiler message:
+    
+      Deprecation: Symbol std.range.primitives.walkLength(Range)(Range
+      range) if (isInputRange!Range && !isInfinite!Range) is not visible
+      from module treemap because it is privately imported in module
+      iteration
+
+commit d0458897a60137a84f88eefcdd5a0b12ac07cbe7
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Mon Apr 23 20:32:33 2018 +0200
+
+    Fix two more cases of disposal before removing GC ranges
+
+commit 2c528c3879d353c98eecc811bcd80163f8f4fe07
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Fri Apr 20 21:19:37 2018 +0200
+
+    Add a test case to reproduce the GC/HashMap crash
+    
+    This adds a test case which was used to successfully reproduce the crash
+    fixed in the previous commit on a wide range of different machines.
+
+commit 3da408bfd73aa792eeb1dd18e76b806d68dcc427
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Fri Apr 20 21:18:20 2018 +0200
+
+    Fix crash in GC collection when using a HashMap containing GC-managed elements
+    
+    The GC managed ranges need to be removed from the to-be-scanned list of
+    the GC before we dispose of the buckets.
+    
+    Credits to finding the cause of this crash go to Dmitry Olshansky
+
+commit 6cf15515e7792bbc82964422de45eb21d60d3823
+Merge: cc402d6 08927fa
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Mar 27 23:22:46 2018 +0200
+
+    Merge pull request #106 from ximion/master
+    
+    Add Meson build definition
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit 08927fa423a17f89a474d2cc1984a5dba317a272
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Mon Mar 26 01:39:55 2018 +0200
+
+    ci: test Meson builds as well
+
+commit fc97b589e485d6e80e6f17c828abaa6c9fb27f35
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Mon Mar 26 00:33:27 2018 +0200
+
+    Add Meson build definition
+
+commit cc402d644934f5a8961ad2779090156d8f716c52
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Mar 23 13:30:37 2018 -0700
+
+    Fix typo
+
+commit 9d285268bbe4d7cf3c753f959bbc212fc8009125
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Mar 23 13:16:43 2018 -0700
+
+    Fix bug in UnrolledList.insertAnywhere
+
+commit 551d136874f61f29dd582150b9da72ff88245e81
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 16:37:10 2018 -0700
+
+    Declare local variable 'auto' to avoid type errors for const containers.
+
+commit 1b3885c8a087c2af1497a1787fb58e454bbf4c2f
+Merge: 27bf9f0 6d5efa0
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Mar 21 13:43:07 2018 -0700
+
+    Merge pull request #104 from dlang-community/next
+    
+    Next version of the containers library
+
+commit 6d5efa06bddbba6fbfd17d294d421868e566c746
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:39:39 2018 -0700
+
+    Defined the behavior of the remove methods when duplicates are possible
+
+commit d9c3f39c558a24b4c6965b1aae57ac4538376d0d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:39:07 2018 -0700
+
+    Import sorting and marked an argument const
+
+commit 880fe54f32c6009090bae4421709e10df6999376
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:18:57 2018 -0700
+
+    Ignore dub-generated test executable
+
+commit 252d31fc59bb2c13ef1199c1fb8b63ff4dd6cd5b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:17:28 2018 -0700
+
+    Remove commented code
+
+commit 1e49065fcfc3d5c6fc6417134cd9a766c509dc6a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:15:21 2018 -0700
+
+    Mark key arguments const
+
+commit 2924848eef94a1511cd353743072f8e9b8092516
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:14:58 2018 -0700
+
+    Document stupid workaround
+
+commit 3b2eb3cd8a910b96d242f6cc55bf6d6f41aab3cb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Mar 20 16:33:26 2018 -0700
+
+    Add missing contract
+
+commit ec2a7b6d69f519bf2b8dfa6e68ccf95b66647fc0
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Mar 20 13:45:10 2018 -0700
+
+    Fix indentation
+
+commit 1ff6c2d997228f17311e072e9f37a71aeadbd9cd
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:46:18 2018 -0700
+
+    Remove HTML since there's already a CI setup that updates documentation
+
+commit 279f4ce43aa6f7f2bb7027dc2cbdc3f6328900d0
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:38:42 2018 -0700
+
+    Fix #74
+
+commit f5917029da105d196386f29e26134fd6fc9e7a62
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:23:37 2018 -0700
+
+    Put unittests behind a version identifier to avoid slowing down users of the library
+
+commit 159dccb92474ee3ffdc010a345b65984c38260f3
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:04:08 2018 -0700
+
+    Typo
+
+commit 2bdbf7095cd4fb959c981baf174be4134f6e72fd
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:02:23 2018 -0700
+
+    Maintain docs in same branch as the code
+
+commit 2a638f9827f91458adc5eca6c84308f5d0c5a738
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 15:59:40 2018 -0700
+
+    OpenHashSet cleanup
+
+commit e9c57125a865434c8ba2801848200bd84001a19c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 15:45:11 2018 -0700
+
+    Match template argument order
+
+commit a0defb7518ee9b7f40581e70811a41f788667994
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 15:39:46 2018 -0700
+
+    Improved documentation and added front and back properties to T-Tree
+
+commit 54211fa61fdbfc57beb3c8c35bb245a5339ebaeb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 13:44:09 2018 -0700
+
+    whitespace
+
+commit 5251ebb48534a24b526893826d35a8d3a4f5e692
+Merge: 38e36df 15eea7f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 13:43:38 2018 -0700
+
+    Merge branch 'master' into next
+
+commit 15eea7fbc89f073838d14d86d47c1247dbe8c3a1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 13:27:49 2018 -0700
+
+    More fixes and cleanup
+
+commit 38e36dfbd271e46c1e0eee44134e14c7d4ceb01b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Mar 16 00:20:31 2018 -0700
+
+    Normalize container feature sets and make various improvements
+
+commit 9048501d68d12b7599ba65e2400d8b48abba628f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Mar 15 17:06:46 2018 -0700
+
+    It turns out that UnrolledList.insertAnywhere just didn't work
+
+commit 27bf9f02cccd4e7e7255b3974caf291520d174d9
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Mar 15 12:54:14 2018 -0700
+
+    Add byKey, byValue/opSlice, and byKeyValue to HashMap (#103)
+    
+    Add byKey, byValue/opSlice, and byKeyValue to HashMap
+    merged-on-behalf-of: Jonathan Crapuchettes <jcrapuchettes@users.noreply.github.com>
+
+commit e74dd801f7740674c304ca36fc37ef4ce57b00ce
+Merge: 1387ae2 b9f8783
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Mar 15 14:32:56 2018 +0100
+
+    Merge pull request #100 from n8sh/dynamicarray-putarray
+    
+    Extend DynamicArray ~= to accept array of values
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 1387ae28cab736dd9cdd2360b462bec8402d80e6
+Merge: 387f794 c81116f
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Mar 15 14:26:29 2018 +0100
+
+    Merge pull request #97 from n8sh/dynamicarray-dont-destroy-object
+    
+    Fix issue #96 - DynamicArray should not call destructors for objects
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 387f794324cd5cfcfccbcad44eded4d550ca873d
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Wed Mar 14 05:07:55 2018 -0400
+
+    Fix issue 101: avoid import deprecation message in DMD 2.079 (#102)
+    
+    Fix issue 101: avoid import deprecation message in DMD 2.079
+    merged-on-behalf-of: Richard Andrew Cattermole <alphaglosined@gmail.com>
+
+commit b9f87837f0846efb8e79f21e6e959b10ade9e3e4
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Wed Mar 7 06:09:24 2018 -0500
+
+    Make ~= return a reference to self
+
+commit 9da0afa4681f09d4666898c49bcafaf49ba7bc8a
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Tue Mar 6 23:14:17 2018 -0500
+
+    Extend DynamicArray ~= to accept array of values
+
+commit 04fe285e81b3327eb747e90659fb1bd2d5b9aa60
+Merge: 8bd5005 e705626
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed Feb 21 20:22:39 2018 +0100
+
+    Merge pull request #99 from dlang-community/fix-gc
+    
+    Add GC ranges to prevent memory corruption
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit e705626dd5c12270047b22e93589af6d83081671
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 21 11:15:37 2018 -0800
+
+    Add GC ranges to prevent memory corruption
+
+commit 8bd500569392fb6ecfd3586b05a590a98a5bfed9
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Tue Feb 13 15:51:14 2018 +0100
+
+    Switch to use the frozen stdx-allocator (#95)
+    
+    Switch to use the frozen stdx-allocator
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit c81116f011fe2d21d2a37a9d7bea1d9de853f653
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Sun Feb 11 15:02:00 2018 -0500
+
+    Fix issue #96 - DynamicArray should not call destructors for objects
+
+commit 6c5504cc80b75192b24cebe93209521c03f806d8
+Merge: 573abf1 e4e8ca2
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Feb 9 13:40:23 2018 -0800
+
+    Merge pull request #94 from dlang-community/issue-70
+    
+    fix issue #70 - Can't use DynamicArray in @nogc code
+
+commit e4e8ca24ca7eefb415013d430b277db63b28dd5c
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Thu Feb 8 00:06:54 2018 +0100
+
+    fix issue #70 - Can't use DynamicArray in @nogc code
+
+commit 573abf1a4c017b189b17b3692d58022f1338639e
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Thu Feb 8 00:06:54 2018 +0100
+
+    Add quickstart example + open on run.dlang.io badge (#93)
+    
+    Add quickstart example + open on run.dlang.io badge
+    merged-on-behalf-of: Petar Kirov <ZombineDev@users.noreply.github.com>
+
+commit f58dd7bf160f76762a79029a6bda7637d5a788e7
+Merge: d8cea64 e0f27bc
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Sun Jan 28 15:21:38 2018 +0100
+
+    Merge pull request #92 from dlang-community/wilzbach-fix-90
+    
+    Fix #90 - outdated README link
+    merged-on-behalf-of: Sebastian Wilzbach <sebi.wilzbach@gmail.com>
+
+commit e0f27bc83add1b5fdaf46162f3b263d55cfccc0a
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Sun Jan 28 15:17:57 2018 +0100
+
+    Fix #90 - outdated README link
+
+commit d8cea6490b79c5c397ddf511c3c433c9f72a0826
+Merge: b94053e 6a6ada5
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Sun Jan 28 14:40:18 2018 +0100
+
+    Merge pull request #91 from dlang-community/wilzbach-update-dub-json
+    
+    Update dub.json to point to dlang-community
+    merged-on-behalf-of: Sebastian Wilzbach <sebi.wilzbach@gmail.com>
+
+commit 6a6ada5cde652e2e834f12f5120c830698f87d39
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Sun Jan 28 14:24:56 2018 +0100
+
+    Update dub.json to point to dlang-community
+
+commit b94053ec4e308b9296021871aa119ed7bcd925e6
+Merge: 0ed30c2 00cddee
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Jan 10 12:34:13 2018 -0800
+
+    Merge pull request #88 from n8sh/insert-struct-init
+    
+    Array.insert: don't dtor or opAssign uninitialized struct
+
+commit 00cddeee84e9295096e54e07dcbe8299575219c8
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Tue Jan 9 13:42:07 2018 -0500
+
+    Array.insert: don't dtor or opAssign uninitialized struct
+    
+    For structs, if a destructor is run before blit or copying involves
+    more than just a blit, ensure that arr[l] is in a valid state before
+    assigning to it.
+    
+    This patch performs the initialization lazily right before insertion.
+    Another approach would be to instead initialize the memory when the
+    array is allocated/expanded by using std.experimental.allocator:
+    makeArray/expandArray.
+
+commit 0ed30c2626270a18b420bc04143b7a9c2eea0f42
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 3 16:50:20 2018 -0800
+
+    Some changes for 2.078.0
+
+commit 11289a9ea5f9de34e01cc157c81d0a962b70628f
+Merge: b879841 e5897b5
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 3 14:49:41 2017 -0700
+
+    Merge pull request #85 from n8sh/dynamicarray-reserve
+    
+    Implement DynamicArray.reserve(size_t)
+
+commit e5897b5339113d6647be11f3a0a19adfae65c08d
+Author: nathan <nathan@n8mbp17.home>
+Date:   Thu Sep 28 07:39:12 2017 -0400
+
+    Implement DynamicArray.reserve(size_t)
+
+commit b879841f5034ee4094b019bb527e21d0775dc95d
+Merge: 1e7a7b1 6de3d6c
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 3 01:22:54 2017 -0700
+
+    Merge pull request #84 from MartinNowak/patch-1
+    
+    allow to only run 32 or 64-bit tests
+
+commit 6de3d6c5feef224734317962a4cf86f6bfb71d03
+Author: Martin Nowak <code@dawg.eu>
+Date:   Fri Sep 22 19:18:35 2017 +0200
+
+    allow to only run 32 or 64-bit tests
+
+commit 1e7a7b153935efe777bea5846c8b1fa8ec7924e4
+Merge: 7fb0dab ab8e387
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Sep 18 11:53:18 2017 -0700
+
+    Merge pull request #82 from dushibaiyu/master
+    
+    closures or class method shoulde be null for GC recycle
+
+commit 7fb0dab4e8e11507f3c5392e6e29721a7b0468fc
+Merge: 2892cfc 657c149
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Sep 18 11:52:46 2017 -0700
+
+    Merge pull request #72 from CyberShadow/pull-20161127-235753
+    
+    HashMap improvements
+
+commit 657c1496ab90ee7eb6b19ab0e1b4e5ef48ad323f
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 11:18:30 2017 +0000
+
+    containers.hashset: Fix constructor taking bucketCount and allocator
+    
+    It did not set the allocator before initialization.
+
+commit 6c08160bccfdd84fc6e6100634aaf96eae08323a
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 11:08:33 2017 +0000
+
+    containers.hashset: Fix UFCS invocation of make
+    
+    AllocatorList.make is a private symbol, which the compiler attempted
+    to use over the free make template function from
+    std.experimental.allocator. Fix by not using UFCS.
+
+commit 5d401d01f452b650a7044a095f0083bb70b871fc
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 10:48:05 2017 +0000
+
+    containers.hashset: Allow arbitrary hash types
+    
+    As with HashMap.
+    
+    Additionally, this fixes some incorrect uses of size_t instead of
+    hash_t.
+
+commit 6375d1fe1613cdae348657b0109461be46d655e9
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 10:44:08 2017 +0000
+
+    containers.hashset: Make storeHash configurable
+    
+    As with HashMap.
+
+commit ab8e387a2bad76356396fb19103b8e89e94aeccb
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Tue Jun 20 16:26:32 2017 +0800
+
+    closures or class method shoulde be null for GC recycle
+
+commit d944116dcb231e4d79f28b3838c00ead9263397e
+Merge: 4228f4e 2892cfc
+Author: 渡世白玉 <dushibaiyu@yahoo.com>
+Date:   Mon Feb 6 15:58:49 2017 +0800
+
+    Merge pull request #2 from economicmodeling/master
+    
+    Merge pull request #73 from putaolabs/master
+
+commit 2892cfc1e7a205d4f81af3970cbb53e4f365a765
+Merge: 3938bd0 4228f4e
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Dec 20 12:29:07 2016 -0800
+
+    Merge pull request #73 from putaolabs/master
+    
+     interface should be same as class. and DynamicArray should be null too
+
+commit 4228f4e390b8cca54f946da35f9e1b1d3291b597
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Thu Dec 15 11:29:51 2016 +0800
+
+    interface should be same as class. and DynamicArray should be null too. the hasIndirections!T  is handled point and class
+
+commit ddcfb5fc039d489ea5a2233c1e8cd0682320198e
+Merge: d7ba02b 4518212
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Thu Dec 15 10:28:05 2016 +0800
+
+    Merge branch 'master' of git@github.com:putao-dev/containers.git
+
+commit d7ba02b53fa7c0d199269f458c92510eb93b568a
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Thu Dec 15 10:24:44 2016 +0800
+
+    gitignore
+
+commit 45182124a4ce7535ff5ebf2b0ee86e77436971a5
+Merge: c773794 3938bd0
+Author: 渡世白玉 <dushibaiyu@yahoo.com>
+Date:   Wed Dec 14 11:27:35 2016 +0800
+
+    Merge pull request #1 from economicmodeling/master
+    
+    update
+
+commit e7623f9545f6127f213b36c94002f7b953d8aa4a
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:42:08 2016 +0000
+
+    containers.hashmap: Allow arbitrary hash types
+    
+    There is no need to impose any particular hash type, as we can simply
+    use the return type of the given hashFunction.
+
+commit d32d20451098e14a4bbba5579a8ee53750234712
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:37:06 2016 +0000
+
+    containers.hashmap: Add getOrAdd method
+    
+    getOrAdd returns a pointer to the value inside the HashMap if one
+    exists for the given key. If not, it inserts a new key/value
+    pair (using the given key and defaultValue), and returns a pointer to
+    the added value.
+    
+    This method is necessary to efficiently implement operations such as
+    the builtin AAs' `aa[key]++` when `key` is not yet present in `aa`.
+
+commit 94da1f7b1a021dcee230624076bcbd8e91d0b862
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:18:56 2016 +0000
+
+    containers.unrolledlist: Make insertBack return pointer to added item
+    
+    It is occasionally useful to operate on the newly-allocated memory
+    inside a container.
+
+commit 4506815bebce5e672583e4e781a41af872cb7070
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:07:19 2016 +0000
+
+    containers.hashmap: Make "in" operator return pointer to value
+    
+    Mimic the behavior of built-in associative arrays, which allows for
+    the following pattern:
+    
+    if (auto pValue = key in aa)
+    {
+        /// Use *pValue ...
+    }
+    
+    This allows doing two lookups to access a value when it might not
+    exist in the hashmap.
+
+commit fb998f0c440529f78d54f534e7407741355d46f7
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sun Nov 27 23:57:59 2016 +0000
+
+    containers.hashmap: Make storeHash configurable
+    
+    In some cases, the hash can be extremely cheap to calculate (e.g. the
+    first few bytes of the key, when the key itself is a longer hash). As
+    such, the user should be able to specify when to store the hash within
+    Nodes.
+
+commit 3938bd0ffeca32fbb95a8e51bed55cd9412d7b80
+Merge: 92dbd3c 7a80381
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Oct 6 16:05:08 2016 -0700
+
+    Merge pull request #68 from yshui/master
+    
+    hashmap: actually use the hashFunction specified by user
+
+commit 92dbd3c190912282426e387a6409bcda926ecda2
+Merge: 3924c31 80d16fd
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Oct 6 16:04:19 2016 -0700
+
+    Merge pull request #69 from yshui/doc
+    
+    unrolledlist: clarify the complexity of back()
+
+commit 80d16fdebbdd53c7ea68d118c61f769ac6a08246
+Author: Yuxuan Shui <yshuiv7@gmail.com>
+Date:   Thu Oct 6 18:20:44 2016 -0400
+
+    unrolledlist: clarify the complexity of back()
+    
+    Saying it is O(n) will give people the impression that it is
+    linear to the number of items in the list.
+
+commit 7a80381463fd3b32a7d0ded6528c860eb9a056b3
+Author: Yuxuan Shui <yshuiv7@gmail.com>
+Date:   Thu Oct 6 17:39:15 2016 -0400
+
+    hashmap: actually use the hashFunction specified by user
+
+commit 3924c3130153d181d68e63d8abdef66ef337ebe4
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Sep 22 12:16:10 2016 -0700
+
+    Fix #67, fix #52, fix #53, fix #54, fix #55. Thanks to @burner and @yshui.
+
+commit 658f43fe961e81f94a7085637f2404c161a20117
+Merge: d598882 e58a5b4
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Sep 13 15:55:40 2016 -0700
+
+    Merge pull request #64 from yshui/master
+    
+    Don't remove an item multiple times from unrolledlist
+
+commit e58a5b4ba09713854a3499bee61fe2b9de6a1d12
+Author: Yuxuan Shui <yshuiv7@gmail.com>
+Date:   Tue Sep 13 18:37:17 2016 -0400
+
+    Don't remove an item multiple times from unrolledlist
+
+commit d5988821ecc7cc47991a19734d05ffc1df2acaec
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Sep 12 17:57:08 2016 -0700
+
+    This can't be immutable
+
+commit b539f914817fb511c72431d96251c15256b0ffdb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 9 14:48:58 2016 -0700
+
+    Fix #62
+
+commit 3b40b4c09ba3a2262fc006f19549f476929eba09
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 9 14:48:20 2016 -0700
+
+    Add missing import
+
+commit 528cae2880c0e5faa57d192621ad0533b0124b7b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jul 27 13:00:42 2016 -0700
+
+    Remove experimental allocator backport
+
+commit d3ce885de5a838347254cc41d702ffa53bbb3a5e
+Merge: a74854a c773794
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Jun 28 16:26:21 2016 -0700
+
+    Merge pull request #59 from putao-dev/master
+    
+    fix DynamicArray ~this sgould be use useGC. ttree add useGC
+
+commit c77379491fed71166a8ccfb68e018de2f9bd0213
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Tue Jun 28 11:12:53 2016 +0800
+
+    fix DynamicArray ~this sgould be use useGC. ttree add useGC
+
+commit a74854aed450285e147af16e82a0dda466ccb332
+Merge: 3c6a439 615a39d
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Jun 1 16:16:27 2016 -0700
+
+    Merge pull request #58 from burner/dynamic_array_remove_back
+    
+    removeBack for the DynamicArray
+
+commit 615a39d3c5cfe407aafdd1814887f49bd0f34a54
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Wed Jun 1 14:10:24 2016 +0200
+
+    removeBack for the DynamicArray
+
+commit 3c6a4398f7cd0c593995ee9b45e4e8e42c907b8c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon May 9 17:09:51 2016 -0700
+
+    #49
+
+commit a5282b421bb1fb579cf96a17004106a7d07da012
+Merge: 88da02a 4a4a2cc
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri May 6 15:01:24 2016 -0700
+
+    Merge pull request #51 from burner/hashset_const_class
+    
+    hashset const class support
+
+commit 4a4a2cc9e1a9de6ed34ff610ae6f6d9be3d6ef57
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Fri May 6 10:56:56 2016 +0200
+
+    hashset const class support
+
+commit 88da02ad94ed96b13199080f13e3c183d8bcf484
+Merge: 738ccd4 b557fae
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Apr 22 05:09:31 2016 -0700
+
+    Merge pull request #48 from burner/Issue47
+    
+    fixes #47
+
+commit b557fae3933d59d72056d4365cc5ac4c5f81b166
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Fri Apr 22 13:31:37 2016 +0200
+
+    fixes #47
+    
+    * addes const version for opApply
+    * makes opApply callable from safe code
+    * requires delegate key to be const
+    
+    small fix
+
+commit 738ccd47345201660eaf3f1b8c3eed870ff2089d
+Merge: 39e9080 5e1c0a6
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Apr 20 13:59:53 2016 -0700
+
+    Merge pull request #46 from SirNickolas/master
+    
+    Fix #45
+
+commit 5e1c0a6b1540f97bae0736ef13db8223b92aa309
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Wed Apr 20 13:11:28 2016 +0600
+
+    Remove the ghost line
+
+commit 825847459afa9f7e071af832291f5f1b5931c481
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Wed Apr 20 05:09:23 2016 +0600
+
+    Fix #45
+
+commit 39e9080f6a2b763e7cc03218ce1fa06086d5ff4f
+Merge: c99dd0b 98a9df3
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Apr 13 12:40:43 2016 -0700
+
+    Merge pull request #44 from burner/notnothrow
+    
+    Fix Issue #43
+
+commit 98a9df3c635c2c01343bb30e767a54b219623bd7
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Wed Apr 13 12:01:14 2016 +0200
+
+    Fix Issue #43
+    
+    * testing most containers with classes
+    
+    tab to whitespace
+
+commit c99dd0b83afe80d3b647f73e400fa4bb8e48aace
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:24:49 2016 -0700
+
+    Another CI attempt
+
+commit 24833845a9ae1dea2290dd4a290f830412f49465
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:22:28 2016 -0700
+
+    Another CI attempt
+
+commit 259383d381e7785e43a61f880c83048e13c72219
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:14:02 2016 -0700
+
+    We actually need sudo now
+
+commit 7d006dc4250bfbb6c9595e00137f8b71ebb54af4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:12:30 2016 -0700
+
+    Tell Travis to install 32-bit library dependencies for testing the 32-bit build
+
+commit 237fe438eed92e96365d849cf894267e803e0fd7
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Mar 28 13:05:06 2016 -0700
+
+    Remove some debugging code
+
+commit 84692a5387a2fea8001a342821f3ec3649b9eb43
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Mar 28 11:39:43 2016 -0700
+
+    Run unit tests in 64 and 32 bit mode. Fix #41 and should prevent 32-bit bugs in the future
+
+commit e5c21fc2484e3c42ca695350acf0c303ca8928bb
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 27 22:21:57 2016 -0700
+
+    Fix #39
+
+commit db720046fc9f0a012807b2e8f038d66e0f599d9d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 27 20:08:25 2016 -0700
+
+    Fix #40
+
+commit 6a92370841b2903cf51d3eaf7798b0124bd18384
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 27 16:47:25 2016 -0700
+
+    Fix #37
+
+commit 9b210f7b721553c190876312f09c521739df8ce1
+Merge: cb261d4 71cbd77
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Mar 24 15:04:43 2016 -0700
+
+    Merge pull request #38 from ZombineDev/dyn-arr-op-dollar
+    
+    Add opDollar to DynamicArray
+
+commit 71cbd77ddf92a695634e5ef7dc8403c67800bbab
+Author: ZombineDev <petar.p.kirov@gmail.com>
+Date:   Thu Mar 24 20:25:04 2016 +0200
+
+    Add opDollar to DynamicArray
+
+commit cb261d4e4e7802271c9d4275732b092b031a03c4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 20 20:41:00 2016 -0700
+
+    Fix bugs triggered by container instantiations with byte-sized elements
+
+commit 81011a66d9fbf05aecb629c989838d249323123d
+Merge: a261c1d 4433264
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Feb 10 15:54:14 2016 -0800
+
+    Merge pull request #33 from SirNickolas/master
+    
+    Add cyclic buffer implementation
+
+commit 44332643c93ae713de5f96e2ba1a8917b4235f2f
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Fri Feb 5 13:55:02 2016 +0600
+
+    Fix various code style issues
+
+commit 2a6c4197bd6fec8bedb1ed03e4fb44a9569afbfa
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Thu Feb 4 15:28:02 2016 +0600
+
+    Fix a compilation error on 64-bit platforms
+
+commit 56c0b8c41b7309fca33a58950b6b54fd18efdc37
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Thu Feb 4 03:53:07 2016 +0600
+
+    Add Cyclic buffer
+
+commit cce44377aed9b0ac5d0686c28630a2590361ccd7
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Thu Feb 4 03:49:00 2016 +0600
+
+    Avoid SIMD set testing on x86
+
+commit a261c1d07707e03905431a3bdf71ba1421a60e1e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 27 00:33:04 2016 -0800
+
+    Add doc index page
+
+commit c9853bbca9f0840df32a46edebbb9b17c8216cd4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 13 23:54:15 2016 -0800
+
+    Update .gitignore
+
+commit 6db0889efd25e4118079ab602380577f7662a813
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 13 22:17:19 2016 -0800
+
+    Fix version number
+
+commit 83ef63ebac7484b809cbb7ddaa82606e7a35f442
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 13 22:15:15 2016 -0800
+
+    Update dub file
+
+commit 8b376391b5f7e1aed8cbdfb907d1a4ac868566db
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Nov 19 19:10:00 2015 -0800
+
+    Update allocators dependency
+
+commit 06150cc35ee05f9f44507613fe7601454c1b80cd
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Nov 9 15:16:51 2015 -0800
+
+    Fix #31
+
+commit 2e1eb33c4e76567628a04d8ccd173f6ba9d8e711
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Nov 9 15:10:35 2015 -0800
+
+    Fix #30
+
+commit 978c2f295065168e0cee333fc0c4abdf975b7b98
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Nov 9 15:09:28 2015 -0800
+
+    Fix #29
+
+commit b428d1338c08156a4f25b589ae48e816e9435d55
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Oct 29 16:51:18 2015 -0700
+
+    Fix #22
+
+commit ef43ca7066fa7a822b7f900b3ef094769963d1fc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Oct 19 13:54:14 2015 -0700
+
+    Update allocators so that the code works better with LDC
+
+commit 961831915adb78062db2709c67a874f4730a750e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Oct 19 11:53:55 2015 -0700
+
+    Update allocator dependency
+
+commit 05b1f9f5906c4ac1f38964c7456482b3f11daa32
+Merge: c78b6b4 5c71ea1
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Sun Sep 13 11:52:07 2015 -0700
+
+    Merge pull request #26 from burner/dub_test_path_fix
+    
+    dub test builds again
+
+commit c78b6b42e038536dec536b308071bbe9528753fa
+Merge: fd7c60e 978ef7c
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Sun Sep 13 11:51:46 2015 -0700
+
+    Merge pull request #27 from burner/dynamicarray_front_back_empty
+    
+    dynamicarray_front_back_empty
+
+commit 978ef7cf21409c0217e640d8bb8ba13bd8eba6fe
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Sun Sep 13 15:05:45 2015 +0200
+
+    dynamicarray_front_back_empty
+
+commit 5c71ea1a8cd2fec3a918614d3a4918847ea51e77
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Sun Sep 13 14:34:37 2015 +0200
+
+    dub test builds again
+    
+    dub test was unable to find the source of the allocator,
+    this adds the paths
+
+commit fd7c60e41f4eebc70f700bec698285c97b96cd9a
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Sep 4 12:34:30 2015 -0700
+
+    #21
+
+commit 8eee792b78b0b099079a022ccbbbf634edde6ce3
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 31 20:49:44 2015 -0700
+
+    Add benchmark results
+
+commit 7f826df0b87580860dc2b87cc10f87b0cad8b82d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 31 20:49:32 2015 -0700
+
+    Fix compile problem caused by UFCS.
+
+commit 86d244a376b223d277b1f0c0bbcf14729b979e5d
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 17:46:42 2015 -0700
+
+    Update README
+
+commit e3cb337c09a269b572baf6e165063c47ada5761b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 17:35:53 2015 -0700
+
+    Fix imports
+
+commit 3053e601b268dc3c95e7644166825663b4b0c6d1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 17:30:49 2015 -0700
+
+    Doc updates
+
+commit c39d8016869229a1b5f846c6962e7f1483271522
+Merge: 04158ca 041d890
+Author: Justin Whear <justin@economicmodeling.com>
+Date:   Mon Aug 31 15:44:27 2015 -0700
+
+    Merge pull request #19 from economicmodeling/external-allocator-support
+    
+    External allocator support
+
+commit 041d89021300ffec11ac364d5b30a836ce4d7a8f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 15:30:26 2015 -0700
+
+    Update allocators
+
+commit 2b6a44d5e8841910ca57b82cdc4e7209985d1f99
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 14:48:24 2015 -0700
+
+    Remove duplicated code
+
+commit 2fa856c6915f2914a6d910a40371bd12c5d2fe06
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 20:14:53 2015 -0700
+
+    Finish work on external allocators
+
+commit f75df187eab6eff14f58d2643e958f6f2456eea8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 01:03:30 2015 -0700
+
+    External allocator support for TreeMap
+
+commit e7f6c1591681b33dcfacedd6176293151e7a65bd
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 00:41:43 2015 -0700
+
+    Immutable cleanup
+
+commit b2964c0953ed492109a20b7e622266c562b4744a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 00:39:39 2015 -0700
+
+    Add support for allocators other than Mallocator to TTree
+
+commit 04158caa5d651562ac99d40cd9aec2cd06a15508
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Aug 27 17:03:20 2015 -0700
+
+    Fix performance issues and bugs in TTree
+
+commit 526ddb4c9458bac7a7c7c0bc648af92c9e86d894
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Aug 27 17:03:05 2015 -0700
+
+    Update allocators
+
+commit c8c4634420fe95cb38f0bc17b91d5767357edb57
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Aug 26 02:58:12 2015 -0700
+
+    Update allocators
+
+commit 8a5cae2bc1d635ebb0a4348653447f3ea954e12d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Aug 26 02:38:52 2015 -0700
+
+    Update allocators
+
+commit c2aa66207795e5bd3d6a0e696a71471386b428d1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 25 20:38:48 2015 -0700
+
+    Update allocators to fix a deallocation bug
+
+commit a71ee4229a7cb84c925af02618c2472fd19be9e5
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 24 23:33:27 2015 -0700
+
+    Delete old allocator code
+
+commit f91a582dc8a5a56bc3d36242dc92b34a68398126
+Merge: 0569090 87132f6
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 24 17:54:12 2015 -0700
+
+    Merge commit '87132f6'
+
+commit 87132f688f8cbc8afa94ea9a272c0d652a7ff72f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 24 17:43:04 2015 -0700
+
+    Fix bugs in hash set implementation
+
+commit 0569090a247f185a5bff184e9a26ff01eb34576c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Aug 21 16:22:18 2015 -0700
+
+    Update allocators
+
+commit b38769605779983aeca3819fbcfa8c72156f9ceb
+Merge: df74123 5fe131c
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Fri Aug 21 13:54:31 2015 -0700
+
+    Merge pull request #18 from economicmodeling/experimental-allocator
+    
+    old std.allocator -> new std.experimental.allocator
+
+commit 5fe131c2b59ae320a9272ad25b5bd17817d6a638
+Merge: 96e96a2 df74123
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Aug 21 13:50:44 2015 -0700
+
+    Fix allocator usage and destructor calling
+
+commit 96e96a24b3b00d382481bbb277cd4c4c4fe9530e
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Aug 21 13:30:18 2015 -0700
+
+    Remove commented code
+
+commit 9bd524b544105754b33117a9d696a43ec9f808dc
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Aug 21 13:29:30 2015 -0700
+
+    Remove unused module
+
+commit df741233b6b84686d8a37935081936c3dcc70700
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Wed Aug 19 17:42:36 2015 -0700
+
+    More fixes + less memory for hashset
+
+commit d2ae3d9fc6c4c81ecca84f0bcd3f7fd1fcdb545e
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 17:01:21 2015 -0700
+
+    Fixed bugs
+
+commit 9501f822e0d51d5f625401ebd84e3e25e4c27a43
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 15:54:38 2015 -0700
+
+    Fix missing import
+
+commit 0ff087c63c7aa28793ea315bf7f0e7c08e2db44f
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 15:32:37 2015 -0700
+
+    Fix hash and equality calculation
+
+commit 938decd6a5362d5ea792b1f5db9581113901fb03
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 15:32:15 2015 -0700
+
+    Add .editorconfig
+
+commit 580a4ecabdac17597b90ea0a651cd916bf2beb93
+Merge: afdc2ec 73e71a7
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Aug 18 14:41:24 2015 -0700
+
+    Merge master and update allocator code
+
+commit 73e71a7191c4faa856ebcc829e05f5202f9c158a
+Merge: 9edfde5 2d8a6a6
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Tue Aug 18 13:55:41 2015 -0700
+
+    Merge pull request #17 from economicmodeling/mutability-round-2
+    
+    Mutability round 2
+
+commit 2d8a6a6dfadf27688a0b9580053c39a2d2c7e7ba
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Aug 18 13:51:49 2015 -0700
+
+    Ignore test binary
+
+commit 054ce228f4203c4545db22e1a2d961e4d6c7bb08
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Aug 18 13:51:40 2015 -0700
+
+    Re-enable opApply for hashmap and treemap
+
+commit 8e3c08d5cfbbc56a73cd79135d85cfad5ec4e353
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 18 02:24:05 2015 -0700
+
+    Check ttree and hashmap
+
+commit 9edfde566e030720452880076bf52c7802cc27dc
+Merge: 2cf7e8e e1d05a3
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Aug 17 16:51:51 2015 -0700
+
+    Merge pull request #16 from economicmodeling/mutability-checks
+    
+    Const/mutable/immutable support
+
+commit e1d05a36023b9f66926d46cffee9ce4342fec8dc
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:27:33 2015 -0700
+
+    Typo
+
+commit ef71308c9cb37715a9da05349abbc40e583bfea4
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:26:46 2015 -0700
+
+    Apparently tabs are bad?
+
+commit 68dffbbcde9b3840cc0f430cfda499ecfc5db520
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:25:36 2015 -0700
+
+    Poke the CI server
+
+commit b70be222e1c46ffcf2c23491951e16682dd76190
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:24:10 2015 -0700
+
+    Const correctness for more containers
+
+commit 5ba6a9f8ed5ba3c5359a0fa7a28dec151cbfb987
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:23:39 2015 -0700
+
+    CI badge
+
+commit 9f4efd2dfd595d0f28e48c88877e4dbd09f13738
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:20:24 2015 -0700
+
+    CI build
+
+commit 042b0a884640aa4ddb857f7b3bfe8428ff273ddf
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 15:34:38 2015 -0700
+
+    Better mutable/const/immutable checking
+
+commit da328b6b1e8560626a5172c553b76d5ecd7f2243
+Merge: fb27a58 2cf7e8e
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 11:56:58 2015 -0700
+
+    Merge branch 'master' into mutability-checks
+
+commit 2cf7e8e0c85b51cc2edb2567426a0d05e593cd4e
+Merge: a6197c4 d09961e
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Aug 17 11:55:53 2015 -0700
+
+    Merge pull request #15 from economicmodeling/hashset_rewrite
+    
+    Hashset rewrite
+
+commit d09961eb5087c8b0d5f4947dd8b4888b3a8be843
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 11:52:43 2015 -0700
+
+    Fix dumbness
+
+commit fb27a583daa680ad8c3b5f7f8bbfc49a12168518
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 17 02:03:55 2015 -0700
+
+    More checks
+
+commit fcb9b5dd3aac1e1ed8e131b0e66e07b93c97f21b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:39:47 2015 -0700
+
+    mutable/const/immutable checks
+
+commit de8e535f0620478cfd52992793329a7de1f69747
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:39:12 2015 -0700
+
+    Add package declaration
+
+commit 2f57918eefd4b4059f5703d54e53b3004fa9bd2a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:38:55 2015 -0700
+
+    Const fixes
+
+commit 4c24ec3da129f3ae8f82fd7f9d22f382321be293
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:37:58 2015 -0700
+
+    Progress towards const support in the simd-set
+
+commit b087a290e0bbfed568d7552581e9bcc4a8e8ae9c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:35:18 2015 -0700
+
+    SList now uses Mallocator
+
+commit 75b63af03f8603627b7f978b0dc31ac9637c61c1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 01:52:57 2015 -0700
+
+    Fix bugs
+
+commit 7707a685c2fcb3aaf4295205df521169fc74eed6
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Aug 15 22:51:54 2015 -0700
+
+    Fix unit tests
+
+commit 3fc9d20404cfffeea2a31d4176bb785e13b06146
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Sat Aug 15 14:46:54 2015 -0700
+
+    no commit message
+
+commit 84a77999c9071e8c08a8e5fd02d784e2a7a8a6e4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Aug 14 04:46:02 2015 -0700
+
+    Reimplement hashset
+
+commit afdc2ec1e378b19ebce542072520d36eaa508ede
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 16:58:51 2015 -0700
+
+    Fix compile errors
+
+commit a49d8a94143c808b082556a7c417fc39c4ffd1cb
+Merge: fc40858 a6197c4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 16:56:48 2015 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers into experimental-allocator
+    
+    Conflicts:
+            src/containers/hashset.d
+
+commit fc40858f4301c40a56ec6d0d2df6058f712ba368
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 16:55:44 2015 -0700
+
+    Get the allocators code from a submodule
+
+commit a6197c4d7a729a7fa580016ec3611c8761d01896
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 11:05:25 2015 -0700
+
+    Fix bug where a reference to a local was escaped.
+
+commit 8eade1ac6fe3fb4027deef209273799935e8d18f
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 4 16:51:49 2015 -0700
+
+    Comment out assert because it would throw the code into an infinite loop
+
+commit 46c10a979fb4c7f125dbb520955ebb78a0f8db3a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 4 14:19:13 2015 -0700
+
+    Update the allocator code and fix a bug in TTree that happens with duplicate nodes allowed
+
+commit 92e7d558e8e88db15317b86e504c54bf97f7b365
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 3 16:43:17 2015 -0700
+
+    Call node destructors correctly
+
+commit c8bc013345378fcf74981cf6b4e45073140e7496
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 3 16:42:34 2015 -0700
+
+    Add module declaration
+
+commit b6cd42e4b3cc109669f4555466a4df04149ea7b2
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 3 16:42:05 2015 -0700
+
+    Add clear() function
+
+commit 4f23c185f5124484f1fd9668273e5ca2eed2e88c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 30 16:06:57 2015 -0700
+
+    Never mind. That last change was bad and I should feel bad.
+
+commit 8eb4346231259cee561882f6874ad742bbea5fbc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 30 14:44:14 2015 -0700
+
+    Fix strange-looking cast
+
+commit 79aa96e2db00cac2cea8ba69b97dc37f5380d030
+Merge: b0e0087 09364c3
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Jun 19 13:58:22 2015 -0700
+
+    Merge pull request #14 from burner/remove
+    
+    remove for DynamicArray
+
+commit 09364c3b04c419b908586f6cd6d464807e6f772e
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Wed Jun 17 21:51:54 2015 +0200
+
+    remove
+    
+    remove
+    
+    RangeError on invalid remove index
+
+commit b0e0087ee14feead547c4ce92d1e5d33b7635183
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Jun 18 13:56:40 2015 -0700
+
+    Fix #13
+
+commit 8e75e0d1d5ecd146253cab68576d0a7238edd1e1
+Merge: ea01f79 a50619f
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Jun 16 13:48:38 2015 -0700
+
+    Merge pull request #12 from burner/dynamicarray_ptr
+    
+    dynamic array ptr property
+
+commit a50619f2377273ada8290455e93972b233576348
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Tue Jun 16 22:03:25 2015 +0200
+
+    dynamic array ptr property
+    
+    fix
+
+commit 8cb0754358f584c48280918f8cdf190870148a0c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 16 00:45:44 2015 -0700
+
+    Synchronize with upstream
+
+commit 20f68d1ae0a6e463e075fde4a5030b5065c1a1d8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jun 15 23:53:30 2015 -0700
+
+    Fix memory leaks
+
+commit 3038311c0df9297ebf76ed4fc0b09c05178edc02
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jun 15 04:16:22 2015 -0700
+
+    Be more specific with the debug condition
+
+commit e0f21b8fd8ab018471f6bf1b19971f348445301d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jun 15 04:16:06 2015 -0700
+
+    Remove QuickAllocator. A better version is in std.allocator.
+
+commit a3d9043890f101923acfb3a4d6e7e1e30980e0dc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 01:20:03 2015 -0700
+
+    More allocator updates
+
+commit 57401a4fa3422b18a3a3b8d25862539f1b6e5288
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:38:15 2015 -0700
+
+    Update allocators
+
+commit b5a34d95843286991ee81b3c842de23a92bc6e4e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:37:54 2015 -0700
+
+    Ignore loop test binary
+
+commit 87623174358134f80d2e2e94c82d62383911cf65
+Merge: b5159b8 ea01f79
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:36:45 2015 -0700
+
+    Merge branch 'master' into experimental-allocator
+
+commit b5159b823cf21fc55c4be79064c7012de024b129
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:35:32 2015 -0700
+
+    Re-add loop test
+
+commit 24f367df939d50b3fac156f688ca2ebdab2d0ad1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:51:06 2015 -0700
+
+    This is now called BitmappedBlock
+
+commit ea01f79d4369957de02fbfdfc9317d2ec60a4027
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:41:12 2015 -0700
+
+    Fix bad commit
+
+commit 6708d95d8d754ad8319e1b3f7cd5e7994c68d67d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:26:44 2015 -0700
+
+    Revert "Merge"
+    
+    This reverts commit 6e1619315617d140a37a3445aeae464f4000041e.
+
+commit 775b712b953f123bb2efee4ff78e90f7816d700f
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:23:21 2015 -0700
+
+    Clean up loop tester
+
+commit f9f971dac9125cf52d2489dd296c8ef159d2a173
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 20:15:25 2015 -0700
+
+    Use more of std.allocator
+
+commit 6e1619315617d140a37a3445aeae464f4000041e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 20:07:29 2015 -0700
+
+    Merge
+
+commit 11a36fc1b042a86e34c0b0efb5bdcb1a3217455d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Jun 12 14:55:00 2015 -0700
+
+    Update to new std.experimental.allocator
+
+commit bfd8f54ab3ad961a0792f04e249685ae36b77840
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Jun 12 13:52:28 2015 -0700
+
+    Romove old std.allocator
+
+commit 59deaa7497ef439d264184c6e027a5ce432a9164
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Jun 11 03:00:59 2015 -0700
+
+    Add infinite loop memory leak test file
+
+commit e89fd7cd495c785418f62544ecfd7264f4dfbc07
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Jun 11 03:00:42 2015 -0700
+
+    Update assumption about TTree's opSlice
+
+commit 1633c5de6c6fa7ba325c5a13927bb288ef244cbc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:27:41 2015 -0700
+
+    Fix memory leak in unrolled list implementation
+
+commit f4d155d6444ca5b5210ceabaf27f88891107317c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:27:08 2015 -0700
+
+    Remove debug code
+
+commit d833488e02920d6de40013dc9693d3787bccf51b
+Merge: e7f4ecd f4cbd59
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:26:21 2015 -0700
+
+    Merge commit 'f4cbd59'
+
+commit f4cbd59fc1a2668335cbe1391cbf1a4522740096
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:25:48 2015 -0700
+
+    Code cleanup
+
+commit e7f4ecd12d505c490ebd192dc5c55c4bcddc7642
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 9 18:33:16 2015 -0700
+
+    Remove .save because it made several algorithms unusuable
+
+commit 618c1694c731c4397bc8a46983e6a991c7d97a9e
+Merge: e2463fd 4d7362b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 7 17:00:54 2015 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit e2463fd4beb82e94b062c02ddb4cd83378027cf6
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 7 17:00:45 2015 -0700
+
+    Allow insert() to take ranges by ref
+
+commit 4d7362b212cf63570afaf6c60dbf812bc0d1a45c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri May 29 13:47:22 2015 -0700
+
+    Code cleanup
+
+commit d732a67e76f60fd037547c3ffe8776c6deda6bab
+Merge: 0e0f55d 871d9a1
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Thu Mar 12 17:07:43 2015 -0700
+
+    Merge pull request #10 from economicmodeling/simd_set
+    
+    Add SIMD set
+
+commit 871d9a12f4f55a8131eda16249f3720e68e10242
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Mar 12 15:59:32 2015 -0700
+
+    Add better template constraints and error reporting
+
+commit 1a44a0b6622a82b82e365d7c46a114a1c36ba39d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Mar 12 03:12:02 2015 -0700
+
+    Add SIMD set
+
+commit 0e0f55dbe0a3fc2555bf47b970290488cfd85911
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Mar 12 03:11:40 2015 -0700
+
+    Import cleanup
+
+commit 1efa1b817934a321ab156782c2fb4b679f3e63b8
+Merge: e20f62d 629aced
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Mar 6 12:49:23 2015 -0800
+
+    Merge pull request #9 from economicmodeling/fix_8
+    
+    Add sort import to ttree
+
+commit 629aced18fc6e3bee80d3f10502e8f96aa3cdaa1
+Author: Justin Whear <justin@economicmodeling.com>
+Date:   Fri Mar 6 10:07:31 2015 -0800
+
+    Add sort import to ttree
+    
+    Fixes #8
+
+commit e20f62d8d020f7e7d281ec49cb37b049f8ff8c0c
+Merge: 2b0663c 375bdc0
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Thu Feb 12 17:01:47 2015 -0800
+
+    Merge pull request #7 from economicmodeling/add_open_hashset
+    
+    Add open hashset
+
+commit 375bdc05c095bbc2782e7677a4b5e06940a07140
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Feb 12 16:09:49 2015 -0800
+
+    Add unit test
+
+commit 70c441a06a4d8a185a7bf4cf37d13cce4d917c4a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Feb 12 15:50:47 2015 -0800
+
+    Fix some issues with GC support and added remove()
+
+commit d8d944bacdf142ccf493c70ced95e8d4d311fc21
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Feb 12 15:39:49 2015 -0800
+
+    Add OpenHashSet
+
+commit 2b0663c82ebb8179874bb6bb1df6f21ee15c6ec6
+Merge: 74157c6 e19bd64
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Feb 12 00:43:19 2015 -0800
+
+    Merge pull request #6 from Geod24/fix-link
+    
+    [Trivial] Fix license LINK2, update gitignore
+
+commit e19bd6479bc8927d6cd88ab91d5c46de9dfa0e4e
+Author: Geod24 <pro.mathias.lang@gmail.com>
+Date:   Thu Feb 12 08:53:19 2015 +0100
+
+    Fix license LINK2, update gitignore
+
+commit 74157c6bd22a789cd52316281bb8fba47817ddd8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 11 16:30:31 2015 -0800
+
+    Update imports to work with 2.067
+
+commit c73d830de45ccb59b858254559f33f4308a1a038
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Feb 5 16:45:28 2015 -0800
+
+    Fix range error when slicing empty HashSet
+
+commit d99c858c5a6e09ec1900a7adc125fe10ca682ec8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Feb 2 18:10:11 2015 -0800
+
+    generateHash cannot be pure because the built-in hash functions are not
+
+commit 394c27f110a94596c65f31e97207bf1ca3e60aaa
+Merge: 6b70a90 f33de01
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Sun Feb 1 13:01:22 2015 +0000
+
+    Merge pull request #5 from economicmodeling/hashmap_unrolled
+    
+    Hashmap unrolled
+
+commit f33de010d8e40917faa9308ca2dd0dedb3c50051
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Feb 1 04:48:38 2015 -0800
+
+    more bugfixes
+
+commit eefad31b1c2e11d65f28d3fbcd0b056d9489a9d9
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Feb 1 03:21:48 2015 -0800
+
+    Make hashmap use unrolled lists
+
+commit 6b70a90569df71816c9d796fdd91bc8f03860a72
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 28 14:32:55 2015 -0800
+
+    Fix crash in destructor for unused hash sets
+
+commit 06e1b67229f39b5a65352cff1879e60618029786
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Jan 1 18:14:42 2015 -0800
+
+    Use more selective imports
+
+commit 4a9e678ea1a5d379d5c031f071bf352c71d12932
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Nov 19 15:00:00 2014 -0800
+
+    Fix type qualifiers
+
+commit 46db781b166dfbd95932bfc17824d3264f1bddb2
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Nov 19 14:24:23 2014 -0800
+
+    Fix bug in node creation and add back, popBack and moveBack
+
+commit e50ab65bec686358369e9978bf090879a8ced052
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Nov 10 08:26:30 2014 -0800
+
+    Clean up local imports and add some annotations for #2
+
+commit bd09c94e7d8d5047cc7e6aab0bd3a67665f919e4
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Oct 17 13:53:50 2014 -0700
+
+    Fix #4
+
+commit 53258c939ea7f6871fba93f34c5a5512e31e9f5e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Sep 19 17:21:05 2014 -0700
+
+    Eliminate a possible source of memory corruption bugs
+
+commit e435d1f08118acc9c29a390617570b7f3f5e9541
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:39:20 2014 -0700
+
+    Const correctness and a fix for #3
+
+commit 02114ea1bca8836a67c94dd25dc845732115fba1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:38:07 2014 -0700
+
+    Const correctness
+
+commit c1dcb9b10136694ac48ebdcbb73cdeadaf41bc40
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:37:38 2014 -0700
+
+    Selective imports
+
+commit 2a5cbb413d7a6babe2d4ddfd3c0168a8156b05cf
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:37:15 2014 -0700
+
+    Improve hashmap implementation
+
+commit f7fb230db32afd1fc85b242b8112c9fab05fc839
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 4 08:10:08 2014 +0000
+
+    More work on storage type deduction
+
+commit 6ca69aba442517245d849fdb9763caff58b7f1d4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 4 07:50:50 2014 +0000
+
+    Added storage type template
+
+commit c52eb6b1495954ac354df9790cc102820e98c0af
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jul 30 14:19:50 2014 -0700
+
+    Oops
+
+commit 3bd75d790e2df1998e851e9fdd01fb00c1a70004
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Jul 29 15:27:01 2014 -0700
+
+    Update README.md
+
+commit 753e05806023e84a82e1e1863c9154665e2f62c5
+Merge: 0068980 fbeb2f9
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Jul 22 12:21:50 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit 006898046c8acacb177b4098aeea3be035d79d22
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Jul 22 04:01:49 2014 -0700
+
+    Improved documentation
+
+commit fbeb2f9654073be4e1eec4eb6ca15cf92af19bae
+Merge: e95ea9e 74b3944
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 14 13:54:30 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers into HEAD
+
+commit e95ea9e5a8fe36c8d6851d3afb5cd594df97c5c3
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 14 13:54:24 2014 -0700
+
+    Fix issue with invariant being called on deallocated structs
+
+commit 74b394404947f8c1ea9c6e769fdb413db049d27d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 7 15:48:44 2014 +0000
+
+    Documentation improvements
+
+commit bb29da54512d159329030d6ee5c47fb16cb5b699
+Merge: 687efc8 ee7f95b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jul 2 16:01:02 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit 687efc8b7e3d9764cd6dcc71c38d518d20344ce5
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jul 2 16:00:49 2014 -0700
+
+    Remove redundant attribute
+
+commit ee7f95baea997df9fb5a8cc2e7282e1ea6a35ae2
+Merge: 2a72525 ea1bfb8
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Jun 27 20:11:13 2014 +0000
+
+    Merge pull request #1 from p0nce/master
+    
+    Add dub.json
+
+commit ea1bfb8618b65f5ee4783a19c9e0db0615687556
+Author: ponce <aliloko@gmail.com>
+Date:   Fri Jun 27 19:14:28 2014 +0200
+
+    Add dub.json
+
+commit 2a72525f649850f452f21e7f362f70440f487a61
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jun 25 16:35:18 2014 -0700
+
+    Fixed incorrect DDoc macro
+
+commit fccc2668fcbf158552a47fde7ecc58e86e019725
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jun 25 16:35:03 2014 -0700
+
+    Added package.d
+
+commit 6e9aa02eda657fd0a3e820641cbcdecc3dfbd0ce
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Jun 23 16:37:20 2014 -0700
+
+    Fix null pointer dereference
+
+commit 7764f42525dc20f4a17a7d53e2ef59f8b497b114
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Jun 23 16:20:03 2014 -0700
+
+    Fix a bit of stupidity in T-Tree range initialization that caused all lookups to be linear
+
+commit 7cb39ed614cc504a5e21ca7d754c4a0d0b67429c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Jun 17 17:47:23 2014 -0700
+
+    DDoc fixes
+
+commit 36a00d9f109fde9c53db3173fae39439b007c0ce
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri May 23 13:25:17 2014 -0700
+
+    Fixed 32-bit build
+
+commit dfb5bec85daad42752074b5206f5f78c03147c97
+Merge: c56168c eb14b2d
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri May 16 15:31:05 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+    
+    Conflicts:
+            src/containers/hashmap.d
+            src/containers/ttree.d
+            src/containers/unrolledlist.d
+
+commit c56168cb1db79d2502c9e846679386745a15a9ef
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri May 16 15:13:21 2014 -0700
+
+    Renamed K-ary tree to T-Tree
+
+commit eb14b2df108e208da54d82292c0164bc6f457f55
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 14 14:46:22 2014 -0700
+
+    Improve GC support for hashset
+
+commit 819133564a8ebb99672d08774e6731e860e2d103
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat May 10 02:48:19 2014 -0700
+
+    Removed unused variables
+
+commit d7ed9214326e0eb52916cdca3b0b59a9c2a7c0e0
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 8 03:52:43 2014 -0700
+
+    Added TreeMap
+
+commit 7a74f11d44a496d3ddd837b3f24ef5c564fe6461
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 18:29:42 2014 -0700
+
+    Updated ddoc
+
+commit 82d595fb08a7bd75a98c0d9434bb82ae01d4bc21
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 17:59:00 2014 -0700
+
+    Update insert documentation
+
+commit 5e5a9ae9bc6c1f7d7910ad4fad98efdec9fdb17e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 17:31:13 2014 -0700
+
+    Removed unused variable
+
+commit fdba80ec8894e5876746f2ee51421a663adfef76
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 17:17:24 2014 -0700
+
+    Iteration works better while inserting now
+
+commit 1b64efe186429fb25da324c6abcdf6e61eb6a1eb
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon May 5 17:02:35 2014 -0700
+
+    Remove ref counting as DMD has too many bugs for it to work
+
+commit 4f360175892212632b03693eac9a2bc8be58476e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri May 2 12:36:01 2014 -0700
+
+    Fixed bugs in range and remove
+
+commit ffc7a724adefcc5b422a7c768f205f14599d36e3
+Merge: 47da6e9 43da822
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 17:58:59 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit 47da6e9755baa9a57073de329f7bf1e757790b50
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 17:58:47 2014 -0700
+
+    Added ~= operator overload and some failing tests
+
+commit 43da822c91ef734997138fff282c6c89cc197b24
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 14:20:57 2014 -0700
+
+    Remove unwanted const
+
+commit 6dd27ca2311899e65eeb41d499da488b9e2b39cd
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 13:53:19 2014 -0700
+
+    Massive performance boost to k-ary tree
+
+commit f0157d88fdff940b2323090ee4dd945011d0e235
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 30 10:35:46 2014 -0700
+
+    Fixed unrolledlist implementation
+
+commit a0c25569f5c3afae67e1a0396355963782296390
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 17:23:44 2014 -0700
+
+    Const correctness
+
+commit 77f9d9644abd8e15ebf10cb4bc17a41a1b28705d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 17:22:09 2014 -0700
+
+    Const correctness
+
+commit c32f937e9760a62d84bf7562774d81a77852634b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 16:40:07 2014 -0700
+
+    Add cleanup delegate to remove()
+
+commit 453041cab099ab803af988d677b787329081952a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 13:45:31 2014 -0700
+
+    Fix a few bugs and improve performance with k-ary tree
+
+commit 947a0a42e797985a7c5cdc5c8c317cdc4a65ab43
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Apr 25 13:13:27 2014 -0700
+
+    Fix bug in removeLargest
+
+commit 8c43a20b9b0928a3c88504ff5c95c70f80fa9ac9
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Apr 25 13:13:10 2014 -0700
+
+    New append overload
+
+commit 0af3d2dbe126a2b017678d3af5efdf03925a2bf8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 23 16:40:47 2014 -0700
+
+    Added tests for appender
+
+commit 3db0132292e14930b46eea6966d78de2ec062b43
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 23 15:45:12 2014 -0700
+
+    Ref count should start at 1
+
+commit 65e9e106aae66d79acfedfb15e3ae794a4e42d12
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 23 13:53:00 2014 -0700
+
+    Made containers more GC-friendly
+
+commit 8fa1d028d98ad77d31aad17de3957c28e1b1f975
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 17:54:24 2014 -0700
+
+    Fixed k-ary tree range
+
+commit c79964953b9f539d3f6aa35cc0e1774a216e2355
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 17:06:52 2014 -0700
+
+    Use external comparitor in k-ary tree
+
+commit 7a19fbedde34ee1485385064c0daf1a328714515
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 17:06:22 2014 -0700
+
+    Fixed ref counting
+
+commit c09400c4ca1b0955131c9d3717274cd37e2cb017
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 12:03:17 2014 -0700
+
+    Modify node rotation
+
+commit c05f425868558bdacd64871f5fc4f37bd6b3003d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 12:02:12 2014 -0700
+
+    Lazy initialization
+
+commit fa2a8df76d9240b4e997007a06bca949621ae5db
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 12:01:47 2014 -0700
+
+    BlockAllocator is now reference counted
+
+commit 196a140a694864230f575794de76ec011cde0532
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 11:40:42 2014 -0700
+
+    in now returns a pointer
+
+commit c00cc82727497b81eaa9a03efa6c25a4f29008b7
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 21 16:43:43 2014 -0700
+
+    Fixed destructors
+
+commit 125305e6002e95d9d234ab55902418bdd20ee4b1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 11:07:02 2014 -0700
+
+    Added bulk insert methods
+
+commit 46c15b00139954e6eeae1375d0ba6b8705e7060e
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 11:06:49 2014 -0700
+
+    Lazy initialize and add some operator overloads
+
+commit c1282cbc0cceef27038ec24b20edfbec6df339b0
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 11:06:24 2014 -0700
+
+    allocate() cannot be pure or nothrow because emplace() isn't
+
+commit 464cfde37c127b8ba105a20737c8a220ab35161c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 10:08:59 2014 -0700
+
+    Modified array growing behavior
+
+commit ed552b679899bd9f8b745eb8c6f21d2c4cd6b1b2
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 21 02:02:31 2014 -0700
+
+    Added dynamic array
+
+commit d5dba84942a3bc9aa0ce2ea1c3418a8719a0e9b6
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Sun Apr 20 01:33:57 2014 -0700
+
+    Fixed compile issue
+
+commit 83d09aafa4570948fd7fdfc822dc80767276e653
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Sun Apr 20 01:01:16 2014 -0700
+
+    Fixed tree implementation and introduced reference counting
+
+commit 898ca6e27cfb114ce909891e17202545311c81af
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 17 14:29:11 2014 -0700
+
+    Implemented remove for more containers
+
+commit ceb2a6d90dcba71e5e3c6df506bcd098fd87f727
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 17 11:51:48 2014 -0700
+
+    Tree insertion now works properly, also added some functionality to the unrolled list
+
+commit c836bc277c7045f9cd4ad691b5af4dd3aa7343bb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Apr 15 19:11:52 2014 -0700
+
+    More work on tree balancing
+
+commit e3f94e864422c82fc43ebe7662986a6a93ccd228
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 14 18:15:42 2014 -0700
+
+    More work on the B-Tree
+
+commit 99f809cc5f228b9e61dfb17e4e7c209b05e32435
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 14 13:50:21 2014 -0700
+
+    More progress on the B-Tree
+
+commit ab20d7849ee2d7b6ac768a507fd4b2f10b3c5644
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Apr 11 15:04:18 2014 -0700
+
+    More work on the b-tree
+
+commit ad7ba1f33c548334d3417c9e2763fa150c5e1a60
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 17:51:19 2014 -0700
+
+    Added b-tree
+
+commit 35ccc13fa2b50411eef71293f386c1a02aa24292
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 12:27:17 2014 -0700
+
+    Added unrolled linked list
+
+commit dd8b3a49896247aa5f223c4e758b1cbeea735039
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 11:12:18 2014 -0700
+
+    Updated ddoc
+
+commit 38f6d7ca099ab02e9f6b672722ec78a924126632
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 11:04:32 2014 -0700
+
+    Reduce memory usage for basic types, Fix size in node allocator
+
+commit 220587c40fe7d338711f4154402818d3f0140997
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Apr 9 17:27:03 2014 -0700
+
+    Added immutable hash set
+
+commit c857b8afd88b1c8e351874e764d4d3bc21d0d04b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Apr 9 16:43:44 2014 -0700
+
+    Update headers
+
+commit a422ddb1ed2a65a88379a789d4f06fba56a491fb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Apr 9 16:41:58 2014 -0700
+
+    Code checked in
+
+commit e417170630eea62b86520ee5a8ec4bb6c1dd7d93
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 9 15:32:08 2014 -0700
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 31be25ad6692ce7400bb2806bb72c7250bcb8534
+Merge: 26acc66 393029b
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Sep 24 07:23:14 2021 +0300
+
+    Merge pull request #187 from CyberShadow/pull-20210922-173345
+    
+    containers.dynamicarray: Implement opSliceAssign with arrays
+
+commit 26acc66a448550b8af6297f1318209b9b0901822
+Merge: 116a028 5219a65
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Sep 24 07:21:58 2021 +0300
+
+    Merge pull request #184 from CyberShadow/assert-messages
+    
+    Add messages to assertions
+
+commit 393029b07e84ddb96018656a9aee449f89d56202
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Wed Sep 22 17:34:10 2021 +0000
+
+    containers.dynamicarray: Implement opSliceAssign with arrays
+
+commit 5219a65da526b98e48c31f796c84b3a103d1a8b6
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Wed Sep 22 17:01:20 2021 +0000
+
+    Add messages to assertions
+
+commit 116a02872039efbd0289828cd5eeff6f60bdf539
+Merge: 9eaa830 208f5b8
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:21:01 2021 +0000
+
+    Merge pull request #177 from JackStouffer/Issue-176
+    
+    Fix Issue #176: DynamicArray should use std.experimental.allocator.common.reallocate
+
+commit 9eaa830374636d8574f8836d14324fbca59bf846
+Merge: c0e932a f0d6b58
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:20:50 2021 +0000
+
+    Merge pull request #181 from CyberShadow/pull-20210916-062624
+    
+    Fix using keys with indirections
+
+commit f0d6b5835ddaa60b93f70f1d0d82e959f0321676
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Thu Sep 16 06:26:26 2021 +0000
+
+    Fix using keys with indirections
+
+commit 208f5b870d870251ae2aadb87b7cf055e87f213b
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:58:02 2021 +0000
+
+    containers.dynamicarray: Fix with allocators without `reallocate`
+    
+    Use UFCS to pull in the top-level fallback when the method is absent.
+
+commit c0e932ad237d4c2f597fd49da3a0853007d0e7c8
+Merge: 5977b0c dd5f0a1
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:06:11 2021 +0000
+
+    Merge pull request #182 from CyberShadow/move-for-dynamic-array
+    
+    containers.dynamicarray: Support non-copyable types
+
+commit 5977b0cdab7bc71b273a60ddecebdb3bf2f3eec4
+Merge: 6883362 b0896ae
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Wed Sep 22 16:05:54 2021 +0000
+
+    Merge pull request #183 from CyberShadow/pull-20210918-113251
+    
+    Support non-copyable types in HashMap and UnrolledList
+
+commit b0896ae49b6bfd71681bda6897e8a605e0421fc6
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:48:33 2021 +0000
+
+    containers.hashmap: Support non-copyable types
+
+commit 1b94c0783121330ca227a68e00cf4403129861ca
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:36:44 2021 +0000
+
+    containers.unrolledlist: Support removing non-copyable types
+
+commit 57ba8a335d588e0a322d19cb969feb6d675edd04
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 11:32:53 2021 +0000
+
+    containers.unrolledlist: Support non-copyable types
+
+commit 6883362858f5ecdf39c1c7e56c29669942a671db
+Merge: e49e32c c987d48
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Sat Sep 18 12:48:44 2021 +0000
+
+    Merge pull request #169 from Panke/fix-ctor
+    
+    fix: UnrolledList calls constructors only once on clear
+
+commit c987d484e29f83a50576e92dbb710731b0be7df8
+Author: Tobias Pankrath <tobias@pankrath.net>
+Date:   Tue May 4 21:21:03 2021 +0200
+
+    fix: UnrolledList calls constructors only once on clear
+
+commit dd5f0a11f6fb17453cf55561f3aaa61a3b3bc613
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 08:23:21 2021 +0000
+
+    containers.dynamicarray: Avoid copying in opIndex
+
+commit d969ebf06cb09b16351868998088d9509873e1d0
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 08:22:42 2021 +0000
+
+    containers.dynamicarray: Implement resize for non-copyable types
+
+commit f97ba7546a8ac235186a37643a20344d5856b118
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 08:07:28 2021 +0000
+
+    containers.dynamicarray: Support non-copyable types
+    
+    Replace the memset/memcpy hacks with core.lifetime primitives.
+    
+    Some operations which naturally involve copying, such as slice
+    assignment, are unavailable.
+
+commit 148cf16f92c78275a8e03f0dd9b89c1eb046ae4d
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 07:59:42 2021 +0000
+
+    containers.dynamicarray: Fix #88 unittest
+    
+    The unit test was testing the wrong thing - the number of destructions
+    performed during the insert. Not only does that miss the intent of the
+    test, but it was testing that an inefficiency exists (i.e. we were
+    creating a copy and then discarding it during insertion).
+
+commit 11a17445dcc33b0ce48708111f2cceb07ce5b57b
+Author: Vladimir Panteleev <git@cy.md>
+Date:   Sat Sep 18 07:57:15 2021 +0000
+
+    containers.dynamicarray: Improve #109 unittest
+    
+    Calling the destructor for the .init value should be allowed;
+    otherwise, we would be forced to always copy instead of moving values.
+
+commit e49e32c0d44efa3a5acfa08d4aadc97fd9cb5626
+Author: Vladimir Panteleev <CyberShadow@users.noreply.github.com>
+Date:   Fri Sep 17 00:03:38 2021 +0000
+
+    CI fix rollup (#180)
+    
+    * fix: use std.experimental allocator
+    
+    This removes the dependency on `stdx.allocator` by using the built-in `std.experimental.allocator`.
+    
+    * containers.unrolledlist: Fix unittest on LDC
+    
+    Patch based on https://github.com/dlang-community/containers/issues/164#issue-823151444
+    
+    Fixes #164.
+    
+    * Fix writing to dangling pointers to stack
+    
+    Unittest helper types S, C, Cls hold a pointer to a counter which
+    tracks the number of destructions. However, in some circumstances,
+    these destructions may be non-deterministic, i.e. occur as a result of
+    a garbage collection cycle. Should this occur after the unittest has
+    already exited, then the pointer held by these types will be invalid.
+    
+    This causes a cyclicbuffer unittest to segfault when compiled with
+    LDC.
+    
+    Fix this by always allocating the counter in the managed heap, so that
+    its lifetime is properly tracked by the garbage collector, along with
+    the test variables.
+    
+    Co-authored-by: Amin Yahyaabadi <aminyahyaabadi74@gmail.com>
+
+commit ad83e58ba5ec7ac539519a1ba8f8afe93a699057
+Author: Amin Yahyaabadi <aminyahyaabadi74@gmail.com>
+Date:   Wed Aug 25 01:29:36 2021 -0500
+
+    ci: use github actions instead of travis (#174)
+    
+    * ci: use github actions instead of travis
+    
+    * ci: add ci cache
+    
+    * ci: setup python 3
+    
+    * ci: install gcc multilib on linux
+    
+    * test: fix test\make_file for ldc
+    
+    * ci: run dub tests separately and continue on error for other os
+    
+    * fix: skip building tests on windows with meson
+    
+    * fix: build as an static library to fix windows builds
+    
+    * fix: macos make tests
+    
+    * ci: fail on UnrolledList test on ldc2
+    
+    * ci: don't cache ./.dub
+    
+    * ci: fix remove fetch-depth 0
+    
+    * chore: remove deprecated meson version keywords
+    
+    Fixes:
+    ```
+    ..\meson.build:38: WARNING: Passed invalid keyword argument "version".
+    WARNING: This will become a hard error in the future.
+    ..\meson.build:38: WARNING: Passed invalid keyword argument "soversion".
+    WARNING: This will become a hard error in the future.
+    ```
+
+commit 904a1adfb44a74a65a8eeeba9bcd441883153caf
+Author: foerdi <mail@foerdi.net>
+Date:   Thu Dec 17 14:06:15 2020 +0100
+
+    a simple fix for uninitialized dynamic array data
+
+commit fc1625a5a0c253272b80addfb4107928495fd647
+Author: Geod24 <pro.mathias.lang@gmail.com>
+Date:   Tue Sep 1 02:20:33 2020 +0900
+
+    -preview=in: Replace 'in ref' with 'const ref'
+    
+    Allow the code to compile with '-preview=in'.
+
+commit 8cdffc8bbc8c41d4697f2162b5d083c63a25dd88
+Merge: cc6fe5e ec8ff7a
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed May 6 05:51:33 2020 +0200
+
+    Merge pull request #159 from kubo39/replace-body-with-do
+    
+    Replace body with do
+    merged-on-behalf-of: Petar Kirov <PetarKirov@users.noreply.github.com>
+
+commit ec8ff7a64254062a65a01903a7238188eb5ba8cd
+Author: Hiroki Noda <kubo39@gmail.com>
+Date:   Wed May 6 07:20:48 2020 +0900
+
+    Replace body with do
+
+commit cc6fe5e1bed3bc46e3b9066d2530a9fe01cd71d7
+Merge: 4bf38f1 98b43c3
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Mar 6 19:25:25 2020 +0100
+
+    Merge pull request #158 from dayllenger/fix-segfault
+    
+    Fix a segfault
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit 98b43c3cd203c79110a913506bf28ff941801106
+Author: dayllenger <dayllenger@protonmail.com>
+Date:   Fri Mar 6 15:14:24 2020 +0300
+
+    Fix dynamic array calling `GC.removeRange` on wrong pointer
+
+commit 4bf38f1cabda7e9b678d724f3731c3eb503e661c
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 17:08:58 2020 +0200
+
+    [wip] Debug Travis CI failure
+
+commit 23258163cd2c6f0c98fb3df0bef539a32526073c
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 17:02:12 2020 +0200
+
+    [.travis.yml]: Use bionic dist and install dist packages via addons -> apt -> packages
+
+commit 0732b3b33f3f4042997261b4b042ab564e8220a4
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 17:00:14 2020 +0200
+
+    Update .editorconfig
+
+commit 3cea245c3881f0ef77ef53ac3771ed41faf1b1aa
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 14:44:25 2020 +0200
+
+    Set the targetPath to `build/` and add it to .gitignore
+    
+    In order to stop polluting the root repo dir with build artifacts.
+
+commit 5a30ccb3fe8514bf375b2971e482955084ad189d
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 14:42:14 2020 +0200
+
+    Update stdx-allocator dependency from 2.77.2 to 2.77.5
+    
+    To match the version used by the git submodule system.
+
+commit ab5693aaf8fa918cc74ad0bd8e8534b44b5c3c46
+Author: Petar Kirov <petar.p.kirov@gmail.com>
+Date:   Fri Jan 24 14:41:07 2020 +0200
+
+    Convert dub.json to dub.sdl
+
+commit f4e79375539554b3793adf1c557361a64a073524
+Merge: 82587ee a33f1dc
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Oct 10 22:27:47 2019 +0200
+
+    Merge pull request #154 from dlang-community/more-treemap-fixes
+    
+    Fix a few problems with TreeMap.getOrAdd
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit a33f1dc2009da7b7d843816feb865c693a89f058
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Thu Oct 10 13:21:35 2019 -0700
+
+    Fix the tests
+
+commit 5124688d4b819add80ab89f9eda51fc508a6ee2f
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Thu Oct 10 13:09:34 2019 -0700
+
+    Fix a few problems wit TreeMap.getOrAdd
+
+commit 82587ee0e1bae12c8127b62c3cd3a8ab9b1c4cf5
+Merge: 3f1b64e dd95cad
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Tue Oct 1 15:33:05 2019 -0700
+
+    Merge pull request #153 from dlang-community/ttree-fix
+    
+    Fix more dumb issues with tree ranges
+
+commit dd95cad3fa409a09ce03ada576e0f4e780d95b45
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Oct 1 15:15:56 2019 -0700
+
+    Fix more dumb issues with tree ranges
+
+commit 3f1b64e29c0c1a2a06e64b2271842ab0bf368575
+Merge: f0f6681 d44cb6a
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Sep 26 23:33:14 2019 +0200
+
+    Merge pull request #152 from dlang-community/tree-tweaks
+    
+    Make some enhancements to the treemap structure, and to the T-Tree do…
+    merged-on-behalf-of: Richard Andrew Cattermole <alphaglosined@gmail.com>
+
+commit d44cb6a6dde18de835ac88b82ce389a8e4a9d85c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Sep 26 13:41:50 2019 -0700
+
+    Make some enhancements to the treemap structure, and to the T-Tree documentation
+
+commit f0f66810bf6a68d6fbb9e13e7c19b6177d066f7b
+Merge: 4dcbcb9 da7d8ae
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Jul 16 21:30:05 2019 +0200
+
+    Merge pull request #150 from dlang-community/fix_ref_returns
+    
+    Fix #148
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit da7d8ae5863af2eea073db47313c7867acbd555d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 15 18:07:54 2019 -0700
+
+    Fix some unit tests that expected const containers to return references to mutable elements
+
+commit af7a9b970bee8a0a31cd7a9fa009f3a8b34a47ca
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 15 17:35:18 2019 -0700
+
+    Fix #148
+
+commit 4dcbcb99ecba333522262f44018392a7e4946d57
+Merge: 9f9b3f5 8ee112c
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Jul 15 17:07:24 2019 -0700
+
+    Merge pull request #149 from cspencer51/fix_initialize
+    
+    Register allocated memory with GC during initialization.
+
+commit 8ee112cc5d29fe39f7adc61d5fdc50a492eed831
+Author: Curtis Spencer <cspencer@economicmodeling.com>
+Date:   Mon Jul 15 16:59:28 2019 -0700
+
+    Register allocated memory with GC during initialization.
+
+commit 9f9b3f57fd608d3e5b003abc1b574ea44e4e9ad2
+Merge: a978c3c 38ec808
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Jul 15 16:28:47 2019 -0700
+
+    Merge pull request #147 from cspencer51/fix_addRange
+    
+    Fixed incorrect size passed to addRange.
+
+commit 38ec80880fd48c61c35e0bfe5acf04123727bf86
+Author: Curtis Spencer <cspencer@economicmodeling.com>
+Date:   Mon Jul 15 16:17:56 2019 -0700
+
+    Fixed incorrect size passed to addRange.
+
+commit a978c3cda3f6ec3ba7449ec5c08dd5cd4dd79c6e
+Merge: f718ec1 aa08d97
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Sat May 11 23:26:04 2019 +0200
+
+    Merge pull request #144 from dlang-community/issue-143
+    
+    fix #143 - Still issues in unrolled list
+    merged-on-behalf-of: Basile-z <Basile-z@users.noreply.github.com>
+
+commit f718ec122982bcfccf0fa70c81ea362bc6ff0f76
+Merge: 257c041 29149d2
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Apr 29 16:30:24 2019 -0700
+
+    Merge pull request #145 from dlang-community/fix_insert
+    
+    Fix use-after-free when an insert causes a rehash
+
+commit 29149d2c6c479c47ac1708171c6b388b6af646a4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 29 15:45:53 2019 -0700
+
+    oops
+
+commit bdaf3b91cd4e457bed703e24e3fd0e3ca9eccd46
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 29 15:23:27 2019 -0700
+
+    Fix use-after-free when an insert causes a rehash
+
+commit aa08d9750a2c621db4fd4a9ec3eb18d49afc48b0
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Thu Apr 18 15:38:43 2019 +0200
+
+    fix #143 - Still issues in unrolled list
+
+commit 257c0418f34709dd667f95b5dffabedc2b3099e4
+Merge: 18a0224 a954f70
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Sat Mar 16 13:15:13 2019 +0100
+
+    Merge pull request #141 from dlang-community/stdx-allocs+Meson
+    
+    Fix CI failure starting from DMD 2.085
+
+commit a954f7040f6a2e2fb1acb3cf3a095580a37cc5bf
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Tue Mar 12 13:41:17 2019 +0100
+
+    fix #136 - Error: cannot implicitly convert expression ~this.registry
+
+commit 87a48d7d9f127ac855a9d09d8c350858c6f9f9aa
+Author: Basile-z <16154339+Basile-z@users.noreply.github.com>
+Date:   Tue Mar 12 13:33:24 2019 +0100
+
+    Fix CI failure caused by wrong stdx allocs version
+
+commit 18a022418b8b613ed5c27437c04a49f2f3b5fd48
+Merge: 86e29cb 2acd71f
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Feb 19 11:55:33 2019 +0100
+
+    Merge pull request #140 from dlang-community/fix_139
+    
+    Fix incorrect import of walkLength
+    merged-on-behalf-of: Petar Kirov <ZombineDev@users.noreply.github.com>
+
+commit 2acd71f70e2f567445d0d55bce6b470585da4c3b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Feb 19 01:33:18 2019 -0800
+
+    Fix incorrect import of walkLength
+
+commit 86e29cbf36031a9f923051dbd9484403ce08940b
+Merge: d2ae062 d6e2257
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Wed Feb 13 13:56:11 2019 -0800
+
+    Merge pull request #138 from dlang-community/fix_containsKey
+    
+    Fix a bug where containsKey just didn't even compile
+
+commit d6e22579b22d1f3e27bedf8a692289a5298561d1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 13 13:48:56 2019 -0800
+
+    Add test for containsKey
+
+commit 83eb2b81a412078cb7c8128bd47d065d49a03a5c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 13 13:46:09 2019 -0800
+
+    Fix a bug where containsKey just didn't even compile
+
+commit d2ae06220dc9ca39d8a4fa6c1e3c18d0daa54367
+Merge: 22fe1e5 c2d7a6d
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Jan 28 15:50:34 2019 -0800
+
+    Merge pull request #135 from dlang-community/optimize_hashToIndex
+    
+    Optimize hash to index using LDC intrinsics
+
+commit c2d7a6dbfba2f1ae445bf7986057c64e64970d85
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jan 28 15:43:40 2019 -0800
+
+    Use bsf for consistency
+
+commit 96be8bc859c0e0a995b8af9bf115f891cdb6dbfa
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jan 28 15:11:52 2019 -0800
+
+    Use LDC intrinsics to speed up hashmap and unrolledlist
+
+commit 117c1d9bae06b5b8c1b6906d54a4def298f7bb7c
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Sat Jan 26 04:39:24 2019 -0800
+
+    Speed up hash-> index conversion
+
+commit 22fe1e5b385fbf64fb9647731291f377bdb117d3
+Merge: 836a0cc 57abb5a
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Jan 25 01:42:48 2019 +0100
+
+    Merge pull request #133 from dlang-community/fix_hashset_remove
+    
+    Fix crash when attempting to remove en element from an empty set
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit 57abb5aaa13885e8af20ba74bcdd4bd0b087099c
+Author: Brian Schott <brian.schott@economicmoduling.com>
+Date:   Thu Jan 24 16:33:53 2019 -0800
+
+    Fix crash when attempting to remove en element from an empty set
+
+commit 836a0cc93a98815ac309294c45aab0ba98018073
+Merge: 760a040 1b05641
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Dec 14 09:26:56 2018 +0100
+
+    Merge pull request #132 from dlang-community/BBasile-patch-1
+    
+    fix CI failure due to Python environment and Meson
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 1b05641a6864c90a88d0785a9615b57f1bc9d81b
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Fri Dec 14 02:59:45 2018 +0100
+
+    fix CI failure due to Python environment and Meson
+
+commit 760a04072647c6ade4aecf00b6ab4ba8a429cddc
+Merge: c692722 f105d54
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Thu Nov 8 16:17:37 2018 -0800
+
+    Merge pull request #129 from Hackerpilot/hash-nonsense
+    
+    Improve hash code to array index translation
+
+commit f105d546d0d58cbae46407731760770545369d88
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Nov 8 15:10:29 2018 -0800
+
+    Code cleanup
+
+commit 743255382877cc6cf16ee06f58ca13b13d01bb0a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Nov 8 01:44:25 2018 -0800
+
+    Rework some of the hashing algorithms
+
+commit c6927223ae7ae6b6a1cc384451671f6c29f0dcdb
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Fri Nov 2 06:05:32 2018 +0100
+
+    Prevent running CI twice when PR branch is in origin (#128)
+    
+    Prevent running CI twice when PR branch is in origin
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 458387d5068394357fe2291c7daa1082bb11094e
+Merge: 9de0e4f 71adb34
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Oct 26 15:27:37 2018 +0200
+
+    Merge pull request #127 from dlang-community/stdxalloc-version
+    
+    update wrap file for stdx allocator
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 71adb34ae537a91ffafa7e82b2669fefe575eeae
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Fri Oct 26 15:06:16 2018 +0200
+
+    update wrap file for stdx allocator
+    
+    head requires to add mir-core as submodule
+
+commit 9de0e4fbf7b4f48bcac810ad78d8f4d9c86f8d43
+Merge: 03a5345 4a04cb3
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 16 14:02:36 2018 -0700
+
+    Merge pull request #124 from CyberShadow/revive-opapply
+    
+    containers.hashmap: Re-add opApply iteration
+
+commit 03a5345fb6051b2aeb49ccbd3b25ef2775f1d62a
+Merge: 02b2a82 937eb34
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Oct 16 14:55:15 2018 +0200
+
+    Merge pull request #125 from CyberShadow/pull-20181016-123552
+    
+    containers.hashmap: Fix HashMap.remove for storeHash==false
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 937eb344c90b0fe1b60ac05b155f2e13cbf6deae
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 12:35:53 2018 +0000
+
+    containers.hashmap: Fix HashMap.remove for storeHash==false
+    
+    Continuation of c07098167b1104354258bb87c72fac7908b3bdef
+
+commit 4a04cb3673740aee5f4a655b625c550472081ae1
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 12:20:20 2018 +0000
+
+    containers.hashmap: Re-add opApply iteration
+    
+    Commit 15eea7fbc89f073838d14d86d47c1247dbe8c3a1 intentionally removed
+    opApply iteration to make room for range-based iteration via
+    opSlice. The change caused code breakage (foreach (k, v; aa) was
+    broken as ranges, in lieu of language tuples, can only iterate as a
+    KeyValue struct at best). That wouldn't be so bad by itself assuming
+    the iterator range was implemented by keeping a pointer to the HashMap
+    node and allowing writing back to it / accessing the value by
+    reference... but, no, the KeyValue object used here actually created
+    wasteful copies of iterated keys/values.
+    
+    Furthermore, the new implementation of iteration accepted the
+    following code:
+    
+            foreach (ref v; map) v++;
+    
+    ... which compiled, but did not actually mutate the iterated hashmap.
+    
+    Improve the situation by adding opApply iteration back, thus
+    unbreaking:
+    
+    - iterating by key/value as distinct foreach parameters
+    - avoiding copying the key/value by providing it by ref
+    - writing values back to the HashMap.
+
+commit 02b2a828d6e91438cff67510f7e42649fef217b7
+Merge: fd5f7e3 4d332a4
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Oct 16 12:38:02 2018 +0200
+
+    Merge pull request #123 from CyberShadow/pull-20181016-103046
+    
+    containers.hashmap: Fix redundant hashFunction call in getOrAdd
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit fd5f7e3467b88624d9b1408fe0c6f705ace58337
+Merge: 37f7c16 c070981
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Oct 16 12:31:52 2018 +0200
+
+    Merge pull request #122 from CyberShadow/revive-storehash
+    
+    containers.hashmap: Re-add the storeHash parameter
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 4d332a43dbe673f041e3f6c204930ce21318893a
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 10:30:48 2018 +0000
+
+    containers.hashmap: Fix redundant hashFunction call in getOrAdd
+    
+    The result was being thrown away by being overwritten inside
+    find(). Additionally, when a hash function was specified with a return
+    value other than size_t, this resulted in a compilation error.
+    
+    The bug is a regression (introduced in commit
+    15eea7fbc89f073838d14d86d47c1247dbe8c3a1).
+    
+    Fix by letting find compute the hash as in other invocations.
+
+commit c07098167b1104354258bb87c72fac7908b3bdef
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Tue Oct 16 10:05:58 2018 +0000
+
+    containers.hashmap: Re-add the storeHash parameter
+    
+    In some cases, the hash can be extremely cheap to calculate (e.g. the
+    first few bytes of the key, when the key itself is a longer hash). In
+    these cases, storing the hash is an unnecessary overhead. As such, the
+    user should be able to specify when to store the hash within HashMap
+    nodes.
+    
+    The storeHash parameter was initially introduced in
+    fb998f0c440529f78d54f534e7407741355d46f7, and was later
+    removed (presumably accidentally) in
+    15eea7fbc89f073838d14d86d47c1247dbe8c3a1. As it was part of the API,
+    this was a breaking regression. This commit Fixes the regression and
+    adds the parameter again.
+
+commit 37f7c16aa7fbecea85781112d8d34b57f65cd983
+Merge: 9d25849 930df66
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 9 14:08:28 2018 -0700
+
+    Merge pull request #118 from eclipseo/link_with_shared_runtime
+    
+    Link test_dcontainers with shared runtime via LDC switch '-link-defau…
+
+commit 930df66092c761286ae452b044295bd193cde5e2
+Author: Robert-André Mauchin <zebob.m@gmail.com>
+Date:   Sat Sep 1 18:30:46 2018 +0200
+
+    Link test_dcontainers with shared runtime via LDC switch '-link-defaultlib-shared'.
+
+commit 9d25849e921c0e49397120d4ff7bf428241c474b
+Merge: fe6837d 09292dc
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Sep 27 13:12:12 2018 -0700
+
+    Merge pull request #119 from dlang-community/hashof
+    
+    hash without using explicitly typeid
+
+commit 09292dc40fdec7875d21fe54ab69396f16377ce7
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Wed Sep 26 02:16:12 2018 +0200
+
+    hash without using explicitly typeid
+    
+    Inspired by https://issues.dlang.org/show_bug.cgi?id=19197.
+    Add to this the fact that typeid added an indirection.
+
+commit fe6837df3910f7e1d644d0ba7ccc0c6be56811d9
+Merge: 43ecf2c dfa5098
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed Sep 26 11:24:31 2018 +0200
+
+    Merge pull request #120 from dlang-community/messon-reg
+    
+    Stick to Meson 0.47.2 due to a regression in latest release
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit dfa50987d6ee51b8910970dd89d7d3e1881e44cc
+Author: BBasile <BBasile@users.noreply.github.com>
+Date:   Wed Sep 26 10:58:33 2018 +0200
+
+    Stick to Meson 0.47.2 due to a regression in latest release
+    
+    The same as https://github.com/mesonbuild/meson/issues/4248 appeared in #119.
+
+commit 43ecf2c7e7eb47e0c10943539d156d6cd542f0bb
+Merge: 931aad7 65c02c1
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Mon Aug 6 23:26:03 2018 +0200
+
+    Merge pull request #117 from dlang-community/issue-116
+    
+    fix #116 - unittest build type is always set
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 65c02c1b74eda0bc0732e3c307447c7d9e12a3bb
+Author: Basile Burg <basile.b@gmx.com>
+Date:   Mon Aug 6 23:10:29 2018 +0200
+
+    fix #116 - unittest build type is always set
+
+commit 931aad7fbcdfa19ca267a854ef76b94c3a609a12
+Merge: 64ef163 e620c39
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Fri Jun 22 12:23:28 2018 +0200
+
+    Merge pull request #114 from dlang-community/derp
+    
+    Correctly reset t-tree length field to zero when clearing
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit e620c397c8ba43bc2bf8a80b6d5792757a18a950
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Jun 22 03:17:03 2018 -0700
+
+    Remove unused imports
+
+commit f07d5cc48077da64ef29ce87848a49447ec40c2a
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Jun 22 03:16:52 2018 -0700
+
+    Fix bug caused by failing to reset _length to 0 on clearing a t-tree.
+
+commit 64ef16379bc23e225a925c433b9f5381dc9ae9f3
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Jun 18 16:11:35 2018 -0700
+
+    Support structs for key types in the hashmap/treemap. #71
+
+commit c0c4ce652c52f1a1bb2812a9c47e6fd41d3dc00a
+Merge: 5d85484 9016b3b
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed May 30 13:06:18 2018 +0200
+
+    Merge pull request #113 from wilzbach/bump-stdx
+    
+    Update stdx-allocator git submodule
+    merged-on-behalf-of: Sebastian Wilzbach <sebi.wilzbach@gmail.com>
+
+commit 9016b3bb45739fb25951bb23814452a1691e14cf
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Wed May 30 13:01:29 2018 +0200
+
+    Update stdx-allocator git submodule
+
+commit 5d85484707d9bb6bae374f352231e633518efe5a
+Merge: c261fa1 ee4d14c
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Wed May 30 12:23:35 2018 +0200
+
+    Merge pull request #112 from JinShil/patch-1
+    
+    Upgrade stdx.allocator to 2.77.2
+
+commit ee4d14c695cf4dadd58486aca945284db13a1618
+Author: Mike Franklin <JinShil@users.noreply.github.com>
+Date:   Wed May 30 15:49:00 2018 +0900
+
+    Upgrade stdx.allocator to 2.77.2
+    
+    This is to ensure Circle CI passes at dlang/phobos#6515
+
+commit c261fa119072ce788ef81b8d8fee9a2adddca5d1
+Merge: d045889 9933171
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu May 10 16:43:09 2018 -0700
+
+    Merge pull request #110 from CyberShadow/pull-20180510-052258
+    
+    dynamicarray fixes + resize method
+
+commit 993317147f8525ac35c6cf6ba3e54f7d67126c5f
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Thu May 10 06:36:20 2018 +0000
+
+    containers.dynamicarray: Add resize method
+    
+    Fixes issue #108.
+
+commit a7ca4ba98024a1ffcf23c2e397486e14218900d9
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Thu May 10 06:32:35 2018 +0000
+
+    containers.dynamicarray: Fix destroying uninitialized objects
+    
+    Fixes issue #109.
+
+commit 8e0d481af35e945881d4628185389b5d38b45d36
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Thu May 10 05:22:59 2018 +0000
+
+    Fix walkLength symbol visibility warning
+    
+    Fixes compiler message:
+    
+      Deprecation: Symbol std.range.primitives.walkLength(Range)(Range
+      range) if (isInputRange!Range && !isInfinite!Range) is not visible
+      from module treemap because it is privately imported in module
+      iteration
+
+commit d0458897a60137a84f88eefcdd5a0b12ac07cbe7
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Mon Apr 23 20:32:33 2018 +0200
+
+    Fix two more cases of disposal before removing GC ranges
+
+commit 2c528c3879d353c98eecc811bcd80163f8f4fe07
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Fri Apr 20 21:19:37 2018 +0200
+
+    Add a test case to reproduce the GC/HashMap crash
+    
+    This adds a test case which was used to successfully reproduce the crash
+    fixed in the previous commit on a wide range of different machines.
+
+commit 3da408bfd73aa792eeb1dd18e76b806d68dcc427
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Fri Apr 20 21:18:20 2018 +0200
+
+    Fix crash in GC collection when using a HashMap containing GC-managed elements
+    
+    The GC managed ranges need to be removed from the to-be-scanned list of
+    the GC before we dispose of the buckets.
+    
+    Credits to finding the cause of this crash go to Dmitry Olshansky
+
+commit 6cf15515e7792bbc82964422de45eb21d60d3823
+Merge: cc402d6 08927fa
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Tue Mar 27 23:22:46 2018 +0200
+
+    Merge pull request #106 from ximion/master
+    
+    Add Meson build definition
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit 08927fa423a17f89a474d2cc1984a5dba317a272
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Mon Mar 26 01:39:55 2018 +0200
+
+    ci: test Meson builds as well
+
+commit fc97b589e485d6e80e6f17c828abaa6c9fb27f35
+Author: Matthias Klumpp <matthias@tenstral.net>
+Date:   Mon Mar 26 00:33:27 2018 +0200
+
+    Add Meson build definition
+
+commit cc402d644934f5a8961ad2779090156d8f716c52
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Mar 23 13:30:37 2018 -0700
+
+    Fix typo
+
+commit 9d285268bbe4d7cf3c753f959bbc212fc8009125
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Mar 23 13:16:43 2018 -0700
+
+    Fix bug in UnrolledList.insertAnywhere
+
+commit 551d136874f61f29dd582150b9da72ff88245e81
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 16:37:10 2018 -0700
+
+    Declare local variable 'auto' to avoid type errors for const containers.
+
+commit 1b3885c8a087c2af1497a1787fb58e454bbf4c2f
+Merge: 27bf9f0 6d5efa0
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Mar 21 13:43:07 2018 -0700
+
+    Merge pull request #104 from dlang-community/next
+    
+    Next version of the containers library
+
+commit 6d5efa06bddbba6fbfd17d294d421868e566c746
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:39:39 2018 -0700
+
+    Defined the behavior of the remove methods when duplicates are possible
+
+commit d9c3f39c558a24b4c6965b1aae57ac4538376d0d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:39:07 2018 -0700
+
+    Import sorting and marked an argument const
+
+commit 880fe54f32c6009090bae4421709e10df6999376
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:18:57 2018 -0700
+
+    Ignore dub-generated test executable
+
+commit 252d31fc59bb2c13ef1199c1fb8b63ff4dd6cd5b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:17:28 2018 -0700
+
+    Remove commented code
+
+commit 1e49065fcfc3d5c6fc6417134cd9a766c509dc6a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:15:21 2018 -0700
+
+    Mark key arguments const
+
+commit 2924848eef94a1511cd353743072f8e9b8092516
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Mar 21 03:14:58 2018 -0700
+
+    Document stupid workaround
+
+commit 3b2eb3cd8a910b96d242f6cc55bf6d6f41aab3cb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Mar 20 16:33:26 2018 -0700
+
+    Add missing contract
+
+commit ec2a7b6d69f519bf2b8dfa6e68ccf95b66647fc0
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Mar 20 13:45:10 2018 -0700
+
+    Fix indentation
+
+commit 1ff6c2d997228f17311e072e9f37a71aeadbd9cd
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:46:18 2018 -0700
+
+    Remove HTML since there's already a CI setup that updates documentation
+
+commit 279f4ce43aa6f7f2bb7027dc2cbdc3f6328900d0
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:38:42 2018 -0700
+
+    Fix #74
+
+commit f5917029da105d196386f29e26134fd6fc9e7a62
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:23:37 2018 -0700
+
+    Put unittests behind a version identifier to avoid slowing down users of the library
+
+commit 159dccb92474ee3ffdc010a345b65984c38260f3
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:04:08 2018 -0700
+
+    Typo
+
+commit 2bdbf7095cd4fb959c981baf174be4134f6e72fd
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 16:02:23 2018 -0700
+
+    Maintain docs in same branch as the code
+
+commit 2a638f9827f91458adc5eca6c84308f5d0c5a738
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 15:59:40 2018 -0700
+
+    OpenHashSet cleanup
+
+commit e9c57125a865434c8ba2801848200bd84001a19c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 15:45:11 2018 -0700
+
+    Match template argument order
+
+commit a0defb7518ee9b7f40581e70811a41f788667994
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 15:39:46 2018 -0700
+
+    Improved documentation and added front and back properties to T-Tree
+
+commit 54211fa61fdbfc57beb3c8c35bb245a5339ebaeb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 13:44:09 2018 -0700
+
+    whitespace
+
+commit 5251ebb48534a24b526893826d35a8d3a4f5e692
+Merge: 38e36df 15eea7f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 13:43:38 2018 -0700
+
+    Merge branch 'master' into next
+
+commit 15eea7fbc89f073838d14d86d47c1247dbe8c3a1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Mar 19 13:27:49 2018 -0700
+
+    More fixes and cleanup
+
+commit 38e36dfbd271e46c1e0eee44134e14c7d4ceb01b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Mar 16 00:20:31 2018 -0700
+
+    Normalize container feature sets and make various improvements
+
+commit 9048501d68d12b7599ba65e2400d8b48abba628f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Mar 15 17:06:46 2018 -0700
+
+    It turns out that UnrolledList.insertAnywhere just didn't work
+
+commit 27bf9f02cccd4e7e7255b3974caf291520d174d9
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Mar 15 12:54:14 2018 -0700
+
+    Add byKey, byValue/opSlice, and byKeyValue to HashMap (#103)
+    
+    Add byKey, byValue/opSlice, and byKeyValue to HashMap
+    merged-on-behalf-of: Jonathan Crapuchettes <jcrapuchettes@users.noreply.github.com>
+
+commit e74dd801f7740674c304ca36fc37ef4ce57b00ce
+Merge: 1387ae2 b9f8783
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Mar 15 14:32:56 2018 +0100
+
+    Merge pull request #100 from n8sh/dynamicarray-putarray
+    
+    Extend DynamicArray ~= to accept array of values
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 1387ae28cab736dd9cdd2360b462bec8402d80e6
+Merge: 387f794 c81116f
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Thu Mar 15 14:26:29 2018 +0100
+
+    Merge pull request #97 from n8sh/dynamicarray-dont-destroy-object
+    
+    Fix issue #96 - DynamicArray should not call destructors for objects
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit 387f794324cd5cfcfccbcad44eded4d550ca873d
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Wed Mar 14 05:07:55 2018 -0400
+
+    Fix issue 101: avoid import deprecation message in DMD 2.079 (#102)
+    
+    Fix issue 101: avoid import deprecation message in DMD 2.079
+    merged-on-behalf-of: Richard Andrew Cattermole <alphaglosined@gmail.com>
+
+commit b9f87837f0846efb8e79f21e6e959b10ade9e3e4
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Wed Mar 7 06:09:24 2018 -0500
+
+    Make ~= return a reference to self
+
+commit 9da0afa4681f09d4666898c49bcafaf49ba7bc8a
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Tue Mar 6 23:14:17 2018 -0500
+
+    Extend DynamicArray ~= to accept array of values
+
+commit 04fe285e81b3327eb747e90659fb1bd2d5b9aa60
+Merge: 8bd5005 e705626
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Wed Feb 21 20:22:39 2018 +0100
+
+    Merge pull request #99 from dlang-community/fix-gc
+    
+    Add GC ranges to prevent memory corruption
+    merged-on-behalf-of: Brian Schott <Hackerpilot@users.noreply.github.com>
+
+commit e705626dd5c12270047b22e93589af6d83081671
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 21 11:15:37 2018 -0800
+
+    Add GC ranges to prevent memory corruption
+
+commit 8bd500569392fb6ecfd3586b05a590a98a5bfed9
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Tue Feb 13 15:51:14 2018 +0100
+
+    Switch to use the frozen stdx-allocator (#95)
+    
+    Switch to use the frozen stdx-allocator
+    merged-on-behalf-of: BBasile <BBasile@users.noreply.github.com>
+
+commit c81116f011fe2d21d2a37a9d7bea1d9de853f653
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Sun Feb 11 15:02:00 2018 -0500
+
+    Fix issue #96 - DynamicArray should not call destructors for objects
+
+commit 6c5504cc80b75192b24cebe93209521c03f806d8
+Merge: 573abf1 e4e8ca2
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Feb 9 13:40:23 2018 -0800
+
+    Merge pull request #94 from dlang-community/issue-70
+    
+    fix issue #70 - Can't use DynamicArray in @nogc code
+
+commit e4e8ca24ca7eefb415013d430b277db63b28dd5c
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Thu Feb 8 00:06:54 2018 +0100
+
+    fix issue #70 - Can't use DynamicArray in @nogc code
+
+commit 573abf1a4c017b189b17b3692d58022f1338639e
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Thu Feb 8 00:06:54 2018 +0100
+
+    Add quickstart example + open on run.dlang.io badge (#93)
+    
+    Add quickstart example + open on run.dlang.io badge
+    merged-on-behalf-of: Petar Kirov <ZombineDev@users.noreply.github.com>
+
+commit f58dd7bf160f76762a79029a6bda7637d5a788e7
+Merge: d8cea64 e0f27bc
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Sun Jan 28 15:21:38 2018 +0100
+
+    Merge pull request #92 from dlang-community/wilzbach-fix-90
+    
+    Fix #90 - outdated README link
+    merged-on-behalf-of: Sebastian Wilzbach <sebi.wilzbach@gmail.com>
+
+commit e0f27bc83add1b5fdaf46162f3b263d55cfccc0a
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Sun Jan 28 15:17:57 2018 +0100
+
+    Fix #90 - outdated README link
+
+commit d8cea6490b79c5c397ddf511c3c433c9f72a0826
+Merge: b94053e 6a6ada5
+Author: The Dlang Bot <code+dlang-bot@dawg.eu>
+Date:   Sun Jan 28 14:40:18 2018 +0100
+
+    Merge pull request #91 from dlang-community/wilzbach-update-dub-json
+    
+    Update dub.json to point to dlang-community
+    merged-on-behalf-of: Sebastian Wilzbach <sebi.wilzbach@gmail.com>
+
+commit 6a6ada5cde652e2e834f12f5120c830698f87d39
+Author: Sebastian Wilzbach <seb@wilzba.ch>
+Date:   Sun Jan 28 14:24:56 2018 +0100
+
+    Update dub.json to point to dlang-community
+
+commit b94053ec4e308b9296021871aa119ed7bcd925e6
+Merge: 0ed30c2 00cddee
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Jan 10 12:34:13 2018 -0800
+
+    Merge pull request #88 from n8sh/insert-struct-init
+    
+    Array.insert: don't dtor or opAssign uninitialized struct
+
+commit 00cddeee84e9295096e54e07dcbe8299575219c8
+Author: Nathan Sashihara <21227491+n8sh@users.noreply.github.com>
+Date:   Tue Jan 9 13:42:07 2018 -0500
+
+    Array.insert: don't dtor or opAssign uninitialized struct
+    
+    For structs, if a destructor is run before blit or copying involves
+    more than just a blit, ensure that arr[l] is in a valid state before
+    assigning to it.
+    
+    This patch performs the initialization lazily right before insertion.
+    Another approach would be to instead initialize the memory when the
+    array is allocated/expanded by using std.experimental.allocator:
+    makeArray/expandArray.
+
+commit 0ed30c2626270a18b420bc04143b7a9c2eea0f42
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 3 16:50:20 2018 -0800
+
+    Some changes for 2.078.0
+
+commit 11289a9ea5f9de34e01cc157c81d0a962b70628f
+Merge: b879841 e5897b5
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 3 14:49:41 2017 -0700
+
+    Merge pull request #85 from n8sh/dynamicarray-reserve
+    
+    Implement DynamicArray.reserve(size_t)
+
+commit e5897b5339113d6647be11f3a0a19adfae65c08d
+Author: nathan <nathan@n8mbp17.home>
+Date:   Thu Sep 28 07:39:12 2017 -0400
+
+    Implement DynamicArray.reserve(size_t)
+
+commit b879841f5034ee4094b019bb527e21d0775dc95d
+Merge: 1e7a7b1 6de3d6c
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Oct 3 01:22:54 2017 -0700
+
+    Merge pull request #84 from MartinNowak/patch-1
+    
+    allow to only run 32 or 64-bit tests
+
+commit 6de3d6c5feef224734317962a4cf86f6bfb71d03
+Author: Martin Nowak <code@dawg.eu>
+Date:   Fri Sep 22 19:18:35 2017 +0200
+
+    allow to only run 32 or 64-bit tests
+
+commit 1e7a7b153935efe777bea5846c8b1fa8ec7924e4
+Merge: 7fb0dab ab8e387
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Sep 18 11:53:18 2017 -0700
+
+    Merge pull request #82 from dushibaiyu/master
+    
+    closures or class method shoulde be null for GC recycle
+
+commit 7fb0dab4e8e11507f3c5392e6e29721a7b0468fc
+Merge: 2892cfc 657c149
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Mon Sep 18 11:52:46 2017 -0700
+
+    Merge pull request #72 from CyberShadow/pull-20161127-235753
+    
+    HashMap improvements
+
+commit 657c1496ab90ee7eb6b19ab0e1b4e5ef48ad323f
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 11:18:30 2017 +0000
+
+    containers.hashset: Fix constructor taking bucketCount and allocator
+    
+    It did not set the allocator before initialization.
+
+commit 6c08160bccfdd84fc6e6100634aaf96eae08323a
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 11:08:33 2017 +0000
+
+    containers.hashset: Fix UFCS invocation of make
+    
+    AllocatorList.make is a private symbol, which the compiler attempted
+    to use over the free make template function from
+    std.experimental.allocator. Fix by not using UFCS.
+
+commit 5d401d01f452b650a7044a095f0083bb70b871fc
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 10:48:05 2017 +0000
+
+    containers.hashset: Allow arbitrary hash types
+    
+    As with HashMap.
+    
+    Additionally, this fixes some incorrect uses of size_t instead of
+    hash_t.
+
+commit 6375d1fe1613cdae348657b0109461be46d655e9
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sat Sep 16 10:44:08 2017 +0000
+
+    containers.hashset: Make storeHash configurable
+    
+    As with HashMap.
+
+commit ab8e387a2bad76356396fb19103b8e89e94aeccb
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Tue Jun 20 16:26:32 2017 +0800
+
+    closures or class method shoulde be null for GC recycle
+
+commit d944116dcb231e4d79f28b3838c00ead9263397e
+Merge: 4228f4e 2892cfc
+Author: 渡世白玉 <dushibaiyu@yahoo.com>
+Date:   Mon Feb 6 15:58:49 2017 +0800
+
+    Merge pull request #2 from economicmodeling/master
+    
+    Merge pull request #73 from putaolabs/master
+
+commit 2892cfc1e7a205d4f81af3970cbb53e4f365a765
+Merge: 3938bd0 4228f4e
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Dec 20 12:29:07 2016 -0800
+
+    Merge pull request #73 from putaolabs/master
+    
+     interface should be same as class. and DynamicArray should be null too
+
+commit 4228f4e390b8cca54f946da35f9e1b1d3291b597
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Thu Dec 15 11:29:51 2016 +0800
+
+    interface should be same as class. and DynamicArray should be null too. the hasIndirections!T  is handled point and class
+
+commit ddcfb5fc039d489ea5a2233c1e8cd0682320198e
+Merge: d7ba02b 4518212
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Thu Dec 15 10:28:05 2016 +0800
+
+    Merge branch 'master' of git@github.com:putao-dev/containers.git
+
+commit d7ba02b53fa7c0d199269f458c92510eb93b568a
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Thu Dec 15 10:24:44 2016 +0800
+
+    gitignore
+
+commit 45182124a4ce7535ff5ebf2b0ee86e77436971a5
+Merge: c773794 3938bd0
+Author: 渡世白玉 <dushibaiyu@yahoo.com>
+Date:   Wed Dec 14 11:27:35 2016 +0800
+
+    Merge pull request #1 from economicmodeling/master
+    
+    update
+
+commit e7623f9545f6127f213b36c94002f7b953d8aa4a
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:42:08 2016 +0000
+
+    containers.hashmap: Allow arbitrary hash types
+    
+    There is no need to impose any particular hash type, as we can simply
+    use the return type of the given hashFunction.
+
+commit d32d20451098e14a4bbba5579a8ee53750234712
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:37:06 2016 +0000
+
+    containers.hashmap: Add getOrAdd method
+    
+    getOrAdd returns a pointer to the value inside the HashMap if one
+    exists for the given key. If not, it inserts a new key/value
+    pair (using the given key and defaultValue), and returns a pointer to
+    the added value.
+    
+    This method is necessary to efficiently implement operations such as
+    the builtin AAs' `aa[key]++` when `key` is not yet present in `aa`.
+
+commit 94da1f7b1a021dcee230624076bcbd8e91d0b862
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:18:56 2016 +0000
+
+    containers.unrolledlist: Make insertBack return pointer to added item
+    
+    It is occasionally useful to operate on the newly-allocated memory
+    inside a container.
+
+commit 4506815bebce5e672583e4e781a41af872cb7070
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Mon Nov 28 00:07:19 2016 +0000
+
+    containers.hashmap: Make "in" operator return pointer to value
+    
+    Mimic the behavior of built-in associative arrays, which allows for
+    the following pattern:
+    
+    if (auto pValue = key in aa)
+    {
+        /// Use *pValue ...
+    }
+    
+    This allows doing two lookups to access a value when it might not
+    exist in the hashmap.
+
+commit fb998f0c440529f78d54f534e7407741355d46f7
+Author: Vladimir Panteleev <git@thecybershadow.net>
+Date:   Sun Nov 27 23:57:59 2016 +0000
+
+    containers.hashmap: Make storeHash configurable
+    
+    In some cases, the hash can be extremely cheap to calculate (e.g. the
+    first few bytes of the key, when the key itself is a longer hash). As
+    such, the user should be able to specify when to store the hash within
+    Nodes.
+
+commit 3938bd0ffeca32fbb95a8e51bed55cd9412d7b80
+Merge: 92dbd3c 7a80381
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Oct 6 16:05:08 2016 -0700
+
+    Merge pull request #68 from yshui/master
+    
+    hashmap: actually use the hashFunction specified by user
+
+commit 92dbd3c190912282426e387a6409bcda926ecda2
+Merge: 3924c31 80d16fd
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Oct 6 16:04:19 2016 -0700
+
+    Merge pull request #69 from yshui/doc
+    
+    unrolledlist: clarify the complexity of back()
+
+commit 80d16fdebbdd53c7ea68d118c61f769ac6a08246
+Author: Yuxuan Shui <yshuiv7@gmail.com>
+Date:   Thu Oct 6 18:20:44 2016 -0400
+
+    unrolledlist: clarify the complexity of back()
+    
+    Saying it is O(n) will give people the impression that it is
+    linear to the number of items in the list.
+
+commit 7a80381463fd3b32a7d0ded6528c860eb9a056b3
+Author: Yuxuan Shui <yshuiv7@gmail.com>
+Date:   Thu Oct 6 17:39:15 2016 -0400
+
+    hashmap: actually use the hashFunction specified by user
+
+commit 3924c3130153d181d68e63d8abdef66ef337ebe4
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Sep 22 12:16:10 2016 -0700
+
+    Fix #67, fix #52, fix #53, fix #54, fix #55. Thanks to @burner and @yshui.
+
+commit 658f43fe961e81f94a7085637f2404c161a20117
+Merge: d598882 e58a5b4
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Sep 13 15:55:40 2016 -0700
+
+    Merge pull request #64 from yshui/master
+    
+    Don't remove an item multiple times from unrolledlist
+
+commit e58a5b4ba09713854a3499bee61fe2b9de6a1d12
+Author: Yuxuan Shui <yshuiv7@gmail.com>
+Date:   Tue Sep 13 18:37:17 2016 -0400
+
+    Don't remove an item multiple times from unrolledlist
+
+commit d5988821ecc7cc47991a19734d05ffc1df2acaec
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Sep 12 17:57:08 2016 -0700
+
+    This can't be immutable
+
+commit b539f914817fb511c72431d96251c15256b0ffdb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 9 14:48:58 2016 -0700
+
+    Fix #62
+
+commit 3b40b4c09ba3a2262fc006f19549f476929eba09
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 9 14:48:20 2016 -0700
+
+    Add missing import
+
+commit 528cae2880c0e5faa57d192621ad0533b0124b7b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jul 27 13:00:42 2016 -0700
+
+    Remove experimental allocator backport
+
+commit d3ce885de5a838347254cc41d702ffa53bbb3a5e
+Merge: a74854a c773794
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Jun 28 16:26:21 2016 -0700
+
+    Merge pull request #59 from putao-dev/master
+    
+    fix DynamicArray ~this sgould be use useGC. ttree add useGC
+
+commit c77379491fed71166a8ccfb68e018de2f9bd0213
+Author: dushibaiyu <dushibaiyu@yahoo.com>
+Date:   Tue Jun 28 11:12:53 2016 +0800
+
+    fix DynamicArray ~this sgould be use useGC. ttree add useGC
+
+commit a74854aed450285e147af16e82a0dda466ccb332
+Merge: 3c6a439 615a39d
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Jun 1 16:16:27 2016 -0700
+
+    Merge pull request #58 from burner/dynamic_array_remove_back
+    
+    removeBack for the DynamicArray
+
+commit 615a39d3c5cfe407aafdd1814887f49bd0f34a54
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Wed Jun 1 14:10:24 2016 +0200
+
+    removeBack for the DynamicArray
+
+commit 3c6a4398f7cd0c593995ee9b45e4e8e42c907b8c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon May 9 17:09:51 2016 -0700
+
+    #49
+
+commit a5282b421bb1fb579cf96a17004106a7d07da012
+Merge: 88da02a 4a4a2cc
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri May 6 15:01:24 2016 -0700
+
+    Merge pull request #51 from burner/hashset_const_class
+    
+    hashset const class support
+
+commit 4a4a2cc9e1a9de6ed34ff610ae6f6d9be3d6ef57
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Fri May 6 10:56:56 2016 +0200
+
+    hashset const class support
+
+commit 88da02ad94ed96b13199080f13e3c183d8bcf484
+Merge: 738ccd4 b557fae
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Apr 22 05:09:31 2016 -0700
+
+    Merge pull request #48 from burner/Issue47
+    
+    fixes #47
+
+commit b557fae3933d59d72056d4365cc5ac4c5f81b166
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Fri Apr 22 13:31:37 2016 +0200
+
+    fixes #47
+    
+    * addes const version for opApply
+    * makes opApply callable from safe code
+    * requires delegate key to be const
+    
+    small fix
+
+commit 738ccd47345201660eaf3f1b8c3eed870ff2089d
+Merge: 39e9080 5e1c0a6
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Apr 20 13:59:53 2016 -0700
+
+    Merge pull request #46 from SirNickolas/master
+    
+    Fix #45
+
+commit 5e1c0a6b1540f97bae0736ef13db8223b92aa309
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Wed Apr 20 13:11:28 2016 +0600
+
+    Remove the ghost line
+
+commit 825847459afa9f7e071af832291f5f1b5931c481
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Wed Apr 20 05:09:23 2016 +0600
+
+    Fix #45
+
+commit 39e9080f6a2b763e7cc03218ce1fa06086d5ff4f
+Merge: c99dd0b 98a9df3
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Apr 13 12:40:43 2016 -0700
+
+    Merge pull request #44 from burner/notnothrow
+    
+    Fix Issue #43
+
+commit 98a9df3c635c2c01343bb30e767a54b219623bd7
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Wed Apr 13 12:01:14 2016 +0200
+
+    Fix Issue #43
+    
+    * testing most containers with classes
+    
+    tab to whitespace
+
+commit c99dd0b83afe80d3b647f73e400fa4bb8e48aace
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:24:49 2016 -0700
+
+    Another CI attempt
+
+commit 24833845a9ae1dea2290dd4a290f830412f49465
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:22:28 2016 -0700
+
+    Another CI attempt
+
+commit 259383d381e7785e43a61f880c83048e13c72219
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:14:02 2016 -0700
+
+    We actually need sudo now
+
+commit 7d006dc4250bfbb6c9595e00137f8b71ebb54af4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 6 16:12:30 2016 -0700
+
+    Tell Travis to install 32-bit library dependencies for testing the 32-bit build
+
+commit 237fe438eed92e96365d849cf894267e803e0fd7
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Mar 28 13:05:06 2016 -0700
+
+    Remove some debugging code
+
+commit 84692a5387a2fea8001a342821f3ec3649b9eb43
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Mar 28 11:39:43 2016 -0700
+
+    Run unit tests in 64 and 32 bit mode. Fix #41 and should prevent 32-bit bugs in the future
+
+commit e5c21fc2484e3c42ca695350acf0c303ca8928bb
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 27 22:21:57 2016 -0700
+
+    Fix #39
+
+commit db720046fc9f0a012807b2e8f038d66e0f599d9d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 27 20:08:25 2016 -0700
+
+    Fix #40
+
+commit 6a92370841b2903cf51d3eaf7798b0124bd18384
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 27 16:47:25 2016 -0700
+
+    Fix #37
+
+commit 9b210f7b721553c190876312f09c521739df8ce1
+Merge: cb261d4 71cbd77
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Mar 24 15:04:43 2016 -0700
+
+    Merge pull request #38 from ZombineDev/dyn-arr-op-dollar
+    
+    Add opDollar to DynamicArray
+
+commit 71cbd77ddf92a695634e5ef7dc8403c67800bbab
+Author: ZombineDev <petar.p.kirov@gmail.com>
+Date:   Thu Mar 24 20:25:04 2016 +0200
+
+    Add opDollar to DynamicArray
+
+commit cb261d4e4e7802271c9d4275732b092b031a03c4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Mar 20 20:41:00 2016 -0700
+
+    Fix bugs triggered by container instantiations with byte-sized elements
+
+commit 81011a66d9fbf05aecb629c989838d249323123d
+Merge: a261c1d 4433264
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Wed Feb 10 15:54:14 2016 -0800
+
+    Merge pull request #33 from SirNickolas/master
+    
+    Add cyclic buffer implementation
+
+commit 44332643c93ae713de5f96e2ba1a8917b4235f2f
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Fri Feb 5 13:55:02 2016 +0600
+
+    Fix various code style issues
+
+commit 2a6c4197bd6fec8bedb1ed03e4fb44a9569afbfa
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Thu Feb 4 15:28:02 2016 +0600
+
+    Fix a compilation error on 64-bit platforms
+
+commit 56c0b8c41b7309fca33a58950b6b54fd18efdc37
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Thu Feb 4 03:53:07 2016 +0600
+
+    Add Cyclic buffer
+
+commit cce44377aed9b0ac5d0686c28630a2590361ccd7
+Author: SirNickolas <buknik95@yandex.ru>
+Date:   Thu Feb 4 03:49:00 2016 +0600
+
+    Avoid SIMD set testing on x86
+
+commit a261c1d07707e03905431a3bdf71ba1421a60e1e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 27 00:33:04 2016 -0800
+
+    Add doc index page
+
+commit c9853bbca9f0840df32a46edebbb9b17c8216cd4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 13 23:54:15 2016 -0800
+
+    Update .gitignore
+
+commit 6db0889efd25e4118079ab602380577f7662a813
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 13 22:17:19 2016 -0800
+
+    Fix version number
+
+commit 83ef63ebac7484b809cbb7ddaa82606e7a35f442
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 13 22:15:15 2016 -0800
+
+    Update dub file
+
+commit 8b376391b5f7e1aed8cbdfb907d1a4ac868566db
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Nov 19 19:10:00 2015 -0800
+
+    Update allocators dependency
+
+commit 06150cc35ee05f9f44507613fe7601454c1b80cd
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Nov 9 15:16:51 2015 -0800
+
+    Fix #31
+
+commit 2e1eb33c4e76567628a04d8ccd173f6ba9d8e711
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Nov 9 15:10:35 2015 -0800
+
+    Fix #30
+
+commit 978c2f295065168e0cee333fc0c4abdf975b7b98
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Nov 9 15:09:28 2015 -0800
+
+    Fix #29
+
+commit b428d1338c08156a4f25b589ae48e816e9435d55
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Oct 29 16:51:18 2015 -0700
+
+    Fix #22
+
+commit ef43ca7066fa7a822b7f900b3ef094769963d1fc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Oct 19 13:54:14 2015 -0700
+
+    Update allocators so that the code works better with LDC
+
+commit 961831915adb78062db2709c67a874f4730a750e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Oct 19 11:53:55 2015 -0700
+
+    Update allocator dependency
+
+commit 05b1f9f5906c4ac1f38964c7456482b3f11daa32
+Merge: c78b6b4 5c71ea1
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Sun Sep 13 11:52:07 2015 -0700
+
+    Merge pull request #26 from burner/dub_test_path_fix
+    
+    dub test builds again
+
+commit c78b6b42e038536dec536b308071bbe9528753fa
+Merge: fd7c60e 978ef7c
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Sun Sep 13 11:51:46 2015 -0700
+
+    Merge pull request #27 from burner/dynamicarray_front_back_empty
+    
+    dynamicarray_front_back_empty
+
+commit 978ef7cf21409c0217e640d8bb8ba13bd8eba6fe
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Sun Sep 13 15:05:45 2015 +0200
+
+    dynamicarray_front_back_empty
+
+commit 5c71ea1a8cd2fec3a918614d3a4918847ea51e77
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Sun Sep 13 14:34:37 2015 +0200
+
+    dub test builds again
+    
+    dub test was unable to find the source of the allocator,
+    this adds the paths
+
+commit fd7c60e41f4eebc70f700bec698285c97b96cd9a
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Sep 4 12:34:30 2015 -0700
+
+    #21
+
+commit 8eee792b78b0b099079a022ccbbbf634edde6ce3
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 31 20:49:44 2015 -0700
+
+    Add benchmark results
+
+commit 7f826df0b87580860dc2b87cc10f87b0cad8b82d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 31 20:49:32 2015 -0700
+
+    Fix compile problem caused by UFCS.
+
+commit 86d244a376b223d277b1f0c0bbcf14729b979e5d
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 17:46:42 2015 -0700
+
+    Update README
+
+commit e3cb337c09a269b572baf6e165063c47ada5761b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 17:35:53 2015 -0700
+
+    Fix imports
+
+commit 3053e601b268dc3c95e7644166825663b4b0c6d1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 17:30:49 2015 -0700
+
+    Doc updates
+
+commit c39d8016869229a1b5f846c6962e7f1483271522
+Merge: 04158ca 041d890
+Author: Justin Whear <justin@economicmodeling.com>
+Date:   Mon Aug 31 15:44:27 2015 -0700
+
+    Merge pull request #19 from economicmodeling/external-allocator-support
+    
+    External allocator support
+
+commit 041d89021300ffec11ac364d5b30a836ce4d7a8f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 15:30:26 2015 -0700
+
+    Update allocators
+
+commit 2b6a44d5e8841910ca57b82cdc4e7209985d1f99
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 31 14:48:24 2015 -0700
+
+    Remove duplicated code
+
+commit 2fa856c6915f2914a6d910a40371bd12c5d2fe06
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 20:14:53 2015 -0700
+
+    Finish work on external allocators
+
+commit f75df187eab6eff14f58d2643e958f6f2456eea8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 01:03:30 2015 -0700
+
+    External allocator support for TreeMap
+
+commit e7f6c1591681b33dcfacedd6176293151e7a65bd
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 00:41:43 2015 -0700
+
+    Immutable cleanup
+
+commit b2964c0953ed492109a20b7e622266c562b4744a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 30 00:39:39 2015 -0700
+
+    Add support for allocators other than Mallocator to TTree
+
+commit 04158caa5d651562ac99d40cd9aec2cd06a15508
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Aug 27 17:03:20 2015 -0700
+
+    Fix performance issues and bugs in TTree
+
+commit 526ddb4c9458bac7a7c7c0bc648af92c9e86d894
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Aug 27 17:03:05 2015 -0700
+
+    Update allocators
+
+commit c8c4634420fe95cb38f0bc17b91d5767357edb57
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Aug 26 02:58:12 2015 -0700
+
+    Update allocators
+
+commit 8a5cae2bc1d635ebb0a4348653447f3ea954e12d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Aug 26 02:38:52 2015 -0700
+
+    Update allocators
+
+commit c2aa66207795e5bd3d6a0e696a71471386b428d1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 25 20:38:48 2015 -0700
+
+    Update allocators to fix a deallocation bug
+
+commit a71ee4229a7cb84c925af02618c2472fd19be9e5
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 24 23:33:27 2015 -0700
+
+    Delete old allocator code
+
+commit f91a582dc8a5a56bc3d36242dc92b34a68398126
+Merge: 0569090 87132f6
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 24 17:54:12 2015 -0700
+
+    Merge commit '87132f6'
+
+commit 87132f688f8cbc8afa94ea9a272c0d652a7ff72f
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 24 17:43:04 2015 -0700
+
+    Fix bugs in hash set implementation
+
+commit 0569090a247f185a5bff184e9a26ff01eb34576c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Aug 21 16:22:18 2015 -0700
+
+    Update allocators
+
+commit b38769605779983aeca3819fbcfa8c72156f9ceb
+Merge: df74123 5fe131c
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Fri Aug 21 13:54:31 2015 -0700
+
+    Merge pull request #18 from economicmodeling/experimental-allocator
+    
+    old std.allocator -> new std.experimental.allocator
+
+commit 5fe131c2b59ae320a9272ad25b5bd17817d6a638
+Merge: 96e96a2 df74123
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Aug 21 13:50:44 2015 -0700
+
+    Fix allocator usage and destructor calling
+
+commit 96e96a24b3b00d382481bbb277cd4c4c4fe9530e
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Aug 21 13:30:18 2015 -0700
+
+    Remove commented code
+
+commit 9bd524b544105754b33117a9d696a43ec9f808dc
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Aug 21 13:29:30 2015 -0700
+
+    Remove unused module
+
+commit df741233b6b84686d8a37935081936c3dcc70700
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Wed Aug 19 17:42:36 2015 -0700
+
+    More fixes + less memory for hashset
+
+commit d2ae3d9fc6c4c81ecca84f0bcd3f7fd1fcdb545e
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 17:01:21 2015 -0700
+
+    Fixed bugs
+
+commit 9501f822e0d51d5f625401ebd84e3e25e4c27a43
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 15:54:38 2015 -0700
+
+    Fix missing import
+
+commit 0ff087c63c7aa28793ea315bf7f0e7c08e2db44f
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 15:32:37 2015 -0700
+
+    Fix hash and equality calculation
+
+commit 938decd6a5362d5ea792b1f5db9581113901fb03
+Author: Jonathan Crapuchettes <jonathan@economicmodeling.com>
+Date:   Tue Aug 18 15:32:15 2015 -0700
+
+    Add .editorconfig
+
+commit 580a4ecabdac17597b90ea0a651cd916bf2beb93
+Merge: afdc2ec 73e71a7
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Aug 18 14:41:24 2015 -0700
+
+    Merge master and update allocator code
+
+commit 73e71a7191c4faa856ebcc829e05f5202f9c158a
+Merge: 9edfde5 2d8a6a6
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Tue Aug 18 13:55:41 2015 -0700
+
+    Merge pull request #17 from economicmodeling/mutability-round-2
+    
+    Mutability round 2
+
+commit 2d8a6a6dfadf27688a0b9580053c39a2d2c7e7ba
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Aug 18 13:51:49 2015 -0700
+
+    Ignore test binary
+
+commit 054ce228f4203c4545db22e1a2d961e4d6c7bb08
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Aug 18 13:51:40 2015 -0700
+
+    Re-enable opApply for hashmap and treemap
+
+commit 8e3c08d5cfbbc56a73cd79135d85cfad5ec4e353
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 18 02:24:05 2015 -0700
+
+    Check ttree and hashmap
+
+commit 9edfde566e030720452880076bf52c7802cc27dc
+Merge: 2cf7e8e e1d05a3
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Aug 17 16:51:51 2015 -0700
+
+    Merge pull request #16 from economicmodeling/mutability-checks
+    
+    Const/mutable/immutable support
+
+commit e1d05a36023b9f66926d46cffee9ce4342fec8dc
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:27:33 2015 -0700
+
+    Typo
+
+commit ef71308c9cb37715a9da05349abbc40e583bfea4
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:26:46 2015 -0700
+
+    Apparently tabs are bad?
+
+commit 68dffbbcde9b3840cc0f430cfda499ecfc5db520
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:25:36 2015 -0700
+
+    Poke the CI server
+
+commit b70be222e1c46ffcf2c23491951e16682dd76190
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:24:10 2015 -0700
+
+    Const correctness for more containers
+
+commit 5ba6a9f8ed5ba3c5359a0fa7a28dec151cbfb987
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:23:39 2015 -0700
+
+    CI badge
+
+commit 9f4efd2dfd595d0f28e48c88877e4dbd09f13738
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 16:20:24 2015 -0700
+
+    CI build
+
+commit 042b0a884640aa4ddb857f7b3bfe8428ff273ddf
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 15:34:38 2015 -0700
+
+    Better mutable/const/immutable checking
+
+commit da328b6b1e8560626a5172c553b76d5ecd7f2243
+Merge: fb27a58 2cf7e8e
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 11:56:58 2015 -0700
+
+    Merge branch 'master' into mutability-checks
+
+commit 2cf7e8e0c85b51cc2edb2567426a0d05e593cd4e
+Merge: a6197c4 d09961e
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Mon Aug 17 11:55:53 2015 -0700
+
+    Merge pull request #15 from economicmodeling/hashset_rewrite
+    
+    Hashset rewrite
+
+commit d09961eb5087c8b0d5f4947dd8b4888b3a8be843
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Aug 17 11:52:43 2015 -0700
+
+    Fix dumbness
+
+commit fb27a583daa680ad8c3b5f7f8bbfc49a12168518
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 17 02:03:55 2015 -0700
+
+    More checks
+
+commit fcb9b5dd3aac1e1ed8e131b0e66e07b93c97f21b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:39:47 2015 -0700
+
+    mutable/const/immutable checks
+
+commit de8e535f0620478cfd52992793329a7de1f69747
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:39:12 2015 -0700
+
+    Add package declaration
+
+commit 2f57918eefd4b4059f5703d54e53b3004fa9bd2a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:38:55 2015 -0700
+
+    Const fixes
+
+commit 4c24ec3da129f3ae8f82fd7f9d22f382321be293
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:37:58 2015 -0700
+
+    Progress towards const support in the simd-set
+
+commit b087a290e0bbfed568d7552581e9bcc4a8e8ae9c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 17:35:18 2015 -0700
+
+    SList now uses Mallocator
+
+commit 75b63af03f8603627b7f978b0dc31ac9637c61c1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Aug 16 01:52:57 2015 -0700
+
+    Fix bugs
+
+commit 7707a685c2fcb3aaf4295205df521169fc74eed6
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Aug 15 22:51:54 2015 -0700
+
+    Fix unit tests
+
+commit 3fc9d20404cfffeea2a31d4176bb785e13b06146
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Sat Aug 15 14:46:54 2015 -0700
+
+    no commit message
+
+commit 84a77999c9071e8c08a8e5fd02d784e2a7a8a6e4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Aug 14 04:46:02 2015 -0700
+
+    Reimplement hashset
+
+commit afdc2ec1e378b19ebce542072520d36eaa508ede
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 16:58:51 2015 -0700
+
+    Fix compile errors
+
+commit a49d8a94143c808b082556a7c417fc39c4ffd1cb
+Merge: fc40858 a6197c4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 16:56:48 2015 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers into experimental-allocator
+    
+    Conflicts:
+            src/containers/hashset.d
+
+commit fc40858f4301c40a56ec6d0d2df6058f712ba368
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 16:55:44 2015 -0700
+
+    Get the allocators code from a submodule
+
+commit a6197c4d7a729a7fa580016ec3611c8761d01896
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 10 11:05:25 2015 -0700
+
+    Fix bug where a reference to a local was escaped.
+
+commit 8eade1ac6fe3fb4027deef209273799935e8d18f
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 4 16:51:49 2015 -0700
+
+    Comment out assert because it would throw the code into an infinite loop
+
+commit 46c10a979fb4c7f125dbb520955ebb78a0f8db3a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Aug 4 14:19:13 2015 -0700
+
+    Update the allocator code and fix a bug in TTree that happens with duplicate nodes allowed
+
+commit 92e7d558e8e88db15317b86e504c54bf97f7b365
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 3 16:43:17 2015 -0700
+
+    Call node destructors correctly
+
+commit c8bc013345378fcf74981cf6b4e45073140e7496
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 3 16:42:34 2015 -0700
+
+    Add module declaration
+
+commit b6cd42e4b3cc109669f4555466a4df04149ea7b2
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 3 16:42:05 2015 -0700
+
+    Add clear() function
+
+commit 4f23c185f5124484f1fd9668273e5ca2eed2e88c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 30 16:06:57 2015 -0700
+
+    Never mind. That last change was bad and I should feel bad.
+
+commit 8eb4346231259cee561882f6874ad742bbea5fbc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 30 14:44:14 2015 -0700
+
+    Fix strange-looking cast
+
+commit 79aa96e2db00cac2cea8ba69b97dc37f5380d030
+Merge: b0e0087 09364c3
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Jun 19 13:58:22 2015 -0700
+
+    Merge pull request #14 from burner/remove
+    
+    remove for DynamicArray
+
+commit 09364c3b04c419b908586f6cd6d464807e6f772e
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Wed Jun 17 21:51:54 2015 +0200
+
+    remove
+    
+    remove
+    
+    RangeError on invalid remove index
+
+commit b0e0087ee14feead547c4ce92d1e5d33b7635183
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Jun 18 13:56:40 2015 -0700
+
+    Fix #13
+
+commit 8e75e0d1d5ecd146253cab68576d0a7238edd1e1
+Merge: ea01f79 a50619f
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Jun 16 13:48:38 2015 -0700
+
+    Merge pull request #12 from burner/dynamicarray_ptr
+    
+    dynamic array ptr property
+
+commit a50619f2377273ada8290455e93972b233576348
+Author: Robert burner Schadek <rburners@gmail.com>
+Date:   Tue Jun 16 22:03:25 2015 +0200
+
+    dynamic array ptr property
+    
+    fix
+
+commit 8cb0754358f584c48280918f8cdf190870148a0c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 16 00:45:44 2015 -0700
+
+    Synchronize with upstream
+
+commit 20f68d1ae0a6e463e075fde4a5030b5065c1a1d8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jun 15 23:53:30 2015 -0700
+
+    Fix memory leaks
+
+commit 3038311c0df9297ebf76ed4fc0b09c05178edc02
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jun 15 04:16:22 2015 -0700
+
+    Be more specific with the debug condition
+
+commit e0f21b8fd8ab018471f6bf1b19971f348445301d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jun 15 04:16:06 2015 -0700
+
+    Remove QuickAllocator. A better version is in std.allocator.
+
+commit a3d9043890f101923acfb3a4d6e7e1e30980e0dc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 01:20:03 2015 -0700
+
+    More allocator updates
+
+commit 57401a4fa3422b18a3a3b8d25862539f1b6e5288
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:38:15 2015 -0700
+
+    Update allocators
+
+commit b5a34d95843286991ee81b3c842de23a92bc6e4e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:37:54 2015 -0700
+
+    Ignore loop test binary
+
+commit 87623174358134f80d2e2e94c82d62383911cf65
+Merge: b5159b8 ea01f79
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:36:45 2015 -0700
+
+    Merge branch 'master' into experimental-allocator
+
+commit b5159b823cf21fc55c4be79064c7012de024b129
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 14 00:35:32 2015 -0700
+
+    Re-add loop test
+
+commit 24f367df939d50b3fac156f688ca2ebdab2d0ad1
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:51:06 2015 -0700
+
+    This is now called BitmappedBlock
+
+commit ea01f79d4369957de02fbfdfc9317d2ec60a4027
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:41:12 2015 -0700
+
+    Fix bad commit
+
+commit 6708d95d8d754ad8319e1b3f7cd5e7994c68d67d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:26:44 2015 -0700
+
+    Revert "Merge"
+    
+    This reverts commit 6e1619315617d140a37a3445aeae464f4000041e.
+
+commit 775b712b953f123bb2efee4ff78e90f7816d700f
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 21:23:21 2015 -0700
+
+    Clean up loop tester
+
+commit f9f971dac9125cf52d2489dd296c8ef159d2a173
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 20:15:25 2015 -0700
+
+    Use more of std.allocator
+
+commit 6e1619315617d140a37a3445aeae464f4000041e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat Jun 13 20:07:29 2015 -0700
+
+    Merge
+
+commit 11a36fc1b042a86e34c0b0efb5bdcb1a3217455d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Jun 12 14:55:00 2015 -0700
+
+    Update to new std.experimental.allocator
+
+commit bfd8f54ab3ad961a0792f04e249685ae36b77840
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Jun 12 13:52:28 2015 -0700
+
+    Romove old std.allocator
+
+commit 59deaa7497ef439d264184c6e027a5ce432a9164
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Jun 11 03:00:59 2015 -0700
+
+    Add infinite loop memory leak test file
+
+commit e89fd7cd495c785418f62544ecfd7264f4dfbc07
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Jun 11 03:00:42 2015 -0700
+
+    Update assumption about TTree's opSlice
+
+commit 1633c5de6c6fa7ba325c5a13927bb288ef244cbc
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:27:41 2015 -0700
+
+    Fix memory leak in unrolled list implementation
+
+commit f4d155d6444ca5b5210ceabaf27f88891107317c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:27:08 2015 -0700
+
+    Remove debug code
+
+commit d833488e02920d6de40013dc9693d3787bccf51b
+Merge: e7f4ecd f4cbd59
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:26:21 2015 -0700
+
+    Merge commit 'f4cbd59'
+
+commit f4cbd59fc1a2668335cbe1391cbf1a4522740096
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jun 10 18:25:48 2015 -0700
+
+    Code cleanup
+
+commit e7f4ecd12d505c490ebd192dc5c55c4bcddc7642
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Jun 9 18:33:16 2015 -0700
+
+    Remove .save because it made several algorithms unusuable
+
+commit 618c1694c731c4397bc8a46983e6a991c7d97a9e
+Merge: e2463fd 4d7362b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 7 17:00:54 2015 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit e2463fd4beb82e94b062c02ddb4cd83378027cf6
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Jun 7 17:00:45 2015 -0700
+
+    Allow insert() to take ranges by ref
+
+commit 4d7362b212cf63570afaf6c60dbf812bc0d1a45c
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri May 29 13:47:22 2015 -0700
+
+    Code cleanup
+
+commit d732a67e76f60fd037547c3ffe8776c6deda6bab
+Merge: 0e0f55d 871d9a1
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Thu Mar 12 17:07:43 2015 -0700
+
+    Merge pull request #10 from economicmodeling/simd_set
+    
+    Add SIMD set
+
+commit 871d9a12f4f55a8131eda16249f3720e68e10242
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Mar 12 15:59:32 2015 -0700
+
+    Add better template constraints and error reporting
+
+commit 1a44a0b6622a82b82e365d7c46a114a1c36ba39d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Mar 12 03:12:02 2015 -0700
+
+    Add SIMD set
+
+commit 0e0f55dbe0a3fc2555bf47b970290488cfd85911
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Mar 12 03:11:40 2015 -0700
+
+    Import cleanup
+
+commit 1efa1b817934a321ab156782c2fb4b679f3e63b8
+Merge: e20f62d 629aced
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Mar 6 12:49:23 2015 -0800
+
+    Merge pull request #9 from economicmodeling/fix_8
+    
+    Add sort import to ttree
+
+commit 629aced18fc6e3bee80d3f10502e8f96aa3cdaa1
+Author: Justin Whear <justin@economicmodeling.com>
+Date:   Fri Mar 6 10:07:31 2015 -0800
+
+    Add sort import to ttree
+    
+    Fixes #8
+
+commit e20f62d8d020f7e7d281ec49cb37b049f8ff8c0c
+Merge: 2b0663c 375bdc0
+Author: Jonathan Crapuchettes <jcrapuchettes@gmail.com>
+Date:   Thu Feb 12 17:01:47 2015 -0800
+
+    Merge pull request #7 from economicmodeling/add_open_hashset
+    
+    Add open hashset
+
+commit 375bdc05c095bbc2782e7677a4b5e06940a07140
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Feb 12 16:09:49 2015 -0800
+
+    Add unit test
+
+commit 70c441a06a4d8a185a7bf4cf37d13cce4d917c4a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Feb 12 15:50:47 2015 -0800
+
+    Fix some issues with GC support and added remove()
+
+commit d8d944bacdf142ccf493c70ced95e8d4d311fc21
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Feb 12 15:39:49 2015 -0800
+
+    Add OpenHashSet
+
+commit 2b0663c82ebb8179874bb6bb1df6f21ee15c6ec6
+Merge: 74157c6 e19bd64
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Thu Feb 12 00:43:19 2015 -0800
+
+    Merge pull request #6 from Geod24/fix-link
+    
+    [Trivial] Fix license LINK2, update gitignore
+
+commit e19bd6479bc8927d6cd88ab91d5c46de9dfa0e4e
+Author: Geod24 <pro.mathias.lang@gmail.com>
+Date:   Thu Feb 12 08:53:19 2015 +0100
+
+    Fix license LINK2, update gitignore
+
+commit 74157c6bd22a789cd52316281bb8fba47817ddd8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Feb 11 16:30:31 2015 -0800
+
+    Update imports to work with 2.067
+
+commit c73d830de45ccb59b858254559f33f4308a1a038
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Feb 5 16:45:28 2015 -0800
+
+    Fix range error when slicing empty HashSet
+
+commit d99c858c5a6e09ec1900a7adc125fe10ca682ec8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Feb 2 18:10:11 2015 -0800
+
+    generateHash cannot be pure because the built-in hash functions are not
+
+commit 394c27f110a94596c65f31e97207bf1ca3e60aaa
+Merge: 6b70a90 f33de01
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Sun Feb 1 13:01:22 2015 +0000
+
+    Merge pull request #5 from economicmodeling/hashmap_unrolled
+    
+    Hashmap unrolled
+
+commit f33de010d8e40917faa9308ca2dd0dedb3c50051
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Feb 1 04:48:38 2015 -0800
+
+    more bugfixes
+
+commit eefad31b1c2e11d65f28d3fbcd0b056d9489a9d9
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sun Feb 1 03:21:48 2015 -0800
+
+    Make hashmap use unrolled lists
+
+commit 6b70a90569df71816c9d796fdd91bc8f03860a72
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Jan 28 14:32:55 2015 -0800
+
+    Fix crash in destructor for unused hash sets
+
+commit 06e1b67229f39b5a65352cff1879e60618029786
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu Jan 1 18:14:42 2015 -0800
+
+    Use more selective imports
+
+commit 4a9e678ea1a5d379d5c031f071bf352c71d12932
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Nov 19 15:00:00 2014 -0800
+
+    Fix type qualifiers
+
+commit 46db781b166dfbd95932bfc17824d3264f1bddb2
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Nov 19 14:24:23 2014 -0800
+
+    Fix bug in node creation and add back, popBack and moveBack
+
+commit e50ab65bec686358369e9978bf090879a8ced052
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Nov 10 08:26:30 2014 -0800
+
+    Clean up local imports and add some annotations for #2
+
+commit bd09c94e7d8d5047cc7e6aab0bd3a67665f919e4
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Oct 17 13:53:50 2014 -0700
+
+    Fix #4
+
+commit 53258c939ea7f6871fba93f34c5a5512e31e9f5e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Sep 19 17:21:05 2014 -0700
+
+    Eliminate a possible source of memory corruption bugs
+
+commit e435d1f08118acc9c29a390617570b7f3f5e9541
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:39:20 2014 -0700
+
+    Const correctness and a fix for #3
+
+commit 02114ea1bca8836a67c94dd25dc845732115fba1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:38:07 2014 -0700
+
+    Const correctness
+
+commit c1dcb9b10136694ac48ebdcbb73cdeadaf41bc40
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:37:38 2014 -0700
+
+    Selective imports
+
+commit 2a5cbb413d7a6babe2d4ddfd3c0168a8156b05cf
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Sep 19 13:37:15 2014 -0700
+
+    Improve hashmap implementation
+
+commit f7fb230db32afd1fc85b242b8112c9fab05fc839
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 4 08:10:08 2014 +0000
+
+    More work on storage type deduction
+
+commit 6ca69aba442517245d849fdb9763caff58b7f1d4
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Aug 4 07:50:50 2014 +0000
+
+    Added storage type template
+
+commit c52eb6b1495954ac354df9790cc102820e98c0af
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jul 30 14:19:50 2014 -0700
+
+    Oops
+
+commit 3bd75d790e2df1998e851e9fdd01fb00c1a70004
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Tue Jul 29 15:27:01 2014 -0700
+
+    Update README.md
+
+commit 753e05806023e84a82e1e1863c9154665e2f62c5
+Merge: 0068980 fbeb2f9
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Jul 22 12:21:50 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit 006898046c8acacb177b4098aeea3be035d79d22
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Jul 22 04:01:49 2014 -0700
+
+    Improved documentation
+
+commit fbeb2f9654073be4e1eec4eb6ca15cf92af19bae
+Merge: e95ea9e 74b3944
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 14 13:54:30 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers into HEAD
+
+commit e95ea9e5a8fe36c8d6851d3afb5cd594df97c5c3
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 14 13:54:24 2014 -0700
+
+    Fix issue with invariant being called on deallocated structs
+
+commit 74b394404947f8c1ea9c6e769fdb413db049d27d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Jul 7 15:48:44 2014 +0000
+
+    Documentation improvements
+
+commit bb29da54512d159329030d6ee5c47fb16cb5b699
+Merge: 687efc8 ee7f95b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jul 2 16:01:02 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit 687efc8b7e3d9764cd6dcc71c38d518d20344ce5
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jul 2 16:00:49 2014 -0700
+
+    Remove redundant attribute
+
+commit ee7f95baea997df9fb5a8cc2e7282e1ea6a35ae2
+Merge: 2a72525 ea1bfb8
+Author: Brian Schott <briancschott@gmail.com>
+Date:   Fri Jun 27 20:11:13 2014 +0000
+
+    Merge pull request #1 from p0nce/master
+    
+    Add dub.json
+
+commit ea1bfb8618b65f5ee4783a19c9e0db0615687556
+Author: ponce <aliloko@gmail.com>
+Date:   Fri Jun 27 19:14:28 2014 +0200
+
+    Add dub.json
+
+commit 2a72525f649850f452f21e7f362f70440f487a61
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jun 25 16:35:18 2014 -0700
+
+    Fixed incorrect DDoc macro
+
+commit fccc2668fcbf158552a47fde7ecc58e86e019725
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Jun 25 16:35:03 2014 -0700
+
+    Added package.d
+
+commit 6e9aa02eda657fd0a3e820641cbcdecc3dfbd0ce
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Jun 23 16:37:20 2014 -0700
+
+    Fix null pointer dereference
+
+commit 7764f42525dc20f4a17a7d53e2ef59f8b497b114
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Jun 23 16:20:03 2014 -0700
+
+    Fix a bit of stupidity in T-Tree range initialization that caused all lookups to be linear
+
+commit 7cb39ed614cc504a5e21ca7d754c4a0d0b67429c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Jun 17 17:47:23 2014 -0700
+
+    DDoc fixes
+
+commit 36a00d9f109fde9c53db3173fae39439b007c0ce
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri May 23 13:25:17 2014 -0700
+
+    Fixed 32-bit build
+
+commit dfb5bec85daad42752074b5206f5f78c03147c97
+Merge: c56168c eb14b2d
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri May 16 15:31:05 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+    
+    Conflicts:
+            src/containers/hashmap.d
+            src/containers/ttree.d
+            src/containers/unrolledlist.d
+
+commit c56168cb1db79d2502c9e846679386745a15a9ef
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri May 16 15:13:21 2014 -0700
+
+    Renamed K-ary tree to T-Tree
+
+commit eb14b2df108e208da54d82292c0164bc6f457f55
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 14 14:46:22 2014 -0700
+
+    Improve GC support for hashset
+
+commit 819133564a8ebb99672d08774e6731e860e2d103
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Sat May 10 02:48:19 2014 -0700
+
+    Removed unused variables
+
+commit d7ed9214326e0eb52916cdca3b0b59a9c2a7c0e0
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 8 03:52:43 2014 -0700
+
+    Added TreeMap
+
+commit 7a74f11d44a496d3ddd837b3f24ef5c564fe6461
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 18:29:42 2014 -0700
+
+    Updated ddoc
+
+commit 82d595fb08a7bd75a98c0d9434bb82ae01d4bc21
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 17:59:00 2014 -0700
+
+    Update insert documentation
+
+commit 5e5a9ae9bc6c1f7d7910ad4fad98efdec9fdb17e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 17:31:13 2014 -0700
+
+    Removed unused variable
+
+commit fdba80ec8894e5876746f2ee51421a663adfef76
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed May 7 17:17:24 2014 -0700
+
+    Iteration works better while inserting now
+
+commit 1b64efe186429fb25da324c6abcdf6e61eb6a1eb
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon May 5 17:02:35 2014 -0700
+
+    Remove ref counting as DMD has too many bugs for it to work
+
+commit 4f360175892212632b03693eac9a2bc8be58476e
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri May 2 12:36:01 2014 -0700
+
+    Fixed bugs in range and remove
+
+commit ffc7a724adefcc5b422a7c768f205f14599d36e3
+Merge: 47da6e9 43da822
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 17:58:59 2014 -0700
+
+    Merge branch 'master' of https://github.com/economicmodeling/containers
+
+commit 47da6e9755baa9a57073de329f7bf1e757790b50
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 17:58:47 2014 -0700
+
+    Added ~= operator overload and some failing tests
+
+commit 43da822c91ef734997138fff282c6c89cc197b24
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 14:20:57 2014 -0700
+
+    Remove unwanted const
+
+commit 6dd27ca2311899e65eeb41d499da488b9e2b39cd
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Thu May 1 13:53:19 2014 -0700
+
+    Massive performance boost to k-ary tree
+
+commit f0157d88fdff940b2323090ee4dd945011d0e235
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 30 10:35:46 2014 -0700
+
+    Fixed unrolledlist implementation
+
+commit a0c25569f5c3afae67e1a0396355963782296390
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 17:23:44 2014 -0700
+
+    Const correctness
+
+commit 77f9d9644abd8e15ebf10cb4bc17a41a1b28705d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 17:22:09 2014 -0700
+
+    Const correctness
+
+commit c32f937e9760a62d84bf7562774d81a77852634b
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 16:40:07 2014 -0700
+
+    Add cleanup delegate to remove()
+
+commit 453041cab099ab803af988d677b787329081952a
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 29 13:45:31 2014 -0700
+
+    Fix a few bugs and improve performance with k-ary tree
+
+commit 947a0a42e797985a7c5cdc5c8c317cdc4a65ab43
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Apr 25 13:13:27 2014 -0700
+
+    Fix bug in removeLargest
+
+commit 8c43a20b9b0928a3c88504ff5c95c70f80fa9ac9
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Fri Apr 25 13:13:10 2014 -0700
+
+    New append overload
+
+commit 0af3d2dbe126a2b017678d3af5efdf03925a2bf8
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 23 16:40:47 2014 -0700
+
+    Added tests for appender
+
+commit 3db0132292e14930b46eea6966d78de2ec062b43
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 23 15:45:12 2014 -0700
+
+    Ref count should start at 1
+
+commit 65e9e106aae66d79acfedfb15e3ae794a4e42d12
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 23 13:53:00 2014 -0700
+
+    Made containers more GC-friendly
+
+commit 8fa1d028d98ad77d31aad17de3957c28e1b1f975
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 17:54:24 2014 -0700
+
+    Fixed k-ary tree range
+
+commit c79964953b9f539d3f6aa35cc0e1774a216e2355
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 17:06:52 2014 -0700
+
+    Use external comparitor in k-ary tree
+
+commit 7a19fbedde34ee1485385064c0daf1a328714515
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 17:06:22 2014 -0700
+
+    Fixed ref counting
+
+commit c09400c4ca1b0955131c9d3717274cd37e2cb017
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 12:03:17 2014 -0700
+
+    Modify node rotation
+
+commit c05f425868558bdacd64871f5fc4f37bd6b3003d
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 12:02:12 2014 -0700
+
+    Lazy initialization
+
+commit fa2a8df76d9240b4e997007a06bca949621ae5db
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 12:01:47 2014 -0700
+
+    BlockAllocator is now reference counted
+
+commit 196a140a694864230f575794de76ec011cde0532
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Tue Apr 22 11:40:42 2014 -0700
+
+    in now returns a pointer
+
+commit c00cc82727497b81eaa9a03efa6c25a4f29008b7
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 21 16:43:43 2014 -0700
+
+    Fixed destructors
+
+commit 125305e6002e95d9d234ab55902418bdd20ee4b1
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 11:07:02 2014 -0700
+
+    Added bulk insert methods
+
+commit 46c15b00139954e6eeae1375d0ba6b8705e7060e
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 11:06:49 2014 -0700
+
+    Lazy initialize and add some operator overloads
+
+commit c1282cbc0cceef27038ec24b20edfbec6df339b0
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 11:06:24 2014 -0700
+
+    allocate() cannot be pure or nothrow because emplace() isn't
+
+commit 464cfde37c127b8ba105a20737c8a220ab35161c
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 21 10:08:59 2014 -0700
+
+    Modified array growing behavior
+
+commit ed552b679899bd9f8b745eb8c6f21d2c4cd6b1b2
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Mon Apr 21 02:02:31 2014 -0700
+
+    Added dynamic array
+
+commit d5dba84942a3bc9aa0ce2ea1c3418a8719a0e9b6
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Sun Apr 20 01:33:57 2014 -0700
+
+    Fixed compile issue
+
+commit 83d09aafa4570948fd7fdfc822dc80767276e653
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Sun Apr 20 01:01:16 2014 -0700
+
+    Fixed tree implementation and introduced reference counting
+
+commit 898ca6e27cfb114ce909891e17202545311c81af
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 17 14:29:11 2014 -0700
+
+    Implemented remove for more containers
+
+commit ceb2a6d90dcba71e5e3c6df506bcd098fd87f727
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 17 11:51:48 2014 -0700
+
+    Tree insertion now works properly, also added some functionality to the unrolled list
+
+commit c836bc277c7045f9cd4ad691b5af4dd3aa7343bb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Tue Apr 15 19:11:52 2014 -0700
+
+    More work on tree balancing
+
+commit e3f94e864422c82fc43ebe7662986a6a93ccd228
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 14 18:15:42 2014 -0700
+
+    More work on the B-Tree
+
+commit 99f809cc5f228b9e61dfb17e4e7c209b05e32435
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Mon Apr 14 13:50:21 2014 -0700
+
+    More progress on the B-Tree
+
+commit ab20d7849ee2d7b6ac768a507fd4b2f10b3c5644
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Fri Apr 11 15:04:18 2014 -0700
+
+    More work on the b-tree
+
+commit ad7ba1f33c548334d3417c9e2763fa150c5e1a60
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 17:51:19 2014 -0700
+
+    Added b-tree
+
+commit 35ccc13fa2b50411eef71293f386c1a02aa24292
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 12:27:17 2014 -0700
+
+    Added unrolled linked list
+
+commit dd8b3a49896247aa5f223c4e758b1cbeea735039
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 11:12:18 2014 -0700
+
+    Updated ddoc
+
+commit 38f6d7ca099ab02e9f6b672722ec78a924126632
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Thu Apr 10 11:04:32 2014 -0700
+
+    Reduce memory usage for basic types, Fix size in node allocator
+
+commit 220587c40fe7d338711f4154402818d3f0140997
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Apr 9 17:27:03 2014 -0700
+
+    Added immutable hash set
+
+commit c857b8afd88b1c8e351874e764d4d3bc21d0d04b
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Apr 9 16:43:44 2014 -0700
+
+    Update headers
+
+commit a422ddb1ed2a65a88379a789d4f06fba56a491fb
+Author: Hackerpilot <brian.schott@economicmodeling.com>
+Date:   Wed Apr 9 16:41:58 2014 -0700
+
+    Code checked in
+
+commit e417170630eea62b86520ee5a8ec4bb6c1dd7d93
+Author: Hackerpilot <briancschott@gmail.com>
+Date:   Wed Apr 9 15:32:08 2014 -0700
+
+    Initial commit

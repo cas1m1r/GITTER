@@ -1,0 +1,129 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+
+## Unbreakable Botnet C2
+
+### Intro
+
+Recently I have read a [news](https://arstechnica.com/information-technology/2021/02/crooks-use-the-bitcoin-blockchain-to-protect-their-botnets-from-takedown/) about a new technique caught in the wild, that was being used by a Threat Actor.
+It was using the blockchain of Bitcoin to spread an IP of C2 for the bots from a botnet.
+I have decided creating my own version of it, using the blockchain of Litecoin and an IRC Bot written in C# as a Proof of Concept.
+
+The idea can evolve and be useful in a C2 Infrasctructure for Red Team Engagements.
+
+If used by a Malicious Agent, Law Enforcement can't take it down, because of the blockchain nature (descentralized network).
+
+### How it works
+
+The IRC bot uses an API of a Block Explorer site and queries the values of the last 3 transations to verify the IP for the C2 Server (ircd in this case).
+The most recent transaction value needs to be 31337 (0.00031337 LTC), it is like an "initialization flag". 
+The next 2 values are the IP, divided in 2 blocks of 5 chars (can be less, depends on IP), in its integer form.
+Currently I'm not obfuscating the IP in any way.
+
+It takes less than 5 minutes to change the IP (transactions to be confirmed).
+I set it up to spend less than R$ 2,00 (0.34 dollar cents) at each change.
+During my experiments, I spent R$ 1,74 (0.31 dollar cents), when the LTC price was R$ 1.115,64 (US$ 197,58).
+
+It's very cheap to change the IP. The money can be transferred between the Threat Actor accounts, therefore very little is spent in fees. 
+The negative side of it is that anyone that figure the logic out can change the IP.
+One possible solution for this problem, the most brilliant idea I had, is changing the expected value (the part that does not identify the IP itself) to a fixed and high amount.
+Well, the IP would be changed and the money would be on the attacker's account, hehe. 
+And, of course, for the change take effect, the infected boxes or the ircd machine must be restarted (only the attacker can do it).
+
+### Conclusion
+
+The idea is very cool!
+Thinking about the negative effect: it will bring problems for the Law Enforcement to takeover the botnets using this technique.
+Thinking about the positive effect: the idea can evolve and be useful for Red Teams, for example!
+
+### Source
+
+Have fun: [src folder](src/)
+
+The IP used was *3105793573* (185.30.166.37) from Freenode.
+
+### Demo
+
+Watch on [YouTube](https://www.youtube.com/watch?v=L-tx1Act7ao)
+
+### Greetz
+
+[Saullo "n0ps13d" Carvalho](https://twitter.com/n0ps13d)
+
+### Contact
+
+If you wanna talk more about it, get in touch:
+
+* **IRC:** gnx @ Libera.Chat
+
+* **Telegram:** [@gnxbr](https://t.me/gnxbr)
+* **Twitter:** [@alissonbertochi](https://twitter.com/alissonbertochi)
+* **E-mail:** alisson[at]bertochi[.]com[.]br
+* **Linkedin:** [https://www.linkedin.com/in/gnxbr/](https://www.linkedin.com/in/gnxbr/)
+====================== GIT HISTORY: ======================
+7cb2eb8 HEAD@{0}: clone: from https://github.com/gnxbr/Unbreakable-Botnet-C2
+commit 7cb2eb89db3935cbd9267b98bc1757351cb5a810
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Sun Dec 26 08:26:54 2021 -0300
+
+    Update Bot.cs
+
+commit fe2da71867531b9c05ba5be52015a95c7ae43359
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Sun Aug 8 19:26:41 2021 -0300
+
+    Changing the IRC network
+
+commit 19a961728c30b2a8305d859c2d50f299b7e1934a
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Wed Mar 24 08:03:23 2021 -0300
+
+    Update Bot.cs
+    
+    Added my banner
+
+commit 915c3f09acdc128cc661886af555bbf53ee4d1c2
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Sat Mar 20 18:55:25 2021 -0300
+
+    Update README.md
+    
+    Time change
+
+commit 28520b640ba3af46a4c1dea6c4de6fd10cfdd6ae
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Fri Mar 19 10:48:51 2021 -0300
+
+    Add Video Demo
+
+commit e7f46f4692c5c2998716c5d661833762a09a9c4c
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Thu Mar 18 17:17:17 2021 -0300
+
+    Update README.md
+
+commit ca4061a594f17459ba8ed447cb42e6afd01d4f7b
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Thu Mar 18 09:14:32 2021 -0300
+
+    Update README.md
+
+commit 54fe132bb101489d506319ed78a9a94cd19818d6
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Thu Mar 18 09:05:14 2021 -0300
+
+    Update Bot.cs
+    
+    Removing extra spaces
+
+commit 828f4a717e03a2be21c23934baf851bc0be310c2
+Author: Alisson Bertochi <alisson@bertochi.com.br>
+Date:   Thu Mar 18 09:02:42 2021 -0300
+
+    New Project: Unbreakable Botnet C2
+
+commit 9a86e98d3467a57b0043023b342c7fc36503b062
+Author: Álisson Bertochi <alisson@bertochi.com.br>
+Date:   Thu Mar 18 08:42:05 2021 -0300
+
+    Initial commit

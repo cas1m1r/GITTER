@@ -1,0 +1,3146 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Arsenal [![Build Status](https://travis-ci.org/KCarretto/Arsenal.svg?branch=master)](https://travis-ci.org/KCarretto/Arsenal) ![python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
+Extensible Red Team Framework
+
+## Overview
+Arsenal is a framework designed to be a back-end for Red Team command and control operations. It allows many Agent-C2 models to be integrated into one system, with a great interface and many useful features. The goal is to limit the time Red Team spends on back-end development, and invest more resources into the malware that is distributed to target systems.  
+
+### Feature Highlights
+* Integrates with custom implants and C2 servers with ease
+* Easily group target machines and interact with all of them at once
+* 3rd Party applications can integrate using outgoing webhooks (i.e. Slack Integration)
+* Register agents and prevent them from receiving unsupported commands
+* Protected by authentication and custom RBAC implementation to restrict what users have access to
+* Easy to use console with autocomplete, history searching, and more
+* Enable action attribution, know who on your team did what and when
+
+## Quick Start
+Here are some quick deployment instructions to set up on Ubuntu 16.04 (The project will work across various distros however). It is recommended to loadbalance the teamserver for production use.
+
+### Fast install
+Note: Fix permissions (i.e. not require sudo) at your leisure
+Optionally remove the new argument if you do not wish to populate the db with defaults.
+
+```
+sudo git clone https://github.com/kcarretto/arsenal /opt/arsenal
+cd /opt/arsenal
+sudo chmod +x install.sh
+./install.sh new
+```
+
+### Install dependencies
+`sudo apt-get update && sudo apt-get install docker.io git curl`
+
+### Clone this repository
+`sudo git clone https://github.com/kcarretto/arsenal /opt/arsenal`
+
+### Install docker compose
+
+`sudo curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose`
+
+`sudo chmod +x /usr/local/bin/docker-compose`
+
+### Deploy with docker compose
+`mkdir -p /var/log/arsenal`
+
+`cd /opt/arsenal; docker-compose up -d >> /var/log/arsenal/stdout.log 2>> /var/log/arsenal/stderr.log`
+
+### Configure database defaults
+`docker exec -it arsenal_teamserver_1 /bin/sh -c "cd /opt/arsenal/bin; python3 setup.py"`
+This will populate the database with default users and roles defined in `bin/setup.py`
+
+### Additional Information
+The teamserver will now launch using docker-compose. To ensure that it is functioning properly, you may run `curl 127.0.0.1/status` and you should receive the teamserver's status back. You may also install the teamserver to the system without docker, please see `/contrib` for useful setup scripts, service files, and installation information.
+====================== GIT HISTORY: ======================
+24eaa9b HEAD@{0}: clone: from https://github.com/KCarretto/Arsenal
+commit 24eaa9baf50032c9eb9fe2c45e5fc63557d63358
+Merge: e22684a fe7fece
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Sep 16 19:17:57 2019 -0700
+
+    Merge pull request #134 from Scuzz3y/master
+    
+    Commented out PwnBoard integration.
+
+commit fe7fece13bfbb8e9a22b7046f33965d0c18096bd
+Author: Brandon Adler <bcadler1@gmail.com>
+Date:   Sat Aug 31 15:56:04 2019 -0400
+
+    Commented out PwnBoard integration.
+
+commit e22684a4d6d2781c57fa20ea02c41edd077adcc4
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 20 10:23:33 2019 -0400
+
+    Emergency logging
+
+commit afebf9d008a13bd3bbc4265794241d1affb3bc2c
+Merge: 37aa54d 6cd1149
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 1 19:52:02 2019 -0500
+
+    Merge pull request #131 from KCarretto/performance-fixes
+    
+    Performance fixes
+
+commit 6cd11496b54765f6cfd98a2efb038a4338dcc9cc
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Feb 21 21:10:36 2019 -0500
+
+    Updated uwsgi to scale processes based on cores
+
+commit 2b7f172f919bfa08258d3087b6fa68755fd150bd
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Feb 21 04:40:54 2019 -0800
+
+    Added log files to nginx conf by default
+
+commit b86eeed37a964e0e80345311cd3e4f2086da7bf2
+Merge: 0914b98 d2cab62
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Feb 21 04:23:47 2019 -0800
+
+    Fixed docker type
+
+commit 0914b988f80393fc08c66891eb215fc65f4a1ed4
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Feb 21 04:20:16 2019 -0800
+
+    Added some indexes, tweaked deployment settings
+
+commit d2cab6236010203523162187ffc61e40ee635fbc
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Feb 21 04:20:16 2019 -0800
+
+    Added some indexes, tweaked deployment settings
+
+commit 2010b0f769c09f363079286d1b5da505ccaaf765
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Feb 21 03:38:11 2019 -0800
+
+    ListTargets now filters query to mongo
+
+commit bc36485cc3a7044630a21e2205e34b480191fe06
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Feb 20 21:25:26 2019 -0800
+
+    Added missing redis dependency
+
+commit ff6f7b305fa4ddb6518dfde4c7f882a01995312c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Feb 20 21:21:35 2019 -0800
+
+    Logging goes to flask logger now
+
+commit 2873df378e4d71902d856c23b7a102dc03bcb551
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Feb 20 20:42:50 2019 -0800
+
+    Profile to directory, swap to use celery redis.
+
+commit 4d75298ecfede95b9717e26e9d8a3cc076009283
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Feb 20 19:54:53 2019 -0800
+
+    Making it better <3 (temporarily)
+
+commit 37aa54dbcad526475475bbfea60cf748399e80cf
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Nov 13 20:48:36 2018 -0800
+
+    Fix install.sh: add -y to dependency installation
+
+commit e61b732ad99451bcfc4f8b634679a6e61929b4f1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Nov 13 20:12:53 2018 -0800
+
+    Removed broken dependency from Dockerfile. Added install script. Updated ReadMe.md with installation instructions.
+
+commit f81a6823eef259ffc545bd8f854371b672f55e12
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Apr 26 21:41:52 2018 -0400
+
+    Small event modification{
+
+commit 19f519837cf7faa47016e9df931826bb72cdfcf8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 04:05:35 2018 -0400
+
+    Updated how changan receives data
+
+commit 0a91e53730b9c29c1ac1088cda04768c810a29af
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 03:58:35 2018 -0400
+
+    Added event trigger for auto created targets
+
+commit 61001c58c238b611eeb5d563db2d24861895b60a
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 03:46:16 2018 -0400
+
+    Removed pwnboard print
+
+commit bcfb49c53277c6c6eab0305dfde94cbc34bb1f7a
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 03:43:36 2018 -0400
+
+    Fixed changan typo
+
+commit 5172807ef006ee5b38debd2495647ea76fc93358
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 03:41:11 2018 -0400
+
+    Hooked in changan integration
+
+commit ea4bbb7c3d840418c116071460adebd946c5ad15
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 03:35:23 2018 -0400
+
+    Fixed changang integration typo
+
+commit a11f38cf0cf6a7ea18afb10eea08db108864b957
+Merge: 5735919 0cf91cb
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 21 03:11:10 2018 -0400
+
+    Merge pull request #128 from KCarretto/changan-integration
+    
+    Changan integration
+
+commit 0cf91cbbb1c63eaf224013176ff05b968cd896c9
+Merge: 4a30780 4c0a0bf
+Author: koalatea <koalateac@gmail.com>
+Date:   Sat Apr 21 02:51:28 2018 -0400
+
+    Merge branch 'changan-integration' of github.com:KCarretto/Arsenal into changan-integration
+
+commit 4a3078057f3fe2921a6f94035df7e3b2ac1c3dd5
+Author: koalatea <koalateac@gmail.com>
+Date:   Sat Apr 21 02:50:25 2018 -0400
+
+    changan integration with fixing of documentation
+
+commit 26eda41dadcd12111fae42208d5de31c1f55de97
+Author: koalatea <koalateac@gmail.com>
+Date:   Thu Apr 19 13:51:09 2018 -0400
+
+    commiting for rebase
+
+commit 4c0a0bfb8a19e2d9c4ec7c36eacf9a37e9e148ec
+Author: koalatea <koalateac@gmail.com>
+Date:   Sat Apr 21 02:50:25 2018 -0400
+
+    changan integration with fixing of documentation
+
+commit 5735919f255c331fcb73c4b25de4e5e9fccf618c
+Merge: 7c756e1 a2d0117
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 21 01:18:29 2018 -0400
+
+    Merge pull request #127 from KCarretto/irsec-fixes
+    
+    Credential server polish
+
+commit a2d0117454c7b341fe858f57d0f92770405d72e4
+Merge: 7996b00 7c756e1
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 21 01:18:24 2018 -0400
+
+    Merge branch 'master' into irsec-fixes
+
+commit 7996b00d3ff3fef9a22ac86b23a069dbe74c569b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 01:17:46 2018 -0400
+
+    Credential server polish
+
+commit 7c756e1d2e7b1074d616dbac0992e8d6694ce5dd
+Merge: 3369256 5afd4a6
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 21 01:06:41 2018 -0400
+
+    Merge pull request #126 from KCarretto/irsec-fixes
+    
+    Fixed references to target.credentials
+
+commit 5afd4a67de1e6b825c6bc19ada8698088c99e32e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 01:06:09 2018 -0400
+
+    Fixed references to target.credentials
+
+commit 3369256c1b7c5b068ed4a5b65b32017bbaccc167
+Merge: 2e1e89f 0c8c3a3
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 21 00:37:11 2018 -0400
+
+    Merge pull request #125 from KCarretto/event-dev
+    
+    Added Credentials server
+
+commit 0c8c3a3b664573066d33f2f0577a1b31382412c3
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 21 00:36:53 2018 -0400
+
+    Fixed unit tests
+
+commit c184f3c39e93f14e0a7c9f4a9237e798f5fd2a4a
+Merge: 889ebfd 2e1e89f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 21 00:13:34 2018 -0400
+
+    Merge branch 'master' into event-dev
+
+commit 889ebfd1b8747484022ce316bc5c17cef201ad07
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 20 23:57:17 2018 -0400
+
+    Added creds API to router
+
+commit 9b405e57a397ab7c9a665d15ffebee6b6697b456
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 20 23:22:41 2018 -0400
+
+    Added Credential document
+
+commit 38d47bd61530ff86fd7e18932eff08f5e6f20bbe
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 20 23:20:59 2018 -0400
+
+    Implemented credential server
+
+commit 2e1e89feb25f0dc118e79606fd4c303626170b2d
+Merge: b90231b e6bb7ef
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 20 21:34:16 2018 -0400
+
+    Merge pull request #121 from micahjmartin/dev
+    
+    Updated the facts json and removed old code
+
+commit e6bb7efb1bf39489eaa48c70fa93897fb2bf626f
+Merge: e7633b4 b90231b
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 20 21:34:09 2018 -0400
+
+    Merge branch 'master' into dev
+
+commit c81d605f4557d32ff7d6f79f020189ce6064d843
+Author: koalatea <koalateac@gmail.com>
+Date:   Thu Apr 19 13:51:09 2018 -0400
+
+    commiting for rebase
+
+commit b90231b7a5b32709c5d89387ebf6447091d3a83f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Apr 19 04:26:46 2018 -0400
+
+    Added new event documentation
+
+commit 2b72252ef9f4c2f9ae2d476d6376d400ed122018
+Merge: 060651d 044f538
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Apr 19 04:13:00 2018 -0400
+
+    Merge pull request #124 from KCarretto/event-dev
+    
+    Added requested events
+
+commit 044f5389967e15b547db7e1411ed7e14781bc827
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Apr 19 04:11:34 2018 -0400
+
+    Added another requested event
+
+commit 2f994827cf03752b78c4d16b0f56ffab9043c833
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Apr 19 04:06:35 2018 -0400
+
+    Added RenameTarget event
+
+commit e7633b4a80b3687d8b0546186fef32ff757c614e
+Author: Micah J. Martin <mjm5097@rit.edu>
+Date:   Wed Apr 18 16:50:11 2018 -0400
+
+    Updated the facts json and removed old code
+
+commit 060651d87dfeb6c4cb0738743524e9493e29f021
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 18 16:24:40 2018 -0400
+
+    Added more config options to env
+
+commit 6d4a8807b74bc8c91c76881aa9b71d9357dd8d14
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 18 15:06:56 2018 -0400
+
+    Added agent_version to session document
+
+commit 91d04ad1465f65ac382ba7fed75a80300ecc5812
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Apr 18 13:33:34 2018 -0400
+
+    Updated with python3.6 badge 8)
+
+commit 77a992a121fef84ee0ab1c215dc1b59cd36234e0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 18 09:57:10 2018 -0400
+
+    Updated config to pull more values from environment
+
+commit fd1583440d2fe5e3e52f80d9848731e65238e6e6
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 18 09:46:33 2018 -0400
+
+    Fixed default session log levels
+
+commit a9a199aa9b303b159c19902915b62ae8b195c6d0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 18 09:43:32 2018 -0400
+
+    Updated default log level
+
+commit c57bbad1201c951ea434516122e4dddd21dacd96
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 18 09:42:44 2018 -0400
+
+    Updated default log levels, enabled logging for failed responses
+
+commit ef039b50250ad8517fea7f6d7abc0f56ad4a891f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 18 09:38:28 2018 -0400
+
+    Fixed auth get_context to return default values if auth is disabled
+
+commit 470bd72dcda810dade4448facb0b0280c886c36f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 17:56:42 2018 -0400
+
+    Fixed type conversion logic
+
+commit a0dd46b3e3426f271200f96b2f54ec5ffe463a6c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 17:32:34 2018 -0400
+
+    Fixed typing of custom config values to allow for int conversion if possible
+
+commit 252660c401796c2e8c51f50ec99fd91be707503b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 17:29:41 2018 -0400
+
+    Fixed issue with type comparison
+
+commit e8e59e9c8730194eb6d496344d5dfabe0b16345f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 17:05:03 2018 -0400
+
+    Fixed obj --> object typo
+
+commit c510b49472668288b7599d9e6d76b2a846da3a8c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 16:59:30 2018 -0400
+
+    Fix to -c option of config update action
+
+commit db414ddd6b7ce107f07e521893ca80db5ae117cb
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 16:48:07 2018 -0400
+
+    Fixed action ownership when created through group action
+
+commit e80f3ecc6e6ce3b74798628065139ba6381e557b
+Merge: e8934e2 66c2fd9
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 16:39:21 2018 -0400
+
+    Merge branch 'master' of ssh://github.com/kcarretto/Arsenal
+
+commit e8934e297a03dda3c30df577b93cb2b56a986835
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 16 16:39:17 2018 -0400
+
+    Fixed quick to only bind to active sessions.
+
+commit 66c2fd9313b8b521eb97cf44bb82944e902647d7
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 16 01:25:28 2018 -0400
+
+    Fix config update
+
+commit f64922babf505a5adea167c139f89b6c4fb7cb52
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 13 23:16:06 2018 -0400
+
+    Added support for target public ip tracking
+
+commit 36ccd54751e2b15516e5fd71e7864219804395d2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 13 22:53:42 2018 -0400
+
+    Updated config defaults
+
+commit c0efc287e36761cc1de04c2bd963c376c3757b1b
+Merge: 5541eb9 20ea047
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 13 21:13:04 2018 -0400
+
+    Merge pull request #118 from KCarretto/hash-password-fix
+    
+    alrighty so no more bcrypt, helloooooooo argon2
+
+commit 20ea047a99258b034b9e7f6e3eec88303a71bd3f
+Merge: fc6d14a 5541eb9
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 13 21:12:48 2018 -0400
+
+    Merge branch 'master' into hash-password-fix
+
+commit 5541eb95f444647644ef25bbce974cb8cbe5f85e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 13 03:16:03 2018 -0400
+
+    Optimized docker file
+
+commit 9c4e52c8df014a0f5eb789b915c424f54994e5ad
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 13 03:09:40 2018 -0400
+
+    Fixed bug in CreateAction when quick was specified
+
+commit 4477c0425b87215a94425a2ca02b1e3421f46ec8
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 13 02:05:22 2018 -0400
+
+    Update user_guide.md
+
+commit f74f951e7682a4b3c5a6eaf61e6e2d8a42d822d3
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 13 00:57:53 2018 -0400
+
+    Delete notes.md
+
+commit 172603d8cafd3d08a6df5f667e517aff4adea8ab
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 13 00:57:35 2018 -0400
+
+    Added 'Logged Error' documentation
+
+commit 7c406eaa605602f09032d473eaecb17cb7d2ebc2
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Apr 13 00:54:01 2018 -0400
+
+    Generated api docs based on doc strings.
+
+commit c276bcc18e659c78bd9652d02cb56caf9543417e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 13 00:45:21 2018 -0400
+
+    Added documentation generation script
+
+commit 1d4747d820cae2bd6150a9d15222cbc38e826b6f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 13 00:41:01 2018 -0400
+
+    Updated documentation for every API call
+
+commit d6dc730173916010edf783a111973c229517ff13
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Apr 12 14:47:22 2018 -0400
+
+    Forced target document to fetch session documents
+
+commit fc6d14a910534a4cc9a414e4bcd29091d8efb1dc
+Merge: 609ac16 0cb074a
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Thu Apr 12 14:41:53 2018 -0400
+
+    okay, this should be pep8 compliant now2
+
+commit 609ac1641e6bfdf2b3cea6aeb4b7751ecf4d5102
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Thu Apr 12 14:41:17 2018 -0400
+
+    okay, this should be pep8 compliant now
+
+commit 0cb074a15975cbc5280c6d179d35dddda0522ef8
+Merge: 36613c1 7f4bc8d
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Thu Apr 12 14:26:11 2018 -0400
+
+    Merge branch 'master' into hash-password-fix
+
+commit 36613c1826fb1108fcd35c9dfe6fa90f4ba17e61
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Thu Apr 12 14:24:38 2018 -0400
+
+    alrighty so no more bcrypt, helloooooooo argon2
+
+commit 7f4bc8db560a9ac70d96b5481e0069da9ee51e6f
+Merge: 51b90f5 c320fa9
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Apr 12 01:26:31 2018 -0400
+
+    Merge pull request #117 from KCarretto/bug-fixes
+    
+    Bug fixes
+
+commit c320fa97de86a0c71301fbac3a7fefd1de0cb0a6
+Merge: 281a73b 51b90f5
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Apr 12 01:26:21 2018 -0400
+
+    Merge branch 'master' into bug-fixes
+
+commit 51b90f5d1269ad3836ed64eb64e3c1114ac64a30
+Merge: a043c6c 3924091
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Apr 12 01:23:48 2018 -0400
+
+    Merge pull request #111 from micahjmartin/micah-dev
+    
+    Added pwnboard integration
+
+commit 281a73bed22b6a38a88f022dee9dbb9bf07ab46c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Apr 12 00:44:31 2018 -0400
+
+    Added action_id to slack notification
+
+commit 960200591a895e7efe70d10de401d7d7a048159c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Apr 12 00:22:56 2018 -0400
+
+    Added error handling if not enough arguments are provided to create action.
+
+commit 52a9bdbc00c5e06507e119ba763f6e0d6c2a9bd4
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 11 22:46:43 2018 -0400
+
+    Improved Automember feature search
+
+commit 628fc1d13e0bd37aea31b50a80426f45a827f9a2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 23:57:31 2018 -0400
+
+    Fixed action_complete in slack integration
+
+commit 97ec5b2b699d2df4dca92ecd3449ebaaf6d9d22d
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 22:36:32 2018 -0400
+
+    Updated IO to BytesIO
+
+commit 65e7158300575523b78bd22c12136d8932daf97e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 22:23:09 2018 -0400
+
+    Fixed import issue, moved to new name: io
+
+commit 9c544f3d76e410263d414ba2d1e2457f12877dd1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 22:16:10 2018 -0400
+
+    Added support for gzip encoding
+
+commit 3924091665666d2c1534ddff3acf91595f884a6a
+Author: Micah J. Martin <mjm5097@rit.edu>
+Date:   Tue Apr 10 20:47:03 2018 -0400
+
+    Updated fixes from PR review
+
+commit 75ef50afbe083ab11b0143be15ee92c45a8a889c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 20:00:54 2018 -0400
+
+    Fixed bug that prevent sessions from retrieving bound actions
+
+commit 80068be64b16abaaaaccaf21f3e6257235ef1031
+Author: Micah J. Martin <mjm5097@rit.edu>
+Date:   Tue Apr 10 02:22:24 2018 -0400
+
+    Added the pwnboard module to the integrations/__init__
+
+commit 7fd9081251780127f108f431c10880edc709c908
+Author: Micah J. Martin <mjm5097@rit.edu>
+Date:   Tue Apr 10 01:42:14 2018 -0400
+
+    Updated gitignore
+
+commit 8db092264e7daf303899efccb432e5599140a756
+Author: Micah J. Martin <mjm5097@rit.edu>
+Date:   Tue Apr 10 01:41:19 2018 -0400
+
+    Pylint compatible
+
+commit ad62f1e6d15bbc2ecb3e5355a5365dfa231b14b6
+Author: Micah J. Martin <mjm5097@rit.edu>
+Date:   Tue Apr 10 01:26:26 2018 -0400
+
+    Updated Docs, Updated the integration, added integration
+
+commit d1a7e504149779846d690a7243422b2bc2aa1c53
+Author: Micah J. Martin <mjm5097@rit.edu>
+Date:   Tue Apr 10 00:59:34 2018 -0400
+
+    Added the integration base
+
+commit 34782dde6dbc15df8fb24e92cc854c63603cee94
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 18:17:15 2018 -0400
+
+    Automatically replace target_name in whitelist,blacklist, and built_members when RenameTarget is called
+
+commit a043c6cf3b9a79b3453d02016de836793534c488
+Merge: 7c643de 4f2f94f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 10 15:02:03 2018 -0400
+
+    Merge pull request #115 from KCarretto/sqs-testing
+    
+    Fixed RenameTarget bugs. Added UnblacklistGroupMember
+
+commit 4f2f94fee6715e1866ec598505dc1805e2829398
+Merge: 402ef7f ca460a2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 15:00:18 2018 -0400
+
+    Merge branch 'sqs-testing' of ssh://github.com/kcarretto/Arsenal into sqs-testing
+
+commit 402ef7f7f7883f04dbc19c2dbb79444e3a3090d1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 15:00:08 2018 -0400
+
+    Added UnblacklistGroupMember API endpoint
+
+commit ca460a2f43f3f014f753697348c1989b82bd4b36
+Merge: 9dba274 7c643de
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 10 14:57:27 2018 -0400
+
+    Merge branch 'master' into sqs-testing
+
+commit 9dba27428c61162436a728f1fef5a393f4a00e6c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 14:56:37 2018 -0400
+
+    Updated RenameTarget code to be safer with commits to the database.
+
+commit 1b88707fb62e30ed95532e9112f8eb13a69c8af4
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 10 14:52:06 2018 -0400
+
+    Implemented fix for RenameTarget and group modifications
+
+commit 7c643de45f4d20c312632eced63e61cd91770664
+Merge: e41f940 7c16fa0
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 10 02:23:23 2018 -0400
+
+    Merge pull request #113 from KCarretto/hashing-fix-dev
+    
+    Hashing fix dev
+
+commit 7c16fa04fca576a958bc74b186f903fc6dd75b52
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Tue Apr 10 02:06:01 2018 -0400
+
+    added decode to create_api_key...
+    
+    hopefully fixes mongo hashing probs
+
+commit 964620bc43486d2a994f77ac92e02649e65d16b4
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Tue Apr 10 02:05:13 2018 -0400
+
+    set hash output to decode from bytes to string ...
+    
+    ... to fix mongo issue?
+
+commit e41f940af6fd2e538de67fd479a538732d0b698d
+Merge: dbde546 a90bf85
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 10 00:39:06 2018 -0400
+
+    Merge pull request #110 from KCarretto/sqs-testing
+    
+    Fixed SQS connectivity with celery. Slack Integration working.
+
+commit a90bf858a1e3d1cc5b7b2c3f6041a489b7b70bc5
+Merge: dd1e569 dbde546
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 10 00:36:35 2018 -0400
+
+    Merge branch 'master' into sqs-testing
+
+commit dbde5463b354cd0c11dd5ca989b839c6ed36ebc9
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 10 00:35:49 2018 -0400
+
+    Fixed readme
+
+commit dd1e569600d4451857adcb74bee5f77fbab15055
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 23:58:35 2018 -0400
+
+    Made slack integration log timestamp in human readable format
+
+commit f8b33999dc41c3a8b505fee7b7f14e8859e07c14
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 23:48:59 2018 -0400
+
+    Fixed slack integration api call
+
+commit a50ea9d987c2bbc5cb2dd33a4fa513119915ac83
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 23:25:30 2018 -0400
+
+    Fix slack integration method call
+
+commit a0040f4e24a6a156b594a7c0be7a195ebb36cefa
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 23:18:10 2018 -0400
+
+    Added debug print to slack integration
+
+commit 54c9ec762c854bb034838e2919857ad3e5bde3e6
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 22:57:26 2018 -0400
+
+    Fixed arguments again
+
+commit fb39160f5be0fc0a3b9d8b482ebf54119ffdbd69
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 22:51:03 2018 -0400
+
+    Restructured integration notifier
+
+commit 8b83fc898fa765ac3ecc070e6bc7a75852e6e62c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 22:46:41 2018 -0400
+
+    Fixed notify_integration arguments bug
+
+commit e112cf07a4c202ed70f0310a505a6852a494884e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 22:10:02 2018 -0400
+
+    Updated dockerfile to install curl
+
+commit 35d1a5d23d9fac8c8f1e58f7cef83dfb01ea0450
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 21:06:08 2018 -0400
+
+    Added pycurl as dependency for sqs
+
+commit 8db933c985ecc42870772609e58bfb9f8d065cc2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 21:04:23 2018 -0400
+
+    Added transport broker options
+
+commit 3edd8a3dce65db04ee79b810e7b53527469c5778
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 20:48:23 2018 -0400
+
+    Update requirements to include boto3
+
+commit 6b5d2190db42bb3be5b6389ea79a7968c58aa669
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 20:42:36 2018 -0400
+
+    Updated default docker-compose
+
+commit 453d1a2795fd14fcda9eea33916f10dc3d78fb4b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 20:39:05 2018 -0400
+
+    Added more debug logging for integrations, enabled SLACK_API_TOKEN from docker-compose
+
+commit 35331560fba3810097180a0088207e6f546e5e42
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 20:27:07 2018 -0400
+
+    Fixed issue assigning default levels
+
+commit 8758da91e6851b62eda6dc65f12c5729a46bb592
+Merge: d01c787 453d700
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 20:10:15 2018 -0400
+
+    Merge pull request #109 from KCarretto/feature-dev
+    
+    Added --quick and action_id specification. Fixed Celery dependency.
+
+commit 453d7007ec9f45e3b4946993c12ac142b4744142
+Merge: 244e250 d01c787
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 20:10:05 2018 -0400
+
+    Merge branch 'master' into feature-dev
+
+commit 244e25021cb5769364907d9593a8cfead5247dc0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 20:09:34 2018 -0400
+
+    Changed RESULT_BACKEND to not have a default value
+
+commit 9c27344394c10755e22fe874992e60d92f7bb9fa
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 20:02:53 2018 -0400
+
+    Fixed boto dependency
+
+commit d01c7875a81d2bb938174ff6d851cfc3b0365ef9
+Merge: c06f77e c54623e
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 19:49:54 2018 -0400
+
+    Merge pull request #108 from Cictrone/master
+    
+    really fixed it this time, i swear...
+
+commit c54623ef52639c3317643769f0646fae4c33b1b2
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Mon Apr 9 18:58:01 2018 -0400
+
+    really fixed it this time, i swear...
+
+commit c06f77e3faa54bfb11c8d1fcf352c3871b038d2f
+Merge: f0b9db1 79bd810
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 18:47:29 2018 -0400
+
+    Merge pull request #107 from Cictrone/master
+    
+    (ง'-')ง this is okay now, change my mind
+
+commit 6d67e0316b4a3e315fa58bae53e683fd2ff0277c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 18:38:07 2018 -0400
+
+    Allowed 'quick' parameter to be sent to CreateAction and CreateGroupAction APIs
+
+commit 79bd810509c00bc809681c09b944cd7e2493ea8d
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Mon Apr 9 18:20:07 2018 -0400
+
+    i fixed this bish
+
+commit 421ad449a58b5da6634fb0c5a58b123da6b14969
+Merge: 39bc737 f0b9db1
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Mon Apr 9 18:10:56 2018 -0400
+
+    Merge branch 'master' into master
+
+commit 39bc73798301e4be07a479caf15e864041e85c58
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Mon Apr 9 18:08:27 2018 -0400
+
+    okay now it fixed (ง'-')ง
+
+commit 24f40c66abc0270a9ad62c4be406371a0f766977
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 17:04:56 2018 -0400
+
+    Allow user to specify action_id and group_action_id manually
+
+commit f0b9db17b38c8b6f6a31f107d55e3e3807c85d83
+Merge: 4b7173d 9f63a3a
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 16:48:16 2018 -0400
+
+    Merge pull request #105 from Cictrone/master
+    
+    I think i encoded all the strings passed to bcrypt now :P
+
+commit 9f63a3a21696101b533f2e523c1e37b62f494adf
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Mon Apr 9 16:44:25 2018 -0400
+
+    I think i encoded all the strings passed to bcrypt now :P
+
+commit 4b7173d3957cb71fc906e2ae18fa8d8b9b5d238b
+Merge: af2e648 3149aa6
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 16:16:46 2018 -0400
+
+    Merge pull request #104 from KCarretto/integrations-dev
+    
+    Add Integrations, and slack example
+
+commit 3149aa6238ed2e0dd7d6d3cb6bbe81811a31105b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 16:16:32 2018 -0400
+
+    Fixed import issues and linted
+
+commit a5bd368d6b59f73689c4de788ed0d5672dbaab9d
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 16:08:21 2018 -0400
+
+    Linted, fixed import issue
+
+commit a0d4179b77accf3432e0d177b960ddfbb11851fd
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 16:05:42 2018 -0400
+
+    Made notifications and integrations be handled in different threads
+
+commit a5360c25c1c98c39d7e21fa104d48dba7e4e7eae
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 15:48:58 2018 -0400
+
+    Set celery log file
+
+commit 3624de1da726a0a13db2d68d24212324aa7cb5ce
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 15:33:29 2018 -0400
+
+    Configure docker to start celery
+
+commit c0fcc77ce015083ba599883b42e982d79c83c9d8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 15:27:29 2018 -0400
+
+    Fixed unit tests, updated slack integration
+
+commit d6503f631d0b368669840d14b683f8d85ff85a4e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 15:14:20 2018 -0400
+
+    Updated setup to allow db auth
+
+commit e8751839d2eab9edac0720fa9b39dc3b1196d884
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 15:13:59 2018 -0400
+
+    Support mongo authentication
+
+commit 3c10b1f7733a25a43792aa186840662ac8e9fd10
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 15:03:48 2018 -0400
+
+    Updated requirements to contain amazon sqs dependency for celery
+
+commit b35d1d5f4196c8df7e188ebeeca222b6a1c171df
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 13:38:36 2018 -0400
+
+    Copy slack API key in dockerfile
+
+commit 93a5a4cce561fedb4cfd4eda582c4c6bbad4c2ae
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 13:36:35 2018 -0400
+
+    Added enable/disable integration feature
+
+commit 5699821ed67e222509d0406bdd106a35c68990f1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 13:34:37 2018 -0400
+
+    Added slack integration and logged_error event
+
+commit af2e6484a0da746e47b920fe0b7c9c60916b2238
+Merge: 2dd8e5e 2718bef
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 12:17:28 2018 -0400
+
+    Merge pull request #103 from KCarretto/docker-dev
+    
+    Proper error_type for invalid API Key
+
+commit 2718befd9b8aba2074e51d5d2e3fb47179646906
+Merge: d3dd8c3 2dd8e5e
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 12:17:22 2018 -0400
+
+    Merge branch 'master' into docker-dev
+
+commit d3dd8c38b9462ad90e8ec485a681cf2957561c34
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 12:16:54 2018 -0400
+
+    Proper error_type for invalid API Key
+
+commit 2dd8e5ea7b1f401072c3e80a4101850581d898c1
+Merge: 4090fde 309e618
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 12:10:50 2018 -0400
+
+    Merge pull request #101 from KCarretto/docker-dev
+    
+    Fix docker deployment
+
+commit 309e618a221710fc95dad33b5cd88a8e33d81ba2
+Merge: 234c351 4090fde
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 12:10:42 2018 -0400
+
+    Merge branch 'master' into docker-dev
+
+commit 4090fde9dbf7c1e4a86f930a7ab7b6fa9f0f531f
+Merge: 3c6e696 2b1a0a9
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 12:09:44 2018 -0400
+
+    Merge pull request #79 from Cictrone/master
+    
+    changed the bcrypt library to use one that allows static salts for AP…
+
+commit 2b1a0a95b78c13c2ecbd16bb6ad3723814b260a3
+Merge: 9e4dfce 3c6e696
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:33:27 2018 -0400
+
+    Merge branch 'master' into master
+
+commit 234c351f24ecf9e0f530c7b58eb1274c0e688e8f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 10:30:01 2018 -0400
+
+    Updated referenced hostnames
+
+commit 3c6e6967fa64d536c6bc2ab0d35b841389f3a60d
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:27:59 2018 -0400
+
+    Added database setup
+
+commit 73aedfb51751fde5b4dffe80e11dc91a507b4dc4
+Merge: 04a4c64 a2a2e96
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 10:23:08 2018 -0400
+
+    Merge branch 'docker-dev' of ssh://github.com/kcarretto/Arsenal into docker-dev
+
+commit 04a4c64945343890a624cc5ab3a8e36f4753050c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 10:23:04 2018 -0400
+
+    Added bin to docker container
+
+commit 52c41546e7c139351196b4beef71012e9d49ff13
+Merge: 0aa98ac a2a2e96
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:14:46 2018 -0400
+
+    Merge pull request #98 from KCarretto/docker-dev
+    
+    Fixed Docker Naming
+
+commit a2a2e96629ed605cc1661790c5e9ba8a4cd56457
+Merge: 57ee0b6 0aa98ac
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:14:35 2018 -0400
+
+    Merge branch 'master' into docker-dev
+
+commit 57ee0b6f7abb4ee350221c3a33af0d37c4cd29e1
+Merge: a9c2f44 67f1415
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 10:13:56 2018 -0400
+
+    Merge branch 'docker-dev' of ssh://github.com/kcarretto/Arsenal into docker-dev
+
+commit a9c2f44318530f80f3500cc23d36eb64f587287b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 9 10:13:52 2018 -0400
+
+    Renamed docker containers in docker compose
+
+commit 0aa98ac38afd9ac2660a3d2e1022cec8dc53940c
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:09:52 2018 -0400
+
+    Update spacing
+
+commit c53a0f42059817c91da9e81420c86fd05a6afbae
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:09:35 2018 -0400
+
+    Update docker compose launch command
+
+commit 497854ea7873e38f2d6414768f2dbad334a34942
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:03:41 2018 -0400
+
+    Added Feature Highlight
+
+commit 645577beb6c7a262cd7bdbe0a49ea455d9b7a038
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 10:01:43 2018 -0400
+
+    Fixed typo
+
+commit e6c20b1c1f2c307192df7740af0d3f982eab5595
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 09:58:00 2018 -0400
+
+    Added Overview and Quick start. Updated to correct build status.
+
+commit 5962c1b39b1ccb1a53fc6afcdf66c2c860e0cf0e
+Merge: 217a58b 67f1415
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 09:37:30 2018 -0400
+
+    Merge pull request #97 from KCarretto/docker-dev
+    
+    Restructure docker. Added docker-compose.
+
+commit 67f141573884d77e8fbfd53de78d2f4412d13883
+Merge: 5e9e5e5 217a58b
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 9 09:37:19 2018 -0400
+
+    Merge branch 'master' into docker-dev
+
+commit 5e9e5e514585aaf3b9331c4dba018395d30e0f9d
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 20:45:33 2018 -0400
+
+    Added docker compose
+
+commit 526bd147562d2a0bcc63aac077b43a3ee013d444
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 20:32:40 2018 -0400
+
+    Update ports
+
+commit c5c3451d8c7232f2930dcc8eeffe1c7e0a83f800
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 20:25:30 2018 -0400
+
+    Added expose
+
+commit 28fe5306806d9c67b9f5223ce3c3607f3f4080f2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 20:21:57 2018 -0400
+
+    Added correct path in entrypoint.sh
+
+commit 30997d6af88c8f224ee29fb6a60cdc3be592b41f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 20:18:18 2018 -0400
+
+    Updated default ports
+
+commit 0f816dff6d9aa73cf258ccf3373ab5cbc3d87eb1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 20:11:35 2018 -0400
+
+    Updated project structure
+
+commit 217a58b981321cab2cd3c28a6a680e2dedc2a939
+Merge: 941b5af 8bb962c
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sun Apr 8 20:01:59 2018 -0400
+
+    Merge pull request #96 from KCarretto/docker-dev
+    
+    Support docker deployment
+
+commit 8bb962c95a6a5494cb1307b5337a58adc9fcb4fd
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:55:04 2018 -0400
+
+    Updated uwsgi to not conflict with nginx
+
+commit 1e3da46640b296f083f3dcd0ba6b66e618a2d5b8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:50:12 2018 -0400
+
+    Added shebang to entrypoint
+
+commit 486d96d5c993d99e2f88e995f09f0c43b9278bd2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:44:23 2018 -0400
+
+    Added missing dependency for alpine
+
+commit 017bf59162c6ba337b48583d0b79aff702c601f6
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:38:48 2018 -0400
+
+    Fixed requirements path
+
+commit 3be82a672ee2085796d3fcf662a46af63a631250
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:36:42 2018 -0400
+
+    Updated with correct paths
+
+commit 6571b1e7ff80afdc8d7630e4a1fc74f65b92f27c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:35:32 2018 -0400
+
+    Clone instead of using relative path.
+
+commit 6bbfca4072fc33b06f40f79d9ecd4fa553ec3f35
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:32:08 2018 -0400
+
+    Updated uwsgi.ini
+
+commit 16122108973ed30386116eb7d392c29f86bb683e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:31:34 2018 -0400
+
+    Updated teamserver docker
+
+commit 1612e6038a4dc3db497fd5aa7bf45a009f0e39ab
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 19:04:03 2018 -0400
+
+    Added test dockerfile for teamserver
+
+commit 941b5af977e360d8dc1c96b04528df40cbe1e813
+Merge: bbbec82 56a2da3
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sun Apr 8 18:06:19 2018 -0400
+
+    Merge pull request #92 from KCarretto/feature-dev
+    
+    Several feature additions and enhancements
+
+commit 56a2da34f869976aa082acbdb4ae1cf739309f88
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 17:50:59 2018 -0400
+
+    Added members to group document
+
+commit c97c5c51e7aade444f8a46ea8255d08cd633a72e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 17:23:59 2018 -0400
+
+    Allow user to specify rule_id in order to name it
+
+commit 18952c6326dcd64ce00171e89c5ebcdc57476a56
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 17:13:12 2018 -0400
+
+    Added API to interact with group automember rules
+
+commit 982263f5422b7dde9f37cf83b2c2ef74e2ac2a44
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 16:58:48 2018 -0400
+
+    Added IDs to group rules. Added group rule document
+
+commit 22d493c914b469c9d94633219cddf64fd6f90748
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 16:41:47 2018 -0400
+
+    Implemented group automember rules
+
+commit 1c0b17f492e364d3e8bc0f56fa790c91b0222b51
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 8 02:31:39 2018 -0400
+
+    Started attempting to implement automember rules for groups.
+
+commit 11b4c67fff27b8e2f9baffe9741cf2340bf1d7f3
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 23:59:32 2018 -0400
+
+    Fixed linting
+
+commit 79b008d98a609be8a0ed2ccc2f606804e29061f9
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 23:58:56 2018 -0400
+
+    Fixed ListAction filtering
+
+commit b0bdef444ce6a1ef2a9652e2d8c59f01ec0aa9f7
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 23:54:23 2018 -0400
+
+    Allow Actions to be filtered by owner, target_name and allow result limiting
+
+commit 3d7c9033d3a9b965b17733453efb83c51d1d7d13
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 23:37:56 2018 -0400
+
+    ListLogs can now filter by level.
+
+commit 37cfe51038360ef593d9c0e3d270b9f44f7014d8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 23:30:24 2018 -0400
+
+    Added user attribution to actions when possible.
+
+commit b4c7b4e5719cab6b756594255779db921e8562b6
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 23:10:50 2018 -0400
+
+    Added 'stale' to GroupAction statuses
+
+commit 04bce7b770f81b639008af47d22e0e61fcb10acc
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 22:53:26 2018 -0400
+
+    Fixed unit tests
+
+commit 48d019095cbe2a41107ee376fdeb8ae95c6001a5
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 22:46:28 2018 -0400
+
+    Added DuplicateAction API method.
+
+commit 66e1931953fc43952d324d7a7f7f297c1efc8852
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 22:38:12 2018 -0400
+
+    Automatically archive sessions if they have not been seen in a long period of time.
+
+commit 0353049672d52ba4cb4fc7f6489091af8d2803f1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 22:19:18 2018 -0400
+
+    Made target name and target uuid case insensitive while searching.
+
+commit bbbec823ab8c5805261fb5b3ea42ec396289ff2c
+Merge: 478eb21 7d947c1
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 21:23:39 2018 -0400
+
+    Merge pull request #90 from KCarretto/uuid-dev
+    
+    UUID Change
+
+commit 7d947c1f2a6f51dc1b8cd0e666e12919d57bbec5
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 21:19:42 2018 -0400
+
+    Added unit test for MigrateTarget
+
+commit c8985671c19691dbd6d5a0151e70b2d7414a4a81
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 21:05:39 2018 -0400
+
+    Introduce MigrateTarget API method.
+
+commit c8bb478ce6955aaf6f66b3ab1f6be9ab683fc04b
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 20:58:01 2018 -0400
+
+    Update to MigrateTarget in docs
+
+commit c8bed68e06615718da2a94c71b9d2274108e9499
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 20:52:49 2018 -0400
+
+    Updated guide with uuid changes.
+
+commit 5fb19d61dd3178ef55629a32f68e3014422c5267
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 20:39:41 2018 -0400
+
+    Started updating documentation to reflect the new uuid changes.
+
+commit 77e62453416c1d22582c1b9e8ca153427def838c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 20:13:26 2018 -0400
+
+    Converted target identification to use a uuid string field as opposed to a mac_addrs field. This change enables the user to identify targets based off whatever criteria they wish, however it must be consistent across all machines and bots. For this reason, we recommend using the primary interface mac address in virtual environments, or the unique machine id in environments that have been sys-prepped or fresh installed. A combination of these is also advised.
+
+commit 478eb21adbf0978f5f37238b64a59f31d619529f
+Merge: 8dc9b53 a7f76c7
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 19:27:05 2018 -0400
+
+    Merge pull request #88 from KCarretto/webhook-dev
+    
+    Implement several new features including web hooks, and smooth out some bugs
+
+commit a7f76c726f1f4a4738a37b1db7c1323fd720927f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 19:19:46 2018 -0400
+
+    Fixed event importing such that unit tests can disable it.
+
+commit 44216f7754f096adb6208b0ecd332960bd98de5d
+Merge: 371344d f8f53e1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 17:55:25 2018 -0400
+
+    Merge branch 'webhook-dev' of ssh://github.com/kcarretto/Arsenal into webhook-dev
+
+commit 371344dea1bcf4319a95b4a000b812861c7a7299
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 17:55:19 2018 -0400
+
+    Update requirements
+
+commit f8f53e10493573ac6f09e7886ca00ac0fc37ae4b
+Merge: 6a43011 8dc9b53
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 17:52:32 2018 -0400
+
+    Merge branch 'master' into webhook-dev
+
+commit 6a430118bb176bbc3ac8557c27adefd73f28bd30
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 17:50:49 2018 -0400
+
+    Reverted changes
+
+commit 4e80addc7a2a46fad5cc78c7256f2424674121c6
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 17:41:07 2018 -0400
+
+    Prevent API Key from having more perms than owner
+
+commit 7c0fe5fa69f7915783c1aed759fccee775f87463
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 17:32:53 2018 -0400
+
+    Fixed role exception raising
+
+commit cbb21789487c88cb9b321125608dd32e4659e401
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 17:24:13 2018 -0400
+
+    Fixed circular import
+
+commit 9eaa398164a57fd2462c059c14cdd746059f4f2b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 17:19:29 2018 -0400
+
+    Added correct error_types to error returns in router
+
+commit 89b4889cfb29fd8af33df3033fba520a9d249a20
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 14:44:14 2018 -0400
+
+    Final touches to basic webhook implementation.
+
+commit 8dc9b534d0a73e1f337db31e03097365bdeebcd1
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 14:43:24 2018 -0400
+
+    Updating format, added webhook intro
+
+commit 0ebf153cdd7b9d965019b65b5efcabbe3c74af2d
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Apr 7 14:39:20 2018 -0400
+
+    Added default events
+
+commit d364b2e8f68c9002ab38206e67d283687c7f9345
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Apr 7 14:26:22 2018 -0400
+
+    Cleanup some todos
+
+commit 22f5b988da1040e0af837dd802e72608271937da
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 6 17:09:38 2018 -0400
+
+    Added event for session checkin
+
+commit e3f72dddc228c32d402d0176bc0ff47df474dfa0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 6 16:21:12 2018 -0400
+
+    Enabled webhook API endpoints
+
+commit d89e5483f893bc39e9216c159a5e165e97bf0d45
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Apr 6 15:40:22 2018 -0400
+
+    Fixed UnregisterAgent to return a response
+
+commit 9e4dfceb9acb50a7504d2d0618304dbdb9487988
+Merge: 9883b24 06aeaf6
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Thu Apr 5 15:16:31 2018 -0400
+
+    Merge branch 'master' into master
+
+commit 45f83d0cc0358113317416e792e131d5f6d91aca
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Apr 5 00:27:34 2018 -0400
+
+    Added API for webhooks
+
+commit d2cee2088102aaa6c9546ee4a30a98c89874bbe1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:53:57 2018 -0400
+
+    Added database connectivity for celery worker
+
+commit 0ea9dc7ecbfa1f246bb1783e7f975bcbff869c8c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:47:16 2018 -0400
+
+    Attempted to fix imports
+
+commit 445ef54e93fc24eb1d56cb2f90a1003647d90c56
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:34:31 2018 -0400
+
+    Updated default config values for celery
+
+commit f37b66aa45061ad21d4584c7bf1b66a309ef7d21
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:32:09 2018 -0400
+
+    Fixed event trigger
+
+commit a7bc17b0af4d856ce220e98c631964c36176e058
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:28:45 2018 -0400
+
+    Fixed webhook document
+
+commit 4395120e9d7e95fb6ce5d1cb119908542e14a77a
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:26:54 2018 -0400
+
+    Added test api event trigger
+
+commit 0a32dc52fc685fed886de95823e3f4f1f628de15
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:15:06 2018 -0400
+
+    Attempting to implement basic celery task
+
+commit c3c1796fd938d013ae433f67fc2afbb9f0513fda
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 22:02:12 2018 -0400
+
+    Restructured project.
+
+commit 93d90ab9318e7e34976f40168df480db16fe2d3b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 21:10:48 2018 -0400
+
+    Attempting to add celery
+
+commit 06aeaf64707721685cb85fc0ef512e572b817be7
+Merge: 832c23f 6b9c191
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Apr 4 17:41:41 2018 -0400
+
+    RBAC Implementation and Fixes
+    
+    RBAC Implementation and Fixes
+    
+    Fixes #24
+
+commit 6b9c1916e1a95e3de3c313b13d919778a406345e
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Apr 4 16:56:17 2018 -0400
+
+    Remove API keys when user is deleted
+
+commit 9883b243bfb1b2296df51a067e4061d5159dc1a9
+Merge: 22710da 832c23f
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Tue Apr 3 15:45:03 2018 -0400
+
+    Merge branch 'master' into master
+
+commit 832c23fcc117410fec810f657968a45206afb387
+Merge: af7ab38 03e87d4
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 14:46:56 2018 -0400
+
+    Extended RBAC API functionality.
+    
+    Extended RBAC API functionality.
+
+commit 03e87d49b107e625afc6b6be46e9c578f2fee6f8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 14:12:17 2018 -0400
+
+    Extended RBAC API functionality.
+
+commit 22710da3e681f3165167bf70df81e3bc23c8a0e7
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Tue Apr 3 12:59:35 2018 -0400
+
+    changed the bcrypt library to use one that allows static salts for API_KEYS
+
+commit af7ab38e55719174a02d39a2309d80919ddc2c03
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 12:40:59 2018 -0400
+
+    Enabled GetRole API call
+
+commit ba32dde024915dca453f4cda412ddce1fb4554b9
+Merge: 4cbaf5e e311d2d
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 12:26:32 2018 -0400
+
+    Merge branch 'master' of ssh://github.com/kcarretto/Arsenal
+
+commit 4cbaf5e42b5eb0a119ac3794f78caf5f6f855040
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 12:26:21 2018 -0400
+
+    Changed api_key field to be login_api_key to avoid parameter name conflicts
+
+commit e311d2d78aca50e59c552fbeb5f9a204ec4cc8d5
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 04:19:37 2018 -0400
+
+    Updated Actions with the correct types
+
+commit 688210087f6da9ef5955a6da7891cab342a80053
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 04:04:06 2018 -0400
+
+    Added RenameTarget as default permission for attacker
+
+commit 6dd55512db6b34be8e15572040b8bef471007d0f
+Merge: d6c8609 cab4d30
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 03:04:24 2018 -0400
+
+    Merge branch 'master' of ssh://github.com/kcarretto/Arsenal
+
+commit d6c8609671932146a91213d004e8193af3119e13
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 03:04:18 2018 -0400
+
+    Made allowed_api_calls optional as documented for CreateAPIKey
+
+commit cab4d304a5aebc9c21c3b1fee13f0a5b40b77408
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 02:42:33 2018 -0400
+
+    Fixed default API key salt
+
+commit cbcc19766f44adfe328c916ab8d57a112d29ab62
+Merge: d331e06 4f8aeaf
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 02:38:59 2018 -0400
+
+    Implement Critical RBAC fixes
+    
+    Implement Critical RBAC fixes
+
+commit 4f8aeaf83d65d0faeb154ea60719fa88c43efc08
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 02:32:51 2018 -0400
+
+    setup.py now allows c2 to access GetCurrentContext via API key by default.
+
+commit e32ddcdafc36319af0a5021c177bf62fa1232aa9
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 02:00:03 2018 -0400
+
+    Forced API Key Salt to be static.
+
+commit c9c0996c25b4cbd659b4bead3361453325314cce
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 01:50:45 2018 -0400
+
+    Stopped key from being used as a primary key
+
+commit c2d53ea45f960a6800ab6133d65be54cceaa3afd
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 01:35:59 2018 -0400
+
+    setup.py bugfix
+
+commit edd76840a03be824f05c101bd606aeb00c58e501
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 01:33:39 2018 -0400
+
+    Updated setup.py to display API key if run as main
+
+commit d331e06196186f541b43d69eb0e9a2f42774712f
+Merge: e01519c a65b28e
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 01:30:09 2018 -0400
+
+    Merge pull request #76 from KCarretto/rbac-dev
+    
+    General RBAC bug fixes.
+
+commit a65b28e3579519d4b5d606518df9374547c10459
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 01:25:10 2018 -0400
+
+    Added api key hash support for the setup.py module
+
+commit a387cc58bce45e0756f8d662997d1d336abd1d0b
+Merge: 9d62dfe 4200e61
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 00:59:11 2018 -0400
+
+    Merge branch 'rbac-dev' of ssh://github.com/kcarretto/Arsenal into rbac-dev
+
+commit 9d62dfe975a66c6b773d800d06a918437cf787e1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 00:58:34 2018 -0400
+
+    Fixed GetCurrentContext return format
+
+commit 4200e61a02e17273ef4141d7217a672abb6978e0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 00:58:34 2018 -0400
+
+    Fixed GetCurrentContext return format
+
+commit e01519ccee5bdb4ab33dddc6700eb079d0fd2a7c
+Merge: 51dd041 6a83cd4
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 00:28:03 2018 -0400
+
+    Merge pull request #74 from Cictrone/master
+    
+    added hashing for API keys
+
+commit 6a83cd4a043f2a154e1e21b41fe3f7659aec4a47
+Merge: aaf47a9 51dd041
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 00:21:37 2018 -0400
+
+    Merge branch 'master' into master
+
+commit 51dd041efbd4b73078109f58918c472adb70c401
+Merge: 5b821fe 3d31bb8
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 00:20:37 2018 -0400
+
+    Added more RBAC functionality. Fixed some bugs.
+    
+    Added more RBAC functionality. Fixed some bugs.
+
+commit 3d31bb8b77a44954925498dc951a37281500cb07
+Merge: b2dfe1e 5b821fe
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Tue Apr 3 00:17:04 2018 -0400
+
+    Merge branch 'master' into rbac-dev
+
+commit b2dfe1e5604829c0975da6903277742b15b59729
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 00:05:03 2018 -0400
+
+    Explicitly gave all roles the GetCurrentContext permission
+
+commit ccae17e867310c1f6e365e10bbbc29c81c0f33e9
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Apr 3 00:04:23 2018 -0400
+
+    Included GetCurrentContext on spectator role, but all accounts will need access to this method to use the cli.
+
+commit aaf47a961fb464b9da6e061e57b413620b7ebe26
+Author: Nicholas O'Brien <ndo9903@rit.edu>
+Date:   Mon Apr 2 23:54:05 2018 -0400
+
+    added hashing for API keys
+
+commit 85403a9791e0682483cd6eb6a7e02020e37c0009
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 23:50:45 2018 -0400
+
+    Moved authentication keys for username and password to have login_prefix such that they do not conflict with API parameters
+
+commit 5c0bfb7078f85e5688e830c03eb989800fb21928
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 23:26:57 2018 -0400
+
+    Added new default role to setup.
+
+commit d3dc6317ad02fdfe009beea51783e95d12722068
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 23:16:04 2018 -0400
+
+    Allowed users with '*' permissions to create api keys
+
+commit ec77115f423dc5da2e825943b969a082c412cd08
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 22:58:06 2018 -0400
+
+    Added GetCurrentContext API call
+
+commit 50174609cb0d0479436ea54bc59f6ad650a0b240
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 22:47:14 2018 -0400
+
+    Added GetUser API method
+
+commit e4f02f1a103cc1a9841ee01988d1622fac26e0f7
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 21:55:12 2018 -0400
+
+    Added basic auth api functions to client.
+
+commit b57a7d65051abd5784d3001702726735213dc99d
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 21:32:05 2018 -0400
+
+    Updated User and Role documents
+
+commit 58dba9d839465d231387fe207b18db99ffa26870
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 21:19:24 2018 -0400
+
+    Fixed setup.py to display the proper password instead of the hash if run as main.
+
+commit 77dd0004b1770fdb866fdc40d6dc12a0dd160ac1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 21:13:24 2018 -0400
+
+    Fixed setup.py to implement password hashing
+
+commit 824e185dd63692c15efc5eed7a5461a1de4340f2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 21:07:42 2018 -0400
+
+    Fixed API key string max length
+
+commit 5b2d97545cead48486ed1a35ac85f10d2375e029
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 20:59:54 2018 -0400
+
+    Set error_type for failed auth responses
+
+commit f8ceb42bb8f6c293d64bf82af95b41931a07cfd3
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 20:33:08 2018 -0400
+
+    Fixed circular import
+
+commit 5b821fead8746ec7d917b5f77757d9ae01cedf47
+Merge: b4dd224 4c94514
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Apr 2 20:00:33 2018 -0400
+
+    Implement basic RBAC functionality
+    
+    Implement basic RBAC functionality
+
+commit 4c945147afaf91fe919fe4ece2fef7919eb3b795
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Apr 2 13:54:36 2018 -0400
+
+    Added more default roles
+
+commit 39a32bc1de5d47285e7643742b0259f08f59c3d5
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 19:17:12 2018 -0400
+
+    Updated requirements
+
+commit 1ecbae65a93159109db7b1e292fd1f97409c78e2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 19:08:29 2018 -0400
+
+    Removed old API token methods from dict
+
+commit 193f3cfd5331360bc71eb23b94dd8100dd3b3dea
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 19:05:53 2018 -0400
+
+    Implemented base RBAC API
+
+commit 1e34fb434ded8c608152801c5754cedef2716bc7
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 19:02:18 2018 -0400
+
+    Disabled deployment temporarily
+
+commit a1b80aaa8097d5a14d4a331b049a17dca0956cb5
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 16:10:14 2018 -0400
+
+    Fixed pylint warnings
+
+commit 47e0ab77fa55825c8a5c99159a6d9dc28224c783
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 16:08:25 2018 -0400
+
+    Added setup module to build default RBAC schema.
+
+commit c42c9ab39173744e505d8f88c1464476bf0162a2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 15:33:13 2018 -0400
+
+    Added '*' special permission to allow access to all API methods
+
+commit a403a0bb23e4c1aa64c90645aea07521716ff6f1
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 15:16:58 2018 -0400
+
+    Added /api/login endpoint to create and return session keys
+
+commit 15311d82cf3e181c1b57454877afffa84e677a51
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 15:00:39 2018 -0400
+
+    Allowed authentication to be disabled using application setting for unit testing.
+
+commit 6051c78ee121e0de970b819d5cb073a82d7073aa
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 02:37:42 2018 -0400
+
+    Added basic RBAC functionality
+
+commit b4dd224bf79f24d05f39d2bdfc079af4e14980de
+Merge: d0d11ef 5e5c873
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sun Apr 1 00:45:16 2018 -0400
+
+    Various feature improvements and updates
+    
+    Various feature improvements and updates
+
+commit 5e5c87358d7272b4fa7cc2952386b65bde615e27
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 00:41:18 2018 -0400
+
+    Fixed linting error
+
+commit 6af0b7f320e03e4a6d8b3f26b8cb7b329e2c79a4
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 00:35:56 2018 -0400
+
+    Prevent sessions from retrieving actions that they do not support
+
+commit da7370583afd0be67fd5e740dc3013477f02847b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 00:27:15 2018 -0400
+
+    implemented agent_version tracking and default config action
+
+commit 397e39fd1d86b2ff7a22d29a73145bfddde156fb
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 00:21:01 2018 -0400
+
+    Updated to support config updates
+
+commit 764cd9f430d9f0488c10dddcf416c37788b04812
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 00:20:43 2018 -0400
+
+    Updated to support agent_version
+
+commit 86f59cc519a007177389eddca7958ebaa3f24b54
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 00:10:18 2018 -0400
+
+    Implemented agent API functions
+
+commit 11840f4904e08715afeed8e173368013505881c5
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Apr 1 00:01:00 2018 -0400
+
+    Added agent model
+
+commit 791cf5bb1fa750a26b69147309d7ec3a7550f132
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Mar 31 23:01:04 2018 -0400
+
+    Revert "Allowed blacklisted group members to be whitelisted and removed from the blacklist"
+    
+    This reverts commit d6c31884c6b32551394714b18c1115cdce6cd4dd.
+
+commit d6c31884c6b32551394714b18c1115cdce6cd4dd
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 29 23:56:24 2018 -0400
+
+    Allowed blacklisted group members to be whitelisted and removed from the blacklist
+
+commit 1e8e048800cbcc1ed2052ab4265b2e4c1af9cffd
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 29 18:20:26 2018 -0400
+
+    Moved _get_filtered_target to utils
+
+commit 324ed0abbbbea96eaec932e0a323f9e424baa032
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 29 18:10:54 2018 -0400
+
+    Removed unnecessary functions, cleaned up code usage
+
+commit 550578e18c1f201146f99174d6b0eb0850021230
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 29 16:04:29 2018 -0400
+
+    Fixed target rename
+
+commit 8600557c36e52e7f8b78fc50fce32e29a96df542
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 29 13:07:38 2018 -0400
+
+    Optimized GetTarget and ListTargets, removed obsolete API functions
+
+commit a7c2979fd8195c8895afe7edc36fca4ee4d46097
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 29 11:52:23 2018 -0400
+
+    Implemented RenameTarget with test case
+
+commit 3d8dce91b603e5a0a1cee92644a07dda0c18a1c8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 22:03:01 2018 -0400
+
+    Started trying to implement function to rename target
+
+commit 53f32f9a08995fc276e19a5dd234b6549759c6ba
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 21:25:03 2018 -0400
+
+    Syntax hotfix
+
+commit 0cefe82ad75c7cb819a370dc89fdbb2f0d9efcfa
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 21:23:34 2018 -0400
+
+    Fixed GetTargetActions to return action document instead of raw object
+
+commit 83d05857e488137fae5d5bdc475f597e34bd3cef
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 21:07:18 2018 -0400
+
+    Added GetTargetActions to list actions on a target
+
+commit f5a5931927b1a4527c5c8b73e572dd0811eccabf
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 19:11:17 2018 -0400
+
+    Added proper naming to non-arsenal related exceptions
+
+commit f3bd3ecf999f985747b8fb97ab8884afa632c40c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 19:01:44 2018 -0400
+
+    Cleaned up exceptions, provided more information to clients
+
+commit 2ef95392498015dcb50be0663d43d2d2886dadc0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 16:20:34 2018 -0400
+
+    Fixed potential error case
+
+commit 71bc5b95d63c11530822a8b3b9b5646266ac7a9a
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 15:17:56 2018 -0400
+
+    Allowed CreateSession to update target facts
+
+commit 070463e3e6dab7ca6d4030d804e7ccf6c09383c0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 14:22:35 2018 -0400
+
+    Allowed for Fact and Config updates through SessionCheckIn
+
+commit 5094073948345bf7375234e4453d14c78d981293
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 28 13:54:07 2018 -0400
+
+    Fixed Session timestamp not saving
+
+commit cafefbd8e194ed94123751d46825713a7aa91604
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Mar 27 22:45:44 2018 -0400
+
+    Fixed NoneType for responses
+
+commit 9e3359fbe1ed574072805fe2a82cba2c5a6cb387
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Mar 27 22:39:31 2018 -0400
+
+    Fixed exception type logging
+
+commit 8ef290d22db96bd08d5cc7628bba1a197f048702
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Mar 27 22:37:10 2018 -0400
+
+    Fixed uncaught syntax error in exception handling
+
+commit a170d6a1a4983e1d3572a72806cd7e9a1095bca7
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Mar 27 22:24:33 2018 -0400
+
+    Fixed MongoClient forksafe problem by adding option to uwsgi startup
+
+commit fd84ad40637acfcef10057cc87f07bf36968c4c3
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Mar 27 21:53:00 2018 -0400
+
+    Allowed CreateSession to automatically create a target if no such target exists
+
+commit d0d11ef6b38a8b3b91024b7f40bacff0198b1844
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Mar 27 21:25:32 2018 -0400
+
+    Fixed build, also forced default settings to pull DB information from config
+
+commit 659c1af53a118ad58a2a3d0cc4c486b41f7fbe82
+Merge: 5f1243c 8a208ec
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 22:48:37 2018 -0400
+
+    Action feature update
+    
+    Action feature update
+
+commit 8a208ece09e9fc30f60afc330ee76b410ed7d192
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 26 22:45:07 2018 -0400
+
+    Updated API to set correct HTTP response code
+
+commit ffed14493e1c65d5d345e85316f8107f9c619189
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 26 22:38:15 2018 -0400
+
+    Ensure Target exists when queuing an Action
+
+commit dc16aa3fe21fb4dc393c716ed40e67bb4bb2233b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 26 22:33:08 2018 -0400
+
+    Updated unit test to reflect change:
+
+commit 1cc4729fa0317cb53df100eb4a1a58469cf2bd7b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 26 22:20:16 2018 -0400
+
+    added priority field to agent documents, allowing actions to be ordered
+
+commit 5f1243ca2beea8d2a1be1cbe9c0e5b14b08bdec9
+Merge: 031d4f8 4be5092
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 21:55:11 2018 -0400
+
+    Documentation updates
+    
+    Documentation updates
+
+commit 4be509287e47ada5b03cc1b73214025d8f12e00c
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 20:12:28 2018 -0400
+
+    Added more GroupAction and Log documentation
+
+commit 27acf28019b4d5b7e61c2461c6ff0368d9786f81
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 19:05:51 2018 -0400
+
+    Began updating GroupAction object.
+
+commit 51f37fa60029ad24c91b7bb32ae133a60d34f6e9
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 18:23:16 2018 -0400
+
+    Started implementing Action documentation
+
+commit 0f3722fd7e9758a219a84a3365a5d6d1e530e120
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 17:37:54 2018 -0400
+
+    Added Group Object Documentation
+
+commit d713be18b547b2c9e203fa9252db0ae429517a73
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 17:27:50 2018 -0400
+
+    Added Session Object information
+
+commit 18e379515af6155e4d048153d46df9cf4212410a
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 17:01:47 2018 -0400
+
+    Added Target object information
+
+commit 355624b02115547e57039d8fcd74354313f0370f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 16:33:31 2018 -0400
+
+    Stubbed out the user guide
+
+commit b31529392b34cee2272f31e3017de0ef76b74abf
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Mon Mar 26 16:24:06 2018 -0400
+
+    Added GroupAPI documentation
+
+commit 13c4d7c271bca5de9e99b20b47153877db35fc83
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 22:07:11 2018 -0400
+
+    Syntax fix
+
+commit 29597a11cd4be909d61048778dbbc1545223428a
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 21:52:56 2018 -0400
+
+    Documented Session API functions.
+
+commit 827eaf92c8a78cfe0b783c27eb911db29324cedb
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 20:26:47 2018 -0400
+
+    Middle of thing moving places bye
+
+commit 7420952bed6c170d3253162daddc43139e033d8f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 18:36:48 2018 -0400
+
+    Started documenting Session API calls
+
+commit 17bcf7988e9ff5c53411c834f3a5ef585f6cf153
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 18:14:44 2018 -0400
+
+    Cleaned up and added log documentation
+
+commit 602a620b689d636c15ec68f60d26a7e692d66578
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Fri Mar 23 17:55:45 2018 -0400
+
+    Renamed docs
+
+commit 882b2a41027de4075866b1dd522f8352a1d3c661
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 17:54:11 2018 -0400
+
+    Updated only contain agent information.
+
+commit 389ec483280c95d0333de53329b0b4155dafe2e7
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 17:41:56 2018 -0400
+
+    Added more Action documentation.
+
+commit c931e6f36cb8c0b4e0a56995c6e3139855c153e1
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 17:32:46 2018 -0400
+
+    Continued working on Action documentation
+
+commit 23a3c1712234487c1500547ef0e882b52a2048e8
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 16:05:42 2018 -0400
+
+    Started implementing Action documentation
+
+commit 812a49d87ddd43c8d6a44feb89a3b952df925a4a
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 15:06:43 2018 -0400
+
+    Added API overview
+
+commit 8b9f1f9aeeb23262bb2933f96d0b00f33915b74f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 23 14:26:00 2018 -0400
+
+    Updated Target API Documentation
+
+commit 031d4f8bde5e54e4ac60d740f7f5657bfa00bd4f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Mar 22 21:35:10 2018 -0400
+
+    Fixed JSON syntax
+
+commit cd921898196696c5fe04c546d789cd3745795641
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Mar 22 21:33:47 2018 -0400
+
+    Updated initial beacon to include agent initial configuration
+
+commit 40470e0bcf5173a4a739efa6e160160a4737a657
+Merge: 907940a 13a9344
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 21 17:38:19 2018 -0400
+
+    Implemented exception handling
+    
+    Implemented exception handling
+
+commit 13a93445a5860f6241b041b199f15eab971a0f1a
+Merge: ce65b66 907940a
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 21 17:37:44 2018 -0400
+
+    Merge branch 'master' into exception-handling-dev
+
+commit ce65b6684d8195bddf80e7b2ceb2b11dd9124644
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 21 13:55:55 2018 -0400
+
+    Added ValidationError exception
+
+commit 0175095ca91da324814336294effd5d1358c6019
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Tue Mar 20 19:36:36 2018 -0400
+
+    Implemented exception handling for API methods, using function wrapper to catch and handle exceptions.
+
+commit 907940a814ad717dac377a25d9e65b77fbe0b686
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 01:52:53 2018 -0500
+
+    Fixed dependency issue
+
+commit ff5c021c9419d8a802452f141bafc7993bcc16c4
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 01:31:41 2018 -0500
+
+    Fixed requirements path
+
+commit 938ce6a02331bb3679a71545c1a693107878f5fb
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 01:16:57 2018 -0500
+
+    Fixed setup
+
+commit d29a7ae96fa40bf02b5d93d0effa3142ea2fc553
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 01:07:07 2018 -0500
+
+    Fixed service file
+
+commit b3d63eab54a0f2541dcdb3029e50e5869e807d92
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 00:45:35 2018 -0500
+
+    Replaced stop file
+
+commit 8b8a671c3916294b477264d4367f48d6d9e1da9d
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 00:44:18 2018 -0500
+
+    Copy files was wrong
+
+commit b5f8bc19c976e70ef279214e3d1f79de87d0d1c6
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 00:39:56 2018 -0500
+
+    Attempted to fix potential error in appspec.yml
+
+commit 5bfebfb63a49c853bb44c6b50fd4a4d088d49e71
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 00:38:05 2018 -0500
+
+    Attempting to copy in a different way
+
+commit 640a03a00623edf72ec1cf25bd1adc4f13c60bfd
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 00:30:24 2018 -0500
+
+    Reorder setup script
+
+commit 4543b64561ac628674177856a8345632b6b2ec36
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 00:22:38 2018 -0500
+
+    Attempting to fix permissions error
+
+commit e921855988726f09be291d3bf8b69b11fc223730
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Thu Mar 8 00:14:05 2018 -0500
+
+    Added contrib to setup and install the teamserver on ubuntu 16.04. Configured to work with the continuous deployment pipeline
+
+commit aaf65c23504169b8f28827869b3df789bda6af45
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 22:52:31 2018 -0500
+
+    I swear this will be the last time
+
+commit 61c13d0c9c5c12472764f91b502aedffce7302c6
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 22:48:02 2018 -0500
+
+    Push straight to master to fix code-deploy
+
+commit e1b4c4d9086efe4bca86fc15f8bea0cb31de46d7
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 22:40:53 2018 -0500
+
+    Fixed runas user in appspec
+
+commit 707b38e3e2cc07392bfe4690a551ca69bb27f66a
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 22:37:37 2018 -0500
+
+    Fixed .travis.yml deploy
+
+commit 133ac3f991320afd49b957d34a787dc70a4fa2d0
+Merge: d179727 b05684c
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 7 21:54:11 2018 -0500
+
+    Set up basic pipeline for travis to deploy to EC2
+    
+    Set up basic pipeline for travis to deploy to EC2
+    
+    Fixes #54
+
+commit b05684c500ac7a2faaf5650433ec4b430bf7db4f
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 21:49:02 2018 -0500
+
+    Fixed pylint error
+
+commit 665fbdf9f0b02e482575cfd4b898a1fac301b855
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 21:45:52 2018 -0500
+
+    Set up basic pipeline for travis to deploy to EC2
+
+commit 3c18b912bf1f95e03997dcffbc88bfbb80e804a5
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 20:26:55 2018 -0500
+
+    Implement TargetNotFound Exception
+
+commit b7ca7ef4f8635ca2bf4941ffe75a6fe2f96d5ee8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 19:56:37 2018 -0500
+
+    Started implementing more Exception handling
+
+commit d179727b34e79406eb28a910cd0012dd5ac88e1c
+Merge: 3adfab2 c8cfb0b
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 7 11:09:47 2018 -0500
+
+    Implemented Log Server, Internal Logging, and Log Server Tests
+    
+    Implemented Log Server, Internal Logging, and Log Server Tests
+
+commit c8cfb0bb4671be12a3b642e7980a1029bfdf941b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 11:05:06 2018 -0500
+
+    Added log server tests
+
+commit be228fd3424f5f6daf9d13d4de19bfac8cdf1db4
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 10:00:42 2018 -0500
+
+    Added logserver API functions
+
+commit b7e4f43aa54f3362fd2eec88659a64fe5486eb97
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 09:51:46 2018 -0500
+
+    Added some more internal logging.
+
+commit a18953c68ae9cc4ee2a67c61783e10d9ba77a8ad
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 09:39:20 2018 -0500
+
+    Allowed log list to be filtered by timestamp to query for only recent logs
+
+commit 4b41753a81af1e7779786177c0ded2b339d33926
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 09:31:28 2018 -0500
+
+    Fixed bug with log()
+
+commit 5493adeb94a79ab7553d879ab87993c81643152b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 09:30:35 2018 -0500
+
+    Added log model
+
+commit 3adfab2b05c80d7376cbff3675813b3360bdcba0
+Merge: d72672d 158bb01
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 7 08:57:20 2018 -0500
+
+    Implement Group Action Functionality
+    
+    Implement Group Action Functionality
+
+commit 158bb015c06e57af90b38bbcb325b2d698127f98
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 08:52:47 2018 -0500
+
+    Added GroupAction API testing
+
+commit 58b75316021ac1882f71544a5d4834691b7eb2b3
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 07:49:32 2018 -0500
+
+    Added GroupAction model tests
+
+commit b5787909a4afa0c6fd67e60b6468566434ab4ed7
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 06:49:19 2018 -0500
+
+    Fixed model test imports
+
+commit fbef1f8030544adc911593b5eb0873ef3609807c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 06:44:11 2018 -0500
+
+    Implemented GroupAction API methods
+
+commit 64ab88143f22ef7e6311ae9cd88d39a0cc279882
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 04:52:13 2018 -0500
+
+    Moved GroupAction API functions into separate file
+
+commit 95f38fc7dd47d724ad4817cde523985df731bd0c
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 04:48:17 2018 -0500
+
+    Moved GroupAction model to separate document
+
+commit d72672ddaed9c963ead4be511fed4ae4ed5f11cd
+Merge: 7dc06c1 e335363
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 7 04:39:19 2018 -0500
+
+    Merge pull request #50 from KCarretto/api-group-dev
+    
+    Implement Group API Functionality and Tests
+
+commit e335363387d0688005b0dead6024eaf6b18612c8
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 04:30:16 2018 -0500
+
+    Implemented GetTargetGroups API function and associated tests
+
+commit 7055c5f8e4fb738bc78b1a51a33d04ea66afc6a0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 04:19:13 2018 -0500
+
+    Implemented remaining Group API functions and associated unit tests
+
+commit 7dc06c18a2945223f2c4203d3572e29cf1149ff4
+Merge: 7d8fa62 7f8a185
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 7 03:04:49 2018 -0500
+
+    Merge pull request #49 from KCarretto/tests-fix
+    
+    Fixed Target API tests
+
+commit 7f8a185a32426f77556268054df8cd7cdf8c775b
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 03:00:49 2018 -0500
+
+    Fixed target API tests
+
+commit b53ea7f2723bae1d379989f6af04742a4ca0dba9
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 02:44:12 2018 -0500
+
+    Updated imports to be more pythonic (import from package rather than each module)
+
+commit 7d8fa62c4bce37d6422a5ae7b4963508aa49b7e3
+Merge: 790267b ae9f33e
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 7 01:52:48 2018 -0500
+
+    Merge pull request #46 from KCarretto/api-dev
+    
+    Refactor unit tests. Implement Group Model and Group Model Tests
+
+commit ae9f33e1a8fee8b16f862b5d4b15eb65c0589949
+Merge: 500a86b 790267b
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Mar 7 01:51:59 2018 -0500
+
+    Merge branch 'master' into api-dev
+
+commit 500a86baaef4774d455b0b8f529f8228983460bc
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Wed Mar 7 01:50:29 2018 -0500
+
+    Implemented group model tests
+
+commit 314091d84e71e94926e21ada25e7b7b2ae304905
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 5 23:06:27 2018 -0500
+
+    Updated API tests, fixed several bugs. Mongoengine does not work well when using __in and a list with a NoneType inside.
+
+commit a9eabd08699119c1dea3720a519bee4937c77152
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 5 19:48:31 2018 -0500
+
+    Added more test api client functionality
+
+commit a5a51ed596c67d91c93bb00ebb23d73577c6cdc3
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 5 19:31:22 2018 -0500
+
+    Continuing to refactor tests
+
+commit 9a3769f3879a499b620727a4d91f226117bd7125
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Mon Mar 5 15:03:35 2018 -0500
+
+    Began refactoring unit tests
+
+commit bc5d4dc8f05efdb722b6b489ca5e57a9cf77bfc0
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sun Mar 4 22:09:59 2018 -0500
+
+    Implemented group and group actions. Needs testing and unit tests
+
+commit 515fc471180fd6b86b9e9da620d663bc06235d06
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Mar 3 19:27:34 2018 -0500
+
+    Started implementing Group API functionality
+
+commit 790267b59db65fcbfc69ab14d09e658f87f9593b
+Merge: 131cd39 220b133
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Sat Mar 3 18:32:05 2018 -0500
+
+    Implement Action API and Unit Tests
+    
+    Implement Action API and Unit Tests
+
+commit 220b1339a85db14e5ad92a1bc82d2e590490ab48
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Mar 3 18:04:14 2018 -0500
+
+    Added list action API testing
+
+commit 0e69ee87f5393144ba028641ac3ed88cf2cfced2
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Mar 3 17:38:03 2018 -0500
+
+    Updated gitignore to exclude vscode
+
+commit 9059306dfa3ab39933f22552810a3d2868f57d01
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Mar 3 17:36:59 2018 -0500
+
+    Fixed unit tests. Most errors were in the tests, not in the code. Fun.
+
+commit 4d8bbdfd138deaa6585bf77f8b2b00098ea03c49
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Mar 3 14:16:40 2018 -0500
+
+    Updated run_tests.py with a main function
+
+commit 513dfd8cf7f1358b5865f694abe19ae0a4c7be61
+Author: Kyle Carretto <kcarretto@gmail.com>
+Date:   Sat Mar 3 14:11:07 2018 -0500
+
+    Fixed run_tests.py to exit with non 0 code if unit tests fail
+
+commit 7492ec1d9744bdaee9ce9352137ecde2ccf74a0d
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Fri Mar 2 06:19:24 2018 -0500
+
+    Implementing unit tests
+
+commit 131cd39b07312cf05ed3c20b4f230c5866847334
+Merge: bb060d6 0a7227d
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 2 05:04:19 2018 -0500
+
+    Merge pull request #13 from KCarretto/api-dev
+    
+    Developed and Unit Tested API
+
+commit 0a7227d5cd183ccc1dc56fce5a26cbf04cb3e81a
+Merge: 158fff8 bb060d6
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Mar 2 04:56:43 2018 -0500
+
+    Merge branch 'master' into api-dev
+
+commit 158fff8f94f1ca33b7d97473b8c9b28c6d014083
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Fri Mar 2 04:45:13 2018 -0500
+
+    Implemented action API functions
+
+commit 17ad6d85046bbe27a452861757a917f89b6d0f05
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Fri Mar 2 04:10:23 2018 -0500
+
+    Updated action parse unit test
+
+commit 78937515dfd2fd0496bc928bb7f94278ffa524da
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Fri Mar 2 04:03:52 2018 -0500
+
+    Clarified docstring and linted
+
+commit bcc2edc2f2e22a81d0c03d529ab86027fa24492b
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Fri Mar 2 04:01:31 2018 -0500
+
+    Smarter action parsing. Found undocumented arparse.REMAINDER, which came in handy for parsing exec type actions. Added some unit tests for the new action parsing.
+
+commit 33babad8cccc21518510ab6107e93a8ee5c239e0
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Mar 1 22:51:09 2018 -0500
+
+    Implemented CreateAction and action parsing (needs unit tests)
+
+commit 1ab3331391c90aa7e9c5b732302a39be7e4c529c
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Mar 1 19:11:16 2018 -0500
+
+    #linted
+
+commit bb22dd526d02d4179ebd6c52ea6450dc33cdfd4f
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Mar 1 19:02:57 2018 -0500
+
+    Implemented session API functions and unit tests
+
+commit dbf59e6bfb67c78e72be4d2f79c12e22822b6010
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Mar 1 16:25:04 2018 -0500
+
+    Implemented target API functions and unit tests
+
+commit bb060d68fc563098081b0dde5558bdc34735fff3
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Feb 23 01:03:46 2018 -0500
+
+    Implemented Database Model Functionality (#12)
+    
+    * Stubbed out the API
+    
+    * Fixed travis errors. Added pylint exception for broad-except
+    
+    * Began to add target, action, and response models
+    
+    * More progress on models, fixed up pylint. Added pylintrc, removed disables and added specific disables to lines that require them.
+    
+    * Continued implementing models, started writing some unit tests
+    
+    * Update pylintrc to require 7 similar lines before alerting
+    
+    * updated travis.yml to install mongodb
+    
+    * Fixed test suite to use mongomock. Was not overriding previous test app
+    
+    * Fixed up testing code
+    
+    * Setup sessions in their own collection with optimal indexes
+    
+    * Implemented group model
+    
+    * Implemented group model
+    
+    * Cleaned up tests
+    
+    * Added more test cases and more model functionality
+
+commit 079f492af8115d2b38db6347ff3c2e8355c7fefb
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Fri Feb 23 00:58:23 2018 -0500
+
+    Added more test cases and more model functionality
+
+commit f8066508a2daace05829e875d934998ec183bbc8
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 22 22:45:43 2018 -0500
+
+    Cleaned up tests
+
+commit a82a34cbef8ced15768e30e92c5bd7beda3b3bf0
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 14:06:18 2018 -0500
+
+    Implemented group model
+
+commit d547edd5e8c0086722634fa1d8ab0cc18d66c031
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 14:05:55 2018 -0500
+
+    Implemented group model
+
+commit c44d8a799acc21a3aee94357ac3c19d549130eda
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 13:24:35 2018 -0500
+
+    Setup sessions in their own collection with optimal indexes
+
+commit e92fa61c8c7337703580581cbc04ce41cf649113
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 10:34:14 2018 -0500
+
+    Fixed up testing code
+
+commit c91ab89a149b54152dd4b224807a4cda7b499501
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 10:23:31 2018 -0500
+
+    Fixed test suite to use mongomock. Was not overriding previous test app
+
+commit 5f61e6b2a9bc7f27a39a77d1b1f3cda0bae1b861
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 09:41:44 2018 -0500
+
+    updated travis.yml to install mongodb
+
+commit 47024a2eb7bb3e0ce04abcf3bd2dc3984eafb788
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 09:27:09 2018 -0500
+
+    Update pylintrc to require 7 similar lines before alerting
+
+commit 84d628a6d9cc1c31caea014655c8004a523c6b7f
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 05:30:30 2018 -0500
+
+    Continued implementing models, started writing some unit tests
+
+commit 7dd5e8726326aa9171cfe71e5fb3152e3d1cf7ae
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 03:55:34 2018 -0500
+
+    More progress on models, fixed up pylint. Added pylintrc, removed disables and added specific disables to lines that require them.
+
+commit bfa8881ea9bddc29b2c5cda77434205a7af1b6e9
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 02:39:52 2018 -0500
+
+    Began to add target, action, and response models
+
+commit 1292ba3761927e4ccb4c29d929e43b16a96c568b
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 21 00:12:43 2018 -0500
+
+    Fixed travis errors. Added pylint exception for broad-except
+
+commit a75a378da8e0ebb975cb9e42beb8e76831ba0cbe
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Tue Feb 20 23:51:37 2018 -0500
+
+    Stubbed out the API
+
+commit b4f0b50fcca0a30c0c0014ea6d3d66b7f0844b78
+Merge: 5872646 771263e
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Fri Feb 16 13:31:17 2018 -0500
+
+    Merge pull request #9 from KCarretto/brand-docs-update
+    
+    Brandon docs update
+
+commit 771263ee9a962ccd03ed1618c00224ec5c0e5ac9
+Author: Brandon Adler <bcadler1@gmail.com>
+Date:   Fri Feb 16 13:09:23 2018 -0500
+
+    Fixed single quote issue when did find and replace.
+
+commit 5503f511ba5c6ec07227c524e2a33444af14b0ca
+Author: Brandon Adler <bcadler1@gmail.com>
+Date:   Fri Feb 16 12:59:10 2018 -0500
+
+    Fixed a couple minor issues with the json formatting.
+
+commit f95fc0e0dfe56c40651fe24f77f621efbeec38fc
+Author: Brandon Adler <bcadler1@gmail.com>
+Date:   Fri Feb 16 12:56:27 2018 -0500
+
+    Updated single quotes to double quotes.
+
+commit 658b5ca6a82c05f41110c0c6fe34e5ebcf56c233
+Author: Brandon Adler <bcadler1@gmail.com>
+Date:   Fri Feb 16 12:53:03 2018 -0500
+
+    Cleaned up some documentation information.
+
+commit 58726462c66ff8ec8dacec42d2505152fc123bd4
+Merge: 3f38d9f 13aff76
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Thu Feb 15 01:37:43 2018 -0500
+
+    Merge pull request #8 from KCarretto/api-dev
+    
+    API dev
+
+commit 13aff76ef7c9390c7432da0befd5a051d0994b49
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 15 01:30:27 2018 -0500
+
+    Updated requirements, made travis display pylint version
+
+commit 5e9f7919ad30d4a656a9ac03974e146d89f9f9a5
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 15 01:26:42 2018 -0500
+
+    Updated pylint command
+
+commit 5f708d6079e86fee228d5a93a3c0b2bd5541a6ed
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 15 01:24:04 2018 -0500
+
+    Fixed all lint issues
+
+commit 94f10f05320a14c2d26551cbde4068c7975799a5
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 15 01:07:34 2018 -0500
+
+    Enabled travis.yml pylint for all python files
+
+commit a83b1f601038db5cc2fd8dc9436adfe27619d750
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 15 00:40:10 2018 -0500
+
+    Added pylint as a requirement to .travis.yml
+
+commit f7faff15db7be3a808997803fa471c26503fae0a
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 15 00:36:29 2018 -0500
+
+    Updated travis to run all unit tests
+
+commit bc42df14cf57fc8dbd564e70f60e5354945604ba
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Thu Feb 15 00:29:30 2018 -0500
+
+    Restructured app, added testcases
+
+commit 472bd82e2bdaa624ccb4aadffffc1822df307579
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 22:58:02 2018 -0500
+
+    Fixed .travis.yml to wait for server to start before curl
+
+commit 8caa376c1ac649ad978d66839c96595e895566e6
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 22:52:45 2018 -0500
+
+    Updated travis.yml
+
+commit 2cbbc9f8aff6bc2a61b977a733304ce64aa92d60
+Merge: ffa4956 d25bf69
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 22:51:13 2018 -0500
+
+    Merge branch 'api-dev' of github.com:KCarretto/Arsenal into api-dev
+
+commit ffa49560b03bd4d46c8adebb70744c597a72682b
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 22:49:50 2018 -0500
+
+    Added basic flask server and requirements.txt
+
+commit d25bf699f74b7cb39d708c3f7792816aac174d30
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 22:49:50 2018 -0500
+
+    Added basic flask server and requirements.txt
+
+commit 3f38d9f7e036e0ca37834757d85f82b7e3156b91
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 22:00:01 2018 -0500
+
+    Fixed TOC
+
+commit 90fd7908d43c50a639a43322a20e4a51b302148b
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:48:43 2018 -0500
+
+    Fixed travis.yml. Will still always pass, but should be updated immediately when code is written.
+
+commit 976133753194bd8c3dc718943b52fdd515026902
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:43:33 2018 -0500
+
+    Updated with Build Status
+
+commit 74f210280af2f4a187f982eea6fa2750a8b859bb
+Merge: 212733e a7e62f8
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:40:22 2018 -0500
+
+    Merge pull request #2 from KCarretto/documentation-update
+    
+    Documentation update
+
+commit a7e62f88d62186a2a5bdd4bba3adebd3c701b49a
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:37:57 2018 -0500
+
+    Travis.yml was empty. Now all builds will pass. Should be updated immediately when code is written.
+
+commit f5eab9cd086b5fad1e93d8f9b05477f5ed2ff8c0
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:33:41 2018 -0500
+
+    Update guides.md
+
+commit 86c56c4a7993a01f1632c5d830a0d2351d931d59
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:26:41 2018 -0500
+
+    Update guides.md
+
+commit bb47f46f2463834323de0f34cc89ed1bec2c1c7f
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:18:44 2018 -0500
+
+    Fixed guides.md formatting
+
+commit 6d8526dd093d659ec798b6d560c8c759e441740c
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 21:16:35 2018 -0500
+
+    Update guides.md
+
+commit 54169dbd02bf17d09f71cce7ad6bf0e19226239d
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 20:06:45 2018 -0500
+
+    Added some initial information on Agent Creation
+
+commit 07a06e377fa58ba9739239fb876c2629450d81a7
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 19:36:15 2018 -0500
+
+    Simplified table of contents in api.md
+
+commit 812796cc2a86bae9acb8777bff281adbb46569ab
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 19:34:39 2018 -0500
+
+    Attempted to add table of contents
+
+commit 5eae29ed924564b7b1843f53d16fe93f55c77d9b
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 19:31:02 2018 -0500
+
+    Fixed api.md formatting
+
+commit 6bc9d6c5c38c73b4c894dd75c95c28eb54cac527
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 19:29:08 2018 -0500
+
+    Update api.md
+
+commit 55ee175d93fe3df1f87469db8e4e13cf55702dd1
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 19:25:56 2018 -0500
+
+    Added basic overview of API functions
+
+commit 28607ae79edf0722c0c45dbb5db833f90b36af8c
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 19:22:17 2018 -0500
+
+    Added base documentation files
+
+commit b7b494b32550876ebfbcb073cd594c7d8c3896f8
+Author: kcarretto <kcarretto@gmail.com>
+Date:   Wed Feb 14 19:13:21 2018 -0500
+
+    Added basic project layout
+
+commit 212733ef170368098167b76a3c13f9d3ec2fe455
+Author: KCarretto <Kcarretto@gmail.com>
+Date:   Wed Feb 14 19:00:41 2018 -0500
+
+    Initial commit

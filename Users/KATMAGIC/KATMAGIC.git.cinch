@@ -1,82 +1,3547 @@
 ======================: FILES :======================
-.
-├── ChangeLog
-├── cinch.gemspec
-├── examples
-│   ├── basic
-│   │   ├── autovoice.rb
-│   │   ├── google.rb
-│   │   ├── hello.rb
-│   │   ├── join_part.rb
-│   │   ├── memo.rb
-│   │   ├── msg.rb
-│   │   ├── seen.rb
-│   │   ├── urban_dict.rb
-│   │   └── url_shorten.rb
-│   └── plugins
-│       ├── autovoice.rb
-│       ├── custom_prefix.rb
-│       ├── google.rb
-│       ├── hello.rb
-│       ├── hooks.rb
-│       ├── join_part.rb
-│       ├── lambdas.rb
-│       ├── last_nick.rb
-│       ├── memo.rb
-│       ├── msg.rb
-│       ├── multiple_matches.rb
-│       ├── own_events.rb
-│       ├── seen.rb
-│       ├── timer.rb
-│       ├── urban_dict.rb
-│       └── url_shorten.rb
-├── lib
-│   ├── cinch
-│   │   ├── ban.rb
-│   │   ├── bot_configuration.rb
-│   │   ├── bot.rb
-│   │   ├── cache_manager.rb
-│   │   ├── callback.rb
-│   │   ├── channel_manager.rb
-│   │   ├── channel.rb
-│   │   ├── configuration.rb
-│   │   ├── constants.rb
-│   │   ├── exceptions.rb
-│   │   ├── handler.rb
-│   │   ├── helpers.rb
-│   │   ├── irc.rb
-│   │   ├── isupport.rb
-│   │   ├── logger
-│   │   │   ├── formatted_logger.rb
-│   │   │   ├── logger.rb
-│   │   │   ├── null_logger.rb
-│   │   │   └── zcbot_logger.rb
-│   │   ├── mask.rb
-│   │   ├── message_queue.rb
-│   │   ├── message.rb
-│   │   ├── mode_parser.rb
-│   │   ├── open_ended_queue.rb
-│   │   ├── pattern.rb
-│   │   ├── plugin.rb
-│   │   ├── plugins_configuration.rb
-│   │   ├── rubyext
-│   │   │   ├── infinity.rb
-│   │   │   ├── module.rb
-│   │   │   └── string.rb
-│   │   ├── ssl_configuration.rb
-│   │   ├── syncable.rb
-│   │   ├── timeouts_configuration.rb
-│   │   ├── timer.rb
-│   │   ├── user_manager.rb
-│   │   └── user.rb
-│   └── cinch.rb
-├── LICENSE
-├── README.md
-└── todo.org
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 397d468fb7574a07f9008bfae1e12f736eeb9927
+Merge: 250d27d 7889610
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 19:06:59 2011 +0200
 
-7 directories, 66 files
-====================== GIT HISTORY: ======================
-397d468 HEAD@{0}: clone: from https://github.com/katmagic/cinch
+    Merge branch 'doc'
+
+commit 788961009d8c81dfd074be51375cb414e9705da9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 19:06:51 2011 +0200
+
+    improve documentation by fixing markup and adding missing documentation/tags
+
+commit 250d27d98cc432de8500e071fa0c11933ea71219
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 18:35:26 2011 +0200
+
+    move Timer#rescue_exception to Helpers and use it where appropriate
+
+commit 4f3479b96d1e32d1f5c268a97c17c9f1db645637
+Merge: a32ac8d 6b65134
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 18:29:31 2011 +0200
+
+    Merge branch 'feature/user_match'
+
+commit a32ac8d2113b955bc9dbcae01b89dbd6d7440b81
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 18:10:34 2011 +0200
+
+    add documentation to the Timer class
+
+commit cc4efeb3c459c58daa50234cccc3474ede6b7147
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 18:03:06 2011 +0200
+
+    replace Timer#started? with attr_reader + alias
+
+commit c62ceb4e2222a924a0bcb853cc034ca17479dee1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 18:02:07 2011 +0200
+
+    make timer intervals adjustable on the fly
+
+commit 2ac0c06c72c0cd2ed5a79b0f399abe197368ee46
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 18:01:39 2011 +0200
+
+    remove Timer#options and turn the only option, threaded, into an attribute
+
+commit 9ac8eb4e9709730477c6fa1364e865c051529d5e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 17:50:40 2011 +0200
+
+    introduce a Timer class and use it in the Plugin class
+    
+    This also moves Plugin#timer to Helpers, enabling dynamic timers for
+    traditional on handlers.
+
+commit 423dd9d32ad7bfcce3bdbbad05504ef8b795d3bd
+Merge: 394eb58 416a9a4
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 15:41:58 2011 +0200
+
+    Merge branch 'feature/dynamic_timers'
+
+commit 394eb586c01770003b9a3837bc39e89f8c0702ed
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed May 25 15:36:01 2011 +0200
+
+    update todo
+
+commit fe6a24d31fb1d40ed69d1c09a2bd706f843754e2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon May 23 21:46:53 2011 +0200
+
+    update todo
+
+commit 7c124a106199a6f12ee918bc43b85fac2a2c87a3
+Merge: 12c94c3 d67de72
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon May 23 21:44:06 2011 +0200
+
+    Merge branch 'feature/unload'
+
+commit d67de7249384e45d045402d76d55c2bf2f09e6db
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon May 23 21:43:01 2011 +0200
+
+    turn Handler into a real class that handles all of calling, unregistering and stopping itself
+    
+    This removes Bot#invoke (which is now handled by Handler#call) as well
+    as the instance variable @handler_threads in Bot (each handler keeps a
+    list of its threads now)
+
+commit 12c94c369f7b524d28b5315fd0c8aba2f0d15215
+Merge: 5357684 1aca9fe
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon May 23 21:07:40 2011 +0200
+
+    Merge branch 'feature/unload'
+    
+    Conflicts:
+            lib/cinch/bot.rb
+
+commit 5357684d2617e4abf9b47d06cc23097783f2200c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon May 23 20:46:56 2011 +0200
+
+    update todo
+
+commit 03a9614a4c6362a5e6cecd97a2ed7017414fb41b
+Merge: 285972d 8fda3d2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon May 23 20:35:21 2011 +0200
+
+    Merge branch 'maint'
+
+commit 8fda3d2c47e58947c157ff7a491cf9d25b63bf90
+Merge: ded06cb cd42ea1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat May 21 18:51:33 2011 +0200
+
+    Merge branch 'fix/bot_nick' into maint
+
+commit cd42ea1940eff8029a0c7179bf7101e1ac2e2966
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat May 21 18:47:16 2011 +0200
+
+    rename Bot#generate_next_nick to Bot#generate_next_nick!
+
+commit 285972db114a4b222c3eabcb5b3ea3abb6e3ebb1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat May 21 15:55:52 2011 +0200
+
+    update todo
+
+commit 27a6fc5680cf274d5aedb9d1074a42a73fe47224
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat May 21 18:38:57 2011 +0200
+
+    After generating a new nick in Bot#generate_next_nick, set it as the bot's nick.
+
+commit 9e077d6b9088b30e5f936f009fc1137bad71fa43
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 18:46:18 2011 +0200
+
+    do not choke on empty messages
+
+commit 594e3116d0c14c9d1ccd06893dde19f73542033c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 18:46:11 2011 +0200
+
+    add support for NGameTV
+
+commit abb22ad28a1213efdd01e9352f9f0a0e2613b2f4
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 18:01:47 2011 +0200
+
+    update todo
+
+commit ffa802db6374ee1ccfdac80f7d2b5efdd2b890f6
+Merge: cfe60a5 74a534d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:57:19 2011 +0200
+
+    Merge branch 'feature-support_jtv'
+    
+    Conflicts:
+            lib/cinch/irc.rb
+
+commit cfe60a5012c814409d7d34374ccebfd53476262d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:52:51 2011 +0200
+
+    update todo
+
+commit f966b93a71783d9a8e138dfd0352bb9aadcb1b68
+Merge: 26e963d 48df0d6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:51:14 2011 +0200
+
+    Merge branch 'feature/modularized_irc_connect'
+    
+    Conflicts:
+            lib/cinch/irc.rb
+
+commit 26e963df355fb54964a5f53ce8dbba9ac14eaaea
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:49:33 2011 +0200
+
+    update todo
+
+commit 457c240b284ca5d71f722239e9ed7d206db76852
+Merge: 966b156 6ce51de
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:47:09 2011 +0200
+
+    Merge branch 'improve/helpers'
+    
+    Conflicts:
+            lib/cinch/irc.rb
+
+commit 966b156a33abb8ff216b9faaf98a88984c4e1db8
+Merge: d7ebf0f 8391580
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:43:41 2011 +0200
+
+    Merge branch 'fix/helpers'
+
+commit d7ebf0f8309492e92b56fcf904322c2ca9a3d51b
+Merge: a91e861 a994456
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:42:28 2011 +0200
+
+    Merge branch 'improve/subclass_queue'
+
+commit a91e8612ba67d9335f875e65384da2b17abded86
+Merge: 66ee8ec 0980201
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:41:20 2011 +0200
+
+    Merge branch 'improve/malformed_bans'
+
+commit 66ee8ec4dea3cf45dbee08b2710b0ce81f668dde
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 17:35:38 2011 +0200
+
+    add todo list to repository
+
+commit ef684046d125ef33968988ecab2da92dfb1f7938
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun May 15 16:58:42 2011 +0200
+
+    remove attr_* + undef_method combination with @attr tags where possible.
+    
+    Some time ago, YARD introduced @attr tags for documenting Structs.
+    Since a recent change, they can also be used on normal classes.
+
+commit fbe3ac938ba2e6c4b7078d57b9eabd57b44a8852
+Merge: 3ae81ce ded06cb
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu May 12 23:30:37 2011 +0200
+
+    Merge branch 'maint'
+
+commit ded06cbcac599fa1aacd36e84ab3126a983bef4e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu May 12 23:28:38 2011 +0200
+
+    update changelog
+
+commit 5cd0acccbcd0fd7aeb08e6c2bcee7ae980783dc5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu May 12 23:21:06 2011 +0200
+
+    bump version to 1.1.3
+
+commit 808fdaddcdbac253e0e1711563d336cc677d6656
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu May 12 23:16:51 2011 +0200
+
+    Move instance_eval in Cinch::Bot#initialize to before the on(:connect)
+    
+    This allows users to configure the logger before Cinch writes anything
+    to the default logger.
+
+commit 79f57d5d4c00519f7fa7b475777eaa0cd9fd08eb
+Author: Max Stepanov <stepanov.max@gmail.com>
+Date:   Fri Apr 15 18:10:04 2011 +0300
+
+    Register PRIVMSG event by its name as per Bot#on documentation
+
+commit 3ae81ce5544b11dc07b48f19def303407e3ba466
+Merge: fd28c6e b1f5310
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu May 12 14:00:07 2011 -0700
+
+    Merge pull request #41 from nevir/patch-1
+    
+    Missing the :user config property as a known option
+
+commit b1f53108284fba9123494ad43f467dd62435f471
+Author: Ian MacLeod <ian@nevir.net>
+Date:   Wed May 11 17:52:24 2011 -0700
+
+    Missing the :user config property as a known option
+
+commit fd28c6e48aa9c8b234a5cf24aa0ec3daf2c602d7
+Merge: cd9acbe c0976dd
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Mar 4 17:48:33 2011 +0100
+
+    Merge branch 'feature/hash_config'
+    
+    Conflicts:
+            lib/cinch/bot.rb
+
+commit 416a9a426c689681c7b79ce2f288f2259f942b64
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Mar 4 16:29:36 2011 +0100
+
+    allow dynamic creation of timers
+
+commit 6b651342ba0d49b269086c6fddca24d0d666ade3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Mar 4 14:03:47 2011 +0100
+
+    add User#match
+
+commit a16685ee6b6dce5c1ac8f20746858a245256e324
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Mar 4 14:03:41 2011 +0100
+
+    add Bot#to_user
+
+commit a994456086bb0443639e1acb03df44a5b0f3dc6a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Mar 3 15:29:47 2011 +0100
+
+    do not try to require the now removed monkey-patched Queue
+
+commit 6ce51de5928be3156efb6da906126ebf360626d9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Mar 3 13:33:07 2011 +0100
+
+    use the User and Channel helpers in the IRC class
+
+commit dae6866849a1b960485b4342ff7126149575d6c8
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Mar 3 00:11:12 2011 +0100
+
+    subclass Queue instead of monkeypatching it
+
+commit 0980201e4b1e065a39c718c9e1157fdce702581d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Mar 3 00:05:30 2011 +0100
+
+    don't crash if a ban is lacking a banner
+
+commit 60ab7a571cde408374ff216d2f6580d0a6f1ea70
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 21:16:04 2011 +0100
+
+    include the Helpers module in Channel and IRC
+
+commit cc5821e23b542acbf663f2cad4ce465e7874ef73
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 20:38:26 2011 +0100
+
+    move implementation of helper methods (User, Channel) into the Helpers module
+
+commit 83915808d04b2c873b341f107a0547023fc4d064
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 20:13:11 2011 +0100
+
+    define helpers on the callback instance specific to the bot
+
+commit 0fdf2bb329e3634136378d1a4cddb78d253714d9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 20:12:55 2011 +0100
+
+    don't use the Callback class where not needed
+
+commit 1aca9fe51ef76cb521b16ba5213e90226087f8c0
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 19:47:04 2011 +0100
+
+    implement struct for handlers and provide a new method for unloading handlers
+
+commit cd9acbe83ba0820a412474e81a3dd44fde9ab929
+Merge: d8d1dff aa3d36d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 17:10:56 2011 +0100
+
+    Merge branch 'maint'
+
+commit aa3d36de3057d88bb27419bb983724512c277600
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:49:04 2011 +0100
+
+    bump version to 1.1.2
+
+commit 0a12a67007828b06af1975e93c352c1a3bd23633
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:48:00 2011 +0100
+
+    update changelog
+
+commit 1fb8b9f52c890a0d3628ef006a1be1b1da73b16a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:36:34 2011 +0100
+
+    Revert "modify the loggers so that they work with JRuby 1.6.0.RC1"
+    
+    This reverts commit faa01a227ad290f983f6d2358d6e38dcbef14f53.
+
+commit 0c1eb3b9fb39fb003b5568e00abc4edcec7c7b6c
+Merge: 85aca80 7b227a8
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:24:33 2011 +0100
+
+    Merge branch 'fix/respond_to' into maint
+
+commit 7b227a81c7246459c6650574b81292aaecedfa95
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:22:22 2011 +0100
+
+    implement User#respond_to?
+    
+    Closes gh-33
+
+commit 85aca80763a30fb9c0df480d41e0f0187955bc01
+Merge: 2f5d1bd 9bfed60 20cfec6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:12:48 2011 +0100
+
+    Merge branches 'fix/user' and 'fix/plugin_config' into maint
+
+commit 9bfed608a10a0ef74a32c8d6cef01751b2a9e507
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:07:16 2011 +0100
+
+    Allow setting the user name (part of the USER message) to use
+
+commit 20cfec6d64da4766338ea8c2f97ca64d36227789
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:03:37 2011 +0100
+
+    never return nil from Plugin#config
+
+commit 2f5d1bdfabbef190de81606a9c352e01eec6d196
+Merge: dbd2011 08ef7a6 19d398d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Mar 2 16:01:17 2011 +0100
+
+    Merge branches 'fix/globbing' and 'fix/help-message' into maint
+
+commit d8d1dff693f1c41c85c4177887bc8276b7a1952c
+Merge: 09a94a8 dbd2011
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Feb 23 18:13:57 2011 +0100
+
+    Merge branch 'maint'
+
+commit dbd2011bca2f1dfb93f1e3acbd61815882b53f4a
+Merge: 93f9a5c 4bb678b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Feb 23 18:12:32 2011 +0100
+
+    Merge branch 'fix/channel_has_user' into maint
+
+commit 4bb678beba85c46283cec194fe7030cd4b9a963f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Feb 23 18:11:39 2011 +0100
+
+    fix Channel#has_user?
+
+commit 74a534d5c2d4ba542bdc269e9163e7e081107dc3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Feb 2 04:28:08 2011 +0100
+
+    add support for the justin tv "IRC" server
+
+commit 19d398d673e869f7a5dac264cf8275ae0df4290e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Jan 26 00:25:50 2011 +0100
+
+    fix the registration of help messages
+
+commit 08ef7a65ba13a1ebc5c5985510c2c4a705e8bb21
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 23 00:12:16 2011 +0100
+
+    add support for the ? glob character in irc masks
+
+commit 48df0d6ade5248734097f4ca8e58fdfd55d51644
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 21:58:26 2011 +0100
+
+    modularized Cinch::IRC#connect into many smaller methods
+
+commit 09a94a81e3349b5f118734139b34527f66b2ba6e
+Merge: 1ae94d3 93f9a5c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 05:21:02 2011 +0100
+
+    Merge branch 'maint'
+
+commit 93f9a5c3d42529dd1a26a86901c4f9dfb9a406c9
+Merge: 95fb474 faa01a2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 05:20:55 2011 +0100
+
+    Merge branch 'fix-logger_jruby' into maint
+
+commit faa01a227ad290f983f6d2358d6e38dcbef14f53
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 05:02:04 2011 +0100
+
+    modify the loggers so that they work with JRuby 1.6.0.RC1
+
+commit 1ae94d3cded5a24f238a9b018dd1d91065634f2b
+Merge: 0d27816 95fb474
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 04:42:08 2011 +0100
+
+    Merge branch 'maint'
+
+commit 95fb4741fbbfea7e49a92463214fee47b62af7e9
+Merge: 9aae26b 8b8948f a6632ce
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 04:41:53 2011 +0100
+
+    Merge branches 'fix-mask-match' and 'fix-user_find_ensured' into maint
+
+commit 0d27816aa88fcabd0192593e8ea4594fb4fda37a
+Merge: 56a4dff 72c75af
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 04:22:53 2011 +0100
+
+    Merge branch 'improve-real_booleans'
+
+commit 72c75afd5597836c8c6043adda519e0105e6f1fb
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 04:12:32 2011 +0100
+
+    make sure that all boolean methods return booleans, not other objects or nil
+
+commit a6632ce3482d658e5a419e0b13e43cd4d843a018
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 01:00:35 2011 +0100
+
+    fix User#find_ensured
+
+commit 8b8948fd059f474d9f045e140b457f7598070a1a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 00:15:01 2011 +0100
+
+    fix Mask#match (again), finally meeting the specs
+    
+    Mask#match is supposed to work with instances of User, String, Ban and
+    Mask, not only User.
+
+commit 56a4dffc11c4da9c8cf712c37699ba4db2c4b4a9
+Merge: 5cad889 9aae26b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 22 00:00:25 2011 +0100
+
+    Merge branch 'maint'
+
+commit 9aae26b699afd4ab5dda0438af39c2e6e1db4708
+Merge: e7a8b88 c22224e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 21 23:58:10 2011 +0100
+
+    Merge branch 'fix-mask-match' into maint
+
+commit c22224e4a8c43689d44b7cb2c8cfd36ef9f7d816
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 21 23:57:04 2011 +0100
+
+    fix Mask#match
+
+commit c0976ddf55edc0ac5a9533b7661d424a93572a22
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 21 23:09:48 2011 +0100
+
+    add classes for managing the bot's configuration
+
+commit 5cad889d0b0c81d0890d4956194ecdbbbde64b11
+Merge: 1f1c2b2 e7a8b88
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 18 16:58:32 2011 +0100
+
+    Merge branch 'maint'
+    
+    Conflicts:
+            ChangeLog
+
+commit e7a8b883f82a792c82cbc7553dbb2376c450ba08
+Merge: c40ee92 c4cf248
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 18 16:56:49 2011 +0100
+
+    Merge branch 'fix-ctcp' into maint
+
+commit c4cf248622341ad958e97468aa41a474be4aa735
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 18 16:55:59 2011 +0100
+
+    update changelog
+
+commit 94094e3a71435f4b59008088397ce0a104ec842b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 18 16:55:18 2011 +0100
+
+    update version number
+
+commit cadb5d3f61bf418b6691109c529e82c94bb0806e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 18 16:50:36 2011 +0100
+
+    fix CTCP support in plugins
+    
+    Due to the changes to Pattern#initialize and a forgotten change to one
+    of the calls to that method, implementing CTCPs was broken.
+
+commit 1f1c2b2a3453cec8de50dfc1158709d99779d5c6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 16 02:01:18 2011 +0100
+
+    mention the right date in the changelog
+
+commit c40ee92ecc3710e0eb31c30f8a9e531fdbda118b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 16 01:39:37 2011 +0100
+
+    bump version to 1.1.0
+
+commit c2e55e28ed5cb2b1731f381dbb3b9502e103af27
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 16 01:38:58 2011 +0100
+
+    update path to documentation in gemspec
+
+commit bc74f1eeac5972264ebc357bb59c74667f599182
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 16 01:34:23 2011 +0100
+
+    add changelog
+
+commit 4c54c2bd485e320286356676b05a0591b4eb765a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 16 01:33:34 2011 +0100
+
+    add another example
+
+commit 6fa2bf59840f2195bd1a47d6281b23b18b08a1f6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 16 01:31:25 2011 +0100
+
+    fix Plugin#prefix and Plugin#suffix
+    
+    Plugin#suffix was accidentally named Plugin#prefix and in turn
+    overwrote the original Plugin#prefix method
+
+commit 1e47dc79928a8c5f22bef04e5bb330e6e14bff3b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Jan 16 00:23:32 2011 +0100
+
+    add a couple of new examples
+
+commit 822e98697b5b014dfb9d541e074b68885951ff3a
+Merge: 64129d5 a5b3444 36f745c 13a5675 0106a2a 8223962
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 15 18:01:38 2011 +0100
+
+    Merge branches 'improve-mask', 'fix-timer', 'improve-channel_methods', 'feature-replace_invalid_bytes' and 'feature-pattern_suffix'
+
+commit 0106a2a555784dc2f6b5bcc439378f8ac0917a86
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 15 15:02:59 2011 +0100
+
+    reencode messages to the locale encoding before logging them
+
+commit e2eebeb96c21141fe7cf1d5f253e97f93ff54010
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 15 14:24:14 2011 +0100
+
+    drop invalid bytes after encoding an incoming message
+
+commit 13a56759fb0b94394a89c59c4751e615be199a7a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Jan 13 17:08:45 2011 +0100
+
+    add Channel#half_opped?
+
+commit 36f745cae66f76f35a04a0c0a0b33b6d0e7ae9ce
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Jan 13 16:41:28 2011 +0100
+
+    only register timers once
+
+commit 637254811caff80f2cd47b330210c135044bd028
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Jan 13 16:27:19 2011 +0100
+
+    when registering a timer, only fire it after the first interval has passed
+
+commit a5b344453e522fd3453607c061eec66edc5a8a30
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Jan 12 22:43:26 2011 +0100
+
+    add anchors to the regexp in Mask
+
+commit 2d7491f25ec394103c18b7e04064632e28ad810d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Jan 12 22:33:50 2011 +0100
+
+    support checking masks for equality
+
+commit f0513b10837779d4c30def2a6d8080ccf4f4fa52
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Jan 12 22:13:30 2011 +0100
+
+    fix Mask#match
+
+commit 82239620d3fb0ab1f45c13310a69ecf3b0bc5643
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 11 16:32:00 2011 +0100
+
+    add support for suffixes
+
+commit 64129d5efab667f4ac70f775372ebf7ef6d386b8
+Merge: 91a774f b81268e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 11 14:06:25 2011 +0100
+
+    Merge branch 'fix-kill_unsync'
+    
+    Conflicts:
+            lib/cinch/irc.rb
+
+commit b81268ea327cadc519b36228eecb218055ea7523
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 11 13:16:22 2011 +0100
+
+    unsync the killed user, not the one killing
+
+commit 91a774fdde670d94484316288aa1b1069758b68b
+Merge: c118a5c c2c51c1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 8 03:45:49 2011 +0100
+
+    Merge branch 'improve-documentation'
+    
+    Conflicts:
+            lib/cinch/bot.rb
+
+commit c118a5cddb3659b3d12d317d37b74db33da658e0
+Merge: b221ee0 3ea2dc6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 8 01:43:53 2011 +0100
+
+    Merge branch 'int-timeouts'
+    
+    Conflicts:
+            lib/cinch/bot.rb
+            lib/cinch/message_queue.rb
+
+commit c2c51c16471682daab5f3211129c4cbe5986bc46
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 8 00:13:50 2011 +0100
+
+    document on_396
+
+commit 2aaca6ccd7bee36c93777229d212fe5c2fd2ac0f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 8 00:07:37 2011 +0100
+
+    update list of contributors
+
+commit 8667d7f7fd19def83129c85b5c10285329434750
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 8 00:00:25 2011 +0100
+
+    fix regexen of examples
+
+commit cfe1050975f2488f9175e2478138df4dc290f910
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 23:50:54 2011 +0100
+
+    improve documentation of Cinch::User
+
+commit dead589936c978dc71f01623064ba767decf330f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 21:45:42 2011 +0100
+
+    improve documentation for Cinch::ModeParser
+
+commit d3d2792b132b99c67bcbd0904ebf7acddfba546e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 21:44:33 2011 +0100
+
+    improve documentation for Cinch::Message
+
+commit d84af893f04f85de538e031ecddfc3b5432ea88d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 21:37:15 2011 +0100
+
+    improve documentation for Cinch::Channel
+
+commit 570045169c78bde8c1c691136ef8506e62bfe982
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 19:51:57 2011 +0100
+
+    improve documentation for Cinch::Callback
+
+commit 782f3cb35bd6d6836b4464aa78cc1a42d82f8c82
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 19:50:35 2011 +0100
+
+    Revert "mark pseudo attributes as attributes"
+    
+    This reverts commit b225e4d03176da80906eed93c761b7820520f378.
+
+commit c929e1dfd7fffa5160488720f9994a74b0c1be71
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 09:56:19 2011 +0100
+
+    use yard @group tags to group and order methods
+
+commit 4bcf07afca1426ebe90fd3824cf83aac687c0e27
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 09:55:51 2011 +0100
+
+    mark pseudo attributes as attributes
+
+commit e6bb152fa63d21fbdc0f5b4a1111a217df2b0b64
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 09:37:53 2011 +0100
+
+    fix mistakes and missing information for methods in Bot
+
+commit 3222f963f397764707a0f348a646d50f972a7b97
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 09:09:45 2011 +0100
+
+    improve documentation for Cinch::Ban
+
+commit 2ae09b1e099fdd0df1bc05e0c01042a04398ba87
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 08:57:36 2011 +0100
+
+    mark all plugin structs as part of the private api
+
+commit 62b47862f44dd5bb8da3d85b2f4eecca8e088248
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 08:55:57 2011 +0100
+
+    replace < and > in documentation with html entities
+
+commit 7cbfd1aa993d04850e3412ccd7581e8c98982640
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 08:54:07 2011 +0100
+
+    fixed documentation for constants by replacing < and > with their html entities and replacing <BR> with a new paragraph
+
+commit b221ee0b368717d75f36351d9b14a381cb1431ca
+Merge: 6127598 77f9db3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 02:53:10 2011 +0100
+
+    Merge branch 'feature-pisg_logger'
+
+commit 61275984ec5c6e7395e1a5aa0ab31c0f51762761
+Merge: e048f4d d5a5513
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Jan 7 02:52:54 2011 +0100
+
+    Merge branch 'refactor-caching'
+    
+    Closes gh-29
+
+commit e048f4d981c33b1d6d05c78788d18f2f7055a880
+Merge: 0b56d45 917f5b6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Jan 5 22:09:22 2011 +0100
+
+    Merge branch 'improve-ssl'
+
+commit 0b56d457a9a9311dfbbc204f8dd8d06f54488872
+Merge: 79fdecd 56e549d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Jan 5 22:06:30 2011 +0100
+
+    Merge branch 'feature-irc_encoding'
+
+commit 3ea2dc6f98b43cec15bfd17f1e7ccefdda0b49a3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 4 12:39:29 2011 +0100
+
+    Revert "style changes"
+    
+    This reverts commit d400b73c158c5eb0f596c93ed2d72f76d03b3914.
+    
+    Conflicts:
+    
+            lib/cinch/bot.rb
+
+commit 86c320ec1fd8a24e339fd25685dfc83b34dccd03
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 4 09:42:33 2011 +0100
+
+    send periodic pings to the server
+
+commit a1f9ab1a67d25efc7cf952ba47125b955a53c8ba
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 4 07:31:00 2011 +0100
+
+    implement a smart(er) reconnection delay based on the number of previous attempts
+
+commit 05dcf4e444943670940b72a2eccd4780016c38e3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 4 07:30:35 2011 +0100
+
+    don't print a backtrace if the server unexpectedly closed the connection
+
+commit fcb3380961959b6b3ddc48ad704f279471dbb835
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Jan 4 07:30:21 2011 +0100
+
+    make timeouts configurable
+
+commit d40c03efb884cd3451361ac1de9187a6ca790cbf
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 23:53:42 2011 +0100
+
+    don't print a backtrace for timeouts
+
+commit d400b73c158c5eb0f596c93ed2d72f76d03b3914
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 23:53:31 2011 +0100
+
+    style changes
+
+commit 3ac1b836cdc23d2b6e1971def183e717b7e4d2dd
+Author: Emil Loer <emil@koffietijd.net>
+Date:   Sat Jan 1 20:57:16 2011 +0100
+
+    Added connection timeout handling
+
+commit 149143190e82e825eba71e8c747b2d0175ff94d2
+Author: Emil Loer <emil@koffietijd.net>
+Date:   Sat Jan 1 20:17:14 2011 +0100
+
+    Reworked reconnect behavior into a loop instead of recursion
+
+commit 56e549db5241b12a21dcc2232ba59b01502c8ebf
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 22:51:32 2011 +0100
+
+    add a new encoding called :irc
+    
+    The :irc encoding is a mixed (CP1252 and UTF-8) encoding which will
+    properly detect the encoding of incoming messages and decide which
+    encoding to use for outgoing messages, based on the characters used
+    and if they can be represented in CP1252 or not.
+    
+    For more information, check http://xchat.org/encoding/#hybrid
+
+commit 917f5b68b1a111f8e504e2015c2a50da97b5e25f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 08:55:40 2011 +0100
+
+    fix Bot#secure to support the new ssl settings
+
+commit d5a551380b9b485cc6bb5f8e8cacf6ff4c4a320a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 08:44:00 2011 +0100
+
+    remove obsolete class methods of User
+    
+    Removing User.mutex and User.users
+
+commit 442fd8211d896a590c7b5d8ab5610352c3d92f73
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 08:43:34 2011 +0100
+
+    get rid of useless mutexes
+
+commit 4c448ef6b3e670d95b1f55191fec326ee8aaf757
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 07:50:09 2011 +0100
+
+    fix User#update_nick (UserManager#update_nick only expects one argument)
+
+commit e1b4474f3e54be113022b92d18f08fa8a69b9fa3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 07:49:02 2011 +0100
+
+    CacheManager#each should yield values, not key-value pairs
+
+commit d03c3eadff7e276b53432037af8b2b57edf5efa6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Jan 1 00:40:52 2011 +0100
+
+    rewrite channel and user caching/generation to support running multiple bots in parallel
+
+commit 79fdecd38b44d0b6ed2c7a649c861242a92f4f04
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Thu Dec 30 16:06:24 2010 +0000
+
+    remove comments from multiple matches example
+
+commit e2a0d224e2ce812b5ea654d30bb99683859c9127
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Tue Dec 21 13:34:12 2010 +0000
+
+    updated readme
+
+commit 348abc46d595e979dc400c90695563d93782a812
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Dec 11 16:25:59 2010 +0100
+
+    allow for fine-grained control of SSL, including client certificates and verifying certificates
+
+commit a05502d6f4badd122c94afab5ac42ab95b086fd0
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Sat Dec 11 15:18:04 2010 +0000
+
+    updated references to new repository
+
+commit 94a80f355acd54aa3dd222508bab21f29a24d542
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Dec 10 00:19:19 2010 +0000
+
+    remove useless 'spec' assignment and keep quote mark type consistent
+
+commit 70b4fba83c6768658678f30c4f6898f410d0a2c1
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Dec 10 00:18:22 2010 +0000
+
+    remove unused spec directory
+
+commit 9b3621f8eba6786e43ce5fd963ee674eefaf1129
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Dec 10 00:17:50 2010 +0000
+
+    remove Rakefile and spec folder from gemspec file list
+
+commit e8668eac2ed256434e01aab688d866dd9fbff7d9
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Dec 10 00:17:22 2010 +0000
+
+    removed rspec from development dependencies
+
+commit be6f279f016289799ba6af6cc119d786c0f45ad5
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Dec 10 00:16:08 2010 +0000
+
+    remove useless Rakefile
+
+commit 09fd8fb20c07e6f89742ca7c6560b1acb5692e89
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Dec 10 00:07:04 2010 +0000
+
+    readme lines should be <= 80 chars
+
+commit b6f5ccab7e2fb74a77f124b41356675a937c4017
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Dec 10 00:02:53 2010 +0000
+
+    fixed 'retarded' typos
+
+commit 534f6ff9517908baef0ddc7966e5e6c82f5ea04b
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Thu Dec 9 23:55:18 2010 +0000
+
+    all example bots should join #cinch-bots from config.channels
+
+commit 77f9db337d4f9aa1f08974f8fbd667691f88150b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Dec 9 16:34:41 2010 +0100
+
+    add logger with the format of zcbot
+
+commit 4e02d737897c57db554e5d5adb359e6648f6501b
+Merge: 1a7a687 d7d79b9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Dec 8 15:52:36 2010 +0100
+
+    Merge branch 'feature-support_procs'
+
+commit d7d79b9d10d299c6df45e556bc4940d8e697fe7a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Dec 8 15:51:59 2010 +0100
+
+    remove unwanted debug output from Pattern#to_r
+
+commit 1a7a687d8803b6b57c6bd537ff56534f6bb2ccba
+Merge: 030a584 0cf468a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Dec 8 03:28:10 2010 +0100
+
+    Merge branch 'feature-vhosts'
+
+commit 030a58401f5a2aa43d0e248397720b5995fd211b
+Merge: 9fff544 5c6bcf3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Dec 8 03:09:24 2010 +0100
+
+    Merge branch 'feature-support_procs'
+
+commit 5c6bcf300fd8a07ec496dc5f26ed5752f14cbb9a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Dec 8 03:06:19 2010 +0100
+
+    fix handling of prefixes in Pattern.obj_to_r
+
+commit 0cf468a68f93dfa6c1332e4de70bbf02f9aab4ad
+Merge: 9fff544 aef3e5d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Dec 8 02:13:53 2010 +0100
+
+    Merge remote branch 'qpingu/master' into feature-vhosts
+    
+    Conflicts:
+            lib/cinch/bot.rb
+
+commit ec35fd6f62aa31e179e6b3c75e2b6a1f51cd8fe1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Dec 8 01:36:57 2010 +0100
+
+    fix prefixes of patterns
+
+commit aef3e5dea81d43970105dfb39b4697bf628b94c2
+Author: pingu <qpingu@gmail.com>
+Date:   Tue Dec 7 18:25:06 2010 -0500
+
+    Removed local_port (wow, 3 commits for 2 lines)
+    
+    Signed-off-by: pingu <qpingu@gmail.com>
+
+commit 30361e0316838366c477729203f33951ce1c8873
+Author: pingu <qpingu@gmail.com>
+Date:   Tue Dec 7 17:36:45 2010 -0500
+
+    Renamed vhost and added in local_port.
+    
+    Signed-off-by: pingu <qpingu@gmail.com>
+
+commit a60a6a39ba3eb1b451a42d060dcc88b4a6c08e8a
+Author: pingu <qpingu@gmail.com>
+Date:   Tue Dec 7 16:52:33 2010 -0500
+
+    Added a vhost config variable for those using a Unix shell provider with support for virtual hosts.
+    
+    Signed-off-by: pingu <qpingu@gmail.com>
+
+commit 9fff54449c8e5197d965be24843e1448f4eb2c2c
+Merge: 7cc9783 d4eabed
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 16:24:51 2010 +0100
+
+    Merge branch 'improve-formatted_logger'
+
+commit d4eabedac5e51fef1707eb8e1e4f9ea131c0c6d6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 16:24:10 2010 +0100
+
+    fix logging of multiple lines in FormattedLogger
+    
+    this fixes a regression introduced by 260e9a6
+
+commit 7cc97834b47a9441ee58b5ef1e8ba1d20d024e80
+Merge: 40a3d5e fc28f5c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 15:10:04 2010 +0100
+
+    Merge branch 'fix-casemap'
+
+commit 40a3d5eba5ef61e28490f9b23e9b8d7346402eda
+Merge: 9e5f6fb eae7ff5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 15:07:12 2010 +0100
+
+    Merge branch 'feature-catch_all'
+
+commit 9e5f6fb5e7364c5cb8e10dea81a9435c8dbc0642
+Merge: 3261fc0 a30fba0
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 15:00:49 2010 +0100
+
+    Merge branch 'feature-mutliple_nicks'
+
+commit 3261fc08cd49b52980e3f3caa7fb5c32482a42a5
+Merge: 1a95ccd 10efe31
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 15:00:09 2010 +0100
+
+    Merge branch 'improve-formatted_logger'
+
+commit 1a95ccd2d2b3c89391cf6f124f8a0a80586af920
+Merge: 6050e53 3742312
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 14:56:36 2010 +0100
+
+    Merge branch 'fix-quit_deadlock'
+    
+    Closes gh-17
+    
+    Conflicts:
+            lib/cinch/bot.rb
+
+commit 6050e53a16b517d61014c91382dc89bf79a4050f
+Merge: 5497980 9b337be
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Dec 7 14:52:40 2010 +0100
+
+    Merge branch 'feature-mode_parser'
+    
+    Conflicts:
+            lib/cinch/plugin.rb
+
+commit 549798053459f7c4d59a42e1bd57cdc3e4089b21
+Merge: 7b88011 6c1226a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Dec 5 04:34:11 2010 +0100
+
+    Merge remote branch 'origin/master'
+
+commit 7b88011202e9ee5b09ad6606f610fb32aef60565
+Merge: ad531b1 ca943d5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Dec 5 04:31:11 2010 +0100
+
+    Merge branch 'feature-hooks'
+    
+    Conflicts:
+            lib/cinch/plugin.rb
+
+commit 10efe31aaa6383f673968d6caf763c4aaef10234
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Dec 5 04:14:28 2010 +0100
+
+    don't use colors in formatted logger if we're not writing to a tty
+
+commit 260e9a6c52b9157a33148c2e6d14f4029a9eac7f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Dec 5 04:12:13 2010 +0100
+
+    add timestamps to log messages in formatted logger
+
+commit a30fba0e4184037f99181b3b822a0e9177868cd5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Dec 5 04:00:55 2010 +0100
+
+    add support for multiple nicks to try upon connecting
+
+commit 9b337be07f2714f126f740a60036167236fe4d37
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Nov 30 18:28:56 2010 +0100
+
+    access the unsynced variants of Channel#modes when (un)setting modes
+    
+    fixes a possible deadlock
+
+commit 6c1226a61da89f55b308b91732135e59e59bb550
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Sun Nov 28 21:43:38 2010 +0000
+
+    updated API documentation link
+
+commit fc28f5c2e2b13a4a893d4b7c1d85758f7c84e3b1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 27 23:33:49 2010 +0100
+
+    fix bug in String#irc_{downcase,upcase} which caused Cinch to not properly replace a backslash
+
+commit ad531b121528650a8d7a969fddb3f0818913b1c9
+Merge: 5286a4c 55493a0
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Nov 25 12:50:51 2010 +0100
+
+    Merge branch 'feature_notice'
+
+commit 55493a0c7ea406d8acc482304c61cbeee8ef5beb
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Nov 25 12:48:01 2010 +0100
+
+    fix typo in Bot#msg which breaks sending splitted messages
+
+commit 5286a4c7080ec3871d7762dea4167563751df996
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Tue Nov 23 02:03:27 2010 +0000
+
+    updated documentation links
+
+commit 9bea64f71d5a20061ebd5f2a29ffcc652277db60
+Merge: baf348a 62e27c0
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 20 07:00:03 2010 +0100
+
+    Merge branch 'fix-find_methods'
+    
+    Conflicts:
+            lib/cinch/irc.rb
+
+commit ee0eb475a0872c65a564906657d595f5fea8d2b7
+Merge: 4c620af 62e27c0
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 20 06:43:01 2010 +0100
+
+    Merge branch 'fix-find_methods' into maint
+
+commit baf348abe7fb966073ef9d2c6d44d9b7124f43b2
+Merge: 9135126 04b4233
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 20 06:40:46 2010 +0100
+
+    Merge branch 'feature-channel_has_user'
+
+commit 91351268471c271811c980741e82be304bf328cc
+Merge: d2c164a 9280206
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 20 06:34:44 2010 +0100
+
+    Merge branch 'feature-timer'
+
+commit 374231250cdedb7ce44c43edcdd7211b1f6962b4
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 20 05:46:28 2010 +0100
+
+    support automatic reconnecting and fix deadlock on disconnect
+    
+    Closes gh-15
+
+commit f9ea1ffb76d1258b5d970aa6378f287ce7d9de04
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 20 05:34:52 2010 +0100
+
+    print an error if a message couldn't be sent because of connectivity problems
+
+commit f72ca2a1c3405335713f15201b4ea83c08b01192
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Nov 20 05:28:23 2010 +0100
+
+    reset all User and Channel states when (re)connecting the bot
+
+commit ca943d5c0bed5f3fcff2e6e3e7c01ab54de82fbe
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 19 05:08:22 2010 +0100
+
+    add hooks to plugins
+
+commit 62e27c0a4909c473b98bc9c128cec82d5139b1be
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Nov 18 23:48:43 2010 +0100
+
+    fix caching of users
+    
+    User caching (for lookup in User.find_ensured) broke on nick changes
+    and could return wrong users. Additionally, it would never remove any
+    users from the cache, leading to massive memory usage on the long run.
+
+commit 575ff5e36639bf7bba19c5e2ee0f41a1d48b82ad
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Nov 18 23:42:53 2010 +0100
+
+    make User#find_ensured and Channel#find_ensured thread safe
+
+commit 9280206fc68248daa2399bd05483ef01e9806926
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Nov 17 13:21:35 2010 +0100
+
+    add timer functionality to plugins
+
+commit eae7ff5a2c21d6201b01f2e2363926a5e856209e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Nov 17 13:05:35 2010 +0100
+
+    add a :catchall event to all messages
+
+commit f877a9ea63c74b00d3eaa80b19ac7ce3ef6f81a2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Nov 17 12:27:58 2010 +0100
+
+    document Bot#dispatch and declare it as public
+
+commit 107831acf864c06d61c49afb1f383e557962aac2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Nov 17 12:25:43 2010 +0100
+
+    emit signals in irc.rb for mode changes
+
+commit 1e83d8961c99df0c6c796a3b6badc86d0c3ccec9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Nov 17 12:14:08 2010 +0100
+
+    improve mode parser
+    
+    - Added ModeParser specific exceptions
+    - removed commented code
+    - fix exception for "not enough parameters"
+
+commit 16bb96a4bfbc377fb51b64a779b1cd3ed3f88d5c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Nov 17 03:21:45 2010 +0100
+
+    allow all on_* handlers in irc.rb to add additional information and/or
+    events to the dispatch queue.
+    
+    Right now, no handler needs this functionality, but the upcoming
+    addition of mode change specific events (and maybe more) will need
+    this.
+
+commit 564a5e9fc36d5a221e07fa0fe9d36f57fc724a9e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Nov 17 03:18:22 2010 +0100
+
+    allow events to carry additional arguments which come after the message
+
+commit b8465e94a84c15eeb715c6a25757905ac3c480cb
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Nov 16 18:11:54 2010 +0100
+
+    remove manual splat handling
+    
+    Ruby blocks behave just like procs and thus just discard surplus
+    arguments. Because of that, we don't have to manually check the arity.
+
+commit fc3fb4101e04af5b29f7b99013d779572b7f0642
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Nov 16 02:53:45 2010 +0100
+
+    store user modes, not user prefixes
+
+commit 44c7953f546ee072308129fcd8796791bca94f55
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Nov 16 02:30:12 2010 +0100
+
+    first steps towards using a mode parser
+
+commit e75eb8b2ce2322e63bb15dcc9ea4957819c4acb4
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Nov 16 02:29:46 2010 +0100
+
+    Support multiple modes per user
+
+commit 04b4233a7c3d82c78ca78b7c57187897e826db7d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Nov 15 16:18:48 2010 +0100
+
+    add Channe#has_user?
+    
+    Added a method for checking if a user is in a channel.
+
+commit d2c164a00d990ee6652de38b9f848c1572288b7a
+Merge: 8596933 f88b303
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Nov 14 00:51:37 2010 +0100
+
+    Merge branch 'master' of github.com:injekt/cinch
+
+commit 85969337c712b5c104aa0c326f6163fd081b159a
+Merge: 1b07b4f 4c620af
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Nov 14 00:51:01 2010 +0100
+
+    Merge branch 'maint'
+    
+    Conflicts:
+            lib/cinch/plugin.rb
+
+commit 1b07b4f238989792147e53bc701ad35327ca8166
+Merge: b22c924 fee55e9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Nov 14 00:49:18 2010 +0100
+
+    Merge branch 'feature_notice'
+
+commit b22c924cbaf5ba9b8732eaa5fe1e6c2733eba58a
+Merge: 4bef72d 86c9397
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Nov 14 00:47:57 2010 +0100
+
+    Merge branch 'feature-message_to_s'
+
+commit 4bef72dcb986b7aaf6cc5f728c829bc4835fb9c6
+Merge: 3467b6f e80917d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Nov 14 00:47:41 2010 +0100
+
+    Merge branch 'feature-last_nick'
+
+commit f88b303bec8371893cfea3807504ba2176f75a94
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Sat Nov 13 00:35:37 2010 +0000
+
+    removed spec/doc task and remove useless requires
+
+commit cdc9bd83cab105f99cd09b63a01bba54718410c5
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Fri Nov 12 23:41:06 2010 +0000
+
+    ignore redcar project directory
+
+commit 86c939714f668e34718625cb1ddffdc3b00ebd20
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 12 23:16:41 2010 +0100
+
+    add Message#to_s
+
+commit e80917d1c146f1f643dd7fcea71fdac57451b587
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 12 22:23:29 2010 +0100
+
+    introduce @last_nick in User, which stores the user's nick before a
+    nickchange.
+    
+    It wasn't possible to access a user's old nickname in a plugin,
+    because @nick was updated even before plugins were called. By
+    introducing @last_nick, it is now possible to access this information,
+    even in handlers that don't fire on :nick
+
+commit 3467b6f016a283dba908a574b644a1d6484ffe66
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 5 23:01:02 2010 +0100
+
+    rename @__cinch_patterns in plugin.rb to @__cinch_matches
+
+commit 1540c3f9f790cbd6c478c6c8f10ee4f23ec19dbb
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 5 22:59:45 2010 +0100
+
+    do respect when a pattern should not use a prefix
+
+commit d3aca3dad14134e3c6454df6a359c67f92031d63
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 5 01:34:38 2010 +0100
+
+    proc prefixes/patterns now can optionally accept a message as an argument
+
+commit d588e114c464887826ac4825b04a9377b2bbcf5d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 5 01:33:12 2010 +0100
+
+    provide Message#bot
+
+commit 521833b54d3d0fb55577c162b6ca62a6c2dee527
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 5 01:32:48 2010 +0100
+
+    support plugin specific proc prefixes
+
+commit bcf8fae4a4068745597a600b065593c8294c4e2a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 5 00:27:18 2010 +0100
+
+    store prefix and regex in a Pattern class, to support procs and
+    concentrating regex handling in one place.
+
+commit 0529fc192170f5de0130eb20b9515feba4c09011
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Nov 5 00:25:02 2010 +0100
+
+    rename Cinch::Plugin::ClassMethods::Pattern to Cinch::Plugin::ClassMethods::Match
+
+commit 4c620afc9396481c883b5d0e50345d6f264c3ca8
+Merge: 9b1bee2 5916dbd
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Nov 2 20:36:56 2010 +0100
+
+    Merge branch 'fix-help_pattern' into maint
+
+commit 9b1bee2c50743ddd39093d9d15edc40761a1ead5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Oct 31 23:12:41 2010 +0100
+
+    assign :execute as the method to default handlers
+    
+    Default handlers of plugins (those matching the plugin's name) were
+    missing the method name to call. Fixed it by assigning :execute to the
+    stored Pattern.
+
+commit 5916dbde0ace7924d0ad3212f326b080bb0dee7f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Oct 31 22:55:13 2010 +0100
+
+    fix the pattern for automatically generated !help handlers
+    
+    The pattern was a regex, with a missing ^ anchor, which caused the
+    handler to fire in situations where it shouldn't.
+    
+    Now we pass the pattern as a string to Bot#on and thus make use of the
+    automatic escaping and anchoring in Bot#on.
+
+commit fee55e9ea0c537c3e312a91ec480d62f19e42ea4
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Oct 31 22:42:18 2010 +0100
+
+    add Bot#notice, User#notice and Channel#notice
+    
+    Closes gh-26
+
+commit f6e7ccbfe4dd2c417bf1821ae1d7e663ee2942c5
+Author: Lee Jarvis <lee@jarvis.co>
+Date:   Sun Oct 31 21:00:36 2010 +0000
+
+    removed key/value store documentation from README
+
+commit d08742b24c2ba9c4e4d64921513ef5d1be32e2c0
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Oct 27 15:00:56 2010 +0200
+
+    add support for RPL_WHOISREGNICK
+    
+    some IRCds (UnrealIRC, for example) have a +r flag, which signalize if
+    a user is registered. Internally, Cinch will store this information by
+    setting a User's authname to its nickname, if +r is set.
+
+commit e4ddd3bb0caf909980a36f3fe796a56a810ae308
+Merge: 8d5d419 c267539
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Oct 30 19:35:19 2010 +0200
+
+    Merge branch 'maint'
+
+commit c2675393c20c6f178070e86b8012cb0fed142079
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Oct 27 15:14:56 2010 +0200
+
+    convert all messages in FormattedLogger to strings
+
+commit 8d5d4194b606c23b66e09bf671f4ab9f4d82be2a
+Merge: 5fe4daa 3e8d4fe
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Oct 30 19:28:50 2010 +0200
+
+    Merge branch 'fix-documentation'
+
+commit 5fe4daa13192b89d248cd6355cff86a3ceb0a18a
+Merge: 607304e e4a4f18
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Oct 30 19:20:13 2010 +0200
+
+    Merge branch 'maint'
+
+commit e4a4f18332e9ea7042d13f877bc5f57e10d42c9d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Oct 28 21:27:36 2010 +0200
+
+    use User#attr in User#authed?
+    
+    User#authed? directly accessed @data[:authname] which caused Cinch to
+    not send a WHOIS to the server, thus returning false information.
+    
+    By using User#attr, this behaviour has been fixed.
+
+commit 607304e7b1c382129ad8c1fae41a51e7c801017b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Sep 8 23:34:45 2010 +0200
+
+    DRY documentation for {Bot,Callback,Plugin}#synchronize
+
+commit 5d66cca199a7801ce1e334671dba61ba9169f0b3
+Author: David A. Cuadrado <krawek@gmail.com>
+Date:   Wed Sep 8 10:59:10 2010 -0500
+
+    fixed Callback#synchronize and added the documentation
+
+commit 40eefeb43cc7e7dcdf8fadf3af76c9eaa8a937be
+Author: David A. Cuadrado <krawek@gmail.com>
+Date:   Tue Sep 7 18:04:45 2010 -0500
+
+    make plugins attribute available
+    
+    Signed-off-by: David A. Cuadrado <krawek@gmail.com>
+
+commit 9ce403ea109c822852a5cacf9a28fcc087cd2e86
+Author: David A. Cuadrado <krawek@gmail.com>
+Date:   Tue Sep 7 18:03:25 2010 -0500
+
+    add synchronize method to Callback so I can use it in 'on' callback
+    
+    Signed-off-by: David A. Cuadrado <krawek@gmail.com>
+
+commit 6781f2dae2edf9a244415bef5ad440332224e3f0
+Merge: 15906ca 546d5a5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Sep 2 13:13:43 2010 +0200
+
+    Merge remote branch 'origin/master'
+
+commit 15906ca7cb1d920ce1b67f6ca5f309493803677a
+Merge: 7e860ca 8954619
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Sep 2 13:12:31 2010 +0200
+
+    Merge branch 'maint'
+
+commit 8954619ea92d3ce45c8b8c3f3c78acaee135d33f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Sep 2 13:11:53 2010 +0200
+
+    version 1.0.2
+
+commit 546d5a549ed155478283e870163e73d15ba1e059
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Aug 31 08:25:03 2010 +0100
+
+    updated doc upload task
+
+commit 7e860ca8e961bfa037cbfa04ca7dd183aee95f70
+Merge: 682fb7a 45752d7
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Aug 31 02:33:00 2010 +0200
+
+    Merge branch 'maint'
+
+commit 682fb7aae7c9f070f196831a20671df79cc838ea
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 30 22:58:41 2010 +0100
+
+    updated Rakefile upload task
+
+commit 45752d71fcccfd60d3b20f5168b26091ed10c341
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 30 11:55:39 2010 +0200
+
+    manually handle encoding
+    
+    SSLSocket does not provide set_encoding which is why from now on we
+    will manually handle encoding of incoming and outgoing messages.
+    
+    Closes gh-14
+
+commit 06891c6003e10d8cf2afdb8885a6212273039b3e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 30 11:04:19 2010 +0200
+
+    check if internal and external encoding are the same
+    
+    If setting both internal_encoding and external_encoding to the same
+    encoding, Ruby will raise an exception because it can't convert
+    between the two. But apparantly, some users have such a setup, so we
+    explicitly check for that and don't set an internal encoding for the
+    socket if it'd equal the external encoding.
+    
+    Closes gh-10
+
+commit 1c4ee386d0c5a2165a521d33434863412db8122e
+Merge: 3a9ba44 5c45eea
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 26 04:58:12 2010 +0200
+
+    Merge branch 'maint'
+
+commit 5c45eea04830149f64baefbb056ac244e890adcd
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 26 04:55:49 2010 +0200
+
+    don't modify the stored pattern when registering a plugin
+    
+    Cinch::Plugin#__register_with_bot was modifying the stored pattern
+    instead of using a local variable. The result of this was that
+    registering the same plugin multiple times led to prepending the
+    prefix over and over again.
+
+commit 3a9ba4458a364c872a7c3057d803113947662003
+Merge: db7ee48 c24ce5c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Aug 21 20:56:55 2010 +0200
+
+    Merge commit 'c24ce5c'
+
+commit db7ee4852d5aecfc405b2ba3285cf3bc68b4bc2b
+Merge: bb9e6d9 759f2af
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Aug 21 20:39:23 2010 +0200
+
+    Merge branch 'minor-adjustment'
+
+commit 3e8d4fe65d0b0d0300941a76a99b6c34775e8847
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 20 15:10:39 2010 +0200
+
+    improve documentation for several methods
+    
+    Added tags to the following methods:
+    
+      - Syncable#wait_until_synced (@api)
+      - Syncable#synced? (@return, @api)
+      - Syncable#unsync (@return, @api)
+      - Syncable#unsync_all (@return, @api, @since)
+      - User#unsync_all (@return, @see, @since)
+      - User#end_of_whois (@since)
+    
+    - Documented the behaviour of Bot#nick=
+    - Documented the nature of Bot#unknown?
+    - Documented the behaviour of Bot#secure?
+    - Documented the behaviour of Bot#strict?
+    - Documented the behaviour of Bot#debug
+    
+    - Avoid warnings because of redefining Bot#nick and Bot#nick=
+
+commit 759f2af639427b72fbcf05d03515b65429ecd158
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Aug 21 18:18:26 2010 +0200
+
+    IRC can access the bot's configuration using @bot.config
+
+commit bb9e6d935e44f98d5a26bb226ccf0b6db8707e94
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Aug 21 18:15:33 2010 +0200
+
+    neither Bot#config nor Bot#irc have to be writable
+
+commit c24ce5c589c9292d33b2ddb11800449c0d66a764
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sat Aug 21 11:03:02 2010 +0100
+
+    remove lack of cookies when there are lack of specs
+
+commit c64f38da71a794cfc16cc0c32184986acd506308
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sat Aug 21 10:58:59 2010 +0100
+
+    updated google plugin example
+
+commit cee5227099ccd6eb154536a11c042be5c0431e33
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Aug 21 00:44:44 2010 +0200
+
+    remove unwanted debug output
+    
+    User#end_of_whois contained debug output that was left over from
+    recent bugfixes.
+
+commit 2a2f35327f32736bc076f8fe404d95313dc7118c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 20 14:45:35 2010 +0200
+
+    version 1.0.1
+
+commit 9c3b7af6bb61b360022ff49bdcb5cc037206ce92
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 20 14:43:59 2010 +0200
+
+    declare User#unsync_all as part of the private API
+
+commit e0fe2f75ae9152ff880628cd145936ccc583f1a9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 20 14:10:21 2010 +0200
+
+    fix several bugs regarding user syncing and unsyncing
+    
+    This commit addresses several misbehaviours of user syncing and
+    unsyncing. It fixes the following bugs:
+    
+      - raised exception in on_quit and on_kill because of missing method
+        #synced=
+    
+      - not properly unsyncing and resetting the state of a user when he quits.
+    
+      - caching the value of User#unknown? too aggressively
+    
+    Furthermore, two new methods are introduced: Syncable#unsync_all and
+    User#end_of_whois. The latter takes some responsibilities that have
+    been handled by the IRC parser itself before.
+
+commit a4866ea7456139c1159ff8fd41cbdb3766722469
+Merge: f5dbe71 57ff586
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu Aug 19 16:58:45 2010 +0100
+
+    1.0 release
+
+commit 57ff58674d6f43181c21d94a167a1227af3523db
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 18 23:44:44 2010 +0200
+
+    small doc improvements
+
+commit 30104b2e45093a2e08020bf55cfad821934f6de2
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu Aug 19 15:50:58 2010 +0100
+
+    thread safe synchronization patch from raggi
+
+commit dd4c432d3d10b3fd50da903d63196c24b882bb11
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 18 05:42:37 2010 +0200
+
+    improved documentation of attr_* on User
+
+commit bed5b75e8fb664ca20a610cbf50a6d692b3069ad
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 18 05:42:23 2010 +0200
+
+    got rid of unwanted attr_writers on User
+
+commit a15e833e1c219bbf908a0ff0dd75a2bbdd6c2ec9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 18 05:13:58 2010 +0200
+
+    improve documentation of attr_* of Bot
+
+commit f31fa9757bbfb8f5fe3eef9a619182cb1bcb9487
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 18 05:09:54 2010 +0200
+
+    documented Plugin#config
+
+commit 183befd7c7cd3367b9b16856e7156144e0836ada
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 18 05:09:27 2010 +0200
+
+    added documentation to irc numeric reply constants
+
+commit cf75fef6458dcb23eee7b142c249dd8aee5875aa
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 18 01:14:47 2010 +0200
+
+    rewrote IRC parser
+
+commit d6d17741dca00f98e0cfabf19b5bac43caba0dd2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Aug 17 21:54:18 2010 +0200
+
+    added Bot#channels
+
+commit 6061e41eeece1f1202668f0cf0c1e1648917cb7a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Aug 17 21:44:50 2010 +0200
+
+    unsync user on kill
+
+commit 531cd77828fdfdcfe8cac0fa819d14c3606d8954
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Aug 17 21:36:07 2010 +0200
+
+    moved attr_* in bot.rb to the top
+
+commit f52aaaabac1fb1adbffefea1e9fbc4bb8cb0193e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Aug 17 21:35:48 2010 +0200
+
+    implemented Bot#secure?
+
+commit 16fae7853cb6179a49a0492118848cb4917dda2c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Aug 17 15:43:40 2010 +0200
+
+    improved documentation of loggers
+
+commit d8dc0801ebe148a8bf3530428fef2891602a5d7a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Tue Aug 17 14:51:46 2010 +0200
+
+    update README to reflect changes to logging
+
+commit bd819a37a86721158aef56b22f613cc82e370ffc
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 22:06:25 2010 +0200
+
+    added robgleeson to the list of contributors
+
+commit 0439ae44d248a6a44817bae751f6017bf720fbc8
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 22:06:17 2010 +0200
+
+    don't invite spam bots to email contributors
+
+commit 4fc8de96443166ec278b283d4e2bb6c25b75f5d5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 21:57:07 2010 +0200
+
+    improved handling of encoding
+
+commit ed2403e8ed71b0d2f47f1dabb1b128d365c09c0e
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 16 17:24:55 2010 +0100
+
+    document lack of intention towards 1.8 compatilibility
+
+commit 8639f50f863796b20dd1a398ad36280dd3e8dde2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 15:13:41 2010 +0200
+
+    encode messages received and sent
+
+commit a17b68b4a77893d0126ac8f2735c59c2f0796d62
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 14:27:38 2010 +0200
+
+    rescue exceptions in message parser
+
+commit 622596c890de865b15cfd68bc36dfd2a20cbb2af
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 05:12:23 2010 +0200
+
+    fixed handling of 396 on freenode (got rid of a crash)
+
+commit d4b5ab773d1f7eef9ba156e4fb30b056faad15d3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 04:58:32 2010 +0200
+
+    calculate message width using bytesize
+
+commit 09c47230588a59760693610cceb2b9c6c59b0af7
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 03:00:49 2010 +0200
+
+    fix various bugs and shortcomings of the message splitting algorithm
+
+commit 8ddc2378e70f59f26d31cfd0fdf2298baf14c6d1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 01:44:37 2010 +0200
+
+    fix levels of some headers in README
+
+commit 59916e9be67ec94e0b4fa340598ebd4ef7642596
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 01:43:57 2010 +0200
+
+    fix trailing whitespace in README
+
+commit f9effce52d8abe845e683c696e1634c7497de293
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 01:43:02 2010 +0200
+
+    mention contributors in README
+
+commit 1ea8f1f200e7569b69a2cdc0708c31a2218f1da4
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 16 01:31:53 2010 +0200
+
+    allow setting a maximum of messages to send of a splitted message
+
+commit 0972fbcf38a835256f483e487fd588402b8a8cb7
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Aug 15 14:31:18 2010 +0200
+
+    make FormattedLogger threadsafe
+
+commit a80b32927e692252a44f614296c40f9ff04fca52
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Aug 15 14:30:56 2010 +0200
+
+    fix Queue#unshift
+    
+    Use Ruby 1.9's implementation of Queue#push for #unshift and prevent it from deadlocking.
+
+commit f2bfdbc098217bf740c50f3275dcf25fe2e363f2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Aug 15 13:05:57 2010 +0200
+
+    allow loggers to be replaced
+
+commit 7d5cbf842465e2bacee229a44b9956348834099f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Aug 14 18:17:37 2010 +0200
+
+    added helper method for getting plugin name
+
+commit eac86293c4f9fc0e77c79f47e8087e6275e0a9e9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sat Aug 14 17:10:17 2010 +0200
+
+    prioritize PING replies, not PINGs
+
+commit fa9674a7b1530bf003fc1780d1e1b34d13be7362
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 13 20:30:53 2010 +0200
+
+    support for per-plugin options
+
+commit 566e114bb57201e04c54c44bba41708adaca7a10
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 13 19:41:26 2010 +0200
+
+    bumped version to 1.0.0
+
+commit 7c9377848a2258833aa0f2d8fcb8f41b9a246fb3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 13 19:36:59 2010 +0200
+
+    don't fail to register plugin if it has no patterns
+
+commit f168613aa384f895a1e5f3fb2a48165ee4ad7ec8
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Aug 13 14:01:25 2010 +0100
+
+    where for art thou threads
+
+commit e1b578b6e6ee9ebbd33f51f023cbaa6c3455a3f7
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Aug 13 13:55:15 2010 +0100
+
+    huzzah plugins
+
+commit 5d1580f08bf5d309e776735a565835d42de103d6
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Aug 13 13:18:29 2010 +0100
+
+    no specs, no cookies!
+
+commit bb68f0a5ed1fe3bc0ddf2ae7de7c82872ac10286
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Aug 13 12:53:39 2010 +0100
+
+    initial readme rewrite
+
+commit c2dc447678f52bda6cd8de7b7fde753cd39047a4
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 12 13:15:18 2010 +0200
+
+    fixed max length in message splitting
+
+commit bb24033e5c1eaf8735329792cb9ec190f092dc71
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 12 13:14:25 2010 +0200
+
+    fixed bug in Mask class where @user and @host would always be nil
+
+commit 2e76529861058ec6e83269a551fcc74ee0f856e6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 12 10:29:09 2010 +0200
+
+    fixed basic example "urban_dict"
+
+commit de2c701f403250d6d9d490171e9da9da37cb1cff
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 12 10:28:36 2010 +0200
+
+    added example plugin "urban_dict"
+
+commit 8bc035d871bb35ce0242f0000fa7992cd16523c3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 12 10:11:22 2010 +0200
+
+    added example plugin "messenger"
+
+commit 8c27f724b132ce3cdbe2c828a7d25809002ec9e1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 11 19:51:16 2010 +0200
+
+    removed useless require
+
+commit 750dcfbaa0c7c28e30b88379dd9009c0684bf680
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 9 15:36:48 2010 +0200
+
+    don't set Thread.abort_on_exception to true
+
+commit 2cef2833218f64b2e86a2da2322ce9ad71891276
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 08:14:53 2010 +0200
+
+    made `prefix` an optional argument to Message#safe_reply, defaulting to false
+
+commit 35191b71c806c2472fc466fe11c7b17ab25181f6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 08:10:45 2010 +0200
+
+    removed Callback#call
+
+commit 23efcb5724c8c56b8d2be76d536c3d97d9e88e1f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 08:00:11 2010 +0200
+
+    fix setting help messages
+
+commit f115459f27bcce7e98f9325626e0b1024f4f8064
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 07:59:46 2010 +0200
+
+    fix splitting of multiline messages
+
+commit 4dda793091cd1aea50b279f38b39e0d979577b31
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 06:36:20 2010 +0200
+
+    docs should not be contained in the gem archive but be generated instead
+
+commit 2dcbae102b4805fc4ee53318ad0484e57f946ad9
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 06:36:06 2010 +0200
+
+    hardcode version in gemspec to work around load path problems
+
+commit 962bf0f52d7d0cf92f68481ae804c6b51539ed24
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 03:08:17 2010 +0200
+
+    added example plugin "url_shorten"
+
+commit 76d3bfd0ca56e9b5ba52da2c946f54117050958e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 02:15:59 2010 +0200
+
+    replaced all references to #cinch as a test channel with #cinch-bots
+
+commit 77372cbf14f8a0cb574d0c1d7482113a07ebacf2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 01:17:20 2010 +0200
+
+    fix references in Plugin documentation
+
+commit 826dcbb5fbe53b903c80d80f100031c86962e6c7
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 01:13:20 2010 +0200
+
+    aligned behaviour of listen_to to match
+
+commit b274f5ccf5e7cb6e8e994f980220393b7eada276
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Fri Aug 6 00:40:07 2010 +0200
+
+    added example plugin "memo"
+
+commit 7490ed968ff567bc1307710b08240af38197f933
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 22:30:41 2010 +0200
+
+    added example plugin "join_part"
+
+commit f93d69e7d4e4dab0b6d333535c5d5091b3edb8d6
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 22:07:29 2010 +0200
+
+    added example plugin "hello"
+
+commit e816e76a4c501e7c158314890c84b9d6d8e91a64
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 21:51:19 2010 +0200
+
+    added example plugin "seen"
+
+commit d210c4b34ef717d65050e775dcf1abc9d4fb56a5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 21:37:25 2010 +0200
+
+    fix basic seen example
+
+commit 90535c60a3c1e5ff8536e96f423535e62b4c45d2
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 21:33:39 2010 +0200
+
+    added example plugin "google"
+
+commit e7eda1a67ab500499c39145c4ed48a3803631a45
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 21:29:05 2010 +0200
+
+    added plugin example for custom prefices
+
+commit 66a7e287d97ab5c66157f79b73eec2f238be1aa0
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 21:28:48 2010 +0200
+
+    deleted basic examples that do not apply to the new Cinch
+
+commit c673741f3f217358fdc04ee6a4354c2c60a0df92
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Thu Aug 5 04:25:53 2010 +0200
+
+    added @config.channels, which will be automatically joined on connect
+
+commit efc003601f7462052160e0f8e3af8dcaa433bb0a
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 22:46:53 2010 +0200
+
+    removed all remaining references to newton
+
+commit 3a3da5fa3ff6495c77e3cca47a25bbb398d08a5c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 22:46:31 2010 +0200
+
+    remove debug statement
+
+commit a7b117897033d3d6ef5926f348108c4e471af105
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 22:12:01 2010 +0200
+
+    added User#refresh as an alias for User#whois
+
+commit be2f108b6e0b196e163e0b874e6090b3483103a8
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 13:18:29 2010 +0200
+
+    added example plugin demonstrating multiple matches
+
+commit 9c8c6ed52e3395f5f1438bc9b89480c111aaaff5
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 13:18:17 2010 +0200
+
+    added autovoice plugin example
+
+commit 2972dd35d77c7447057c4703dd7f49f6a2a45683
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 13:05:24 2010 +0200
+
+    put helper methods (#User and #Channel) into Helpers module
+
+commit 3feef3309eeec71ff13b4c747bebccd4b53af0fe
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 13:00:01 2010 +0200
+
+    turned Cinch::Plugin into a module
+
+commit 90f25f339e74bd75b4467a7bfc4bb05759cb55ef
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 12:59:51 2010 +0200
+
+    allow for more than one match pattern per plugin
+
+commit 6e8e7bf556c8f0a954beff185270f865f2debfcd
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:54:26 2010 +0200
+
+    rewrote urban_dict basic example
+
+commit c9fa8fa11368bf9ffd66da8e4f5527357e46875b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:49:59 2010 +0200
+
+    improved url_shorten basic example
+
+commit ac441892ca10f22e9adb0b6512d1be265f3fa620
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:48:57 2010 +0200
+
+    rewrote seen basic example
+
+commit e15532e5dd4c71101efd83e5970671f99241397b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:43:25 2010 +0200
+
+    rewrote hello basic example
+
+commit 60f56a6bb20830b8879246ea6d6276c2aad8ad4e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:40:38 2010 +0200
+
+    rewrote join_part basic example
+
+commit 88d660f81667011edf94238681a935d905fe747f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:40:24 2010 +0200
+
+    rewrote msg basic example
+
+commit 7a739c6342d2d49520436053cb4c5eb26aef010b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:40:13 2010 +0200
+
+    rewrote url_shorten basic example
+
+commit 348cb073b22ae9641c7cce3078b71361a8eb61b8
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 04:30:16 2010 +0200
+
+    add .yardopts
+
+commit 5fbc04a38b64c52f8adab4ce36e3bfdf2b366775
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 23:27:01 2010 +0200
+
+    rewrote memo basic example
+
+commit ca76ba418362122752ab1d98b499167a9fd29f33
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 23:26:49 2010 +0200
+
+    rewrote google basic example
+
+commit 73158b0717b56dc78de6a69023e23c911504826f
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Wed Aug 4 05:40:54 2010 +0200
+
+    added Channel() and User() helper methods to Callback context
+
+commit 8bb42192f32dfe1dec87d8368388792138b83d1c
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 23:26:33 2010 +0200
+
+    evaluate `configure` block in callback
+
+commit f5d276fad387111936f60a2c99ebd73bac278989
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 23:26:05 2010 +0200
+
+    save new nick when changing it due to nick collisions
+
+commit 1a2cb52e6f3dcff4792dfa3bfeca4d8447b949b3
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 22:20:10 2010 +0200
+
+    make `@config.verbose = true` the default
+
+commit 78f7eac18c5cba015179374963dbed998286129b
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 20:28:03 2010 +0200
+
+    join the right channel in autovoice example
+
+commit f858691bfb9f4ea19eaf720bc819675ac8535357
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 19:21:38 2010 +0200
+
+    Revert "nicer regexp"
+    
+    This reverts commit 1818aa6e351fcf6a1f9b5e04e377ddc889965e66.
+
+commit 8dbdbdcb0839138826d10f921e244e9848da5859
+Merge: c20c46c 33c0ca1
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 19:18:30 2010 +0200
+
+    Merge branch 'merge' of github.com:injekt/cinch into merge
+
+commit c20c46c3936437a5833711eb3f42e9174dd64c1e
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 19:17:18 2010 +0200
+
+    updated basic/autovoice example
+
+commit 34182953ce4ddf52e82e77e75f97a55512b60d48
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 19:17:11 2010 +0200
+
+    removed stores
+
+commit 060ba8c1d56ae782ec03d2d495d8150d8ad90314
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 19:06:09 2010 +0200
+
+    made callback context permanent
+
+commit f5dbe71f0fd6b9e97bdecf49e6c1a6277813a01c
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 14:35:26 2010 +0100
+
+    alert - incompatible changes coming soon
+
+commit 33c0ca1ec1d7478678e3e5c52f9fb9f5954ad658
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 11:42:31 2010 +0100
+
+    minor doc changes
+
+commit 1818aa6e351fcf6a1f9b5e04e377ddc889965e66
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 11:37:19 2010 +0100
+
+    nicer regexp
+
+commit 373a5122e92000b07c7b68b8bf68c4e7dd805325
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 11:32:15 2010 +0100
+
+    move version constant
+
+commit 75672cc5f0a663aed7012acd25b4c5ff8e2d7ff9
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 11:31:21 2010 +0100
+
+    initial spec skeleton
+
+commit 25bd3721d0940554c1f349493e8539d1f561810f
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 11:25:13 2010 +0100
+
+    started basic readme implementation
+
+commit af2e969608d6c39f12d8358c1db49fb937f795e3
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 11:13:00 2010 +0100
+
+    added doc upload task
+
+commit ffd23ec936aab1afefa26a4b3b8f4d8811025a4d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 02:34:45 2010 +0200
+
+    added Message#safe_reply
+
+commit 016015094c9384bf69e9569d98f7dad17f3fe682
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 02:29:00 2010 +0200
+
+    fix Cinch.filter_string
+
+commit b782a9a21d4b33f98036a5acac0a364104b52e3c
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:35:00 2010 +0100
+
+    removed bad syncables
+
+commit 95ee10754a88a610c63acdf68cf2035ed703569e
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:31:34 2010 +0100
+
+    renamed spec helper
+
+commit b29b0df4a7061046aa276ab417c4639d03621f07
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:22:29 2010 +0100
+
+    initial spec skeleton
+
+commit 9ec41e1200ff54dafb997cdf68224b4edade3acb
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:17:06 2010 +0100
+
+    added basic examples subset
+
+commit 4a96d88e3765fa9299eb0a9928a461b132f48eb5
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:14:55 2010 +0100
+
+    removed rcov task
+
+commit bcfefffb19da811c82774ec25067abd0fc2a1203
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:13:21 2010 +0100
+
+    updated gitignore
+
+commit 037a440df69c54c51d4874db919f44d0e8eaae94
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:09:03 2010 +0100
+
+    updated rakefile
+
+commit 9c6c70c57c282adbbac4515afab5acb403eb60d6
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:07:20 2010 +0100
+
+    renamed readme
+
+commit 00f858478c0f88b36d2fac497edc18968e74de9c
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Aug 2 00:06:46 2010 +0100
+
+    updated gemspec
+
+commit 1b75c22ef78c2239229df3af0133072dbb2f4d8d
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 00:23:37 2010 +0200
+
+    renamed all references to Newton to Cinch
+
+commit 3eda6e253c5b6cceaa9e719edc8ab7233201a634
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 00:15:44 2010 +0200
+
+    added Newton files
+
+commit 2aa11762d9ae946066b644f31557c0c25cacb462
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 00:14:43 2010 +0200
+
+    update license
+
+commit 6d1123e2828ab1b25911472fce87b66f14c15a14
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Mon Aug 2 00:14:39 2010 +0200
+
+    delete old cinch files
+
+commit 0d6fe0f76f999aad3a0b285e4a091169bbffa7cc
+Author: Dominik Honnef <dominikh@fork-bomb.org>
+Date:   Sun Aug 1 23:48:14 2010 +0200
+
+    updated gemspec
+
+commit 7f19af2e9cea3fd3d66e213c228ef93e29553b7c
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Jul 27 15:24:56 2010 +0100
+
+    updated links
+
+commit a4c846fd1c82433cb8b22545125ed380086c56ee
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Jul 27 15:15:35 2010 +0100
+
+    use hanna gem from erikh/hanna until I make a choice between yard and rdoc
+
+commit 1c79a9f511a8252c68126aecb7e91296d1bd383b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Jul 25 22:03:51 2010 +0100
+
+    version 0.3.5
+
+commit abdd3a7939f186b6e287920d65f9a27d3b435496
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Jul 25 22:01:44 2010 +0100
+
+    shortname pattern should match forward slash
+    
+    Fixes issue #7 - not matching freenode vhost pattern
+
+commit a33b3d5b61ecab9604c729aad478b8cf73d03d8d
+Merge: 5375469 42d6fa7
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:45:10 2010 -0500
+
+    Merge branch 'track_names'
+
+commit 42d6fa79bb205d894e4b18f034707c44701daa73
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:39:22 2010 -0500
+
+    Not resetting tracking information if called again.
+    
+    Once names are being tracked, trying to do it again is a no-op.
+    If resetting is necessary, that can be addressed separately.
+
+commit b57492922ab1119c4c8fb221bf603849f1d45837
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:36:20 2010 -0500
+
+    Adding predicate to check if names are being tracked.
+
+commit 3a31c1adcc07e47eaffc8d3e95b7a3aafeba42ff
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:33:29 2010 -0500
+
+    Ensuring the name-tracking doesn't pollute other instances.
+    
+    Just a sanity/smoke test to make sure this is stored with the bot instance, as it should be.
+
+commit 592bf467d2147873949016a32fb77efa35647e65
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:27:40 2010 -0500
+
+    Ensuring the listeners only come if you ask for them.
+    
+    This may not be much stuff, but it's pointless extra work if you don't care about tracking names.
+
+commit a78c62ca734f40ad4e2b5a73ed9d8637ed0fd160
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:24:36 2010 -0500
+
+    Adding nick listener.
+    
+    Need to track nick changes.
+    Much like quitting, this affects all channels. Simple way is to delete the nick from every channel
+    and only add the new nick (message recipient) if a delete actually happened.
+
+commit bd85f4e16d4ccdad7bf1bb32f587779a549cb24e
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:20:56 2010 -0500
+
+    Adding kill listener.
+    
+    Someone getting killed is the same as them quitting, as far as this is concerned.
+
+commit 80fb1fbb2aab77c46216bb65e65c269b8d281702
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 14:00:25 2010 -0500
+
+    Adding quit listener.
+    
+    A quit isn't a channel-specific thing. When someone quits, they're gone from everywhere.
+
+commit 6ff8e70fd09b02b14ddcc305a14f7c49fe04b862
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 13:50:36 2010 -0500
+
+    Handling bot leaving channel.
+    
+    When the bot joins, it doesn't help much to just remove its own nick from the list.
+    Kill it entirely. That channel isn't a concern anymore.
+
+commit 5fa110761f9cb044139117abab41b55d18903cb8
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 11:35:04 2010 -0500
+
+    Starting name-tracking part listener.
+    
+    Simply removing the parter's nick from the channel name list, easy.
+    And Array#delete removes duplicates automatically, yay!
+    
+    Much like the join listener, I don't think there should be a case where someone
+    parts the channel while the bot hasn't yet started tracking it, but so it goes
+    with testing. And still, maybe there's a race condition?
+
+commit 5cad4a8f738b257d346edef60bfdb71cfa2d1ccb
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 11:23:10 2010 -0500
+
+    Adding names listener.
+    
+    The server sends names as a 353 (with a 366 to mark the end of the list, if that matters).
+    The server will send multiple 353s for a single names command if there are enough people on the channel.
+    The parser doesn't get a channel from that, so I check the params to find the appropriate channel.
+    The text is a list of names, which may need to have some characters stripped (like @ for ops).
+    
+    I don't care right now about duplicate entries in the list, since I invision using the list just
+    to see whether or not someone is on the channel. If it's a problem, the array can get some uniq
+    love, or it could just become a Set.
+
+commit 80f0ebc0da6ddad9dc541292fc2dcc2f28b5c675
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 11:01:54 2010 -0500
+
+    Handling bot joining channel.
+    
+    When the bot joins, it needs to get the names of everyone who's on.
+    It doesn't help much to just add its own nick to the channel name list.
+
+commit f62a3829fa59d4c9bc0583eed75a372bc083b2ec
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 10:54:55 2010 -0500
+
+    Started name-tracking join listener.
+    
+    Simply adding the joiner's nick to the channel name list. Easy.
+    
+    There shouldn't be the case where someone joins the channel while the bot hasn't
+    yet started tracking the channel (doesn't have even an empty array ready), but
+    so it goes with testing. And maybe there's a race condition?
+
+commit b69edace3bd0de9febfabd150412ce1f1743fc42
+Author: Yossef Mendelssohn <ymendel@pobox.com>
+Date:   Fri Jul 23 10:38:05 2010 -0500
+
+    Getting started on bot name-tracking module.
+    
+    This will provide a simple way to track who's on a given channel at any moment,
+    packaging all the involved work into a single (optional) command.
+    
+    The wording is a little awkward, but I can't think of anything better right now.
+
+commit 5375469be72d8690d48339a8425e247094308342
+Author: Lee Jarvis <ljjarvis@gmail.com>
+Date:   Tue Jul 13 02:14:02 2010 +0100
+
+    removed a couple of specs
+    
+    removed specifications relying on listener options being initialized
+    when a new Cinch::Base instance is created, when they're created at
+    runtime
+
+commit 959fd9af439f9d9811a69f380ab112b6ebbc7ddd
+Author: injekt <ljjarvis@gmail.com>
+Date:   Thu Jul 8 23:08:57 2010 +0100
+
+    version 0.3.2
+
+commit a37462afcfa8bfe0402f4eefbf4c13491cce1693
+Author: injekt <ljjarvis@gmail.com>
+Date:   Thu Jul 8 23:05:54 2010 +0100
+
+    moved runtime listener configuration from #initialize to #run. Fixes bug
+    pointed out by cardioid
+
+commit eddbcaa6df89152c30c038fe05399c1c433877bc
+Author: Lee Jarvis <ljjarvis@gmail.com>
+Date:   Fri Jun 18 14:09:36 2010 +0100
+
+    added case insensitive option for rules
+
+commit 88d8b904c909d476bc896f126f048afc549f35ab
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Jun 4 15:17:00 2010 +0100
+
+    minor cleanup
+
+commit 7a1db84937ac31d2d6dec3d5ffb5a014195f44ca
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 19:05:01 2010 +0100
+
+    added url_shorten example
+
+commit 8038423ccc51d04f25a998852cc8a858d1836e8b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:33:08 2010 +0100
+
+    do not reassign message#irc
+
+commit e80e4332f800c9156f34589aad2d6ae79da5d6de
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:21:27 2010 +0100
+
+    moved private methods
+
+commit 8b8a7ec89ff167f90cdddfd5cec128eefd2dce64
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:18:34 2010 +0100
+
+    updated readme
+
+commit 9f918c0f9a5884d8f71681f4da37a5171a55a979
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:09:55 2010 +0100
+
+    removed wiki link
+
+commit 8affdc0b30689f16e2dc4b78d9d9655d0318d1fc
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:09:37 2010 +0100
+
+    updated readme custom pattern example
+
+commit 87216462621e7e64cf05c0a821789f817a656b5f
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:06:03 2010 +0100
+
+    whoops, system path detected
+
+commit 3d7016425838a65e37a4282aec11fea1e33435f1
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:05:38 2010 +0100
+
+    adding patterns example should use regexp
+
+commit 75f18f0e6d0ef23927e11ad08c7a143850288aa3
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Thu May 27 10:04:44 2010 +0100
+
+    parser should handle patterns
+
+commit 315bef7252fbc086aec7ba3ab579a6b3cc425ba3
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 18:39:30 2010 +0100
+
+    swapped alias and method named
+
+commit eb24de8b887e11273a352afd6771b48305538a1d
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 18:35:41 2010 +0100
+
+    updated parser doc
+
+commit a8a325f62bacab9a13434c9cfa23b1f2366eae10
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 16:36:48 2010 +0100
+
+    version 0.3.1
+
+commit 3527bef144660b426dbdc3bf94fc4f15cc3466b3
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 16:36:27 2010 +0100
+
+    added configure as alias to setup
+
+commit 711e78277e82635f7a2127b3bc5ac4cf88c2d14b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 16:32:00 2010 +0100
+
+    updated bot realname
+
+commit 02a72824273cde03ceb8a5293b6f9dd94491a0a3
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 16:26:02 2010 +0100
+
+    options now takes bot nick as prefix
+    
+    Rather that using :prefix => :bot for each plugin you define, you can
+    now define this prefix in the main options block:
+    
+    bot = Cinch.setup do
+      server "irc.foo.org"
+      prefix :bot
+    end
+    
+    Both :bot and :botnick are accepted. As well as the name of the bot.
+    This match is case sensitive
+
+commit d1333601b08d3f89f3a9142b751d7b64ec30a663
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 16:18:06 2010 +0100
+
+    plural formatting
+
+commit b80a13ef6bb3181dd599ec68826d5ed775a82d96
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 10:12:50 2010 +0100
+
+    no need to tell action it's not a ctcp reply
+
+commit e943bb44ed2accec3541501d83962ec9090e6246
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 10:11:19 2010 +0100
+
+    reply should not default to ctcp
+
+commit 376c347b3d17b492a1747a81816f1c19afdee0ed
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 26 10:05:50 2010 +0100
+
+    Added CTCP support
+    
+    Usage:
+     on(:ctcp, :ctcp_command) do |m|
+       m.ctcp_reply "message"
+     end
+    
+    Default version reply added
+
+commit 1369f366dbdc0b34d9ec8c1f5c14bcdafb812eef
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 21 16:59:35 2010 +0100
+
+    whoops, duplicate code is duplicated
+
+commit 37f2af8d872875527631f456ac72a16c25845e04
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 21 16:53:35 2010 +0100
+
+    fixed missing end
+
+commit 9b768403b7abdcdf938b6b07443753f16213cd23
+Merge: 8269752 e423e1a
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 21 16:46:48 2010 +0100
+
+    added timeout support
+
+commit 8269752cf49de0eb2dc522ef0e46722d60d7d6e5
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 21 16:45:32 2010 +0100
+
+    added ssl support
+
+commit e423e1a25bd421e98ed1aacee67d96dfeac720d1
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 21 16:21:13 2010 +0100
+
+    added attr_accessor for timeout functionality
+
+commit 52eec3f918e41c807c1063f2f0a615acd7f5e96e
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 21 16:16:43 2010 +0100
+
+    added timeout
+
+commit e47008301b9a629532d5fd3fcbef8a3758b2c85b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 18:34:36 2010 +0100
+
+    added start as alias to run
+
+commit 90ee7b9836c550ca6d62763eb3dd35c5a3dbe741
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 18:31:44 2010 +0100
+
+    Base#on now excepts a :message option to provide another method of
+    adding plugins
+    
+    The Following are now equivalent:
+    
+      bot.on :message, "say :text"
+      bot.plugin "say :text"
+
+commit 919ebdd10e34926b6c7e91f85f0887b4f664b80f
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 16:39:20 2010 +0100
+
+    readme syntax fix
+
+commit 9a9fdba5a9908f8f05cd6ea40114e8f07ed74620
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 16:18:17 2010 +0100
+
+    removed support for < 1.8.6
+
+commit 102568529693e713d69b4819abac561a2cc35365
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:56:05 2010 +0100
+
+    bumped tiny version
+
+commit 690bbe9717b1e341ea74ddd602a9a8c8f4d8d07c
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:50:53 2010 +0100
+
+    removed Parser#parse_servermessage
+
+commit c706c1b6bf09d3b3a0d551c0bd8aba86636ce55b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:44:09 2010 +0100
+
+    documentation changes
+
+commit 75834642bdccc081e7cd82bfb32e65e8713e20b4
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:43:06 2010 +0100
+
+    documentation changes
+
+commit 5da242a6b8db7a755fadecf208cc1f661a2cb666
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:39:01 2010 +0100
+
+    readme changes
+
+commit 259c18e3affa2baf594bc85b8ceba938ec1590e7
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:37:29 2010 +0100
+
+    readme changes
+
+commit fc7e0bb56b77b353128476685f76c160ecd9cc63
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:32:02 2010 +0100
+
+    fixed documentation indentation
+
+commit 140d1ebf89ccc18923a24031d50f6f58cfa0cf00
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:25:24 2010 +0100
+
+    Use Hanna RDoc template
+
+commit 5817f4a58a615f52d89a2c3e4908d596af8e31a8
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:17:03 2010 +0100
+
+    moved author heading, fixed indentation
+
+commit dbc7f140cdd2a9a7954ea04c78a2581e2161c954
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:15:28 2010 +0100
+
+    fix documentation heading
+
+commit 66821e537c15dc2fddc0f1ff1f628234ef7c8a0d
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:14:56 2010 +0100
+
+    fix documentation indentation
+
+commit 443f83935a35a222e672a815af1227f55a3d9615
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:13:28 2010 +0100
+
+    author should take less precedence
+
+commit 9ee3b785be9df764719b89cb99b48552e40e54bc
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:08:30 2010 +0100
+
+    removed message#apply_user method
+
+commit 214dd7630f8dc04596c5668f8165281317c1e6c1
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 14:06:12 2010 +0100
+
+    added message#public? method
+
+commit 5350082a31d15080155466b377381e07629844f7
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 13:53:41 2010 +0100
+
+    parsing servermessage should alter message attributes a little clearer
+
+commit 84aa3ae702a6d2227017e4b040ba5c25185555b4
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 13:45:43 2010 +0100
+
+    added message alter method
+
+commit 2904b2f3662934a21c8e9e0ed2ab034a76cc06a4
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 13:31:05 2010 +0100
+
+    updated documentation
+
+commit f858c792766789b1f9c6e08bccef96a02a1cea41
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 13:20:14 2010 +0100
+
+    no need for capturing parenthesis
+
+commit 8ba178811eb3f624e5dbf7cef61686972c17bb00
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 18 11:40:41 2010 +0100
+
+    extended Base#on documentation to save confusion
+
+commit 44c38079c518e0bd91b6beb198efad59b6fd02b7
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon May 17 09:31:01 2010 +0100
+
+    updated channel join spec
+
+commit 7a9cc02cef545bd0a34c4f8f7657e0d7d5c1428d
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon May 17 08:38:09 2010 +0100
+
+    added irc socket reader
+
+commit 45b5f2a4a83082dc9465e710e1ae3f9170f7d277
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 22:52:28 2010 +0100
+
+    ignore .gem files
+
+commit d19b559c2b62306ca70d82f612d8f948d8b40807
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 16:54:34 2010 +0100
+
+    fix irc/join to accept password
+
+commit 3348755871de0630c2f933a8623b3dda58d04971
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 16:33:10 2010 +0100
+
+    removed deprecated alias
+
+commit a5386cc868e9d1536103862e9ef7500ba12a099d
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 16:30:01 2010 +0100
+
+    added plugin/rule alias
+
+commit 277f7a0fa5a93cff08b44cefa8d944477c950fca
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 16:28:31 2010 +0100
+
+    fixed rule validation
+
+commit 80e0a2f413a60db88d983c609207b3ed5d98cc1b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 14:46:04 2010 +0100
+
+    added default custom_patterns spec
+
+commit 4ba76acea04f2ed27ae1617b0e31d35ff2440e39
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 14:44:21 2010 +0100
+
+    added 433 listener spec
+
+commit 0aee2561e674db5fb76aa09d5e2b8f176478f352
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 14:43:23 2010 +0100
+
+    added custom_patterns reader
+
+commit 2d059b7507eea1ffc12df8ed10cd24cd313165cf
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun May 9 14:40:05 2010 +0100
+
+    put default custom patterns into hash
+
+commit f69d44b088d3fbcea723b9c6d5003382a179a0fd
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 7 23:57:18 2010 +0100
+
+    fixed plural options validation
+
+commit 68715a4ab075e702b86ce6666e780cb6c66704c7
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 7 17:13:12 2010 +0100
+
+    bot building framework seems more applicable
+
+commit b5ed6ae24dc05f3fa3dc25f9f8aa1afa771cdd2b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 7 16:23:07 2010 +0100
+
+    bumb version 0.2.9
+
+commit 1a99acc16ee0c2a5697c5f22c3e27745ef9e09a0
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 7 16:22:09 2010 +0100
+
+    updated README
+
+commit 3fd603c27bb94e16f7f5c634a10a00af05552559
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 7 16:15:33 2010 +0100
+
+    added custom prefix example
+
+commit 34b7dd8aa26c39b59a92c4a33d65a5c092cebadb
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 7 15:39:47 2010 +0100
+
+    changed spec output to specdoc format
+
+commit 6ec043c1cbbc7be88963260dd7fa8aac9d4f811c
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri May 7 15:37:48 2010 +0100
+
+    added spec opts
+
+commit 99e2debcf36058eb28a4569370649c2198f29b3e
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed May 5 15:25:02 2010 +0100
+
+    removed upload rdoc task
+
+commit 844cd7fccba2b49c5327b55571b563b9079e6bf8
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 4 23:18:23 2010 +0100
+
+    README changes
+
+commit 96bfa126d7492223984f1fd9bf506dcfa1b4f2a6
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 4 23:17:26 2010 +0100
+
+    README changes
+
+commit 3fac7a8aac4824bdd8cb4454146c99883aeca3c8
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 4 22:57:50 2010 +0100
+
+    added google example
+
+commit 70af3fe30f7e0df207851299bfd6f70184568601
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue May 4 22:34:21 2010 +0100
+
+    added urban dictionary example
+
+commit 3e3094e99ea7803ea90ff786b92604f2be15403a
+Merge: dd05e22 d175278
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon May 3 13:36:24 2010 +0100
+
+    applied fork commits from victor bergöö and added spec
+
+commit dd05e22526d7279470e0c57afe9ef2b8b59c29a3
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon May 3 13:34:08 2010 +0100
+
+    applied fork commits from victor bergöö and added spec
+
+commit d175278fe80e5ef37f0d143ffb2a65a62fde3737
+Author: achiu <mr.arthur.chiu@gmail.com>
+Date:   Thu Apr 29 08:12:20 2010 +0800
+
+    added :any option
+
+commit efa8a2cc46fd51f7f8349833e5586f5ced618c97
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 23:15:29 2010 +0100
+
+    updated upload task
+
+commit 0a19fcbdb8b75797305b6f4ae4c805fcfcac11c9
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 22:55:15 2010 +0100
+
+    version 0.2.6
+
+commit 98036175568e51362962c302b49dff871d376f16
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 22:53:25 2010 +0100
+
+    updated base spec
+
+commit fea88e986ffb7f085db918130f50ccdf62540d16
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 22:50:15 2010 +0100
+
+    capturing parenthesis should be automagically added
+
+commit 6fd903e9118084e0db57876369fa8e2d7d6f30e3
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 19:56:32 2010 +0100
+
+    plugins shouldn't fail with trailing whitespace
+
+commit 4ba2c9a0246872510d25d6b887fc59a35e60e0ef
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 19:36:32 2010 +0100
+
+    non-fixed prefix size, now you can prefix with anything
+
+commit e230576b36bbb9f0d34f25118af278a99c133210
+Author: Mikko Lehtonen <scoopr@iki.fi>
+Date:   Wed Apr 28 15:19:51 2010 +0800
+
+    Support server password.
+    
+    Used like this:
+      bot = Cinch.setup do
+        server "hardened.irc.server"
+        password "super5ecure"
+        nick "bot"
+      end
+
+commit 9e47b99097328c974162092ca33985640a2dbdb8
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 01:01:04 2010 +0100
+
+    version 0.2.5
+
+commit 9fe4c1bafb5414fb5e3d825da97c809a879b1d76
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Wed Apr 28 01:00:00 2010 +0100
+
+    added autovoice plugin
+
+commit 61192f36329d893633231d916a577d31e23739ff
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 11:46:35 2010 +0100
+
+    added memo example
+
+commit 5a5ebefc96d6f202f17d15dcd43362f34c9c198e
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 11:05:52 2010 +0100
+
+    added custom pattern spec
+
+commit ffbbb65b2ac4121315d7ab3dc7319a2ee860ec24
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 09:12:17 2010 +0100
+
+    types is a confusing name, patterns isnt
+
+commit cc62503d9dfbe39c0be4061eaadd60ada5fc90e2
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 09:00:40 2010 +0100
+
+    cinch now supports custom named parameter patterns!
+
+commit 8fa2e2889c9595750b71e6482698ef6f6c5b40e7
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 08:16:14 2010 +0100
+
+    plural plugin rules should work
+
+commit 7149207a9caafb642edf526d76e236c4cf788051
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 08:14:52 2010 +0100
+
+    updated README
+
+commit a94b099eb6915a94884d11f6ae12596ce60aa6ae
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 08:13:37 2010 +0100
+
+    updated README
+
+commit 31974020d8174e60e78e9be715fff141092f0796
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 08:05:51 2010 +0100
+
+    added documentation
+
+commit 2146a80288ccc676fc5694cae5ce272a1517dea4
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 08:01:30 2010 +0100
+
+    added documentation
+
+commit 8db06f08126cecabf0e2e21dc3ddbf5116ab0853
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 07:57:56 2010 +0100
+
+    rule options now accepts an Array
+
+commit 5e04a891cf949c456fc282914e30d49cf97199fa
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Tue Apr 27 01:01:19 2010 +0100
+
+    fixed seen example
+
+commit 78c6679e643f2e8d5bce762801cb0390bd309d25
+Merge: 606daca a252330
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 22:16:18 2010 +0100
+
+    Merge branch 'rules'
+
+commit a252330952e7a7f9d8dee6724ecdb24e8c173486
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 22:16:06 2010 +0100
+
+    version 0.2
+
+commit d274719761765cbbfe45981b5a9fbef102036125
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 22:10:06 2010 +0100
+
+    the -j option never really did make much sense
+
+commit dcf0158976299255d23662606553008e9cfe9973
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 22:07:38 2010 +0100
+
+    added more base specs
+
+commit 606daca043e53c85b26ac0839a99888587e1ea01
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 17:48:50 2010 +0100
+
+    added license
+
+commit c67a2ca148ba10da45cd19dde39f129003224eaf
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 17:47:09 2010 +0100
+
+    added license
+
+commit baa7109f19ba0e7b638e2659dd6005d5b18a63ad
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 17:28:37 2010 +0100
+
+    moved rule execution
+
+commit 42ec29df4e037553d18899a2b8a0933645e798dc
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 17:19:32 2010 +0100
+
+    updated documentation
+
+commit eb7907e36740ce6e928a9be36d01101ab4260b9d
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 17:16:16 2010 +0100
+
+    whoops
+
+commit 96c5e65ecb92ec505fab6ca5d85d5a3b15897611
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 17:15:42 2010 +0100
+
+    added named param types example
+
+commit d25840248ce209d7c72f07bbfcb730b698384429
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 17:02:14 2010 +0100
+
+    added named parameter types
+
+commit 62e34dd9cc2d9cae61c04785c1da63a93f6c9295
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 16:23:17 2010 +0100
+
+    implemented rules class
+
+commit 89b192d9bfa36c4e366c7092a264acc11552e1ab
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 15:44:10 2010 +0100
+
+    manage rules a little better
+
+commit 00ec0221731830e46bc51c1fbcffaa0b07b1023e
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 14:34:32 2010 +0100
+
+    rules replace existing rules, but not for long
+
+commit 88db54f3850d4e19dc01a30a8fa225437613f034
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 14:33:57 2010 +0100
+
+    added base spec, minor specs
+
+commit c27603bd827ef6dedebc270708b2c6c66c727e90
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 09:32:14 2010 +0100
+
+    added a few examples
+
+commit 95061a260126a299693c02e85ac052a59e708aed
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Mon Apr 26 09:26:50 2010 +0100
+
+    socket server/port to be overidden if cli options exist
+
+commit ae92fab787cc7e93d12d943f178ff3d359309a4c
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 19:04:09 2010 +0100
+
+    stricter processing
+
+commit 6e2e21137d73a44962f59f5768cda588c65b690b
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 19:03:04 2010 +0100
+
+    raise if attempting to match a nil server message
+
+commit 4361bb0db7cafd1472eafdde492c4a8edbf6f428
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 17:42:20 2010 +0100
+
+    updated README
+
+commit 0ba8726463af5b772f88f8fb233513a7bbeddcc2
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 17:37:08 2010 +0100
+
+    updated README
+
+commit adb1e18ea094a685517c8220f355c96566b49386
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 15:31:59 2010 +0100
+
+    added .gitignore
+
+commit 8e3ad260fa599e54b928183b4aa831de9c7e5cf8
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 14:34:07 2010 +0100
+
+    we don't need color
+
+commit 8ce525b57489ec4a87353a8c6d800cb54b50a03d
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 14:32:41 2010 +0100
+
+    rescue optparse invalid option
+
+commit 5c72c92f4a4f153b2862780e3fccc16cc14c4238
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 12:37:14 2010 +0100
+
+    gem packaging tasks
+
+commit 78e148a5cb4af149930271b3ceb7819b9489b2fb
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 12:28:50 2010 +0100
+
+    version 0.1
+
+commit c3163811c732680ed6c025b0fb8bd21e50ef71b1
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sun Apr 25 11:26:17 2010 +0100
+
+    added dev dependency and updated documentation
+
+commit 5480488f25ac65e78a02f56d89eaf011dc664aa0
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Sat Apr 24 13:30:14 2010 +0100
+
+    updates
+
+commit 0541e18feac758e3db240c72bcd62465a82ec3a6
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Apr 23 17:30:41 2010 +0100
+
+    added base + spec
+
+commit 5a152454713d131f4825c7d4a39ce83b93101053
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Apr 23 15:19:58 2010 +0100
+
+    updated documentation
+
+commit 067d38f3feb34beba096328a7011368b52b46a89
+Author: Lee Jarvis <injekt.me@gmail.com>
+Date:   Fri Apr 23 14:41:24 2010 +0100
+
+    initial
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
 commit 397d468fb7574a07f9008bfae1e12f736eeb9927
 Merge: 250d27d 7889610
 Author: Dominik Honnef <dominikh@fork-bomb.org>

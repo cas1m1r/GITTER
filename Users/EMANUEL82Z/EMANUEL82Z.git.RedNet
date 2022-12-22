@@ -1,0 +1,628 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# **RedNet**
+
+### A simple DDos botnet
+> Is under development
+
+## Usage
+
+### Install the dependencies
+- ``` pip3 install -r requirements.txt ``` **or** ``` python3 -m pip install -r requirements ```
+
+### Server: Accepts connections and redirects commands to bots
+- ``` python3 server.py ``` **(It depends on the server_modules) (python3)**
+
+### Client: Connects to the server, waits for commands, and executes them.
+- ``` python client.py ``` **(It depends on the client_modules) (python2)**
+
+### root_cient: Connects to the server, and allows you to send commands to the bots.
+- ``` python root_client.py --host IP --port PORT ``` **(python2)**
+
+## Commands
+- ``` !bots ``` **Returns the number of bots actives.**
+- ``` !udpflood.start IP:PORT ``` **Starts UDP Flood DDos Attack**
+- ``` !synflood.start IP:PORT:PACKAGES_COUNT ``` **Starts SYN Flood DDos Attack (PACKAGES_COUNT is optional)**
+
+## Variables to modify
+- ``` user_required and pass_required on server.py ``` **(It is the username and password that the attacker will use to control the bots.)**
+- ``` user and password on root_client.py ``` **(Is the username and password that will be sent when connecting)**
+- ``` IP and PORT ``` **(On server.py and client.py)**
+
+## Server based on: 
+### https://gist.github.com/schedutron/cd925247bfc4f8ae7930bbd99984a441#file-chat_serv-py
+====================== GIT HISTORY: ======================
+465679a HEAD@{0}: clone: from https://github.com/Emanuel82z/RedNet
+commit 465679a8c90b420cec4cf9d8d1d7bf4fea2b7d90
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 18 10:03:16 2020 -0300
+
+    Update README.md
+
+commit 7ba4feb89a50e14c0c84fc44dae42745642f7821
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Fri Jan 17 17:32:28 2020 -0300
+
+    Update README.md
+
+commit 8578d61964509d1c63ecb0de4b9387efeca00630
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Fri Jan 17 17:30:38 2020 -0300
+
+    Create __init__.py
+
+commit d94b36e0aadd8d6965b8e3e5fabc1b1ea402bdda
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Fri Jan 17 17:30:11 2020 -0300
+
+    Add files via upload
+
+commit c240aea224b4db28339d10d3b3b959fa2f825d8b
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Fri Jan 17 17:29:28 2020 -0300
+
+    Delete __init__.py
+
+commit af4597ab3e8e6bb496875c58ab91b050fcd591b6
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Fri Jan 17 17:29:22 2020 -0300
+
+    Delete udp.py
+
+commit 56808d69953df441a6749c02bf18d13813577c14
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Fri Jan 17 17:24:04 2020 -0300
+
+    Update requirements.txt
+
+commit abb9093cce04b38f41e7b1cf7fd09e036b7836c3
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 16 14:33:15 2020 -0300
+
+    Update client.py
+
+commit 40cff114365844c4e3d67207eb3fc0a77662ac0c
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 16 12:17:30 2020 -0300
+
+    Update root_client.py
+
+commit 6911f00a12ec3bb000d17a0c5d403e1fb902a9bf
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 16 12:13:30 2020 -0300
+
+    Update root_client.py
+
+commit d6d77a5a947999ba44e6c81639d4fdf37bb361ee
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 16 12:04:58 2020 -0300
+
+    Update root_client.py
+
+commit 36625caea673fca1ca2a6405d1811023ae1c387d
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 16 12:04:05 2020 -0300
+
+    Update udp.py
+
+commit bc22ef5ada845f8fcd392e331b4ffe79d5562b0d
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 20:56:06 2020 -0300
+
+    Update requirements.txt
+
+commit ab779f3d06db69bd0b2c0c89a49b0c31ade81b86
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 12:20:37 2020 -0300
+
+    Update README.md
+
+commit ee3d12aa4d59c783f6f5cd3554ed2b31b1688ed4
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 12:12:16 2020 -0300
+
+    Delete udp-exe_source_code.txt
+
+commit 9a916edac3f744ba2a4708123586cfdba5eaa306
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 12:12:07 2020 -0300
+
+    Delete slowloris-exe_source_code.txt
+
+commit 6dc7ccd419992a71200da85d28367942dae28472
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 12:11:55 2020 -0300
+
+    Delete slowloris.exe
+
+commit 83cc3cc39a46127e750422d29816a55fbcb19b20
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 12:11:49 2020 -0300
+
+    Delete slowloris.py
+
+commit 22b73462f51b5189cf957bdaa0009db1fa58c8b0
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 12:11:42 2020 -0300
+
+    Delete udp.exe
+
+commit cc3fba15be5f49e14b037d6988f74aa12f1ec7b1
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 12:11:23 2020 -0300
+
+    Add files via upload
+
+commit b6d9633c2aa560ce50f6eaff6114ebf05750c39e
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 11:12:00 2020 -0300
+
+    Delete pull_request_template.md
+
+commit 69cbbd220282a5cc63f4b25f27ead907ce6f9088
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 11:11:40 2020 -0300
+
+    Create pull_request_template.md
+
+commit eb6da7fa1fa9d7b8bdd2b0149de35356d70951b0
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 11:05:05 2020 -0300
+
+    Update CONTRIBUTING.md
+
+commit 5e1aa4b85b7e6521f65130fc92ca29f53b83376a
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 11:04:51 2020 -0300
+
+    Update CONTRIBUTING.md
+
+commit 6ab1c70064779560ec853cf9786d6e793f1dbcc5
+Merge: 7646507 d8b820c
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 11:01:56 2020 -0300
+
+    Merge pull request #2 from ReddyyZ/add-code-of-conduct-1
+    
+    Create CODE_OF_CONDUCT.md
+
+commit d8b820cff1ded99d2759007488b3120e02384e6b
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 11:01:22 2020 -0300
+
+    Create CODE_OF_CONDUCT.md
+
+commit 7646507085d90115d547f1881f88ce9351f5cd5f
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 10:48:27 2020 -0300
+
+    Update issue templates
+
+commit cc3434db08eaccb31694c9b3a8af5168d3340bcd
+Merge: 5a23fe0 7763558
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 10:39:41 2020 -0300
+
+    Merge pull request #1 from ReddyyZ/add-license-1
+    
+    Create LICENSE
+
+commit 7763558ecb816527590d7d2df19eaacf7f4dbec8
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 10:38:48 2020 -0300
+
+    Create LICENSE
+
+commit 5a23fe0244a1b25631a85d1e4a2add65c28d335f
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Wed Jan 15 10:28:39 2020 -0300
+
+    Create CONTRIBUTING.md
+
+commit 62c8c5ccd240c985fc7e94533dafef4c667e73d0
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 18:17:13 2020 -0300
+
+    Update server.py
+
+commit 29568e403417da8bc379398402f6633ab5ff7c15
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 18:16:47 2020 -0300
+
+    Update root_client.py
+
+commit 2502b107decfdb4d63f8bffd7e5a7c0e7f372541
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 18:10:28 2020 -0300
+
+    Update README.md
+
+commit 6e7ff0ccfcfd82e5ee83e8b7f879b36c956ece5a
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:57:58 2020 -0300
+
+    Update README.md
+
+commit 1110f1d0e90d46ae80abc7daab04275aca85841c
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:54:04 2020 -0300
+
+    Update client.py
+
+commit beb6f931e18819afd0966815e7620f801b6eb9b8
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:48:11 2020 -0300
+
+    Rename udp-exe_source_code.py to udp-exe_source_code.txt
+
+commit dea03e94782a4d7509a1f6223709b31d096e2329
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:47:48 2020 -0300
+
+    Rename slowloris-exe_source_code.py to slowloris-exe_source_code.txt
+
+commit e2f4e910f02fb2f7f29744b72815a922bbeab80d
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:47:08 2020 -0300
+
+    Add files via upload
+
+commit c327fd221d50c20a977e7bc2860e565a5c9b04d3
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:46:54 2020 -0300
+
+    Delete slowloris-exe_source_code.py
+
+commit 79048bed3f348817cc4bb53261096e2c7996f39d
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:46:19 2020 -0300
+
+    Add files via upload
+
+commit 9294604392aaef5030d5c7380dd80f1872e8884c
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 17:43:17 2020 -0300
+
+    Rename udp-exe_source_code.txt to udp-exe_source_code.py
+
+commit 24e2ae40988f3d103185e1a4dba2fefdabc823ae
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:40:36 2020 -0300
+
+    Update udp-exe_source_code.txt
+
+commit 140747f0fbc15ab3f6fbbc40a592c0c41ae24b38
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:39:52 2020 -0300
+
+    Rename udp.exe source code.txt to udp-exe_source_code.txt
+
+commit a3ad415df64b31bfa4c46786ebfafe99fe871ea2
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:39:32 2020 -0300
+
+    Create udp.exe source code.txt
+
+commit 56cfe5f46b6878555b88b78d00fb2106492899f3
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:31:57 2020 -0300
+
+    Update requirements.txt
+
+commit f529e45154eb26707b47b4b3b6e22daaafde2d65
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:20:55 2020 -0300
+
+    Update requirements.txt
+
+commit 06b16ffad76cd0d302893614bd85cc51e10c9bc6
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:20:19 2020 -0300
+
+    Create requirements.txt
+
+commit a48e8ccc872a8530088c78deeb47107741f32f11
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:18:19 2020 -0300
+
+    Add files via upload
+
+commit 34322b2d30a71e102151ea764b96179986a486da
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:18:07 2020 -0300
+
+    Delete client.py
+
+commit 69303bac456c0fa19d6cf4e0a45cf225dd3a5a8e
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:07:52 2020 -0300
+
+    Add files via upload
+
+commit 256ef49ff8f4fbc3104141c894812732e0835994
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 16:07:37 2020 -0300
+
+    Delete udp.py
+
+commit 177b690772d12f315b7fb448851f9e112d19942e
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 15:56:23 2020 -0300
+
+    Delete README.md
+
+commit 29d4eb3aa1009ecba7f43267e89dfa9bd6b7408b
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 15:46:49 2020 -0300
+
+    Add files via upload
+
+commit 1e420fdf6ab6a3f01d666cfb7f78850140733376
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 14:52:21 2020 -0300
+
+    Update README.md
+
+commit 6c6edac46de24fb675c0d7fb490a97d19bade91d
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 14:52:02 2020 -0300
+
+    Update README.md
+
+commit e0a2c96748c1f6b3df49953dbd0ad0ed21f51154
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 14:51:43 2020 -0300
+
+    Update README.md
+
+commit 904cce9309a5a2989f7bf500782948f8e6b241e3
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 14:49:56 2020 -0300
+
+    Create README.md
+
+commit 8ef2087ee695a437105fc070dcec32064b09aaf4
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 14:44:49 2020 -0300
+
+    Add files via upload
+
+commit ad020584634f73e09e1b05dd8bf3411534c418d2
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Thu Jan 9 14:43:59 2020 -0300
+
+    Delete udp.py
+
+commit a0e4355cded6b35b27b112e76c2cdf1a1db4e5b1
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 16:42:15 2020 -0300
+
+    Update README.md
+
+commit a64ab6962e94a2abe35a1ad8a695d8837cd610dc
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 16:42:02 2020 -0300
+
+    Update README.md
+
+commit 15cee67d03532926a295de896eb5579bb70b17c3
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:40:00 2020 -0300
+
+    Update README.md
+
+commit 7fa297e38fc0a1d3d5335d58ea68f50c11963b82
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:39:23 2020 -0300
+
+    Update README.md
+
+commit 3c353ca7b614f3a8f696bc6a8f2db2d5b9657bf2
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:36:02 2020 -0300
+
+    Update README.md
+
+commit a66aa23a6a1eb7658b2944db16c672d36ceb05e7
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:35:41 2020 -0300
+
+    Update README.md
+
+commit 6241b44b5d66c9829726d3872a367654b924addf
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:33:39 2020 -0300
+
+    Update README.md
+
+commit b99fda656b94377643057aac2b2fcc90f62d6c8c
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:32:23 2020 -0300
+
+    Update README.md
+
+commit 57b88522d09e01e2b42345b16550499a3e5fa41a
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:15:42 2020 -0300
+
+    Update server.py
+
+commit 44f24bdafc7c9ba685381ad4fdd604ec61a9e4b0
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:03:09 2020 -0300
+
+    Update server.py
+
+commit 0383034e8e5e7fd866d3c8241bd00c022277c47d
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sun Jan 5 11:02:09 2020 -0300
+
+    Update README.md
+
+commit 98c162cd26705ff3c32cbfd4fd8e9bae94c714d6
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:17:49 2020 -0300
+
+    Update udp.py
+
+commit 6a6d5f0e672437a8bf291892f833b93c50785458
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:16:43 2020 -0300
+
+    Add files via upload
+
+commit 868764ba508649f352a5a56232a4709f5e06eb9a
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:16:33 2020 -0300
+
+    Delete root_client.py
+
+commit 2eda33932b8df3c0669d87603ab39a8b4044c692
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:16:10 2020 -0300
+
+    Update README.md
+
+commit 094ab2a26a090ed65a7edff4e16bf5d88cbb13c5
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:12:08 2020 -0300
+
+    Update README.md
+
+commit e529fc187c60644de4789b46d6dadccb5a3794a7
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:11:18 2020 -0300
+
+    Update README.md
+
+commit f2659aec92f9a4754fedaa3f342b95d330162a93
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:10:11 2020 -0300
+
+    Update README.md
+
+commit 6d3675381c2f4a19e5ba2e098ac272469d3bed31
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 18:03:37 2020 -0300
+
+    Update README.md
+
+commit 8c9bc09924c1747d1636a8816d17ac58ed4ebee3
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:55:53 2020 -0300
+
+    Update README.md
+
+commit fbfe647aa6fe4f38e07302c9dbebaf69b28289cb
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:52:10 2020 -0300
+
+    Create __init__.py
+
+commit 6178e5f7cb5a7d75cd94426b0a31658717d4b8fd
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:51:21 2020 -0300
+
+    Add files via upload
+
+commit f5a5b79b4c576e60f756fdd0c22b004006312b95
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:51:11 2020 -0300
+
+    Delete root_client.py
+
+commit 55977d2e2da279790e71cd8526e53bdc71677663
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:50:09 2020 -0300
+
+    Add files via upload
+
+commit 10434b50aa9abb0c30abeb3b61349c9188ac53bb
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:49:52 2020 -0300
+
+    Delete server.py
+
+commit deebb2613eb91e579b3ca2ac2f4d6aaffe9fe583
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:43:37 2020 -0300
+
+    Update README.md
+
+commit 6dde1d49d15cea7e42682462623bc6c708e709bf
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:40:35 2020 -0300
+
+    Update README.md
+
+commit ee5023d472224cd652ec163d7fe0909410e28acc
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:40:07 2020 -0300
+
+    Update README.md
+
+commit 0158a9b8f305030e080a6686af5e206e6ec8e939
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:38:56 2020 -0300
+
+    Update README.md
+
+commit cd0b65ea6079749c2f31fc44b1a03b8e96380aab
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 17:34:58 2020 -0300
+
+    Update README.md
+
+commit b7330e14ef32d423ef116c7b124a883315d252c6
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 16:24:08 2020 -0300
+
+    Update README.md
+
+commit c9289b128bcaa8a3893420288eeb970e5f97ff8a
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 16:23:31 2020 -0300
+
+    Update README.md
+
+commit 69ac4c66221ea38eeada513ce692d83753f63136
+Author: ReddyyZ <41487053+ReddyyZ@users.noreply.github.com>
+Date:   Sat Jan 4 16:20:47 2020 -0300
+
+    Update README.md
+
+commit 637ba11939f227964b3478fc51a4e13ae0d8dfee
+Author: PlayerRed54321 <41487053+PlayerRed54321@users.noreply.github.com>
+Date:   Sat Jan 4 13:46:43 2020 -0300
+
+    Add files via upload
+
+commit f8c19a304822a3686c2cdd36c4594cf3052912a8
+Author: PlayerRed54321 <41487053+PlayerRed54321@users.noreply.github.com>
+Date:   Sat Jan 4 12:48:59 2020 -0300
+
+    Update README.md
+
+commit 908dfc540621846ee5405d99257a32e3c8dc9178
+Author: PlayerRed54321 <41487053+PlayerRed54321@users.noreply.github.com>
+Date:   Sat Jan 4 12:36:41 2020 -0300
+
+    Update README.md
+
+commit 151883ed4f6e3fb06f7616f8760c47ec5b0844e8
+Author: PlayerRed54321 <41487053+PlayerRed54321@users.noreply.github.com>
+Date:   Sat Jan 4 12:33:34 2020 -0300
+
+    Update README.md
+
+commit 4dec7e438ff6ce3a5d93859cd7f43112734845b0
+Author: PlayerRed54321 <41487053+PlayerRed54321@users.noreply.github.com>
+Date:   Sat Jan 4 12:33:16 2020 -0300
+
+    Update README.md
+
+commit 4c1eb8c0b070c516731d96dfaec87d46cced8bc9
+Author: PlayerRed54321 <41487053+PlayerRed54321@users.noreply.github.com>
+Date:   Sat Jan 4 12:31:01 2020 -0300
+
+    Initial commit

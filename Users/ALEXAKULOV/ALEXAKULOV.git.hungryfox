@@ -1,0 +1,411 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# HungryFox
+
+[![Build Status](https://travis-ci.org/AlexAkulov/hungryfox.svg?branch=master)](https://travis-ci.org/AlexAkulov/hungryfox)
+[![codecov](https://codecov.io/gh/AlexAkulov/hungryfox/branch/master/graph/badge.svg)](https://codecov.io/gh/AlexAkulov/hungryfox)
+
+
+**State: In development now! You probably will get many bugs!**
+
+HungryFox is a software for continuous search for leaks of sensitive information like passwords, api-keys, private certificates and etc in your repositories.
+
+HungryFox differs from other solutions as it can work as a daemon and efficiently scans each new commit in repo and sends notification about found leaks.
+
+HungryFor works on regex-patterns only and does not use analyze by entropy because in my opinion this way generates a lot of false positive events. Maybe analyse by entropy will be added in future.
+
+It is hard to write a good enough regex-pattern that could simultaneously find all leaks and not to generate a lot of false positive events so HungryFox in addition with regex-patterns has regex-filters. You can write
+weak regex-pattern for search leaks and skip known false positive with the help of regex-filters.
+
+
+## Features
+- [x] Patterns and filters
+- [x] State support
+- [x] Notifications by email
+- [x] History limit by time
+- [x] GitHub-support
+- [ ] Written on pure go and no requirement of external git ([wait](https://github.com/src-d/go-git/issues/757))
+- [ ] Line number of leak ([wait](https://github.com/src-d/go-git/issues/806))
+- [ ] GitHook support
+- [ ] HTTP Api
+- [ ] WebUI
+- [ ] Tests
+- [ ] Integration with Hashicorp Vault
+
+## Installation
+
+### From Sources
+
+```
+go get github.com/AlexAkulov/hungryfox/cmd/hungryfox
+```
+
+### From [packagecloud.io](https://packagecloud.io/AlexAkulov/hungryfox-unstable)
+
+[![](https://img.shields.io/badge/deb-packagecloud.io-844fec.svg)](https://packagecloud.io/AlexAkulov/hungryfox-unstable/install#bash-deb)
+[![](https://img.shields.io/badge/rpm-packagecloud.io-844fec.svg)](https://packagecloud.io/AlexAkulov/hungryfox-unstable/install#bash-rpm)
+
+
+## Configuation
+```
+common:
+  state_file: /var/lib/hungryfox/state.yml
+  history_limit: 1y
+  scan_interval: 30m
+  log_level: debug
+  leaks_file: /var/lib/hungryfox/leaks.json
+
+smtp:
+  enable: true
+  host: smtp.kontur
+  port: 25
+  mail_from: hungryfox@example.com
+  disable_tls: true
+  recipient: security@example.com
+  sent_to_author: false
+
+webhook:
+  enable: true
+  method: POST
+  url: https://example.com/webhook
+  headers:
+    x-sample-header: value
+
+inspect:
+  # Inspects for leaks in your local repositories without clone or fetch. It is suitable for running on git-server
+  - type: path
+    trim_prefix: "/var/volume/repositories"
+    trim_suffix: ".git"
+    url: https://gitlab.example.com
+    paths:
+      - "/data/gitlab/repositories/*/*.git"
+      - "/data/gitlab/repositories/*/*/*.git"
+      - "!/data/gitlab/repositories/excluded/repo.git"
+  # Inspects for leaks on GitHub. HungryFox will clone the repositories into work_dir and fetch them before scannig
+  - type: github
+    token: # is required for scanning private repositories
+    work_dir: "/var/hungryfox/github"
+    users:
+      - AlexAkulov
+    repos:
+      - moira-alert/moira
+    orgs:
+      - skbkontur
+
+patterns:
+  - name: secret in my code                 # not required
+    file: \.go$                             # .+ by default
+    content: (?i)secret = ".+"              # .+ by default
+
+filters:
+  - name: skip any leaks in tests           # not required
+    file: /IntegrationTests/.+_test\.go$    # .+ by default
+    # content:                              # .+ by default
+```
+## Performance
+We use HungryFox for scanning ~3,5K repositories on our GitLab server and about one hundred repositories on GitHub
+
+## Alternatives
+- [Gitrob by michenriksen](https://github.com/michenriksen/gitrob)
+- [Gitleaks by zricethezav](https://github.com/zricethezav/gitleaks)
+- [git-secrets by AWSLabs](https://github.com/awslabs/git-secrets)
+- [Truffle Hog by dxa4481](https://github.com/dxa4481/truffleHog)
+- [repo-scraper by dssg](https://github.com/dssg/repo-scraper)
+- [Security Scan by onetwopunch](https://github.com/onetwopunch/security-scan)
+- [repo-security-scanner by UKHomeOffice](https://github.com/UKHomeOffice/repo-security-scanner)
+- [detect-secrets by Yelp](https://github.com/Yelp/detect-secrets)
+- [Github Dorks by techgaun](https://github.com/techgaun/github-dorks)
+- [Repo Supervisor by Auth0](https://github.com/auth0/repo-supervisor)
+- [git-all-secrets by anshumanbh](https://github.com/anshumanbh/git-all-secrets)
+====================== GIT HISTORY: ======================
+e6c83e8 HEAD@{0}: clone: from https://github.com/AlexAkulov/hungryfox
+commit e6c83e8f64b1a42880cac209fdf4b3c1896fd1b3
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Wed Oct 23 09:51:05 2019 +0500
+
+    added webhook sender
+
+commit 687427ca3ada694ba54bc38936288f8b8d251593
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Wed Jul 3 14:33:54 2019 +0300
+
+    Update FUNDING.yml
+
+commit 8a613a6b2ac8900f22dd6173846c2faabc990f84
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Wed Jul 3 13:34:28 2019 +0300
+
+    Update FUNDING.yml
+
+commit 9f464fbb7cdce89c54ebc465623a24ea68dcc3a2
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Wed Jul 3 13:33:15 2019 +0300
+
+    Create FUNDING.yml
+
+commit 9235d16c910d7c7a81c9f463d69ccad9a0c7cbe8
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Tue Apr 30 14:11:09 2019 +0500
+
+    improve private keys pattern
+
+commit 2f14bf4224788c6e14333b912c9562a33ed4d781
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Tue Apr 30 13:50:58 2019 +0500
+
+    Improve patterns
+
+commit 9d9e423328e485ccfa3d93a828a9c679d1a3bdb3
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Mon Apr 29 20:09:57 2019 +0500
+
+    try fix panic in go-git
+
+commit d0d3d92885faffa959d67577b6fed4c70e4e9262
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Mon Apr 29 18:35:20 2019 +0500
+
+    improve service
+
+commit 1daa6eb939610fc0d8da39e7ed21c8d1349e86cf
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Mon Apr 29 16:44:07 2019 +0500
+
+    fix regex
+
+commit 48dcbb0048f4fa788f4cae975daf3377c8116f11
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Mon Apr 29 16:27:03 2019 +0500
+
+    improve certificates patterns
+
+commit 7fa61188f768be38349a383bd6a401557617e016
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Mon Apr 29 14:10:38 2019 +0500
+
+    update deps
+
+commit e1070308befa70e58c74e2184bc672a25ed14d1a
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Wed Jan 23 18:36:01 2019 +0500
+
+    remove vendor
+
+commit 68cff173b9979278abc927cea9e5267cd3f90e8a
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Wed Jan 23 16:57:34 2019 +0500
+
+    fix tests
+
+commit d9a3336f3fa71ee3e71583d8a9543ea6928d4038
+Author: Акулов Александр Яковлевич <akulov@skbkontur.ru>
+Date:   Wed Jan 23 14:21:44 2019 +0500
+
+    update deps and switch to go modules
+
+commit 24b538855b91f1948b4f52302d33a1cbb91aa605
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Fri Nov 23 01:08:46 2018 +0500
+
+    update references
+
+commit a9a4ccdda123179f6da5acbe3bb8c189e78f76d2
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Mon Nov 12 21:55:51 2018 +0500
+
+    add Github Dorks to readme
+
+commit 26c008e9e6a5ef425df78ceb2156e94a01179af4
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Mon Nov 12 21:45:22 2018 +0500
+
+    add alternatives
+
+commit 0eba0a96be11b44cdd06090f897bd24d4d9175bc
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Tue Jul 31 16:48:33 2018 +0500
+
+    find password apikey or secret in xml
+
+commit 7888d1f523eb45e59b5c1f60839194b719db364d
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 20 16:56:54 2018 +0500
+
+    improve systemd service
+
+commit d632e9c40c82737a536cac39bf0ce2d5b5ca8ef9
+Merge: 430e102 36c6459
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Fri Jun 15 20:55:59 2018 +0500
+
+    Merge pull request #3 from kxepal/readme-typos
+    
+    Fix several typos in README.md
+
+commit 36c6459deb75cefbb406a7651fc74b06801b5c94
+Author: Alexander Shorin <kxepal@gmail.com>
+Date:   Fri Jun 15 18:47:21 2018 +0300
+
+    Fix several typos in README.md
+
+commit 430e102e5e9ca4b04a15a9591f610369cf52d356
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Fri Jun 15 18:31:18 2018 +0500
+
+    fix duplicate leaks in same file
+
+commit 8d506be139901bcb8a6058283dec40a828a8dddc
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Fri Jun 15 15:30:40 2018 +0500
+
+    fix
+
+commit 836c908a82a2a1da3c63a438091a31563f488092
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Fri Jun 15 15:25:10 2018 +0500
+
+    Up coverage and made workers configurable
+
+commit e8b40692f6dbf69a0af411ecca62fc95d4a48da9
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 13 19:26:24 2018 +0500
+
+    add info log for searcher update
+
+commit daeb5629fda4beb9a16edeab4f5022e53ac32585
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 13 17:00:36 2018 +0500
+
+    add links to packagecloud.io
+
+commit 31ab0fc08f5948b92d8f4d598799f7b8c686029c
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 13 16:30:38 2018 +0500
+
+    add filters
+
+commit 62fb5babd9fe475b6680204500080a82d2e45cde
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 13 16:30:26 2018 +0500
+
+    now delay before sending email is configurable
+
+commit 5df499f807bff599c32148c20cc26cd13c61aa02
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 13 15:38:24 2018 +0500
+
+    refactoring patterns location and add examples
+
+commit 1f93ea1d642aaaecbd1f42bd8a9f1c320c999d25
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 13 13:16:02 2018 +0500
+
+    Improve systemd service. Added nice and reload
+
+commit 1e7c512f7ed76293e5a9edfea40dc360e4aeb98b
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 13 13:15:09 2018 +0500
+
+    fix permission for new files
+
+commit 17433093a8c8c2002254ccbed001df4423cc4a94
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Tue Jun 12 22:44:04 2018 +0500
+
+    fix english
+
+commit 244caafeda2954d870a9e54146a8e6cfebb9b9ef
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Fri Jun 8 17:15:51 2018 +0500
+
+    dirty trick for fix panic in go-diff
+
+commit 13d7929b43b54d163473ad054e6882f90953d060
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Fri Jun 8 16:40:32 2018 +0500
+
+    packaging. create home on install
+
+commit ae5bf8accbbf4bb56c015a4b332d8a141145496c
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Fri Jun 8 13:15:42 2018 +0500
+
+    Improve packages
+
+commit 6f555fe70d376642ea0c5ea2fb170a36b5e2f799
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 20:48:12 2018 +0500
+
+    try catch deadlock
+
+commit 51e7c74d943ad917725889ea991f96cb4fc3f3d8
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 19:25:03 2018 +0500
+
+    add empty tests
+
+commit 4856023b845eb021aa1f0b95be79da8da62d85af
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 19:09:00 2018 +0500
+
+    try fix upload package
+
+commit 36bc915e7363140198db06c1d9088ddff881a8c8
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 18:58:45 2018 +0500
+
+    put packages to packagecloud
+
+commit 42afb51a088f2b4efa0867dbd4636fce3c98af1c
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 17:04:56 2018 +0500
+
+    add packaging to Makefile
+
+commit 3b1067e972cd4b859947a67ba859a7c601486d3a
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 16:22:14 2018 +0500
+
+    fix test
+
+commit b12768124ac115f8ef163f3c6820225b6f3fd17b
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 14:19:38 2018 +0500
+
+    fix Makefile
+
+commit 9e8a53af549a465f80a28b10e3bf76f514d042cd
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 13:53:25 2018 +0500
+
+    add bages
+
+commit 18c5286c572f62bec676a10accaddc6e3d433838
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Thu Jun 7 12:33:01 2018 +0500
+
+    fix #1
+
+commit 97d5a5685aaa53873f8e8f4a6ab8d711dff5b5d1
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 6 17:27:29 2018 +0500
+
+    fix github
+
+commit f85107262c8c2f7eb86eac56b42af59e7bc7ff54
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Wed Jun 6 14:09:05 2018 +0500
+
+    refactoring
+
+commit 888418327f7045795a76684dff2dd93af938464f
+Author: AlexAkulov <alexakulov86@gmail.com>
+Date:   Fri Jun 1 17:03:21 2018 +0500
+
+    init
+
+commit 576ed93ff2a45aae0ba1faf6d92d12be089e8e05
+Author: Alexander Akulov <alexakulov86@gmail.com>
+Date:   Fri Jun 1 17:00:04 2018 +0500
+
+    Initial commit

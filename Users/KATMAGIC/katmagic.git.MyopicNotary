@@ -1,0 +1,386 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 2044846c9ba46589727212a3edfce694c9a49761
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 24 10:25:04 2011 -0400
+
+    Mention that blind_signatures.generate_prime() will always return a value with
+    the top two bits set.
+
+commit 88de5762fc4b342c2dc33369fcdb15b1b7dc4013
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Thu Jun 23 01:13:31 2011 -0400
+
+    Use the Chinese Remainder Theorem to speed up signing.
+
+commit 39b55a560eb40c8a6ef05eb9775220d463ba3653
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Thu Jun 23 00:45:30 2011 -0400
+
+    Use a slightly more generic serialization method.
+
+commit c2971395e673a6a489b18d67c6391655fdd5f2a5
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Thu Jun 23 00:28:44 2011 -0400
+
+    Remove bignum.
+
+commit 1dddb46311b54d2a7cfc1a04697cf7a7b68389de
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Wed Jun 22 18:22:44 2011 -0400
+
+    Ensure that keys are not too large.
+
+commit 6d3c0fb9096f6eb1aa50680c27bd0fb287108b19
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Tue Jun 21 01:15:44 2011 -0400
+
+    Make bignum.generate_random_bignum() use __mod__ instead of __and__ — OpenSSL
+    doesn't support and.
+
+commit 18b56639a086bec25f7d459722145854a9956e13
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Tue Jun 21 01:00:27 2011 -0400
+
+    Make blind_signatures.Blinder._bignum_digest() pad digests so that they have the
+    same length as the public modulus (n).
+
+commit c806dbc81a7ea2540192cb63f67193639814f19a
+Author: Robert Ransom <rransom.8774@gmail.com>
+Date:   Sun Jun 19 16:54:04 2011 -0700
+
+    Don't return a value with more bits than the caller asked for in bignum.generate_random_bignum().
+
+commit 861554f1657a189d46024abd6bd4d70caab58b8b
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Mon Jun 20 12:48:37 2011 -0400
+
+    Strip trailing whitespace.
+
+commit 32371c112aff3756fe1f7008f0be1eb619b336f4
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Mon Jun 20 10:56:26 2011 -0400
+
+    Implement MyopicNotary.MyopicNotary and MyopicNotary.NotaryClient.
+
+commit 2b72f061f4f122d18ab31c36fe31d7ec07cd4868
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Mon Jun 20 10:41:27 2011 -0400
+
+    Fix bignum.ctx().
+
+commit dde246af98e485bfaff3c52b6c8fa63c5d97e556
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 19 17:24:37 2011 -0400
+
+    Split blind_signatures.Blinder.verify() into .unblind() and .verify().
+
+commit 0f9e3e413d8e4528ca43051975fadc280590cb42
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 19 15:23:17 2011 -0400
+
+    Fix the serialization of Blinder public keys.
+
+commit 5fa64ad0f2ba6f8da42ec9bb812f485f791d5d0e
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 15:12:37 2011 -0400
+
+    Implement blind_signatures.Blinder.
+
+commit 4254488df6c3c29572880f1b6ddd965eacf53f0c
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 13:37:51 2011 -0400
+
+    Add a warning to bignum.BigNum.__pow__().
+
+commit f6ce2d77b87a584099f5e545550445dacb9ecab5
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 13:27:19 2011 -0400
+
+    Implement bignum.generate_random_bignum().
+
+commit 77ee9ca070b0d8ff7b5427f82a6acb2ea6f31321
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 13:26:46 2011 -0400
+
+    Implement bignum.BigNum.__len__().
+
+commit d3b1688b2ed54d020fddb8ba0ec14e8dda82c119
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 19:00:23 2011 -0400
+
+    Implement serialization in bignum.BigNum.
+
+commit d6d8a037ec3e84f9d63f89fe7c62dd6b17be250a
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 18:58:53 2011 -0400
+
+    Take more care not to raise errors in bignum.BigNum.__del__().
+
+commit a8f84a9b09c568f834179da0cc8e40162b448039
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 18:57:56 2011 -0400
+
+    Add tests for bignum.BigNum.__init__().
+
+commit a25f9cd145088a6da7b5e8b0258832d19f58f532
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 14:29:30 2011 -0400
+
+    Fix bignum.BigNum.from_voidp. Apparently, ctypes._FuncPtr instances with a
+    .restype attribute of c_void_p return an int. What the fuck?
+
+commit d0ed7ff566988ae12a20fe738f33f1c2c1b7eecc
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:54:56 2011 -0400
+
+    Add a test for bignum.generate_prime().
+
+commit 7f923c0bcf15a994f4465874c95fcc76a6aba86c
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:49:23 2011 -0400
+
+    Implement bignum.BigNum.is_prime().
+
+commit 16abe707719153e491b260c9df43ddba3ebe03f3
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:28:39 2011 -0400
+
+    Allow bignum.BigNum.__pow__() to accept -1 as an exponent.
+
+commit 25ac1a3f240f49f1aac822156805a8df04fbb217
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:26:17 2011 -0400
+
+    Add checks for negative numbers in bignum.BigNum.__eq__().
+
+commit 814293a67a82b48c76dab5cf9024de2bd9997d7a
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:16:24 2011 -0400
+
+    Add bignum.generate_prime().
+
+commit bde7dcb54730744d0e8b556331ca133c6e56ce97
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:15:48 2011 -0400
+
+    Add from_param() and from_voidp() methods to bignum.BigNum.
+
+commit 25eec7ae07a39564b40e6e4d3721bcb397e2b6d7
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 11:29:52 2011 -0400
+
+    del the temporary variable m after using it so it doesn't appear in
+    bignum.BigNum.
+
+commit 4f249866f9fd479c9f107075d9569f4af5e2ed4e
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 11 17:51:46 2011 -0400
+
+    Ignore __pycache__.
+
+commit 984bbd7f696912c5b5289b7ce6c423f56d21f52d
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 11 17:50:28 2011 -0400
+
+    Implement oodles of normal int operations and add tests.
+
+commit 69352fb0be0378540aabdc8a655113fd5bdf3987
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Tue Jun 7 21:22:42 2011 -0400
+
+    Initial import. Implement conversion from and to BigNums.
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 2044846c9ba46589727212a3edfce694c9a49761
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 24 10:25:04 2011 -0400
+
+    Mention that blind_signatures.generate_prime() will always return a value with
+    the top two bits set.
+
+commit 88de5762fc4b342c2dc33369fcdb15b1b7dc4013
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Thu Jun 23 01:13:31 2011 -0400
+
+    Use the Chinese Remainder Theorem to speed up signing.
+
+commit 39b55a560eb40c8a6ef05eb9775220d463ba3653
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Thu Jun 23 00:45:30 2011 -0400
+
+    Use a slightly more generic serialization method.
+
+commit c2971395e673a6a489b18d67c6391655fdd5f2a5
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Thu Jun 23 00:28:44 2011 -0400
+
+    Remove bignum.
+
+commit 1dddb46311b54d2a7cfc1a04697cf7a7b68389de
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Wed Jun 22 18:22:44 2011 -0400
+
+    Ensure that keys are not too large.
+
+commit 6d3c0fb9096f6eb1aa50680c27bd0fb287108b19
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Tue Jun 21 01:15:44 2011 -0400
+
+    Make bignum.generate_random_bignum() use __mod__ instead of __and__ — OpenSSL
+    doesn't support and.
+
+commit 18b56639a086bec25f7d459722145854a9956e13
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Tue Jun 21 01:00:27 2011 -0400
+
+    Make blind_signatures.Blinder._bignum_digest() pad digests so that they have the
+    same length as the public modulus (n).
+
+commit c806dbc81a7ea2540192cb63f67193639814f19a
+Author: Robert Ransom <rransom.8774@gmail.com>
+Date:   Sun Jun 19 16:54:04 2011 -0700
+
+    Don't return a value with more bits than the caller asked for in bignum.generate_random_bignum().
+
+commit 861554f1657a189d46024abd6bd4d70caab58b8b
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Mon Jun 20 12:48:37 2011 -0400
+
+    Strip trailing whitespace.
+
+commit 32371c112aff3756fe1f7008f0be1eb619b336f4
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Mon Jun 20 10:56:26 2011 -0400
+
+    Implement MyopicNotary.MyopicNotary and MyopicNotary.NotaryClient.
+
+commit 2b72f061f4f122d18ab31c36fe31d7ec07cd4868
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Mon Jun 20 10:41:27 2011 -0400
+
+    Fix bignum.ctx().
+
+commit dde246af98e485bfaff3c52b6c8fa63c5d97e556
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 19 17:24:37 2011 -0400
+
+    Split blind_signatures.Blinder.verify() into .unblind() and .verify().
+
+commit 0f9e3e413d8e4528ca43051975fadc280590cb42
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 19 15:23:17 2011 -0400
+
+    Fix the serialization of Blinder public keys.
+
+commit 5fa64ad0f2ba6f8da42ec9bb812f485f791d5d0e
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 15:12:37 2011 -0400
+
+    Implement blind_signatures.Blinder.
+
+commit 4254488df6c3c29572880f1b6ddd965eacf53f0c
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 13:37:51 2011 -0400
+
+    Add a warning to bignum.BigNum.__pow__().
+
+commit f6ce2d77b87a584099f5e545550445dacb9ecab5
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 13:27:19 2011 -0400
+
+    Implement bignum.generate_random_bignum().
+
+commit 77ee9ca070b0d8ff7b5427f82a6acb2ea6f31321
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 18 13:26:46 2011 -0400
+
+    Implement bignum.BigNum.__len__().
+
+commit d3b1688b2ed54d020fddb8ba0ec14e8dda82c119
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 19:00:23 2011 -0400
+
+    Implement serialization in bignum.BigNum.
+
+commit d6d8a037ec3e84f9d63f89fe7c62dd6b17be250a
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 18:58:53 2011 -0400
+
+    Take more care not to raise errors in bignum.BigNum.__del__().
+
+commit a8f84a9b09c568f834179da0cc8e40162b448039
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 18:57:56 2011 -0400
+
+    Add tests for bignum.BigNum.__init__().
+
+commit a25f9cd145088a6da7b5e8b0258832d19f58f532
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Fri Jun 17 14:29:30 2011 -0400
+
+    Fix bignum.BigNum.from_voidp. Apparently, ctypes._FuncPtr instances with a
+    .restype attribute of c_void_p return an int. What the fuck?
+
+commit d0ed7ff566988ae12a20fe738f33f1c2c1b7eecc
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:54:56 2011 -0400
+
+    Add a test for bignum.generate_prime().
+
+commit 7f923c0bcf15a994f4465874c95fcc76a6aba86c
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:49:23 2011 -0400
+
+    Implement bignum.BigNum.is_prime().
+
+commit 16abe707719153e491b260c9df43ddba3ebe03f3
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:28:39 2011 -0400
+
+    Allow bignum.BigNum.__pow__() to accept -1 as an exponent.
+
+commit 25ac1a3f240f49f1aac822156805a8df04fbb217
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:26:17 2011 -0400
+
+    Add checks for negative numbers in bignum.BigNum.__eq__().
+
+commit 814293a67a82b48c76dab5cf9024de2bd9997d7a
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:16:24 2011 -0400
+
+    Add bignum.generate_prime().
+
+commit bde7dcb54730744d0e8b556331ca133c6e56ce97
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 12:15:48 2011 -0400
+
+    Add from_param() and from_voidp() methods to bignum.BigNum.
+
+commit 25eec7ae07a39564b40e6e4d3721bcb397e2b6d7
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sun Jun 12 11:29:52 2011 -0400
+
+    del the temporary variable m after using it so it doesn't appear in
+    bignum.BigNum.
+
+commit 4f249866f9fd479c9f107075d9569f4af5e2ed4e
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 11 17:51:46 2011 -0400
+
+    Ignore __pycache__.
+
+commit 984bbd7f696912c5b5289b7ce6c423f56d21f52d
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Sat Jun 11 17:50:28 2011 -0400
+
+    Implement oodles of normal int operations and add tests.
+
+commit 69352fb0be0378540aabdc8a655113fd5bdf3987
+Author: katmagic <the.magical.kat@gmail.com>
+Date:   Tue Jun 7 21:22:42 2011 -0400
+
+    Initial import. Implement conversion from and to BigNums.

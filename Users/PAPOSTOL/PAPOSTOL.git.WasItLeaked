@@ -1,0 +1,38 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Was It Leaked - Password Checker
+Check if your passwords are listed in leaked password databases.
+
+#### How does it work?
+An API call is made with the first 5 characters of SHA1 of your password(s), which returns a list of matches and their occurrences. The full password hash is then checked locally for matches. More occurrences means worse password.
+
+#### Requirements:
+- [Python 3.7+](https://www.python.org/downloads/)
+- [requests](https://pypi.org/project/requests/)
+
+#### Example
+Usage:
+
+`python check_password.py password1 abcd1234567890 alDjf?f0`
+
+Output:
+
+```
+Password "password1" was found with 2413945 occurrences (hash: E38AD214943DAAD1D64C102FAEC29DE4AFE9DA3D)
+Password "abcd1234567890" was found with 354 occurrences (hash: AE33FB6D42AD13F6AAC090EF70818BB3B0E28B70)
+Password "alDjf?f0" was not found (hash: C0A9C84FFB66D385883B2D2311288DD67EEAFE0E)
+```
+#### Can I check emails and phones as well?
+You can manually check for a leaked email or phone [here](https://haveibeenpwned.com/). However, for an automated API call to check emails, you'll need to pay for an [API key](https://haveibeenpwned.com/API/v3#Authorisation).====================== GIT HISTORY: ======================
+81ba83c HEAD@{0}: clone: from https://github.com/PApostol/WasItLeaked
+commit 81ba83cc90d5c7c99e002550a06fc2a920b59e55
+Author: PApostol <pav.apostolidis@gmail.com>
+Date:   Fri Sep 30 18:07:40 2022 +0100
+
+    General revamp, add requirements.txt
+
+commit b5e7cbd8d82c75f1573042aa856d70146d1b5aa4
+Author: PApostol <pav.apostolidis@gmail.com>
+Date:   Sun Jun 7 10:42:27 2020 +0100
+
+    First commit

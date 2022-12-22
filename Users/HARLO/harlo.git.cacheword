@@ -1,0 +1,3362 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 62f96bab47e29a7ab440cd315fc178e1404f9f01
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 17 19:22:42 2015 +0200
+
+    fix gradle compile line in README
+
+commit caac0a49b86ea9435afb6909904ed2c774c7a530
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 17 17:43:29 2015 +0200
+
+    document how to use cacheword JAR with gradle
+
+commit 8f395e9c5107b9f9bfa0b58d79bc53ea4f09a68b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Jun 1 16:58:09 2015 -0400
+
+    create `ant javadoc` and `ant source` to create all files for jcenter
+
+commit 1f0931d5e9f1f5e785ea39c459d95703e69b249a
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Apr 20 21:13:40 2015 -0400
+
+    set target SDK for all ant build files
+    
+    For whatever reason, some people's setups were complaining:
+    
+    "Error: The project either has no target set or the target is invalid."
+
+commit 9421134ea1cfd50195dc0660d38f2fccf758eebe
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Apr 14 19:52:13 2015 -0400
+
+    bump Target SDK Version to android-22/5.1
+
+commit 89e94529d0f570ddc54bf3fa36a48d1eff98cced
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Apr 14 19:44:03 2015 -0400
+
+    first stab at a build.gradle to allow gradle-based projects to use this
+    
+    closes #5002 https://dev.guardianproject.info/issues/5002
+
+commit 5cabcaf842434696610e3e7cca51580ace8f8016
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Feb 26 14:21:21 2015 +0100
+
+    simplify release build naming in custom_rules.xml, following IOCipher
+
+commit 71cc426629c7a5e66cba2232e2c392b10f6de704
+Author: sensen <djonnystevensabenz+github@gmail.com>
+Date:   Sun Nov 2 21:23:11 2014 +0700
+
+    Remove CacheWordActivityHandler information
+    
+    Remove all information related to CacheWordActivityHandler from
+    README.md to prevent new user wasting time looking for it. It was
+    removed since over a month ago, based on
+    https://dev.guardianproject.info/news/193.
+
+commit 6f0c33fbf18d9ff6c1bb5ca5a992171ba41c150b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 30 11:22:55 2014 -0400
+
+    get detailed zip comparison from `zipinfo -lv`
+
+commit 2b46c5107bb222ae806003eff899f4e6a07b05fc
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Sat Sep 27 19:16:25 2014 -0400
+
+    include hexdump in reproducible comparison
+    
+    compare jars using BSD's hexdump since it works on GNU and OSX
+
+commit 5f82282fe92e23e09ced3ab2e4c138e63b3b5588
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 26 22:05:25 2014 -0400
+
+    make gpg signing optional for build success
+
+commit b1aa99ca99042232076f9631d649a350de86b01e
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 13:20:47 2014 -0400
+
+    remove jar signature from release, it messes up deterministic builds
+    
+    No one really checks jar signatures anyway, there is a better OpenPGP .sig,
+    and the jar signature makes it harder to handle the determinstic build
+    process.
+
+commit 9b484246d33327e602277682451dd3d3c5536323
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 13:08:46 2014 -0400
+
+    compare-to-official-release: script to compare release jars
+    
+    This allows anyone to test the reproducibility of the build.
+
+commit 6a9066ca858eeb54c9e302392ea04c214dc13766
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 12:39:46 2014 -0400
+
+    put all relevant settings into a single properties file
+    
+    ./make-release-build uses ant.properties to set up the signing key
+
+commit 2d00cd2ef95b360ee7d945cb1f1165c609db2a8b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 11:46:33 2014 -0400
+
+    add make-release-build to automate deterministic build process
+
+commit 2196472add9556e56bb2220ae26b8db11b409cfe
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Sep 22 22:15:50 2014 -0400
+
+    include Android SDK version and build host OS in jar metadata
+
+commit f96b738e092e5b230c967687eefd4fd5fe2fa0cb
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 16 17:47:00 2014 -0400
+
+    merge all supporting texts into the README
+
+commit e10d84ad504214c8479ba75422fb595b8abd4f8e
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 16 16:52:01 2014 -0400
+
+    nail down `ant release` process
+    
+    This fixes up the process for creating an official cacheword.jar for
+    release. It mostly removes the code for making a .zip which was inherited
+    from IOCipher.
+
+commit d65d9f7dadba8cbb43ba1286865b8139d31d8aa8
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 19:20:06 2014 -0400
+
+    replace duplicate code with call to getPasswordLockPendingIntent()
+
+commit 58282ce7331aad59ae68601d0978b0952085252c
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 19:17:20 2014 -0400
+
+    move getBlankServiceIntent() to CacheWordHandler to unify interface
+    
+    This means that basically everything that the developer will ever need to
+    do can happen using CacheWordHandler.
+
+commit 9a18b086d1268a713b5f536afe60132c86662a89
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 19:14:44 2014 -0400
+
+    purge CacheWordSettings and directly set timeout in CacheWordHandler
+    
+    This removes the now pointless CacheWordSettings and provides options for
+    directly setting the timeout in seconds.  This changes the meaning of the
+    non-positive values:
+    
+    >0 = timeout in seconds
+     0 = disable timeout
+    <0 = use default value
+    
+    fixes #3718 https://dev.guardianproject.info/issues/3718
+
+commit 06ad59531b4b2152afbb90a34d9913c56d59bf51
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 18:12:18 2014 -0400
+
+    rename INTENT_PASS_EXPIRED to INTENT_LOCK_CACHEWORD
+    
+    This Intent causes CacheWord to lock, so this name makes more sense.
+
+commit d6b150ac30281b2eb2c6caa065ee813f2bc2b166
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 18:09:55 2014 -0400
+
+    rename CacheWordHandler.lock() to match CacheWordHandler.isLocked()
+    
+    Clean up some unneeded redirection while we are at it.  If it is ever
+    needed in the future, it can be easily added back in.
+
+commit 9c598b1393b1ee2989e23e499b302e1cc323d5a3
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 18:05:23 2014 -0400
+
+    improve javadoc comments on CacheWordHandler
+    
+    CacheWordHandler is the main interface, so it should be well documented.
+
+commit 70afd0d5f9fba98d2b575cf7d0d55a5fdc7e6e2f
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 17:37:22 2014 -0400
+
+    purge built-in Notification, the app must now provide it
+    
+    Previously, there was an elaborate, custom framework for customizing the
+    Notification that was hard-coded into CacheWord.  Now, the app must supply
+    a Notification, and that triggers CacheWordService to run as a foreground
+    Service.  Otherwise, CacheWordService will run as a background Service with
+    no Notification.
+    
+    This removes the last remnants that require CacheWord to be an Android
+    Library Project.  Now it can be distributed as just a jar.  It can still be
+    used as a Library Project for those who like doing it that way.
+    
+    fixes #3711 https://dev.guardianproject.info/issues/3711
+    fixes #3680 https://dev.guardianproject.info/issues/3680
+
+commit 1a4048fc5031b191a0cb169db49e94ae4fee0b5a
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 15:47:43 2014 -0400
+
+    move getApplicationContext() into getBlankServiceIntent()
+    
+    Since CacheWordService.getBlankServiceIntent() requires a long-lived
+    Context, move the call to getApplicationContext() into the method itself to
+    guarantee that it gets the Application's Context.
+
+commit 7d63fcacf7c898b5ccbf00c43267e74411031dee
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 11:59:24 2014 -0400
+
+    purge CacheWordActivityHandler, its a pointless wrapper of CacheWordHandler
+    
+    Instead, apps should just instantiate CacheWordHandler and call
+    connectToService() and disconnectFromService() where appropriate.  That is
+    most likely going to be in an Activity's onResume() and onPause()
+    respectively.
+
+commit d9d31b476a2e4fd804f45ed22bcab7542510ef89
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 11:06:26 2014 -0400
+
+    move notification icon to sample project
+    
+    This puts the lib one step closer to only being a jar!
+    
+    refs #3680 https://dev.guardianproject.info/issues/3680
+
+commit f34309e4c5c88afd74c597dbccbb84bab20efd3e
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 16 11:28:11 2014 -0400
+
+    simplify SerializedSecretsV1 interface to just what is needed and used
+    
+    The only operations that SerializedSecretsV1 needs to provide is setting up
+    and instance in the constructor, then getting the info encoded in a byte
+    array.
+    
+    refs #3742 https://dev.guardianproject.info/issues/3742
+
+commit a39d6b3bb9c2ccf4f1dec03f788e681ac666b181
+Author: n8fr8 <nathan@freitas.net>
+Date:   Mon Sep 15 11:10:20 2014 -0400
+
+    remove unnecessary parse() code that throws a NPE
+    
+    closes #3742 https://dev.guardianproject.info/issues/3742
+
+commit 703692c1ac35183ac7234a3eea04fda9b9b3e949
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 00:58:16 2014 -0400
+
+    provide example for mounting IOCipher
+    
+    closes #3692 https://dev.guardianproject.info/issues/3692
+
+commit 84eec0fd49a2d800628dc965f1b92e499acf8b81
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 4 16:33:36 2014 -0400
+
+    Eclipse insists on exporting these Android ADT things
+
+commit 22c8a74bf93658c15ec452f8a3b28e5c6c7d3f96
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Aug 29 20:37:04 2014 -0400
+
+    make `ant debug` and `ant release` generate a usable jar file
+
+commit 5acc2808207c0afd56c2fa63c76d2ffb5405c009
+Author: n8fr8 <nathan@freitas.net>
+Date:   Tue Sep 2 14:31:02 2014 -0400
+
+    fix bug with default value for timeout
+    
+    closes #11 https://github.com/guardianproject/cacheword/pull/11
+    fixes #3698 https://dev.guardianproject.info/issues/3698
+
+commit c2bc847c98f3bcd533940bb6b25fbc35a6a2820b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:22:54 2014 -0400
+
+    sort out android-support-v4.jar madness in Eclipse
+
+commit 58238faaaed5b184f3a5b0460c34cc170dbb931f
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:18:59 2014 -0400
+
+    set sample minSdkVersion="11" to avoid using android-support-v4.jar
+
+commit 642b841b3604abf8d75f0257ed272da4dc7e6eb6
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:18:34 2014 -0400
+
+    ignore all products of `android update` including proguard-project.txt
+
+commit 0db1aa7d2c2bb4d5a60af510bcf02a87e79af23b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:17:47 2014 -0400
+
+    move test classes into same package as the classes they test
+    
+    This generally makes it easier to test the classes since the test classes
+    will have access to all methods/variables that are not declared private.
+
+commit 011e65f57e368ae68595a2de92a2800f8e301a52
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 15:46:02 2014 -0400
+
+    move defaults out of XML and directly into the relevant classes
+    
+    These constants are barely used, and are the only thing left that prevent
+    cacheword from being distributed only as a jar.
+    
+    refs #3680 https://dev.guardianproject.info/issues/3680
+
+commit d773d2df5afa72f67d1bf762658a235f9c661b53
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 14:40:38 2014 -0400
+
+    move SQLCipher helpers to separate library project
+    
+    This means that the core of Cacheword can be shipped as a simple jar that
+    only depends on the Android Support v4 jar.  Also, for many users, they
+    will never need the SQLCipherV3MigrationHelper in their project at all
+    since they started with SQLCipher v3.
+    
+    refs #3680 https://dev.guardianproject.info/issues/3680
+
+commit 4baed7c90bb70990a2133b440ce498c5921d9f48
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Aug 26 21:00:52 2014 -0400
+
+    fix all javadoc warnings and errors
+
+commit a766fff67a2e395e6c9e8012ca4648952359b0cf
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Aug 26 19:33:36 2014 -0400
+
+    set up cachewordlib's manifest for merging, introduced in ADT v20
+    
+    As of ADT v10 and gradle v0.10, it is possible to put stuff into a library
+    project's manifest, then have it included into the main project's manifest.
+    The main project has to add this to its project.properties to enable it:
+    
+      manifestmerger.enabled=true
+    
+    https://android.googlesource.com/platform/sdk/+/a35f8af9eca38249b5c37391d7a7ae56c53251ad/manifmerger/src/com/android/manifmerger/ManifestMerger.java
+    https://stackoverflow.com/questions/10976635/using-the-new-manifestmerger-property-in-android/11234525#11234525
+    https://stackoverflow.com/questions/20346237/how-to-use-androidmanifest-merger
+
+commit 54ab58836c8bbc00d46cb6758e75ae757ecfe372
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:30:47 2014 -0400
+
+    clean up all XML (formatted and removed unused)
+
+commit dd73b96c4dedfe66579457b21c8c64c992d54b29
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:26:49 2014 -0400
+
+    bump targetSdkVersion to latest (20)
+
+commit 530db0c7373050d5f12290012becee23e0997b41
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:11:42 2014 -0400
+
+    added script for running jenkins builds
+
+commit 0d3ebd02768a0b61151cdf417cd9c504dde41c4f
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:57:54 2014 -0400
+
+    set version to 0.1
+
+commit fcde24ad7a377682125a8d06d6fb4fdadb792b44
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:42:27 2014 -0400
+
+    fetch-test-report ant target for getting JUnit report to Jenkins
+
+commit 389f1fdfa1f7996f082df0f87df6e9ad2046cbf7
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:41:57 2014 -0400
+
+    fix all warnings
+
+commit 8bb202322ba3f0c0d3d9f2854ea049e284e22e99
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:41:40 2014 -0400
+
+    standard script for setting up ant builds
+
+commit 9f5f8056f5ebce15fb5017d085b81868539ac5e2
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:41:08 2014 -0400
+
+    add ant build targets: jar and javadoc
+    
+    official ways to build the release jar and javadoc files.
+
+commit a38fbfe05085f05329d0e03a42e4d3ee19adf18a
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:24:16 2014 -0400
+
+    minSdkVersion="9" without spongycastle
+    
+    refs #3665 https://dev.guardianproject.info/issues/3665
+
+commit e5fd84db6929a7e8cc61bda5257abacfd831c212
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 18:05:33 2014 -0400
+
+    replace heavy KDF iteration count function with one based on /proc/cpuinfo
+    
+    The previous KDF iteration count measuring method took a long time to run
+    and depended on including spongycastle.  In the interest of keeping the
+    library as minimal as possible, it is good to remove dependencies.  In the
+    interest of usability, calculating the iteration count should be very fast.
+    
+    fixes #3146 https://dev.guardianproject.info/issues/3146
+    fixes #3665 https://dev.guardianproject.info/issues/3665
+    fixes #492 https://dev.guardianproject.info/issues/492
+
+commit efb0f2b05bea5eca8b442ca911e1349b66eda895
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 16:04:26 2014 -0400
+
+    point to Android SDK for javadoc for android-support-v4.jar
+    
+    If you have your Android SDK installed at /opt/android-sdk, then this will
+    make Eclipse automatically use the SDK's docs for the javadoc for methods
+    from the Support library.
+
+commit 5f77a678b6b9bacb22086c615c23de689d27c238
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 15:31:16 2014 -0400
+
+    include static encodeHex() method to purge commons-codec.jar
+    
+    cacheword needs to have as few deps as possible, so purge this jar.  Thanks
+    to sqlcipher:
+    
+    https://github.com/sqlcipher/android-database-sqlcipher/commit/817cff171c99bf6dfc654df3658dbb8af0d59e25
+    
+    fixes #3663 https://dev.guardianproject.info/issues/3663
+
+commit 8b1994be959303d7906a7a939a96a5e17fcd2747
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 15:52:27 2014 -0400
+
+    Eclipse: the test/sample projects expect the lib project at "cachewordlib"
+
+commit a5c253ab3221cc81ee9e5d2c6f165c2c3f5ae0b5
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:26:30 2014 -0400
+
+    Eclipse: set libs/ as default jar location
+    
+    refs #3663 https://dev.guardianproject.info/issues/3663
+
+commit 1ac98b7635a073ceb110d92ef1e7fcddceab47d7
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 15:47:21 2014 -0400
+
+    update to SQLCipher v3.1.0
+    
+    refs #3663 https://dev.guardianproject.info/issues/3663
+
+commit 87cdf7dbe606d217f933c3017785b73bac4bc9c5
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 20 20:37:51 2014 -0400
+
+    new IOCipher API eliminates need for IOCipherMountHelper
+
+commit f979ed9e676c2b8c3a3f2779fda9dc8a9d24f6a3
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 20 18:19:31 2014 -0400
+
+    format code using Eclipse code formatter with Android standard config
+    
+    This makes for quite plain Java style with longer code lines, more or less.
+
+commit 112e0c048e2641d12939e5e9146df4893abbc7c8
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 20 17:52:53 2014 -0400
+
+    run Eclipse imports organizer
+
+commit 727c05b31fc15856415ad8d7436a67dadd8189ba
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Wed Jun 4 14:58:54 2014 -0400
+
+    changed encodeRawKeyToStr in SQLCipherOpenHelper to use new String instead of toString
+
+commit dc23b9e62970992c16e0f29111b76de534bdaf06
+Merge: c7e8640 97db8eb
+Author: n8fr8 <nathan@guardianproject.info>
+Date:   Wed May 14 17:00:10 2014 -0400
+
+    Merge pull request #9 from vanevery/deinitialize
+    
+    Deinitialize
+
+commit 97db8eb2b950994ad2b87054f9c95da5249bc283
+Merge: 964eae0 c7e8640
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Wed May 14 16:52:10 2014 -0400
+
+    Merge branch 'master' of https://github.com/guardianproject/cacheword into deinitialize
+
+commit 964eae0e027ad6753d57938f1473d72a65681a3e
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Wed May 14 16:49:18 2014 -0400
+
+    Added deinitialize method
+
+commit c7e86404b494528f3a6a2ce8a3867702ff4f8fed
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed May 7 14:23:53 2014 +0000
+
+    pass char[] to SQLCipher instead of String. fixes #2253
+
+commit d162c23b0bd4561770e7e1639f7700e7d1af1a7c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 28 15:19:12 2014 +0000
+
+    tests: add SQLCipherOpenHelperTest
+    
+    It also handily tests our callbacks!
+
+commit 4da6d48e3d81bd7207d36250edcd734e48742f31
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed May 7 11:36:54 2014 +0000
+
+    readme: document new detach/reattach functions
+
+commit f6a136a2a0140eaffc6e098c1f26159e385c9581
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 28 13:31:40 2014 +0000
+
+    readme: add table of contents for readability
+
+commit 0b679c975bde21be20817be71d704cdd746d5f07
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 28 13:00:36 2014 +0000
+
+    README: explain how to use background services with CW
+
+commit 61cb0690f660b27555408f8789d823cad2bc4100
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Apr 30 10:44:11 2014 +0000
+
+    Fix misleading run-time statements. Calibration doesn't take 30 seconds.
+
+commit 2d6d989cc8ee7c04019939443122c86f2abe67ee
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 11 13:40:38 2014 +0200
+
+    DEBUG: debug statements for Courier
+
+commit adb6b76e10d34c8029d5e756991739a8c3ded380
+Merge: 170fba5 3df82ee
+Author: n8fr8 <nathan@guardianproject.info>
+Date:   Mon May 5 10:47:43 2014 -0400
+
+    Merge pull request #8 from vanevery/enable_subscriber_timeout
+    
+    Added attach and detach methods to CacheWordHandler
+
+commit 3df82ee5b9590161e14a7abfd927b9f96d16b9fc
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Sat May 3 17:38:08 2014 -0400
+
+    Added attach and detach methods in cases where connect and disconnect aren't appropriate
+
+commit 1ad648203415089809f7ebdd9ed435b303c59cef
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Sat May 3 13:47:20 2014 -0400
+
+    Added boolean in constructor for whether or not to call attachSubscriber on CacheWordService.  Not calling this doesn't icrease the subscriber count in the service and allows timeouts to occur even though a there is an active connection.
+
+commit 170fba58eadcc06f9819f618fa99a1d90c0291a4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 7 12:50:01 2014 +0200
+
+    write default settings on class instantiation
+    
+    fixes the bug that would occur if settings are read manually
+    before any setters or getters were called.
+
+commit 2a11fde393f3286773a2feac7111dfcda41dc69c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 28 15:56:06 2014 +0100
+
+    change timeout granularity to seconds
+    
+    the default is still 5 minutes
+    
+    fixes #3093
+
+commit 224642b3b0947d7b96587b890b0d9b782c01bf55
+Author: N-Pex <npexdev@gmail.com>
+Date:   Thu Feb 13 10:18:35 2014 +0100
+
+    Bind reqested when bindService returns true
+    
+    Signed-off-by: Abel Luck <abel@guardianproject.info>
+
+commit 041f9e99404ee81014b4a966631f01023dd60a6a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 26 18:05:37 2014 +0100
+
+    document dependency on sqlcipher 3.0.2
+
+commit e2ef803601d7894c118be22a1f95895670213f55
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 26 18:04:58 2014 +0100
+
+    update minimum api level in docs
+
+commit 4cf43832775a54eb4cad18b0b8a1da52002c6cc8
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 19:55:28 2014 +0100
+
+    document calibration configurability
+
+commit d38cc3e29dd082668ce9751611079f6ac6b1b930
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 19:52:56 2014 +0100
+
+    test SerializedSecrets v0 to v1 migration
+
+commit 1a38312d6962e89331dc1d05d065e3302de2d5c9
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:56:51 2014 +0100
+
+    suppress several harmless lint warnings
+
+commit c2114c8c88bb12478a9fced9b03576711e480a7d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:49:17 2014 +0100
+
+    advise use of a thread in the documentation
+    
+    refs #2252
+
+commit c65e53a510a9392fc80e0278f12196a0a2530b53
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:36:59 2014 +0100
+
+    update tests after KDF calibrator installation
+    
+    refs #2252
+
+commit 3bee50dd2d916d2c2bd4c34006c7a5e9a502aec2
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:33:49 2014 +0100
+
+    install KDF calibrator
+    
+    refs #2252
+    
+    we calibrate the KDF (1) on every encryptAndSave() and
+    (2) at fetch time if the iteration count is too low.
+
+commit b169404f12073a336259d6d174aca4199c1ac7f4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 17:58:59 2014 +0100
+
+    add PBKDF2 calibration settings
+    
+    refs #2252
+
+commit 852696b9bcb9b5598c7d20542ee44cbdfbc2641a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 17:25:11 2014 +0100
+
+    use configurable KDF itercount in Serialized Secrets
+    
+    refs #2252
+    
+    at this stage however the value is still fixed at 100
+
+commit 0a47eb64326e14161d83ea1301cdab54c59bd8a1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 17:24:38 2014 +0100
+
+    implement versioned loading and migration for SS
+    
+    refs #2252
+
+commit fc0876e0f9e5fac0ef7d7ba3edeb3fda3b0bd5d3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 16:58:38 2014 +0100
+
+    move SerializedSecretsX dependency to app layer
+    
+    versioning of serialized secrets doesn't belong in the crypto layer
+
+commit 4e7e2d6ddee2e8e9dd9e7fd688842306e8ba4dc6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 20:02:58 2014 +0100
+
+    hook up the KDF iteration calibrator
+    
+    refs #2252
+
+commit e6197f0d98a3ba513e0e23b618425c85d5b19346
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 13:06:03 2014 +0100
+
+    update to SQLCipher for Android 3.0.2
+    
+    fixes #3123
+    refs #2884
+
+commit 8af5cfde930f46c175498b2b60057647bd4b17fd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 12:47:15 2014 +0100
+
+    migrate TODOs to the issue tracker
+
+commit cdee1734812244b3ae75e3a72f8141e6f1e66122
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:38:30 2014 +0100
+
+    add adaptive PBKDF2 iteration calibration function
+    
+    Currently not hooked up.
+    
+    Thanks to briar project for the algorithm: briar.sourceforge.net
+    
+    refs #2252
+
+commit f26e70efe4a4e948ca40bad5e0ab38b53e4c278e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:36:23 2014 +0100
+
+    bump date in LICENSE
+
+commit a013041e91f553b444fb28b29a89ed7a9d037826
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:24:55 2014 +0100
+
+    typo
+
+commit 1c41d7b06e0a2f52ab186c7bd2c8074027f7406e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:11:46 2014 +0100
+
+    register the spongycastle JCE provider where it's used
+    
+    refs #2425
+
+commit d6e48f988904d30346eb4abf00d4cb3e082c861b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 18:43:34 2014 +0100
+
+    rename important constants for clarity
+    
+    knowing whether LENGTH refers to bits or bytes is an important
+    distinction. shame that the various APIs don't standardize :|
+
+commit c260774fdb0c34ff63654053453b43802acb6d55
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 18:32:18 2014 +0100
+
+    refactor crypto operations into separate class
+    
+    This is to avoid pollution of sensitive code with Androidy things like
+    Context and SharedPreferences. It also makes the crypto functions
+    testable without making the API public.
+
+commit eeaf47b389dab1c82acbd53f5b567920eae48cbd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 15:11:17 2014 +0100
+
+    tests: add additional checks for null return value
+    
+    a null value indicates the crypto failed
+
+commit d37909a8619bcdf98b4e5d5ece3fc1161fd5a3be
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 15:10:02 2014 +0100
+
+    drop min sdk to Android 2.2 now that we bundle SpongyCastle
+    
+    fixes #2182
+
+commit e68312c80841edd8d77b01d7437612a9ff5513ed
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 10:17:56 2014 +0100
+
+    bundle spongycastle 1.5.0 internally
+    
+    fixes #2425
+
+commit 802829b53428843129468a632a64f978062bbece
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 10:11:57 2014 +0100
+
+    bump to android 19 and appease eclipse
+
+commit e82f412b3fc9d684805e9a3bffd2557f980b4878
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:47:03 2013 +0100
+
+    mention the version tag in SECURITY.md
+
+commit f3c20610258fe411cf7c8ab4d89bc85df2e6c87b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:36:45 2013 +0100
+
+    wipe x_passphraseKey in PassphraseSecrets.fetchSecrets
+    
+    closes #2656
+
+commit 7edc13f4bc458709f06a584a34cfdfc5a332a9b8
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:23:32 2013 +0100
+
+    spruce up PassphraseSerets header documentation
+
+commit 55c405f5336a84d6bd99aa6937709a18377cb20e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:20:08 2013 +0100
+
+    document methods in PassphraseSecrets
+
+commit 872346b7501c259f3b2ae352bdbf310eebb2c95b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:12:49 2013 +0100
+
+    handle error condition when the secrets can't be saved
+
+commit 2c41f7addfe799f4c3a6b8c3e23fbcfbd5c6b246
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:10:45 2013 +0100
+
+    add changePassphrase to client-side API
+    
+    closes #2571
+
+commit 8e42dd8b8eda5d5f696f8d35f5df2926875ea561
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 12:54:33 2013 +0100
+
+    remove old crufty test project
+
+commit 80f876cd20998d1aeeb8a40de6c23ab0d30483b6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 12:52:05 2013 +0100
+
+    add test suite for Wiper
+
+commit 96d58a65ce1c3de54ea9e204157db48cad873697
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 12:18:26 2013 +0100
+
+    implement PassphraseSecrets.changePassphrase()
+    
+    created a new helper encryptAndSave method that applies the GCM encryption
+    over an arbitrary plaintext. this allows us to reuse substantial amounts
+    of critical code between changePassphrase() and initializeSecrets()
+    
+    refs #2728, #2571
+
+commit c3a6405e4d3aefeb6b55cf76af4591aebf081f78
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 11:52:57 2013 +0100
+
+    implement test for PassphraseSecrets.changePassphrase
+    
+    includes a stub implementation that fails the test
+    
+    refs #2728, #2571
+
+commit 7b1a597fa45c0d805263b8ec92d10cc1c484bd3f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 11:51:54 2013 +0100
+
+    change visibility of SerializedSecretsV1 to public
+    
+    This is so the class can be tested.
+
+commit 3d1147bd93dd6933feec639bbbdfb357463ab0e3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 11:34:41 2013 +0100
+
+    test project for enhanced library QA
+    
+    currently tests basic functionality of PassphraseSecrets
+
+commit 974658d93844a2694fe301a3987b00e93d22557f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 10:54:02 2013 +0100
+
+    update sqlcipher to version 3.0.1
+
+commit 30228a04a6d15afa9623ec712d9fb4e4306a0520
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Dec 5 17:39:48 2013 +0100
+
+    README: indicate SQLCipher v3 is the minimum version
+
+commit 64abf848405c6c77187cf7eff8f9f3a5f0bbc4ac
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Dec 5 17:20:34 2013 +0100
+
+    update SQLCipher to v3.0.0 and include migration hook
+
+commit d49c128bb7e86be2a2d674bbffe55f26b934fc14
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Nov 14 16:44:45 2013 +0100
+
+    add more docs about CacheWordHandler and the new settings configuration
+
+commit 0d67bc5141c901d6bc53337bf170e8028289a412
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 19:11:44 2013 +0100
+
+    implement custom notification intents
+    
+    I took the opportunity to refactor the settings into a separate class.
+    
+    refs #2424
+
+commit daf3edbf45b989bb9854249d59135f92354ec276
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 18:29:40 2013 +0100
+
+    clarify the consequence of clicking the notification
+    
+    Explicitly state that that tapping the notification will lock the app.
+    
+    refs #1789
+
+commit ba10f4b498a51aba70d0e7f892aa6b6c4b5384bd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 18:06:04 2013 +0100
+
+    README: add ant documentation
+
+commit e986797a5261b2d26a911b0764c78b71a69a6da7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:56:35 2013 +0100
+
+    README: add minimum version
+
+commit 3b4198ef23d8152c0a2ae608ea8fd86e282850e0
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:38:19 2013 +0100
+
+    a few sample tweaks
+    
+    * add vibrate permission to the sample
+    * some formatting
+
+commit e91dfb8d39fa0de081525bb7f09bbdbb1fc90df4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:37:13 2013 +0100
+
+    add updated support lib
+
+commit e611c7d655449098d3ff7ce0df7e23a4d5cab063
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:36:23 2013 +0100
+
+    provide two Handler constructors for convenience
+
+commit 548341f086c57c0abea57cbed7b9239542189f87
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:34:31 2013 +0100
+
+    add vibration feature to docs
+
+commit 0ca2300a589a8ea240406dfce258ca0057d1636f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 16:32:51 2013 +0100
+
+    clients unregister their BroadcastReceiver when disconnecting from CW
+    
+    fixes #1897
+
+commit c8e1ac5c00b5f677849512d893a5ae7a13091940
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 16:13:24 2013 +0100
+
+    major overhaul in connection state tracking
+    
+    Tracking the connection state of an activity to the cacheword service involves
+    several nuances that we were blundering over before. These changes implement
+    better state handling in these various corner cases.
+
+commit 7966937d410f23a17adf797f59a35323edf665f8
+Author: uberspot <onexemailx@gmail.com>
+Date:   Wed Oct 30 14:54:10 2013 +0100
+
+    made vibration after unlocking cacheword optional
+    
+    default is true meaning it will vibrate
+    
+    fixes #2004
+
+commit 1d821577120304a8aac598f0f9195b72976847f4
+Author: Devrandom <c1.devrandom@niftybox.net>
+Date:   Sun Oct 27 11:59:46 2013 -0700
+
+    Fix PRNGFixes to work with SELinux enforce mode
+    
+    makes /dev/urandom not writable on some devices
+
+commit 76071be961c8c8d08ee531e122c6bcc35d8f9868
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Aug 26 13:37:52 2013 +0200
+
+    track bind state to the CW service
+    
+    This prevents crashes when we call unbind but aren't actually binded, the crashes look like:
+    
+         java.lang.IllegalArgumentException:
+         Service not registered: info.guardianproject.cacheword.CacheWordHandler
+
+commit 0279639c1151910c2a8882b5c68d4fd366e61de4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Aug 17 00:57:03 2013 +0200
+
+    Make the PRNG fixes optional
+
+commit 94b32129717612dd04af4fc65b074045fe2f6c5e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Aug 17 00:40:02 2013 +0200
+
+    Properly read the version byte from the byte array
+
+commit f98bea64146633618937f8170d49a3cf88a17e43
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Aug 17 00:24:58 2013 +0200
+
+    Record version byte to facilitate future upgrades.
+    
+    This will break all existing deployments of CacheWord. Thankfully
+    there aren't any yet.
+
+commit e42fc3f10480b70c33030ae6d4a570f229eae208
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 22:32:08 2013 +0200
+
+    the persistent unlocked notification can now be disabled
+
+commit be44cc04b6123fe3ffb1281961abd367612b67ec
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 22:15:06 2013 +0200
+
+    fix service connection race condition resulting in ghost subscribers
+    
+    If a connect and disconnect are received before the connection has
+    time to complete, the connection would complete AFTER it should have
+    already disconnected. The result was that CacheWordService never received
+    the detachSubscriber call, so the mSubscriberCount became inaccurate.
+
+commit c7ffa8081dd7ad62a310df5ae2d945ed5ed8c450
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 21:08:23 2013 +0200
+
+    Fix SecureRandom vulnerability
+    
+    http://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html
+
+commit dc810cf4e42760b423bad6308d312e6723d0db7a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 20:52:20 2013 +0200
+
+    handle disconnections properly
+    
+    checkCacheWordState() should never be called when cache word is disconnected
+
+commit 08c441c9757f9dd6aa923dafe873a1b91d98bbfb
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 20:47:39 2013 +0200
+
+    instant locking support
+    
+    A timeout value of 0 triggers a lock event immediately.
+
+commit a7c1ddb0b7bb1f61db9a972e1ebea34f91545689
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Aug 12 22:37:04 2013 +0200
+
+    New IOCipherMountHelper class
+    
+    Assists in opening IOCipher VFS mounts with CacheWord.
+
+commit efce8847f952e0063e1d143eafa4a5a2b22c8d7c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 9 20:58:16 2013 +0200
+
+    README.md: reference project issue tracker
+    
+    also added some nice line wrapping
+
+commit f32094534b4763e44d9d53ccb13bffaf275a9157
+Author: Devrandom <c1.devrandom@niftybox.net>
+Date:   Tue Jul 2 11:20:07 2013 -0700
+
+    Specify minSdk in AndroidManifest
+    
+    prevents complaints about calls not available in SDK version 1.
+
+commit c836b4c6c753b9c58602a6448254e68d78571626
+Author: n8fr8 <nathan@guardianproject.info>
+Date:   Thu Jul 18 12:20:47 2013 -0400
+
+    Update README.md
+    
+    removing DO NOT USE because, we are using it :P
+
+commit 3a8817089cdd50bbd5e5da614c0c95c1606057fc
+Author: n8fr8 <nathan@freitas.net>
+Date:   Tue Jun 25 20:20:13 2013 -0400
+
+    updating libraries to match other dependent projects
+
+commit e2915b4ce6edc24f4dc9fe361e23ff0a80e840f6
+Author: n8fr8 <nathan@freitas.net>
+Date:   Thu Jun 13 13:17:37 2013 -0400
+
+    updated path and target
+
+commit 2255c5387273ba5e3c8763c786833cd7eb138eef
+Author: n8fr8 <nathan@freitas.net>
+Date:   Thu Jun 13 13:17:04 2013 -0400
+
+    separated the constructor args b/c they may not be the same object
+
+commit 745a9a14bdaa836f50d5b6ebb6e51de8ec4ad38b
+Author: n8fr8 <nathan@freitas.net>
+Date:   Thu Jun 13 13:16:40 2013 -0400
+
+    i am not using this directly, but needed the getRawKey method
+
+commit 4d33ad8a945040f3ea257b5dedff49336b5c4e88
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Apr 13 12:42:10 2013 +0200
+
+    cleanup when the task is killed and we're backgrounded
+
+commit cdc8cbeeac39c0121edd6c8f712c21930f8e03f0
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Apr 13 11:54:54 2013 +0200
+
+    notification icon instructions in settings
+
+commit 45120c22e14af15e05adc130d8ede216f8a0d85e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Apr 13 11:49:41 2013 +0200
+
+    user configurable timeout settings
+
+commit 4053b692889465139693386acb56695b0953a2d1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 22:01:09 2013 +0200
+
+    load all user facing items from xml resources
+    
+    this allows the app devs to customize the settings
+
+commit 3ee80bf0052cce53d0559fe48fcf01d3cb5a8a13
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 20:22:30 2013 +0200
+
+    fix compile warnings
+
+commit a2c4231b45e3a6e68cb91ee981e9c943ad526714
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:44:06 2013 +0200
+
+    build file tweaks
+    
+    dont.do.deps prevents the lib project from being installed when
+    ant debug install is run
+
+commit 6f2c96c9d3959e8b60d509a0cf06331d72679a77
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:24:25 2013 +0200
+
+    remove the activity that doesn't exist
+
+commit 74a7973c8cef0c0d4a8e0be9e0b059156a76d5db
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:04:56 2013 +0200
+
+    add test project that tests wiping framework
+
+commit 6273bd3f258257827855974cab144757b4b7fe82
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:04:36 2013 +0200
+
+    comment out these methods as we don't use them
+
+commit 5e44e22689152f0c84151c8e8ee2ffdc2ed37bec
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 13:52:03 2013 +0200
+
+    include support lib
+
+commit a3f89e1e27e78aa90d99af9386707444688c3849
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:49:16 2013 +0200
+
+    note to track down and wipe the Cipher class
+
+commit c6b8055a770c28b6b66949c112f1036ceab094e3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:48:19 2013 +0200
+
+    wipe the PBEKeySpec
+
+commit 921e56fb40f67deb5db878ed9b476b4790418fef
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:00:01 2013 +0200
+
+    wipe sensitive data as we finish with it
+    
+    improve readability with whitespace formatting
+
+commit da9e068c3ed05c5f499f8f72b981c6d5780b1286
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:00:52 2013 +0200
+
+    destroy cached secrets on expiration and service death
+
+commit 18e3fc9a44fd364487002f402b253dcc64332621
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 17:37:56 2013 +0200
+
+    add null guards to wiper
+
+commit b38a0921d6eeb5bc51c20146790f2c12f5796a2c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 16:31:12 2013 +0200
+
+    docs and implementation comments
+
+commit 4f8262202fcb45734f5fbc4a8c3e58d60d63c377
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 16:07:37 2013 +0200
+
+    build notifications using the support lib for backwards compat
+
+commit 2496a8973106317360b66c6c46e10c722cf06b22
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 15:48:48 2013 +0200
+
+    allow for foregrounding and backgrounding the CacheWord service
+    
+    backgrounding is the default
+
+commit 3a66a18583dde52cd65f8e1979f4e6e24e8246d4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 15:05:11 2013 +0200
+
+    remove unused scrypt lib, we'll implement it later
+    
+    Revert "include scrypt library in source tree (temporarily)"
+    
+    This reverts commit 81e13040928eb00e012c805fb504c7a3f3ecd51e.
+    
+    Conflicts:
+            cachewordlib/src/com/lambdaworks/crypto/SCryptUtil.java
+
+commit 5bdee01ac9a898e165e6507cfb2875e653ae665f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 15:01:27 2013 +0200
+
+    rename the events to be shorter and more useable
+
+commit 3826af73554112a7beaeefa175a7a0350136dd8b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 14:20:39 2013 +0200
+
+    clarify event invocation triggers #3
+
+commit b6f7b635cbd3378b744c2fd5125f78d34999ffd4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 20 19:30:13 2013 +0100
+
+    readme: indeed onResume belongs here (fixes #2)
+
+commit fe4735ffec821dfaeab50304975a36f308562743
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 20 19:27:44 2013 +0100
+
+    reaadme: include the android support lib #1
+
+commit 0e4a868b6ab7f3f9d9547fbfdef1f89a8030658e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 20 19:25:02 2013 +0100
+
+    there are indeed only 3 adversary categories #1
+
+commit 8002816e111d0701b8426d1d390067d5b4dd9acb
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:29:28 2013 +0100
+
+    add TODOs for prosperity
+
+commit 1248b989baa9ef8750998855feabae2a3471ec97
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:15:01 2013 +0100
+
+    readme: fix link in hacking
+
+commit 3ca69a1ee1af2fe96b95ac629d8e1699c424eee6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:03:36 2013 +0100
+
+    readme: fix security's list
+
+commit bbd717903010a882b8bb52620649b879ecabbd0b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:00:50 2013 +0100
+
+    readme: security threat model discussion
+
+commit 5e4e67f5cf8c33c3d280cc1ac9a1b0a4713a82c4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:39:56 2013 +0100
+
+    readme: add explanation of cached secrets interface
+
+commit edc8f34caf02417a54c2a9405f46309a4dc480f4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:39:00 2013 +0100
+
+    readme: document key derivation and storage crypto
+
+commit 5a81525cfae6c3014b90487099939a7de1d89077
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:19:47 2013 +0100
+
+    readme: sqlcipher docs, and split security notes into new file
+
+commit 68598f0e898e0e38ed89fa57f67d6bbcdd7556e7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:11:52 2013 +0100
+
+    readme: simplify intro
+
+commit e5471add5aba015cb4a17eb0ef18997c5b240cd1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:06:30 2013 +0100
+
+    readme: update to reflect new API
+
+commit c495c42f35acc552060974e1f256021898f66e96
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 20:48:45 2013 +0100
+
+    build notes in new HACKING doc
+
+commit 2394e127ee9b4b651ffba3eb98a96cd1e2768f23
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 20:48:23 2013 +0100
+
+    special hack to detect new version of sqlcipher for android
+
+commit 1fc582d9b0b99c4f6c70eb663030f619b63e8c17
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 20:48:06 2013 +0100
+
+    add sqlcipher libs
+
+commit d4b457390102a1c9ed6c32fdb7e80d50a7c2b0d3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 19:00:58 2013 +0100
+
+    sqlcipher support
+    
+    we provide a subclass of SQLiteOpenHelper that manages the key
+
+commit dba4f6fc4515036295b5aa3adadcc0ea8a0f5e9d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 18:56:42 2013 +0100
+
+    wiper: support secret key wiping
+
+commit 66a50bce5bc09bd087f7719bdbe97f8a78e8244d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 18:54:29 2013 +0100
+
+    uncouple the Handler from Activities
+    
+    the Handler could be used by non-Activity classes
+
+commit 0ad029f5636f1275e6d984bf725d47024fd5f84e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 18:52:36 2013 +0100
+
+    encapsulate tricky array manipulations for readability
+
+commit 7e15ad8714deefb8e10db44e32501bdf0aa6975d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 17:41:24 2013 +0100
+
+    fix parameter mixup and array copying errors
+
+commit 4cef4f740a6bc88e74f757d21a344b3db9284890
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:26:09 2013 +0100
+
+    documentation placeholder
+
+commit 06de351176ae93bc087cb47aad011a9818565624
+Merge: 1b60c77 e159bf7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:21:47 2013 +0100
+
+    Merge branch 'crypto'
+    
+    Conflicts:
+            cachewordlib/src/info/guardianproject/cacheword/CacheWordService.java
+
+commit e159bf795bf30db860a121c388702a14c9edc644
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:13:58 2013 +0100
+
+    generate a 256 bit AES key
+    
+    with upcoming sqlcipher+iocipher support, they'll want a 256 bit key
+    so we might as well make this the default for now.
+
+commit 939b0e87b995307a429cb3397543531d0dd23ba3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:13:04 2013 +0100
+
+    make usage of PassphraseSecrets easier as the default impl in the handler
+
+commit 5dcb5ad3833eb7fe26b696f7968027832bcf5327
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 15:39:51 2013 +0100
+
+    order stubs in order of the state changes
+
+commit e01693035c64ea2cc160635910369cccaae51b56
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 11:34:25 2013 +0100
+
+    use 96-bit nonce value for GCM
+
+commit 1b60c777692df7486b8c460a7e9b99a666fabb4e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 17:53:26 2013 +0100
+
+    edit TODOs to be grep friendly
+
+commit ecfe0f57adb2f29f5282a1aca5042017834f129d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 18:38:08 2013 +0100
+
+    port sample to PBE secrets
+
+commit ee25a6d9aa4c305f1fc5b11c2a4398162ca9c854
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 18:37:30 2013 +0100
+
+    initialization is handled by the ICachedSecrets impl
+
+commit a943666337089b9ac13e082bf513a26fb0c8cb24
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 18:37:00 2013 +0100
+
+    basic symmetric key derivation and persistence based on password
+
+commit 4618bdc568c10e7e03506e5e11349283fe2c0c7e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 17:53:26 2013 +0100
+
+    edit TODOs to be grep friendly
+
+commit 848663e347c1bf506b1db70d4e4c18ed09cf22e1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 15:00:48 2013 +0100
+
+    patch scrypt helper functions to accept char[]s instead of Strings
+
+commit 81e13040928eb00e012c805fb504c7a3f3ecd51e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 14:58:20 2013 +0100
+
+    include scrypt library in source tree (temporarily)
+    
+    will figure out a proper distribution method later
+
+commit aaddacfe848033482f9dd1b255282d23038b3716
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 14:42:52 2013 +0100
+
+    reset the timeout only when the timeout parameter is changed
+
+commit e17db1deb735bae8a60c6cd861a72bc136d2841f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 14:42:05 2013 +0100
+
+    more documentation massaging
+
+commit cd2b29294e6f665c57f81faaa82fb4096e6e4c1a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 13 21:22:23 2013 +0000
+
+    spruce up formatting
+
+commit 3e5e76a19018ab4ba0c1fe218563102daf973d57
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 13 22:15:10 2013 +0100
+
+    begin developer usage documentation
+
+commit bb06d9f67bb9835ea6e7afedc1fdf5eae6fa463d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 13 20:50:53 2013 +0100
+
+    refactor to use char[] for sensitive Strings
+    
+    also implement a few utility methods for wiping memory.
+
+commit 46bef3335ccb96924ac79f534984739b3e27bfd1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 16:04:58 2013 +0100
+
+    rename CacheWordSubscriber -> ICacheWordSubscriber
+
+commit 188f54be1fd24316e4b28f8b09b9836e823fd82e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 15:56:27 2013 +0100
+
+    rename library to avoid eclipse naming hell
+
+commit 5e6bfa0d50a67e744e606a5098a571cc9cd6ece6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 15:54:35 2013 +0100
+
+    javadoc: linebreak++
+
+commit fbf97ae936a475d9b55fb3ee7fc672a7ea918635
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 15:34:30 2013 +0100
+
+    documentation about string memory in java
+
+commit e54e67692bd7c399d3079269963f38d9df9a5543
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:56:08 2013 +0100
+
+    genericize the secrets class
+
+commit db9bdec96290a85d488b078d94c44e211c711dc3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:47:45 2013 +0100
+
+    formatting spruce up using android formatting rules
+
+commit c3c0c51c0a4b688333e52839625a52669dcb23d9
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:27:59 2013 +0100
+
+    create service intents in a consistent manner
+
+commit 682063e7b7525d1472da77706b373001b230b994
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:22:09 2013 +0100
+
+    move service class name string to Constants
+
+commit c1807cee02c9a7d3cf0bb639e77865949d1631d6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:21:15 2013 +0100
+
+    fix the notification intent
+
+commit 4839fbfee010eaef7242fd4d1101ef80916f925d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 13:54:59 2013 +0100
+
+    add warning message just in case
+
+commit ba43c33b8c60826d63b04b2bdffdea281534a53d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 11 21:02:51 2013 +0100
+
+    explicitly set the service to be non-exported
+
+commit 16b11037a19e4fa6a21451d6fd5b578a815b533e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 14:16:46 2013 -0500
+
+    track attached activities
+    
+    we disable the timeout when there are activities attached
+
+commit 86dd46a67aa9198428b63ffc6a352c55f770eccb
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 14:16:07 2013 -0500
+
+    start the service in a way so it remains running after the activity dies
+
+commit b2327c20a8b25f6fdf4a95905ea74fec84f57e4c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 13:20:54 2013 -0500
+
+    rename binder interface
+
+commit 7b00263622cff983ec38ac211016af48ee981dbf
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 12:49:51 2013 -0500
+
+    documentation++
+
+commit ec90a359876ca7d5fced65683b8b1778e9e55ae2
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 12:38:05 2013 -0500
+
+    simplify guard checks
+
+commit 3d3d31bd6041837209b73d0be321390885ede034
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 12:24:53 2013 -0500
+
+    state handling goes into the library
+
+commit dcccd494cc2bb2bb8f950d7180570ccfe8edad7d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 07:39:02 2013 -0500
+
+    sample app implements latest functionality
+
+commit ed8622975338a527cc4145a1f809a716c4f18ec7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 07:37:51 2013 -0500
+
+    pretend to initialize the the secrets
+    
+    this is dummy code for now while I work on the API
+
+commit 587326a088cd39bacb67d2df1eecd37542c6896e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 7 12:31:56 2013 -0500
+
+    beginnings of a demo application
+
+commit 048f876f1b4b5cec229e7ebc9ff3622914fdc806
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 7 12:31:10 2013 -0500
+
+    initial work on the caching service
+
+commit 45acf4921de8cc9383be5fe7dca69d65475e3085
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 7 06:14:47 2013 -0500
+
+    skeleton project files
+
+commit 79e23516941e38ff26bb8f8dec9b83df3a0cffdd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 6 13:52:58 2013 -0500
+
+    initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 62f96bab47e29a7ab440cd315fc178e1404f9f01
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 17 19:22:42 2015 +0200
+
+    fix gradle compile line in README
+
+commit caac0a49b86ea9435afb6909904ed2c774c7a530
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 17 17:43:29 2015 +0200
+
+    document how to use cacheword JAR with gradle
+
+commit 8f395e9c5107b9f9bfa0b58d79bc53ea4f09a68b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Jun 1 16:58:09 2015 -0400
+
+    create `ant javadoc` and `ant source` to create all files for jcenter
+
+commit 1f0931d5e9f1f5e785ea39c459d95703e69b249a
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Apr 20 21:13:40 2015 -0400
+
+    set target SDK for all ant build files
+    
+    For whatever reason, some people's setups were complaining:
+    
+    "Error: The project either has no target set or the target is invalid."
+
+commit 9421134ea1cfd50195dc0660d38f2fccf758eebe
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Apr 14 19:52:13 2015 -0400
+
+    bump Target SDK Version to android-22/5.1
+
+commit 89e94529d0f570ddc54bf3fa36a48d1eff98cced
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Apr 14 19:44:03 2015 -0400
+
+    first stab at a build.gradle to allow gradle-based projects to use this
+    
+    closes #5002 https://dev.guardianproject.info/issues/5002
+
+commit 5cabcaf842434696610e3e7cca51580ace8f8016
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Feb 26 14:21:21 2015 +0100
+
+    simplify release build naming in custom_rules.xml, following IOCipher
+
+commit 71cc426629c7a5e66cba2232e2c392b10f6de704
+Author: sensen <djonnystevensabenz+github@gmail.com>
+Date:   Sun Nov 2 21:23:11 2014 +0700
+
+    Remove CacheWordActivityHandler information
+    
+    Remove all information related to CacheWordActivityHandler from
+    README.md to prevent new user wasting time looking for it. It was
+    removed since over a month ago, based on
+    https://dev.guardianproject.info/news/193.
+
+commit 6f0c33fbf18d9ff6c1bb5ca5a992171ba41c150b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 30 11:22:55 2014 -0400
+
+    get detailed zip comparison from `zipinfo -lv`
+
+commit 2b46c5107bb222ae806003eff899f4e6a07b05fc
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Sat Sep 27 19:16:25 2014 -0400
+
+    include hexdump in reproducible comparison
+    
+    compare jars using BSD's hexdump since it works on GNU and OSX
+
+commit 5f82282fe92e23e09ced3ab2e4c138e63b3b5588
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 26 22:05:25 2014 -0400
+
+    make gpg signing optional for build success
+
+commit b1aa99ca99042232076f9631d649a350de86b01e
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 13:20:47 2014 -0400
+
+    remove jar signature from release, it messes up deterministic builds
+    
+    No one really checks jar signatures anyway, there is a better OpenPGP .sig,
+    and the jar signature makes it harder to handle the determinstic build
+    process.
+
+commit 9b484246d33327e602277682451dd3d3c5536323
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 13:08:46 2014 -0400
+
+    compare-to-official-release: script to compare release jars
+    
+    This allows anyone to test the reproducibility of the build.
+
+commit 6a9066ca858eeb54c9e302392ea04c214dc13766
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 12:39:46 2014 -0400
+
+    put all relevant settings into a single properties file
+    
+    ./make-release-build uses ant.properties to set up the signing key
+
+commit 2d00cd2ef95b360ee7d945cb1f1165c609db2a8b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 25 11:46:33 2014 -0400
+
+    add make-release-build to automate deterministic build process
+
+commit 2196472add9556e56bb2220ae26b8db11b409cfe
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Sep 22 22:15:50 2014 -0400
+
+    include Android SDK version and build host OS in jar metadata
+
+commit f96b738e092e5b230c967687eefd4fd5fe2fa0cb
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 16 17:47:00 2014 -0400
+
+    merge all supporting texts into the README
+
+commit e10d84ad504214c8479ba75422fb595b8abd4f8e
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 16 16:52:01 2014 -0400
+
+    nail down `ant release` process
+    
+    This fixes up the process for creating an official cacheword.jar for
+    release. It mostly removes the code for making a .zip which was inherited
+    from IOCipher.
+
+commit d65d9f7dadba8cbb43ba1286865b8139d31d8aa8
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 19:20:06 2014 -0400
+
+    replace duplicate code with call to getPasswordLockPendingIntent()
+
+commit 58282ce7331aad59ae68601d0978b0952085252c
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 19:17:20 2014 -0400
+
+    move getBlankServiceIntent() to CacheWordHandler to unify interface
+    
+    This means that basically everything that the developer will ever need to
+    do can happen using CacheWordHandler.
+
+commit 9a18b086d1268a713b5f536afe60132c86662a89
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 19:14:44 2014 -0400
+
+    purge CacheWordSettings and directly set timeout in CacheWordHandler
+    
+    This removes the now pointless CacheWordSettings and provides options for
+    directly setting the timeout in seconds.  This changes the meaning of the
+    non-positive values:
+    
+    >0 = timeout in seconds
+     0 = disable timeout
+    <0 = use default value
+    
+    fixes #3718 https://dev.guardianproject.info/issues/3718
+
+commit 06ad59531b4b2152afbb90a34d9913c56d59bf51
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 18:12:18 2014 -0400
+
+    rename INTENT_PASS_EXPIRED to INTENT_LOCK_CACHEWORD
+    
+    This Intent causes CacheWord to lock, so this name makes more sense.
+
+commit d6b150ac30281b2eb2c6caa065ee813f2bc2b166
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 18:09:55 2014 -0400
+
+    rename CacheWordHandler.lock() to match CacheWordHandler.isLocked()
+    
+    Clean up some unneeded redirection while we are at it.  If it is ever
+    needed in the future, it can be easily added back in.
+
+commit 9c598b1393b1ee2989e23e499b302e1cc323d5a3
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 18:05:23 2014 -0400
+
+    improve javadoc comments on CacheWordHandler
+    
+    CacheWordHandler is the main interface, so it should be well documented.
+
+commit 70afd0d5f9fba98d2b575cf7d0d55a5fdc7e6e2f
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 17:37:22 2014 -0400
+
+    purge built-in Notification, the app must now provide it
+    
+    Previously, there was an elaborate, custom framework for customizing the
+    Notification that was hard-coded into CacheWord.  Now, the app must supply
+    a Notification, and that triggers CacheWordService to run as a foreground
+    Service.  Otherwise, CacheWordService will run as a background Service with
+    no Notification.
+    
+    This removes the last remnants that require CacheWord to be an Android
+    Library Project.  Now it can be distributed as just a jar.  It can still be
+    used as a Library Project for those who like doing it that way.
+    
+    fixes #3711 https://dev.guardianproject.info/issues/3711
+    fixes #3680 https://dev.guardianproject.info/issues/3680
+
+commit 1a4048fc5031b191a0cb169db49e94ae4fee0b5a
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 15:47:43 2014 -0400
+
+    move getApplicationContext() into getBlankServiceIntent()
+    
+    Since CacheWordService.getBlankServiceIntent() requires a long-lived
+    Context, move the call to getApplicationContext() into the method itself to
+    guarantee that it gets the Application's Context.
+
+commit 7d63fcacf7c898b5ccbf00c43267e74411031dee
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 11:59:24 2014 -0400
+
+    purge CacheWordActivityHandler, its a pointless wrapper of CacheWordHandler
+    
+    Instead, apps should just instantiate CacheWordHandler and call
+    connectToService() and disconnectFromService() where appropriate.  That is
+    most likely going to be in an Activity's onResume() and onPause()
+    respectively.
+
+commit d9d31b476a2e4fd804f45ed22bcab7542510ef89
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 11:06:26 2014 -0400
+
+    move notification icon to sample project
+    
+    This puts the lib one step closer to only being a jar!
+    
+    refs #3680 https://dev.guardianproject.info/issues/3680
+
+commit f34309e4c5c88afd74c597dbccbb84bab20efd3e
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Sep 16 11:28:11 2014 -0400
+
+    simplify SerializedSecretsV1 interface to just what is needed and used
+    
+    The only operations that SerializedSecretsV1 needs to provide is setting up
+    and instance in the constructor, then getting the info encoded in a byte
+    array.
+    
+    refs #3742 https://dev.guardianproject.info/issues/3742
+
+commit a39d6b3bb9c2ccf4f1dec03f788e681ac666b181
+Author: n8fr8 <nathan@freitas.net>
+Date:   Mon Sep 15 11:10:20 2014 -0400
+
+    remove unnecessary parse() code that throws a NPE
+    
+    closes #3742 https://dev.guardianproject.info/issues/3742
+
+commit 703692c1ac35183ac7234a3eea04fda9b9b3e949
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Sep 5 00:58:16 2014 -0400
+
+    provide example for mounting IOCipher
+    
+    closes #3692 https://dev.guardianproject.info/issues/3692
+
+commit 84eec0fd49a2d800628dc965f1b92e499acf8b81
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Thu Sep 4 16:33:36 2014 -0400
+
+    Eclipse insists on exporting these Android ADT things
+
+commit 22c8a74bf93658c15ec452f8a3b28e5c6c7d3f96
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Fri Aug 29 20:37:04 2014 -0400
+
+    make `ant debug` and `ant release` generate a usable jar file
+
+commit 5acc2808207c0afd56c2fa63c76d2ffb5405c009
+Author: n8fr8 <nathan@freitas.net>
+Date:   Tue Sep 2 14:31:02 2014 -0400
+
+    fix bug with default value for timeout
+    
+    closes #11 https://github.com/guardianproject/cacheword/pull/11
+    fixes #3698 https://dev.guardianproject.info/issues/3698
+
+commit c2bc847c98f3bcd533940bb6b25fbc35a6a2820b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:22:54 2014 -0400
+
+    sort out android-support-v4.jar madness in Eclipse
+
+commit 58238faaaed5b184f3a5b0460c34cc170dbb931f
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:18:59 2014 -0400
+
+    set sample minSdkVersion="11" to avoid using android-support-v4.jar
+
+commit 642b841b3604abf8d75f0257ed272da4dc7e6eb6
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:18:34 2014 -0400
+
+    ignore all products of `android update` including proguard-project.txt
+
+commit 0db1aa7d2c2bb4d5a60af510bcf02a87e79af23b
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:17:47 2014 -0400
+
+    move test classes into same package as the classes they test
+    
+    This generally makes it easier to test the classes since the test classes
+    will have access to all methods/variables that are not declared private.
+
+commit 011e65f57e368ae68595a2de92a2800f8e301a52
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 15:46:02 2014 -0400
+
+    move defaults out of XML and directly into the relevant classes
+    
+    These constants are barely used, and are the only thing left that prevent
+    cacheword from being distributed only as a jar.
+    
+    refs #3680 https://dev.guardianproject.info/issues/3680
+
+commit d773d2df5afa72f67d1bf762658a235f9c661b53
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 14:40:38 2014 -0400
+
+    move SQLCipher helpers to separate library project
+    
+    This means that the core of Cacheword can be shipped as a simple jar that
+    only depends on the Android Support v4 jar.  Also, for many users, they
+    will never need the SQLCipherV3MigrationHelper in their project at all
+    since they started with SQLCipher v3.
+    
+    refs #3680 https://dev.guardianproject.info/issues/3680
+
+commit 4baed7c90bb70990a2133b440ce498c5921d9f48
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Aug 26 21:00:52 2014 -0400
+
+    fix all javadoc warnings and errors
+
+commit a766fff67a2e395e6c9e8012ca4648952359b0cf
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Tue Aug 26 19:33:36 2014 -0400
+
+    set up cachewordlib's manifest for merging, introduced in ADT v20
+    
+    As of ADT v10 and gradle v0.10, it is possible to put stuff into a library
+    project's manifest, then have it included into the main project's manifest.
+    The main project has to add this to its project.properties to enable it:
+    
+      manifestmerger.enabled=true
+    
+    https://android.googlesource.com/platform/sdk/+/a35f8af9eca38249b5c37391d7a7ae56c53251ad/manifmerger/src/com/android/manifmerger/ManifestMerger.java
+    https://stackoverflow.com/questions/10976635/using-the-new-manifestmerger-property-in-android/11234525#11234525
+    https://stackoverflow.com/questions/20346237/how-to-use-androidmanifest-merger
+
+commit 54ab58836c8bbc00d46cb6758e75ae757ecfe372
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:30:47 2014 -0400
+
+    clean up all XML (formatted and removed unused)
+
+commit dd73b96c4dedfe66579457b21c8c64c992d54b29
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:26:49 2014 -0400
+
+    bump targetSdkVersion to latest (20)
+
+commit 530db0c7373050d5f12290012becee23e0997b41
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:11:42 2014 -0400
+
+    added script for running jenkins builds
+
+commit 0d3ebd02768a0b61151cdf417cd9c504dde41c4f
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:57:54 2014 -0400
+
+    set version to 0.1
+
+commit fcde24ad7a377682125a8d06d6fb4fdadb792b44
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:42:27 2014 -0400
+
+    fetch-test-report ant target for getting JUnit report to Jenkins
+
+commit 389f1fdfa1f7996f082df0f87df6e9ad2046cbf7
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:41:57 2014 -0400
+
+    fix all warnings
+
+commit 8bb202322ba3f0c0d3d9f2854ea049e284e22e99
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:41:40 2014 -0400
+
+    standard script for setting up ant builds
+
+commit 9f5f8056f5ebce15fb5017d085b81868539ac5e2
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 19:41:08 2014 -0400
+
+    add ant build targets: jar and javadoc
+    
+    official ways to build the release jar and javadoc files.
+
+commit a38fbfe05085f05329d0e03a42e4d3ee19adf18a
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 20:24:16 2014 -0400
+
+    minSdkVersion="9" without spongycastle
+    
+    refs #3665 https://dev.guardianproject.info/issues/3665
+
+commit e5fd84db6929a7e8cc61bda5257abacfd831c212
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 18:05:33 2014 -0400
+
+    replace heavy KDF iteration count function with one based on /proc/cpuinfo
+    
+    The previous KDF iteration count measuring method took a long time to run
+    and depended on including spongycastle.  In the interest of keeping the
+    library as minimal as possible, it is good to remove dependencies.  In the
+    interest of usability, calculating the iteration count should be very fast.
+    
+    fixes #3146 https://dev.guardianproject.info/issues/3146
+    fixes #3665 https://dev.guardianproject.info/issues/3665
+    fixes #492 https://dev.guardianproject.info/issues/492
+
+commit efb0f2b05bea5eca8b442ca911e1349b66eda895
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 16:04:26 2014 -0400
+
+    point to Android SDK for javadoc for android-support-v4.jar
+    
+    If you have your Android SDK installed at /opt/android-sdk, then this will
+    make Eclipse automatically use the SDK's docs for the javadoc for methods
+    from the Support library.
+
+commit 5f77a678b6b9bacb22086c615c23de689d27c238
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 15:31:16 2014 -0400
+
+    include static encodeHex() method to purge commons-codec.jar
+    
+    cacheword needs to have as few deps as possible, so purge this jar.  Thanks
+    to sqlcipher:
+    
+    https://github.com/sqlcipher/android-database-sqlcipher/commit/817cff171c99bf6dfc654df3658dbb8af0d59e25
+    
+    fixes #3663 https://dev.guardianproject.info/issues/3663
+
+commit 8b1994be959303d7906a7a939a96a5e17fcd2747
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 15:52:27 2014 -0400
+
+    Eclipse: the test/sample projects expect the lib project at "cachewordlib"
+
+commit a5c253ab3221cc81ee9e5d2c6f165c2c3f5ae0b5
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 27 18:26:30 2014 -0400
+
+    Eclipse: set libs/ as default jar location
+    
+    refs #3663 https://dev.guardianproject.info/issues/3663
+
+commit 1ac98b7635a073ceb110d92ef1e7fcddceab47d7
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Mon Aug 25 15:47:21 2014 -0400
+
+    update to SQLCipher v3.1.0
+    
+    refs #3663 https://dev.guardianproject.info/issues/3663
+
+commit 87cdf7dbe606d217f933c3017785b73bac4bc9c5
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 20 20:37:51 2014 -0400
+
+    new IOCipher API eliminates need for IOCipherMountHelper
+
+commit f979ed9e676c2b8c3a3f2779fda9dc8a9d24f6a3
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 20 18:19:31 2014 -0400
+
+    format code using Eclipse code formatter with Android standard config
+    
+    This makes for quite plain Java style with longer code lines, more or less.
+
+commit 112e0c048e2641d12939e5e9146df4893abbc7c8
+Author: Hans-Christoph Steiner <hans@eds.org>
+Date:   Wed Aug 20 17:52:53 2014 -0400
+
+    run Eclipse imports organizer
+
+commit 727c05b31fc15856415ad8d7436a67dadd8189ba
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Wed Jun 4 14:58:54 2014 -0400
+
+    changed encodeRawKeyToStr in SQLCipherOpenHelper to use new String instead of toString
+
+commit dc23b9e62970992c16e0f29111b76de534bdaf06
+Merge: c7e8640 97db8eb
+Author: n8fr8 <nathan@guardianproject.info>
+Date:   Wed May 14 17:00:10 2014 -0400
+
+    Merge pull request #9 from vanevery/deinitialize
+    
+    Deinitialize
+
+commit 97db8eb2b950994ad2b87054f9c95da5249bc283
+Merge: 964eae0 c7e8640
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Wed May 14 16:52:10 2014 -0400
+
+    Merge branch 'master' of https://github.com/guardianproject/cacheword into deinitialize
+
+commit 964eae0e027ad6753d57938f1473d72a65681a3e
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Wed May 14 16:49:18 2014 -0400
+
+    Added deinitialize method
+
+commit c7e86404b494528f3a6a2ce8a3867702ff4f8fed
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed May 7 14:23:53 2014 +0000
+
+    pass char[] to SQLCipher instead of String. fixes #2253
+
+commit d162c23b0bd4561770e7e1639f7700e7d1af1a7c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 28 15:19:12 2014 +0000
+
+    tests: add SQLCipherOpenHelperTest
+    
+    It also handily tests our callbacks!
+
+commit 4da6d48e3d81bd7207d36250edcd734e48742f31
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed May 7 11:36:54 2014 +0000
+
+    readme: document new detach/reattach functions
+
+commit f6a136a2a0140eaffc6e098c1f26159e385c9581
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 28 13:31:40 2014 +0000
+
+    readme: add table of contents for readability
+
+commit 0b679c975bde21be20817be71d704cdd746d5f07
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 28 13:00:36 2014 +0000
+
+    README: explain how to use background services with CW
+
+commit 61cb0690f660b27555408f8789d823cad2bc4100
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Apr 30 10:44:11 2014 +0000
+
+    Fix misleading run-time statements. Calibration doesn't take 30 seconds.
+
+commit 2d6d989cc8ee7c04019939443122c86f2abe67ee
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 11 13:40:38 2014 +0200
+
+    DEBUG: debug statements for Courier
+
+commit adb6b76e10d34c8029d5e756991739a8c3ded380
+Merge: 170fba5 3df82ee
+Author: n8fr8 <nathan@guardianproject.info>
+Date:   Mon May 5 10:47:43 2014 -0400
+
+    Merge pull request #8 from vanevery/enable_subscriber_timeout
+    
+    Added attach and detach methods to CacheWordHandler
+
+commit 3df82ee5b9590161e14a7abfd927b9f96d16b9fc
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Sat May 3 17:38:08 2014 -0400
+
+    Added attach and detach methods in cases where connect and disconnect aren't appropriate
+
+commit 1ad648203415089809f7ebdd9ed435b303c59cef
+Author: Shawn Van Every <vanevery@walking-productions.com>
+Date:   Sat May 3 13:47:20 2014 -0400
+
+    Added boolean in constructor for whether or not to call attachSubscriber on CacheWordService.  Not calling this doesn't icrease the subscriber count in the service and allows timeouts to occur even though a there is an active connection.
+
+commit 170fba58eadcc06f9819f618fa99a1d90c0291a4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Apr 7 12:50:01 2014 +0200
+
+    write default settings on class instantiation
+    
+    fixes the bug that would occur if settings are read manually
+    before any setters or getters were called.
+
+commit 2a11fde393f3286773a2feac7111dfcda41dc69c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 28 15:56:06 2014 +0100
+
+    change timeout granularity to seconds
+    
+    the default is still 5 minutes
+    
+    fixes #3093
+
+commit 224642b3b0947d7b96587b890b0d9b782c01bf55
+Author: N-Pex <npexdev@gmail.com>
+Date:   Thu Feb 13 10:18:35 2014 +0100
+
+    Bind reqested when bindService returns true
+    
+    Signed-off-by: Abel Luck <abel@guardianproject.info>
+
+commit 041f9e99404ee81014b4a966631f01023dd60a6a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 26 18:05:37 2014 +0100
+
+    document dependency on sqlcipher 3.0.2
+
+commit e2ef803601d7894c118be22a1f95895670213f55
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 26 18:04:58 2014 +0100
+
+    update minimum api level in docs
+
+commit 4cf43832775a54eb4cad18b0b8a1da52002c6cc8
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 19:55:28 2014 +0100
+
+    document calibration configurability
+
+commit d38cc3e29dd082668ce9751611079f6ac6b1b930
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 19:52:56 2014 +0100
+
+    test SerializedSecrets v0 to v1 migration
+
+commit 1a38312d6962e89331dc1d05d065e3302de2d5c9
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:56:51 2014 +0100
+
+    suppress several harmless lint warnings
+
+commit c2114c8c88bb12478a9fced9b03576711e480a7d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:49:17 2014 +0100
+
+    advise use of a thread in the documentation
+    
+    refs #2252
+
+commit c65e53a510a9392fc80e0278f12196a0a2530b53
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:36:59 2014 +0100
+
+    update tests after KDF calibrator installation
+    
+    refs #2252
+
+commit 3bee50dd2d916d2c2bd4c34006c7a5e9a502aec2
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 18:33:49 2014 +0100
+
+    install KDF calibrator
+    
+    refs #2252
+    
+    we calibrate the KDF (1) on every encryptAndSave() and
+    (2) at fetch time if the iteration count is too low.
+
+commit b169404f12073a336259d6d174aca4199c1ac7f4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 17:58:59 2014 +0100
+
+    add PBKDF2 calibration settings
+    
+    refs #2252
+
+commit 852696b9bcb9b5598c7d20542ee44cbdfbc2641a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 17:25:11 2014 +0100
+
+    use configurable KDF itercount in Serialized Secrets
+    
+    refs #2252
+    
+    at this stage however the value is still fixed at 100
+
+commit 0a47eb64326e14161d83ea1301cdab54c59bd8a1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 17:24:38 2014 +0100
+
+    implement versioned loading and migration for SS
+    
+    refs #2252
+
+commit fc0876e0f9e5fac0ef7d7ba3edeb3fda3b0bd5d3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 16:58:38 2014 +0100
+
+    move SerializedSecretsX dependency to app layer
+    
+    versioning of serialized secrets doesn't belong in the crypto layer
+
+commit 4e7e2d6ddee2e8e9dd9e7fd688842306e8ba4dc6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 20:02:58 2014 +0100
+
+    hook up the KDF iteration calibrator
+    
+    refs #2252
+
+commit e6197f0d98a3ba513e0e23b618425c85d5b19346
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 13:06:03 2014 +0100
+
+    update to SQLCipher for Android 3.0.2
+    
+    fixes #3123
+    refs #2884
+
+commit 8af5cfde930f46c175498b2b60057647bd4b17fd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 25 12:47:15 2014 +0100
+
+    migrate TODOs to the issue tracker
+
+commit cdee1734812244b3ae75e3a72f8141e6f1e66122
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:38:30 2014 +0100
+
+    add adaptive PBKDF2 iteration calibration function
+    
+    Currently not hooked up.
+    
+    Thanks to briar project for the algorithm: briar.sourceforge.net
+    
+    refs #2252
+
+commit f26e70efe4a4e948ca40bad5e0ab38b53e4c278e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:36:23 2014 +0100
+
+    bump date in LICENSE
+
+commit a013041e91f553b444fb28b29a89ed7a9d037826
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:24:55 2014 +0100
+
+    typo
+
+commit 1c41d7b06e0a2f52ab186c7bd2c8074027f7406e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 19:11:46 2014 +0100
+
+    register the spongycastle JCE provider where it's used
+    
+    refs #2425
+
+commit d6e48f988904d30346eb4abf00d4cb3e082c861b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 18:43:34 2014 +0100
+
+    rename important constants for clarity
+    
+    knowing whether LENGTH refers to bits or bytes is an important
+    distinction. shame that the various APIs don't standardize :|
+
+commit c260774fdb0c34ff63654053453b43802acb6d55
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 18:32:18 2014 +0100
+
+    refactor crypto operations into separate class
+    
+    This is to avoid pollution of sensitive code with Androidy things like
+    Context and SharedPreferences. It also makes the crypto functions
+    testable without making the API public.
+
+commit eeaf47b389dab1c82acbd53f5b567920eae48cbd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 15:11:17 2014 +0100
+
+    tests: add additional checks for null return value
+    
+    a null value indicates the crypto failed
+
+commit d37909a8619bcdf98b4e5d5ece3fc1161fd5a3be
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 15:10:02 2014 +0100
+
+    drop min sdk to Android 2.2 now that we bundle SpongyCastle
+    
+    fixes #2182
+
+commit e68312c80841edd8d77b01d7437612a9ff5513ed
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 10:17:56 2014 +0100
+
+    bundle spongycastle 1.5.0 internally
+    
+    fixes #2425
+
+commit 802829b53428843129468a632a64f978062bbece
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 21 10:11:57 2014 +0100
+
+    bump to android 19 and appease eclipse
+
+commit e82f412b3fc9d684805e9a3bffd2557f980b4878
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:47:03 2013 +0100
+
+    mention the version tag in SECURITY.md
+
+commit f3c20610258fe411cf7c8ab4d89bc85df2e6c87b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:36:45 2013 +0100
+
+    wipe x_passphraseKey in PassphraseSecrets.fetchSecrets
+    
+    closes #2656
+
+commit 7edc13f4bc458709f06a584a34cfdfc5a332a9b8
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:23:32 2013 +0100
+
+    spruce up PassphraseSerets header documentation
+
+commit 55c405f5336a84d6bd99aa6937709a18377cb20e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:20:08 2013 +0100
+
+    document methods in PassphraseSecrets
+
+commit 872346b7501c259f3b2ae352bdbf310eebb2c95b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:12:49 2013 +0100
+
+    handle error condition when the secrets can't be saved
+
+commit 2c41f7addfe799f4c3a6b8c3e23fbcfbd5c6b246
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 13:10:45 2013 +0100
+
+    add changePassphrase to client-side API
+    
+    closes #2571
+
+commit 8e42dd8b8eda5d5f696f8d35f5df2926875ea561
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 12:54:33 2013 +0100
+
+    remove old crufty test project
+
+commit 80f876cd20998d1aeeb8a40de6c23ab0d30483b6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 12:52:05 2013 +0100
+
+    add test suite for Wiper
+
+commit 96d58a65ce1c3de54ea9e204157db48cad873697
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 12:18:26 2013 +0100
+
+    implement PassphraseSecrets.changePassphrase()
+    
+    created a new helper encryptAndSave method that applies the GCM encryption
+    over an arbitrary plaintext. this allows us to reuse substantial amounts
+    of critical code between changePassphrase() and initializeSecrets()
+    
+    refs #2728, #2571
+
+commit c3a6405e4d3aefeb6b55cf76af4591aebf081f78
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 11:52:57 2013 +0100
+
+    implement test for PassphraseSecrets.changePassphrase
+    
+    includes a stub implementation that fails the test
+    
+    refs #2728, #2571
+
+commit 7b1a597fa45c0d805263b8ec92d10cc1c484bd3f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 11:51:54 2013 +0100
+
+    change visibility of SerializedSecretsV1 to public
+    
+    This is so the class can be tested.
+
+commit 3d1147bd93dd6933feec639bbbdfb357463ab0e3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 11:34:41 2013 +0100
+
+    test project for enhanced library QA
+    
+    currently tests basic functionality of PassphraseSecrets
+
+commit 974658d93844a2694fe301a3987b00e93d22557f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Dec 7 10:54:02 2013 +0100
+
+    update sqlcipher to version 3.0.1
+
+commit 30228a04a6d15afa9623ec712d9fb4e4306a0520
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Dec 5 17:39:48 2013 +0100
+
+    README: indicate SQLCipher v3 is the minimum version
+
+commit 64abf848405c6c77187cf7eff8f9f3a5f0bbc4ac
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Dec 5 17:20:34 2013 +0100
+
+    update SQLCipher to v3.0.0 and include migration hook
+
+commit d49c128bb7e86be2a2d674bbffe55f26b934fc14
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Nov 14 16:44:45 2013 +0100
+
+    add more docs about CacheWordHandler and the new settings configuration
+
+commit 0d67bc5141c901d6bc53337bf170e8028289a412
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 19:11:44 2013 +0100
+
+    implement custom notification intents
+    
+    I took the opportunity to refactor the settings into a separate class.
+    
+    refs #2424
+
+commit daf3edbf45b989bb9854249d59135f92354ec276
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 18:29:40 2013 +0100
+
+    clarify the consequence of clicking the notification
+    
+    Explicitly state that that tapping the notification will lock the app.
+    
+    refs #1789
+
+commit ba10f4b498a51aba70d0e7f892aa6b6c4b5384bd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 18:06:04 2013 +0100
+
+    README: add ant documentation
+
+commit e986797a5261b2d26a911b0764c78b71a69a6da7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:56:35 2013 +0100
+
+    README: add minimum version
+
+commit 3b4198ef23d8152c0a2ae608ea8fd86e282850e0
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:38:19 2013 +0100
+
+    a few sample tweaks
+    
+    * add vibrate permission to the sample
+    * some formatting
+
+commit e91dfb8d39fa0de081525bb7f09bbdbb1fc90df4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:37:13 2013 +0100
+
+    add updated support lib
+
+commit e611c7d655449098d3ff7ce0df7e23a4d5cab063
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:36:23 2013 +0100
+
+    provide two Handler constructors for convenience
+
+commit 548341f086c57c0abea57cbed7b9239542189f87
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 17:34:31 2013 +0100
+
+    add vibration feature to docs
+
+commit 0ca2300a589a8ea240406dfce258ca0057d1636f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 16:32:51 2013 +0100
+
+    clients unregister their BroadcastReceiver when disconnecting from CW
+    
+    fixes #1897
+
+commit c8e1ac5c00b5f677849512d893a5ae7a13091940
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Nov 11 16:13:24 2013 +0100
+
+    major overhaul in connection state tracking
+    
+    Tracking the connection state of an activity to the cacheword service involves
+    several nuances that we were blundering over before. These changes implement
+    better state handling in these various corner cases.
+
+commit 7966937d410f23a17adf797f59a35323edf665f8
+Author: uberspot <onexemailx@gmail.com>
+Date:   Wed Oct 30 14:54:10 2013 +0100
+
+    made vibration after unlocking cacheword optional
+    
+    default is true meaning it will vibrate
+    
+    fixes #2004
+
+commit 1d821577120304a8aac598f0f9195b72976847f4
+Author: Devrandom <c1.devrandom@niftybox.net>
+Date:   Sun Oct 27 11:59:46 2013 -0700
+
+    Fix PRNGFixes to work with SELinux enforce mode
+    
+    makes /dev/urandom not writable on some devices
+
+commit 76071be961c8c8d08ee531e122c6bcc35d8f9868
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Aug 26 13:37:52 2013 +0200
+
+    track bind state to the CW service
+    
+    This prevents crashes when we call unbind but aren't actually binded, the crashes look like:
+    
+         java.lang.IllegalArgumentException:
+         Service not registered: info.guardianproject.cacheword.CacheWordHandler
+
+commit 0279639c1151910c2a8882b5c68d4fd366e61de4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Aug 17 00:57:03 2013 +0200
+
+    Make the PRNG fixes optional
+
+commit 94b32129717612dd04af4fc65b074045fe2f6c5e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Aug 17 00:40:02 2013 +0200
+
+    Properly read the version byte from the byte array
+
+commit f98bea64146633618937f8170d49a3cf88a17e43
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Aug 17 00:24:58 2013 +0200
+
+    Record version byte to facilitate future upgrades.
+    
+    This will break all existing deployments of CacheWord. Thankfully
+    there aren't any yet.
+
+commit e42fc3f10480b70c33030ae6d4a570f229eae208
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 22:32:08 2013 +0200
+
+    the persistent unlocked notification can now be disabled
+
+commit be44cc04b6123fe3ffb1281961abd367612b67ec
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 22:15:06 2013 +0200
+
+    fix service connection race condition resulting in ghost subscribers
+    
+    If a connect and disconnect are received before the connection has
+    time to complete, the connection would complete AFTER it should have
+    already disconnected. The result was that CacheWordService never received
+    the detachSubscriber call, so the mSubscriberCount became inaccurate.
+
+commit c7ffa8081dd7ad62a310df5ae2d945ed5ed8c450
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 21:08:23 2013 +0200
+
+    Fix SecureRandom vulnerability
+    
+    http://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html
+
+commit dc810cf4e42760b423bad6308d312e6723d0db7a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 20:52:20 2013 +0200
+
+    handle disconnections properly
+    
+    checkCacheWordState() should never be called when cache word is disconnected
+
+commit 08c441c9757f9dd6aa923dafe873a1b91d98bbfb
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 16 20:47:39 2013 +0200
+
+    instant locking support
+    
+    A timeout value of 0 triggers a lock event immediately.
+
+commit a7c1ddb0b7bb1f61db9a972e1ebea34f91545689
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Aug 12 22:37:04 2013 +0200
+
+    New IOCipherMountHelper class
+    
+    Assists in opening IOCipher VFS mounts with CacheWord.
+
+commit efce8847f952e0063e1d143eafa4a5a2b22c8d7c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Aug 9 20:58:16 2013 +0200
+
+    README.md: reference project issue tracker
+    
+    also added some nice line wrapping
+
+commit f32094534b4763e44d9d53ccb13bffaf275a9157
+Author: Devrandom <c1.devrandom@niftybox.net>
+Date:   Tue Jul 2 11:20:07 2013 -0700
+
+    Specify minSdk in AndroidManifest
+    
+    prevents complaints about calls not available in SDK version 1.
+
+commit c836b4c6c753b9c58602a6448254e68d78571626
+Author: n8fr8 <nathan@guardianproject.info>
+Date:   Thu Jul 18 12:20:47 2013 -0400
+
+    Update README.md
+    
+    removing DO NOT USE because, we are using it :P
+
+commit 3a8817089cdd50bbd5e5da614c0c95c1606057fc
+Author: n8fr8 <nathan@freitas.net>
+Date:   Tue Jun 25 20:20:13 2013 -0400
+
+    updating libraries to match other dependent projects
+
+commit e2915b4ce6edc24f4dc9fe361e23ff0a80e840f6
+Author: n8fr8 <nathan@freitas.net>
+Date:   Thu Jun 13 13:17:37 2013 -0400
+
+    updated path and target
+
+commit 2255c5387273ba5e3c8763c786833cd7eb138eef
+Author: n8fr8 <nathan@freitas.net>
+Date:   Thu Jun 13 13:17:04 2013 -0400
+
+    separated the constructor args b/c they may not be the same object
+
+commit 745a9a14bdaa836f50d5b6ebb6e51de8ec4ad38b
+Author: n8fr8 <nathan@freitas.net>
+Date:   Thu Jun 13 13:16:40 2013 -0400
+
+    i am not using this directly, but needed the getRawKey method
+
+commit 4d33ad8a945040f3ea257b5dedff49336b5c4e88
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Apr 13 12:42:10 2013 +0200
+
+    cleanup when the task is killed and we're backgrounded
+
+commit cdc8cbeeac39c0121edd6c8f712c21930f8e03f0
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Apr 13 11:54:54 2013 +0200
+
+    notification icon instructions in settings
+
+commit 45120c22e14af15e05adc130d8ede216f8a0d85e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Sat Apr 13 11:49:41 2013 +0200
+
+    user configurable timeout settings
+
+commit 4053b692889465139693386acb56695b0953a2d1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 22:01:09 2013 +0200
+
+    load all user facing items from xml resources
+    
+    this allows the app devs to customize the settings
+
+commit 3ee80bf0052cce53d0559fe48fcf01d3cb5a8a13
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 20:22:30 2013 +0200
+
+    fix compile warnings
+
+commit a2c4231b45e3a6e68cb91ee981e9c943ad526714
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:44:06 2013 +0200
+
+    build file tweaks
+    
+    dont.do.deps prevents the lib project from being installed when
+    ant debug install is run
+
+commit 6f2c96c9d3959e8b60d509a0cf06331d72679a77
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:24:25 2013 +0200
+
+    remove the activity that doesn't exist
+
+commit 74a7973c8cef0c0d4a8e0be9e0b059156a76d5db
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:04:56 2013 +0200
+
+    add test project that tests wiping framework
+
+commit 6273bd3f258257827855974cab144757b4b7fe82
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 17:04:36 2013 +0200
+
+    comment out these methods as we don't use them
+
+commit 5e44e22689152f0c84151c8e8ee2ffdc2ed37bec
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Apr 12 13:52:03 2013 +0200
+
+    include support lib
+
+commit a3f89e1e27e78aa90d99af9386707444688c3849
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:49:16 2013 +0200
+
+    note to track down and wipe the Cipher class
+
+commit c6b8055a770c28b6b66949c112f1036ceab094e3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:48:19 2013 +0200
+
+    wipe the PBEKeySpec
+
+commit 921e56fb40f67deb5db878ed9b476b4790418fef
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:00:01 2013 +0200
+
+    wipe sensitive data as we finish with it
+    
+    improve readability with whitespace formatting
+
+commit da9e068c3ed05c5f499f8f72b981c6d5780b1286
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 18:00:52 2013 +0200
+
+    destroy cached secrets on expiration and service death
+
+commit 18e3fc9a44fd364487002f402b253dcc64332621
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 17:37:56 2013 +0200
+
+    add null guards to wiper
+
+commit b38a0921d6eeb5bc51c20146790f2c12f5796a2c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 16:31:12 2013 +0200
+
+    docs and implementation comments
+
+commit 4f8262202fcb45734f5fbc4a8c3e58d60d63c377
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 16:07:37 2013 +0200
+
+    build notifications using the support lib for backwards compat
+
+commit 2496a8973106317360b66c6c46e10c722cf06b22
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 15:48:48 2013 +0200
+
+    allow for foregrounding and backgrounding the CacheWord service
+    
+    backgrounding is the default
+
+commit 3a66a18583dde52cd65f8e1979f4e6e24e8246d4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 15:05:11 2013 +0200
+
+    remove unused scrypt lib, we'll implement it later
+    
+    Revert "include scrypt library in source tree (temporarily)"
+    
+    This reverts commit 81e13040928eb00e012c805fb504c7a3f3ecd51e.
+    
+    Conflicts:
+            cachewordlib/src/com/lambdaworks/crypto/SCryptUtil.java
+
+commit 5bdee01ac9a898e165e6507cfb2875e653ae665f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 15:01:27 2013 +0200
+
+    rename the events to be shorter and more useable
+
+commit 3826af73554112a7beaeefa175a7a0350136dd8b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Apr 9 14:20:39 2013 +0200
+
+    clarify event invocation triggers #3
+
+commit b6f7b635cbd3378b744c2fd5125f78d34999ffd4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 20 19:30:13 2013 +0100
+
+    readme: indeed onResume belongs here (fixes #2)
+
+commit fe4735ffec821dfaeab50304975a36f308562743
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 20 19:27:44 2013 +0100
+
+    reaadme: include the android support lib #1
+
+commit 0e4a868b6ab7f3f9d9547fbfdef1f89a8030658e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 20 19:25:02 2013 +0100
+
+    there are indeed only 3 adversary categories #1
+
+commit 8002816e111d0701b8426d1d390067d5b4dd9acb
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:29:28 2013 +0100
+
+    add TODOs for prosperity
+
+commit 1248b989baa9ef8750998855feabae2a3471ec97
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:15:01 2013 +0100
+
+    readme: fix link in hacking
+
+commit 3ca69a1ee1af2fe96b95ac629d8e1699c424eee6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:03:36 2013 +0100
+
+    readme: fix security's list
+
+commit bbd717903010a882b8bb52620649b879ecabbd0b
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 23:00:50 2013 +0100
+
+    readme: security threat model discussion
+
+commit 5e4e67f5cf8c33c3d280cc1ac9a1b0a4713a82c4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:39:56 2013 +0100
+
+    readme: add explanation of cached secrets interface
+
+commit edc8f34caf02417a54c2a9405f46309a4dc480f4
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:39:00 2013 +0100
+
+    readme: document key derivation and storage crypto
+
+commit 5a81525cfae6c3014b90487099939a7de1d89077
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:19:47 2013 +0100
+
+    readme: sqlcipher docs, and split security notes into new file
+
+commit 68598f0e898e0e38ed89fa57f67d6bbcdd7556e7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:11:52 2013 +0100
+
+    readme: simplify intro
+
+commit e5471add5aba015cb4a17eb0ef18997c5b240cd1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 21:06:30 2013 +0100
+
+    readme: update to reflect new API
+
+commit c495c42f35acc552060974e1f256021898f66e96
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 20:48:45 2013 +0100
+
+    build notes in new HACKING doc
+
+commit 2394e127ee9b4b651ffba3eb98a96cd1e2768f23
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 20:48:23 2013 +0100
+
+    special hack to detect new version of sqlcipher for android
+
+commit 1fc582d9b0b99c4f6c70eb663030f619b63e8c17
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 20:48:06 2013 +0100
+
+    add sqlcipher libs
+
+commit d4b457390102a1c9ed6c32fdb7e80d50a7c2b0d3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 19:00:58 2013 +0100
+
+    sqlcipher support
+    
+    we provide a subclass of SQLiteOpenHelper that manages the key
+
+commit dba4f6fc4515036295b5aa3adadcc0ea8a0f5e9d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 18:56:42 2013 +0100
+
+    wiper: support secret key wiping
+
+commit 66a50bce5bc09bd087f7719bdbe97f8a78e8244d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 18:54:29 2013 +0100
+
+    uncouple the Handler from Activities
+    
+    the Handler could be used by non-Activity classes
+
+commit 0ad029f5636f1275e6d984bf725d47024fd5f84e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 18:52:36 2013 +0100
+
+    encapsulate tricky array manipulations for readability
+
+commit 7e15ad8714deefb8e10db44e32501bdf0aa6975d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 18 17:41:24 2013 +0100
+
+    fix parameter mixup and array copying errors
+
+commit 4cef4f740a6bc88e74f757d21a344b3db9284890
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:26:09 2013 +0100
+
+    documentation placeholder
+
+commit 06de351176ae93bc087cb47aad011a9818565624
+Merge: 1b60c77 e159bf7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:21:47 2013 +0100
+
+    Merge branch 'crypto'
+    
+    Conflicts:
+            cachewordlib/src/info/guardianproject/cacheword/CacheWordService.java
+
+commit e159bf795bf30db860a121c388702a14c9edc644
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:13:58 2013 +0100
+
+    generate a 256 bit AES key
+    
+    with upcoming sqlcipher+iocipher support, they'll want a 256 bit key
+    so we might as well make this the default for now.
+
+commit 939b0e87b995307a429cb3397543531d0dd23ba3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 21:13:04 2013 +0100
+
+    make usage of PassphraseSecrets easier as the default impl in the handler
+
+commit 5dcb5ad3833eb7fe26b696f7968027832bcf5327
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 15:39:51 2013 +0100
+
+    order stubs in order of the state changes
+
+commit e01693035c64ea2cc160635910369cccaae51b56
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 15 11:34:25 2013 +0100
+
+    use 96-bit nonce value for GCM
+
+commit 1b60c777692df7486b8c460a7e9b99a666fabb4e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 17:53:26 2013 +0100
+
+    edit TODOs to be grep friendly
+
+commit ecfe0f57adb2f29f5282a1aca5042017834f129d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 18:38:08 2013 +0100
+
+    port sample to PBE secrets
+
+commit ee25a6d9aa4c305f1fc5b11c2a4398162ca9c854
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 18:37:30 2013 +0100
+
+    initialization is handled by the ICachedSecrets impl
+
+commit a943666337089b9ac13e082bf513a26fb0c8cb24
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 18:37:00 2013 +0100
+
+    basic symmetric key derivation and persistence based on password
+
+commit 4618bdc568c10e7e03506e5e11349283fe2c0c7e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 17:53:26 2013 +0100
+
+    edit TODOs to be grep friendly
+
+commit 848663e347c1bf506b1db70d4e4c18ed09cf22e1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 15:00:48 2013 +0100
+
+    patch scrypt helper functions to accept char[]s instead of Strings
+
+commit 81e13040928eb00e012c805fb504c7a3f3ecd51e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 14:58:20 2013 +0100
+
+    include scrypt library in source tree (temporarily)
+    
+    will figure out a proper distribution method later
+
+commit aaddacfe848033482f9dd1b255282d23038b3716
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 14:42:52 2013 +0100
+
+    reset the timeout only when the timeout parameter is changed
+
+commit e17db1deb735bae8a60c6cd861a72bc136d2841f
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 14 14:42:05 2013 +0100
+
+    more documentation massaging
+
+commit cd2b29294e6f665c57f81faaa82fb4096e6e4c1a
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 13 21:22:23 2013 +0000
+
+    spruce up formatting
+
+commit 3e5e76a19018ab4ba0c1fe218563102daf973d57
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 13 22:15:10 2013 +0100
+
+    begin developer usage documentation
+
+commit bb06d9f67bb9835ea6e7afedc1fdf5eae6fa463d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 13 20:50:53 2013 +0100
+
+    refactor to use char[] for sensitive Strings
+    
+    also implement a few utility methods for wiping memory.
+
+commit 46bef3335ccb96924ac79f534984739b3e27bfd1
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 16:04:58 2013 +0100
+
+    rename CacheWordSubscriber -> ICacheWordSubscriber
+
+commit 188f54be1fd24316e4b28f8b09b9836e823fd82e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 15:56:27 2013 +0100
+
+    rename library to avoid eclipse naming hell
+
+commit 5e6bfa0d50a67e744e606a5098a571cc9cd6ece6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 15:54:35 2013 +0100
+
+    javadoc: linebreak++
+
+commit fbf97ae936a475d9b55fb3ee7fc672a7ea918635
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 15:34:30 2013 +0100
+
+    documentation about string memory in java
+
+commit e54e67692bd7c399d3079269963f38d9df9a5543
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:56:08 2013 +0100
+
+    genericize the secrets class
+
+commit db9bdec96290a85d488b078d94c44e211c711dc3
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:47:45 2013 +0100
+
+    formatting spruce up using android formatting rules
+
+commit c3c0c51c0a4b688333e52839625a52669dcb23d9
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:27:59 2013 +0100
+
+    create service intents in a consistent manner
+
+commit 682063e7b7525d1472da77706b373001b230b994
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:22:09 2013 +0100
+
+    move service class name string to Constants
+
+commit c1807cee02c9a7d3cf0bb639e77865949d1631d6
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 14:21:15 2013 +0100
+
+    fix the notification intent
+
+commit 4839fbfee010eaef7242fd4d1101ef80916f925d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Tue Mar 12 13:54:59 2013 +0100
+
+    add warning message just in case
+
+commit ba43c33b8c60826d63b04b2bdffdea281534a53d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Mon Mar 11 21:02:51 2013 +0100
+
+    explicitly set the service to be non-exported
+
+commit 16b11037a19e4fa6a21451d6fd5b578a815b533e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 14:16:46 2013 -0500
+
+    track attached activities
+    
+    we disable the timeout when there are activities attached
+
+commit 86dd46a67aa9198428b63ffc6a352c55f770eccb
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 14:16:07 2013 -0500
+
+    start the service in a way so it remains running after the activity dies
+
+commit b2327c20a8b25f6fdf4a95905ea74fec84f57e4c
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 13:20:54 2013 -0500
+
+    rename binder interface
+
+commit 7b00263622cff983ec38ac211016af48ee981dbf
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 12:49:51 2013 -0500
+
+    documentation++
+
+commit ec90a359876ca7d5fced65683b8b1778e9e55ae2
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 12:38:05 2013 -0500
+
+    simplify guard checks
+
+commit 3d3d31bd6041837209b73d0be321390885ede034
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 12:24:53 2013 -0500
+
+    state handling goes into the library
+
+commit dcccd494cc2bb2bb8f950d7180570ccfe8edad7d
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 07:39:02 2013 -0500
+
+    sample app implements latest functionality
+
+commit ed8622975338a527cc4145a1f809a716c4f18ec7
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Fri Mar 8 07:37:51 2013 -0500
+
+    pretend to initialize the the secrets
+    
+    this is dummy code for now while I work on the API
+
+commit 587326a088cd39bacb67d2df1eecd37542c6896e
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 7 12:31:56 2013 -0500
+
+    beginnings of a demo application
+
+commit 048f876f1b4b5cec229e7ebc9ff3622914fdc806
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 7 12:31:10 2013 -0500
+
+    initial work on the caching service
+
+commit 45acf4921de8cc9383be5fe7dca69d65475e3085
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Thu Mar 7 06:14:47 2013 -0500
+
+    skeleton project files
+
+commit 79e23516941e38ff26bb8f8dec9b83df3a0cffdd
+Author: Abel Luck <abel@guardianproject.info>
+Date:   Wed Mar 6 13:52:58 2013 -0500
+
+    initial commit

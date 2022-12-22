@@ -1,0 +1,209 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# amipwned v2.0
+A python tool that automates the process of using haveibeenpwned's API without exposing your passwords to the internet. Basically, it hashes the entered password with SHA1, then uses only the first 5 characters of the hash in the web request made to the API, and give back the number of that password has been found in previous data breaches, without sending your clear-text passwords or its full hashes within the web request to the internet.
+You can either give it one password or a file of passwords, and it will do the work for you!
+You can also check the full demonstration of v1.0 on youtube: https://youtu.be/dpbL-VvLhTA
+
+
+https://user-images.githubusercontent.com/104282801/206707045-fdc3d43f-d297-4078-a260-86a02e8f71e3.mp4
+
+
+# requirements
+python requests library:
+
+#### Linux
+> \> pip install requests 
+
+#### Windows
+> \> python -m pip install requests
+
+# usage
+> \> python amipwned -p [PASSWORD] <br />
+> \> python amipwned -f [FILE]
+
+#### example
+> \> python amipwned -p "password123" <br />
+> \> python amipwned -p "passwords.txt"
+
+#### get help
+> \> python amipwned --help <br />
+> \> python amipwned -h
+====================== GIT HISTORY: ======================
+a2d4dcf HEAD@{0}: clone: from https://github.com/motarekk/amipwned
+commit a2d4dcf06d58fea226089e78c81c4e935ad0a3b8
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 15:45:21 2022 +0200
+
+    Update README.md
+
+commit 1ab7bfe484b55550391b9e6daf3e8167dac50616
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 15:32:56 2022 +0200
+
+    Update README.md
+
+commit 6243acdec4386c3f78f905e0addebf0cde79b253
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 15:32:31 2022 +0200
+
+    Update README.md
+
+commit b76dd99b773aeac145afda3bebc8072fce7e3ff6
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 15:31:27 2022 +0200
+
+    Update README.md
+
+commit 33485c913482e9c0c3924ebf3b5a3b45f1f8ca62
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 15:30:27 2022 +0200
+
+    Update README.md
+
+commit 16da20e56aee8756aae968aade6c96d6a2a6f90d
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 14:58:58 2022 +0200
+
+    Update README.md
+
+commit cf87b060e63f14aba2013e1dd2ea0dbe8a774fae
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 14:57:34 2022 +0200
+
+    Update README.md
+
+commit 1c71d035e4c2987fbb815c79bc1a11b4adce67c0
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri Dec 9 14:20:52 2022 +0200
+
+    Update amipwned.py
+
+commit b026914650a4f76f753342fd1f448a4837eab069
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri May 6 06:25:03 2022 +0200
+
+    Update README.md
+
+commit 2ba0d2cd783ba51b238262b10818b575dfb5817a
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri May 6 06:22:47 2022 +0200
+
+    Update README.md
+
+commit 9526d809e4a9a924808443a9f66b24d43e8eb686
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri May 6 06:16:53 2022 +0200
+
+    Update README.md
+
+commit f570691442a74ded66f2b05617c9a120e0e2f11e
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Fri May 6 06:16:36 2022 +0200
+
+    Update README.md
+
+commit 540fae8680f1756c27a3c7c4bb694e5be72205e8
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Thu Apr 28 18:20:26 2022 +0200
+
+    Update README.md
+
+commit 0e98bfd20134556c954ceaac13094bd04977c4f0
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 16:54:12 2022 +0200
+
+    Update README.md
+
+commit 363c287279c8e2c11f962c7895c96d7c1fde18ff
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 16:54:02 2022 +0200
+
+    Update README.md
+
+commit 6afe3de0d6f62d1ce80880b26b4222c459066670
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 16:53:46 2022 +0200
+
+    Update README.md
+
+commit 64d4b379555fce8fbfd2d8c2dd635df183a01d6d
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:10:04 2022 +0200
+
+    Delete LISENCE
+
+commit 311c8b8d771057820bc094d0feda44857f667c33
+Merge: a08b6ae ebb5b7a
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:09:26 2022 +0200
+
+    Merge pull request #1 from motarekk/add-license-1-2
+    
+    Create LICENSE
+
+commit ebb5b7a73090cf64f39a009e9c86034cfdd4912e
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:09:12 2022 +0200
+
+    Create LICENSE
+
+commit a08b6ae0a67bb6b5e62e9d3a70d39ab7e329df64
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:07:28 2022 +0200
+
+    Create LISENCE
+
+commit 4698caaa207d1ef4387cd3c4c661f795c0007d7d
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:07:14 2022 +0200
+
+    Update README.md
+
+commit 923f087f84ae03606da6e247f81f07e1e3972db8
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:04:50 2022 +0200
+
+    Update README.md
+
+commit 7351adead4188580abef8d0dd238f5a440079e89
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:03:55 2022 +0200
+
+    Update README.md
+
+commit f1b4c573a981e9380dcf719e09afc0adca058af7
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:01:42 2022 +0200
+
+    Update README.md
+
+commit e86231fe91c2b85ddf386dcbf72cfe858b2fc0d5
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:01:14 2022 +0200
+
+    Update README.md
+
+commit d4db84c080576647e564824662cc39e5b3495334
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 02:01:00 2022 +0200
+
+    Update README.md
+
+commit 9b897d956b389aa1f079f31ce3e641f3bdcfa65d
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 01:59:23 2022 +0200
+
+    Update README.md
+
+commit 5a4183c3b3fe8b8bd7cdd2253c74f7b15d209a80
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 01:55:08 2022 +0200
+
+    Create amipwned.py
+
+commit aae7752e0a297522bb437cd6cf802e3261f7f1d5
+Author: motarekk <104282801+motarekk@users.noreply.github.com>
+Date:   Sun Apr 24 01:52:44 2022 +0200
+
+    Initial commit

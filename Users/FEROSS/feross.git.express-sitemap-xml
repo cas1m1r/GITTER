@@ -1,0 +1,416 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit aa4ca7eaf7fb5d157743435626b1c76e44f6aedd
+Merge: f83c8a0 d114011
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Wed Mar 30 11:58:30 2022 +0200
+
+    Merge pull request #13 from Kikobeats/master
+    
+    fix: base url can be nested
+
+commit d1140113267759fa7649776d3bbf1b54dfd9e584
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Thu Mar 17 00:30:37 2022 +0100
+
+    refactor: check if url is already absolute
+
+commit 6624923031610169fe974643ec783132ab08e1b7
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Thu Mar 17 00:21:53 2022 +0100
+
+    refactor: make maxAge and size configurable
+
+commit 28e62dfebac163bf1938ccfd35bdab1c87f0a8aa
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Wed Mar 16 23:51:12 2022 +0100
+
+    fix: base url can be nested
+
+commit f83c8a047c1873fb81d5a24388705ec77d46260e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Nov 22 15:59:00 2020 -1000
+
+    3.0.0
+
+commit dcd34bc312b296edee7f0c7311d048339bed5b3b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Nov 22 15:58:35 2020 -1000
+
+    BREAKING: lastMod is no longer automatically included
+    
+    If you're not specifying a `url.lastMod` option, then when sitemap.xml is produced, we no longer automatically include today's date.
+    
+    So this:
+    
+    <url>
+      <loc>https://bitmidi.com/3</loc>
+      <lastmod>2020-11-22</lastmod>
+    </url>
+    
+    Becomes this:
+    
+    <url>
+      <loc>https://bitmidi.com/3</loc>
+    </url>
+    
+    If you want the old behavior, then use a url object like this:
+    
+    {
+      url: '/3',
+      lastMod: true
+    }
+    
+    Fixes: https://github.com/feross/express-sitemap-xml/issues/12
+
+commit cb9f7a1ab2184444f46f8d720c60e1f5282317db
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 18:03:02 2020 -1000
+
+    package metadata
+
+commit b77a72ba3bd3dde761a9edbbfe5a2b94405ef8ee
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 18:03:01 2020 -1000
+
+    2.0.0
+
+commit 4659d6541269193a0065b3e60b509cbb0ca7a892
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 18:01:24 2020 -1000
+
+    bump deps
+
+commit a9a76211479fd2360c35ccb98caf31405f18472c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 17:59:16 2020 -1000
+
+    replace mem with p-memoize
+
+commit 77d31b7bfd62a525475fad465fb49eb039874846
+Merge: bbfa65f 4a31753
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 27 05:00:33 2020 +0100
+
+    Merge pull request #11 from feross/greenkeeper/xmlbuilder-15.1.1
+    
+    fix(package): update xmlbuilder to version 15.1.1
+
+commit bbfa65f3ff3e9da2f34339ed23959f2780b898b3
+Merge: c28ed11 73d9284
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 27 04:54:15 2020 +0100
+
+    Merge pull request #8 from feross/greenkeeper/tape-5.0.0
+
+commit 73d9284030d367eda69c145f968f4f596c1acb6b
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Apr 24 22:03:42 2020 +0000
+
+    chore(package): update tape to version 5.0.0
+
+commit 4a317538aeaee9282835d3ec9563b9f65b6bd1dd
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Thu Apr 9 00:32:50 2020 +0000
+
+    fix(package): update xmlbuilder to version 15.1.1
+    
+    Closes #6
+
+commit c28ed11b06ae5a01f97d4c3aee39693f1a9b264f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 11 15:17:50 2019 -0700
+
+    standard
+
+commit 95ab7b410956014120b373eab907d195bf6fe97f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 15:03:24 2019 -0700
+
+    1.1.0
+
+commit 7f7c7a270d6e6ba257b396bba100cda51e1a8997
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 15:03:08 2019 -0700
+
+    xmlbuilder@13
+
+commit 42a865628fde875854f95675baa1d2b1d67e758a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 15:03:02 2019 -0700
+
+    mem@5
+
+commit 7923b2940310f38b511ba1bad76fbab8e4eedc8c
+Merge: affcfb9 b2e896b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 14:51:20 2019 -0700
+
+    Merge pull request #2 from lydell/content-type
+    
+    Set correct Content-Type header
+
+commit b2e896be401fb6fc7bc808eacd8c75ebaf571f0f
+Author: Simon Lydell <simon.lydell@gmail.com>
+Date:   Fri Nov 9 15:59:28 2018 +0100
+
+    Set correct Content-Type header
+    
+    Fixes #1.
+
+commit affcfb96ae5007ca0167f37eb03f811708502e89
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Sep 3 01:47:31 2018 -0700
+
+    style
+
+commit 7a8842cbd1ee1631658e886e4e917dda1e3ff097
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:46:08 2018 -0700
+
+    add sitemap.xml wikipedia link
+
+commit 77fdf8934cdb2e9389d3e4058397c8e7d3f20566
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:30:59 2018 -0700
+
+    1.0.2
+
+commit 89e7b9b2cd784f23d05fbaee59c48e4bb1c4570d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:30:39 2018 -0700
+
+    typo
+
+commit cfd9171016cd619a2a7e6710b5e14189d2330017
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:29:51 2018 -0700
+
+    1.0.1
+
+commit 1d931ad2c25a4c144b08ca45f62c5bef49ea5901
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:29:17 2018 -0700
+
+    docs
+
+commit 789eb437502f3897abf91f6ed90d24ddeb728fc3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:20:25 2018 -0700
+
+    1.0.0
+
+commit ebf1030da441bfc6132f8f3554e206bc9dc19747
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:19:44 2018 -0700
+
+    initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit aa4ca7eaf7fb5d157743435626b1c76e44f6aedd
+Merge: f83c8a0 d114011
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Wed Mar 30 11:58:30 2022 +0200
+
+    Merge pull request #13 from Kikobeats/master
+    
+    fix: base url can be nested
+
+commit d1140113267759fa7649776d3bbf1b54dfd9e584
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Thu Mar 17 00:30:37 2022 +0100
+
+    refactor: check if url is already absolute
+
+commit 6624923031610169fe974643ec783132ab08e1b7
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Thu Mar 17 00:21:53 2022 +0100
+
+    refactor: make maxAge and size configurable
+
+commit 28e62dfebac163bf1938ccfd35bdab1c87f0a8aa
+Author: Kiko Beats <josefrancisco.verdu@gmail.com>
+Date:   Wed Mar 16 23:51:12 2022 +0100
+
+    fix: base url can be nested
+
+commit f83c8a047c1873fb81d5a24388705ec77d46260e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Nov 22 15:59:00 2020 -1000
+
+    3.0.0
+
+commit dcd34bc312b296edee7f0c7311d048339bed5b3b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Nov 22 15:58:35 2020 -1000
+
+    BREAKING: lastMod is no longer automatically included
+    
+    If you're not specifying a `url.lastMod` option, then when sitemap.xml is produced, we no longer automatically include today's date.
+    
+    So this:
+    
+    <url>
+      <loc>https://bitmidi.com/3</loc>
+      <lastmod>2020-11-22</lastmod>
+    </url>
+    
+    Becomes this:
+    
+    <url>
+      <loc>https://bitmidi.com/3</loc>
+    </url>
+    
+    If you want the old behavior, then use a url object like this:
+    
+    {
+      url: '/3',
+      lastMod: true
+    }
+    
+    Fixes: https://github.com/feross/express-sitemap-xml/issues/12
+
+commit cb9f7a1ab2184444f46f8d720c60e1f5282317db
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 18:03:02 2020 -1000
+
+    package metadata
+
+commit b77a72ba3bd3dde761a9edbbfe5a2b94405ef8ee
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 18:03:01 2020 -1000
+
+    2.0.0
+
+commit 4659d6541269193a0065b3e60b509cbb0ca7a892
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 18:01:24 2020 -1000
+
+    bump deps
+
+commit a9a76211479fd2360c35ccb98caf31405f18472c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Oct 26 17:59:16 2020 -1000
+
+    replace mem with p-memoize
+
+commit 77d31b7bfd62a525475fad465fb49eb039874846
+Merge: bbfa65f 4a31753
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 27 05:00:33 2020 +0100
+
+    Merge pull request #11 from feross/greenkeeper/xmlbuilder-15.1.1
+    
+    fix(package): update xmlbuilder to version 15.1.1
+
+commit bbfa65f3ff3e9da2f34339ed23959f2780b898b3
+Merge: c28ed11 73d9284
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 27 04:54:15 2020 +0100
+
+    Merge pull request #8 from feross/greenkeeper/tape-5.0.0
+
+commit 73d9284030d367eda69c145f968f4f596c1acb6b
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Apr 24 22:03:42 2020 +0000
+
+    chore(package): update tape to version 5.0.0
+
+commit 4a317538aeaee9282835d3ec9563b9f65b6bd1dd
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Thu Apr 9 00:32:50 2020 +0000
+
+    fix(package): update xmlbuilder to version 15.1.1
+    
+    Closes #6
+
+commit c28ed11b06ae5a01f97d4c3aee39693f1a9b264f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 11 15:17:50 2019 -0700
+
+    standard
+
+commit 95ab7b410956014120b373eab907d195bf6fe97f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 15:03:24 2019 -0700
+
+    1.1.0
+
+commit 7f7c7a270d6e6ba257b396bba100cda51e1a8997
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 15:03:08 2019 -0700
+
+    xmlbuilder@13
+
+commit 42a865628fde875854f95675baa1d2b1d67e758a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 15:03:02 2019 -0700
+
+    mem@5
+
+commit 7923b2940310f38b511ba1bad76fbab8e4eedc8c
+Merge: affcfb9 b2e896b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jun 28 14:51:20 2019 -0700
+
+    Merge pull request #2 from lydell/content-type
+    
+    Set correct Content-Type header
+
+commit b2e896be401fb6fc7bc808eacd8c75ebaf571f0f
+Author: Simon Lydell <simon.lydell@gmail.com>
+Date:   Fri Nov 9 15:59:28 2018 +0100
+
+    Set correct Content-Type header
+    
+    Fixes #1.
+
+commit affcfb96ae5007ca0167f37eb03f811708502e89
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Sep 3 01:47:31 2018 -0700
+
+    style
+
+commit 7a8842cbd1ee1631658e886e4e917dda1e3ff097
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:46:08 2018 -0700
+
+    add sitemap.xml wikipedia link
+
+commit 77fdf8934cdb2e9389d3e4058397c8e7d3f20566
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:30:59 2018 -0700
+
+    1.0.2
+
+commit 89e7b9b2cd784f23d05fbaee59c48e4bb1c4570d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:30:39 2018 -0700
+
+    typo
+
+commit cfd9171016cd619a2a7e6710b5e14189d2330017
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:29:51 2018 -0700
+
+    1.0.1
+
+commit 1d931ad2c25a4c144b08ca45f62c5bef49ea5901
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:29:17 2018 -0700
+
+    docs
+
+commit 789eb437502f3897abf91f6ed90d24ddeb728fc3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:20:25 2018 -0700
+
+    1.0.0
+
+commit ebf1030da441bfc6132f8f3554e206bc9dc19747
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jul 14 19:19:44 2018 -0700
+
+    initial commit

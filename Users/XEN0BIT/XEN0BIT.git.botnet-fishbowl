@@ -1,0 +1,96 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# botnet-fishbowl
+Use random bots scanning the internet to seed a Conways Game of Life running on a small LCD on my desk
+
+Conways Game of Life tends to reach a state where it becomes stable, but it certainly really fun to look at. The general gist of this project is very simple: Use bots scanning the internet to re-seed the game state.
+
+The code is basically as follows regardless of platform:
+* Bind to TCP port 6666
+* Initialize GOL with random seed
+* LOOP
+* * IF: we have new data on port 6666, re-seed gamestate
+* * ELSE: Animate and process the next step of GOL
+
+Included in this repo is:
+* A golang version which can be compiled for any computer/rasp pi. (.go)
+* A arduino version intended for an ESP32 M5STACK (.ino)
+* A micropython version intended for and ESP32 M5STACK (.mpy) which still needs the networking figured out.
+
+Basic compilation instructions are included in subfolders.
+
+---
+
+"Cool, it binds to port 6666. How do I get actual bots to send traffic?"
+* Port forwarding and Tunneling.
+
+Spin up a small linux VM with a public IP on a cloud provider (which bots will inevitably scan)
+
+I'm a big fan of autossh (https://linux.die.net/man/1/autossh) which can be used as follows to forwawrd traffic for port 6666 on the cloud VM to port 6666 on you local machine through an SSH reverse tunnel.
+
+```
+/usr/bin/autossh -M 0 -N -o "ServerAliveInterval 15" -o "ServerAliveCountMax 3" -o "ConnectTimeout 10" -o "ExitOnForwardFailure yes" -i /home/user/.ssh/private_rsa -p 22 users@<public-IP> -R 6666:localhost:6666
+```
+
+"But bots don't typically scan port 6666!"
+
+Some do, but you likely want to pick up traffic from commonly scanned ports like 21 (FTP), 139 (SMB), 3389 (RDP) etc...
+
+Use socat (https://linux.die.net/man/1/socat)
+
+```
+socat TCP-LISTEN:3389,fork TCP:localhost:6666
+```
+
+Traffic will come in on port 3389 of the cloud VM and be redirected to localhost port 6666 on the cloud VM. If your SSH reverse tunnel listed above is listening on port 6666, it will be routed over the tunnel, into your home network, and effect the game state of the LCD on your desk.
+
+
+Between these two tools, you can connect pretty much anything.====================== GIT HISTORY: ======================
+5512b2d HEAD@{0}: clone: from https://github.com/xen0bit/botnet-fishbowl
+commit 5512b2d4c2f45c1e738a593b507040da1cee65a5
+Author: xen0bit <remy@muvr.xyz>
+Date:   Sat Jan 30 15:03:50 2021 -0500
+
+    update readme
+
+commit 098203c9c102c8c6cc6ecefcd394009e53b0f36a
+Author: xen0bit <remy@muvr.xyz>
+Date:   Sat Jan 30 15:00:25 2021 -0500
+
+    ESP32
+
+commit 88548336e58e843bd5f707c75288e44f59da9372
+Author: xen0bit <remy@muvr.xyz>
+Date:   Thu Jan 28 22:34:36 2021 -0500
+
+    reseed with bytes
+
+commit 37caaf6b4d78353b26da8fcc69f87679fe9d316c
+Author: xen0bit <remy@muvr.xyz>
+Date:   Thu Jan 28 22:12:37 2021 -0500
+
+    more networking
+
+commit ae66bf4d68afd9cdcc1d6deb10593d683626c814
+Author: xen0bit <remy@muvr.xyz>
+Date:   Thu Jan 28 22:04:07 2021 -0500
+
+    added networking
+
+commit a1eb7ef8a7d129c3692bd7e7dca8af7a1fd36d4b
+Author: xen0bit <remy@muvr.xyz>
+Date:   Thu Jan 28 20:56:37 2021 -0500
+
+    fullscreen
+
+commit 61f65788f842f97029bd69fbcb14ebf55c9cdde0
+Author: xen0bit <remy@muvr.xyz>
+Date:   Thu Jan 28 20:42:28 2021 -0500
+
+    base
+
+commit 4dc6ca156fbe7e864582fc34641e6f81ad1b2d40
+Author: Remy <21974988+xen0bit@users.noreply.github.com>
+Date:   Thu Jan 28 19:40:24 2021 -0500
+
+    Initial commit

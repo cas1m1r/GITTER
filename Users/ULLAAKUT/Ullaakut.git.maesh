@@ -1,0 +1,3764 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 50641c4537999f14c56c7ee3b7b67a1cb192e9b4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 7 00:24:04 2020 -0700
+
+    Add Cleanup Command
+
+commit e4df8eb5e57fd67f88648e505800f3ac158f1e3c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Wed May 6 19:36:05 2020 +0400
+
+    Add log level configuration property to commands
+
+commit 3fb6e29d405ea6a937b628d44c771e4be8ac2d07
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Wed May 6 14:14:05 2020 +0200
+
+    Cleanup port mapping before getting a new port
+
+commit c33ee0f3644989f6e76cf027a55b0a5861515506
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Wed May 6 12:06:05 2020 +0400
+
+    Remove deployment api endpoint documentation
+
+commit 71e9b6652e78f9773ac9bdecafb095985354b1cf
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue May 5 21:42:03 2020 -0700
+
+    Add custom namespace to helm rewrite
+
+commit 97430e229be86b46e26ea9c7928d4fe6bbb2be49
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Tue May 5 16:58:04 2020 +0200
+
+    Multiple middleware support & annotations refactoring
+
+commit 6d90b6526934a4cd5570b6d580c7b0b1be50e94e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue May 5 00:28:03 2020 -0700
+
+    Update Deps
+
+commit eed2b962b8c6d4d77cab0079be661635c04fb0fb
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon May 4 20:44:04 2020 +0400
+
+    Remove unused env variable POD_IP in Helm chart
+
+commit 563c04e5527ceee434223b7bdffefe2f14c7d04a
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon May 4 20:22:04 2020 +0400
+
+    Fix missing UDP port limit config in Helm chart
+
+commit 9a5390f6e8867256cad836424899fe0fc9f8126e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 4 05:32:03 2020 -0700
+
+    Add HTTP provider to proxy nodes
+
+commit 00b3cd6a46ec20f34d68dd400a87418a411b0789
+Author: LandryBe <landry@containo.us>
+Date:   Mon May 4 11:48:13 2020 +0200
+
+    Inject errors in topology
+
+commit 8284a717af63bdd1f41c1cf1ba2f124f805b02f1
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Fri May 1 23:24:03 2020 +0400
+
+    Upgrade Traefik dependency version to v2.2.1
+
+commit f2214b90add7aae40acea8397b6ece636c8959b3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 1 07:24:05 2020 -0500
+
+    Remove unneeded Helm install
+
+commit a891ae3d0fb34fc486d0152fcbf2f98dd0268b62
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 1 07:06:05 2020 -0500
+
+    Add more topology keys
+
+commit c06f510b8e7b6b8e0287fe59d662317c4eeb18b4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 1 06:48:03 2020 -0500
+
+    Update github templates
+
+commit 0736f78c779441522a109652522a558fdb26f35e
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 30 21:08:04 2020 +0400
+
+    Remove deprecated SMI option in the Helm chart
+
+commit 62712a91f187a90243e4e20e1a7e1adde59c64a8
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 30 13:52:05 2020 +0400
+
+    Add Go report card badge to readme
+
+commit 66bbdb3ef3540ea2f725ade4f1aaec57a5fe8a85
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 30 12:08:05 2020 +0400
+
+    Implement UDP traffic type
+
+commit 5101960311b5c34db37299731ccab6186751fa31
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Apr 28 12:06:05 2020 +0200
+
+    Remove dependency from provider to topology builder
+
+commit b658695920fb9aed429b507841e4e437207eb626
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Fri Apr 24 23:30:04 2020 +0400
+
+    Disable mesh proxy dashboard in Helm chart
+
+commit b4cb8f2c29cb304b0f5beafa01dda9e826f491a8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Apr 21 05:48:05 2020 -0500
+
+    Create Maesh Proxy command
+
+commit 6e594365d1e0b2c39ec6fa38f81b043252a3da17
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon Apr 20 18:28:06 2020 +0400
+
+    Fix broken edit link in the documentation
+
+commit 3852d9e6b427866075d0027d73dd1a4d5041fd10
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Fri Apr 17 17:05:10 2020 +0200
+
+    Fix panic when pod IP is not yet assigned (#507)
+    
+    * Fix panic when pod IP is not yet assigned
+    
+    Pods with no IP are filtered out in the TopologyBuilder. When collecting
+    the different pods for a TrafficTarget, we are refering to a pod
+    which can have been excluded. This is done without checking if the
+    key is in the map, leading to a panic.
+    This commit intent to be more protective on map access.
+    In the same time, log message and errors have been cleaned so they
+    don't mention two times the same information and use the Key everywhere
+    instead of the "namespace/name" format.
+    
+    * fix: Repare ACLDisabledSuite.TestSplitTraffic
+
+commit 581ebbb67cd4e947882732fbf3b3df6dd72b29b8
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Apr 17 11:12:04 2020 +0200
+
+    Fix discrepancy in prepare interface
+
+commit 6d0334adfd868c086d3c1bc96485725267da499c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Fri Apr 17 00:14:03 2020 +0400
+
+    Use semaphore build cache when running ACL integration test suites
+
+commit e6ae31dc13e2f17498119c15aed78704d8e89549
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Wed Apr 15 19:12:04 2020 +0200
+
+    ACL flag with reworked SMI/Service handling
+
+commit d7b6546a19f706306aa035c67d36eeac313ff25a
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Tue Apr 14 12:06:04 2020 +0400
+
+    Add a contributing section to the documentation
+
+commit 1adbb2a5bd646f50afe6d1571e3e8f0ac730bcb9
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 9 13:34:05 2020 +0400
+
+    Add semaphore build cache
+
+commit b46011c4cbca542930b3167b3ddb089bac13c555
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Apr 8 13:04:03 2020 -0500
+
+    Remove old dependencies
+
+commit e2d6e8fe31cec64e6994e5382bb737a3932dbf2c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Tue Apr 7 18:04:03 2020 +0400
+
+    Fix documentation typos
+
+commit bb67e2212a2a7eb47c1c454318077ef29d1835a4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Apr 6 08:32:04 2020 -0500
+
+    Add service topology key logic
+
+commit 570613fc96825f179067b4c75fd019f1dedb448c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon Apr 6 16:56:04 2020 +0400
+
+    Fix non working pull request template
+
+commit 849a65092f9c05ed536f8e71a5acf04fb968b506
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon Apr 6 16:08:05 2020 +0400
+
+    Fix typos
+
+commit 6894b63148fa7527e820e362e9b028a89454ccd7
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Apr 3 10:56:04 2020 -0500
+
+    Upgrade traefik and deps to 2.2.0
+
+commit 84b646a6fd8925cba9376ad4cbce6354f965aced
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 23 07:42:05 2020 -0500
+
+    Update Travis to build on Go 1.14
+
+commit 18dd4a925517a63dbbbf1927e1ff68219da60d4a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 23 07:26:05 2020 -0500
+
+    Remove unneeded translate error method
+
+commit b32174cfd2324c3bac0d0a6a1b92bc243b5d4e38
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 18 09:58:04 2020 -0500
+
+    add source build note
+
+commit 2a0cbcf15504705cf1ad80f087fa4581947b3bd8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 18 09:42:05 2020 -0500
+
+    Update to Go 1.14
+
+commit b9159bd3c58fd08d4aedb82fb532981470619c43
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Mon Mar 16 16:12:04 2020 +0100
+
+    Fix port-mapping cleanup for HTTP services
+
+commit 052877179424db4cca5b2a55eb4ae598365c601b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Mar 13 07:36:06 2020 -0500
+
+    Implement the rest of the logger interfaces
+
+commit 8116418ceb753ea3896daca50c42242f58a65d50
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Mar 13 12:54:05 2020 +0100
+
+    Refactor `prepare` package for external use
+
+commit 68f8f6c37dfdd3516142a0c4886a98d24a603351
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 11 11:24:04 2020 -0500
+
+    Use logrus.FieldLogger for logging
+
+commit f0d0ffe11ee6425e5c798b92898dfc99ca8b3bf1
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 11 07:48:04 2020 -0500
+
+    Add CoreDNS Readiness check and Update Traefik Version
+
+commit 724323a9912440639969d756679ce4d08dd7f937
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 9 12:12:04 2020 -0500
+
+    Move prepare code to its own package
+
+commit 810acf52498f26ebcb206b08945e3fa346fe38de
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 9 10:52:07 2020 -0500
+
+    Mergeback v1.1.0
+
+commit 3b17ccc0b4c1d31086d18ba67f4fd672af914238
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Fri Mar 6 15:54:04 2020 +0100
+
+    Update traefik version to v2.1.6
+
+commit dbeb2ca554e1cf9c8ffafaf61cd934a500ccca1d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 4 09:32:04 2020 -0600
+
+    Add missing Dir
+
+commit b27daf7bb43ac333f48325ad6006584bb8263082
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Wed Mar 4 14:22:05 2020 +0100
+
+    Cleanup TCPPortMapping when updating/deleting a shadow service
+
+commit ffb9836c53a9447b25b30eb1e6f75ae5bea0eb33
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Mar 3 08:36:06 2020 -0600
+
+    Move to client interfaces, and create fixture tests for API and Controller
+
+commit a99f3fd0c445aef0f3227ba18e94756d1b0a7341
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Mar 3 01:56:05 2020 -0600
+
+    Fix CI for gh-pages branch
+
+commit 0af1cfa47e8901c5a1d4a4f93e7e6272cf29d184
+Author: LandryBe <lbenguigui@gmail.com>
+Date:   Thu Feb 27 20:36:04 2020 +0100
+
+    Shadow service manager
+
+commit 07d868afe9f62d1270ca432e3183235f4219f4fe
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Feb 27 13:14:05 2020 -0600
+
+    Add host to API bind
+
+commit a76bd7606b051ef20d9a62e86ffbbd58f62a267a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Feb 27 09:06:07 2020 -0600
+
+    Add bug report template
+
+commit 176ddd2b0a7848d9fd6eb49c30868589f038ca3f
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Feb 25 11:20:09 2020 -0600
+
+    Wait for Pod IPs to be assigned in Integration test
+
+commit f939d602e5829145698110804afc3e03b27d418c
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Tue Feb 25 17:14:05 2020 +0100
+
+    Extract TCPStateTable logic from the controller
+
+commit a6a1c9179d1172e34d06bf12c671cbff38a5d9f6
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Feb 24 07:48:07 2020 -0800
+
+    Mergeback v1.1 rc2
+
+commit c762a46ee2c45c23d619f8a794d29566afbf8f6d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Feb 24 06:50:05 2020 -0800
+
+    Update k3s to use k8s 1.17
+
+commit ea24dac863af31191961db3877a9d958d4368b5b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Feb 24 06:04:06 2020 -0800
+
+    Update SemaphoreCI Badge
+
+commit 2533c652a29f376836f455651576c1e8012157ea
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Mon Feb 24 14:06:05 2020 +0100
+
+    Move `/internal` packages into `/pkg`
+
+commit bc5eda0bebb727e97781b35282030fd559775dbd
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Thu Feb 20 18:24:04 2020 +0100
+
+    Wait fort the k3s cluster to come up before running tests
+
+commit 2d250776f3edb97da48e7a4b7d2b77cdee886277
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Feb 12 16:42:04 2020 -0600
+
+    Setup semaphore v2
+
+commit 2f4ba2c21bacdcc87511913555dedbe27c274c2b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Feb 12 11:50:05 2020 -0600
+
+    Allow single test suites to be run
+
+commit 36966ac8e16962adb116007656073f04d4b11a0a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Feb 12 07:54:05 2020 -0600
+
+    Add informer sync test to prepare command
+
+commit ccc118f7e7dbbf7006d37180dbc96ed22be94e8b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Feb 7 12:12:05 2020 -0600
+
+    Rework Integration tests
+
+commit 4c9df07c5d7e9af6ac2d2b6964b5e3e463e88f38
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Jan 27 15:20:06 2020 +0100
+
+    Document release process & steps
+
+commit cfa60a05bb5fad5975ef6c4b6ec17ac2ae6a1881
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jan 23 02:32:04 2020 -0600
+
+    Fix chart directory
+
+commit f29a256b1b01f672ccacc2b93bf322c8a9464964
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jan 22 07:52:06 2020 -0600
+
+    Prepare release v1.1.0-rc1
+
+commit 004672e25e759c93632bc24f2a0c1e047fdc0093
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Fri Jan 17 17:52:05 2020 +0100
+
+    Copy CNAME File to get docs working again
+
+commit 89c2246dfefab0b7ecb73bbc548133e74daee1cc
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Fri Jan 17 16:08:06 2020 +0100
+
+    Add Versioned docs
+
+commit a743485d2b892785884b807ebb91510a29b6eab8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jan 8 10:20:06 2020 -0600
+
+    Rework test condition
+
+commit e843c57cc8278039439f77ef8ee071f99a1b8ac0
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jan 6 12:04:04 2020 -0600
+
+    Use Listers instead of API Queries
+
+commit 74659f134c4ba72c883436b6f3bc9b7f0723100c
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Jan 6 17:28:04 2020 +0100
+
+    Add Configuration to use HTTPS as scheme
+
+commit d8ee00ee63dcb1fd3ae61521211faaae871460b8
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Jan 6 16:52:04 2020 +0100
+
+    Add a note about helm v2
+
+commit 10c757a657046abcd2083176f930edaa5a792df9
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Dec 18 10:40:04 2019 -0600
+
+    Use custom separator for service name and namespace
+
+commit 935aa53e231533b1659f5a61ebca11182e0a98e7
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Tue Dec 17 15:58:05 2019 +0100
+
+    Update Traefik to 2.1
+
+commit be7664c15695d25533a15b4f4eebdbb18c67d48d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Dec 17 04:36:05 2019 -0600
+
+    Fix Travis Builds
+
+commit 3fe5b4016c3ee155b391995dcc056ec05fc70083
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Dec 17 04:18:05 2019 -0600
+
+    Upgrade helm to v3
+
+commit 9df6560a91976e9fc238b84a51c4a160034e05d1
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Dec 3 10:40:04 2019 -0600
+
+    Add influxDB and statsD to metrics
+
+commit 57034190920d82d06476673f81bc77cbe92b74af
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Dec 3 16:30:06 2019 +0100
+
+    Upgrade python version to 3.7 for netlify
+
+commit ce7b89f531e993c388716d9a0a6a21ba846b73e9
+Author: Volker Thiel <riker09@users.noreply.github.com>
+Date:   Tue Dec 3 16:06:06 2019 +0100
+
+    Use initContainers to fix volume permissions
+
+commit 1312e3b703575104715504402bd669c609231f67
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Nov 28 13:18:04 2019 -0600
+
+    Add zipkin/instana/haystack to tracing
+
+commit c5e207bf4a0daf36d75a5d5de8eb5c6c97726cc5
+Author: valerauko <vale@valerauko.net>
+Date:   Fri Nov 29 00:18:04 2019 +0900
+
+    Make metrics subchart more configurable
+
+commit c3859536fca07fe0e672e7d9a75a9ba79e0c9297
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 26 09:20:07 2019 -0600
+
+    Add datadog metrics
+
+commit 32d01767ff3cf695c0ca07a6a372044c64f21bf8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 26 09:10:06 2019 -0600
+
+    Add datadog tracing
+
+commit 3a9bfa3d6e85e4ac0c55158431570fc19a9ff7fb
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 26 15:54:05 2019 +0100
+
+    Run in single namespace
+
+commit e22a654d733aba4db325bd482890cce50215e9c1
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Nov 25 10:20:05 2019 -0600
+
+    Update Doc for CRD deployment
+
+commit 69ef4066365bedfea6cdb17fb0090c61370ed00b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 20 10:28:04 2019 -0600
+
+    Prepare Release v1.0.0
+
+commit 6498d0fcf774aa46198c7e01e95c82a605408e51
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Nov 20 08:16:05 2019 -0800
+
+    Bundle SMI CRD's with helm install
+
+commit 4277411da3f05a6abe8d351ef7a95070db9e212f
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Nov 20 16:56:05 2019 +0100
+
+    Fix panics in SMI & Kubernetes provider
+
+commit ee35a5b7c3167334c3fa8b6f8bea3f3eb5785774
+Author: Damien Duportal <damien@containo.us>
+Date:   Tue Nov 19 18:22:04 2019 +0100
+
+    Enforce HSTS with netlify toml config
+
+commit a4b4259afbed618b5fb66f50a19294c86dd688e1
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 19 05:08:04 2019 +0100
+
+    Document Maesh and SMI
+
+commit 2385323d060783da5b27641b1f096e925f88db44
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 19 04:58:04 2019 +0100
+
+    Add demo example in the quickstart guide
+
+commit 85f4377551e7434155db62b2ce173c6a62fd261c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Nov 15 02:14:04 2019 -0600
+
+    Add platform recommendations
+
+commit 4e38d289e5124fb172f8e6a28702dead7ae14688
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 13 09:56:04 2019 -0600
+
+    Prepare Release v0.8.0
+
+commit f108f49dfe3294143d73604fab4b2fcfbb13e5c2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 12 16:32:03 2019 -0600
+
+    Create a cap for the max number of deploy log entries
+
+commit 0673eda75d974e5ae7b38357c376c6d24a9647fa
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 12 15:20:04 2019 -0600
+
+    Add API documentation
+
+commit 1d85a6683daf11e4993eaf9b322e20ae5b513e8f
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 12 16:48:05 2019 +0100
+
+    Deploy to pods in parallel
+
+commit 2ccd00298c0fa2d77177ad1fa8919e3225ac787e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 6 12:50:04 2019 -0600
+
+    Add Cluster Node Status and Configuration endpoints
+
+commit 73a1a7032dcce7b95179ee13a76ace9575438a6c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 6 10:14:04 2019 -0600
+
+    Create a deploy log and wire to API
+
+commit 68a66130a1e21fd1e29f877d38ca47385c259fcd
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Nov 6 16:49:34 2019 +0100
+
+    Add PR template (#340)
+
+commit dcbefc1ebf27af33251cdfd59e9e37972c22fe3f
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Nov 6 16:48:48 2019 +0100
+
+    Add examples to doc (#338)
+
+commit 8feaea077c22b8394d7b2a98a02235c9ac972cf9
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 5 10:08:05 2019 -0600
+
+    Create API on the controller
+
+commit 19b16aa0e233ec25ec42d8798b48e8e78dcac863
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 14:16:04 2019 -0500
+
+    Re-add ignored namespace
+
+commit 0281c04d513d51f708221dd4aadd44317e695bd4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 11:24:04 2019 -0500
+
+    Pin k3s version
+
+commit 64d604f2b2d8c20997b6e902e71a232a7829de80
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 09:36:08 2019 -0500
+
+    Refactor ignorewrapper
+
+commit a5aefd1d28a51b62ab9e2fd6d236144ce2aecc2e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 09:18:05 2019 -0500
+
+    Move liveness to dedicated entrypoint
+
+commit 79be5f120ce4c8961ff96650b36e27d24c59ef90
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 09:10:06 2019 -0500
+
+    Remove local-test-integration
+
+commit 50b90826c0a351a13928e7d609a1e124d6913db2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 08:54:07 2019 -0500
+
+    Implement rate limit
+
+commit 94d459b6b485d419de1ae863f3246d3c969a8e8d
+Author: Max <xamrennerb@gmail.com>
+Date:   Mon Oct 28 16:20:07 2019 +0100
+
+    add spec.selector field to Helm chart dependencies
+
+commit f3152ba856b5c4f0acf9f677e5a4fb1ac84405d2
+Author: Ludovic Fernandez <ldez@users.noreply.github.com>
+Date:   Mon Oct 28 10:16:04 2019 +0100
+
+    fix: linter timeout.
+
+commit 2e23db7c13587d48b28b187631835fdd408ffd9e
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 23 17:20:05 2019 +0200
+
+    Prepare Release 0.7.0
+
+commit 5db4d13ca813fed770ccad384442f1c29e0dfec4
+Author: Max <xamrennerb@gmail.com>
+Date:   Wed Oct 23 16:42:05 2019 +0200
+
+    make cluster domain configurable
+
+commit 2f057a10505eede088d02e47614f0509de4ae62c
+Author: Fredrik Lönnegren <fredrik.lonnegren@gmail.com>
+Date:   Wed Oct 23 16:18:05 2019 +0200
+
+    Add tag from values, default to v2.0
+
+commit 789c74092ea2ff46da4b2b14fe8a9bca6f51f3c9
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Oct 23 15:34:05 2019 +0200
+
+    Upgrade helm to version 2.15.1
+
+commit a51e0ceeda85e2df00e13bc31f1006359dec56f3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 23 02:02:04 2019 -0500
+
+    Deploy to unready nodes
+
+commit ad51716d66cc0e7e3b17c8a1262261df8f7b88e1
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Oct 22 19:06:04 2019 +0200
+
+    Upgrade golangci-lint and fix helm version
+
+commit 53c7323b42179c02aaf2f452649b0b78ecc0768a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Oct 17 10:54:04 2019 -0500
+
+    Remove deprecated extensions/v1beta1 API group
+
+commit 7f7eac4660884bf4b5c1ec4c40e073f18ce0dc08
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Oct 17 10:44:03 2019 -0500
+
+    Reduce Gocyclo to 15
+
+commit a5e73c116a232e17216ebefd8f1186ace22a7711
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Oct 17 10:24:05 2019 -0500
+
+    Deploy configuration to mesh pods even if config hasn't changed
+
+commit aa9496b0443f97a49d6208a7915609acc698fa46
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Oct 16 17:02:05 2019 +0200
+
+    Fix panic when deeting a ns
+
+commit 1a4bae58381455a3616b187af4225c4a1789d38a
+Author: Fredrik Lönnegren <fredrik.lonnegren@gmail.com>
+Date:   Wed Oct 16 16:10:05 2019 +0200
+
+    Add nodeSelector to mesh-daemonset.yaml
+
+commit 2437edc864c6b5afacf8d8953fbc722bcefa0780
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Oct 15 16:28:05 2019 +0200
+
+    Prepare release v0.6.0
+
+commit d4fb8edca3745842f80204c924a70eee09f7057f
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Oct 15 15:52:05 2019 +0200
+
+    Update traefik version
+
+commit 4cea3435c301fdd924168c9324814d59439dd060
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Thu Oct 10 10:48:05 2019 +0200
+
+    Feature/scheme service
+
+commit 41d5f1b8aff8ce14606b0219aaa09863914e3360
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 9 22:08:03 2019 +0200
+
+    Prepare release 0.5.0
+
+commit 2c429c908847df260f45ac908b9a4900d4a0f758
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 9 21:32:04 2019 +0200
+
+    Add SMI Support for TCP
+
+commit 1b6096a3b8e469e6f3b96e08297a1ad9e527fe82
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 9 14:02:03 2019 -0500
+
+    Remove Queues, and use channels for processing
+
+commit 7ebc1a2485a7bcfc3065b8b9cd728d0ee57d89a4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 9 07:06:04 2019 -0500
+
+    Update golangci-lint to 1.20.0
+
+commit 53c81047f68ce0acadc6d5491cb2977312955f5f
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Oct 8 11:30:05 2019 -0500
+
+    Remove Configuration state from controller
+
+commit 53f2a869992c795f8fa6a2b75f2701d7100b16dd
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Tue Oct 8 15:16:05 2019 +0200
+
+    Check for Jaeger values set or take default
+
+commit 1963aa3a3843efe7deaa1b7d1369227b4feefa21
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Oct 8 07:50:05 2019 -0500
+
+    Move SMI provider to be stateless
+
+commit 244d4f2ec3eb9128617cb35e710bdf0284fd3777
+Author: Mario Constanti <github@constanti.de>
+Date:   Wed Oct 2 16:28:05 2019 +0200
+
+    image-names can be defined for all helm-charts
+
+commit 2e754d4a0c4e34e8d12b2b41dfc1c5d7ce9170ff
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 2 08:58:05 2019 -0500
+
+    Move hooks to init container and subdir
+
+commit 922039336fee84b72c9567e9355925eae49ef69e
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 2 15:30:10 2019 +0200
+
+    Check the coredns pod volumes for being a configmap
+
+commit 5cb7ffcc88a29343a934f5d09c4edbf7bb09fa79
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Oct 1 13:50:05 2019 -0500
+
+    Move to stateless Kubernetes Provider
+
+commit 8974b12dd686e9ac135ce1a2e1128083a404ceff
+Author: Mario Constanti <github@constanti.de>
+Date:   Tue Oct 1 15:18:06 2019 +0200
+
+    Maesh helm install namespace aware
+
+commit 74a1946228d045d64217c1545eb6c2284cca04ff
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Sep 25 17:30:07 2019 +0200
+
+    Make Ignorenamespaces better manageable
+
+commit 8e2f1dd7a26e71923cb4e5ce2fbe4c5a16349aa6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 24 15:20:04 2019 +0200
+
+    Add support for kubedns
+
+commit 303c153477a335d67a3e8619c6a53a7073005460
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Sep 18 10:30:05 2019 -0500
+
+    Use k3d to create k8s cluster instead of compose
+
+commit 6d0a0d2a998c4bd94715bb0529404f4e23fffbf6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 17 13:36:03 2019 +0200
+
+    Prepare release v0.4.0
+
+commit f800b0e7ae37cce8519efc624d13b7cc66d947ce
+Author: Rafael Fernández López <ereslibre@ereslibre.es>
+Date:   Tue Sep 17 10:52:04 2019 +0200
+
+    Improve grafana and prometheus liveness and readiness probes
+
+commit ef3f2d52ae4c9b6332ac3bab9a9c8ab969ec165d
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 17 10:46:05 2019 +0200
+
+    Migrate to traefik 2.0
+
+commit ebe0d1beab6469789bccc710a02bd8d9bb3dc59f
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 17 10:30:05 2019 +0200
+
+    Improve metrics and tracing chart
+
+commit c604ab08ea10c1444aac17480471551390d1db66
+Author: Rafael Fernández López <ereslibre@kde.org>
+Date:   Tue Sep 17 10:20:04 2019 +0200
+
+    Add note about tiller RBAC on the quickstart guide
+
+commit 74e566128272603caa68cddbb4845740a4bc37e7
+Author: Craig Newton <newtondev@gmail.com>
+Date:   Tue Sep 17 10:06:03 2019 +0200
+
+    Added nodeselector, tolerations and affinity to deployments and daemonsets
+
+commit 141a2cbc7a858140f3fa70a2187eec9f3b9b4db5
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Sep 16 17:50:04 2019 +0200
+
+    Prepare release v0.3.0
+
+commit 68af6de385fb672a6dc85186acd61d9e2b2b48b2
+Author: Nicolas Byl <nico@nicolas-byl.eu>
+Date:   Mon Sep 16 17:32:05 2019 +0200
+
+    fix: maesh daemonset is not scraped by prometheus
+
+commit 626d1f60df521891474c4dd8a731959c5802df23
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Sep 16 17:18:03 2019 +0200
+
+    add static configuration option for ignore namespaces
+
+commit 47d2a8d05fcdeff448f6f0477aee86530471ef69
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Sep 16 14:16:04 2019 +0200
+
+    Prepare release v0.2.1
+
+commit b178cdddac9a0c2fcf714c8d94152aada51e981d
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Sep 16 12:24:05 2019 +0200
+
+    Fix helm version
+
+commit cd3692f16c9204efa6a429d4c421245104c7588e
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Sep 16 12:18:04 2019 +0200
+
+    Upgrade to golanci-lint v1.18.0
+
+commit 8e424d4bc6cf610094aa2e34a2e1fc62088c48b0
+Author: Nicolas Byl <nico@nicolas-byl.eu>
+Date:   Thu Sep 12 16:30:05 2019 +0200
+
+    fix startup on kops clusters
+
+commit 71f1698418ba4f0b3ec68e6462b52ad62a8be328
+Author: Emile Vauge <emile@vauge.com>
+Date:   Wed Sep 11 21:26:03 2019 +0200
+
+    Fixing my mistakes
+
+commit 01c855693df3609995d0d4936c3bb266b1b91d53
+Author: Emile Vauge <emile@vauge.com>
+Date:   Wed Sep 11 19:44:03 2019 +0200
+
+    Add few links & badges to README
+
+commit de5148cc843da01a8569e455f6bbd022f589fcd7
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 10 16:32:05 2019 +0200
+
+    Fix helm chart metrics version
+
+commit 1f2957b8dca2b1bd2d4617a8a44dddbbf150b0c7
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 10 16:06:05 2019 +0200
+
+    Add support of coredns 1.5 and 1.6
+
+commit 5a5bd59e54f6630d1883f605e1da47f1049ec558
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 10 10:46:05 2019 +0200
+
+    Fix CNAME for documentation
+
+commit 9d871f97692f7c5d7b50ef186383181707d92374
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Sep 9 21:20:04 2019 +0200
+
+    Rename some legacy links
+
+commit 920849ba47fd604043c238b87c2a0fe1cd2e4fee
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Sep 6 19:22:03 2019 +0200
+
+    Add seihon for multi arch build
+
+commit 649974c7eb93bdb21113199431f0eaf1cd69a9f5
+Author: Damien Duportal <damien@containo.us>
+Date:   Thu Sep 5 18:34:03 2019 +0200
+
+    Update documentation tooling
+
+commit 8c2d837c789f5d38a4466cad53c55d4af96e8b2c
+Author: Damien Duportal <damien@containo.us>
+Date:   Thu Sep 5 18:12:04 2019 +0200
+
+    Host main documentation on gh-pages, mixed with Helm Chart
+
+commit ea83590ad64dd8a3bc1daef4bd8e3dfb225f38fd
+Author: Calle Pettersson <carlpett@users.noreply.github.com>
+Date:   Thu Sep 5 11:38:04 2019 +0200
+
+    Fix typos
+
+commit 3bae31588976e2941f7d2fbaafb756da6fdf0298
+Author: Damien Duportal <damien@containo.us>
+Date:   Thu Sep 5 11:16:04 2019 +0200
+
+    Documentation Polish for public release
+
+commit d2ac49fa4bf63ff3f14d94c6a0ee0e92401c2593
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Sep 4 11:06:03 2019 +0200
+
+    Fix documentation ci - disable for now
+
+commit dbbefcbd8f422e1c222b7253927bbd8aef6ce1c0
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Sep 4 10:04:03 2019 +0200
+
+    Migrate to go 1.13
+
+commit 4586e941f1b8b7ae6d5dd4b40a0972dfd92bf87d
+Author: traefiker <traefiker@users.noreply.github.com>
+Date:   Tue Sep 3 17:09:04 2019 +0200
+
+    Prepare for release
+
+commit ef475a3634b681f6cdda88365cb0b5cf22321b5d
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 3 17:04:03 2019 +0200
+
+    Add travisci
+
+commit 0ac6b5c0bcff1b588afdec4f9bfcf4992013aa15
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 3 16:22:03 2019 +0200
+
+    Add contributing file
+
+commit 318c2d7724ddde7fc267aa6f570e29a6b07a6cce
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 3 12:04:04 2019 +0200
+
+    Update readme
+
+commit 0f533368725a6e8b086c017c09d289930627ab82
+Author: Gérald Croës <gerald@containo.us>
+Date:   Tue Sep 3 11:42:03 2019 +0200
+
+    Typo in the documentation
+
+commit 481f808bf7dcf0a088df41360a19f2df685312c9
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Sat Aug 31 14:03:28 2019 +0200
+
+    Update documentation for launch (#193)
+    
+    * Update documentation for launch
+    
+    * Update readme
+
+commit 01230da085f39a5ee0e44d229e380d5e0a3fad4c
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Sat Aug 31 14:01:19 2019 +0200
+
+    TrafficSplit implementation (#190)
+    
+    * TrafficSplit implementation
+    
+    * fix after rebase
+    
+    * Refactor the implementation
+    
+    * fix unused parameter
+    
+    * Improve integration tests
+    
+    * Disable Coredns k8s_external plugin
+    
+    * fix integration test
+    
+    * Test improve tests
+
+commit bf052da44d02d9d7f9ed3984dbbaafb407731a99
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Aug 29 14:29:10 2019 +0100
+
+    add badge (#192)
+
+commit 8d10f3cfdcfc049dcbe1b22198cfb5792404be05
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 17:17:25 2019 +0200
+
+    Clean go.mod (#191)
+
+commit efe94c8b539001d9553877e6875c8079be94bf58
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 16:23:00 2019 +0200
+
+    Add goreleaser (#188)
+    
+    * Add goreleaser
+    
+    * Update .goreleaser.yml
+    
+    Co-Authored-By: Daniel Tomcej <daniel.tomcej@gmail.com>
+
+commit 5c69bcf2c77220075f6ba65f122be1060325a2ec
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 12:37:37 2019 +0200
+
+    Publish helm chart to gh-pages (#187)
+    
+    * Publish helm chart to gh-pages
+    
+    * Fix for review
+    
+    * Apply suggestions from code review
+    
+    Co-Authored-By: Damien Duportal <damien.duportal@gmail.com>
+    
+    * Fix for review
+    
+    * fix chart version
+
+commit a72089fb75ad6ee91350d4b50d5cf70391c0b5a3
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 12:02:01 2019 +0200
+
+    Upgrade traefik dependency (#186)
+    
+    * Upgrade traefik dependency
+    
+    * Update to go 1.13rc1
+    
+    * Improve CI
+    
+    * remove unused dependencies
+
+commit 040ba5ee83e76e12768a781b496d1fb632c0101a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 26 08:54:44 2019 +0100
+
+    add configmap to helm template (#184)
+
+commit 303d771fc08f619976f2bde080ab63c3ce3e6f7e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 26 08:53:43 2019 +0100
+
+    Fix empty middleware object (#181)
+
+commit ae4211863362fab8c060bbc4645f1a285b0484d0
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 26 08:52:20 2019 +0100
+
+    Template helm resources (#178)
+
+commit b22f0b36eb28754eb3d4ee6f89421f3a61bcdfcb
+Author: Ludovic Fernandez <ldez@users.noreply.github.com>
+Date:   Thu Aug 8 00:37:57 2019 +0200
+
+    fix: pseudo version. (#182)
+
+commit cee3d5c1f217e40ca90c41e9c2ef3e05e0e3117c
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Aug 7 19:29:31 2019 +0200
+
+    Fix tcp state table (#177)
+    
+    * Fix tcp state table
+    
+    * Disable all middlewares things for now
+
+commit a9d84d1a820545af35229a74e23dcaa4985e1333
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Aug 7 00:47:00 2019 -0600
+
+    Initial cleanup from Popeye (#173)
+
+commit 9a3ddb159ebae886017fb8d5b983fea6e3d1979e
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 6 17:27:51 2019 +0200
+
+    Upgrade dependencies (#176)
+
+commit 86752e0cf8e20af4c48d4e52bd4feddcacfb9994
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Aug 5 16:49:55 2019 +0200
+
+    Implement circuit breaker (#170)
+
+commit f65ebf72d94f9407454dc0ae80b1bcadf71612a8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 5 02:14:19 2019 -0600
+
+    Implement Retry (#169)
+
+commit 2441877776d28b8371141715c4ae4fb652aecb4a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Aug 2 10:35:26 2019 -0600
+
+    Improve Router and Service Naming (#164)
+
+commit 11995878144f8ed713f435db84c73e75d7d1e496
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Aug 1 11:04:37 2019 -0600
+
+    Add TCP Routing back in! (#158)
+
+commit d469bf5807b0fcc1b084345526586e64d35bc1bc
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Aug 1 00:03:12 2019 -0600
+
+    template entrypoints (#162)
+
+commit 5318ea47365a742f9d8b2f9238e1bfbf802d09ea
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 31 17:46:28 2019 +0200
+
+    Rename to maesh (#161)
+
+commit 33a1b9a8544f6bc1f9970f9eed0cf99931a1cace
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 26 20:31:38 2019 +0200
+
+    Feature/revamp tracing stack (#157)
+    
+    * rewrite the jaeger installation
+    
+    * revamp tracing stack
+    
+    * revamp tracing and metrics
+    
+    * Revamp after daniel review
+    
+    * Revamp after daniel review
+
+commit 38929a35e54c6bb28804d46ec6a3437088a2ad4f
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 24 16:37:52 2019 +0200
+
+    Add grafana and prometheus (#149)
+    
+    * Add grafana and prometheus
+    
+    * rename monitoring into metrics
+    
+    * fix for review
+
+commit 582c9cf9e0f12a7e2a0bfc5e6e184989a2ad4863
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 24 16:36:43 2019 +0200
+
+    use traefik:v2.0.0-beta1 instaed of experimental image (#154)
+
+commit 2ecde8e06b6e244dac56b30ac0455ee6073d2341
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 24 16:35:44 2019 +0200
+
+    Add helm lint (#155)
+
+commit 92dbe1fc24856c3a83ecec3a15e1736f9b928a49
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 24 02:53:48 2019 -0600
+
+    Improve Integration test (#153)
+
+commit 38f9f4615614d0548dee2f173f3aa8be63ec53b9
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 24 01:32:19 2019 -0600
+
+    Move from traefik-mesh to i3o namespace (#150)
+
+commit c63783f9f94a4fe094e991b2f81f04452fc3110c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 23 02:36:02 2019 -0600
+
+    Add SMI Test resources (#142)
+
+commit 9b1f491c4e962d86faa2eb06c081373f197cf3a8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 23 00:52:16 2019 -0600
+
+    update coredns tests (#147)
+
+commit e858d819cf62ad31264fa3827f0b123ca3627224
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 19 21:43:31 2019 +0200
+
+    Update traefik to version 2.0-beta1 (#143)
+
+commit a9108ee1b2f703a5cae3863ead20367cc16f07c6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 19 21:14:52 2019 +0200
+
+    cleanup after integration tests (#145)
+
+commit ea1cb62af169dffd76b370c4a7906e4bef0e2ac2
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 19 18:55:52 2019 +0200
+
+    Push latest docker image (#144)
+    
+    * Push latest dodcker image
+    
+    * fix ping command
+
+commit bcfe55360e2527c7297a8251e30ff542d3383ed2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 18 10:20:33 2019 -0600
+
+    use k8s_external instead of regex (#138)
+
+commit 13d637794d1d18c67e570d029f963dadc4cc8fdf
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Thu Jul 18 17:42:08 2019 +0200
+
+    Refactor integration test and disable coredns 1.5 too many issues with it (#135)
+
+commit 5ee7d7e69c7c60f64916ee128d43ee3f1b508163
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 18 03:34:41 2019 -0600
+
+    create block/whitelist (#136)
+
+commit ed0a5f0be7f5da7d3435d43b736b3cf3d6b65235
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 18 02:18:30 2019 -0600
+
+    add deepcopies to prevent modifications (#140)
+
+commit 043e9de3dd11476f3cde78886889437f52409a71
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 17 16:39:29 2019 +0200
+
+    feat: add cap retries (#134)
+
+commit eba038d3c38c1878d827595abe472eb1a0760dcc
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 17 16:37:24 2019 +0200
+
+    Remove unused config map (#133)
+
+commit 3f655ef0e6f506c95d11a9a319686840a3106cff
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 17 05:17:25 2019 -0600
+
+    Add readinesscheck and add readinesscheck enabler to config (#129)
+
+commit af71430df4abb6d68c2e4f20a0fefc9f042479aa
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 17 01:17:33 2019 -0600
+
+    add docs (#125)
+
+commit 49297e1fb219c3b6c8139264d9abb0dfd42b12cf
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 17 01:11:04 2019 -0600
+
+    Add new ignore/handler and pod filter (#131)
+
+commit 9d1b6198481e16d1433281847d3505e588d9cf1c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 15 12:52:36 2019 -0600
+
+    update traefik dep (#120)
+
+commit 3802b356a422d9c73c589078151101a7c80f6990
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 15 10:26:04 2019 -0600
+
+    Update SMI Provider and add tests (#117)
+
+commit 7e76dc73f91860a2ce5ae4e462ec52004037c20e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 15 00:43:12 2019 -0600
+
+    update deps (#118)
+
+commit f35f65a06a3c2b4f6400a69d6ebfbf0066090242
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 12 16:48:03 2019 +0200
+
+    Improve integrationt tests (#116)
+
+commit 8b54d0ec1c649921d3f0a85ac537e85e36edfd8b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jul 12 03:20:17 2019 -0600
+
+    Add version to configuration (#114)
+
+commit 6f1ec96b1e7cb676edd9a55803784779dba09f5a
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 10 21:24:11 2019 +0200
+
+    feat: check coredns version (#115)
+    
+    * feat: check coredns version
+    
+    * Merge patch and check and rename this command to preapre
+    
+    * fix integration tests
+
+commit d434aae56692cc7b452d65c7098b4923d84d3863
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Jul 9 18:29:46 2019 +0200
+
+    Use a DeepCopy of the configuration (#112)
+    
+    * Use a DeepCopy of the configuration
+    
+    * fix for review
+
+commit 2cf4b7d45c906810ab697b4513229006b4b47f39
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 9 07:59:35 2019 -0600
+
+    Auto deploy on mesh pod create (#110)
+
+commit 9036cd46a01df8a09a6618bfbc3e840ef3bc1ece
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 9 00:25:10 2019 -0600
+
+    add defaultmode and TCP routing (#108)
+
+commit abd9617ea88edcf2e6f838bfc4c5899279c1daa0
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 8 13:22:20 2019 -0600
+
+    Controller store configuration state (#105)
+
+commit bac2ebe427ec5c82ffd17d0c664e685935c76041
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jul 5 02:25:52 2019 -0600
+
+    Remove Base controller and Add SharedFactoryInformers (#100)
+
+commit 21bed7401ded0e49f18d6d0e16f56156cd93ddc4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 06:19:57 2019 -0600
+
+    remove unused controller types (#99)
+
+commit ce7e6df3786e08a737ee69fed11380e6fd716c86
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 06:03:39 2019 -0600
+
+    Kubernetes provider - 100% coverage baby (#98)
+
+commit bde866d5ae64350f3b56c83ea0ecdb3386e455bd
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 02:46:59 2019 -0600
+
+    update to CRUD naming for methods (#95)
+
+commit d9f2984b40827a330ba52a1369987bf58f5c9964
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 02:45:33 2019 -0600
+
+    remove CRD references (#94)
+
+commit 072c3847ee8cd58b86dc26985a6e9b284ffb3321
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 3 18:13:39 2019 +0200
+
+    Feature/smi provider (#85)
+
+commit 215e8bf374f2442efd3872d21f8c391ea874d62a
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 24 17:58:55 2019 +0200
+
+    Add jaeger helm chart (#79)
+    
+    * Add jaeger helm chart
+    
+    * move controller and mesh to mesh namespace
+    
+    * namespace tracing endpoint
+    
+    * move namespace in integration tests
+    
+    * move service to service file
+    
+    * remove zipkin and fix issues in the helm chart
+    
+    * fix integration tests
+    
+    * fix integration tests
+    
+    * fix for review
+    
+    * install tracing into traefik-mest namespace
+
+commit 2573b3a6f6c6d40f301c54a793f955e0ea969146
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 24 16:37:15 2019 +0200
+
+    Clean dependencies (#76)
+    
+    * go mod tidy
+    
+    * Add upgrade target in Makefile
+    
+    * Upgrade dependencies
+
+commit a23e2a47117e6d12c6e88396854638b8c2121d5b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Sun Jun 23 00:45:37 2019 -0600
+
+    Add Curl to integration tests (#81)
+
+commit 4a564c9468c0357740422148dbee1438c64cc556
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 21 16:35:11 2019 +0200
+
+    Simplify integration tests (#73)
+    
+    * Simplify integration tests
+    
+    * fix for review
+
+commit 373407963d9dfb122ffa1bca61c08fd293af98f3
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 21 09:46:26 2019 +0200
+
+    feat: documentation plumbing (#75)
+
+commit d269b760a09c208b24d0fcabfceec0fe375d3473
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 21 07:22:49 2019 +0200
+
+    Reoganize package (#74)
+
+commit b4e17cc932f1b80dbd0c9c7fbb889b96b56b6577
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 20 13:37:13 2019 -0600
+
+    Add README installation instructions (#72)
+    
+    * add readme
+    
+    * update coreDNS req
+
+commit d82cae3330254c9f5a9bece8a7ae925b0aa0b5b2
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jun 19 17:52:32 2019 +0200
+
+    fix: simplify code (#68)
+
+commit 12084a6b8b2c49272d8603f4030e73d941ff75e3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 19 09:45:33 2019 -0600
+
+    Add SMI CRD into client and controllers (#66)
+
+commit 39107c22212bc0476be49b0ccab2b5f4e0cf7265
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 19 09:27:14 2019 -0600
+
+    Allow updates from objects (#59)
+
+commit 765b1345e4b335f773a0bf09317e3a30f4ed454e
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Jun 18 21:00:54 2019 +0200
+
+    test commit (#58)
+
+commit f8c8094a9354a6f0d6709414d08b37a49d246210
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 18 08:48:18 2019 -0600
+
+    Create TCP Routes (#52)
+
+commit a5143bef70d0a8a2834c9a38c2e89971afb163a6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 17 18:37:50 2019 +0200
+
+    Add integration tests (#29)
+    
+    * Add integration tests
+    
+    * fix for review
+    
+    * fix after rebase
+    
+    * fix integration tests
+    
+    * use last traefik version
+    
+    * fix controller rbac
+    
+    * fix for review
+    
+    * Change api server port
+    
+    * fix port
+
+commit 2d693bf786304a78a5e6136f7a030ddc28ec944d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jun 17 02:54:21 2019 -0600
+
+    Allow for multiport services (#50)
+
+commit f611501b8afd313ab412917ef4bd49059eca1f9e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 08:07:29 2019 -0600
+
+    Create new CoreDNS Server Block (#48)
+
+commit 125937ff86787944beb9b5db539e817f68c928e5
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 08:00:02 2019 -0600
+
+    Fix CoreDNS Patch (#43)
+    
+    * force restart by patching deployment annotation
+    
+    * Do deepcopy for deployment manipulation
+
+commit 9b0e32a13ffb80b1d8073f48d988a9397d4f2e73
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 07:51:06 2019 -0600
+
+    Update CRD Object (#41)
+
+commit 6697354ce060c726b8dbf27356a74800613dc8f3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 07:44:10 2019 -0600
+
+    Create Patch job and associated RBAC (#35)
+
+commit df590247cdaea2ed77a00dd89a0e7cd67f0e0716
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Thu Jun 13 17:39:19 2019 +0300
+
+    Remove utils package (#34)
+    
+    * Remove utils package
+    
+    * Add missing traefik crd middleware
+
+commit 84ede333c9bdae55c804b0454b33affb2157b1f7
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 13 01:29:08 2019 -0600
+
+    Mesh Handler create CRDs and Services (#30)
+
+commit b46c09d442aadfc1ebe723787b72c934011f7985
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 22:47:00 2019 -0600
+
+    safe logging (#33)
+
+commit 7f9d3ede65c11eccd4ad1faaaab88ccb85ac7274
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 02:39:52 2019 -0600
+
+    Create Patch command (#28)
+
+commit 62baf0bfa8c49c34799fc2ef114448ca33876ad6
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 02:07:15 2019 -0600
+
+    remove traefik daemonset (#25)
+
+commit fff175a096cc607504c2476061de19170ffe429e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 02:03:22 2019 -0600
+
+    create CRD (#24)
+
+commit afe80b8a2a40ce8d4693a3d6298840117ad67b71
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 11 08:49:29 2019 -0600
+
+    Create Helm Chart (#16)
+
+commit eabf026fe27d77f27dd3c672c123c72b2dd676c8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 11 01:57:57 2019 -0600
+
+    Add CRD Controller to Mesh Controller (#12)
+
+commit 8886fda771272e2c146c821d474cdf670a668f05
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 11 00:51:49 2019 -0600
+
+    remove demo data (#13)
+
+commit 966c271fd9d1c5b61cfc74d60f71ad80998c8eae
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 10 04:47:26 2019 +0300
+
+    feat: build in docker (#11)
+    
+    * feat: build in docker
+    
+    * Update Makefile
+    
+    Co-Authored-By: Daniel Tomcej <daniel.tomcej@gmail.com>
+
+commit a47d1cd4131fce56e387e39aff6590cb6ddb85db
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 19:49:19 2019 +0300
+
+    fix log import (#10)
+
+commit 5276f09cdb920413823e260d1cf2058370f7ac98
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 19:34:39 2019 +0300
+
+    Small refactoring + add go modules (#9)
+    
+    * Small refactoring + add go modules
+    
+    * export GO111MODULE in makefile
+
+commit db104919e4a844207a6f133eaa23a46c2abdfaf9
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 18:48:26 2019 +0300
+
+    feat: improve makefile + docker image (#6)
+    
+    * feat: improve makefile + docker image
+    
+    * use alpine in version 3.9
+    
+    * fix: image name
+
+commit 2b1fc63d48e1686b1594f9160725bd48186886ea
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 7 09:40:40 2019 -0600
+
+    update binary (#3)
+
+commit 909b265d7cb770606e12dc7065eb00b0850d0887
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 18:17:43 2019 +0300
+
+    fix imports (#1)
+
+commit 16829c02c6a76c2d089d72bc21af3ec3de8584b9
+Merge: 91da194 981e274
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 7 08:56:10 2019 -0600
+
+    Merge branch 'master' of github.com:dtomcej/traefik-mesh-controller
+
+commit 91da1942e4ba03aed71a5537f94726271d985d33
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 7 08:55:40 2019 -0600
+
+    vscode
+
+commit 981e27413163ef01f353ca8dece2ce1df1819a0e
+Merge: 8ea218f a5bb22a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:48:54 2019 -0600
+
+    Merge pull request #2 from dtomcej/golangci-lint
+    
+    all the lints
+
+commit a5bb22a5acc80fbb107e504f15d7fa73ce87d0ec
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:47:45 2019 -0600
+
+    all the lints
+
+commit 8ea218f264083d566c728e354a83165d1c285404
+Merge: 3a9a6ad 61a16f8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:12:00 2019 -0600
+
+    Merge pull request #1 from dtomcej/create-controller
+    
+    Create controller
+
+commit 61a16f8304a4c84a6c17eed1bf250ee11df1cf74
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:05:34 2019 -0600
+
+    use mesh-level handler
+
+commit c0cece83875de874633cbf6a4e34ac63e118d445
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 19:40:37 2019 -0600
+
+    remove useless structs
+
+commit 3bff2d7bc7c5ed3ed249f549f2f2ac81cd987f5e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 19:38:04 2019 -0600
+
+    move methods to utils
+
+commit 35351714d3507d5e24d66454e2e8e04f521eb519
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 16:50:07 2019 -0600
+
+    add multiple controllers
+
+commit cf16c64ceca239883ed5be30a143f1d264fff37a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 15:27:56 2019 -0600
+
+    multiple controllers
+
+commit 0911574963200f8fda3a274ed632d86f6b4f9db3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 12:53:21 2019 -0600
+
+    create base controller
+
+commit 3a9a6add24f1126d6d458f4daf851cafe6e38173
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 22:15:17 2019 -0600
+
+    fix config volume
+
+commit 8b0a0b728898fefe6af82abe2b99f7d48fc226ca
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 16:38:01 2019 -0600
+
+    add traefik mesh pods
+
+commit 5da481917cdeff2ebd71eb69c873005d9b5a5a6a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 15:19:31 2019 -0600
+
+    use templated struct
+
+commit 427dbb37ee4ce579d87caf4a0e467279257e161a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 14:57:01 2019 -0600
+
+    add templates
+
+commit ee0f0754aea5ce7e42157ed58c726ddda33e2f23
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 19:46:02 2019 -0600
+
+    tiny fixes
+
+commit e4ce15d795e14e9a1501a2432ee5037aa828de65
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 16:41:03 2019 -0600
+
+    add demo
+
+commit 00c986b7459f3fd592ab4eae814ab316e2d4a03c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 15:37:35 2019 -0600
+
+    move client config to method
+
+commit 4aa509b3bb01ef6148c36dac672140452967d964
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 15:30:23 2019 -0600
+
+    skip restart if no patch
+
+commit 92b9e9028aea27f43804ccfbc27474a693d6cf04
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 15:21:37 2019 -0600
+
+    patch coredns pods
+
+commit c546e1f9b9e16d43376b13ec3cc5237efa15d714
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 14:22:12 2019 -0600
+
+    cycle coredns pods
+
+commit a38b57c49a5db5cfb48661b86c06566abc87ffee
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 12:04:31 2019 -0600
+
+    simple list
+
+commit 9af223010808d15eae6cc2f542572850ea912ac2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 11:05:19 2019 -0600
+
+    vendor
+
+commit 391b21a2725a17558e3d52ff1e63652cd596eb43
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 10:59:38 2019 -0600
+
+    add base main
+
+commit 31edc96721235548b3b60b4469eb0fbf6588eb62
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 3 13:59:07 2019 -0600
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 50641c4537999f14c56c7ee3b7b67a1cb192e9b4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 7 00:24:04 2020 -0700
+
+    Add Cleanup Command
+
+commit e4df8eb5e57fd67f88648e505800f3ac158f1e3c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Wed May 6 19:36:05 2020 +0400
+
+    Add log level configuration property to commands
+
+commit 3fb6e29d405ea6a937b628d44c771e4be8ac2d07
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Wed May 6 14:14:05 2020 +0200
+
+    Cleanup port mapping before getting a new port
+
+commit c33ee0f3644989f6e76cf027a55b0a5861515506
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Wed May 6 12:06:05 2020 +0400
+
+    Remove deployment api endpoint documentation
+
+commit 71e9b6652e78f9773ac9bdecafb095985354b1cf
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue May 5 21:42:03 2020 -0700
+
+    Add custom namespace to helm rewrite
+
+commit 97430e229be86b46e26ea9c7928d4fe6bbb2be49
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Tue May 5 16:58:04 2020 +0200
+
+    Multiple middleware support & annotations refactoring
+
+commit 6d90b6526934a4cd5570b6d580c7b0b1be50e94e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue May 5 00:28:03 2020 -0700
+
+    Update Deps
+
+commit eed2b962b8c6d4d77cab0079be661635c04fb0fb
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon May 4 20:44:04 2020 +0400
+
+    Remove unused env variable POD_IP in Helm chart
+
+commit 563c04e5527ceee434223b7bdffefe2f14c7d04a
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon May 4 20:22:04 2020 +0400
+
+    Fix missing UDP port limit config in Helm chart
+
+commit 9a5390f6e8867256cad836424899fe0fc9f8126e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 4 05:32:03 2020 -0700
+
+    Add HTTP provider to proxy nodes
+
+commit 00b3cd6a46ec20f34d68dd400a87418a411b0789
+Author: LandryBe <landry@containo.us>
+Date:   Mon May 4 11:48:13 2020 +0200
+
+    Inject errors in topology
+
+commit 8284a717af63bdd1f41c1cf1ba2f124f805b02f1
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Fri May 1 23:24:03 2020 +0400
+
+    Upgrade Traefik dependency version to v2.2.1
+
+commit f2214b90add7aae40acea8397b6ece636c8959b3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 1 07:24:05 2020 -0500
+
+    Remove unneeded Helm install
+
+commit a891ae3d0fb34fc486d0152fcbf2f98dd0268b62
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 1 07:06:05 2020 -0500
+
+    Add more topology keys
+
+commit c06f510b8e7b6b8e0287fe59d662317c4eeb18b4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 1 06:48:03 2020 -0500
+
+    Update github templates
+
+commit 0736f78c779441522a109652522a558fdb26f35e
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 30 21:08:04 2020 +0400
+
+    Remove deprecated SMI option in the Helm chart
+
+commit 62712a91f187a90243e4e20e1a7e1adde59c64a8
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 30 13:52:05 2020 +0400
+
+    Add Go report card badge to readme
+
+commit 66bbdb3ef3540ea2f725ade4f1aaec57a5fe8a85
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 30 12:08:05 2020 +0400
+
+    Implement UDP traffic type
+
+commit 5101960311b5c34db37299731ccab6186751fa31
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Apr 28 12:06:05 2020 +0200
+
+    Remove dependency from provider to topology builder
+
+commit b658695920fb9aed429b507841e4e437207eb626
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Fri Apr 24 23:30:04 2020 +0400
+
+    Disable mesh proxy dashboard in Helm chart
+
+commit b4cb8f2c29cb304b0f5beafa01dda9e826f491a8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Apr 21 05:48:05 2020 -0500
+
+    Create Maesh Proxy command
+
+commit 6e594365d1e0b2c39ec6fa38f81b043252a3da17
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon Apr 20 18:28:06 2020 +0400
+
+    Fix broken edit link in the documentation
+
+commit 3852d9e6b427866075d0027d73dd1a4d5041fd10
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Fri Apr 17 17:05:10 2020 +0200
+
+    Fix panic when pod IP is not yet assigned (#507)
+    
+    * Fix panic when pod IP is not yet assigned
+    
+    Pods with no IP are filtered out in the TopologyBuilder. When collecting
+    the different pods for a TrafficTarget, we are refering to a pod
+    which can have been excluded. This is done without checking if the
+    key is in the map, leading to a panic.
+    This commit intent to be more protective on map access.
+    In the same time, log message and errors have been cleaned so they
+    don't mention two times the same information and use the Key everywhere
+    instead of the "namespace/name" format.
+    
+    * fix: Repare ACLDisabledSuite.TestSplitTraffic
+
+commit 581ebbb67cd4e947882732fbf3b3df6dd72b29b8
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Apr 17 11:12:04 2020 +0200
+
+    Fix discrepancy in prepare interface
+
+commit 6d0334adfd868c086d3c1bc96485725267da499c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Fri Apr 17 00:14:03 2020 +0400
+
+    Use semaphore build cache when running ACL integration test suites
+
+commit e6ae31dc13e2f17498119c15aed78704d8e89549
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Wed Apr 15 19:12:04 2020 +0200
+
+    ACL flag with reworked SMI/Service handling
+
+commit d7b6546a19f706306aa035c67d36eeac313ff25a
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Tue Apr 14 12:06:04 2020 +0400
+
+    Add a contributing section to the documentation
+
+commit 1adbb2a5bd646f50afe6d1571e3e8f0ac730bcb9
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Thu Apr 9 13:34:05 2020 +0400
+
+    Add semaphore build cache
+
+commit b46011c4cbca542930b3167b3ddb089bac13c555
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Apr 8 13:04:03 2020 -0500
+
+    Remove old dependencies
+
+commit e2d6e8fe31cec64e6994e5382bb737a3932dbf2c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Tue Apr 7 18:04:03 2020 +0400
+
+    Fix documentation typos
+
+commit bb67e2212a2a7eb47c1c454318077ef29d1835a4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Apr 6 08:32:04 2020 -0500
+
+    Add service topology key logic
+
+commit 570613fc96825f179067b4c75fd019f1dedb448c
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon Apr 6 16:56:04 2020 +0400
+
+    Fix non working pull request template
+
+commit 849a65092f9c05ed536f8e71a5acf04fb968b506
+Author: Kevin Pollet <pollet.kevin@gmail.com>
+Date:   Mon Apr 6 16:08:05 2020 +0400
+
+    Fix typos
+
+commit 6894b63148fa7527e820e362e9b028a89454ccd7
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Apr 3 10:56:04 2020 -0500
+
+    Upgrade traefik and deps to 2.2.0
+
+commit 84b646a6fd8925cba9376ad4cbce6354f965aced
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 23 07:42:05 2020 -0500
+
+    Update Travis to build on Go 1.14
+
+commit 18dd4a925517a63dbbbf1927e1ff68219da60d4a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 23 07:26:05 2020 -0500
+
+    Remove unneeded translate error method
+
+commit b32174cfd2324c3bac0d0a6a1b92bc243b5d4e38
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 18 09:58:04 2020 -0500
+
+    add source build note
+
+commit 2a0cbcf15504705cf1ad80f087fa4581947b3bd8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 18 09:42:05 2020 -0500
+
+    Update to Go 1.14
+
+commit b9159bd3c58fd08d4aedb82fb532981470619c43
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Mon Mar 16 16:12:04 2020 +0100
+
+    Fix port-mapping cleanup for HTTP services
+
+commit 052877179424db4cca5b2a55eb4ae598365c601b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Mar 13 07:36:06 2020 -0500
+
+    Implement the rest of the logger interfaces
+
+commit 8116418ceb753ea3896daca50c42242f58a65d50
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Mar 13 12:54:05 2020 +0100
+
+    Refactor `prepare` package for external use
+
+commit 68f8f6c37dfdd3516142a0c4886a98d24a603351
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 11 11:24:04 2020 -0500
+
+    Use logrus.FieldLogger for logging
+
+commit f0d0ffe11ee6425e5c798b92898dfc99ca8b3bf1
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 11 07:48:04 2020 -0500
+
+    Add CoreDNS Readiness check and Update Traefik Version
+
+commit 724323a9912440639969d756679ce4d08dd7f937
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 9 12:12:04 2020 -0500
+
+    Move prepare code to its own package
+
+commit 810acf52498f26ebcb206b08945e3fa346fe38de
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Mar 9 10:52:07 2020 -0500
+
+    Mergeback v1.1.0
+
+commit 3b17ccc0b4c1d31086d18ba67f4fd672af914238
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Fri Mar 6 15:54:04 2020 +0100
+
+    Update traefik version to v2.1.6
+
+commit dbeb2ca554e1cf9c8ffafaf61cd934a500ccca1d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Mar 4 09:32:04 2020 -0600
+
+    Add missing Dir
+
+commit b27daf7bb43ac333f48325ad6006584bb8263082
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Wed Mar 4 14:22:05 2020 +0100
+
+    Cleanup TCPPortMapping when updating/deleting a shadow service
+
+commit ffb9836c53a9447b25b30eb1e6f75ae5bea0eb33
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Mar 3 08:36:06 2020 -0600
+
+    Move to client interfaces, and create fixture tests for API and Controller
+
+commit a99f3fd0c445aef0f3227ba18e94756d1b0a7341
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Mar 3 01:56:05 2020 -0600
+
+    Fix CI for gh-pages branch
+
+commit 0af1cfa47e8901c5a1d4a4f93e7e6272cf29d184
+Author: LandryBe <lbenguigui@gmail.com>
+Date:   Thu Feb 27 20:36:04 2020 +0100
+
+    Shadow service manager
+
+commit 07d868afe9f62d1270ca432e3183235f4219f4fe
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Feb 27 13:14:05 2020 -0600
+
+    Add host to API bind
+
+commit a76bd7606b051ef20d9a62e86ffbbd58f62a267a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Feb 27 09:06:07 2020 -0600
+
+    Add bug report template
+
+commit 176ddd2b0a7848d9fd6eb49c30868589f038ca3f
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Feb 25 11:20:09 2020 -0600
+
+    Wait for Pod IPs to be assigned in Integration test
+
+commit f939d602e5829145698110804afc3e03b27d418c
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Tue Feb 25 17:14:05 2020 +0100
+
+    Extract TCPStateTable logic from the controller
+
+commit a6a1c9179d1172e34d06bf12c671cbff38a5d9f6
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Feb 24 07:48:07 2020 -0800
+
+    Mergeback v1.1 rc2
+
+commit c762a46ee2c45c23d619f8a794d29566afbf8f6d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Feb 24 06:50:05 2020 -0800
+
+    Update k3s to use k8s 1.17
+
+commit ea24dac863af31191961db3877a9d958d4368b5b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Feb 24 06:04:06 2020 -0800
+
+    Update SemaphoreCI Badge
+
+commit 2533c652a29f376836f455651576c1e8012157ea
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Mon Feb 24 14:06:05 2020 +0100
+
+    Move `/internal` packages into `/pkg`
+
+commit bc5eda0bebb727e97781b35282030fd559775dbd
+Author: Harold Ozouf <harold.ozouf@gmail.com>
+Date:   Thu Feb 20 18:24:04 2020 +0100
+
+    Wait fort the k3s cluster to come up before running tests
+
+commit 2d250776f3edb97da48e7a4b7d2b77cdee886277
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Feb 12 16:42:04 2020 -0600
+
+    Setup semaphore v2
+
+commit 2f4ba2c21bacdcc87511913555dedbe27c274c2b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Feb 12 11:50:05 2020 -0600
+
+    Allow single test suites to be run
+
+commit 36966ac8e16962adb116007656073f04d4b11a0a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Feb 12 07:54:05 2020 -0600
+
+    Add informer sync test to prepare command
+
+commit ccc118f7e7dbbf7006d37180dbc96ed22be94e8b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Feb 7 12:12:05 2020 -0600
+
+    Rework Integration tests
+
+commit 4c9df07c5d7e9af6ac2d2b6964b5e3e463e88f38
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Jan 27 15:20:06 2020 +0100
+
+    Document release process & steps
+
+commit cfa60a05bb5fad5975ef6c4b6ec17ac2ae6a1881
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jan 23 02:32:04 2020 -0600
+
+    Fix chart directory
+
+commit f29a256b1b01f672ccacc2b93bf322c8a9464964
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jan 22 07:52:06 2020 -0600
+
+    Prepare release v1.1.0-rc1
+
+commit 004672e25e759c93632bc24f2a0c1e047fdc0093
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Fri Jan 17 17:52:05 2020 +0100
+
+    Copy CNAME File to get docs working again
+
+commit 89c2246dfefab0b7ecb73bbc548133e74daee1cc
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Fri Jan 17 16:08:06 2020 +0100
+
+    Add Versioned docs
+
+commit a743485d2b892785884b807ebb91510a29b6eab8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jan 8 10:20:06 2020 -0600
+
+    Rework test condition
+
+commit e843c57cc8278039439f77ef8ee071f99a1b8ac0
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jan 6 12:04:04 2020 -0600
+
+    Use Listers instead of API Queries
+
+commit 74659f134c4ba72c883436b6f3bc9b7f0723100c
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Jan 6 17:28:04 2020 +0100
+
+    Add Configuration to use HTTPS as scheme
+
+commit d8ee00ee63dcb1fd3ae61521211faaae871460b8
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Jan 6 16:52:04 2020 +0100
+
+    Add a note about helm v2
+
+commit 10c757a657046abcd2083176f930edaa5a792df9
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Dec 18 10:40:04 2019 -0600
+
+    Use custom separator for service name and namespace
+
+commit 935aa53e231533b1659f5a61ebca11182e0a98e7
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Tue Dec 17 15:58:05 2019 +0100
+
+    Update Traefik to 2.1
+
+commit be7664c15695d25533a15b4f4eebdbb18c67d48d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Dec 17 04:36:05 2019 -0600
+
+    Fix Travis Builds
+
+commit 3fe5b4016c3ee155b391995dcc056ec05fc70083
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Dec 17 04:18:05 2019 -0600
+
+    Upgrade helm to v3
+
+commit 9df6560a91976e9fc238b84a51c4a160034e05d1
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Dec 3 10:40:04 2019 -0600
+
+    Add influxDB and statsD to metrics
+
+commit 57034190920d82d06476673f81bc77cbe92b74af
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Dec 3 16:30:06 2019 +0100
+
+    Upgrade python version to 3.7 for netlify
+
+commit ce7b89f531e993c388716d9a0a6a21ba846b73e9
+Author: Volker Thiel <riker09@users.noreply.github.com>
+Date:   Tue Dec 3 16:06:06 2019 +0100
+
+    Use initContainers to fix volume permissions
+
+commit 1312e3b703575104715504402bd669c609231f67
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Nov 28 13:18:04 2019 -0600
+
+    Add zipkin/instana/haystack to tracing
+
+commit c5e207bf4a0daf36d75a5d5de8eb5c6c97726cc5
+Author: valerauko <vale@valerauko.net>
+Date:   Fri Nov 29 00:18:04 2019 +0900
+
+    Make metrics subchart more configurable
+
+commit c3859536fca07fe0e672e7d9a75a9ba79e0c9297
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 26 09:20:07 2019 -0600
+
+    Add datadog metrics
+
+commit 32d01767ff3cf695c0ca07a6a372044c64f21bf8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 26 09:10:06 2019 -0600
+
+    Add datadog tracing
+
+commit 3a9bfa3d6e85e4ac0c55158431570fc19a9ff7fb
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 26 15:54:05 2019 +0100
+
+    Run in single namespace
+
+commit e22a654d733aba4db325bd482890cce50215e9c1
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Nov 25 10:20:05 2019 -0600
+
+    Update Doc for CRD deployment
+
+commit 69ef4066365bedfea6cdb17fb0090c61370ed00b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 20 10:28:04 2019 -0600
+
+    Prepare Release v1.0.0
+
+commit 6498d0fcf774aa46198c7e01e95c82a605408e51
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Nov 20 08:16:05 2019 -0800
+
+    Bundle SMI CRD's with helm install
+
+commit 4277411da3f05a6abe8d351ef7a95070db9e212f
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Nov 20 16:56:05 2019 +0100
+
+    Fix panics in SMI & Kubernetes provider
+
+commit ee35a5b7c3167334c3fa8b6f8bea3f3eb5785774
+Author: Damien Duportal <damien@containo.us>
+Date:   Tue Nov 19 18:22:04 2019 +0100
+
+    Enforce HSTS with netlify toml config
+
+commit a4b4259afbed618b5fb66f50a19294c86dd688e1
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 19 05:08:04 2019 +0100
+
+    Document Maesh and SMI
+
+commit 2385323d060783da5b27641b1f096e925f88db44
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 19 04:58:04 2019 +0100
+
+    Add demo example in the quickstart guide
+
+commit 85f4377551e7434155db62b2ce173c6a62fd261c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Nov 15 02:14:04 2019 -0600
+
+    Add platform recommendations
+
+commit 4e38d289e5124fb172f8e6a28702dead7ae14688
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 13 09:56:04 2019 -0600
+
+    Prepare Release v0.8.0
+
+commit f108f49dfe3294143d73604fab4b2fcfbb13e5c2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 12 16:32:03 2019 -0600
+
+    Create a cap for the max number of deploy log entries
+
+commit 0673eda75d974e5ae7b38357c376c6d24a9647fa
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 12 15:20:04 2019 -0600
+
+    Add API documentation
+
+commit 1d85a6683daf11e4993eaf9b322e20ae5b513e8f
+Author: Julien Levesy <jlevesy@gmail.com>
+Date:   Tue Nov 12 16:48:05 2019 +0100
+
+    Deploy to pods in parallel
+
+commit 2ccd00298c0fa2d77177ad1fa8919e3225ac787e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 6 12:50:04 2019 -0600
+
+    Add Cluster Node Status and Configuration endpoints
+
+commit 73a1a7032dcce7b95179ee13a76ace9575438a6c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Nov 6 10:14:04 2019 -0600
+
+    Create a deploy log and wire to API
+
+commit 68a66130a1e21fd1e29f877d38ca47385c259fcd
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Nov 6 16:49:34 2019 +0100
+
+    Add PR template (#340)
+
+commit dcbefc1ebf27af33251cdfd59e9e37972c22fe3f
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Nov 6 16:48:48 2019 +0100
+
+    Add examples to doc (#338)
+
+commit 8feaea077c22b8394d7b2a98a02235c9ac972cf9
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Nov 5 10:08:05 2019 -0600
+
+    Create API on the controller
+
+commit 19b16aa0e233ec25ec42d8798b48e8e78dcac863
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 14:16:04 2019 -0500
+
+    Re-add ignored namespace
+
+commit 0281c04d513d51f708221dd4aadd44317e695bd4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 11:24:04 2019 -0500
+
+    Pin k3s version
+
+commit 64d604f2b2d8c20997b6e902e71a232a7829de80
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 09:36:08 2019 -0500
+
+    Refactor ignorewrapper
+
+commit a5aefd1d28a51b62ab9e2fd6d236144ce2aecc2e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 09:18:05 2019 -0500
+
+    Move liveness to dedicated entrypoint
+
+commit 79be5f120ce4c8961ff96650b36e27d24c59ef90
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 09:10:06 2019 -0500
+
+    Remove local-test-integration
+
+commit 50b90826c0a351a13928e7d609a1e124d6913db2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 30 08:54:07 2019 -0500
+
+    Implement rate limit
+
+commit 94d459b6b485d419de1ae863f3246d3c969a8e8d
+Author: Max <xamrennerb@gmail.com>
+Date:   Mon Oct 28 16:20:07 2019 +0100
+
+    add spec.selector field to Helm chart dependencies
+
+commit f3152ba856b5c4f0acf9f677e5a4fb1ac84405d2
+Author: Ludovic Fernandez <ldez@users.noreply.github.com>
+Date:   Mon Oct 28 10:16:04 2019 +0100
+
+    fix: linter timeout.
+
+commit 2e23db7c13587d48b28b187631835fdd408ffd9e
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 23 17:20:05 2019 +0200
+
+    Prepare Release 0.7.0
+
+commit 5db4d13ca813fed770ccad384442f1c29e0dfec4
+Author: Max <xamrennerb@gmail.com>
+Date:   Wed Oct 23 16:42:05 2019 +0200
+
+    make cluster domain configurable
+
+commit 2f057a10505eede088d02e47614f0509de4ae62c
+Author: Fredrik Lönnegren <fredrik.lonnegren@gmail.com>
+Date:   Wed Oct 23 16:18:05 2019 +0200
+
+    Add tag from values, default to v2.0
+
+commit 789c74092ea2ff46da4b2b14fe8a9bca6f51f3c9
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Oct 23 15:34:05 2019 +0200
+
+    Upgrade helm to version 2.15.1
+
+commit a51e0ceeda85e2df00e13bc31f1006359dec56f3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 23 02:02:04 2019 -0500
+
+    Deploy to unready nodes
+
+commit ad51716d66cc0e7e3b17c8a1262261df8f7b88e1
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Oct 22 19:06:04 2019 +0200
+
+    Upgrade golangci-lint and fix helm version
+
+commit 53c7323b42179c02aaf2f452649b0b78ecc0768a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Oct 17 10:54:04 2019 -0500
+
+    Remove deprecated extensions/v1beta1 API group
+
+commit 7f7eac4660884bf4b5c1ec4c40e073f18ce0dc08
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Oct 17 10:44:03 2019 -0500
+
+    Reduce Gocyclo to 15
+
+commit a5e73c116a232e17216ebefd8f1186ace22a7711
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Oct 17 10:24:05 2019 -0500
+
+    Deploy configuration to mesh pods even if config hasn't changed
+
+commit aa9496b0443f97a49d6208a7915609acc698fa46
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Oct 16 17:02:05 2019 +0200
+
+    Fix panic when deeting a ns
+
+commit 1a4bae58381455a3616b187af4225c4a1789d38a
+Author: Fredrik Lönnegren <fredrik.lonnegren@gmail.com>
+Date:   Wed Oct 16 16:10:05 2019 +0200
+
+    Add nodeSelector to mesh-daemonset.yaml
+
+commit 2437edc864c6b5afacf8d8953fbc722bcefa0780
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Oct 15 16:28:05 2019 +0200
+
+    Prepare release v0.6.0
+
+commit d4fb8edca3745842f80204c924a70eee09f7057f
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Oct 15 15:52:05 2019 +0200
+
+    Update traefik version
+
+commit 4cea3435c301fdd924168c9324814d59439dd060
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Thu Oct 10 10:48:05 2019 +0200
+
+    Feature/scheme service
+
+commit 41d5f1b8aff8ce14606b0219aaa09863914e3360
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 9 22:08:03 2019 +0200
+
+    Prepare release 0.5.0
+
+commit 2c429c908847df260f45ac908b9a4900d4a0f758
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 9 21:32:04 2019 +0200
+
+    Add SMI Support for TCP
+
+commit 1b6096a3b8e469e6f3b96e08297a1ad9e527fe82
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 9 14:02:03 2019 -0500
+
+    Remove Queues, and use channels for processing
+
+commit 7ebc1a2485a7bcfc3065b8b9cd728d0ee57d89a4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 9 07:06:04 2019 -0500
+
+    Update golangci-lint to 1.20.0
+
+commit 53c81047f68ce0acadc6d5491cb2977312955f5f
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Oct 8 11:30:05 2019 -0500
+
+    Remove Configuration state from controller
+
+commit 53f2a869992c795f8fa6a2b75f2701d7100b16dd
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Tue Oct 8 15:16:05 2019 +0200
+
+    Check for Jaeger values set or take default
+
+commit 1963aa3a3843efe7deaa1b7d1369227b4feefa21
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Oct 8 07:50:05 2019 -0500
+
+    Move SMI provider to be stateless
+
+commit 244d4f2ec3eb9128617cb35e710bdf0284fd3777
+Author: Mario Constanti <github@constanti.de>
+Date:   Wed Oct 2 16:28:05 2019 +0200
+
+    image-names can be defined for all helm-charts
+
+commit 2e754d4a0c4e34e8d12b2b41dfc1c5d7ce9170ff
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Oct 2 08:58:05 2019 -0500
+
+    Move hooks to init container and subdir
+
+commit 922039336fee84b72c9567e9355925eae49ef69e
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Oct 2 15:30:10 2019 +0200
+
+    Check the coredns pod volumes for being a configmap
+
+commit 5cb7ffcc88a29343a934f5d09c4edbf7bb09fa79
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Oct 1 13:50:05 2019 -0500
+
+    Move to stateless Kubernetes Provider
+
+commit 8974b12dd686e9ac135ce1a2e1128083a404ceff
+Author: Mario Constanti <github@constanti.de>
+Date:   Tue Oct 1 15:18:06 2019 +0200
+
+    Maesh helm install namespace aware
+
+commit 74a1946228d045d64217c1545eb6c2284cca04ff
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Wed Sep 25 17:30:07 2019 +0200
+
+    Make Ignorenamespaces better manageable
+
+commit 8e2f1dd7a26e71923cb4e5ce2fbe4c5a16349aa6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 24 15:20:04 2019 +0200
+
+    Add support for kubedns
+
+commit 303c153477a335d67a3e8619c6a53a7073005460
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Sep 18 10:30:05 2019 -0500
+
+    Use k3d to create k8s cluster instead of compose
+
+commit 6d0a0d2a998c4bd94715bb0529404f4e23fffbf6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 17 13:36:03 2019 +0200
+
+    Prepare release v0.4.0
+
+commit f800b0e7ae37cce8519efc624d13b7cc66d947ce
+Author: Rafael Fernández López <ereslibre@ereslibre.es>
+Date:   Tue Sep 17 10:52:04 2019 +0200
+
+    Improve grafana and prometheus liveness and readiness probes
+
+commit ef3f2d52ae4c9b6332ac3bab9a9c8ab969ec165d
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 17 10:46:05 2019 +0200
+
+    Migrate to traefik 2.0
+
+commit ebe0d1beab6469789bccc710a02bd8d9bb3dc59f
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 17 10:30:05 2019 +0200
+
+    Improve metrics and tracing chart
+
+commit c604ab08ea10c1444aac17480471551390d1db66
+Author: Rafael Fernández López <ereslibre@kde.org>
+Date:   Tue Sep 17 10:20:04 2019 +0200
+
+    Add note about tiller RBAC on the quickstart guide
+
+commit 74e566128272603caa68cddbb4845740a4bc37e7
+Author: Craig Newton <newtondev@gmail.com>
+Date:   Tue Sep 17 10:06:03 2019 +0200
+
+    Added nodeselector, tolerations and affinity to deployments and daemonsets
+
+commit 141a2cbc7a858140f3fa70a2187eec9f3b9b4db5
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Sep 16 17:50:04 2019 +0200
+
+    Prepare release v0.3.0
+
+commit 68af6de385fb672a6dc85186acd61d9e2b2b48b2
+Author: Nicolas Byl <nico@nicolas-byl.eu>
+Date:   Mon Sep 16 17:32:05 2019 +0200
+
+    fix: maesh daemonset is not scraped by prometheus
+
+commit 626d1f60df521891474c4dd8a731959c5802df23
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Sep 16 17:18:03 2019 +0200
+
+    add static configuration option for ignore namespaces
+
+commit 47d2a8d05fcdeff448f6f0477aee86530471ef69
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Sep 16 14:16:04 2019 +0200
+
+    Prepare release v0.2.1
+
+commit b178cdddac9a0c2fcf714c8d94152aada51e981d
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Sep 16 12:24:05 2019 +0200
+
+    Fix helm version
+
+commit cd3692f16c9204efa6a429d4c421245104c7588e
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Sep 16 12:18:04 2019 +0200
+
+    Upgrade to golanci-lint v1.18.0
+
+commit 8e424d4bc6cf610094aa2e34a2e1fc62088c48b0
+Author: Nicolas Byl <nico@nicolas-byl.eu>
+Date:   Thu Sep 12 16:30:05 2019 +0200
+
+    fix startup on kops clusters
+
+commit 71f1698418ba4f0b3ec68e6462b52ad62a8be328
+Author: Emile Vauge <emile@vauge.com>
+Date:   Wed Sep 11 21:26:03 2019 +0200
+
+    Fixing my mistakes
+
+commit 01c855693df3609995d0d4936c3bb266b1b91d53
+Author: Emile Vauge <emile@vauge.com>
+Date:   Wed Sep 11 19:44:03 2019 +0200
+
+    Add few links & badges to README
+
+commit de5148cc843da01a8569e455f6bbd022f589fcd7
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 10 16:32:05 2019 +0200
+
+    Fix helm chart metrics version
+
+commit 1f2957b8dca2b1bd2d4617a8a44dddbbf150b0c7
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 10 16:06:05 2019 +0200
+
+    Add support of coredns 1.5 and 1.6
+
+commit 5a5bd59e54f6630d1883f605e1da47f1049ec558
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 10 10:46:05 2019 +0200
+
+    Fix CNAME for documentation
+
+commit 9d871f97692f7c5d7b50ef186383181707d92374
+Author: Manuel Zapf <manuel@containo.us>
+Date:   Mon Sep 9 21:20:04 2019 +0200
+
+    Rename some legacy links
+
+commit 920849ba47fd604043c238b87c2a0fe1cd2e4fee
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Sep 6 19:22:03 2019 +0200
+
+    Add seihon for multi arch build
+
+commit 649974c7eb93bdb21113199431f0eaf1cd69a9f5
+Author: Damien Duportal <damien@containo.us>
+Date:   Thu Sep 5 18:34:03 2019 +0200
+
+    Update documentation tooling
+
+commit 8c2d837c789f5d38a4466cad53c55d4af96e8b2c
+Author: Damien Duportal <damien@containo.us>
+Date:   Thu Sep 5 18:12:04 2019 +0200
+
+    Host main documentation on gh-pages, mixed with Helm Chart
+
+commit ea83590ad64dd8a3bc1daef4bd8e3dfb225f38fd
+Author: Calle Pettersson <carlpett@users.noreply.github.com>
+Date:   Thu Sep 5 11:38:04 2019 +0200
+
+    Fix typos
+
+commit 3bae31588976e2941f7d2fbaafb756da6fdf0298
+Author: Damien Duportal <damien@containo.us>
+Date:   Thu Sep 5 11:16:04 2019 +0200
+
+    Documentation Polish for public release
+
+commit d2ac49fa4bf63ff3f14d94c6a0ee0e92401c2593
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Sep 4 11:06:03 2019 +0200
+
+    Fix documentation ci - disable for now
+
+commit dbbefcbd8f422e1c222b7253927bbd8aef6ce1c0
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Sep 4 10:04:03 2019 +0200
+
+    Migrate to go 1.13
+
+commit 4586e941f1b8b7ae6d5dd4b40a0972dfd92bf87d
+Author: traefiker <traefiker@users.noreply.github.com>
+Date:   Tue Sep 3 17:09:04 2019 +0200
+
+    Prepare for release
+
+commit ef475a3634b681f6cdda88365cb0b5cf22321b5d
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 3 17:04:03 2019 +0200
+
+    Add travisci
+
+commit 0ac6b5c0bcff1b588afdec4f9bfcf4992013aa15
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 3 16:22:03 2019 +0200
+
+    Add contributing file
+
+commit 318c2d7724ddde7fc267aa6f570e29a6b07a6cce
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Sep 3 12:04:04 2019 +0200
+
+    Update readme
+
+commit 0f533368725a6e8b086c017c09d289930627ab82
+Author: Gérald Croës <gerald@containo.us>
+Date:   Tue Sep 3 11:42:03 2019 +0200
+
+    Typo in the documentation
+
+commit 481f808bf7dcf0a088df41360a19f2df685312c9
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Sat Aug 31 14:03:28 2019 +0200
+
+    Update documentation for launch (#193)
+    
+    * Update documentation for launch
+    
+    * Update readme
+
+commit 01230da085f39a5ee0e44d229e380d5e0a3fad4c
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Sat Aug 31 14:01:19 2019 +0200
+
+    TrafficSplit implementation (#190)
+    
+    * TrafficSplit implementation
+    
+    * fix after rebase
+    
+    * Refactor the implementation
+    
+    * fix unused parameter
+    
+    * Improve integration tests
+    
+    * Disable Coredns k8s_external plugin
+    
+    * fix integration test
+    
+    * Test improve tests
+
+commit bf052da44d02d9d7f9ed3984dbbaafb407731a99
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Aug 29 14:29:10 2019 +0100
+
+    add badge (#192)
+
+commit 8d10f3cfdcfc049dcbe1b22198cfb5792404be05
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 17:17:25 2019 +0200
+
+    Clean go.mod (#191)
+
+commit efe94c8b539001d9553877e6875c8079be94bf58
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 16:23:00 2019 +0200
+
+    Add goreleaser (#188)
+    
+    * Add goreleaser
+    
+    * Update .goreleaser.yml
+    
+    Co-Authored-By: Daniel Tomcej <daniel.tomcej@gmail.com>
+
+commit 5c69bcf2c77220075f6ba65f122be1060325a2ec
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 12:37:37 2019 +0200
+
+    Publish helm chart to gh-pages (#187)
+    
+    * Publish helm chart to gh-pages
+    
+    * Fix for review
+    
+    * Apply suggestions from code review
+    
+    Co-Authored-By: Damien Duportal <damien.duportal@gmail.com>
+    
+    * Fix for review
+    
+    * fix chart version
+
+commit a72089fb75ad6ee91350d4b50d5cf70391c0b5a3
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 27 12:02:01 2019 +0200
+
+    Upgrade traefik dependency (#186)
+    
+    * Upgrade traefik dependency
+    
+    * Update to go 1.13rc1
+    
+    * Improve CI
+    
+    * remove unused dependencies
+
+commit 040ba5ee83e76e12768a781b496d1fb632c0101a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 26 08:54:44 2019 +0100
+
+    add configmap to helm template (#184)
+
+commit 303d771fc08f619976f2bde080ab63c3ce3e6f7e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 26 08:53:43 2019 +0100
+
+    Fix empty middleware object (#181)
+
+commit ae4211863362fab8c060bbc4645f1a285b0484d0
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 26 08:52:20 2019 +0100
+
+    Template helm resources (#178)
+
+commit b22f0b36eb28754eb3d4ee6f89421f3a61bcdfcb
+Author: Ludovic Fernandez <ldez@users.noreply.github.com>
+Date:   Thu Aug 8 00:37:57 2019 +0200
+
+    fix: pseudo version. (#182)
+
+commit cee3d5c1f217e40ca90c41e9c2ef3e05e0e3117c
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Aug 7 19:29:31 2019 +0200
+
+    Fix tcp state table (#177)
+    
+    * Fix tcp state table
+    
+    * Disable all middlewares things for now
+
+commit a9d84d1a820545af35229a74e23dcaa4985e1333
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Aug 7 00:47:00 2019 -0600
+
+    Initial cleanup from Popeye (#173)
+
+commit 9a3ddb159ebae886017fb8d5b983fea6e3d1979e
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Aug 6 17:27:51 2019 +0200
+
+    Upgrade dependencies (#176)
+
+commit 86752e0cf8e20af4c48d4e52bd4feddcacfb9994
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Aug 5 16:49:55 2019 +0200
+
+    Implement circuit breaker (#170)
+
+commit f65ebf72d94f9407454dc0ae80b1bcadf71612a8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Aug 5 02:14:19 2019 -0600
+
+    Implement Retry (#169)
+
+commit 2441877776d28b8371141715c4ae4fb652aecb4a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Aug 2 10:35:26 2019 -0600
+
+    Improve Router and Service Naming (#164)
+
+commit 11995878144f8ed713f435db84c73e75d7d1e496
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Aug 1 11:04:37 2019 -0600
+
+    Add TCP Routing back in! (#158)
+
+commit d469bf5807b0fcc1b084345526586e64d35bc1bc
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Aug 1 00:03:12 2019 -0600
+
+    template entrypoints (#162)
+
+commit 5318ea47365a742f9d8b2f9238e1bfbf802d09ea
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 31 17:46:28 2019 +0200
+
+    Rename to maesh (#161)
+
+commit 33a1b9a8544f6bc1f9970f9eed0cf99931a1cace
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 26 20:31:38 2019 +0200
+
+    Feature/revamp tracing stack (#157)
+    
+    * rewrite the jaeger installation
+    
+    * revamp tracing stack
+    
+    * revamp tracing and metrics
+    
+    * Revamp after daniel review
+    
+    * Revamp after daniel review
+
+commit 38929a35e54c6bb28804d46ec6a3437088a2ad4f
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 24 16:37:52 2019 +0200
+
+    Add grafana and prometheus (#149)
+    
+    * Add grafana and prometheus
+    
+    * rename monitoring into metrics
+    
+    * fix for review
+
+commit 582c9cf9e0f12a7e2a0bfc5e6e184989a2ad4863
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 24 16:36:43 2019 +0200
+
+    use traefik:v2.0.0-beta1 instaed of experimental image (#154)
+
+commit 2ecde8e06b6e244dac56b30ac0455ee6073d2341
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 24 16:35:44 2019 +0200
+
+    Add helm lint (#155)
+
+commit 92dbe1fc24856c3a83ecec3a15e1736f9b928a49
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 24 02:53:48 2019 -0600
+
+    Improve Integration test (#153)
+
+commit 38f9f4615614d0548dee2f173f3aa8be63ec53b9
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 24 01:32:19 2019 -0600
+
+    Move from traefik-mesh to i3o namespace (#150)
+
+commit c63783f9f94a4fe094e991b2f81f04452fc3110c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 23 02:36:02 2019 -0600
+
+    Add SMI Test resources (#142)
+
+commit 9b1f491c4e962d86faa2eb06c081373f197cf3a8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 23 00:52:16 2019 -0600
+
+    update coredns tests (#147)
+
+commit e858d819cf62ad31264fa3827f0b123ca3627224
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 19 21:43:31 2019 +0200
+
+    Update traefik to version 2.0-beta1 (#143)
+
+commit a9108ee1b2f703a5cae3863ead20367cc16f07c6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 19 21:14:52 2019 +0200
+
+    cleanup after integration tests (#145)
+
+commit ea1cb62af169dffd76b370c4a7906e4bef0e2ac2
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 19 18:55:52 2019 +0200
+
+    Push latest docker image (#144)
+    
+    * Push latest dodcker image
+    
+    * fix ping command
+
+commit bcfe55360e2527c7297a8251e30ff542d3383ed2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 18 10:20:33 2019 -0600
+
+    use k8s_external instead of regex (#138)
+
+commit 13d637794d1d18c67e570d029f963dadc4cc8fdf
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Thu Jul 18 17:42:08 2019 +0200
+
+    Refactor integration test and disable coredns 1.5 too many issues with it (#135)
+
+commit 5ee7d7e69c7c60f64916ee128d43ee3f1b508163
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 18 03:34:41 2019 -0600
+
+    create block/whitelist (#136)
+
+commit ed0a5f0be7f5da7d3435d43b736b3cf3d6b65235
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 18 02:18:30 2019 -0600
+
+    add deepcopies to prevent modifications (#140)
+
+commit 043e9de3dd11476f3cde78886889437f52409a71
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 17 16:39:29 2019 +0200
+
+    feat: add cap retries (#134)
+
+commit eba038d3c38c1878d827595abe472eb1a0760dcc
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 17 16:37:24 2019 +0200
+
+    Remove unused config map (#133)
+
+commit 3f655ef0e6f506c95d11a9a319686840a3106cff
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 17 05:17:25 2019 -0600
+
+    Add readinesscheck and add readinesscheck enabler to config (#129)
+
+commit af71430df4abb6d68c2e4f20a0fefc9f042479aa
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 17 01:17:33 2019 -0600
+
+    add docs (#125)
+
+commit 49297e1fb219c3b6c8139264d9abb0dfd42b12cf
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jul 17 01:11:04 2019 -0600
+
+    Add new ignore/handler and pod filter (#131)
+
+commit 9d1b6198481e16d1433281847d3505e588d9cf1c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 15 12:52:36 2019 -0600
+
+    update traefik dep (#120)
+
+commit 3802b356a422d9c73c589078151101a7c80f6990
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 15 10:26:04 2019 -0600
+
+    Update SMI Provider and add tests (#117)
+
+commit 7e76dc73f91860a2ce5ae4e462ec52004037c20e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 15 00:43:12 2019 -0600
+
+    update deps (#118)
+
+commit f35f65a06a3c2b4f6400a69d6ebfbf0066090242
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jul 12 16:48:03 2019 +0200
+
+    Improve integrationt tests (#116)
+
+commit 8b54d0ec1c649921d3f0a85ac537e85e36edfd8b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jul 12 03:20:17 2019 -0600
+
+    Add version to configuration (#114)
+
+commit 6f1ec96b1e7cb676edd9a55803784779dba09f5a
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 10 21:24:11 2019 +0200
+
+    feat: check coredns version (#115)
+    
+    * feat: check coredns version
+    
+    * Merge patch and check and rename this command to preapre
+    
+    * fix integration tests
+
+commit d434aae56692cc7b452d65c7098b4923d84d3863
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Jul 9 18:29:46 2019 +0200
+
+    Use a DeepCopy of the configuration (#112)
+    
+    * Use a DeepCopy of the configuration
+    
+    * fix for review
+
+commit 2cf4b7d45c906810ab697b4513229006b4b47f39
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 9 07:59:35 2019 -0600
+
+    Auto deploy on mesh pod create (#110)
+
+commit 9036cd46a01df8a09a6618bfbc3e840ef3bc1ece
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jul 9 00:25:10 2019 -0600
+
+    add defaultmode and TCP routing (#108)
+
+commit abd9617ea88edcf2e6f838bfc4c5899279c1daa0
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jul 8 13:22:20 2019 -0600
+
+    Controller store configuration state (#105)
+
+commit bac2ebe427ec5c82ffd17d0c664e685935c76041
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jul 5 02:25:52 2019 -0600
+
+    Remove Base controller and Add SharedFactoryInformers (#100)
+
+commit 21bed7401ded0e49f18d6d0e16f56156cd93ddc4
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 06:19:57 2019 -0600
+
+    remove unused controller types (#99)
+
+commit ce7e6df3786e08a737ee69fed11380e6fd716c86
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 06:03:39 2019 -0600
+
+    Kubernetes provider - 100% coverage baby (#98)
+
+commit bde866d5ae64350f3b56c83ea0ecdb3386e455bd
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 02:46:59 2019 -0600
+
+    update to CRUD naming for methods (#95)
+
+commit d9f2984b40827a330ba52a1369987bf58f5c9964
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jul 4 02:45:33 2019 -0600
+
+    remove CRD references (#94)
+
+commit 072c3847ee8cd58b86dc26985a6e9b284ffb3321
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jul 3 18:13:39 2019 +0200
+
+    Feature/smi provider (#85)
+
+commit 215e8bf374f2442efd3872d21f8c391ea874d62a
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 24 17:58:55 2019 +0200
+
+    Add jaeger helm chart (#79)
+    
+    * Add jaeger helm chart
+    
+    * move controller and mesh to mesh namespace
+    
+    * namespace tracing endpoint
+    
+    * move namespace in integration tests
+    
+    * move service to service file
+    
+    * remove zipkin and fix issues in the helm chart
+    
+    * fix integration tests
+    
+    * fix integration tests
+    
+    * fix for review
+    
+    * install tracing into traefik-mest namespace
+
+commit 2573b3a6f6c6d40f301c54a793f955e0ea969146
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 24 16:37:15 2019 +0200
+
+    Clean dependencies (#76)
+    
+    * go mod tidy
+    
+    * Add upgrade target in Makefile
+    
+    * Upgrade dependencies
+
+commit a23e2a47117e6d12c6e88396854638b8c2121d5b
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Sun Jun 23 00:45:37 2019 -0600
+
+    Add Curl to integration tests (#81)
+
+commit 4a564c9468c0357740422148dbee1438c64cc556
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 21 16:35:11 2019 +0200
+
+    Simplify integration tests (#73)
+    
+    * Simplify integration tests
+    
+    * fix for review
+
+commit 373407963d9dfb122ffa1bca61c08fd293af98f3
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 21 09:46:26 2019 +0200
+
+    feat: documentation plumbing (#75)
+
+commit d269b760a09c208b24d0fcabfceec0fe375d3473
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 21 07:22:49 2019 +0200
+
+    Reoganize package (#74)
+
+commit b4e17cc932f1b80dbd0c9c7fbb889b96b56b6577
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 20 13:37:13 2019 -0600
+
+    Add README installation instructions (#72)
+    
+    * add readme
+    
+    * update coreDNS req
+
+commit d82cae3330254c9f5a9bece8a7ae925b0aa0b5b2
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Wed Jun 19 17:52:32 2019 +0200
+
+    fix: simplify code (#68)
+
+commit 12084a6b8b2c49272d8603f4030e73d941ff75e3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 19 09:45:33 2019 -0600
+
+    Add SMI CRD into client and controllers (#66)
+
+commit 39107c22212bc0476be49b0ccab2b5f4e0cf7265
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 19 09:27:14 2019 -0600
+
+    Allow updates from objects (#59)
+
+commit 765b1345e4b335f773a0bf09317e3a30f4ed454e
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Tue Jun 18 21:00:54 2019 +0200
+
+    test commit (#58)
+
+commit f8c8094a9354a6f0d6709414d08b37a49d246210
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 18 08:48:18 2019 -0600
+
+    Create TCP Routes (#52)
+
+commit a5143bef70d0a8a2834c9a38c2e89971afb163a6
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 17 18:37:50 2019 +0200
+
+    Add integration tests (#29)
+    
+    * Add integration tests
+    
+    * fix for review
+    
+    * fix after rebase
+    
+    * fix integration tests
+    
+    * use last traefik version
+    
+    * fix controller rbac
+    
+    * fix for review
+    
+    * Change api server port
+    
+    * fix port
+
+commit 2d693bf786304a78a5e6136f7a030ddc28ec944d
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon Jun 17 02:54:21 2019 -0600
+
+    Allow for multiport services (#50)
+
+commit f611501b8afd313ab412917ef4bd49059eca1f9e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 08:07:29 2019 -0600
+
+    Create new CoreDNS Server Block (#48)
+
+commit 125937ff86787944beb9b5db539e817f68c928e5
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 08:00:02 2019 -0600
+
+    Fix CoreDNS Patch (#43)
+    
+    * force restart by patching deployment annotation
+    
+    * Do deepcopy for deployment manipulation
+
+commit 9b0e32a13ffb80b1d8073f48d988a9397d4f2e73
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 07:51:06 2019 -0600
+
+    Update CRD Object (#41)
+
+commit 6697354ce060c726b8dbf27356a74800613dc8f3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 14 07:44:10 2019 -0600
+
+    Create Patch job and associated RBAC (#35)
+
+commit df590247cdaea2ed77a00dd89a0e7cd67f0e0716
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Thu Jun 13 17:39:19 2019 +0300
+
+    Remove utils package (#34)
+    
+    * Remove utils package
+    
+    * Add missing traefik crd middleware
+
+commit 84ede333c9bdae55c804b0454b33affb2157b1f7
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 13 01:29:08 2019 -0600
+
+    Mesh Handler create CRDs and Services (#30)
+
+commit b46c09d442aadfc1ebe723787b72c934011f7985
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 22:47:00 2019 -0600
+
+    safe logging (#33)
+
+commit 7f9d3ede65c11eccd4ad1faaaab88ccb85ac7274
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 02:39:52 2019 -0600
+
+    Create Patch command (#28)
+
+commit 62baf0bfa8c49c34799fc2ef114448ca33876ad6
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 02:07:15 2019 -0600
+
+    remove traefik daemonset (#25)
+
+commit fff175a096cc607504c2476061de19170ffe429e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Wed Jun 12 02:03:22 2019 -0600
+
+    create CRD (#24)
+
+commit afe80b8a2a40ce8d4693a3d6298840117ad67b71
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 11 08:49:29 2019 -0600
+
+    Create Helm Chart (#16)
+
+commit eabf026fe27d77f27dd3c672c123c72b2dd676c8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 11 01:57:57 2019 -0600
+
+    Add CRD Controller to Mesh Controller (#12)
+
+commit 8886fda771272e2c146c821d474cdf670a668f05
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Tue Jun 11 00:51:49 2019 -0600
+
+    remove demo data (#13)
+
+commit 966c271fd9d1c5b61cfc74d60f71ad80998c8eae
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Mon Jun 10 04:47:26 2019 +0300
+
+    feat: build in docker (#11)
+    
+    * feat: build in docker
+    
+    * Update Makefile
+    
+    Co-Authored-By: Daniel Tomcej <daniel.tomcej@gmail.com>
+
+commit a47d1cd4131fce56e387e39aff6590cb6ddb85db
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 19:49:19 2019 +0300
+
+    fix log import (#10)
+
+commit 5276f09cdb920413823e260d1cf2058370f7ac98
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 19:34:39 2019 +0300
+
+    Small refactoring + add go modules (#9)
+    
+    * Small refactoring + add go modules
+    
+    * export GO111MODULE in makefile
+
+commit db104919e4a844207a6f133eaa23a46c2abdfaf9
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 18:48:26 2019 +0300
+
+    feat: improve makefile + docker image (#6)
+    
+    * feat: improve makefile + docker image
+    
+    * use alpine in version 3.9
+    
+    * fix: image name
+
+commit 2b1fc63d48e1686b1594f9160725bd48186886ea
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 7 09:40:40 2019 -0600
+
+    update binary (#3)
+
+commit 909b265d7cb770606e12dc7065eb00b0850d0887
+Author: Michael <mmatur@users.noreply.github.com>
+Date:   Fri Jun 7 18:17:43 2019 +0300
+
+    fix imports (#1)
+
+commit 16829c02c6a76c2d089d72bc21af3ec3de8584b9
+Merge: 91da194 981e274
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 7 08:56:10 2019 -0600
+
+    Merge branch 'master' of github.com:dtomcej/traefik-mesh-controller
+
+commit 91da1942e4ba03aed71a5537f94726271d985d33
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri Jun 7 08:55:40 2019 -0600
+
+    vscode
+
+commit 981e27413163ef01f353ca8dece2ce1df1819a0e
+Merge: 8ea218f a5bb22a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:48:54 2019 -0600
+
+    Merge pull request #2 from dtomcej/golangci-lint
+    
+    all the lints
+
+commit a5bb22a5acc80fbb107e504f15d7fa73ce87d0ec
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:47:45 2019 -0600
+
+    all the lints
+
+commit 8ea218f264083d566c728e354a83165d1c285404
+Merge: 3a9a6ad 61a16f8
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:12:00 2019 -0600
+
+    Merge pull request #1 from dtomcej/create-controller
+    
+    Create controller
+
+commit 61a16f8304a4c84a6c17eed1bf250ee11df1cf74
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 20:05:34 2019 -0600
+
+    use mesh-level handler
+
+commit c0cece83875de874633cbf6a4e34ac63e118d445
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 19:40:37 2019 -0600
+
+    remove useless structs
+
+commit 3bff2d7bc7c5ed3ed249f549f2f2ac81cd987f5e
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 19:38:04 2019 -0600
+
+    move methods to utils
+
+commit 35351714d3507d5e24d66454e2e8e04f521eb519
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 16:50:07 2019 -0600
+
+    add multiple controllers
+
+commit cf16c64ceca239883ed5be30a143f1d264fff37a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 15:27:56 2019 -0600
+
+    multiple controllers
+
+commit 0911574963200f8fda3a274ed632d86f6b4f9db3
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu Jun 6 12:53:21 2019 -0600
+
+    create base controller
+
+commit 3a9a6add24f1126d6d458f4daf851cafe6e38173
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 22:15:17 2019 -0600
+
+    fix config volume
+
+commit 8b0a0b728898fefe6af82abe2b99f7d48fc226ca
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 16:38:01 2019 -0600
+
+    add traefik mesh pods
+
+commit 5da481917cdeff2ebd71eb69c873005d9b5a5a6a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 15:19:31 2019 -0600
+
+    use templated struct
+
+commit 427dbb37ee4ce579d87caf4a0e467279257e161a
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Thu May 9 14:57:01 2019 -0600
+
+    add templates
+
+commit ee0f0754aea5ce7e42157ed58c726ddda33e2f23
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 19:46:02 2019 -0600
+
+    tiny fixes
+
+commit e4ce15d795e14e9a1501a2432ee5037aa828de65
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 16:41:03 2019 -0600
+
+    add demo
+
+commit 00c986b7459f3fd592ab4eae814ab316e2d4a03c
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 15:37:35 2019 -0600
+
+    move client config to method
+
+commit 4aa509b3bb01ef6148c36dac672140452967d964
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 15:30:23 2019 -0600
+
+    skip restart if no patch
+
+commit 92b9e9028aea27f43804ccfbc27474a693d6cf04
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 15:21:37 2019 -0600
+
+    patch coredns pods
+
+commit c546e1f9b9e16d43376b13ec3cc5237efa15d714
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 14:22:12 2019 -0600
+
+    cycle coredns pods
+
+commit a38b57c49a5db5cfb48661b86c06566abc87ffee
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 12:04:31 2019 -0600
+
+    simple list
+
+commit 9af223010808d15eae6cc2f542572850ea912ac2
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 11:05:19 2019 -0600
+
+    vendor
+
+commit 391b21a2725a17558e3d52ff1e63652cd596eb43
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Mon May 6 10:59:38 2019 -0600
+
+    add base main
+
+commit 31edc96721235548b3b60b4469eb0fbf6588eb62
+Author: Daniel Tomcej <daniel.tomcej@gmail.com>
+Date:   Fri May 3 13:59:07 2019 -0600
+
+    Initial commit

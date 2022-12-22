@@ -1,0 +1,2948 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 41913e7977a6ae9cf2efd05e1aae6dc678838405
+Author: Falldog <falldog@gofreight.com>
+Date:   Fri Dec 9 23:28:11 2022 +0800
+
+    refactor(docker): upgrade default python & ubuntu version
+
+commit 1290e3b2f41182c2a5024e0b336e3edb206edfc8
+Author: Falldog <falldog@gofreight.com>
+Date:   Thu Dec 8 00:47:01 2022 +0800
+
+    fix(readme): typo
+
+commit 412d5d7a2afea1dce333d292b6fb6ac63515896c
+Merge: f1852ca 880369d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Dec 8 00:16:22 2022 +0800
+
+    Merge pull request #100 from stitrace/issue-99
+    
+    Replace url for download pip.py for 3.6 back-capability
+
+commit 880369d111cb0acf593862fbc6971ae6bf8175f6
+Author: Andrey Chubarov <andrey.chubarov@zyfra.com>
+Date:   Wed Dec 7 13:03:03 2022 +0300
+
+    Replace url for download pip.py for 3.6 back-capability
+
+commit f1852cac54ab146d313908d08ec261a8797d71d4
+Author: Falldog <falldog@gofreight.com>
+Date:   Thu Sep 15 08:45:04 2022 +0800
+
+    refactor: replace tab by space
+
+commit 3f539aa173231e6e47364bf58ef1fa56b5a23b6f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jun 23 16:20:23 2022 +0800
+
+    chore(tab): replace tab by space
+
+commit 602165239a83eddcf53fa5a36d9f55e961d564f4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jun 23 16:17:27 2022 +0800
+
+    remove useless vagrant files
+
+commit 2fa5c0588331ceab7f9bffcfaacd9d2446a44bdb
+Merge: e461c34 f18bd18
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Apr 23 09:54:14 2022 +0800
+
+    Merge pull request #97 from Falldog/dependabot/pip/example/django/pye_web/django-2.2.28
+    
+    build(deps): bump django from 2.2.27 to 2.2.28 in /example/django/pye_web
+
+commit f18bd18b1fa9f9444165a2ccee8df137b3d884a6
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Apr 22 23:40:49 2022 +0000
+
+    build(deps): bump django in /example/django/pye_web
+    
+    Bumps [django](https://github.com/django/django) from 2.2.27 to 2.2.28.
+    - [Release notes](https://github.com/django/django/releases)
+    - [Commits](https://github.com/django/django/compare/2.2.27...2.2.28)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: django
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit e461c340a61ce3bad8234dd017375ee4b3b62cb5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Mar 1 23:14:39 2022 +0800
+
+    refactor: replace \t by space
+
+commit faa95bf3dd0b9625c6fca7c6ca14815ae53f1a8d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:28:45 2022 +0800
+
+    fix: test-wheel output to temp dir, not cwd
+
+commit e18b6e4fdf4ed960606822c4a350582b6418e126
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:17:36 2022 +0800
+
+    feat(pyconcrete-admin): add release test option for testing on pypi
+
+commit de67f34065136ad11e85bd21437226d832a6638f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:14:04 2022 +0800
+
+    bump version to 0.15.1
+
+commit 9570b5b3cf8cfac708c0db603de056744dc986e4
+Merge: 3986878 0a05ebe
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:08:45 2022 +0800
+
+    Merge branch 'fix-pip-install-fail'
+
+commit 0a05ebef738c82abf6be32711e1be81349f12cc8
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:07:15 2022 +0800
+
+    test: add test for building wheel
+
+commit f239febb2fa747abf55bfdb9c5a2f5409553c953
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:06:08 2022 +0800
+
+    fix: pip install will fail by build-cached-files be clear
+    
+    #73
+    [why] pip install steps is different with python setup.py install
+    [how] check have_run commands before clear build files
+
+commit 398687892c1f0f96f93821da052fce4cfa44bda7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 23:08:08 2022 +0800
+
+    bump version to v0.15.0
+
+commit e87cad602b6b333489c2c5cedef96e4d97f9dc15
+Merge: 61f88c9 b9ae2fe
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 23:06:21 2022 +0800
+
+    Merge pull request #93 from Falldog/fix-passphrase-n-secret-key
+    
+    Fix passphrase and secret key
+
+commit b9ae2fe346b5fa9d92deb540eae461cc74a890a4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 22:51:23 2022 +0800
+
+    fix: update env naming to `PYCONCRETE_PASSPHRASE`
+
+commit 040d0c6f946fcdc2695f8c69fffc5c4cc8081c2a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 08:57:05 2022 +0800
+
+    fix: remove default key
+    
+    #58
+
+commit c7b0b39853ae58389fc5752b9fc35935daf78175
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 08:50:53 2022 +0800
+
+    fix: installation should clear old build, avoid use cached pw
+    
+    #73
+    
+    [why] `python setup.py install` will create `build/` folder including `pyconcretexxx.o`, the password will be cached inside
+    [how] execute clean command before installation
+
+commit 670bf0b7c0f1f54cef44476efb8bbc1c66f0ec7f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 07:40:06 2022 +0800
+
+    fix: always try to create secret key header file
+    
+    [why] original behavior will check the file is exist at the beginning
+    [how] use global variable and register atexit event to remove it
+
+commit 184e2ecbd63ffe2edf5f56bce2867e7f59daca3f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 07:05:42 2022 +0800
+
+    fix: installation should use `--passphrase`
+
+commit 61f88c9eb2ece37957697b509c1d41dd2868ed8c
+Merge: 25307f5 cebbc7b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 11:44:33 2022 +0800
+
+    Merge branch 'fix-release'
+
+commit cebbc7baf9d879beeeccf8cde55d4950e3018026
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 11:42:50 2022 +0800
+
+    fix(setup): replace python-config by sysconfig
+    
+    [why] pyenv can't get python3.x-config directly
+    [how] for support pyenv environment, use sysconfig module directly
+
+commit 3798c25f4517d04ec4567aa8c6c4260cdf7645d4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 11:40:25 2022 +0800
+
+    fix(pyconcrete-admin): release command doesn't have verbose arg
+
+commit 25307f5acb742f4348ac09545fa32a4032e3b664
+Merge: 93619fe 7a3f1f3
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 10:14:33 2022 +0800
+
+    Merge pull request #92 from eureciclo/master
+    
+    Add option to read passphrase from env vars
+
+commit 93619fe0d79fe0df8e67582a5b7a6e8408e1c857
+Merge: be3d23b 2907b3f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 09:18:24 2022 +0800
+
+    Merge pull request #91 from Falldog/dependabot/pip/example/django/pye_web/django-2.2.27
+    
+    Bump django from 2.2.26 to 2.2.27 in /example/django/pye_web
+
+commit 7a3f1f3ff2302a0436a7415866dde13f3bc0f7d1
+Merge: be3d23b 9bc12bf
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:31:35 2022 -0300
+
+    Merge branch 'passphrase-via-env'
+
+commit 9bc12bff1a52c9e6fa200fc580b4e2a0c184a46e
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:29:24 2022 -0300
+
+    Bump version to 0.14.1
+
+commit 95d8c663d97855dbb7dbae9cef2fe5f748f63e7d
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:29:11 2022 -0300
+
+    Add install instructions on README
+
+commit 8b4146e9854f7bf57327632522c80d5e8533db20
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:22:17 2022 -0300
+
+    Add option to read passphrase via env var
+
+commit 2907b3f9481d41397473cce985314d4db63b624e
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Feb 10 12:44:46 2022 +0000
+
+    Bump django from 2.2.26 to 2.2.27 in /example/django/pye_web
+    
+    Bumps [django](https://github.com/django/django) from 2.2.26 to 2.2.27.
+    - [Release notes](https://github.com/django/django/releases)
+    - [Commits](https://github.com/django/django/compare/2.2.26...2.2.27)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: django
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit be3d23b028817007d9b4a0394bd01fbbc9c35576
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 6 21:21:24 2022 +0800
+
+    refactor: fix some compile warning messages
+
+commit 82cdfd7278c019052552e2050b27e9d041c974a8
+Merge: 882edc5 db4daaf
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 30 00:15:22 2022 +0800
+
+    Merge pull request #90 from Falldog/dependabot/pip/example/django/pye_web/django-2.2.26
+    
+    Bump django from 2.2.24 to 2.2.26 in /example/django/pye_web
+
+commit db4daaf2e5cc0ae269dfc03fa872fa4368024538
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sat Jan 29 14:14:41 2022 +0000
+
+    Bump django from 2.2.24 to 2.2.26 in /example/django/pye_web
+    
+    Bumps [django](https://github.com/django/django) from 2.2.24 to 2.2.26.
+    - [Release notes](https://github.com/django/django/releases)
+    - [Commits](https://github.com/django/django/compare/2.2.24...2.2.26)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: django
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 882edc5f777a943ea7d3e062c3cb4703516691c0
+Merge: 0b532dc 14e118f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 30 00:12:44 2022 +0800
+
+    Merge branch 'refactor-pre-commit'
+
+commit 14e118ff761066d7950182b16dbac631fd333640
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 30 00:06:29 2022 +0800
+
+    (pre-commit) fix isort config
+
+commit b332ed3c4187c44c7ea0c744601d6a7891be44e9
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:28:07 2022 +0800
+
+    (refactor) flake8
+
+commit 94e337f062cf9a5189d1c3400579e343917631fc
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:27:49 2022 +0800
+
+    (pre-commit) add flake8
+
+commit 47bb8097fa8c25caa23f548352dbd55a43df8b98
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:10:12 2022 +0800
+
+    (refactor) black
+
+commit cf172c77ee66bc77a74b4a8bae5819c6b544059b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:09:53 2022 +0800
+
+    (pre-commit) add black
+
+commit c509e797a5df000c38b5a92abf029d16085e23b7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:56:20 2022 +0800
+
+    (refactor) isort
+
+commit e886107d165f982cc7928e74df2d4c2c9e690494
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:55:11 2022 +0800
+
+    (pre-commit) add isort
+
+commit 4698d0622a6b1d09fd28965631c8ce90df5d690a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:51:48 2022 +0800
+
+    (refactor) pre-commit-hooks
+
+commit 7ca5d48c78ab4979b6587fd32f329fdf34199654
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:51:31 2022 +0800
+
+    (pre-commit) add first pre-commit config
+
+commit 0b532dc6361f220898589a035284816c620553da
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:21:08 2022 +0800
+
+    update version to 0.14.0
+
+commit 47d4d5c7eef53eab2ff17af492926cc7475d0a64
+Merge: 4e6f685 0ad1f4b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:14:02 2022 +0800
+
+    Merge pull request #89 from Falldog/support-3.10
+    
+    Support 3.10
+
+commit 0ad1f4bb5beedbe8080ef6809988c68a61053753
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:36:58 2022 +0800
+
+    (refactor): docker-compose-test services rename from pye310 -> pye3.10
+
+commit 2a3b5364897b52033399bd027575fd38c4a4869c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:31:58 2022 +0800
+
+    (py3.10) update setup.py supported python version
+    
+    * add python 3.9 & 3.10
+
+commit 0c268773fc5aa45010fd994d301e4406bce32f75
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:31:10 2022 +0800
+
+    (py3.10) fix test import requests error
+    
+    [why] original requests-2.12.4 doesn't compatible with python3.10
+    [how] upgrade requests to latest 2.27.1
+
+commit 08d7651b4ab3b72d124cb86066a9953ac9296dcb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:29:13 2022 +0800
+
+    (py3.10) fix pyconcrete building error
+    
+    [why]
+    https://docs.python.org/3/whatsnew/3.10.html#id2
+    The PY_SSIZE_T_CLEAN macro must now be defined to use PyArg_ParseTuple() and Py_BuildValue() formats which use #: es#, et#, s#, u#, y#, z#, U# and Z#
+    See Parsing arguments and building values and the PEP 353.
+    
+    [how]
+    #define PY_SSIZE_T_CLEAN before include Python.h
+
+commit 4393a3099814d60e4730abe32ca3fb5e0878c25d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:19:30 2022 +0800
+
+    (py3.10) fix docker env building fail issue
+    
+    [why] pip of python3.10 need to install `apt install python3.10-distutils`
+    [how] add installation before execute get-pip
+
+commit 4e6f6854c9ba718f657910568f17f732180a957d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 10:01:08 2021 +0800
+
+    update version to 0.13.0
+
+commit b163978311df908932cc444b96e4308ad93745a5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:59:52 2021 +0800
+
+    update README
+
+commit c316fdaccebd83f23c828eed6363e88281adf9bb
+Merge: 334ae11 d22dc55
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:51:36 2021 +0800
+
+    Merge pull request #87 from Falldog/refactor/example-docker
+    
+    refactor/example docker
+
+commit d22dc551d9f619c7eb65f046c543cae4267cc3f4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 01:01:12 2021 +0800
+
+    update example django to 2.2.24
+
+commit a8061cdea991036497ddd2f381fcf7a85c976805
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 01:00:51 2021 +0800
+
+    refactor(example): remove useless vagrant style files
+
+commit fd9ff949e2af47c6672239f27f2e7257636bfe54
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 01:00:37 2021 +0800
+
+    refactor(example): update readme
+
+commit bc9f045ea152799b5444951eda7c26006c379775
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 00:53:26 2021 +0800
+
+    refactor(example): add docker style
+
+commit 334ae11a502c626991812525b5d33d4efb56d2bf
+Merge: 1e878fe 9e8cb2c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:32:30 2021 +0800
+
+    Merge pull request #86 from Falldog/drop-py27
+    
+    fix travis & appveyor env, update python support version
+
+commit 9e8cb2c9ff73526422401e965b536720bc9b85eb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:28:09 2021 +0800
+
+    support python 3.8
+
+commit 3734b1aaae04dadf956e7704ea18d4f0b05b091a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 21:38:31 2021 +0800
+
+    fix appveyor issue
+    
+    * remove py3.3 py3.4
+    * move _appveyor/ -> appveyor/
+    * update install.ps1 & run_with_env, copy from cython
+
+commit cb58791ee763ec526f9f07ec890543294981d894
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 27 00:45:08 2021 +0800
+
+    fix travis env
+    
+    * remove testing on py3.3 py3.4
+    * testing ubuntu xenial avoid exception
+
+commit 05cb302df655db2927d032bb6829ccdfdebc3984
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 27 01:17:58 2021 +0800
+
+    remove userless pandas package for testing
+
+commit 8038021a67dc9ce3ec468057955e403dea1428ad
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 13:40:08 2021 +0800
+
+    remove py2.7 support
+
+commit 1e878fec74ec70133f52a16e61289afbe338625c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 13:25:59 2021 +0800
+
+    fix(pyconcrete-exe): pyconcrete exit code should the same with sys.exit raise value
+    
+    [why] original behavior pyconcrete will always exit with 0
+    [how] add error handling, and the exit code will be updated
+
+commit 4b508b81d38ad563439a4ad88e2a8f9167719925
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 09:59:41 2021 +0800
+
+    refactor test exe module
+
+commit ef4220cb7d9fcf57e3c0ad31012ed68ca8627dec
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 09:07:53 2021 +0800
+
+    fix(threading): fix finalize exception
+    
+    * reference uwsgi & mod_wsgi to do something avoid exception
+
+commit 5fae80ada7591c98841dfa7c60e66bb4cd0f2c7e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 08:24:40 2021 +0800
+
+    feat(test): add pye37 & pye38 for testing
+
+commit bc6724d4a82b06f83d73ccca27839dcc1656f33a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 00:48:50 2021 +0800
+
+    refactor(test): docker image should keep pip install result
+    
+    * move docker-compose to root for copy test/requirements.txt into docker image
+
+commit 7a231bd20fd274268484b4b7d4cf415171e70db5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 00:30:18 2021 +0800
+
+    refactor(test): add logger style
+
+commit 4b6422a0bd4b6d900e31c515aedbed2f35c67208
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 00:19:14 2021 +0800
+
+    refactor(test): reduce testing log info
+    
+    * remove --verbose of testing calling subprocess on pyconcrete-admin.py, pass the verbose info by os env `TEST_VERBOSE`
+    * docker run-test.sh need by pass the env into docker
+
+commit a202a83fb395915a091a2d5f3773ad8b2e877e11
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:49:46 2021 +0800
+
+    refactor run-test.sh
+
+commit 418a4f325614b4cce05e90a060008f9d0eff143b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:35:42 2021 +0800
+
+    fix(setup.py): check link python lib by abiflags
+    
+    [why] above python 3.8 the link lib name would not effect by pymalloc, the name would be `-l python3.8` not `-l python3.8m`
+
+commit bcd0248eb487e81b0a507c8a8e32a57f6a109c50
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:26:56 2021 +0800
+
+    refactor(setup.py): access version_info by parameter not index
+
+commit 5594eb3111e441a38a77d7a3806d0c9989c352cb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:24:00 2021 +0800
+
+    fix(test): remove py2.7 testing env
+
+commit 58641f503b23df62d3a245967086645b5d737f30
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Mar 15 19:40:28 2020 +0800
+
+    (test) add test_exe_testcases
+
+commit 8c71de09143702b542c3dc5f7add487cbde6fdcd
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Mar 12 00:05:32 2020 +0800
+
+    (test) fix impoert path
+
+commit a627ab4f4bbaf9434e7940d5abba3dda752b5b70
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Mar 11 23:41:26 2020 +0800
+
+    (docker) add docker file support for clean test environment
+
+commit 51827bee01d0fa0b7296447cf2be42c75491c078
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jul 13 13:43:55 2019 +0800
+
+    Upgrade Django version for security issue
+
+commit 8a287e6e7397c61fc0c5086b175c7968c3762f40
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jul 13 13:42:34 2019 +0800
+
+    Fix threading globals variables issue #60 #61
+
+commit ab380b51ae9aeb42cda6a3abb0fae319067b9396
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jun 15 01:36:53 2019 +0800
+
+    Upgrade Django version for security issue
+
+commit 847ab11407a087e5f07d942962d45baaa7951234
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Apr 27 00:38:09 2019 +0800
+
+    Fix python3.7 linking error on Mac
+    
+    Error:
+    ld: library not found for -lpython3.7m
+    
+    Solution
+    use result of `python-config --ldflags` to get correct link library path, search the flags starts with "-L"
+    
+    #51
+
+commit 9aba80c1d6d73f6fd728ae27301e8a8beeb58f34
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Oct 6 14:03:15 2018 +0800
+
+    Upgrade Django version for security issue
+
+commit 975de1f3e5ec295476a4367bdf2b6c3ecf9fa13f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 09:39:30 2018 +0800
+
+    Update version for fix pypi upload error issue
+
+commit c238a7339cf335d2baa1e70b932e40f745bbd447
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 09:23:26 2018 +0800
+
+    Update version to 0.12.0
+
+commit eb28fbaaff33d331555acc1a3f3463d60af2556c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 02:08:07 2018 +0800
+
+    Update README
+
+commit 2e914c075eae47e8103eeae944499232425d6037
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Sep 14 03:48:41 2018 +0800
+
+    (travis) update for test python 3.6 & 3.7
+    
+    * test 3.7 on Ubuntu xenial
+    * test other python on Ubuntu trusty
+
+commit e19cd502384ad00ff96cb9d40c6191af593b674d
+Merge: 59cc6a4 a1c0fcb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 02:12:56 2018 +0800
+
+    Merge branch 'bug/fix-appveyor-error'
+
+commit a1c0fcb9556d93c1ffebf396e87c996ca007713e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Sep 14 03:47:10 2018 +0800
+
+    appveyor support python3.7 test env
+
+commit fed48dcf8ff1db23d5c6dacabcbf40112e43b874
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Sep 14 03:34:01 2018 +0800
+
+    Fix test error on windows platform
+    
+    * test_admin parameter should quote by `"` not `'`
+
+commit 19b3a18ab86fe060c66290fdfd269afcae907945
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Sep 12 01:40:52 2018 +0800
+
+    Fix appveyor error, Run pip install as Python module
+
+commit 59cc6a4ad0969a2c3917354f23d7b19038ce485f
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Sep 12 01:18:50 2018 +0800
+
+    Support python3.7 (#45)
+    
+    * Support python3.7, update magic number offset
+    
+    * python 3.7 magic number offset become to 16 bytes
+    * add README about to fix compile error
+    * Update setup.py support python 3.7
+
+commit 509d3ec7926c0774058e243c1c9f0c4013329b74
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 11 02:09:21 2018 +0800
+
+    Fix test error if there is any test.py under pycocnrete folder will cause error
+    
+    * shell will convert -i */test.py -> XXX/test.py if there is test.py under XXX folder
+
+commit 73538b74c2289735120a8c61145370453ef5caf6
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 11 02:06:55 2018 +0800
+
+    Fix test_exe error
+    
+    * tempdir would be under symlink at MacOS
+    * test check temp dir in sys.path may cause error
+    * get realpath to check it
+
+commit c0e60786e6a0b0ec2030e1afb8723aa0d0e9801b
+Merge: 42b46e2 57ed8d1
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Sep 5 00:10:55 2018 +0800
+
+    Merge pull request #43 from pohmelie/add_multiple_sources
+    
+    allow multiple sources
+
+commit 57ed8d1e7e4ecdfdd3a07307e6fe7a7390d5c902
+Author: Nikita Melentev <Nikita.Melentev@kronshtadt.ru>
+Date:   Tue Sep 4 15:33:18 2018 +0300
+
+    allow multiple sources
+
+commit 42b46e2d5d99f51cc0a50e616668855d8cacfded
+Merge: 682fbb6 8e0e11c
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed May 23 08:21:00 2018 -0700
+
+    Merge pull request #38 from Falldog/bug/add-log-for-admin
+    
+    (pyconcrete-admin) add more clear log
+
+commit 8e0e11c891d214fddc50b51214c2ab03cf2ccc4b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed May 23 00:34:33 2018 -0700
+
+    (pyconcrete-admin) add more clear log
+
+commit 682fbb673ac52edd67dad164228fb4bff2b33f07
+Merge: 49352b2 345b35d
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri May 18 01:59:49 2018 +0800
+
+    Merge pull request #37 from Falldog/bug/dobule-release-memory
+    
+    Fix double release memory issue
+
+commit 345b35db96ec6e26f3c3f75a8b6fcd94e2d6bda4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu May 17 23:36:32 2018 +0800
+
+    Fix double release memory issue
+    
+    * PyTuple_SetItem() will steal reference, doesn't need to release `py_concrete` again
+
+commit 49352b2c3a725e48e53ac27a8f524b9d7af808f1
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue May 1 07:57:30 2018 +0800
+
+    Fix window compile fail issue, PYCONCRETE_VERSION macro will not be threat as string
+    
+    * add double macro wrapper for it
+
+commit 4413d0a161418105e17fcf298fa61a1312b86848
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue May 1 05:41:05 2018 +0800
+
+    (pycocnrete.exe) add version info
+    
+    * pass version from setup.py to pyconcrete_exe.c
+
+commit 549888efb99c99fa1ce339b4f878174feb032846
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue May 1 04:50:54 2018 +0800
+
+    (pyconcrete.exe) display error message if load pyc fail
+
+commit 1909526776a9fc13d9daf179a9d450bc13e73307
+Merge: 91aca57 beeb943
+Author: Falldog <falldog7@gmail.com>
+Date:   Thu Mar 22 08:20:46 2018 +0800
+
+    Merge pull request #30 from lean0708/patch-1
+    
+    typo README.md
+
+commit beeb9431c7eff812d03a6d28308c5594262cd7d5
+Author: lean0708 <leandro.lapiana@invgate.com>
+Date:   Wed Mar 21 16:39:59 2018 -0300
+
+    Update README.md
+
+commit 91aca57222a1652622365953e764630e9a23e278
+Merge: b360fe1 5b535b9
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 1 14:52:00 2018 +0800
+
+    Merge pull request #26 from deadsnakes-issues-bot/all-repos_autofix_update_deadsnakes_ppa_name
+    
+    Update deadsnakes ppa name
+
+commit 5b535b90c44ee549e66d721d9f6ad915b6cb9f99
+Author: Anthony Sottile <asottile@umich.edu>
+Date:   Sun Dec 31 14:32:30 2017 -0800
+
+    Update deadsnakes ppa name
+    
+    The deadsnakes ppa has changed names!  For more information, see deadsnakes/issues#54
+    
+    Committed via https://github.com/asottile/all-repos
+
+commit b360fe1cede4cbd740ef0ead64bd879c513aa375
+Merge: 4fa8f62 de2574e
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Dec 20 15:27:23 2017 +0800
+
+    Merge pull request #24 from vasilishin/ignore-patterns
+    
+    add unix shell style patterns to ignore file list
+
+commit de2574e955768ff09496ea5486d6014765889c24
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Tue Dec 19 22:18:07 2017 +0200
+
+    fix test for windows os
+
+commit 03a8c946674e91b01f57c62f09703e2a3e99866c
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Tue Dec 19 21:55:47 2017 +0200
+
+    include sep to excluded patterns
+
+commit f92fd64e29ac31724ba03a9f7fa4654b0b0421ff
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Sun Dec 17 00:39:28 2017 +0200
+
+    created new test class and clear test data files
+
+commit 9c743fd5a4560862bcec130e94fe225995226252
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Tue Dec 5 01:34:21 2017 +0200
+
+    add unix shell style patterns to ignore file list
+
+commit 4fa8f622307599c710e002663edfe30c1f5d8f71
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 06:16:40 2017 +0800
+
+    Update pycocnrete-admin.py help text
+
+commit d207cea5779868fcced7b27e6c20b100039fef43
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:59:05 2017 +0800
+
+    Update version info for README.rst
+
+commit 9e05f1abd35f0609841ce290ce7bda4110b34089
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:51:26 2017 +0800
+
+    Update README.md for compatible with README.rst by auto generate
+
+commit 7508626a51f1b5fca342afded6d0a7fc87ce9737
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:34:12 2017 +0800
+
+    Update version info after windows ready
+
+commit 3012eb1e3211a8b1a733cd7addb426f4be9dc875
+Merge: c30cc08 e51da46
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Oct 6 16:30:50 2017 -0500
+
+    Merge pull request #20 from Falldog/appveyor
+    
+    support Appveyor build & testing
+
+commit e51da461e893f9d594aa8bb0d81227b0cb861f7d
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:28:16 2017 +0800
+
+    (appveyor) add AppVeyor badge status image
+
+commit a5a08588095275a37a67a2db4fb5beb2dd37f277
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:10:50 2017 +0800
+
+    (appveyor) add python 3.6 testing
+
+commit 96ca6eba40a820d795367e5dea3ebe5936b2b243
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:06:38 2017 +0800
+
+    Fix windows build error on python 3.3, 3.4
+    
+    Add “/MANIFEST” link args
+
+commit 785b03f412dedc23646596079a68de84046c5a8a
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 04:34:04 2017 +0800
+
+    (appveyor) Add build off for avoid exception
+
+commit 5a078c2e9a5ce6fd46fc267acebf77902b09bcc2
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 00:39:01 2017 +0800
+
+    (appveyor) remove redundant build_script
+
+commit 21060d72c69a380276e10372b2abdf7549e05e87
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 00:04:57 2017 +0800
+
+    add appveyor for windows testing
+
+commit c30cc080b0582cd9125f67af257b9921d4de216e
+Merge: 9b0a538 a4adb90
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Oct 6 10:47:30 2017 -0500
+
+    Merge pull request #19 from Falldog/example-django
+    
+    (example) add vagrant environment for django example
+
+commit a4adb901bfdb77d94ebb7cacdb024cffb8a21453
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Oct 6 23:35:55 2017 +0800
+
+    (example) add vagrant environment for django example
+
+commit 9b0a538e1ad62efe7d0ccf37662f1fa062f1eb48
+Merge: 9513844 80e1d25
+Author: Falldog <falldog7@gmail.com>
+Date:   Tue Sep 19 08:31:58 2017 +0800
+
+    Merge pull request #17 from Falldog/support_windows
+    
+    Support windows
+
+commit 80e1d259073492b2192a7dab10d44ce512dcfa8c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 18 23:26:13 2017 +0800
+
+    Update README
+
+commit a4557d63bcb29358c35af2eea4d1efd2a41d7b63
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 18 23:23:47 2017 +0800
+
+    Fix testing error on windows
+
+commit f9644ba8654026557f9b013e79f6c1b3de62e300
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 18 23:23:26 2017 +0800
+
+    Support windows + VS2015
+    
+    remove include dir for `stdint.h` it’s, only for VS2008
+    refine the libraries name for Windows & Linux
+    refine the exe name `pyconcrete.exe` for windows
+
+commit 9513844e0f1220d3ec125b2a1922f16482a1b806
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jul 31 00:57:37 2017 +0800
+
+    Hot fix release for python3 compatible  issue
+
+commit 7b60a7d2e38f886df668a9bc24a359371b1aeaf7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jul 31 00:49:33 2017 +0800
+
+    Fix python3 error, pyconcrete(exe) need to convert wchart_t for Py_SetProgramName & PySys_SetArgv
+    
+    Fix test error
+
+commit 917045b9fb2984f5904818f610696fc884c4c20f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jul 31 00:45:36 2017 +0800
+
+    Fix Travis.ci silent test error issue
+    
+    check unittest result, exit as 1 if test fail
+
+commit 959ee12a3ca571f3e842b22dfcbab6d59ce9bc9c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 15:46:09 2017 +0800
+
+    Update MANIFEST.in for pip release, update version
+
+commit da54d64d99f0da898f7af09cfbfc25797c93f28e
+Merge: 03338b5 7bed0fb
+Author: Falldog <falldog7@gmail.com>
+Date:   Sun Jul 30 15:22:30 2017 +0800
+
+    Merge pull request #15 from Falldog/pyconcrete-exe
+    
+    pyconcrete support execute in exe
+    generate executable file `pyconcrete` to system path (like /usr/local/bin)
+    for execute and process entry `.pye`
+
+commit 7bed0fb362831b2b16758d206c951dedc8888a87
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 13:31:37 2017 +0800
+
+    Update README
+
+commit 9cc8b09008037725a2039fc4b469fdac8952f35e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 13:30:55 2017 +0800
+
+    Refine setup.py to execute build_exe under install command, and install
+     `pyconcrete`(exe) to scripts dir
+    
+    Add unit test test_exe for pyconcrete(exe)
+    Fix some pyconcrete_exe.c issue for unit-test
+
+commit 4252cbeb380c4ff831617f89087a2a2de20b56eb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 01:49:17 2017 +0800
+
+    Fix pyconcrete exe execute fail without any sys arguments
+    
+    Do nothing when there is no extra arguments
+
+commit dc526f3c9b7bb6df25eb315bbb87a07b9579cd28
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 01:47:05 2017 +0800
+
+    Fix pyconcrete build exe fail on python3
+    
+    link python lib name is different on python2 & python3
+    -lpython2.7
+    -lpython3.3m
+    -lpython3.4m
+    -lpython3.5m
+    …
+
+commit bbf07536cf8ce2c415d609a1e3603d7270be389d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 23 22:22:46 2017 +0800
+
+    pyconcrete exe support run .pye file which compiled in .pyc
+
+commit f04e2212e2196b8bc2b8b1163c32175d919d3036
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jul 13 00:21:57 2017 +0800
+
+    setup.py build_exe for pyconcrete executable file just like python interpreter
+
+commit 292a087d3ccfa5879e268573c854d56380dec90e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 9 23:51:15 2017 +0800
+
+    (Refactor) separate pyconcrete.c & pyconcrete_module.c
+    
+    for build pyconcrete exe
+
+commit 03338b512ccff92070f1582ae10aa03ee163cf54
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jul 6 22:59:34 2017 +0800
+
+    (pyconcrete-admin) refactor parser to multiple subparsers
+
+commit 35f78738cd4df7e5eb6b6705cd1bace210ed0db7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Jun 30 01:24:49 2017 +0800
+
+    (Test) modify preparation pyconcrete extension file for testing
+    
+    support copy .so .dll .pyd into current working dir to testing
+
+commit bdf34e822b8b750fa5852a2bc4084f2fa5deb586
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Jun 28 01:25:50 2017 +0800
+
+    Add validate version to get more information when magic number is not matched
+
+commit 9628eb154eae85772819524d71cc3d80e7033603
+Merge: 528a6f2 cbae7cc
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Mar 25 00:44:24 2017 +0800
+
+    Merge pull request #9 from hamada2029/master
+    
+    Mingw check
+
+commit cbae7cc499f7ff797ceabafab881ee16dde78ad7
+Author: hamada2029 <0000yt+github@gmail.com>
+Date:   Fri Mar 24 04:23:51 2017 +0900
+
+    check mingw
+
+commit e77bdd306fb0827a444de2af20af274ce9614a15
+Author: hamada2029 <0000yt+github@gmail.com>
+Date:   Thu Mar 23 06:25:23 2017 +0900
+
+    Mingw32 + windows
+
+commit 528a6f21dfb08a27c71c047cfa6ede584798d785
+Merge: de81695 9d480fc
+Author: Falldog <falldog7@gmail.com>
+Date:   Sun Mar 12 20:46:13 2017 +0800
+
+    Merge pull request #7 from fangchih/pep302
+    
+    support  PEP302
+
+commit 9d480fccfbf0d68f09c1afc7f811787d6f8a1554
+Author: Andersen Huang <fangchih.huang@gmail.com>
+Date:   Sun Mar 12 10:11:26 2017 +0800
+
+    revert EXT_PYE
+
+commit 0bfcd5f2620482862c517d8313d2ff66cb86effa
+Author: Andersen Huang <fangchih.huang@gmail.com>
+Date:   Sat Mar 11 23:17:32 2017 +0800
+
+    support  PEP302
+
+commit de81695ba0ea9873a19c9d1e157283347637591f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Feb 16 23:38:22 2017 +0800
+
+    Update README
+
+commit c5998b17790f8fbf0afdd7ada594019881af7592
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 5 22:28:37 2017 +0800
+
+    PyPi support, add release script and pypi requirements
+
+commit 0adc27ef6609c04bc8b5a0313bbc8cef42b91a59
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 5 09:56:08 2017 +0800
+
+    Add vagrant file for develop environment
+
+commit d33cbbb92951786ba1c0ca55e4d48f6bc1d3d161
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Feb 4 22:23:07 2017 +0800
+
+    Add travis build status
+
+commit fa6f105baf17fc402fb0ef5328ed1c3f8bc48602
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Feb 4 22:16:38 2017 +0800
+
+    Fix travis build fail, cause by .so be replaced
+    
+    Build temp _pyconcrete.so should only be builded & copy once
+    copy and replace again will cause segmentation fault
+
+commit 93eddff2530f2b6b12caa1d8c87f47111bdd71ba
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Feb 1 01:08:38 2017 +0800
+
+    (Py3) fix test on specific test-module will fail on python3 env
+    
+    add test path in sys.path for loadTestsFormName
+
+commit db5b999b1c874a331ea0c49be43ef756cd934d03
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 21 22:51:28 2017 +0800
+
+    Fix python2 exception on input error
+    
+    python2 should use raw_input
+
+commit 2429977f293eeeedf247f99adc4ba2d03d3284eb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Jan 18 00:21:00 2017 +0800
+
+    Fix exception on string.join
+    
+    Move config setting into config.py
+    Force remove secret-key to testing on re-generate key
+
+commit afefbccd4180c4d11ce8f3e30e72ee175e1e6bef
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Jan 17 02:20:39 2017 +0800
+
+    Fix travis build fail, move dist to Ubuntu14.04
+
+commit 32431f0cdaf63d7a8b8eab3469c2072baf294867
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Jan 17 01:54:50 2017 +0800
+
+    Fix travis build fail on fail to install python3.6, disable it
+
+commit 3ad0dfd6394cdf975aa052a24989c81f5e91ad13
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Jan 17 01:41:28 2017 +0800
+
+    Add .travis.yml for test
+
+commit c8674ac80ca8cffa967acd72117a45bcf2ac8182
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jan 16 13:59:56 2017 +0800
+
+    Fix marshal loads magic offset for python 3.3
+    
+    .pyc magic offset changed after python 3.3
+    magic+timestamp+file_size
+
+commit 4c25cee1fe73beb20b933cf1e244f4d8d254e617
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jan 16 00:27:20 2017 +0800
+
+    Update version to 0.10.0 & README
+
+commit b92a983a68cb1f76c23b05c2d7479f7ff717dd51
+Merge: e12bfa3 8e09793
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 16 00:19:21 2017 +0800
+
+    Merge pull request #4 from Falldog/python3
+    
+    Porting to python3
+
+commit 8e097938b0de39ed87fef82cfe7d0416b4b96862
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 22:35:13 2017 +0800
+
+    (Py3) update marshal.loads offset for support python2 & 3
+    
+    after python3.4, offset will be increased as 12
+
+commit d81273e5444946b7383a5eb74c4db21902ed38a2
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 22:33:48 2017 +0800
+
+    (Py3) modify testing python executable name for support both python2 & 3
+    
+    replace by sys.executable
+    python3 _pyconcrete.so will be naming as _pyconcrete.cpython-34m.so update copy file path
+
+commit 37f701a9f14c3ec27de679610a70dce7cfe2aac8
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:41:54 2017 +0800
+
+    (Py3) Fix unit-test error, python3 will always import the pyconcrete installed in system
+    
+    Force to reload pyconcrete after update sys.path
+
+commit 05106d335b31f57fea64be722c29fa1884bd3a70
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:40:31 2017 +0800
+
+    (Py3) Fix unicode/byte error in python3
+
+commit e97143536610d25ff38c4c921c2db06065869ee5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:38:28 2017 +0800
+
+    (Py3) Fix setup.py install error
+
+commit 572a2dc51d265c85fba15fac6d5eb86cdf4ff7d5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:34:20 2017 +0800
+
+    (Py3) fix compile .pyc issue by python3 change the compile behavior
+
+commit 7cc6ce76d38c5ffb05fa3e2bdcbcaf95accbf791
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 14 18:18:21 2017 +0800
+
+    (Py3) execute 2to3 migrate the new code style
+
+commit 906f3712198c93224bd6e5cb50540d26582b52f4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 14 17:51:50 2017 +0800
+
+    (Py3) modify pyconcrete.c for compatible with Python3
+    
+    include bytesobject.h, replace PyString_XXX by PyBytes_XXX
+    update module definition for support both Py2 & Py3
+
+commit e12bfa371b260749c4666d452d33f563ea6a507a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Dec 19 01:27:08 2016 +0800
+
+    Update testing module requests to 2.14.2
+    
+    requests-2.5.1.zip (actually it's source code of 2.5.2)
+    requests/packages/__init__.py will manipulate `sys.meta_path` and cause
+    error on unit-test, update it to 2.14.2 will avoid this issue
+
+commit b31520a240c203eee2e2f73545ac57c93f06f44c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Dec 19 01:23:19 2016 +0800
+
+    New import hook used - sys.meta_path
+    
+    Reference from Pull Request 1 - samirotiv 1c42c09a79b4f5b30355af5ba64df54711f1ed7e
+    Fix import package issue & add test case
+    
+    Add `test_import_hook.py` for testing on meta_path function
+
+commit 89434c017ab59adf4c1c5cbbfb6c57fc2fb08f93
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Dec 19 00:34:43 2016 +0800
+
+    pyconcrete-admin support test on specific test module
+    
+    for testing on single module
+    run test by TextTestRunner, not via subprocess. It could be debug in
+    IDE(ex: PyCharm) after run in same process
+
+commit 9c2b39039af623c23b9ab41395ecf8091d605f51
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Sep 15 10:58:10 2016 +0800
+
+    Refine unittest structure
+    
+    build tmp pyconcrete first, then all test cases will share same
+    pyconcrete library, remove it atexit
+
+commit 775c94f58db33a8b05575aab567b9f3e4551c50a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 13 21:28:45 2016 +0800
+
+    Manually create pyconcrete.pth in install, fix issue under ubuntu env
+    
+    setup(
+        data_files=(sysconfig.get_python_lib(), 'pyconcrete.pth'),
+        ...
+    )
+    it will got wrong result in ubuntu, get_python_lib got /usr/lib
+    but pyconcrete installed in /usr/local/lib
+    get install_libbase to avoid this issue
+
+commit 095e7605e1ce57b894501b7c9a6f6747c000629d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 11 09:42:07 2016 +0800
+
+    Install pyconcrete.pth after installation for import pyconcrete after python launched
+
+commit 784b1c60649b4ceb0c04ed8727acc23bb78de547
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 10 23:34:24 2016 +0800
+
+    Refine pyconcrete-admin.py in better parameter usage
+
+commit b69660301d14dcabaa1892feff1f3580ce85595a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Aug 26 23:25:14 2016 +0800
+
+    Add test command in pyconcrete-admin.py for run unit-test
+
+commit 73b2da8b7faa327dfb468867d732cc51784523d7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Aug 26 22:42:33 2016 +0800
+
+    Refactor code style, follow PEP8
+
+commit dcdc12baf6f0b7c55de0ad63f56afb979940e9e1
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Aug 26 22:41:37 2016 +0800
+
+    Add .idea to gitignore for PyCharm
+
+commit 38582bec9a3d013cd6787e101bc2c7b2856f2db7
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 14 13:40:58 2015 +0800
+
+    refine pyconcrete performance
+    add just import .py & .pyc in pyconcrete unit test, not include .pye (testing import wrapper performance)
+
+commit 842e957c61de9f8f65ec3a4f00078d1cdae27280
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 16:31:29 2015 +0800
+
+    add testing .pyc performance
+
+commit 36b7e5a9fdfe9403c013dc68b6c06897c79c2b8c
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 15:39:51 2015 +0800
+
+    update README
+
+commit 9f1e1d94cbeb86934faf16b01fc3973047d11b18
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 15:22:34 2015 +0800
+
+    add performance unit test
+
+commit 1aaaf70f93a4e2473e73fc59d9f149a5054175c8
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 15:22:02 2015 +0800
+
+    refine code
+
+commit 50137c2b3b609bf5686380769b64f85d1623b97a
+Author: Falldog <falldog7@gmail.com>
+Date:   Sun Jan 11 09:27:48 2015 +0800
+
+    add test command in setup.py, refine pyconcrete-admin.py
+
+commit 930a0f23bc59f61be28060037fbee8e67660eaf7
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Jan 9 18:48:57 2015 -0800
+
+    fix the testing error on ubuntu
+
+commit b2d2971999faf7002d5fbbdea134ce47510c687f
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Jan 10 00:15:08 2015 +0800
+
+    update README
+
+commit f051ca570b60a83305aea3cef2433e2be5eca3ef
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Jan 10 00:13:11 2015 +0800
+
+    update setup script
+
+commit 679f006764051572fc3f85e660be1f31dedad08a
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Jan 10 00:12:40 2015 +0800
+
+    update README & version
+
+commit 303a9698c63b2d9adfe4e4d0fad657457ded6452
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Jan 9 18:12:29 2015 +0800
+
+    refine the unit testing code
+
+commit d55f2dee1b286ad147d43f7b074c4a61bec52c42
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Jan 9 15:07:42 2015 +0800
+
+    raise exception in pyconcrete.c for error handling
+
+commit d8332d9642801f76f77aa5afc80b4fc07c7ee6e6
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 17:08:30 2015 +0800
+
+    add README
+
+commit 9b42fe7ced5764b5d653c7526bcd4b469e16eb63
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 17:08:15 2015 +0800
+
+    complete setup.py install, refine some code
+
+commit 6ec6b38fbdfd834c0960475294bdc60f714d710d
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 09:00:01 2015 +0800
+
+    commit pyconcrete first version, basic function and unittest
+    encrypt by OpenAES-0.9.0
+
+commit 50b78d1f703e2715a556890932e5dfe4589bdc91
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 08:24:28 2015 +0800
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 41913e7977a6ae9cf2efd05e1aae6dc678838405
+Author: Falldog <falldog@gofreight.com>
+Date:   Fri Dec 9 23:28:11 2022 +0800
+
+    refactor(docker): upgrade default python & ubuntu version
+
+commit 1290e3b2f41182c2a5024e0b336e3edb206edfc8
+Author: Falldog <falldog@gofreight.com>
+Date:   Thu Dec 8 00:47:01 2022 +0800
+
+    fix(readme): typo
+
+commit 412d5d7a2afea1dce333d292b6fb6ac63515896c
+Merge: f1852ca 880369d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Dec 8 00:16:22 2022 +0800
+
+    Merge pull request #100 from stitrace/issue-99
+    
+    Replace url for download pip.py for 3.6 back-capability
+
+commit 880369d111cb0acf593862fbc6971ae6bf8175f6
+Author: Andrey Chubarov <andrey.chubarov@zyfra.com>
+Date:   Wed Dec 7 13:03:03 2022 +0300
+
+    Replace url for download pip.py for 3.6 back-capability
+
+commit f1852cac54ab146d313908d08ec261a8797d71d4
+Author: Falldog <falldog@gofreight.com>
+Date:   Thu Sep 15 08:45:04 2022 +0800
+
+    refactor: replace tab by space
+
+commit 3f539aa173231e6e47364bf58ef1fa56b5a23b6f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jun 23 16:20:23 2022 +0800
+
+    chore(tab): replace tab by space
+
+commit 602165239a83eddcf53fa5a36d9f55e961d564f4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jun 23 16:17:27 2022 +0800
+
+    remove useless vagrant files
+
+commit 2fa5c0588331ceab7f9bffcfaacd9d2446a44bdb
+Merge: e461c34 f18bd18
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Apr 23 09:54:14 2022 +0800
+
+    Merge pull request #97 from Falldog/dependabot/pip/example/django/pye_web/django-2.2.28
+    
+    build(deps): bump django from 2.2.27 to 2.2.28 in /example/django/pye_web
+
+commit f18bd18b1fa9f9444165a2ccee8df137b3d884a6
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Apr 22 23:40:49 2022 +0000
+
+    build(deps): bump django in /example/django/pye_web
+    
+    Bumps [django](https://github.com/django/django) from 2.2.27 to 2.2.28.
+    - [Release notes](https://github.com/django/django/releases)
+    - [Commits](https://github.com/django/django/compare/2.2.27...2.2.28)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: django
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit e461c340a61ce3bad8234dd017375ee4b3b62cb5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Mar 1 23:14:39 2022 +0800
+
+    refactor: replace \t by space
+
+commit faa95bf3dd0b9625c6fca7c6ca14815ae53f1a8d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:28:45 2022 +0800
+
+    fix: test-wheel output to temp dir, not cwd
+
+commit e18b6e4fdf4ed960606822c4a350582b6418e126
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:17:36 2022 +0800
+
+    feat(pyconcrete-admin): add release test option for testing on pypi
+
+commit de67f34065136ad11e85bd21437226d832a6638f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:14:04 2022 +0800
+
+    bump version to 0.15.1
+
+commit 9570b5b3cf8cfac708c0db603de056744dc986e4
+Merge: 3986878 0a05ebe
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:08:45 2022 +0800
+
+    Merge branch 'fix-pip-install-fail'
+
+commit 0a05ebef738c82abf6be32711e1be81349f12cc8
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:07:15 2022 +0800
+
+    test: add test for building wheel
+
+commit f239febb2fa747abf55bfdb9c5a2f5409553c953
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Feb 28 01:06:08 2022 +0800
+
+    fix: pip install will fail by build-cached-files be clear
+    
+    #73
+    [why] pip install steps is different with python setup.py install
+    [how] check have_run commands before clear build files
+
+commit 398687892c1f0f96f93821da052fce4cfa44bda7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 23:08:08 2022 +0800
+
+    bump version to v0.15.0
+
+commit e87cad602b6b333489c2c5cedef96e4d97f9dc15
+Merge: 61f88c9 b9ae2fe
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 23:06:21 2022 +0800
+
+    Merge pull request #93 from Falldog/fix-passphrase-n-secret-key
+    
+    Fix passphrase and secret key
+
+commit b9ae2fe346b5fa9d92deb540eae461cc74a890a4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 22:51:23 2022 +0800
+
+    fix: update env naming to `PYCONCRETE_PASSPHRASE`
+
+commit 040d0c6f946fcdc2695f8c69fffc5c4cc8081c2a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 08:57:05 2022 +0800
+
+    fix: remove default key
+    
+    #58
+
+commit c7b0b39853ae58389fc5752b9fc35935daf78175
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 08:50:53 2022 +0800
+
+    fix: installation should clear old build, avoid use cached pw
+    
+    #73
+    
+    [why] `python setup.py install` will create `build/` folder including `pyconcretexxx.o`, the password will be cached inside
+    [how] execute clean command before installation
+
+commit 670bf0b7c0f1f54cef44476efb8bbc1c66f0ec7f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 07:40:06 2022 +0800
+
+    fix: always try to create secret key header file
+    
+    [why] original behavior will check the file is exist at the beginning
+    [how] use global variable and register atexit event to remove it
+
+commit 184e2ecbd63ffe2edf5f56bce2867e7f59daca3f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 27 07:05:42 2022 +0800
+
+    fix: installation should use `--passphrase`
+
+commit 61f88c9eb2ece37957697b509c1d41dd2868ed8c
+Merge: 25307f5 cebbc7b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 11:44:33 2022 +0800
+
+    Merge branch 'fix-release'
+
+commit cebbc7baf9d879beeeccf8cde55d4950e3018026
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 11:42:50 2022 +0800
+
+    fix(setup): replace python-config by sysconfig
+    
+    [why] pyenv can't get python3.x-config directly
+    [how] for support pyenv environment, use sysconfig module directly
+
+commit 3798c25f4517d04ec4567aa8c6c4260cdf7645d4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 11:40:25 2022 +0800
+
+    fix(pyconcrete-admin): release command doesn't have verbose arg
+
+commit 25307f5acb742f4348ac09545fa32a4032e3b664
+Merge: 93619fe 7a3f1f3
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 10:14:33 2022 +0800
+
+    Merge pull request #92 from eureciclo/master
+    
+    Add option to read passphrase from env vars
+
+commit 93619fe0d79fe0df8e67582a5b7a6e8408e1c857
+Merge: be3d23b 2907b3f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 13 09:18:24 2022 +0800
+
+    Merge pull request #91 from Falldog/dependabot/pip/example/django/pye_web/django-2.2.27
+    
+    Bump django from 2.2.26 to 2.2.27 in /example/django/pye_web
+
+commit 7a3f1f3ff2302a0436a7415866dde13f3bc0f7d1
+Merge: be3d23b 9bc12bf
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:31:35 2022 -0300
+
+    Merge branch 'passphrase-via-env'
+
+commit 9bc12bff1a52c9e6fa200fc580b4e2a0c184a46e
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:29:24 2022 -0300
+
+    Bump version to 0.14.1
+
+commit 95d8c663d97855dbb7dbae9cef2fe5f748f63e7d
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:29:11 2022 -0300
+
+    Add install instructions on README
+
+commit 8b4146e9854f7bf57327632522c80d5e8533db20
+Author: Leonardo Baptista <leonardoobaptistaa@gmail.com>
+Date:   Thu Feb 10 14:22:17 2022 -0300
+
+    Add option to read passphrase via env var
+
+commit 2907b3f9481d41397473cce985314d4db63b624e
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Feb 10 12:44:46 2022 +0000
+
+    Bump django from 2.2.26 to 2.2.27 in /example/django/pye_web
+    
+    Bumps [django](https://github.com/django/django) from 2.2.26 to 2.2.27.
+    - [Release notes](https://github.com/django/django/releases)
+    - [Commits](https://github.com/django/django/compare/2.2.26...2.2.27)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: django
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit be3d23b028817007d9b4a0394bd01fbbc9c35576
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 6 21:21:24 2022 +0800
+
+    refactor: fix some compile warning messages
+
+commit 82cdfd7278c019052552e2050b27e9d041c974a8
+Merge: 882edc5 db4daaf
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 30 00:15:22 2022 +0800
+
+    Merge pull request #90 from Falldog/dependabot/pip/example/django/pye_web/django-2.2.26
+    
+    Bump django from 2.2.24 to 2.2.26 in /example/django/pye_web
+
+commit db4daaf2e5cc0ae269dfc03fa872fa4368024538
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sat Jan 29 14:14:41 2022 +0000
+
+    Bump django from 2.2.24 to 2.2.26 in /example/django/pye_web
+    
+    Bumps [django](https://github.com/django/django) from 2.2.24 to 2.2.26.
+    - [Release notes](https://github.com/django/django/releases)
+    - [Commits](https://github.com/django/django/compare/2.2.24...2.2.26)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: django
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 882edc5f777a943ea7d3e062c3cb4703516691c0
+Merge: 0b532dc 14e118f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 30 00:12:44 2022 +0800
+
+    Merge branch 'refactor-pre-commit'
+
+commit 14e118ff761066d7950182b16dbac631fd333640
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 30 00:06:29 2022 +0800
+
+    (pre-commit) fix isort config
+
+commit b332ed3c4187c44c7ea0c744601d6a7891be44e9
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:28:07 2022 +0800
+
+    (refactor) flake8
+
+commit 94e337f062cf9a5189d1c3400579e343917631fc
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:27:49 2022 +0800
+
+    (pre-commit) add flake8
+
+commit 47bb8097fa8c25caa23f548352dbd55a43df8b98
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:10:12 2022 +0800
+
+    (refactor) black
+
+commit cf172c77ee66bc77a74b4a8bae5819c6b544059b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 23:09:53 2022 +0800
+
+    (pre-commit) add black
+
+commit c509e797a5df000c38b5a92abf029d16085e23b7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:56:20 2022 +0800
+
+    (refactor) isort
+
+commit e886107d165f982cc7928e74df2d4c2c9e690494
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:55:11 2022 +0800
+
+    (pre-commit) add isort
+
+commit 4698d0622a6b1d09fd28965631c8ce90df5d690a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:51:48 2022 +0800
+
+    (refactor) pre-commit-hooks
+
+commit 7ca5d48c78ab4979b6587fd32f329fdf34199654
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:51:31 2022 +0800
+
+    (pre-commit) add first pre-commit config
+
+commit 0b532dc6361f220898589a035284816c620553da
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:21:08 2022 +0800
+
+    update version to 0.14.0
+
+commit 47d4d5c7eef53eab2ff17af492926cc7475d0a64
+Merge: 4e6f685 0ad1f4b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 22:14:02 2022 +0800
+
+    Merge pull request #89 from Falldog/support-3.10
+    
+    Support 3.10
+
+commit 0ad1f4bb5beedbe8080ef6809988c68a61053753
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:36:58 2022 +0800
+
+    (refactor): docker-compose-test services rename from pye310 -> pye3.10
+
+commit 2a3b5364897b52033399bd027575fd38c4a4869c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:31:58 2022 +0800
+
+    (py3.10) update setup.py supported python version
+    
+    * add python 3.9 & 3.10
+
+commit 0c268773fc5aa45010fd994d301e4406bce32f75
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:31:10 2022 +0800
+
+    (py3.10) fix test import requests error
+    
+    [why] original requests-2.12.4 doesn't compatible with python3.10
+    [how] upgrade requests to latest 2.27.1
+
+commit 08d7651b4ab3b72d124cb86066a9953ac9296dcb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:29:13 2022 +0800
+
+    (py3.10) fix pyconcrete building error
+    
+    [why]
+    https://docs.python.org/3/whatsnew/3.10.html#id2
+    The PY_SSIZE_T_CLEAN macro must now be defined to use PyArg_ParseTuple() and Py_BuildValue() formats which use #: es#, et#, s#, u#, y#, z#, U# and Z#
+    See Parsing arguments and building values and the PEP 353.
+    
+    [how]
+    #define PY_SSIZE_T_CLEAN before include Python.h
+
+commit 4393a3099814d60e4730abe32ca3fb5e0878c25d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 29 21:19:30 2022 +0800
+
+    (py3.10) fix docker env building fail issue
+    
+    [why] pip of python3.10 need to install `apt install python3.10-distutils`
+    [how] add installation before execute get-pip
+
+commit 4e6f6854c9ba718f657910568f17f732180a957d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 10:01:08 2021 +0800
+
+    update version to 0.13.0
+
+commit b163978311df908932cc444b96e4308ad93745a5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:59:52 2021 +0800
+
+    update README
+
+commit c316fdaccebd83f23c828eed6363e88281adf9bb
+Merge: 334ae11 d22dc55
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:51:36 2021 +0800
+
+    Merge pull request #87 from Falldog/refactor/example-docker
+    
+    refactor/example docker
+
+commit d22dc551d9f619c7eb65f046c543cae4267cc3f4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 01:01:12 2021 +0800
+
+    update example django to 2.2.24
+
+commit a8061cdea991036497ddd2f381fcf7a85c976805
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 01:00:51 2021 +0800
+
+    refactor(example): remove useless vagrant style files
+
+commit fd9ff949e2af47c6672239f27f2e7257636bfe54
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 01:00:37 2021 +0800
+
+    refactor(example): update readme
+
+commit bc9f045ea152799b5444951eda7c26006c379775
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 00:53:26 2021 +0800
+
+    refactor(example): add docker style
+
+commit 334ae11a502c626991812525b5d33d4efb56d2bf
+Merge: 1e878fe 9e8cb2c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:32:30 2021 +0800
+
+    Merge pull request #86 from Falldog/drop-py27
+    
+    fix travis & appveyor env, update python support version
+
+commit 9e8cb2c9ff73526422401e965b536720bc9b85eb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 28 09:28:09 2021 +0800
+
+    support python 3.8
+
+commit 3734b1aaae04dadf956e7704ea18d4f0b05b091a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 21:38:31 2021 +0800
+
+    fix appveyor issue
+    
+    * remove py3.3 py3.4
+    * move _appveyor/ -> appveyor/
+    * update install.ps1 & run_with_env, copy from cython
+
+commit cb58791ee763ec526f9f07ec890543294981d894
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 27 00:45:08 2021 +0800
+
+    fix travis env
+    
+    * remove testing on py3.3 py3.4
+    * testing ubuntu xenial avoid exception
+
+commit 05cb302df655db2927d032bb6829ccdfdebc3984
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 27 01:17:58 2021 +0800
+
+    remove userless pandas package for testing
+
+commit 8038021a67dc9ce3ec468057955e403dea1428ad
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 13:40:08 2021 +0800
+
+    remove py2.7 support
+
+commit 1e878fec74ec70133f52a16e61289afbe338625c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 13:25:59 2021 +0800
+
+    fix(pyconcrete-exe): pyconcrete exit code should the same with sys.exit raise value
+    
+    [why] original behavior pyconcrete will always exit with 0
+    [how] add error handling, and the exit code will be updated
+
+commit 4b508b81d38ad563439a4ad88e2a8f9167719925
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 09:59:41 2021 +0800
+
+    refactor test exe module
+
+commit ef4220cb7d9fcf57e3c0ad31012ed68ca8627dec
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 09:07:53 2021 +0800
+
+    fix(threading): fix finalize exception
+    
+    * reference uwsgi & mod_wsgi to do something avoid exception
+
+commit 5fae80ada7591c98841dfa7c60e66bb4cd0f2c7e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 08:24:40 2021 +0800
+
+    feat(test): add pye37 & pye38 for testing
+
+commit bc6724d4a82b06f83d73ccca27839dcc1656f33a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 00:48:50 2021 +0800
+
+    refactor(test): docker image should keep pip install result
+    
+    * move docker-compose to root for copy test/requirements.txt into docker image
+
+commit 7a231bd20fd274268484b4b7d4cf415171e70db5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 00:30:18 2021 +0800
+
+    refactor(test): add logger style
+
+commit 4b6422a0bd4b6d900e31c515aedbed2f35c67208
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 26 00:19:14 2021 +0800
+
+    refactor(test): reduce testing log info
+    
+    * remove --verbose of testing calling subprocess on pyconcrete-admin.py, pass the verbose info by os env `TEST_VERBOSE`
+    * docker run-test.sh need by pass the env into docker
+
+commit a202a83fb395915a091a2d5f3773ad8b2e877e11
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:49:46 2021 +0800
+
+    refactor run-test.sh
+
+commit 418a4f325614b4cce05e90a060008f9d0eff143b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:35:42 2021 +0800
+
+    fix(setup.py): check link python lib by abiflags
+    
+    [why] above python 3.8 the link lib name would not effect by pymalloc, the name would be `-l python3.8` not `-l python3.8m`
+
+commit bcd0248eb487e81b0a507c8a8e32a57f6a109c50
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:26:56 2021 +0800
+
+    refactor(setup.py): access version_info by parameter not index
+
+commit 5594eb3111e441a38a77d7a3806d0c9989c352cb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 25 23:24:00 2021 +0800
+
+    fix(test): remove py2.7 testing env
+
+commit 58641f503b23df62d3a245967086645b5d737f30
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Mar 15 19:40:28 2020 +0800
+
+    (test) add test_exe_testcases
+
+commit 8c71de09143702b542c3dc5f7add487cbde6fdcd
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Mar 12 00:05:32 2020 +0800
+
+    (test) fix impoert path
+
+commit a627ab4f4bbaf9434e7940d5abba3dda752b5b70
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Mar 11 23:41:26 2020 +0800
+
+    (docker) add docker file support for clean test environment
+
+commit 51827bee01d0fa0b7296447cf2be42c75491c078
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jul 13 13:43:55 2019 +0800
+
+    Upgrade Django version for security issue
+
+commit 8a287e6e7397c61fc0c5086b175c7968c3762f40
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jul 13 13:42:34 2019 +0800
+
+    Fix threading globals variables issue #60 #61
+
+commit ab380b51ae9aeb42cda6a3abb0fae319067b9396
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jun 15 01:36:53 2019 +0800
+
+    Upgrade Django version for security issue
+
+commit 847ab11407a087e5f07d942962d45baaa7951234
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Apr 27 00:38:09 2019 +0800
+
+    Fix python3.7 linking error on Mac
+    
+    Error:
+    ld: library not found for -lpython3.7m
+    
+    Solution
+    use result of `python-config --ldflags` to get correct link library path, search the flags starts with "-L"
+    
+    #51
+
+commit 9aba80c1d6d73f6fd728ae27301e8a8beeb58f34
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Oct 6 14:03:15 2018 +0800
+
+    Upgrade Django version for security issue
+
+commit 975de1f3e5ec295476a4367bdf2b6c3ecf9fa13f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 09:39:30 2018 +0800
+
+    Update version for fix pypi upload error issue
+
+commit c238a7339cf335d2baa1e70b932e40f745bbd447
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 09:23:26 2018 +0800
+
+    Update version to 0.12.0
+
+commit eb28fbaaff33d331555acc1a3f3463d60af2556c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 02:08:07 2018 +0800
+
+    Update README
+
+commit 2e914c075eae47e8103eeae944499232425d6037
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Sep 14 03:48:41 2018 +0800
+
+    (travis) update for test python 3.6 & 3.7
+    
+    * test 3.7 on Ubuntu xenial
+    * test other python on Ubuntu trusty
+
+commit e19cd502384ad00ff96cb9d40c6191af593b674d
+Merge: 59cc6a4 a1c0fcb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 15 02:12:56 2018 +0800
+
+    Merge branch 'bug/fix-appveyor-error'
+
+commit a1c0fcb9556d93c1ffebf396e87c996ca007713e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Sep 14 03:47:10 2018 +0800
+
+    appveyor support python3.7 test env
+
+commit fed48dcf8ff1db23d5c6dacabcbf40112e43b874
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Sep 14 03:34:01 2018 +0800
+
+    Fix test error on windows platform
+    
+    * test_admin parameter should quote by `"` not `'`
+
+commit 19b3a18ab86fe060c66290fdfd269afcae907945
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Sep 12 01:40:52 2018 +0800
+
+    Fix appveyor error, Run pip install as Python module
+
+commit 59cc6a4ad0969a2c3917354f23d7b19038ce485f
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Sep 12 01:18:50 2018 +0800
+
+    Support python3.7 (#45)
+    
+    * Support python3.7, update magic number offset
+    
+    * python 3.7 magic number offset become to 16 bytes
+    * add README about to fix compile error
+    * Update setup.py support python 3.7
+
+commit 509d3ec7926c0774058e243c1c9f0c4013329b74
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 11 02:09:21 2018 +0800
+
+    Fix test error if there is any test.py under pycocnrete folder will cause error
+    
+    * shell will convert -i */test.py -> XXX/test.py if there is test.py under XXX folder
+
+commit 73538b74c2289735120a8c61145370453ef5caf6
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 11 02:06:55 2018 +0800
+
+    Fix test_exe error
+    
+    * tempdir would be under symlink at MacOS
+    * test check temp dir in sys.path may cause error
+    * get realpath to check it
+
+commit c0e60786e6a0b0ec2030e1afb8723aa0d0e9801b
+Merge: 42b46e2 57ed8d1
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Sep 5 00:10:55 2018 +0800
+
+    Merge pull request #43 from pohmelie/add_multiple_sources
+    
+    allow multiple sources
+
+commit 57ed8d1e7e4ecdfdd3a07307e6fe7a7390d5c902
+Author: Nikita Melentev <Nikita.Melentev@kronshtadt.ru>
+Date:   Tue Sep 4 15:33:18 2018 +0300
+
+    allow multiple sources
+
+commit 42b46e2d5d99f51cc0a50e616668855d8cacfded
+Merge: 682fbb6 8e0e11c
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed May 23 08:21:00 2018 -0700
+
+    Merge pull request #38 from Falldog/bug/add-log-for-admin
+    
+    (pyconcrete-admin) add more clear log
+
+commit 8e0e11c891d214fddc50b51214c2ab03cf2ccc4b
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed May 23 00:34:33 2018 -0700
+
+    (pyconcrete-admin) add more clear log
+
+commit 682fbb673ac52edd67dad164228fb4bff2b33f07
+Merge: 49352b2 345b35d
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri May 18 01:59:49 2018 +0800
+
+    Merge pull request #37 from Falldog/bug/dobule-release-memory
+    
+    Fix double release memory issue
+
+commit 345b35db96ec6e26f3c3f75a8b6fcd94e2d6bda4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu May 17 23:36:32 2018 +0800
+
+    Fix double release memory issue
+    
+    * PyTuple_SetItem() will steal reference, doesn't need to release `py_concrete` again
+
+commit 49352b2c3a725e48e53ac27a8f524b9d7af808f1
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue May 1 07:57:30 2018 +0800
+
+    Fix window compile fail issue, PYCONCRETE_VERSION macro will not be threat as string
+    
+    * add double macro wrapper for it
+
+commit 4413d0a161418105e17fcf298fa61a1312b86848
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue May 1 05:41:05 2018 +0800
+
+    (pycocnrete.exe) add version info
+    
+    * pass version from setup.py to pyconcrete_exe.c
+
+commit 549888efb99c99fa1ce339b4f878174feb032846
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue May 1 04:50:54 2018 +0800
+
+    (pyconcrete.exe) display error message if load pyc fail
+
+commit 1909526776a9fc13d9daf179a9d450bc13e73307
+Merge: 91aca57 beeb943
+Author: Falldog <falldog7@gmail.com>
+Date:   Thu Mar 22 08:20:46 2018 +0800
+
+    Merge pull request #30 from lean0708/patch-1
+    
+    typo README.md
+
+commit beeb9431c7eff812d03a6d28308c5594262cd7d5
+Author: lean0708 <leandro.lapiana@invgate.com>
+Date:   Wed Mar 21 16:39:59 2018 -0300
+
+    Update README.md
+
+commit 91aca57222a1652622365953e764630e9a23e278
+Merge: b360fe1 5b535b9
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 1 14:52:00 2018 +0800
+
+    Merge pull request #26 from deadsnakes-issues-bot/all-repos_autofix_update_deadsnakes_ppa_name
+    
+    Update deadsnakes ppa name
+
+commit 5b535b90c44ee549e66d721d9f6ad915b6cb9f99
+Author: Anthony Sottile <asottile@umich.edu>
+Date:   Sun Dec 31 14:32:30 2017 -0800
+
+    Update deadsnakes ppa name
+    
+    The deadsnakes ppa has changed names!  For more information, see deadsnakes/issues#54
+    
+    Committed via https://github.com/asottile/all-repos
+
+commit b360fe1cede4cbd740ef0ead64bd879c513aa375
+Merge: 4fa8f62 de2574e
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Dec 20 15:27:23 2017 +0800
+
+    Merge pull request #24 from vasilishin/ignore-patterns
+    
+    add unix shell style patterns to ignore file list
+
+commit de2574e955768ff09496ea5486d6014765889c24
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Tue Dec 19 22:18:07 2017 +0200
+
+    fix test for windows os
+
+commit 03a8c946674e91b01f57c62f09703e2a3e99866c
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Tue Dec 19 21:55:47 2017 +0200
+
+    include sep to excluded patterns
+
+commit f92fd64e29ac31724ba03a9f7fa4654b0b0421ff
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Sun Dec 17 00:39:28 2017 +0200
+
+    created new test class and clear test data files
+
+commit 9c743fd5a4560862bcec130e94fe225995226252
+Author: vasilishin.d.o <vasilishin.d.o@gmail.com>
+Date:   Tue Dec 5 01:34:21 2017 +0200
+
+    add unix shell style patterns to ignore file list
+
+commit 4fa8f622307599c710e002663edfe30c1f5d8f71
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 06:16:40 2017 +0800
+
+    Update pycocnrete-admin.py help text
+
+commit d207cea5779868fcced7b27e6c20b100039fef43
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:59:05 2017 +0800
+
+    Update version info for README.rst
+
+commit 9e05f1abd35f0609841ce290ce7bda4110b34089
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:51:26 2017 +0800
+
+    Update README.md for compatible with README.rst by auto generate
+
+commit 7508626a51f1b5fca342afded6d0a7fc87ce9737
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:34:12 2017 +0800
+
+    Update version info after windows ready
+
+commit 3012eb1e3211a8b1a733cd7addb426f4be9dc875
+Merge: c30cc08 e51da46
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Oct 6 16:30:50 2017 -0500
+
+    Merge pull request #20 from Falldog/appveyor
+    
+    support Appveyor build & testing
+
+commit e51da461e893f9d594aa8bb0d81227b0cb861f7d
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:28:16 2017 +0800
+
+    (appveyor) add AppVeyor badge status image
+
+commit a5a08588095275a37a67a2db4fb5beb2dd37f277
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:10:50 2017 +0800
+
+    (appveyor) add python 3.6 testing
+
+commit 96ca6eba40a820d795367e5dea3ebe5936b2b243
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 05:06:38 2017 +0800
+
+    Fix windows build error on python 3.3, 3.4
+    
+    Add “/MANIFEST” link args
+
+commit 785b03f412dedc23646596079a68de84046c5a8a
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 04:34:04 2017 +0800
+
+    (appveyor) Add build off for avoid exception
+
+commit 5a078c2e9a5ce6fd46fc267acebf77902b09bcc2
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 00:39:01 2017 +0800
+
+    (appveyor) remove redundant build_script
+
+commit 21060d72c69a380276e10372b2abdf7549e05e87
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Oct 7 00:04:57 2017 +0800
+
+    add appveyor for windows testing
+
+commit c30cc080b0582cd9125f67af257b9921d4de216e
+Merge: 9b0a538 a4adb90
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Oct 6 10:47:30 2017 -0500
+
+    Merge pull request #19 from Falldog/example-django
+    
+    (example) add vagrant environment for django example
+
+commit a4adb901bfdb77d94ebb7cacdb024cffb8a21453
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Oct 6 23:35:55 2017 +0800
+
+    (example) add vagrant environment for django example
+
+commit 9b0a538e1ad62efe7d0ccf37662f1fa062f1eb48
+Merge: 9513844 80e1d25
+Author: Falldog <falldog7@gmail.com>
+Date:   Tue Sep 19 08:31:58 2017 +0800
+
+    Merge pull request #17 from Falldog/support_windows
+    
+    Support windows
+
+commit 80e1d259073492b2192a7dab10d44ce512dcfa8c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 18 23:26:13 2017 +0800
+
+    Update README
+
+commit a4557d63bcb29358c35af2eea4d1efd2a41d7b63
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 18 23:23:47 2017 +0800
+
+    Fix testing error on windows
+
+commit f9644ba8654026557f9b013e79f6c1b3de62e300
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Sep 18 23:23:26 2017 +0800
+
+    Support windows + VS2015
+    
+    remove include dir for `stdint.h` it’s, only for VS2008
+    refine the libraries name for Windows & Linux
+    refine the exe name `pyconcrete.exe` for windows
+
+commit 9513844e0f1220d3ec125b2a1922f16482a1b806
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jul 31 00:57:37 2017 +0800
+
+    Hot fix release for python3 compatible  issue
+
+commit 7b60a7d2e38f886df668a9bc24a359371b1aeaf7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jul 31 00:49:33 2017 +0800
+
+    Fix python3 error, pyconcrete(exe) need to convert wchart_t for Py_SetProgramName & PySys_SetArgv
+    
+    Fix test error
+
+commit 917045b9fb2984f5904818f610696fc884c4c20f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jul 31 00:45:36 2017 +0800
+
+    Fix Travis.ci silent test error issue
+    
+    check unittest result, exit as 1 if test fail
+
+commit 959ee12a3ca571f3e842b22dfcbab6d59ce9bc9c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 15:46:09 2017 +0800
+
+    Update MANIFEST.in for pip release, update version
+
+commit da54d64d99f0da898f7af09cfbfc25797c93f28e
+Merge: 03338b5 7bed0fb
+Author: Falldog <falldog7@gmail.com>
+Date:   Sun Jul 30 15:22:30 2017 +0800
+
+    Merge pull request #15 from Falldog/pyconcrete-exe
+    
+    pyconcrete support execute in exe
+    generate executable file `pyconcrete` to system path (like /usr/local/bin)
+    for execute and process entry `.pye`
+
+commit 7bed0fb362831b2b16758d206c951dedc8888a87
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 13:31:37 2017 +0800
+
+    Update README
+
+commit 9cc8b09008037725a2039fc4b469fdac8952f35e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 13:30:55 2017 +0800
+
+    Refine setup.py to execute build_exe under install command, and install
+     `pyconcrete`(exe) to scripts dir
+    
+    Add unit test test_exe for pyconcrete(exe)
+    Fix some pyconcrete_exe.c issue for unit-test
+
+commit 4252cbeb380c4ff831617f89087a2a2de20b56eb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 01:49:17 2017 +0800
+
+    Fix pyconcrete exe execute fail without any sys arguments
+    
+    Do nothing when there is no extra arguments
+
+commit dc526f3c9b7bb6df25eb315bbb87a07b9579cd28
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 30 01:47:05 2017 +0800
+
+    Fix pyconcrete build exe fail on python3
+    
+    link python lib name is different on python2 & python3
+    -lpython2.7
+    -lpython3.3m
+    -lpython3.4m
+    -lpython3.5m
+    …
+
+commit bbf07536cf8ce2c415d609a1e3603d7270be389d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 23 22:22:46 2017 +0800
+
+    pyconcrete exe support run .pye file which compiled in .pyc
+
+commit f04e2212e2196b8bc2b8b1163c32175d919d3036
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jul 13 00:21:57 2017 +0800
+
+    setup.py build_exe for pyconcrete executable file just like python interpreter
+
+commit 292a087d3ccfa5879e268573c854d56380dec90e
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jul 9 23:51:15 2017 +0800
+
+    (Refactor) separate pyconcrete.c & pyconcrete_module.c
+    
+    for build pyconcrete exe
+
+commit 03338b512ccff92070f1582ae10aa03ee163cf54
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Jul 6 22:59:34 2017 +0800
+
+    (pyconcrete-admin) refactor parser to multiple subparsers
+
+commit 35f78738cd4df7e5eb6b6705cd1bace210ed0db7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Jun 30 01:24:49 2017 +0800
+
+    (Test) modify preparation pyconcrete extension file for testing
+    
+    support copy .so .dll .pyd into current working dir to testing
+
+commit bdf34e822b8b750fa5852a2bc4084f2fa5deb586
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Jun 28 01:25:50 2017 +0800
+
+    Add validate version to get more information when magic number is not matched
+
+commit 9628eb154eae85772819524d71cc3d80e7033603
+Merge: 528a6f2 cbae7cc
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Mar 25 00:44:24 2017 +0800
+
+    Merge pull request #9 from hamada2029/master
+    
+    Mingw check
+
+commit cbae7cc499f7ff797ceabafab881ee16dde78ad7
+Author: hamada2029 <0000yt+github@gmail.com>
+Date:   Fri Mar 24 04:23:51 2017 +0900
+
+    check mingw
+
+commit e77bdd306fb0827a444de2af20af274ce9614a15
+Author: hamada2029 <0000yt+github@gmail.com>
+Date:   Thu Mar 23 06:25:23 2017 +0900
+
+    Mingw32 + windows
+
+commit 528a6f21dfb08a27c71c047cfa6ede584798d785
+Merge: de81695 9d480fc
+Author: Falldog <falldog7@gmail.com>
+Date:   Sun Mar 12 20:46:13 2017 +0800
+
+    Merge pull request #7 from fangchih/pep302
+    
+    support  PEP302
+
+commit 9d480fccfbf0d68f09c1afc7f811787d6f8a1554
+Author: Andersen Huang <fangchih.huang@gmail.com>
+Date:   Sun Mar 12 10:11:26 2017 +0800
+
+    revert EXT_PYE
+
+commit 0bfcd5f2620482862c517d8313d2ff66cb86effa
+Author: Andersen Huang <fangchih.huang@gmail.com>
+Date:   Sat Mar 11 23:17:32 2017 +0800
+
+    support  PEP302
+
+commit de81695ba0ea9873a19c9d1e157283347637591f
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Feb 16 23:38:22 2017 +0800
+
+    Update README
+
+commit c5998b17790f8fbf0afdd7ada594019881af7592
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 5 22:28:37 2017 +0800
+
+    PyPi support, add release script and pypi requirements
+
+commit 0adc27ef6609c04bc8b5a0313bbc8cef42b91a59
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Feb 5 09:56:08 2017 +0800
+
+    Add vagrant file for develop environment
+
+commit d33cbbb92951786ba1c0ca55e4d48f6bc1d3d161
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Feb 4 22:23:07 2017 +0800
+
+    Add travis build status
+
+commit fa6f105baf17fc402fb0ef5328ed1c3f8bc48602
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Feb 4 22:16:38 2017 +0800
+
+    Fix travis build fail, cause by .so be replaced
+    
+    Build temp _pyconcrete.so should only be builded & copy once
+    copy and replace again will cause segmentation fault
+
+commit 93eddff2530f2b6b12caa1d8c87f47111bdd71ba
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Feb 1 01:08:38 2017 +0800
+
+    (Py3) fix test on specific test-module will fail on python3 env
+    
+    add test path in sys.path for loadTestsFormName
+
+commit db5b999b1c874a331ea0c49be43ef756cd934d03
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 21 22:51:28 2017 +0800
+
+    Fix python2 exception on input error
+    
+    python2 should use raw_input
+
+commit 2429977f293eeeedf247f99adc4ba2d03d3284eb
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Wed Jan 18 00:21:00 2017 +0800
+
+    Fix exception on string.join
+    
+    Move config setting into config.py
+    Force remove secret-key to testing on re-generate key
+
+commit afefbccd4180c4d11ce8f3e30e72ee175e1e6bef
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Jan 17 02:20:39 2017 +0800
+
+    Fix travis build fail, move dist to Ubuntu14.04
+
+commit 32431f0cdaf63d7a8b8eab3469c2072baf294867
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Jan 17 01:54:50 2017 +0800
+
+    Fix travis build fail on fail to install python3.6, disable it
+
+commit 3ad0dfd6394cdf975aa052a24989c81f5e91ad13
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Jan 17 01:41:28 2017 +0800
+
+    Add .travis.yml for test
+
+commit c8674ac80ca8cffa967acd72117a45bcf2ac8182
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jan 16 13:59:56 2017 +0800
+
+    Fix marshal loads magic offset for python 3.3
+    
+    .pyc magic offset changed after python 3.3
+    magic+timestamp+file_size
+
+commit 4c25cee1fe73beb20b933cf1e244f4d8d254e617
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Jan 16 00:27:20 2017 +0800
+
+    Update version to 0.10.0 & README
+
+commit b92a983a68cb1f76c23b05c2d7479f7ff717dd51
+Merge: e12bfa3 8e09793
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 16 00:19:21 2017 +0800
+
+    Merge pull request #4 from Falldog/python3
+    
+    Porting to python3
+
+commit 8e097938b0de39ed87fef82cfe7d0416b4b96862
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 22:35:13 2017 +0800
+
+    (Py3) update marshal.loads offset for support python2 & 3
+    
+    after python3.4, offset will be increased as 12
+
+commit d81273e5444946b7383a5eb74c4db21902ed38a2
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 22:33:48 2017 +0800
+
+    (Py3) modify testing python executable name for support both python2 & 3
+    
+    replace by sys.executable
+    python3 _pyconcrete.so will be naming as _pyconcrete.cpython-34m.so update copy file path
+
+commit 37f701a9f14c3ec27de679610a70dce7cfe2aac8
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:41:54 2017 +0800
+
+    (Py3) Fix unit-test error, python3 will always import the pyconcrete installed in system
+    
+    Force to reload pyconcrete after update sys.path
+
+commit 05106d335b31f57fea64be722c29fa1884bd3a70
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:40:31 2017 +0800
+
+    (Py3) Fix unicode/byte error in python3
+
+commit e97143536610d25ff38c4c921c2db06065869ee5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:38:28 2017 +0800
+
+    (Py3) Fix setup.py install error
+
+commit 572a2dc51d265c85fba15fac6d5eb86cdf4ff7d5
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Jan 15 14:34:20 2017 +0800
+
+    (Py3) fix compile .pyc issue by python3 change the compile behavior
+
+commit 7cc6ce76d38c5ffb05fa3e2bdcbcaf95accbf791
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 14 18:18:21 2017 +0800
+
+    (Py3) execute 2to3 migrate the new code style
+
+commit 906f3712198c93224bd6e5cb50540d26582b52f4
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Jan 14 17:51:50 2017 +0800
+
+    (Py3) modify pyconcrete.c for compatible with Python3
+    
+    include bytesobject.h, replace PyString_XXX by PyBytes_XXX
+    update module definition for support both Py2 & Py3
+
+commit e12bfa371b260749c4666d452d33f563ea6a507a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Dec 19 01:27:08 2016 +0800
+
+    Update testing module requests to 2.14.2
+    
+    requests-2.5.1.zip (actually it's source code of 2.5.2)
+    requests/packages/__init__.py will manipulate `sys.meta_path` and cause
+    error on unit-test, update it to 2.14.2 will avoid this issue
+
+commit b31520a240c203eee2e2f73545ac57c93f06f44c
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Dec 19 01:23:19 2016 +0800
+
+    New import hook used - sys.meta_path
+    
+    Reference from Pull Request 1 - samirotiv 1c42c09a79b4f5b30355af5ba64df54711f1ed7e
+    Fix import package issue & add test case
+    
+    Add `test_import_hook.py` for testing on meta_path function
+
+commit 89434c017ab59adf4c1c5cbbfb6c57fc2fb08f93
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Mon Dec 19 00:34:43 2016 +0800
+
+    pyconcrete-admin support test on specific test module
+    
+    for testing on single module
+    run test by TextTestRunner, not via subprocess. It could be debug in
+    IDE(ex: PyCharm) after run in same process
+
+commit 9c2b39039af623c23b9ab41395ecf8091d605f51
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Thu Sep 15 10:58:10 2016 +0800
+
+    Refine unittest structure
+    
+    build tmp pyconcrete first, then all test cases will share same
+    pyconcrete library, remove it atexit
+
+commit 775c94f58db33a8b05575aab567b9f3e4551c50a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Tue Sep 13 21:28:45 2016 +0800
+
+    Manually create pyconcrete.pth in install, fix issue under ubuntu env
+    
+    setup(
+        data_files=(sysconfig.get_python_lib(), 'pyconcrete.pth'),
+        ...
+    )
+    it will got wrong result in ubuntu, get_python_lib got /usr/lib
+    but pyconcrete installed in /usr/local/lib
+    get install_libbase to avoid this issue
+
+commit 095e7605e1ce57b894501b7c9a6f6747c000629d
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sun Sep 11 09:42:07 2016 +0800
+
+    Install pyconcrete.pth after installation for import pyconcrete after python launched
+
+commit 784b1c60649b4ceb0c04ed8727acc23bb78de547
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Sat Sep 10 23:34:24 2016 +0800
+
+    Refine pyconcrete-admin.py in better parameter usage
+
+commit b69660301d14dcabaa1892feff1f3580ce85595a
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Aug 26 23:25:14 2016 +0800
+
+    Add test command in pyconcrete-admin.py for run unit-test
+
+commit 73b2da8b7faa327dfb468867d732cc51784523d7
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Aug 26 22:42:33 2016 +0800
+
+    Refactor code style, follow PEP8
+
+commit dcdc12baf6f0b7c55de0ad63f56afb979940e9e1
+Author: Falldog <falldog@hardcoretech.co>
+Date:   Fri Aug 26 22:41:37 2016 +0800
+
+    Add .idea to gitignore for PyCharm
+
+commit 38582bec9a3d013cd6787e101bc2c7b2856f2db7
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 14 13:40:58 2015 +0800
+
+    refine pyconcrete performance
+    add just import .py & .pyc in pyconcrete unit test, not include .pye (testing import wrapper performance)
+
+commit 842e957c61de9f8f65ec3a4f00078d1cdae27280
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 16:31:29 2015 +0800
+
+    add testing .pyc performance
+
+commit 36b7e5a9fdfe9403c013dc68b6c06897c79c2b8c
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 15:39:51 2015 +0800
+
+    update README
+
+commit 9f1e1d94cbeb86934faf16b01fc3973047d11b18
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 15:22:34 2015 +0800
+
+    add performance unit test
+
+commit 1aaaf70f93a4e2473e73fc59d9f149a5054175c8
+Author: Falldog <falldog7@gmail.com>
+Date:   Mon Jan 12 15:22:02 2015 +0800
+
+    refine code
+
+commit 50137c2b3b609bf5686380769b64f85d1623b97a
+Author: Falldog <falldog7@gmail.com>
+Date:   Sun Jan 11 09:27:48 2015 +0800
+
+    add test command in setup.py, refine pyconcrete-admin.py
+
+commit 930a0f23bc59f61be28060037fbee8e67660eaf7
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Jan 9 18:48:57 2015 -0800
+
+    fix the testing error on ubuntu
+
+commit b2d2971999faf7002d5fbbdea134ce47510c687f
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Jan 10 00:15:08 2015 +0800
+
+    update README
+
+commit f051ca570b60a83305aea3cef2433e2be5eca3ef
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Jan 10 00:13:11 2015 +0800
+
+    update setup script
+
+commit 679f006764051572fc3f85e660be1f31dedad08a
+Author: Falldog <falldog7@gmail.com>
+Date:   Sat Jan 10 00:12:40 2015 +0800
+
+    update README & version
+
+commit 303a9698c63b2d9adfe4e4d0fad657457ded6452
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Jan 9 18:12:29 2015 +0800
+
+    refine the unit testing code
+
+commit d55f2dee1b286ad147d43f7b074c4a61bec52c42
+Author: Falldog <falldog7@gmail.com>
+Date:   Fri Jan 9 15:07:42 2015 +0800
+
+    raise exception in pyconcrete.c for error handling
+
+commit d8332d9642801f76f77aa5afc80b4fc07c7ee6e6
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 17:08:30 2015 +0800
+
+    add README
+
+commit 9b42fe7ced5764b5d653c7526bcd4b469e16eb63
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 17:08:15 2015 +0800
+
+    complete setup.py install, refine some code
+
+commit 6ec6b38fbdfd834c0960475294bdc60f714d710d
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 09:00:01 2015 +0800
+
+    commit pyconcrete first version, basic function and unittest
+    encrypt by OpenAES-0.9.0
+
+commit 50b78d1f703e2715a556890932e5dfe4589bdc91
+Author: Falldog <falldog7@gmail.com>
+Date:   Wed Jan 7 08:24:28 2015 +0800
+
+    Initial commit

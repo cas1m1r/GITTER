@@ -1,0 +1,832 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit e6919ebb6ecb35254da6f4bef6e86136c48e468e
+Author: xorrsp <94297076+xorrsp@users.noreply.github.com>
+Date:   Wed Nov 17 13:37:54 2021 +0800
+
+    BUG HvEptHookWriteAbsoluteJump and HvEptHookInstructionMemory (#29)
+    
+    * Update ept.c - Fix absolute jump
+    
+    * Update vmxdefs.asm - Add fxsave
+
+commit 36449c716828bcb448bbabfff6c93d10417149c4
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Tue Oct 20 16:39:02 2020 -0400
+
+    Win10 2004 Fixes (#19)
+    
+    * Ported to win10 sdk 10.0.19041.0
+    
+    * remove unnecessary .sln file
+    
+    * fixed large page allocation bug in win10 v.2004
+    
+    * Fix typos/update README
+    
+    * typo
+
+commit a747d2e273f0fe2a847f712b3be4688b8728e8c7
+Merge: 9c0a9d0 d825301
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Fri Apr 17 18:27:52 2020 -0400
+
+    Merge pull request #13 from btbd/master
+    
+    Save XMM registers between exits and fix bug in NtCreateFileHook
+
+commit d825301398abf869964a0639de1fc2f0022abd7d
+Author: btbd <b4davis88@gmail.com>
+Date:   Thu Apr 2 05:47:56 2020 -0400
+
+    Fix ASM formatting
+
+commit 986f0746a0e4fdbbb4f1af63da8071c666c3fd6a
+Author: btbd <b4davis88@gmail.com>
+Date:   Thu Apr 2 05:16:24 2020 -0400
+
+    Save XMM registers between exits, fix bug in NtCreateFileHook, update IA-32 submodule, and add newlines to logs
+
+commit 9c0a9d0b96f6d5317a1a83eb0387721f82479aed
+Merge: dff300d d8a231e
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Wed Apr 1 12:16:52 2020 -0400
+
+    Merge pull request #12 from btbd/master
+    
+    Enable INVPCID instruction for Windows 10
+
+commit d8a231eca8410e0ea7462fe8489d2b7852a85174
+Author: btbd <b4davis88@gmail.com>
+Date:   Wed Apr 1 03:33:51 2020 -0400
+
+    Enable INVPCID instruction for Windows 10
+
+commit dff300d5b5bc6d7c8a858df1fb30cdd530400d7c
+Merge: c554dea 1be72bf
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Sun Mar 22 13:55:26 2020 -0400
+
+    Merge pull request #11 from thehlopster/patch-1
+    
+    Update vmcs.c to fix bad register define for SYSENTER
+
+commit c554dea6f0a68a98d59dcb492fbd0d02f3436b1f
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 14 17:16:54 2020 -0400
+
+    Fixed bug in EPT split where the MemoryType was always set to Uncached
+    causing significant performance loss on physical systems
+
+commit 1be72bf824cfc63c2ac4da013c64bf36d4457d79
+Author: hlop <thehlopster@gmail.com>
+Date:   Tue Feb 11 17:42:30 2020 +0300
+
+    Update vmcs.c
+    
+    missed _HOST_
+
+commit 9e3d02f40439c439ad85b842b3fc9753347890a2
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Sun Aug 25 22:00:57 2019 -0400
+
+    Update README
+
+commit 0555e309d4099ef100961a5011a41bf9708487b0
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Sun Jan 6 12:47:32 2019 -0600
+
+    Update archdefs.asm
+    
+    Improper registers saved (not even using this context function anyways...)
+
+commit 07112d77f2a66c836808cdf67f686eceb5e49c06
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 21:18:21 2018 -0500
+
+    Spacing
+
+commit 5cf97538c89a687bbcef1aaabb64075533895028
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 21:00:47 2018 -0500
+
+    More README changes.
+
+commit 8fb5b85d04f42b2539bba040ac35f6cf5aaabb38
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:56:05 2018 -0500
+
+    GitHub Public Release and License
+
+commit f3252a8370e5c0e646a24970f192e2cf2dbe647c
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:53:34 2018 -0500
+
+    Images for README
+
+commit 066fb7c9d41d4b92b5270d5f9f95b272638e59a8
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:51:17 2018 -0500
+
+    Release README
+
+commit 8c9d59a8dcc3d5de709339414c19b9a2f182f933
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:50:45 2018 -0500
+
+    Removing large documentation PDFs for release
+
+commit bed3b9755f46b43623054f43f72c2431df223717
+Author: Michael <gbps@ctf.re>
+Date:   Fri Dec 14 15:01:10 2018 -0600
+
+    Memory leak fix
+
+commit 1626f0f3a33487cd5da571eb63b336246f3fe240
+Author: Michael <gbps@ctf.re>
+Date:   Fri Dec 14 15:00:43 2018 -0600
+
+    Finally, working NtCreateFile hook!
+
+commit 614f16e779d488e21adca2db3baa7175255d9eca
+Author: Michael <gbps@ctf.re>
+Date:   Wed Dec 12 22:58:56 2018 -0500
+
+    Working executable page swapping for EPT hook
+
+commit aedbd82b432e032c93a60bb3a1340efa5d0e8aa0
+Author: Michael <gbps@ctf.re>
+Date:   Wed Dec 12 01:26:31 2018 -0500
+
+    4th Gen i7 do not support advanced EPT exit information
+
+commit b054e1008b97618be8c0f73690870868160b6752
+Author: Michael <gbps@ctf.re>
+Date:   Tue Dec 11 16:21:00 2018 -0500
+
+    Majority functioning support for EPT page hooking and splitting.
+
+commit d7bae6adf402b04505796238e18fe6debb3a66cd
+Author: Michael <gbps@ctf.re>
+Date:   Mon Dec 10 00:19:34 2018 -0500
+
+    EPT violation handling working and some tester code
+
+commit e1f4d87eb6436334a0b880657abecc7a6fba2458
+Author: Michael <gbps@ctf.re>
+Date:   Mon Dec 10 00:19:15 2018 -0500
+
+    Uploaded more up-to-date Intel SDM. Turns out that one *very* important part on EPT was missing in the 2016 version. >:(
+
+commit 0d91bea2371831dfb5a3fc25cbfb67083ca92aec
+Author: Michael <gbps@ctf.re>
+Date:   Sun Dec 9 17:35:38 2018 -0500
+
+    EPT works! :D
+
+commit d901cfcbbb21938657f85dd57553a4f2870bfa1f
+Author: Michael <gbps@ctf.re>
+Date:   Sun Dec 9 16:05:35 2018 -0500
+
+    Allocated EPTP into each structure
+
+commit 4ae102e7509ecf4f8bc14df012bc916bd17845b7
+Author: Michael <gbps@ctf.re>
+Date:   Thu Dec 6 19:54:19 2018 -0500
+
+    Documentation fixes
+
+commit 0f8ae70bb0ed37e1f605412a7436337407adffc0
+Author: Michael <gbps@ctf.re>
+Date:   Thu Dec 6 19:50:46 2018 -0500
+
+    MTRR range bug fix
+
+commit a8f9b1ba8bec47cf0176ccd1be7419fd380687cb
+Author: Michael <gbps@ctf.re>
+Date:   Thu Dec 6 19:46:50 2018 -0500
+
+    Page table creation for EPT based on MTRR assignments.
+
+commit f48335129a4ee87bba4d00f1a0efec70af026540
+Author: Michael <gbps@ctf.re>
+Date:   Wed Dec 5 19:34:32 2018 -0500
+
+    Reading and initializnig MTRR data structures
+
+commit 4ec7ea7d360192de33973a8202b943174d7d57eb
+Author: Michael <gbps@ctf.re>
+Date:   Thu Oct 25 00:43:00 2018 -0400
+
+    Fully stable (and useless) HV!
+
+commit 95cbe947bec315916bfedce4d76df6911886b1e1
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 24 11:19:43 2018 -0400
+
+    Initial exit handlers
+
+commit c3357251d655b9a2e28d19d9395df8344bd1434d
+Merge: 339cfc3 f8c5cc5
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 24 09:35:30 2018 -0400
+
+    Merge
+
+commit 339cfc305ec6b8bf9c5b06603a026c28084e6feb
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 24 09:34:45 2018 -0400
+
+    Merge
+
+commit f8c5cc55bfbba0b84f07489dc7c586d70727514c
+Author: Your Name <gbps@ctf.re>
+Date:   Wed Oct 10 16:02:42 2018 -0400
+
+    Fixing and rewriting some documentation
+
+commit 30319860b1148cc07ba1c2dcf7a511e417902cc0
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 10 01:24:56 2018 -0400
+
+    Now passing context to exit functions
+
+commit fc5947ed408cfb3aab829599f0bd08ab8267d192
+Author: Michael <gbps@ctf.re>
+Date:   Mon Oct 8 14:39:16 2018 -0400
+
+    First working exit!
+
+commit 5867743f100ea91613b53b35b124e095725d4e5b
+Author: Michael <gbps@ctf.re>
+Date:   Mon Oct 8 08:29:54 2018 -0400
+
+    Cleaning up exit context initialization.
+
+commit f77e969c0ed665577c03be38379a1d7556677b49
+Author: Michael <gbps@ctf.re>
+Date:   Sat Oct 6 23:18:13 2018 -0400
+
+    Vmexit reason = VMX_EXIT_REASON_ERROR_INVALID_GUEST_STATE
+
+commit 9c126eb8b018d4e68042a9b64a55786784dc0d57
+Author: Michael <gbps@ctf.re>
+Date:   Sat Oct 6 21:54:00 2018 -0400
+
+    My god we're not triple faulting anymore... finally
+
+commit e545edb8a3b4c61cb48b5c7a08260ca59d7903a8
+Author: Michael <gbps@ctf.re>
+Date:   Sat Oct 6 16:32:09 2018 -0400
+
+    Fixed misaligned MSR bitmap
+
+commit 433e1ecb088e871c71a1a7b1c0f8b9c7af71bb90
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 22:43:41 2018 -0400
+
+    Launching with invalid registers.
+    Segmentation descriptors are fixed... probably.
+
+commit a7456146fe1d99fa54371f74cbae58a76480f0b0
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 20:54:21 2018 -0400
+
+    VMALUNCH Error = 0x7
+
+commit dc86b338dae21665a3c71fc0b484e83cb5b66188
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 20:05:47 2018 -0400
+
+    Now properly saving register context before intiialization function
+
+commit e027dd3e35e04ea3d194be73aaeb88031a0880e2
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 18:45:22 2018 -0400
+
+    Host area complete
+
+commit 5b2bebe6d56247654f37e480de960c3fe20d898f
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 3 11:28:42 2018 -0400
+
+    Added testing executables/scripts
+
+commit b45ba0dd34020b8a6e3c15c1e4ef402d92e92ae5
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 20:13:29 2018 -0400
+
+    Guest area done, vmwrites are testing working
+
+commit bace15a4e776b1b0818ff1b0698d369ca4b52432
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 19:18:35 2018 -0400
+
+    Guest VMCS done
+
+commit 26497020369449e1f939c62550ebf4329ec74dd3
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 19:13:48 2018 -0400
+
+    More architecture MSR fields for the guest
+
+commit 891cd3e4a4db4f4ab3926a9c2ea7ec2abceb4d58
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 18:43:45 2018 -0400
+
+    Added LDTR and TR... finally
+
+commit 697bcc65460f47410a6056962e4e77c18da76c09
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 16:50:40 2018 -0400
+
+    Segmentation on Guest Area is done, untested
+
+commit 517c8f31a9b994ef58554ad8883befb2743ec2f9
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 16:22:26 2018 -0400
+
+    Added context captures and finishing up segment descriptor conversions
+
+commit 5503951241cd2d6738ad3f7894997e56617c9c82
+Author: Michael <gbps@ctf.re>
+Date:   Sun Sep 30 21:44:19 2018 -0400
+
+    Vmcs Control Fields Initialization Done
+
+commit 6984f518d40ddc1feab70fdd75237723325ee1c8
+Author: Michael <gbps@ctf.re>
+Date:   Fri Sep 28 23:30:17 2018 -0400
+
+    Most of the control registers are setup
+
+commit 57c8ebc16516c69835b7720438d1dac7dbf895de
+Author: Michael <gbps@ctf.re>
+Date:   Fri Sep 28 00:26:41 2018 -0400
+
+    Fixing debug messages
+
+commit fa7bf04278c6df886ba54052e5301eafd4fc0d40
+Author: Michael <gbps@ctf.re>
+Date:   Fri Sep 28 00:23:49 2018 -0400
+
+    IPI working with VMXON on all processors!
+
+commit 7a5da53dbd1a5a8634eab1a3151739a4e81375d1
+Author: Michael <gbps@ctf.re>
+Date:   Thu Sep 27 22:35:02 2018 -0400
+
+    Initialized VMXON region.
+
+commit 8642e15cadab289e72044bd1db270d85cee39ff6
+Author: Michael <gbps@ctf.re>
+Date:   Thu Sep 27 21:30:34 2018 -0400
+
+    Trying to be more OS agnostic, allocating VMXON region now...
+
+commit c1ddead7b68db27ff5ba3dac2d1c4e1439633354
+Author: Michael <gbps@ctf.re>
+Date:   Thu Sep 27 20:22:32 2018 -0400
+
+    Working logging
+
+commit 82df3407f6b07499cce69ce7480dcb13abcca115
+Author: Gbps <gbps@ctf.re>
+Date:   Wed Sep 26 21:02:16 2018 -0400
+
+    Progress...
+
+commit 940e8c70e21a08bf07eaed0a36f30c66ae61eb82
+Author: Gbps <gbps@ctf.re>
+Date:   Wed Sep 26 21:02:09 2018 -0400
+
+    Intel SDM PDF
+
+commit 9546f24d25db4aad16c54f278a7fe88d22daf188
+Author: Michael <gbps@ctf.re>
+Date:   Wed Sep 26 00:37:02 2018 -0400
+
+    Fixing naming... Still working on this whole NT style thing.
+
+commit 43b674f010240ae3e7bc5e244f2a7e3625841aef
+Author: Michael <gbps@ctf.re>
+Date:   Wed Sep 26 00:30:01 2018 -0400
+
+    Initial project and... something to start with.
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit e6919ebb6ecb35254da6f4bef6e86136c48e468e
+Author: xorrsp <94297076+xorrsp@users.noreply.github.com>
+Date:   Wed Nov 17 13:37:54 2021 +0800
+
+    BUG HvEptHookWriteAbsoluteJump and HvEptHookInstructionMemory (#29)
+    
+    * Update ept.c - Fix absolute jump
+    
+    * Update vmxdefs.asm - Add fxsave
+
+commit 36449c716828bcb448bbabfff6c93d10417149c4
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Tue Oct 20 16:39:02 2020 -0400
+
+    Win10 2004 Fixes (#19)
+    
+    * Ported to win10 sdk 10.0.19041.0
+    
+    * remove unnecessary .sln file
+    
+    * fixed large page allocation bug in win10 v.2004
+    
+    * Fix typos/update README
+    
+    * typo
+
+commit a747d2e273f0fe2a847f712b3be4688b8728e8c7
+Merge: 9c0a9d0 d825301
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Fri Apr 17 18:27:52 2020 -0400
+
+    Merge pull request #13 from btbd/master
+    
+    Save XMM registers between exits and fix bug in NtCreateFileHook
+
+commit d825301398abf869964a0639de1fc2f0022abd7d
+Author: btbd <b4davis88@gmail.com>
+Date:   Thu Apr 2 05:47:56 2020 -0400
+
+    Fix ASM formatting
+
+commit 986f0746a0e4fdbbb4f1af63da8071c666c3fd6a
+Author: btbd <b4davis88@gmail.com>
+Date:   Thu Apr 2 05:16:24 2020 -0400
+
+    Save XMM registers between exits, fix bug in NtCreateFileHook, update IA-32 submodule, and add newlines to logs
+
+commit 9c0a9d0b96f6d5317a1a83eb0387721f82479aed
+Merge: dff300d d8a231e
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Wed Apr 1 12:16:52 2020 -0400
+
+    Merge pull request #12 from btbd/master
+    
+    Enable INVPCID instruction for Windows 10
+
+commit d8a231eca8410e0ea7462fe8489d2b7852a85174
+Author: btbd <b4davis88@gmail.com>
+Date:   Wed Apr 1 03:33:51 2020 -0400
+
+    Enable INVPCID instruction for Windows 10
+
+commit dff300d5b5bc6d7c8a858df1fb30cdd530400d7c
+Merge: c554dea 1be72bf
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Sun Mar 22 13:55:26 2020 -0400
+
+    Merge pull request #11 from thehlopster/patch-1
+    
+    Update vmcs.c to fix bad register define for SYSENTER
+
+commit c554dea6f0a68a98d59dcb492fbd0d02f3436b1f
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 14 17:16:54 2020 -0400
+
+    Fixed bug in EPT split where the MemoryType was always set to Uncached
+    causing significant performance loss on physical systems
+
+commit 1be72bf824cfc63c2ac4da013c64bf36d4457d79
+Author: hlop <thehlopster@gmail.com>
+Date:   Tue Feb 11 17:42:30 2020 +0300
+
+    Update vmcs.c
+    
+    missed _HOST_
+
+commit 9e3d02f40439c439ad85b842b3fc9753347890a2
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Sun Aug 25 22:00:57 2019 -0400
+
+    Update README
+
+commit 0555e309d4099ef100961a5011a41bf9708487b0
+Author: Gbps <Gbps@users.noreply.github.com>
+Date:   Sun Jan 6 12:47:32 2019 -0600
+
+    Update archdefs.asm
+    
+    Improper registers saved (not even using this context function anyways...)
+
+commit 07112d77f2a66c836808cdf67f686eceb5e49c06
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 21:18:21 2018 -0500
+
+    Spacing
+
+commit 5cf97538c89a687bbcef1aaabb64075533895028
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 21:00:47 2018 -0500
+
+    More README changes.
+
+commit 8fb5b85d04f42b2539bba040ac35f6cf5aaabb38
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:56:05 2018 -0500
+
+    GitHub Public Release and License
+
+commit f3252a8370e5c0e646a24970f192e2cf2dbe647c
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:53:34 2018 -0500
+
+    Images for README
+
+commit 066fb7c9d41d4b92b5270d5f9f95b272638e59a8
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:51:17 2018 -0500
+
+    Release README
+
+commit 8c9d59a8dcc3d5de709339414c19b9a2f182f933
+Author: Your Name <gbps@ctf.re>
+Date:   Fri Dec 14 20:50:45 2018 -0500
+
+    Removing large documentation PDFs for release
+
+commit bed3b9755f46b43623054f43f72c2431df223717
+Author: Michael <gbps@ctf.re>
+Date:   Fri Dec 14 15:01:10 2018 -0600
+
+    Memory leak fix
+
+commit 1626f0f3a33487cd5da571eb63b336246f3fe240
+Author: Michael <gbps@ctf.re>
+Date:   Fri Dec 14 15:00:43 2018 -0600
+
+    Finally, working NtCreateFile hook!
+
+commit 614f16e779d488e21adca2db3baa7175255d9eca
+Author: Michael <gbps@ctf.re>
+Date:   Wed Dec 12 22:58:56 2018 -0500
+
+    Working executable page swapping for EPT hook
+
+commit aedbd82b432e032c93a60bb3a1340efa5d0e8aa0
+Author: Michael <gbps@ctf.re>
+Date:   Wed Dec 12 01:26:31 2018 -0500
+
+    4th Gen i7 do not support advanced EPT exit information
+
+commit b054e1008b97618be8c0f73690870868160b6752
+Author: Michael <gbps@ctf.re>
+Date:   Tue Dec 11 16:21:00 2018 -0500
+
+    Majority functioning support for EPT page hooking and splitting.
+
+commit d7bae6adf402b04505796238e18fe6debb3a66cd
+Author: Michael <gbps@ctf.re>
+Date:   Mon Dec 10 00:19:34 2018 -0500
+
+    EPT violation handling working and some tester code
+
+commit e1f4d87eb6436334a0b880657abecc7a6fba2458
+Author: Michael <gbps@ctf.re>
+Date:   Mon Dec 10 00:19:15 2018 -0500
+
+    Uploaded more up-to-date Intel SDM. Turns out that one *very* important part on EPT was missing in the 2016 version. >:(
+
+commit 0d91bea2371831dfb5a3fc25cbfb67083ca92aec
+Author: Michael <gbps@ctf.re>
+Date:   Sun Dec 9 17:35:38 2018 -0500
+
+    EPT works! :D
+
+commit d901cfcbbb21938657f85dd57553a4f2870bfa1f
+Author: Michael <gbps@ctf.re>
+Date:   Sun Dec 9 16:05:35 2018 -0500
+
+    Allocated EPTP into each structure
+
+commit 4ae102e7509ecf4f8bc14df012bc916bd17845b7
+Author: Michael <gbps@ctf.re>
+Date:   Thu Dec 6 19:54:19 2018 -0500
+
+    Documentation fixes
+
+commit 0f8ae70bb0ed37e1f605412a7436337407adffc0
+Author: Michael <gbps@ctf.re>
+Date:   Thu Dec 6 19:50:46 2018 -0500
+
+    MTRR range bug fix
+
+commit a8f9b1ba8bec47cf0176ccd1be7419fd380687cb
+Author: Michael <gbps@ctf.re>
+Date:   Thu Dec 6 19:46:50 2018 -0500
+
+    Page table creation for EPT based on MTRR assignments.
+
+commit f48335129a4ee87bba4d00f1a0efec70af026540
+Author: Michael <gbps@ctf.re>
+Date:   Wed Dec 5 19:34:32 2018 -0500
+
+    Reading and initializnig MTRR data structures
+
+commit 4ec7ea7d360192de33973a8202b943174d7d57eb
+Author: Michael <gbps@ctf.re>
+Date:   Thu Oct 25 00:43:00 2018 -0400
+
+    Fully stable (and useless) HV!
+
+commit 95cbe947bec315916bfedce4d76df6911886b1e1
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 24 11:19:43 2018 -0400
+
+    Initial exit handlers
+
+commit c3357251d655b9a2e28d19d9395df8344bd1434d
+Merge: 339cfc3 f8c5cc5
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 24 09:35:30 2018 -0400
+
+    Merge
+
+commit 339cfc305ec6b8bf9c5b06603a026c28084e6feb
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 24 09:34:45 2018 -0400
+
+    Merge
+
+commit f8c5cc55bfbba0b84f07489dc7c586d70727514c
+Author: Your Name <gbps@ctf.re>
+Date:   Wed Oct 10 16:02:42 2018 -0400
+
+    Fixing and rewriting some documentation
+
+commit 30319860b1148cc07ba1c2dcf7a511e417902cc0
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 10 01:24:56 2018 -0400
+
+    Now passing context to exit functions
+
+commit fc5947ed408cfb3aab829599f0bd08ab8267d192
+Author: Michael <gbps@ctf.re>
+Date:   Mon Oct 8 14:39:16 2018 -0400
+
+    First working exit!
+
+commit 5867743f100ea91613b53b35b124e095725d4e5b
+Author: Michael <gbps@ctf.re>
+Date:   Mon Oct 8 08:29:54 2018 -0400
+
+    Cleaning up exit context initialization.
+
+commit f77e969c0ed665577c03be38379a1d7556677b49
+Author: Michael <gbps@ctf.re>
+Date:   Sat Oct 6 23:18:13 2018 -0400
+
+    Vmexit reason = VMX_EXIT_REASON_ERROR_INVALID_GUEST_STATE
+
+commit 9c126eb8b018d4e68042a9b64a55786784dc0d57
+Author: Michael <gbps@ctf.re>
+Date:   Sat Oct 6 21:54:00 2018 -0400
+
+    My god we're not triple faulting anymore... finally
+
+commit e545edb8a3b4c61cb48b5c7a08260ca59d7903a8
+Author: Michael <gbps@ctf.re>
+Date:   Sat Oct 6 16:32:09 2018 -0400
+
+    Fixed misaligned MSR bitmap
+
+commit 433e1ecb088e871c71a1a7b1c0f8b9c7af71bb90
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 22:43:41 2018 -0400
+
+    Launching with invalid registers.
+    Segmentation descriptors are fixed... probably.
+
+commit a7456146fe1d99fa54371f74cbae58a76480f0b0
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 20:54:21 2018 -0400
+
+    VMALUNCH Error = 0x7
+
+commit dc86b338dae21665a3c71fc0b484e83cb5b66188
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 20:05:47 2018 -0400
+
+    Now properly saving register context before intiialization function
+
+commit e027dd3e35e04ea3d194be73aaeb88031a0880e2
+Author: Michael <gbps@ctf.re>
+Date:   Fri Oct 5 18:45:22 2018 -0400
+
+    Host area complete
+
+commit 5b2bebe6d56247654f37e480de960c3fe20d898f
+Author: Michael <gbps@ctf.re>
+Date:   Wed Oct 3 11:28:42 2018 -0400
+
+    Added testing executables/scripts
+
+commit b45ba0dd34020b8a6e3c15c1e4ef402d92e92ae5
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 20:13:29 2018 -0400
+
+    Guest area done, vmwrites are testing working
+
+commit bace15a4e776b1b0818ff1b0698d369ca4b52432
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 19:18:35 2018 -0400
+
+    Guest VMCS done
+
+commit 26497020369449e1f939c62550ebf4329ec74dd3
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 19:13:48 2018 -0400
+
+    More architecture MSR fields for the guest
+
+commit 891cd3e4a4db4f4ab3926a9c2ea7ec2abceb4d58
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 18:43:45 2018 -0400
+
+    Added LDTR and TR... finally
+
+commit 697bcc65460f47410a6056962e4e77c18da76c09
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 16:50:40 2018 -0400
+
+    Segmentation on Guest Area is done, untested
+
+commit 517c8f31a9b994ef58554ad8883befb2743ec2f9
+Author: Michael <gbps@ctf.re>
+Date:   Tue Oct 2 16:22:26 2018 -0400
+
+    Added context captures and finishing up segment descriptor conversions
+
+commit 5503951241cd2d6738ad3f7894997e56617c9c82
+Author: Michael <gbps@ctf.re>
+Date:   Sun Sep 30 21:44:19 2018 -0400
+
+    Vmcs Control Fields Initialization Done
+
+commit 6984f518d40ddc1feab70fdd75237723325ee1c8
+Author: Michael <gbps@ctf.re>
+Date:   Fri Sep 28 23:30:17 2018 -0400
+
+    Most of the control registers are setup
+
+commit 57c8ebc16516c69835b7720438d1dac7dbf895de
+Author: Michael <gbps@ctf.re>
+Date:   Fri Sep 28 00:26:41 2018 -0400
+
+    Fixing debug messages
+
+commit fa7bf04278c6df886ba54052e5301eafd4fc0d40
+Author: Michael <gbps@ctf.re>
+Date:   Fri Sep 28 00:23:49 2018 -0400
+
+    IPI working with VMXON on all processors!
+
+commit 7a5da53dbd1a5a8634eab1a3151739a4e81375d1
+Author: Michael <gbps@ctf.re>
+Date:   Thu Sep 27 22:35:02 2018 -0400
+
+    Initialized VMXON region.
+
+commit 8642e15cadab289e72044bd1db270d85cee39ff6
+Author: Michael <gbps@ctf.re>
+Date:   Thu Sep 27 21:30:34 2018 -0400
+
+    Trying to be more OS agnostic, allocating VMXON region now...
+
+commit c1ddead7b68db27ff5ba3dac2d1c4e1439633354
+Author: Michael <gbps@ctf.re>
+Date:   Thu Sep 27 20:22:32 2018 -0400
+
+    Working logging
+
+commit 82df3407f6b07499cce69ce7480dcb13abcca115
+Author: Gbps <gbps@ctf.re>
+Date:   Wed Sep 26 21:02:16 2018 -0400
+
+    Progress...
+
+commit 940e8c70e21a08bf07eaed0a36f30c66ae61eb82
+Author: Gbps <gbps@ctf.re>
+Date:   Wed Sep 26 21:02:09 2018 -0400
+
+    Intel SDM PDF
+
+commit 9546f24d25db4aad16c54f278a7fe88d22daf188
+Author: Michael <gbps@ctf.re>
+Date:   Wed Sep 26 00:37:02 2018 -0400
+
+    Fixing naming... Still working on this whole NT style thing.
+
+commit 43b674f010240ae3e7bc5e244f2a7e3625841aef
+Author: Michael <gbps@ctf.re>
+Date:   Wed Sep 26 00:30:01 2018 -0400
+
+    Initial project and... something to start with.

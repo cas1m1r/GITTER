@@ -1,0 +1,417 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+XSS-Botnet
+==========
+
+A proof-of-concept for a browser-based XSS-deliverable botnet which does not exploit browser vulnerabilities but instead sticks to the standards.  
+
+See the slides here:
+https://slides.com/luketsekouras/xss-botnet
+
+Most of this project is written in Javascript (you need node), some in coffeescript.  
+
+The `cc` folder is code for the command centre, just run `app.js`.  There is an additional tool at `cc/commander.coffee` used to connect to and use the command centre.  
+
+The `shite` folder contains code for a demo site that was used during presentations.  
+
+In the root directory lies various `*.js` files which constitute the client-side code.  The entry point is either `init_ajax.js` or `init_iframe.js`, depending on what technique you wish to use.  
+
+====================== GIT HISTORY: ======================
+784fa51 HEAD@{0}: clone: from https://github.com/LukeGT/XSS-Botnet
+commit 784fa51a7b80217bb4c5da6a50442339cc1d9d7e
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun Apr 20 19:56:15 2014 +1000
+
+    Updated README
+
+commit 1590002a89ef38a1e1f69c129ce0d3bc3a071f50
+Author: LukeGT <luke.tsekouras@gmail.com>
+Date:   Sun Apr 20 19:44:34 2014 +1000
+
+    Create README.md
+
+commit 61a63520591cce09dcd5d08144e8f2b6fd86c4b6
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri Mar 21 14:22:20 2014 +1100
+
+    Remove parent scrollbars for iframe
+
+commit 760a21286f26dc81b391414d7ef98fa64a61c4b1
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue Mar 11 16:29:59 2014 +1100
+
+    Updated front-page photos to photos that still exist
+
+commit c215f5d244e46d1a95f0c3b5c0fa4f66a25e50d1
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue May 28 03:19:26 2013 +1000
+
+    Removed jobs - nothing really there
+
+commit 4fb55d0b207d00dc340c4ad0f344455c62c491dc
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue May 28 03:15:17 2013 +1000
+
+    Added more comments
+
+commit 4f30f72f55603a29437aaedbc10d1fe6a00b4802
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 17:39:22 2013 +1000
+
+    Wired into form submissions also, for ajax retrofitting
+
+commit e60b63b3c7bc79f8b352e76cad049b5896e43356
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 14:21:18 2013 +1000
+
+    Bugs in ajax persistence method
+
+commit 618653567006ad59f9ec51e8b4676186f898ee2b
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 14:03:48 2013 +1000
+
+    Prevented caching on commands, fixed ajax namespace issues
+
+commit 15ac502e8ba26bbddf133152bc5015f753f7b075
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 10:57:40 2013 +1000
+
+    bug
+
+commit 29413b5230baab600bb68ba99b761adebb5c9e84
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 02:40:10 2013 +1000
+
+    Modified boolean filtering slightly, also forgot to add localstorage
+
+commit 5ef4e8620d9d0ad38cc92aec9a8f0e2b6efa5762
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 02:36:35 2013 +1000
+
+    Improved filtering process
+
+commit b43ab8f70266ed3a81129de3fcb685df4c347f9f
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 02:12:33 2013 +1000
+
+    Wrote some helper functions for storing state, fixed other things
+
+commit 8239833de36628198939bf85a406b0ef1c9d2c50
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 00:48:20 2013 +1000
+
+    Removed ___ event
+
+commit 89f5c994711582a7dcba1e372d6e5b87e146fac1
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 27 00:26:50 2013 +1000
+
+    Better result handling
+
+commit 9fdfb8419ae8f576b5bfb5611396cd87ee457db7
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 26 23:59:02 2013 +1000
+
+    Made iframe retrofitting more smooth - no white flash
+
+commit a0e0f6ddf69910795ae744ba1f52193bf07fa255
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 26 17:45:10 2013 +1000
+
+    Force external links to open in new tabs
+
+commit 4523f869ab609d14f10ce1431eb0570d63e8bdd3
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 26 17:44:39 2013 +1000
+
+    Allow links in comments as well
+
+commit 90e4bb1bb1186128cca206885c5fd8dadfd202f0
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sat May 25 00:25:47 2013 +0000
+
+    Remove script tags after adding
+
+commit d51df1eb6fa650e2688a80e56f9092008faa9990
+Merge: 235c745 6b02a72
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sat May 25 00:15:53 2013 +0000
+
+    Merge branch 'master' of bitbucket.org:LukeGT/comp9447
+
+commit 6b02a72e598bf5c2e696999be47d22743ee7f74a
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 26 17:06:18 2013 +1000
+
+    Changed the content type of scripts to avoid warnings in the console
+
+commit 873b9bf50f14a60164e3fba8e61f8dd83885740c
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 26 17:05:55 2013 +1000
+
+    Made the commander program more resilient
+
+commit da9ee041b42130eebadda83f3011bd6054cde0da
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 26 16:19:36 2013 +1000
+
+    Space out message images a bit
+
+commit b2e953bb8f3a0083d71a691926dc741d6f21b6d0
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 26 15:57:35 2013 +1000
+
+    Adding vulnerability to shitty site
+
+commit 235c745694745b1896e474a470154329b0ff44a1
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sat May 25 00:14:24 2013 +0000
+
+    Ajax method now pops external urls into new tabs
+
+commit a62691228a79e97855469e449c0a1c88a9c233fb
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri May 24 22:50:25 2013 +0000
+
+    Consistent drop shadows for all kinds of images
+
+commit d8b607e335b1f2cb7a180f1791084efd468448bd
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri May 24 22:46:02 2013 +0000
+
+    Styles for allowing images in comments
+
+commit 196033ecadf2f7dcb500a89d82ddc5d68b888057
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri May 24 21:47:13 2013 +0000
+
+    removed more crap
+
+commit 430b5190e3431f6027899214802f6e507a6f211a
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri May 24 20:19:15 2013 +0000
+
+    ...
+
+commit 6ff98d6582c85ba82b8551f1c696ef0118169c0f
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri May 24 19:57:47 2013 +0000
+
+    Handles repeated results, now designed properly in order to receive embedded commands
+
+commit 411b795f63716d7c3a606bec699d68c0286cedc9
+Merge: 9cf245d d477a49
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue May 21 02:36:10 2013 +1000
+
+    Merge branch 'master' of ssh://bitbucket.org/LukeGT/comp9447
+
+commit d477a4972c5c3b23d48fa33c62c0e1e711afa8b3
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 20 16:35:44 2013 +0000
+
+    Updated commander to include filters and repetitions
+
+commit 9cf245da598538a2fa86bc9f5df98d0a81e9448b
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue May 21 02:34:48 2013 +1000
+
+    Updated comm server to include the ability to filter and repeat items
+
+commit 14f5734b5059d3b255741cea556ba14d165b4adc
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 20 15:20:01 2013 +0000
+
+    Improved commander.coffee, almost proper CLI now
+
+commit ecd2b7d46e2c0c0a3d6b6b932f61a9e7347643ee
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue May 21 00:33:55 2013 +1000
+
+    Server now prints client info upon queue request
+
+commit 4c08a24d3370a7eaeff384596f90d918a5aa9615
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon May 20 14:24:25 2013 +0000
+
+    Improved command centre. Now including browser/OS information in queue requests
+
+commit 3b7a6e33e66bafad4f63d029506a464d30c9bd30
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sun May 19 13:45:56 2013 +0000
+
+    Wrote commander, changed port numbers
+
+commit 36c3d187cd9a65b1fcfcd351759bb5fc88d07237
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sat May 18 09:24:42 2013 +0000
+
+    Comments
+
+commit 8021428ad0769c287795868cd52baf886a582e45
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Sat May 18 09:03:27 2013 +0000
+
+    Now polls the command centre every 3 seconds for a command. Untested. Should test.'
+
+commit 698c1c5d2f57a3f14ea62a330f3da8f5021c1777
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed May 1 00:58:58 2013 +1000
+
+    Hourglass on page loads for pushState. Eerily close to authenticity now ;)
+
+commit 87b0ec183df2dd99e730b43898bb31298ad731f0
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed May 1 00:43:40 2013 +1000
+
+    Improved dependency management, covered my ass for https sites, improved outer frame detection
+
+commit 612cd9f208a96051a40942b066c96a3eef8d38aa
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue Apr 30 14:16:09 2013 +0000
+
+    Better handling of script loads?
+
+commit 10677237cdf05beb93a0c1686bcaa58488234002
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue Apr 30 13:51:01 2013 +0000
+
+    YU NO WORK
+
+commit 607adfb08b00236d761696e94c7f429c977b5835
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue Apr 30 13:50:22 2013 +0000
+
+    Introduced XSS vulnerability
+
+commit 04a5cde875f3832dd68e9430a34102ce06c4af15
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue Apr 30 20:00:56 2013 +1000
+
+    changed port
+
+commit 5fdbd6ae2fdcfe8dd7015eccc891d9ee030e4f8e
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed Apr 24 09:17:08 2013 -0700
+
+    made photos cover the whole square as opposed to just fit height
+
+commit 3eebe8965f10bdca135869b88b0e6b444ba5225f
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed Apr 24 09:03:23 2013 -0700
+
+    Shite site
+
+commit a19bd8c449bdefe8a0d247e5cc320d5c114240ab
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed Apr 24 05:11:53 2013 -0700
+
+    Added XSS Attack Vectors
+
+commit 22068c96323a7e8c042bd7b7bc958fd328fddbcc
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri Apr 19 01:41:57 2013 +1000
+
+    Fixed errors in rsa script, fixed bugs in server
+
+commit 0ec64133ec277a99116d54fb92b21b816ab6fdc1
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri Apr 19 01:23:36 2013 +1000
+
+    Removed hacker key from server code, wrote command line utility for RSA encryption
+
+commit a687602167d817df406682fd455126817ab87e6d
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Fri Apr 19 01:14:14 2013 +1000
+
+    Mostly implemented command server
+
+commit 48b5bdc71a9074ddad440c4cddff50d691a1cf1c
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Thu Apr 18 23:37:28 2013 +1000
+
+    Required libs
+
+commit 31eff67457694a1608f90fbdf20171956bbc2683
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Thu Apr 18 23:35:27 2013 +1000
+
+    simplified things
+
+commit b245cd400035f3feba760487edd2dcb3b43c357e
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Thu Apr 18 23:32:30 2013 +1000
+
+    Added RSA library
+
+commit 9225ca12a97973fc76f0d75fbe6356504e370b41
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Thu Apr 18 22:10:52 2013 +1000
+
+    Added preliminary server stuff
+
+commit ab618ac3645f82ae135572bbaf982dce3616fc1b
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon Apr 1 18:46:58 2013 +1100
+
+    Fixed problem with cross-domain policies
+
+commit 16121d909299de172fbd440e16d3c6f2d0756bac
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon Apr 1 18:36:45 2013 +1100
+
+    Fleshed out command function
+
+commit 05340e3637e02cae6cd5df5bfe37d77d1515e046
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon Apr 1 18:27:04 2013 +1100
+
+    bug...
+
+commit e05c8b96ce7b8e2f6eb64695c706ae541cbbef05
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon Apr 1 18:23:47 2013 +1100
+
+    Moved noconflict back into retrofits, moved command insertion into the ends of each. Script dependencies will have to work this way
+
+commit 0aab271d6f1b1cb7d96774f4f39fa237efc4c9f9
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon Apr 1 18:13:23 2013 +1100
+
+    stupid..
+
+commit 08c46ae525fa2fbda4c9f6ed58533e12de541c78
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon Apr 1 18:09:01 2013 +1100
+
+    wtf...
+
+commit 26cbc192b5e037f3dc1a5bfb733f5aff720561a1
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Mon Apr 1 18:05:54 2013 +1100
+
+    added no conflict stuff to wrapper script. included preliminary command passing code
+
+commit 605c8448574f8e10fce44936102a87e1519dd3fb
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed Apr 3 00:24:07 2013 +1100
+
+    no jquery conflict
+
+commit b1efd37513369266e100364e28d969fffc1bb0a9
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed Mar 27 01:39:27 2013 +1100
+
+    removed jQuery conflict issues, attempted to get better latency with the URL updating but will have to wait until later to test...
+
+commit 57f7c33d407f5026ca9080443ba6dae1f5fdf269
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Wed Mar 27 01:06:40 2013 +1100
+
+    cleaned up URL pushing, added form and cookie retrieval
+
+commit 021de7a027a0fb5ea2ba57a3e8ba898238dd165e
+Author: Luke Tsekouras <luke.tsekouras@gmail.com>
+Date:   Tue Mar 26 22:55:42 2013 +1100
+
+    Initial commit - two approaches to persistent XSS, iframe and AJAX

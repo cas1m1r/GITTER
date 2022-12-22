@@ -1,247 +1,62 @@
 ======================: FILES :======================
-.
-├── lesson-2-containers
-│   └── exercises
-│       ├── debugging-containers
-│       │   ├── Dockerfile
-│       │   ├── package.json
-│       │   ├── package-lock.json
-│       │   ├── README.md
-│       │   └── server.js
-│       ├── simple-node
-│       │   ├── Dockerfile
-│       │   ├── package.json
-│       │   ├── package-lock.json
-│       │   ├── README.md
-│       │   └── server.js
-│       └── slow-node
-│           ├── Dockerfile
-│           ├── package.json
-│           ├── package-lock.json
-│           ├── README.md
-│           └── server.js
-├── lesson-3-independent-releases
-│   ├── demos
-│   │   ├── sample_yaml_files
-│   │   │   ├── deployments.yaml
-│   │   │   └── service.yaml
-│   │   ├── travis_build
-│   │   │   ├── Dockerfile
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   ├── README.md
-│   │   │   └── server.js
-│   │   └── travis_env_var_demo
-│   │       ├── Dockerfile
-│   │       ├── package.json
-│   │       ├── package-lock.json
-│   │       ├── README.md
-│   │       └── server.js
-│   └── exercises
-│       ├── travis_ci
-│       │   ├── Dockerfile
-│       │   ├── package.json
-│       │   ├── package-lock.json
-│       │   ├── README.md
-│       │   └── server.js
-│       └── travis_env_var_exercise
-│           ├── Dockerfile
-│           ├── package.json
-│           ├── package-lock.json
-│           ├── README.md
-│           └── server.js
-├── lesson-4-intro-to-orchestration-with-kubernetes
-│   ├── demos
-│   │   └── sample_yaml_files
-│   │       ├── deployment_with_liveness.yaml
-│   │       ├── deployment.yaml
-│   │       └── service.yaml
-│   └── exercises
-│       └── kubernetes-on-aws
-│           ├── Dockerfile
-│           ├── package.json
-│           ├── package-lock.json
-│           ├── README.md
-│           └── server.js
-├── lesson-5-kubernetes-for-production
-│   ├── demos
-│   │   └── reverse-proxy
-│   │       ├── deploy
-│   │       │   ├── deployment.yaml
-│   │       │   └── service.yaml
-│   │       ├── Dockerfile
-│   │       └── nginx.conf
-│   └── exercises
-│       ├── debugging-logs
-│       │   ├── Dockerfile
-│       │   ├── make_requests.sh
-│       │   ├── package.json
-│       │   ├── package-lock.json
-│       │   ├── README.md
-│       │   └── server.js
-│       └── simple-express
-│           ├── deploy
-│           │   ├── deployment.yaml
-│           │   └── service.yaml
-│           ├── Dockerfile
-│           ├── package.json
-│           ├── package-lock.json
-│           ├── README.md
-│           └── server.js
-├── LICENSE.md
-└── project
-    ├── package-lock.json
-    ├── README.md
-    ├── screenshots
-    │   └── README.md
-    ├── set_env.sh
-    ├── udagram-api
-    │   ├── mock
-    │   │   ├── xander0.jpg
-    │   │   ├── xander1.jpg
-    │   │   └── xander2.jpg
-    │   ├── package.json
-    │   ├── package-lock.json
-    │   ├── src
-    │   │   ├── aws.ts
-    │   │   ├── config
-    │   │   │   └── config.ts
-    │   │   ├── controllers
-    │   │   │   └── v0
-    │   │   │       ├── feed
-    │   │   │       │   ├── models
-    │   │   │       │   │   └── FeedItem.ts
-    │   │   │       │   └── routes
-    │   │   │       │       └── feed.router.ts
-    │   │   │       ├── index.router.ts
-    │   │   │       ├── model.index.ts
-    │   │   │       └── users
-    │   │   │           ├── models
-    │   │   │           │   └── User.ts
-    │   │   │           └── routes
-    │   │   │               ├── auth.router.ts
-    │   │   │               └── user.router.ts
-    │   │   ├── migrations
-    │   │   │   ├── 20190325-create-feed-item.js
-    │   │   │   └── 20190328-create-user.js
-    │   │   ├── sequelize.ts
-    │   │   └── server.ts
-    │   ├── tsconfig.json
-    │   └── tslint.json
-    ├── udagram-api.postman_collection.json
-    └── udagram-frontend
-        ├── angular.json
-        ├── e2e
-        │   ├── protractor.conf.js
-        │   ├── src
-        │   │   ├── app.e2e-spec.ts
-        │   │   └── app.po.ts
-        │   └── tsconfig.e2e.json
-        ├── ionic.config.json
-        ├── package.json
-        ├── package-lock.json
-        ├── src
-        │   ├── app
-        │   │   ├── api
-        │   │   │   ├── api.module.ts
-        │   │   │   └── api.service.ts
-        │   │   ├── app.component.html
-        │   │   ├── app.component.spec.ts
-        │   │   ├── app.component.ts
-        │   │   ├── app.module.ts
-        │   │   ├── app-routing.module.ts
-        │   │   ├── auth
-        │   │   │   ├── auth-login
-        │   │   │   │   ├── auth-login.component.html
-        │   │   │   │   ├── auth-login.component.scss
-        │   │   │   │   ├── auth-login.component.spec.ts
-        │   │   │   │   └── auth-login.component.ts
-        │   │   │   ├── auth-menu-button
-        │   │   │   │   ├── auth-menu-button.component.html
-        │   │   │   │   ├── auth-menu-button.component.scss
-        │   │   │   │   ├── auth-menu-button.component.spec.ts
-        │   │   │   │   ├── auth-menu-button.component.ts
-        │   │   │   │   └── auth-menu-user
-        │   │   │   │       ├── auth-menu-user.component.html
-        │   │   │   │       ├── auth-menu-user.component.scss
-        │   │   │   │       ├── auth-menu-user.component.spec.ts
-        │   │   │   │       └── auth-menu-user.component.ts
-        │   │   │   ├── auth.module.ts
-        │   │   │   ├── auth-register
-        │   │   │   │   ├── auth-register.component.html
-        │   │   │   │   ├── auth-register.component.scss
-        │   │   │   │   ├── auth-register.component.spec.ts
-        │   │   │   │   └── auth-register.component.ts
-        │   │   │   ├── models
-        │   │   │   │   └── user.model.ts
-        │   │   │   └── services
-        │   │   │       ├── auth.guard.service.spec.ts
-        │   │   │       ├── auth.guard.service.ts
-        │   │   │       ├── auth.service.spec.ts
-        │   │   │       └── auth.service.ts
-        │   │   ├── feed
-        │   │   │   ├── feed-item
-        │   │   │   │   ├── feed-item.component.html
-        │   │   │   │   ├── feed-item.component.scss
-        │   │   │   │   ├── feed-item.component.spec.ts
-        │   │   │   │   └── feed-item.component.ts
-        │   │   │   ├── feed-list
-        │   │   │   │   ├── feed-list.component.html
-        │   │   │   │   ├── feed-list.component.scss
-        │   │   │   │   ├── feed-list.component.spec.ts
-        │   │   │   │   └── feed-list.component.ts
-        │   │   │   ├── feed.module.ts
-        │   │   │   ├── feed-upload
-        │   │   │   │   ├── feed-upload-button
-        │   │   │   │   │   ├── feed-upload-button.component.html
-        │   │   │   │   │   ├── feed-upload-button.component.scss
-        │   │   │   │   │   ├── feed-upload-button.component.spec.ts
-        │   │   │   │   │   └── feed-upload-button.component.ts
-        │   │   │   │   ├── feed-upload.component.html
-        │   │   │   │   ├── feed-upload.component.scss
-        │   │   │   │   ├── feed-upload.component.spec.ts
-        │   │   │   │   └── feed-upload.component.ts
-        │   │   │   ├── models
-        │   │   │   │   └── feed-item.model.ts
-        │   │   │   └── services
-        │   │   │       ├── feed.provider.service.spec.ts
-        │   │   │       └── feed.provider.service.ts
-        │   │   ├── home
-        │   │   │   ├── home.module.ts
-        │   │   │   ├── home.page.html
-        │   │   │   ├── home.page.scss
-        │   │   │   ├── home.page.spec.ts
-        │   │   │   └── home.page.ts
-        │   │   └── menubar
-        │   │       ├── menubar.component.html
-        │   │       ├── menubar.component.scss
-        │   │       ├── menubar.component.spec.ts
-        │   │       └── menubar.component.ts
-        │   ├── assets
-        │   │   ├── icon
-        │   │   │   └── favicon.png
-        │   │   └── shapes.svg
-        │   ├── environments
-        │   │   ├── environment.prod.ts
-        │   │   └── environment.ts
-        │   ├── global.scss
-        │   ├── index.html
-        │   ├── karma.conf.js
-        │   ├── main.ts
-        │   ├── polyfills.ts
-        │   ├── test.ts
-        │   ├── theme
-        │   │   └── variables.scss
-        │   ├── tsconfig.app.json
-        │   └── tsconfig.spec.json
-        ├── tsconfig.json
-        ├── tslint.json
-        └── udagram_tests
-            └── git_test.sh
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 4ee221f282b0f5341c0b433afb6a3f96346177eb
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 17:12:54 2020 -0700
 
-68 directories, 170 files
-====================== GIT HISTORY: ======================
-4ee221f HEAD@{0}: clone: from https://github.com/esryu/nd9990-c3-microservices-exercises
+    Add starter code for final project
+
+commit b67c967230e14e72fabdad630a4b903bce77237f
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 17:03:20 2020 -0700
+
+    Set up exercise and demo files for Lesson 5
+
+commit ccb415702b5a75f0445f9f675d60756f78f11b21
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 16:59:31 2020 -0700
+
+    Add project files for Lesson 4
+
+commit 77d065f72e737dcc8549f92f7db598eefa0130ea
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 14:31:40 2020 -0700
+
+    Separate exercises and demos into separate directories
+
+commit d717d2a8227bf67b5070ad8e98f4cedb1664c24a
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 14:28:53 2020 -0700
+
+    Add exercise files for Lesson 3
+
+commit 15570808373cb23d7e503b2c9ccb77583b3f9bde
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 14:17:45 2020 -0700
+
+    Rename exercise to slow-node
+
+commit d02ed1fe4954a77ddbcbbfc9c773c963e0c22f52
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 13:56:56 2020 -0700
+
+    Add exercises for lesson 2
+
+commit 86646bbb25f472cc87c2e9b877f259b297d19d03
+Author: Justin Lee <hello@leejustin.com>
+Date:   Sun Apr 19 13:51:45 2020 -0700
+
+    Remove boilerplate and placeholders
+
+commit da35c842a166b2408125b46168133b3296a8d265
+Author: Sarah Maris <54687857+sarah-udacity@users.noreply.github.com>
+Date:   Wed Mar 11 15:28:25 2020 -0400
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
 commit 4ee221f282b0f5341c0b433afb6a3f96346177eb
 Author: Justin Lee <hello@leejustin.com>
 Date:   Sun Apr 19 17:12:54 2020 -0700

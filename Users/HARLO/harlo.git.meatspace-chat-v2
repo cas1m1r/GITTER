@@ -1,0 +1,3074 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 2b059f13128b19b7717c89efd1101edabb68df49
+Author: Marcus Ramberg <marcus@nordaaker.com>
+Date:   Wed Aug 12 14:27:55 2015 +0200
+
+    Update README.md
+
+commit 3e713bdcbb4a2e779dec828226afa8268bbdb7d4
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Mar 14 21:00:33 2015 -0700
+
+    Fix mp4 encoding.
+    
+    The mp4 command had a framerate specified that differed from what
+    the resulting framerate was by a slight amount (it specified 30fps
+    but the PTS being set was 10*2.5 => 25fps). This resulted in mp4's
+    being ever so slightly different in length than webm's, and being
+    unable to properly roundtrip the mp4's.
+
+commit f3d5423c23eeeab2a276e3a2c7779fe389823f18
+Merge: ae4b87e d1bf30b
+Author: Marcus Ramberg <marcus@nordaaker.com>
+Date:   Sun Mar 8 18:33:04 2015 +0100
+
+    Merge pull request #94 from TheAlphaNerd/update-waypoints
+    
+    [deps] Update waypoints
+
+commit d1bf30b5d47a859660337fcb40a68c4b5070aae0
+Author: Myles Borins <myles@famo.us>
+Date:   Sat Mar 7 03:00:06 2015 +0000
+
+    [deps] Update waypoints
+
+commit ae4b87ebc00a7d939dac8a6dad6e5e38f02fd645
+Merge: ad643b6 2e40d8d
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Dec 12 13:02:59 2014 -0800
+
+    Merge pull request #88 from joshwnj/master
+    
+    Return on error
+
+commit 2e40d8d28af218c73aa8bce71bf21062fc841766
+Author: Josh Johnston <josh@x-team.com>
+Date:   Wed Dec 10 16:00:56 2014 +1100
+
+    return on error
+
+commit ad643b616fc92f925d183488f323f0bf76d7a6c9
+Merge: f221e9b 87f2a0d
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 23:44:24 2014 -0800
+
+    Merge pull request #87 from kid-icarus/placeholder
+    
+    Add placeholder text.
+
+commit 87f2a0d817f35d3384548363c63ba1cb3827b889
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 23:00:43 2014 -0800
+
+    Add placeholder text.
+
+commit f221e9b246df594bac165e0860d79064c0a3817b
+Merge: c146f18 1862251
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 21:00:52 2014 -0800
+
+    Merge pull request #83 from jory/fix-fewer-operations
+    
+    Do less unnecessary work!
+
+commit c146f1877c8316f64bca7126b6292c3bbd78966c
+Merge: c74eda0 98df208
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 21:00:35 2014 -0800
+
+    Merge pull request #86 from jory/tabindex
+    
+    Give composer highest tab index on the page
+
+commit 98df2083fad008868c9ca49d455d3aa78cfa4007
+Author: Jory Graham <jory.graham@gmail.com>
+Date:   Sun Nov 30 23:50:52 2014 -0500
+
+    Give composer highest tab index on the page
+    
+    Allows you to tab back to it if you click the list, or click away.
+    
+    Previously you need to Shift-tab, or click.
+
+commit 18622514e517570bcec1248b27cdf7689d5f8437
+Author: Jory Graham <jory.graham@gmail.com>
+Date:   Mon Nov 17 00:14:47 2014 -0500
+
+    Do less unnecessary work!
+    
+    Squished!
+
+commit c74eda0d63538bcbc321588ad17dbd4d258f3545
+Merge: 6811c71 468a894
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Nov 15 00:12:14 2014 -0800
+
+    Merge pull request #82 from meatspaces/vid2gif_module
+    
+    Utilize the split out vid2gif module.
+
+commit 468a89495d824cc4642723b19a257652068be86d
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Nov 15 00:10:17 2014 -0800
+
+    Utilize the split out vid2gif module.
+
+commit 6811c714dfc67e87880290c87ed3ef280e1c64a7
+Merge: 520eb1c badb600
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Nov 14 17:03:25 2014 -0800
+
+    Merge pull request #81 from jory/patch-1
+    
+    Fix videoType documentation
+
+commit badb6000c1ddd80a2c57a663493d68a14160ac6b
+Author: Jory Graham <jory.graham@gmail.com>
+Date:   Tue Nov 11 17:53:40 2014 -0500
+
+    Fix videoType documentation
+
+commit 520eb1c53010efce3c825e41b944e113e89ee2fd
+Merge: a2cb8ba b5ceba9
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 29 01:05:05 2014 -0700
+
+    Merge pull request #80 from meatspaces/inc_filesize_more
+    
+    Increase allowable frame size again.
+
+commit b5ceba9cd31ee5c2d840757ffd998bd01d051445
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 29 01:02:39 2014 -0700
+
+    Increase allowable frame size again.
+    
+    Certain encoders (especially on mobile devices, it seem) can still
+    generate somewhat larger files than we're seeing from most browsers.
+    This limit still puts us below average v1 GIF sizes at most, which we've
+    seen is fine for this server, and so shouldn't be a problem.
+
+commit a2cb8ba3d7bea8fb9143303de337389fd14ce8fc
+Merge: 2544d34 710579d
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:49:43 2014 -0700
+
+    Merge branch 'TheAlphaNerd-upgrade-hapi'
+
+commit 710579d40151f1f865a9529d1f065eb6867e2e22
+Author: Myles Borins <myles@famo.us>
+Date:   Wed Oct 15 10:58:09 2014 -0700
+
+    Upgrade hapi to 7.0.0
+    
+    In 7.0.0 [hapi removed options.views](https://github.com/hapijs/hapi/issues/2007). This patch updates the hapi dependency and appropriately changes the way views are instantiated.
+
+commit 2544d3486643dae8d2ea7c8d190c667b6a3c590c
+Merge: 74a525e 8a615b1
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:31:55 2014 -0700
+
+    Merge pull request #69 from TheAlphaNerd/upgrade-dependencies
+    
+    Update most dependencies
+
+commit 74a525e7aeecc5f491f9927308ff09788ad79e04
+Merge: 08b5470 af7a1a8
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:28:37 2014 -0700
+
+    Merge pull request #74 from meatspaces/add_sourcemaps
+    
+    Add sourcemaps to the JS.
+
+commit af7a1a8942d63353acc19aab19a1608c0be3b569
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:25:23 2014 -0700
+
+    Add sourcemaps to the JS.
+    
+    This will distribute sourcemaps in all server configurations, but I
+    don't think this should really problematic and we're not trying to hide
+    anything. If anything it will make production issues easier to debug.
+    
+    Also fixes an issue with later versions of gulp-sourcemaps, which seem
+    unhappy with sourcemap-less sources.
+
+commit 08b547045131d87539652eb7d9ccb6217facba34
+Merge: 9e987e1 a3b21a1
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 23:56:31 2014 -0700
+
+    Merge pull request #73 from meatspaces/filesize_increase
+    
+    Increase the maximum allowed jpeg filesize.
+
+commit a3b21a15e248c74428867a2ffb40d1addfee0b2f
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 23:53:18 2014 -0700
+
+    Increase the maximum allowed jpeg filesize.
+    
+    I was able to get real close to the current limit without trying too
+    hard (within 1K), so this seems a bit too low. Bumping it up by 50%
+    still keeps it fairly low and has little effect on anything, but keeps
+    us safer from discarding legitimate posts.
+    
+    Fixes #71.
+
+commit 8a615b1b765769e928c5f16b5ce3cbfd9efda064
+Author: Myles Borins <myles@famo.us>
+Date:   Wed Oct 15 10:52:17 2014 -0700
+
+    Update most dependencies
+    
+    Everything updated and tested to be working. Exceptions are HAPI which was throwing a strange error and jquery-waypoints which is pointing to a personal repo.
+
+commit 9e987e156fb58e05420e70737a3e26315a9fedd7
+Merge: eef7930 610064f
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 10:44:35 2014 -0700
+
+    Merge pull request #68 from TheAlphaNerd/badges
+    
+    Added davidDM badges
+
+commit 610064fec8464c3f4715b8c668d1e497e6ff7cda
+Author: Myles Borins <myles@famo.us>
+Date:   Wed Oct 15 10:33:41 2014 -0700
+
+    Added davidDM badges
+
+commit eef793038bb697bc8b9b137fa529ed543e37950d
+Merge: 62ac604 cd82485
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 10:25:34 2014 -0700
+
+    Merge pull request #67 from marcusramberg/fix_deps
+    
+    Up dependency to webrtc2images@1.4.3
+
+commit cd824858602b44e0f4f964a0694c8e200b623145
+Author: Marcus <marcus@nordaaker.com>
+Date:   Wed Oct 15 15:01:54 2014 +0200
+
+    Up dependency to webrtc2images@1.4.3 so master actually works
+
+commit 62ac604ebb0911d987a3051435ed30aba18a4141
+Merge: 4607ee2 4aa5dd3
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Wed Oct 15 00:03:10 2014 -0700
+
+    Merge pull request #66 from kid-icarus/contributor-guidelines
+    
+    Update contributor guidelines.
+
+commit 4aa5dd3504f8a34e45f8c7559e316545f5b76850
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 23:55:46 2014 -0700
+
+    Update contributor guidelines.
+
+commit 4607ee24daacf71476b4115cefe4b87f1bde954a
+Merge: 6ba2b82 04bc76e
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 16:32:09 2014 -0700
+
+    Merge pull request #63 from kid-icarus/contributor-guidelines
+    
+    Add contribution guidlines.
+
+commit 04bc76ef8ee36f57b4a245822e5fad260872e815
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 13:45:23 2014 -0700
+
+    Add contribution guidlines.
+
+commit 6ba2b82164b8ed533cc9bcfc2ecc38b98cc15ea8
+Merge: a5da2f6 458dc78
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 12:51:40 2014 -0700
+
+    Merge pull request #60 from jasonrhodes/add-id
+    
+    Add level key as id property for onMessage payload
+
+commit 458dc78521a44360be46827eaeafb2284b6d77ec
+Author: Jason Rhodes <jason.matthew.rhodes@gmail.com>
+Date:   Tue Oct 14 13:31:20 2014 -0400
+
+    Emit leveldb key as 'id' with all messages
+
+commit a5da2f6f5a5615fbbeaf9b8ab6d3eb2e1e67a773
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 14 10:32:51 2014 -0700
+
+    Be more permissive of fingerprint length, since this can come from mobile clients too.
+
+commit dc6f1f3696fee2dabd1f563abb9f45324de9f281
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 01:46:06 2014 -0700
+
+    Do async RTC check properly (in the callback).
+    
+    This prevents people from sending messages without allowing/denying the
+    camera permission thing, and pops up the sad browser page if they deny
+    it. We could probably do more to tell users to accept if they try to
+    submit without interacting with that permission request, but this at
+    least limits the amount of tapebros.
+    
+    This requires 1.4.3+ of webrtc2images to work properly.
+
+commit 32591c61bff20c6f59c68267ebebb35cb8ff8826
+Author: Travis Collins <travis@tec27.com>
+Date:   Mon Oct 13 22:17:25 2014 -0700
+
+    Update readme example to not double JSON encode.
+
+commit c4cfb7f6b8d9e2a1c7568411eaedbb5b8b324fb7
+Author: Travis Collins <travis@tec27.com>
+Date:   Mon Oct 13 22:04:11 2014 -0700
+
+    Adjust padding height on small resolutions (so it matches the smaller video size).
+
+commit a489cee4ea0a61da16eff8daa63c482926e9d424
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 03:05:37 2014 -0700
+
+    Account for base64 expansion factor.
+
+commit 4bb571d13ebeefbe4dbd9e73160e6b59fd5f3f47
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:47:08 2014 -0700
+
+    Break a long line up.
+
+commit 315fa56253eb88f82d5857b4db34f6b755515d00
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:45:45 2014 -0700
+
+    Don't let users crash the server by sending malformed JSON.
+
+commit bfddf7e7d86fa95844b640feab399cca42fa29da
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:40:02 2014 -0700
+
+    Don't make clients double-encode messages.
+
+commit 56293dd2808096b346419d234ba9b5a9f0a75a19
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:28:46 2014 -0700
+
+    Avoid using socket.io callback functions.
+    
+    The library the iOS client is using doesn't support these well, so
+    instead we'll send a separate ack message. Since the web client does no
+    error handling we don't track any outstanding messages and just handle
+    the acks to update our user ID list. In a future commit we could add
+    error handling here.
+    
+    If clients want to track the ack for a specific message, they can send a
+    'key' field in their message object. This key will match the one used in
+    the result data in the messageack.
+
+commit 87dafa2c9b409157dc268e4fe28c1903c2cd5667
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:16:41 2014 -0700
+
+    Add jshintrc's for node and browser code (taken from original meatspac).
+
+commit 6bbbd89a75df613d5ff9b07616e3b8d477e9071f
+Merge: 60cec5f 4080637
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:08:05 2014 -0700
+
+    Merge pull request #59 from marcusramberg/tidy
+    
+    Add missing semicolons.
+
+commit 4080637b007762a4ebb9fe7e79d4bb8d1f6ade43
+Author: Marcus <marcus@nordaaker.com>
+Date:   Sun Oct 12 11:03:46 2014 +0200
+
+    Add missing semicolons
+
+commit 60cec5fee4dccea0e1342c7d6bcfa6cba6950348
+Merge: d5997b0 b3e5554
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 01:44:24 2014 -0700
+
+    Merge pull request #58 from marcusramberg/save_at_once
+    
+    Make convert button save at once.
+
+commit b3e55543b8cdbdeac249318339a2ae10b78197c1
+Author: Marcus <marcus@nordaaker.com>
+Date:   Sat Oct 11 09:40:30 2014 +0200
+
+    Trigger save button once conversion is done
+    
+    Fix spacing
+    
+    Remove special styling for saved
+
+commit d5997b059e4462cb381e2519be21f8fed9ad78e9
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 01:08:33 2014 -0700
+
+    Clean up handling of fingerprints.
+    
+    This makes the handling more similar to meatspace v1, which is:
+    - Clients don't calculate a user ID or care about their IP.
+    - The server calculates a user ID with a fingerprint+IP hash. When a
+      message is posted from a client, the server calls the client back to
+      tell them what their user ID was.
+    - Clients track some amount of their previous user ID's and use this for
+      e.g. hiding the mute button on their own messages.
+    
+    Somewhat unrelatedly, this change also adds a size limit check before
+    doing a JSON.parse on socket messages, cause like, parsing arbitrarily
+    sized JSON is real bad. Especially since we'd just throw the data on the
+    ground 2 calls down the chain.
+
+commit 9d57e496844187db45b4700d613289afb521812d
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 00:14:08 2014 -0700
+
+    Clean up a bunch of weirdness in convert2video.
+    
+    - Check filesize before doing the work to convert to a buffer (yes, I'm
+      aware this changes the checked filesize by about 10 bytes, but I'm
+      pretty sure we don't care).
+    - Ensure that file cleanup is always done and won't be accidentally
+      forgotten in a future commit.
+    - Don't create error/finish listeners in a loop, since they're always
+      the same anyway.
+
+commit 4d503a250ec0b4d2614fdf3b68800eafea5a9f41
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Oct 11 23:58:53 2014 -0700
+
+    Remove unnecessary recent chat array reversal.
+
+commit ee4927f06ed90673f3e2ed0a6baf2271b0dad22a
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Oct 11 23:57:03 2014 -0700
+
+    Simplify image validation.
+
+commit e5734ac1065cad60314575934cb622b78be71cf9
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Oct 11 23:54:45 2014 -0700
+
+    Rename convert2webm to convert2video.
+
+commit 0333df2d4fb7a56adda8c5864587f4dc82b9ceae
+Merge: fe8e019 0b55bed
+Author: Travis Collins <travis@tec27.com>
+Date:   Fri Oct 10 15:11:33 2014 -0700
+
+    Merge pull request #57 from imakewebthings/wpfreezefix
+    
+    Refresh waypoints on chat removal
+
+commit 0b55bed7e3a0e239c91d4c94a0c6bfb0d4ac9e7b
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Fri Oct 10 12:36:47 2014 -0700
+
+    Refresh waypoints on chat removal, address issue #52
+
+commit fe8e019d22bb6daeb47de4b3ab93a4cb09710db2
+Merge: 1ff04dc 0a6aaf8
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Oct 10 11:51:55 2014 -0700
+
+    Merge pull request #53 from meatspaces/gifsave
+    
+    Implement video -> GIF conversion.
+
+commit 0a6aaf88dea6d82af56f1a22e7c97add564c1f43
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 8 01:29:34 2014 -0700
+
+    Implement video -> GIF conversion.
+    
+    I will likely split vid2gif out into a library soon-ish so this can be
+    used on other meatspac-related sites, but this will do for now.
+
+commit 1ff04dc254b1363d200d83d5fa2caa8af615bbf0
+Merge: 4bea70d 4b09467
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 9 23:40:57 2014 -0700
+
+    Merge pull request #54 from imakewebthings/vischangefix
+    
+    Restrict visibility change play/pauses to in-view videos
+
+commit 4b09467aed66d7cc06d7512c8d017483fd9fd75b
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Thu Oct 9 17:40:24 2014 -0700
+
+    Restrict visibility change play/pauses to in-view videos
+
+commit 4bea70dd36e449283ab9c2313e075126cd79a39a
+Merge: 43a8ee0 d777355
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Thu Oct 9 10:28:26 2014 -0700
+
+    Merge pull request #51 from imakewebthings/mp4
+    
+    Dual encode for H264 and WebM, emit to respective socket io rooms
+
+commit d777355a660785f15406d1e01ac8c578e8ab5cf9
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Mon Oct 6 23:15:17 2014 -0700
+
+    Dual encode for H264 and WebM, emit to respective socket io rooms
+    
+    Both media formats are encoded and stored in the Publico instance.
+    At the time chats are pulled from Publico and emitted to the client
+    they exctract the media format and broadcast only that format to
+    a socket.io "room" by the same name as the format.
+    
+    Clients now emit an event, "join", with the format they wish to
+    receive. The initial chat dump occurs on this join event instead
+    of connection. Room names at this time are "webm" and "mp4".
+
+commit 43a8ee065147e575874b1581616282da27faffad
+Merge: b20cc22 05bccdd
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Wed Oct 8 10:24:32 2014 -0700
+
+    Merge pull request #48 from byronhulcher/html-escaped-links
+    
+    Don't HTML escape entities identified by twitter-text-js, such as links
+
+commit 05bccddc56e3d4fb65a61aaff12a361212eb0616
+Author: byronhulcher <byronhulcher@gmail.com>
+Date:   Mon Oct 6 23:02:47 2014 -0400
+
+    Don't HTML escape entities identified by twitter-text-js, such as links
+
+commit b20cc22b785ac9d78f3ce27382f03f89ac08c9cf
+Merge: 2164679 0bbc47c
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 22:04:16 2014 -0700
+
+    Merge branch 'byronhulcher-linking'
+
+commit 0bbc47c31fb1023ebc5d3bfcfac81629556241c3
+Merge: 2164679 1906198
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 22:02:44 2014 -0700
+
+    Merge truncation with protocol-less linking changes.
+
+commit 2164679c3b3bc48b7c09dd624aca0ebfe1d8d23d
+Merge: d5b8a4f b6f329b
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 21:56:45 2014 -0700
+
+    Merge pull request #46 from jasonrhodes/protocol-links
+    
+    Add autolink util function to link urls w/o protocol
+
+commit d5b8a4f15acccc20e3bb1e993787482447a2419d
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 21:54:44 2014 -0700
+
+    Make chat limit 30.
+    
+    This aligns it with the limit meatspace previously had. 15 seems to be
+    way too few with the larger videos, very hard to follow conversations.
+
+commit 78b32f0b175f9b5bcc328aacbdf2f33d3a962755
+Merge: f03dccc 4ec42eb
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Mon Oct 6 20:28:19 2014 -0700
+
+    Merge pull request #49 from llkats/master
+    
+    make the links look linky when you hover over them
+
+commit 4ec42eb7cb9a7b2a024c538899435af7625f11c3
+Author: Lydia Katsamberis <llkats@gmail.com>
+Date:   Mon Oct 6 20:25:06 2014 -0700
+
+    make the links look linky when you hover over them
+
+commit b6f329b6a5995d1fc5bb83bd3a0549da9481d7a8
+Author: Jason Rhodes <jason.matthew.rhodes@gmail.com>
+Date:   Mon Oct 6 22:21:48 2014 -0400
+
+    Add autolink util function to link urls w/o protocol
+
+commit 19061983bd28e7911edad9b345bdecb7c9c59c6b
+Author: byronhulcher <byronhulcher@gmail.com>
+Date:   Mon Oct 6 22:06:14 2014 -0400
+
+    Truncates message at 250 characters before HTML-escaping and linking
+    Fixes meatspaces/meatspace-chat-v2#45
+
+commit f03dccc71d26a20cf1b767419ffb199c1b4c66a0
+Merge: 8a55f97 e0c0ebf
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Mon Oct 6 17:01:15 2014 -0700
+
+    Merge pull request #44 from TheAlphaNerd/favicon
+    
+    Added multi resolution favicon.ico
+
+commit 8a55f97bdcc6eba180552038195348aec3e6dc51
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Oct 6 16:33:59 2014 -0700
+
+    nope, rolling this back because terrible
+
+commit e0c0ebf0ba39854b7a4b80bad0b4e1d72ab7efbc
+Author: Myles Borins <myles@famo.us>
+Date:   Mon Oct 6 16:33:31 2014 -0700
+
+    Added multi resolution favicon.ico
+
+commit d80403d3c361e3a156fc5aca966ffeab9f6a450b
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Oct 6 15:25:03 2014 -0700
+
+    add channel switch between h264 and webm
+
+commit 46f8dbde8b2863102f5c4b6ad4a2fa7f8d6a29eb
+Merge: 012eac3 7fcf56a
+Author: Edna Piranha <jen@meatspac.es>
+Date:   Mon Oct 6 14:21:01 2014 -0700
+
+    Merge pull request #43 from imakewebthings/videopause
+    
+    Play/pause video when entering/leaving view
+
+commit 7fcf56a6e10c38d9dc245e9483fc2bc99a40d06e
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Mon Oct 6 11:37:10 2014 -0700
+
+    Play/pause video when entering/leaving view
+
+commit 012eac38febb474cd97dae6b2cd12bef199fbc58
+Merge: a4264b0 b6b0534
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Mon Oct 6 15:41:13 2014 +0100
+
+    Merge pull request #42 from imakewebthings/patch-1
+    
+    Play/pause video when it enters/leaves view
+
+commit b6b0534095e88829d1802ec9d1c26642310d3c84
+Author: Caleb Troughton <caleb@imakewebthings.com>
+Date:   Sun Oct 5 22:30:43 2014 -0700
+
+    Play/pause video when it enters/leaves view
+    
+    Please have QA take a second and third look at this.
+
+commit a4264b0d35353baab744daba55f0921aa358a89f
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 18:45:24 2014 -0700
+
+    change to loading text
+
+commit bf99c49869cba17437424aaa6d3e8454aae8b850
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 14:12:28 2014 -0700
+
+    fix loading of recents
+
+commit 520d76085b9bf6a3faf4a1162c9eee20529025ea
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:53:34 2014 -0700
+
+    more mobile fixes
+
+commit 037a353445cdba7729f58123be1d12361cfa795e
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:51:56 2014 -0700
+
+    more mobile fixes
+
+commit 1a63aa5e78f51d20459b7bd2dc4d4a07a173b1f0
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:39:28 2014 -0700
+
+    set max limit to 15
+
+commit c2b6df62d479a352ac1e37f410857d96f4955807
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:22:29 2014 -0700
+
+    updated readme
+
+commit 24d4a1785799fadcbb8571cd56b6c09e4832d4fd
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:21:11 2014 -0700
+
+    send out h264 to devices that request the format
+
+commit bc560e6e90c4ebc0f2230c3d1e30697dc0f793b1
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:10:20 2014 -0700
+
+    fix timestamp
+
+commit 92061403f78338afb4251bfaeea7605f85e3af09
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:08:51 2014 -0700
+
+    style updates; fixed for mobile
+
+commit f13dc8685ea36a4c35ad8719c079a7cae215a9c4
+Merge: 2ad67cc 6064073
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Sun Oct 5 17:33:45 2014 +0100
+
+    Merge pull request #40 from kid-icarus/master
+    
+    Add character counter.
+
+commit 60640731eb548c0ba45f4c5407b8af7a616d4d1e
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Oct 3 20:41:02 2014 -0700
+
+    Add character counter.
+
+commit 2ad67ccf7074a20f5087c51b9440978b4390777d
+Merge: 54809da 107289d
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Oct 3 03:25:35 2014 +0100
+
+    Merge pull request #31 from jasonrhodes/fix-refocus
+    
+    Refocus message input after submit - fixes #25
+
+commit 107289dc0a9850c462bf4c912ac41d44385ef9fc
+Author: Jason Rhodes <jason.matthew.rhodes@gmail.com>
+Date:   Thu Oct 2 21:57:15 2014 -0400
+
+    Refocus message input after submit - fixes #25
+
+commit 54809daca65dd49c722a1875f45d2edd351996ed
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 23:06:17 2014 +0100
+
+    readme link fix
+
+commit 9cb409be0f51ac07cf6163d243934c6f27a4cafa
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 18:31:59 2014 +0100
+
+    fixed regression
+
+commit dd6cf6fdc8cc8b89e64b5746fb1804abdcc7cacb
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 18:14:27 2014 +0100
+
+    change function name
+
+commit 88c1fa5541be1a65ef194cfef4fc4d4a04969b85
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 18:13:02 2014 +0100
+
+    buffer length checks and readme updates
+
+commit 718a7e4694e07cbf1c55105124fdabc6638c96e0
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 16:04:54 2014 +0100
+
+    check file type and length
+
+commit 7ee90c012ac2fd056309f3bf13b42e5d85ed3af6
+Merge: b1bedaf c243fcf
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Oct 2 15:52:29 2014 +0100
+
+    Merge pull request #21 from lauradegroot/focus
+    
+    autofocus input field
+
+commit c243fcf31a150e97def4ce900a54db682f4ea7eb
+Author: Laura DeGroot <laurardegroot@gmail.com>
+Date:   Thu Oct 2 10:35:21 2014 -0400
+
+    autofocus input field
+
+commit b1bedaf90ba9f4c8337b736847f6665a4ab54778
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 15:14:11 2014 +0100
+
+    updated readme
+
+commit f29c8124d3b97d9b3ba707ba817b2f49bd59031a
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 15:08:59 2014 +0100
+
+    updated readme
+
+commit ae94d9e15961433e99616865030ad56379b52b8b
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 14:02:46 2014 +0100
+
+    this is not jade
+
+commit c96bd8ccd918a0607e953cf6939180977bb6fe27
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 13:30:47 2014 +0100
+
+    reduce ms
+
+commit 0e83ab5d4f7f8aa5e68356f6e14076285b16ac33
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 13:12:15 2014 +0100
+
+    added manifest and icons
+
+commit 7f72c85c53f8bb4eef7a89dd6f969db5ecc1976e
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 12:51:17 2014 +0100
+
+    faster
+
+commit 6cb3cc77f5c901004405c0e15488ce7b3daffef4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 12:48:11 2014 +0100
+
+    remove auth support; slow down video replay
+
+commit 49c22b7795c8241689827254c1df11283bb8b3a6
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 10:55:41 2014 +0100
+
+    ms change
+
+commit 73935e977a8d8ce87ba3fac4bfe79fcbfdbc619d
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 07:44:33 2014 +0100
+
+    cleanup; added info screen
+
+commit c0c3a77c3b70174d190771d04ddbecd6a2960e53
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Oct 1 16:18:42 2014 +0100
+
+    cleanup
+
+commit b4f202f341eb345222c942718ab1467d13ff9e2f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Oct 1 10:36:27 2014 +0100
+
+    goddammit
+
+commit be133bb4b96bb0b203e601cdf549ae30d3f2c096
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Oct 1 10:32:09 2014 +0100
+
+    no glitch
+
+commit 2370b74c24e25eea1547fabd05ae63672d00c10d
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 12:59:26 2014 -0700
+
+    fixed webm check
+
+commit 86053309eae38431893dae1fcc5af19406495043
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 12:34:12 2014 -0700
+
+    h.264 test for ff
+
+commit 195a93d9b5c2b296a6d3ee54c31f7fac944f097e
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 12:09:33 2014 -0700
+
+    fixed quality; removed video type
+
+commit aaf71b22d8f7d66bbf33ee7a19afefb7dd7ff0f9
+Merge: a4ebbef 182313f
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Sat Sep 27 11:48:19 2014 -0700
+
+    Merge pull request #12 from tec27/jpegify
+    
+    Use JPEG for client posting instead of PNG.
+
+commit 182313f3bff156a4544e39a50de3d0e904fb5770
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Sep 27 00:23:52 2014 -0700
+
+    Use JPEG for client posting instead of PNG.
+    
+    This leaves the glitch -> PNG step intact, so ffmpeg is still dealing
+    with PNGs. This also fixes a number of bugs in the media conversion
+    process, and removes unnecessary setImmediate calls.
+
+commit a4ebbef2da38e3f99a27f8b03ea3fd58927113be
+Merge: 19bc53b 3b54b74
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Sat Sep 27 11:14:28 2014 -0700
+
+    Merge pull request #13 from tec27/noexec_rm
+    
+    Use glob and fs.unlink instead of shelling out to rm.
+
+commit 19bc53b1ffad102f953f6c254a7046bc48fdcf75
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 11:12:51 2014 -0700
+
+    slow down a bit
+
+commit 51d785a6b6184f4f086c909e0954d8f5252d67f7
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 11:10:02 2014 -0700
+
+    trying ogv
+
+commit 20f65cb4d0c74c84756142a47579a1a7d13bd05d
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 09:22:23 2014 -0700
+
+    trying h.264 again
+
+commit 3b54b74c01dcc41d010bac5963a551971379924f
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Sep 27 01:12:52 2014 -0700
+
+    Use glob and fs.unlink instead of shelling out to rm.
+
+commit a916c9ca0bbe4023a41ba6ee9a841841012b418c
+Merge: 4d54325 c4be18d
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 23:01:22 2014 -0700
+
+    Merge pull request #10 from potch/master
+    
+    not not not not
+
+commit 4d5432571bb914f74c5170c2b9ddb00ccdb94c5f
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 26 23:00:22 2014 -0700
+
+    back to webm
+
+commit c4be18dfea2e57c0dc9a904bc25b8ae6471c6e23
+Author: Matt Claypotch <thepotch@gmail.com>
+Date:   Fri Sep 26 22:54:23 2014 -0700
+
+    not not not not
+
+commit 6d2f040aaf5248b0c4dae1552c5fa3aa47343887
+Merge: b8db488 92afe9a
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 22:52:22 2014 -0700
+
+    Merge pull request #9 from tec27/no_crypto
+    
+    Don't include non-system crypto module.
+
+commit b8db488412eee56f75339530e5724f87ee85ac56
+Merge: 90ca326 fe8fd00
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 22:52:08 2014 -0700
+
+    Merge pull request #8 from potch/master
+    
+    pause videos when in bg
+
+commit fe8fd007b4e0a5f48f7c830654a3baade1bf152c
+Author: Matt Claypotch <thepotch@gmail.com>
+Date:   Fri Sep 26 22:49:23 2014 -0700
+
+    pause videos when in bg
+
+commit 92afe9a11bedd38d41b785df48f1a0878d808161
+Author: Travis Collins <travis@tec27.com>
+Date:   Fri Sep 26 22:47:39 2014 -0700
+
+    Don't include non-system crypto module.
+
+commit 90ca32602c4914f7e4cb99b4ab9967808431e5e4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 18:17:16 2014 -0700
+
+    remove visibilty flag
+
+commit a8a7ace5e07188fe8f585116c9514afa130231f4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 18:02:56 2014 -0700
+
+    trying a diff scale
+
+commit a67ff6e6ffec98f7f86933395d388c138e7498f7
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 17:57:03 2014 -0700
+
+    mp4 check
+
+commit 775eb6ab938036d0620755fcdbcd8efce6507f8d
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 17:40:26 2014 -0700
+
+    trying mp4 instead
+
+commit cc0ee80a1012f8f938b0d0dbe70e25c4416b98da
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 11:53:38 2014 -0700
+
+    fixed ui
+
+commit 319f03efaffff7d3ce1c1594813c3ea7753b8105
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 11:27:26 2014 -0700
+
+    number tweaks
+
+commit 730d9078ad7ec40084051c5883b76f4352e7a31f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 11:18:55 2014 -0700
+
+    glitch adjustment
+
+commit 9c148e7280130d5c65201abc1e70332f67bd09a6
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 10:39:15 2014 -0700
+
+    fix height
+
+commit 67467123e25496ceb2a9a8a6e2ef0f3ddff6d5b6
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 10:32:35 2014 -0700
+
+    fixed autoscroll
+
+commit 96baa31933f1dec5740aa8c2e43d39c73dc143b6
+Merge: 895e899 b80e45d
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 10:09:22 2014 -0700
+
+    Merge pull request #7 from trodrigues/patch-1
+    
+    Load music list from file
+
+commit b80e45d57dc11d74ea639bd0f0c702fa119e6b2b
+Author: Tiago Rodrigues <tmcrodrigues@gmail.com>
+Date:   Fri Sep 26 19:03:28 2014 +0200
+
+    Load music list from file
+    
+    Haven't tested this and don't know if it works. You should change the js file with the list into a json one just with the array and that would be enough, no need to run js or anything and jquery also deals with parsing the json and all. I don't know if toggleMusic is gonna be called more than once so I just assumed it could be and that it would just return what it already has.
+
+commit 895e8999286c5e1b8bdabb858979db866a8b425e
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 09:20:25 2014 -0700
+
+    this is temporary.
+
+commit 0c8f0349c7953283990e21007725c153a2fff9f3
+Merge: ce6a35a 61a7ae5
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 08:52:50 2014 -0700
+
+    Merge pull request #6 from TheAlphaNerd/timestamp
+    
+    Implemented Timestamps
+
+commit 61a7ae5240b86b19f518dc3e8fd4f9fac2ad0bbc
+Author: Myles Borins <myles@famo.us>
+Date:   Fri Sep 26 00:26:47 2014 -0700
+
+    Implement timestamps
+
+commit 261b559cbcb176acadefd9c8353fddda22209c03
+Author: Myles Borins <myles@famo.us>
+Date:   Fri Sep 26 00:26:10 2014 -0700
+
+    Added moment module
+    
+    Installed with ```npm install --save moment``` which accounts for the alphabetical organization of the package.json list
+
+commit ce6a35a2e6b4717e87635071b7fc1085f01ab49a
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 23:38:11 2014 -0700
+
+    shit
+
+commit 658ce4e4d4fdb00323256642248b56ee0eab9f13
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 23:06:13 2014 -0700
+
+    refactoring
+
+commit 139da4380c556442c9ad6d0953625db0e35ace80
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 21:53:00 2014 -0700
+
+    toggle button visual
+
+commit 1290b298f524578be83294a4c146e1b1e20ae1f4
+Merge: f462434 cd24b05
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Sep 25 21:40:44 2014 -0700
+
+    Merge pull request #5 from contra/master
+    
+    fix the music
+
+commit cd24b05b7ce133eaadfea1cbc2ecb43cca0215b1
+Author: Contra <contra@maricopa.edu>
+Date:   Thu Sep 25 21:38:50 2014 -0700
+
+    ugh
+
+commit 51851e4f438737294a204758d9e3394f53b0bb1e
+Author: Contra <contra@maricopa.edu>
+Date:   Thu Sep 25 21:38:39 2014 -0700
+
+    REAL TRAP SHIT
+
+commit f462434a867c7f568ec9b3b22a26e09a7c99e7dd
+Merge: 76cb475 307e339
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Sep 25 21:26:56 2014 -0700
+
+    Merge pull request #4 from imakewebthings/waypoints-fix
+    
+    Fix bug with waypoints code throwing error during chat removal
+
+commit 307e339fd22d32c2bd74430e9363a6dc5601f7d6
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Thu Sep 25 18:34:38 2014 -0700
+
+    Fix bug with waypoints code throwing error during chat removal
+
+commit 76cb4759f2dd76ba775bd7600499809c4163486d
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 21:04:48 2014 -0700
+
+    i am only deploying this music thing as a test
+
+commit 6b9a14d0a8ebc8fea008355a2d71d8c3fdf13f3e
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 18:09:26 2014 -0700
+
+    rollback on waypoints
+
+commit dd23bb871d3cb9024e6b52f36ff6111ed73f2fce
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 17:57:59 2014 -0700
+
+    glitch adjustment; fixed button notification
+
+commit fae3ba450d51108f05ad5b21c80c5beb86c36108
+Merge: decf6bc 630b7ac
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Sep 25 16:55:55 2014 -0700
+
+    Merge pull request #3 from imakewebthings/waypoints
+    
+    Add Waypoints to hide off-screen videos, save CPU cycles
+
+commit decf6bcd427c6a53117907df381124d0b5d56123
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 13:52:59 2014 -0700
+
+    google analytics
+
+commit 630b7acf13489a86647d1f0b12fc1795c0f18f74
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Thu Sep 25 13:45:11 2014 -0700
+
+    Add Waypoints to hide off-screen videos, save CPU cycles
+
+commit bb86c5b70547726602174a68034c84d6a2df5425
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 13:27:51 2014 -0700
+
+    glitch random
+
+commit ce4c0689567a37fc8a5439ee333ca41349d83751
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 13:21:51 2014 -0700
+
+    adding glitch again
+
+commit 4096989108a318ed9ad49b98d39d92367083a38c
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:49:14 2014 -0700
+
+    hide invisible for now
+
+commit 234d4691d41c813a56da2d56a0fe2d2e125a68fd
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:46:36 2014 -0700
+
+    fixup on fp null check
+
+commit 8aaa487d130c5cba9457ea01864389a20b10cdd4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:45:04 2014 -0700
+
+    fixup on fp
+
+commit 107bb90b48b8dcca89b1c6ac6851849ffefd3b0a
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:38:49 2014 -0700
+
+    half filter working
+
+commit 95658d7afd1b62aef6b81992d0faf94ead165900
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 25 08:01:24 2014 -0700
+
+    debugging
+
+commit 28c14c1dec44ced67d8bcfce2a42fa54fad9828b
+Author: Jen <jen@meatspac.es>
+Date:   Wed Sep 24 22:00:21 2014 -0700
+
+    removed debugging
+
+commit d3299e4e5b3ea5827fed8299fcc95b6a72c82e0b
+Author: Jen <jen@meatspac.es>
+Date:   Wed Sep 24 21:58:21 2014 -0700
+
+    fixed muting support
+
+commit 5c04146ee31e72b4197bfba06e3c33e754f64f5b
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Sep 24 19:47:34 2014 -0700
+
+    mute support
+
+commit 6a7b5ed8ccb65bac8b03b06f7c1dde8f040a6943
+Merge: b275b4d 6105106
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Wed Sep 24 19:43:16 2014 -0700
+
+    Merge pull request #1 from nvcexploder/master
+    
+    Adding basic auth basics.
+
+commit 6105106954fb816f2703ac0977f480ce107c5477
+Author: nvcexploder <benacker@gmail.com>
+Date:   Wed Sep 24 17:28:35 2014 -0700
+
+    change route configuration to use 'try' instead of straight 'session'.
+
+commit ed52051a0db3c732c2a4ca7532b83480990cb023
+Author: nvcexploder <benacker@gmail.com>
+Date:   Wed Sep 24 17:19:05 2014 -0700
+
+    add hapi-auth-cookie and wrap stuff in a server registration
+
+commit b275b4d39ff9b1e4d920de0b4236b00355616fca
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:39:37 2014 -0700
+
+    normal pt 2
+
+commit 195fb1d6a36e0d3cf03939ba62e7e4f0bf41532b
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:20:48 2014 -0700
+
+    normal
+
+commit c2665549a5286986c59c2efafa38324e049f6b8c
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:14:32 2014 -0700
+
+    fixed parsing
+
+commit 2c736390620c6bb7a2c99b3202cdf0126b6844d4
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:05:53 2014 -0700
+
+    disabling now
+
+commit 8d1c3b248dcc7a52795aa78fa0b89923952983d9
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:03:12 2014 -0700
+
+    added live user counter; added fingerprint checking
+
+commit fe56f792c747bdf0d4bcd7e1d45431b6eae2a122
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 19:06:03 2014 -0700
+
+    save to db
+
+commit fdd73b602323929b7a090612d8810cee0d5509ea
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 18:27:58 2014 -0700
+
+    set chat limit
+
+commit ee27eb062fde6e04fd4d6977ceb8a183248810ab
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 17:48:46 2014 -0700
+
+    switch to socket.io
+
+commit 7dc3b3695bc9caed4500111b2624670499f0c181
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 11:41:14 2014 -0700
+
+    sad browser links
+
+commit ea464ff40a12d6400fa393e38f9f45c2541f7c7f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 11:32:58 2014 -0700
+
+    sad browser ;_;
+
+commit 3e6874c145e725b2edc433daea664635de3998bc
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 11:28:26 2014 -0700
+
+    sad browser
+
+commit 767d48a2120f8d87b71b9ac392fed0738efc7d56
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 10:34:19 2014 -0700
+
+    scroll into view
+
+commit 5b0707342159223c196363f5d17d8257f7d75225
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 10:22:17 2014 -0700
+
+    testing smear channel
+
+commit cfd4d1317ce88c45dce19c5fc5ee0dcc3d1dac4f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 10:14:00 2014 -0700
+
+    kill processes after 3 seconds
+
+commit e6913d041cd5838d00ff131b36252f35f065a587
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 09:57:33 2014 -0700
+
+    change to broadcast
+
+commit 5acfa1250f581b23749a7e6ec7e91ceca042daa7
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 08:38:05 2014 -0700
+
+    trying red/blue
+
+commit 833e9cea5dc851b52dac37dd5df750f40b3f1b8d
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 08:33:03 2014 -0700
+
+    change count position
+
+commit b4578e92de1850d8fc7b74fc3dd1243481030ede
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 08:22:28 2014 -0700
+
+    removed fluent-ffmpeg; cleanup
+
+commit 79c0dd93c126b059d53d42756f3c8a928953ab2f
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 20:39:38 2014 -0700
+
+    delete all files
+
+commit 934a8178b685087e89538be41871726c8a02516f
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 20:29:34 2014 -0700
+
+    added setimmediate
+
+commit 5ae76f3334ed06d950f2e9b17bd9870c9eb7326b
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 20:09:51 2014 -0700
+
+    removed async lib
+
+commit fc17b3589bd544d44b3391f712fec60e7c857351
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Sep 22 15:18:24 2014 -0700
+
+    updated readme
+
+commit 826954c0050a3bfa7bca786fe9ce3437244402d0
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Sep 22 15:17:14 2014 -0700
+
+    remove mock content on public feed
+
+commit 3e5c20a58d1a207b909ff53250de00b9572405b3
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Sep 22 15:08:00 2014 -0700
+
+    converting pngs to webm!
+
+commit 31186e7cf8c2a307f1b042069bcbf82bfb37cba9
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 07:55:51 2014 -0700
+
+    wip ffmpeg conversion
+
+commit 40c312ac22cee513f9749fc21c13ae9a217a443b
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 18:44:47 2014 -0700
+
+    stub mute/filter/unfilter buttons
+
+commit 32d41e20160a81a9cdc09bf8002be116cea0fdab
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 18:27:12 2014 -0700
+
+    added messaging to invisible mode; layout fixes
+
+commit 913b341c0f934f12e90347344d7a8b1f317a65a3
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 18:13:42 2014 -0700
+
+    added invisible mode msg
+
+commit fff72a8609e42c36fe4c2a0e50a2c6aa945b4f11
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 17:22:08 2014 -0700
+
+    current stub websocket test
+
+commit afd4e71b34f5c84f7fd4247e3898ccc49a41fe28
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 17:21:53 2014 -0700
+
+    added fluent-ffmpeg
+
+commit 0e7fac489159285becd79a4839056159f6598cdb
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 12:16:04 2014 -0700
+
+    more layout updates
+
+commit f3a12b2ea928cda5044547e019cdb5c2bd24e3a2
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 11:38:18 2014 -0700
+
+    layout w/ filter toggle test
+
+commit 5fc98698ebc8b6f918982ba97b78c9d2c9e680eb
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 11:38:08 2014 -0700
+
+    fix gulpfile
+
+commit 2bc6b768a5ba60d235061c7fc4cf482bdf2e3a10
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 11:37:54 2014 -0700
+
+    resize samples
+
+commit 0ae22bcc39e5413d3e425e559ae03c4df567e115
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 19 23:21:00 2014 -0700
+
+    layout test
+
+commit e58b346dc11b8812c40ebf06432e390bbd088ddd
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 19 19:08:19 2014 -0700
+
+    buttduck test
+
+commit ca3114fcd723ff04a771e7c68516d8ba089fddd1
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 19 16:51:03 2014 -0700
+
+    moved sockets back to index.js
+
+commit 90660d5c0ebca8fb2a4f38c5f6fac4b093e6f88b
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 19 10:11:52 2014 -0700
+
+    added services
+
+commit fffd3cbe60743f584e3057363bea4ec9701f4085
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 23:03:58 2014 -0700
+
+    base css and structure
+
+commit 4b66304706eddf36ddc6b00d323980fdaeb35daa
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:23:57 2014 -0700
+
+    updated start script
+
+commit 5f63b953722070d665ba3d80804457a72bebae29
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:20:43 2014 -0700
+
+    added default dependencies and stub layout
+
+commit b7ce68585041c71cd6faa0ad800b129d8a935bd5
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:06:53 2014 -0700
+
+    obsessed with zalgo 3
+
+commit a93567a25e358267e0bfc685fb9d2cca41a65e95
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:00:44 2014 -0700
+
+    obsessed with zalgo 2
+
+commit 2f7e78c3ed8a970c292a6d8945a8fd7f1dc1c636
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 19:55:29 2014 -0700
+
+    obsessed with zalgo
+
+commit c58336fdc361fa14dcb149a098e2d34217f4fd9b
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 18:25:02 2014 -0700
+
+    initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 2b059f13128b19b7717c89efd1101edabb68df49
+Author: Marcus Ramberg <marcus@nordaaker.com>
+Date:   Wed Aug 12 14:27:55 2015 +0200
+
+    Update README.md
+
+commit 3e713bdcbb4a2e779dec828226afa8268bbdb7d4
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Mar 14 21:00:33 2015 -0700
+
+    Fix mp4 encoding.
+    
+    The mp4 command had a framerate specified that differed from what
+    the resulting framerate was by a slight amount (it specified 30fps
+    but the PTS being set was 10*2.5 => 25fps). This resulted in mp4's
+    being ever so slightly different in length than webm's, and being
+    unable to properly roundtrip the mp4's.
+
+commit f3d5423c23eeeab2a276e3a2c7779fe389823f18
+Merge: ae4b87e d1bf30b
+Author: Marcus Ramberg <marcus@nordaaker.com>
+Date:   Sun Mar 8 18:33:04 2015 +0100
+
+    Merge pull request #94 from TheAlphaNerd/update-waypoints
+    
+    [deps] Update waypoints
+
+commit d1bf30b5d47a859660337fcb40a68c4b5070aae0
+Author: Myles Borins <myles@famo.us>
+Date:   Sat Mar 7 03:00:06 2015 +0000
+
+    [deps] Update waypoints
+
+commit ae4b87ebc00a7d939dac8a6dad6e5e38f02fd645
+Merge: ad643b6 2e40d8d
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Dec 12 13:02:59 2014 -0800
+
+    Merge pull request #88 from joshwnj/master
+    
+    Return on error
+
+commit 2e40d8d28af218c73aa8bce71bf21062fc841766
+Author: Josh Johnston <josh@x-team.com>
+Date:   Wed Dec 10 16:00:56 2014 +1100
+
+    return on error
+
+commit ad643b616fc92f925d183488f323f0bf76d7a6c9
+Merge: f221e9b 87f2a0d
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 23:44:24 2014 -0800
+
+    Merge pull request #87 from kid-icarus/placeholder
+    
+    Add placeholder text.
+
+commit 87f2a0d817f35d3384548363c63ba1cb3827b889
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 23:00:43 2014 -0800
+
+    Add placeholder text.
+
+commit f221e9b246df594bac165e0860d79064c0a3817b
+Merge: c146f18 1862251
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 21:00:52 2014 -0800
+
+    Merge pull request #83 from jory/fix-fewer-operations
+    
+    Do less unnecessary work!
+
+commit c146f1877c8316f64bca7126b6292c3bbd78966c
+Merge: c74eda0 98df208
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Sun Nov 30 21:00:35 2014 -0800
+
+    Merge pull request #86 from jory/tabindex
+    
+    Give composer highest tab index on the page
+
+commit 98df2083fad008868c9ca49d455d3aa78cfa4007
+Author: Jory Graham <jory.graham@gmail.com>
+Date:   Sun Nov 30 23:50:52 2014 -0500
+
+    Give composer highest tab index on the page
+    
+    Allows you to tab back to it if you click the list, or click away.
+    
+    Previously you need to Shift-tab, or click.
+
+commit 18622514e517570bcec1248b27cdf7689d5f8437
+Author: Jory Graham <jory.graham@gmail.com>
+Date:   Mon Nov 17 00:14:47 2014 -0500
+
+    Do less unnecessary work!
+    
+    Squished!
+
+commit c74eda0d63538bcbc321588ad17dbd4d258f3545
+Merge: 6811c71 468a894
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Nov 15 00:12:14 2014 -0800
+
+    Merge pull request #82 from meatspaces/vid2gif_module
+    
+    Utilize the split out vid2gif module.
+
+commit 468a89495d824cc4642723b19a257652068be86d
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Nov 15 00:10:17 2014 -0800
+
+    Utilize the split out vid2gif module.
+
+commit 6811c714dfc67e87880290c87ed3ef280e1c64a7
+Merge: 520eb1c badb600
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Nov 14 17:03:25 2014 -0800
+
+    Merge pull request #81 from jory/patch-1
+    
+    Fix videoType documentation
+
+commit badb6000c1ddd80a2c57a663493d68a14160ac6b
+Author: Jory Graham <jory.graham@gmail.com>
+Date:   Tue Nov 11 17:53:40 2014 -0500
+
+    Fix videoType documentation
+
+commit 520eb1c53010efce3c825e41b944e113e89ee2fd
+Merge: a2cb8ba b5ceba9
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 29 01:05:05 2014 -0700
+
+    Merge pull request #80 from meatspaces/inc_filesize_more
+    
+    Increase allowable frame size again.
+
+commit b5ceba9cd31ee5c2d840757ffd998bd01d051445
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 29 01:02:39 2014 -0700
+
+    Increase allowable frame size again.
+    
+    Certain encoders (especially on mobile devices, it seem) can still
+    generate somewhat larger files than we're seeing from most browsers.
+    This limit still puts us below average v1 GIF sizes at most, which we've
+    seen is fine for this server, and so shouldn't be a problem.
+
+commit a2cb8ba3d7bea8fb9143303de337389fd14ce8fc
+Merge: 2544d34 710579d
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:49:43 2014 -0700
+
+    Merge branch 'TheAlphaNerd-upgrade-hapi'
+
+commit 710579d40151f1f865a9529d1f065eb6867e2e22
+Author: Myles Borins <myles@famo.us>
+Date:   Wed Oct 15 10:58:09 2014 -0700
+
+    Upgrade hapi to 7.0.0
+    
+    In 7.0.0 [hapi removed options.views](https://github.com/hapijs/hapi/issues/2007). This patch updates the hapi dependency and appropriately changes the way views are instantiated.
+
+commit 2544d3486643dae8d2ea7c8d190c667b6a3c590c
+Merge: 74a525e 8a615b1
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:31:55 2014 -0700
+
+    Merge pull request #69 from TheAlphaNerd/upgrade-dependencies
+    
+    Update most dependencies
+
+commit 74a525e7aeecc5f491f9927308ff09788ad79e04
+Merge: 08b5470 af7a1a8
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:28:37 2014 -0700
+
+    Merge pull request #74 from meatspaces/add_sourcemaps
+    
+    Add sourcemaps to the JS.
+
+commit af7a1a8942d63353acc19aab19a1608c0be3b569
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 16 00:25:23 2014 -0700
+
+    Add sourcemaps to the JS.
+    
+    This will distribute sourcemaps in all server configurations, but I
+    don't think this should really problematic and we're not trying to hide
+    anything. If anything it will make production issues easier to debug.
+    
+    Also fixes an issue with later versions of gulp-sourcemaps, which seem
+    unhappy with sourcemap-less sources.
+
+commit 08b547045131d87539652eb7d9ccb6217facba34
+Merge: 9e987e1 a3b21a1
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 23:56:31 2014 -0700
+
+    Merge pull request #73 from meatspaces/filesize_increase
+    
+    Increase the maximum allowed jpeg filesize.
+
+commit a3b21a15e248c74428867a2ffb40d1addfee0b2f
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 23:53:18 2014 -0700
+
+    Increase the maximum allowed jpeg filesize.
+    
+    I was able to get real close to the current limit without trying too
+    hard (within 1K), so this seems a bit too low. Bumping it up by 50%
+    still keeps it fairly low and has little effect on anything, but keeps
+    us safer from discarding legitimate posts.
+    
+    Fixes #71.
+
+commit 8a615b1b765769e928c5f16b5ce3cbfd9efda064
+Author: Myles Borins <myles@famo.us>
+Date:   Wed Oct 15 10:52:17 2014 -0700
+
+    Update most dependencies
+    
+    Everything updated and tested to be working. Exceptions are HAPI which was throwing a strange error and jquery-waypoints which is pointing to a personal repo.
+
+commit 9e987e156fb58e05420e70737a3e26315a9fedd7
+Merge: eef7930 610064f
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 10:44:35 2014 -0700
+
+    Merge pull request #68 from TheAlphaNerd/badges
+    
+    Added davidDM badges
+
+commit 610064fec8464c3f4715b8c668d1e497e6ff7cda
+Author: Myles Borins <myles@famo.us>
+Date:   Wed Oct 15 10:33:41 2014 -0700
+
+    Added davidDM badges
+
+commit eef793038bb697bc8b9b137fa529ed543e37950d
+Merge: 62ac604 cd82485
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 15 10:25:34 2014 -0700
+
+    Merge pull request #67 from marcusramberg/fix_deps
+    
+    Up dependency to webrtc2images@1.4.3
+
+commit cd824858602b44e0f4f964a0694c8e200b623145
+Author: Marcus <marcus@nordaaker.com>
+Date:   Wed Oct 15 15:01:54 2014 +0200
+
+    Up dependency to webrtc2images@1.4.3 so master actually works
+
+commit 62ac604ebb0911d987a3051435ed30aba18a4141
+Merge: 4607ee2 4aa5dd3
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Wed Oct 15 00:03:10 2014 -0700
+
+    Merge pull request #66 from kid-icarus/contributor-guidelines
+    
+    Update contributor guidelines.
+
+commit 4aa5dd3504f8a34e45f8c7559e316545f5b76850
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 23:55:46 2014 -0700
+
+    Update contributor guidelines.
+
+commit 4607ee24daacf71476b4115cefe4b87f1bde954a
+Merge: 6ba2b82 04bc76e
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 16:32:09 2014 -0700
+
+    Merge pull request #63 from kid-icarus/contributor-guidelines
+    
+    Add contribution guidlines.
+
+commit 04bc76ef8ee36f57b4a245822e5fad260872e815
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 13:45:23 2014 -0700
+
+    Add contribution guidlines.
+
+commit 6ba2b82164b8ed533cc9bcfc2ecc38b98cc15ea8
+Merge: a5da2f6 458dc78
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Tue Oct 14 12:51:40 2014 -0700
+
+    Merge pull request #60 from jasonrhodes/add-id
+    
+    Add level key as id property for onMessage payload
+
+commit 458dc78521a44360be46827eaeafb2284b6d77ec
+Author: Jason Rhodes <jason.matthew.rhodes@gmail.com>
+Date:   Tue Oct 14 13:31:20 2014 -0400
+
+    Emit leveldb key as 'id' with all messages
+
+commit a5da2f6f5a5615fbbeaf9b8ab6d3eb2e1e67a773
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 14 10:32:51 2014 -0700
+
+    Be more permissive of fingerprint length, since this can come from mobile clients too.
+
+commit dc6f1f3696fee2dabd1f563abb9f45324de9f281
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 01:46:06 2014 -0700
+
+    Do async RTC check properly (in the callback).
+    
+    This prevents people from sending messages without allowing/denying the
+    camera permission thing, and pops up the sad browser page if they deny
+    it. We could probably do more to tell users to accept if they try to
+    submit without interacting with that permission request, but this at
+    least limits the amount of tapebros.
+    
+    This requires 1.4.3+ of webrtc2images to work properly.
+
+commit 32591c61bff20c6f59c68267ebebb35cb8ff8826
+Author: Travis Collins <travis@tec27.com>
+Date:   Mon Oct 13 22:17:25 2014 -0700
+
+    Update readme example to not double JSON encode.
+
+commit c4cfb7f6b8d9e2a1c7568411eaedbb5b8b324fb7
+Author: Travis Collins <travis@tec27.com>
+Date:   Mon Oct 13 22:04:11 2014 -0700
+
+    Adjust padding height on small resolutions (so it matches the smaller video size).
+
+commit a489cee4ea0a61da16eff8daa63c482926e9d424
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 03:05:37 2014 -0700
+
+    Account for base64 expansion factor.
+
+commit 4bb571d13ebeefbe4dbd9e73160e6b59fd5f3f47
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:47:08 2014 -0700
+
+    Break a long line up.
+
+commit 315fa56253eb88f82d5857b4db34f6b755515d00
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:45:45 2014 -0700
+
+    Don't let users crash the server by sending malformed JSON.
+
+commit bfddf7e7d86fa95844b640feab399cca42fa29da
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:40:02 2014 -0700
+
+    Don't make clients double-encode messages.
+
+commit 56293dd2808096b346419d234ba9b5a9f0a75a19
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:28:46 2014 -0700
+
+    Avoid using socket.io callback functions.
+    
+    The library the iOS client is using doesn't support these well, so
+    instead we'll send a separate ack message. Since the web client does no
+    error handling we don't track any outstanding messages and just handle
+    the acks to update our user ID list. In a future commit we could add
+    error handling here.
+    
+    If clients want to track the ack for a specific message, they can send a
+    'key' field in their message object. This key will match the one used in
+    the result data in the messageack.
+
+commit 87dafa2c9b409157dc268e4fe28c1903c2cd5667
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:16:41 2014 -0700
+
+    Add jshintrc's for node and browser code (taken from original meatspac).
+
+commit 6bbbd89a75df613d5ff9b07616e3b8d477e9071f
+Merge: 60cec5f 4080637
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 02:08:05 2014 -0700
+
+    Merge pull request #59 from marcusramberg/tidy
+    
+    Add missing semicolons.
+
+commit 4080637b007762a4ebb9fe7e79d4bb8d1f6ade43
+Author: Marcus <marcus@nordaaker.com>
+Date:   Sun Oct 12 11:03:46 2014 +0200
+
+    Add missing semicolons
+
+commit 60cec5fee4dccea0e1342c7d6bcfa6cba6950348
+Merge: d5997b0 b3e5554
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 01:44:24 2014 -0700
+
+    Merge pull request #58 from marcusramberg/save_at_once
+    
+    Make convert button save at once.
+
+commit b3e55543b8cdbdeac249318339a2ae10b78197c1
+Author: Marcus <marcus@nordaaker.com>
+Date:   Sat Oct 11 09:40:30 2014 +0200
+
+    Trigger save button once conversion is done
+    
+    Fix spacing
+    
+    Remove special styling for saved
+
+commit d5997b059e4462cb381e2519be21f8fed9ad78e9
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 01:08:33 2014 -0700
+
+    Clean up handling of fingerprints.
+    
+    This makes the handling more similar to meatspace v1, which is:
+    - Clients don't calculate a user ID or care about their IP.
+    - The server calculates a user ID with a fingerprint+IP hash. When a
+      message is posted from a client, the server calls the client back to
+      tell them what their user ID was.
+    - Clients track some amount of their previous user ID's and use this for
+      e.g. hiding the mute button on their own messages.
+    
+    Somewhat unrelatedly, this change also adds a size limit check before
+    doing a JSON.parse on socket messages, cause like, parsing arbitrarily
+    sized JSON is real bad. Especially since we'd just throw the data on the
+    ground 2 calls down the chain.
+
+commit 9d57e496844187db45b4700d613289afb521812d
+Author: Travis Collins <travis@tec27.com>
+Date:   Sun Oct 12 00:14:08 2014 -0700
+
+    Clean up a bunch of weirdness in convert2video.
+    
+    - Check filesize before doing the work to convert to a buffer (yes, I'm
+      aware this changes the checked filesize by about 10 bytes, but I'm
+      pretty sure we don't care).
+    - Ensure that file cleanup is always done and won't be accidentally
+      forgotten in a future commit.
+    - Don't create error/finish listeners in a loop, since they're always
+      the same anyway.
+
+commit 4d503a250ec0b4d2614fdf3b68800eafea5a9f41
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Oct 11 23:58:53 2014 -0700
+
+    Remove unnecessary recent chat array reversal.
+
+commit ee4927f06ed90673f3e2ed0a6baf2271b0dad22a
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Oct 11 23:57:03 2014 -0700
+
+    Simplify image validation.
+
+commit e5734ac1065cad60314575934cb622b78be71cf9
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Oct 11 23:54:45 2014 -0700
+
+    Rename convert2webm to convert2video.
+
+commit 0333df2d4fb7a56adda8c5864587f4dc82b9ceae
+Merge: fe8e019 0b55bed
+Author: Travis Collins <travis@tec27.com>
+Date:   Fri Oct 10 15:11:33 2014 -0700
+
+    Merge pull request #57 from imakewebthings/wpfreezefix
+    
+    Refresh waypoints on chat removal
+
+commit 0b55bed7e3a0e239c91d4c94a0c6bfb0d4ac9e7b
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Fri Oct 10 12:36:47 2014 -0700
+
+    Refresh waypoints on chat removal, address issue #52
+
+commit fe8e019d22bb6daeb47de4b3ab93a4cb09710db2
+Merge: 1ff04dc 0a6aaf8
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Oct 10 11:51:55 2014 -0700
+
+    Merge pull request #53 from meatspaces/gifsave
+    
+    Implement video -> GIF conversion.
+
+commit 0a6aaf88dea6d82af56f1a22e7c97add564c1f43
+Author: Travis Collins <travis@tec27.com>
+Date:   Wed Oct 8 01:29:34 2014 -0700
+
+    Implement video -> GIF conversion.
+    
+    I will likely split vid2gif out into a library soon-ish so this can be
+    used on other meatspac-related sites, but this will do for now.
+
+commit 1ff04dc254b1363d200d83d5fa2caa8af615bbf0
+Merge: 4bea70d 4b09467
+Author: Travis Collins <travis@tec27.com>
+Date:   Thu Oct 9 23:40:57 2014 -0700
+
+    Merge pull request #54 from imakewebthings/vischangefix
+    
+    Restrict visibility change play/pauses to in-view videos
+
+commit 4b09467aed66d7cc06d7512c8d017483fd9fd75b
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Thu Oct 9 17:40:24 2014 -0700
+
+    Restrict visibility change play/pauses to in-view videos
+
+commit 4bea70dd36e449283ab9c2313e075126cd79a39a
+Merge: 43a8ee0 d777355
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Thu Oct 9 10:28:26 2014 -0700
+
+    Merge pull request #51 from imakewebthings/mp4
+    
+    Dual encode for H264 and WebM, emit to respective socket io rooms
+
+commit d777355a660785f15406d1e01ac8c578e8ab5cf9
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Mon Oct 6 23:15:17 2014 -0700
+
+    Dual encode for H264 and WebM, emit to respective socket io rooms
+    
+    Both media formats are encoded and stored in the Publico instance.
+    At the time chats are pulled from Publico and emitted to the client
+    they exctract the media format and broadcast only that format to
+    a socket.io "room" by the same name as the format.
+    
+    Clients now emit an event, "join", with the format they wish to
+    receive. The initial chat dump occurs on this join event instead
+    of connection. Room names at this time are "webm" and "mp4".
+
+commit 43a8ee065147e575874b1581616282da27faffad
+Merge: b20cc22 05bccdd
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Wed Oct 8 10:24:32 2014 -0700
+
+    Merge pull request #48 from byronhulcher/html-escaped-links
+    
+    Don't HTML escape entities identified by twitter-text-js, such as links
+
+commit 05bccddc56e3d4fb65a61aaff12a361212eb0616
+Author: byronhulcher <byronhulcher@gmail.com>
+Date:   Mon Oct 6 23:02:47 2014 -0400
+
+    Don't HTML escape entities identified by twitter-text-js, such as links
+
+commit b20cc22b785ac9d78f3ce27382f03f89ac08c9cf
+Merge: 2164679 0bbc47c
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 22:04:16 2014 -0700
+
+    Merge branch 'byronhulcher-linking'
+
+commit 0bbc47c31fb1023ebc5d3bfcfac81629556241c3
+Merge: 2164679 1906198
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 22:02:44 2014 -0700
+
+    Merge truncation with protocol-less linking changes.
+
+commit 2164679c3b3bc48b7c09dd624aca0ebfe1d8d23d
+Merge: d5b8a4f b6f329b
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 21:56:45 2014 -0700
+
+    Merge pull request #46 from jasonrhodes/protocol-links
+    
+    Add autolink util function to link urls w/o protocol
+
+commit d5b8a4f15acccc20e3bb1e993787482447a2419d
+Author: Travis Collins <travis@tec27.com>
+Date:   Tue Oct 7 21:54:44 2014 -0700
+
+    Make chat limit 30.
+    
+    This aligns it with the limit meatspace previously had. 15 seems to be
+    way too few with the larger videos, very hard to follow conversations.
+
+commit 78b32f0b175f9b5bcc328aacbdf2f33d3a962755
+Merge: f03dccc 4ec42eb
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Mon Oct 6 20:28:19 2014 -0700
+
+    Merge pull request #49 from llkats/master
+    
+    make the links look linky when you hover over them
+
+commit 4ec42eb7cb9a7b2a024c538899435af7625f11c3
+Author: Lydia Katsamberis <llkats@gmail.com>
+Date:   Mon Oct 6 20:25:06 2014 -0700
+
+    make the links look linky when you hover over them
+
+commit b6f329b6a5995d1fc5bb83bd3a0549da9481d7a8
+Author: Jason Rhodes <jason.matthew.rhodes@gmail.com>
+Date:   Mon Oct 6 22:21:48 2014 -0400
+
+    Add autolink util function to link urls w/o protocol
+
+commit 19061983bd28e7911edad9b345bdecb7c9c59c6b
+Author: byronhulcher <byronhulcher@gmail.com>
+Date:   Mon Oct 6 22:06:14 2014 -0400
+
+    Truncates message at 250 characters before HTML-escaping and linking
+    Fixes meatspaces/meatspace-chat-v2#45
+
+commit f03dccc71d26a20cf1b767419ffb199c1b4c66a0
+Merge: 8a55f97 e0c0ebf
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Mon Oct 6 17:01:15 2014 -0700
+
+    Merge pull request #44 from TheAlphaNerd/favicon
+    
+    Added multi resolution favicon.ico
+
+commit 8a55f97bdcc6eba180552038195348aec3e6dc51
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Oct 6 16:33:59 2014 -0700
+
+    nope, rolling this back because terrible
+
+commit e0c0ebf0ba39854b7a4b80bad0b4e1d72ab7efbc
+Author: Myles Borins <myles@famo.us>
+Date:   Mon Oct 6 16:33:31 2014 -0700
+
+    Added multi resolution favicon.ico
+
+commit d80403d3c361e3a156fc5aca966ffeab9f6a450b
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Oct 6 15:25:03 2014 -0700
+
+    add channel switch between h264 and webm
+
+commit 46f8dbde8b2863102f5c4b6ad4a2fa7f8d6a29eb
+Merge: 012eac3 7fcf56a
+Author: Edna Piranha <jen@meatspac.es>
+Date:   Mon Oct 6 14:21:01 2014 -0700
+
+    Merge pull request #43 from imakewebthings/videopause
+    
+    Play/pause video when entering/leaving view
+
+commit 7fcf56a6e10c38d9dc245e9483fc2bc99a40d06e
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Mon Oct 6 11:37:10 2014 -0700
+
+    Play/pause video when entering/leaving view
+
+commit 012eac38febb474cd97dae6b2cd12bef199fbc58
+Merge: a4264b0 b6b0534
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Mon Oct 6 15:41:13 2014 +0100
+
+    Merge pull request #42 from imakewebthings/patch-1
+    
+    Play/pause video when it enters/leaves view
+
+commit b6b0534095e88829d1802ec9d1c26642310d3c84
+Author: Caleb Troughton <caleb@imakewebthings.com>
+Date:   Sun Oct 5 22:30:43 2014 -0700
+
+    Play/pause video when it enters/leaves view
+    
+    Please have QA take a second and third look at this.
+
+commit a4264b0d35353baab744daba55f0921aa358a89f
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 18:45:24 2014 -0700
+
+    change to loading text
+
+commit bf99c49869cba17437424aaa6d3e8454aae8b850
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 14:12:28 2014 -0700
+
+    fix loading of recents
+
+commit 520d76085b9bf6a3faf4a1162c9eee20529025ea
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:53:34 2014 -0700
+
+    more mobile fixes
+
+commit 037a353445cdba7729f58123be1d12361cfa795e
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:51:56 2014 -0700
+
+    more mobile fixes
+
+commit 1a63aa5e78f51d20459b7bd2dc4d4a07a173b1f0
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:39:28 2014 -0700
+
+    set max limit to 15
+
+commit c2b6df62d479a352ac1e37f410857d96f4955807
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:22:29 2014 -0700
+
+    updated readme
+
+commit 24d4a1785799fadcbb8571cd56b6c09e4832d4fd
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:21:11 2014 -0700
+
+    send out h264 to devices that request the format
+
+commit bc560e6e90c4ebc0f2230c3d1e30697dc0f793b1
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:10:20 2014 -0700
+
+    fix timestamp
+
+commit 92061403f78338afb4251bfaeea7605f85e3af09
+Author: Jen <jen@meatspac.es>
+Date:   Sun Oct 5 10:08:51 2014 -0700
+
+    style updates; fixed for mobile
+
+commit f13dc8685ea36a4c35ad8719c079a7cae215a9c4
+Merge: 2ad67cc 6064073
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Sun Oct 5 17:33:45 2014 +0100
+
+    Merge pull request #40 from kid-icarus/master
+    
+    Add character counter.
+
+commit 60640731eb548c0ba45f4c5407b8af7a616d4d1e
+Author: Ryan Kois <ryan.kois@gmail.com>
+Date:   Fri Oct 3 20:41:02 2014 -0700
+
+    Add character counter.
+
+commit 2ad67ccf7074a20f5087c51b9440978b4390777d
+Merge: 54809da 107289d
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Oct 3 03:25:35 2014 +0100
+
+    Merge pull request #31 from jasonrhodes/fix-refocus
+    
+    Refocus message input after submit - fixes #25
+
+commit 107289dc0a9850c462bf4c912ac41d44385ef9fc
+Author: Jason Rhodes <jason.matthew.rhodes@gmail.com>
+Date:   Thu Oct 2 21:57:15 2014 -0400
+
+    Refocus message input after submit - fixes #25
+
+commit 54809daca65dd49c722a1875f45d2edd351996ed
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 23:06:17 2014 +0100
+
+    readme link fix
+
+commit 9cb409be0f51ac07cf6163d243934c6f27a4cafa
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 18:31:59 2014 +0100
+
+    fixed regression
+
+commit dd6cf6fdc8cc8b89e64b5746fb1804abdcc7cacb
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 18:14:27 2014 +0100
+
+    change function name
+
+commit 88c1fa5541be1a65ef194cfef4fc4d4a04969b85
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 18:13:02 2014 +0100
+
+    buffer length checks and readme updates
+
+commit 718a7e4694e07cbf1c55105124fdabc6638c96e0
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 16:04:54 2014 +0100
+
+    check file type and length
+
+commit 7ee90c012ac2fd056309f3bf13b42e5d85ed3af6
+Merge: b1bedaf c243fcf
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Oct 2 15:52:29 2014 +0100
+
+    Merge pull request #21 from lauradegroot/focus
+    
+    autofocus input field
+
+commit c243fcf31a150e97def4ce900a54db682f4ea7eb
+Author: Laura DeGroot <laurardegroot@gmail.com>
+Date:   Thu Oct 2 10:35:21 2014 -0400
+
+    autofocus input field
+
+commit b1bedaf90ba9f4c8337b736847f6665a4ab54778
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 15:14:11 2014 +0100
+
+    updated readme
+
+commit f29c8124d3b97d9b3ba707ba817b2f49bd59031a
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 15:08:59 2014 +0100
+
+    updated readme
+
+commit ae94d9e15961433e99616865030ad56379b52b8b
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 14:02:46 2014 +0100
+
+    this is not jade
+
+commit c96bd8ccd918a0607e953cf6939180977bb6fe27
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 13:30:47 2014 +0100
+
+    reduce ms
+
+commit 0e83ab5d4f7f8aa5e68356f6e14076285b16ac33
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 13:12:15 2014 +0100
+
+    added manifest and icons
+
+commit 7f72c85c53f8bb4eef7a89dd6f969db5ecc1976e
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 12:51:17 2014 +0100
+
+    faster
+
+commit 6cb3cc77f5c901004405c0e15488ce7b3daffef4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 12:48:11 2014 +0100
+
+    remove auth support; slow down video replay
+
+commit 49c22b7795c8241689827254c1df11283bb8b3a6
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 10:55:41 2014 +0100
+
+    ms change
+
+commit 73935e977a8d8ce87ba3fac4bfe79fcbfdbc619d
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Oct 2 07:44:33 2014 +0100
+
+    cleanup; added info screen
+
+commit c0c3a77c3b70174d190771d04ddbecd6a2960e53
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Oct 1 16:18:42 2014 +0100
+
+    cleanup
+
+commit b4f202f341eb345222c942718ab1467d13ff9e2f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Oct 1 10:36:27 2014 +0100
+
+    goddammit
+
+commit be133bb4b96bb0b203e601cdf549ae30d3f2c096
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Oct 1 10:32:09 2014 +0100
+
+    no glitch
+
+commit 2370b74c24e25eea1547fabd05ae63672d00c10d
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 12:59:26 2014 -0700
+
+    fixed webm check
+
+commit 86053309eae38431893dae1fcc5af19406495043
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 12:34:12 2014 -0700
+
+    h.264 test for ff
+
+commit 195a93d9b5c2b296a6d3ee54c31f7fac944f097e
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 12:09:33 2014 -0700
+
+    fixed quality; removed video type
+
+commit aaf71b22d8f7d66bbf33ee7a19afefb7dd7ff0f9
+Merge: a4ebbef 182313f
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Sat Sep 27 11:48:19 2014 -0700
+
+    Merge pull request #12 from tec27/jpegify
+    
+    Use JPEG for client posting instead of PNG.
+
+commit 182313f3bff156a4544e39a50de3d0e904fb5770
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Sep 27 00:23:52 2014 -0700
+
+    Use JPEG for client posting instead of PNG.
+    
+    This leaves the glitch -> PNG step intact, so ffmpeg is still dealing
+    with PNGs. This also fixes a number of bugs in the media conversion
+    process, and removes unnecessary setImmediate calls.
+
+commit a4ebbef2da38e3f99a27f8b03ea3fd58927113be
+Merge: 19bc53b 3b54b74
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Sat Sep 27 11:14:28 2014 -0700
+
+    Merge pull request #13 from tec27/noexec_rm
+    
+    Use glob and fs.unlink instead of shelling out to rm.
+
+commit 19bc53b1ffad102f953f6c254a7046bc48fdcf75
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 11:12:51 2014 -0700
+
+    slow down a bit
+
+commit 51d785a6b6184f4f086c909e0954d8f5252d67f7
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 11:10:02 2014 -0700
+
+    trying ogv
+
+commit 20f65cb4d0c74c84756142a47579a1a7d13bd05d
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 27 09:22:23 2014 -0700
+
+    trying h.264 again
+
+commit 3b54b74c01dcc41d010bac5963a551971379924f
+Author: Travis Collins <travis@tec27.com>
+Date:   Sat Sep 27 01:12:52 2014 -0700
+
+    Use glob and fs.unlink instead of shelling out to rm.
+
+commit a916c9ca0bbe4023a41ba6ee9a841841012b418c
+Merge: 4d54325 c4be18d
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 23:01:22 2014 -0700
+
+    Merge pull request #10 from potch/master
+    
+    not not not not
+
+commit 4d5432571bb914f74c5170c2b9ddb00ccdb94c5f
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 26 23:00:22 2014 -0700
+
+    back to webm
+
+commit c4be18dfea2e57c0dc9a904bc25b8ae6471c6e23
+Author: Matt Claypotch <thepotch@gmail.com>
+Date:   Fri Sep 26 22:54:23 2014 -0700
+
+    not not not not
+
+commit 6d2f040aaf5248b0c4dae1552c5fa3aa47343887
+Merge: b8db488 92afe9a
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 22:52:22 2014 -0700
+
+    Merge pull request #9 from tec27/no_crypto
+    
+    Don't include non-system crypto module.
+
+commit b8db488412eee56f75339530e5724f87ee85ac56
+Merge: 90ca326 fe8fd00
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 22:52:08 2014 -0700
+
+    Merge pull request #8 from potch/master
+    
+    pause videos when in bg
+
+commit fe8fd007b4e0a5f48f7c830654a3baade1bf152c
+Author: Matt Claypotch <thepotch@gmail.com>
+Date:   Fri Sep 26 22:49:23 2014 -0700
+
+    pause videos when in bg
+
+commit 92afe9a11bedd38d41b785df48f1a0878d808161
+Author: Travis Collins <travis@tec27.com>
+Date:   Fri Sep 26 22:47:39 2014 -0700
+
+    Don't include non-system crypto module.
+
+commit 90ca32602c4914f7e4cb99b4ab9967808431e5e4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 18:17:16 2014 -0700
+
+    remove visibilty flag
+
+commit a8a7ace5e07188fe8f585116c9514afa130231f4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 18:02:56 2014 -0700
+
+    trying a diff scale
+
+commit a67ff6e6ffec98f7f86933395d388c138e7498f7
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 17:57:03 2014 -0700
+
+    mp4 check
+
+commit 775eb6ab938036d0620755fcdbcd8efce6507f8d
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 17:40:26 2014 -0700
+
+    trying mp4 instead
+
+commit cc0ee80a1012f8f938b0d0dbe70e25c4416b98da
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 11:53:38 2014 -0700
+
+    fixed ui
+
+commit 319f03efaffff7d3ce1c1594813c3ea7753b8105
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 11:27:26 2014 -0700
+
+    number tweaks
+
+commit 730d9078ad7ec40084051c5883b76f4352e7a31f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 11:18:55 2014 -0700
+
+    glitch adjustment
+
+commit 9c148e7280130d5c65201abc1e70332f67bd09a6
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 10:39:15 2014 -0700
+
+    fix height
+
+commit 67467123e25496ceb2a9a8a6e2ef0f3ddff6d5b6
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 10:32:35 2014 -0700
+
+    fixed autoscroll
+
+commit 96baa31933f1dec5740aa8c2e43d39c73dc143b6
+Merge: 895e899 b80e45d
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 10:09:22 2014 -0700
+
+    Merge pull request #7 from trodrigues/patch-1
+    
+    Load music list from file
+
+commit b80e45d57dc11d74ea639bd0f0c702fa119e6b2b
+Author: Tiago Rodrigues <tmcrodrigues@gmail.com>
+Date:   Fri Sep 26 19:03:28 2014 +0200
+
+    Load music list from file
+    
+    Haven't tested this and don't know if it works. You should change the js file with the list into a json one just with the array and that would be enough, no need to run js or anything and jquery also deals with parsing the json and all. I don't know if toggleMusic is gonna be called more than once so I just assumed it could be and that it would just return what it already has.
+
+commit 895e8999286c5e1b8bdabb858979db866a8b425e
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 26 09:20:25 2014 -0700
+
+    this is temporary.
+
+commit 0c8f0349c7953283990e21007725c153a2fff9f3
+Merge: ce6a35a 61a7ae5
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Fri Sep 26 08:52:50 2014 -0700
+
+    Merge pull request #6 from TheAlphaNerd/timestamp
+    
+    Implemented Timestamps
+
+commit 61a7ae5240b86b19f518dc3e8fd4f9fac2ad0bbc
+Author: Myles Borins <myles@famo.us>
+Date:   Fri Sep 26 00:26:47 2014 -0700
+
+    Implement timestamps
+
+commit 261b559cbcb176acadefd9c8353fddda22209c03
+Author: Myles Borins <myles@famo.us>
+Date:   Fri Sep 26 00:26:10 2014 -0700
+
+    Added moment module
+    
+    Installed with ```npm install --save moment``` which accounts for the alphabetical organization of the package.json list
+
+commit ce6a35a2e6b4717e87635071b7fc1085f01ab49a
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 23:38:11 2014 -0700
+
+    shit
+
+commit 658ce4e4d4fdb00323256642248b56ee0eab9f13
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 23:06:13 2014 -0700
+
+    refactoring
+
+commit 139da4380c556442c9ad6d0953625db0e35ace80
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 21:53:00 2014 -0700
+
+    toggle button visual
+
+commit 1290b298f524578be83294a4c146e1b1e20ae1f4
+Merge: f462434 cd24b05
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Sep 25 21:40:44 2014 -0700
+
+    Merge pull request #5 from contra/master
+    
+    fix the music
+
+commit cd24b05b7ce133eaadfea1cbc2ecb43cca0215b1
+Author: Contra <contra@maricopa.edu>
+Date:   Thu Sep 25 21:38:50 2014 -0700
+
+    ugh
+
+commit 51851e4f438737294a204758d9e3394f53b0bb1e
+Author: Contra <contra@maricopa.edu>
+Date:   Thu Sep 25 21:38:39 2014 -0700
+
+    REAL TRAP SHIT
+
+commit f462434a867c7f568ec9b3b22a26e09a7c99e7dd
+Merge: 76cb475 307e339
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Sep 25 21:26:56 2014 -0700
+
+    Merge pull request #4 from imakewebthings/waypoints-fix
+    
+    Fix bug with waypoints code throwing error during chat removal
+
+commit 307e339fd22d32c2bd74430e9363a6dc5601f7d6
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Thu Sep 25 18:34:38 2014 -0700
+
+    Fix bug with waypoints code throwing error during chat removal
+
+commit 76cb4759f2dd76ba775bd7600499809c4163486d
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 21:04:48 2014 -0700
+
+    i am only deploying this music thing as a test
+
+commit 6b9a14d0a8ebc8fea008355a2d71d8c3fdf13f3e
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 18:09:26 2014 -0700
+
+    rollback on waypoints
+
+commit dd23bb871d3cb9024e6b52f36ff6111ed73f2fce
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 17:57:59 2014 -0700
+
+    glitch adjustment; fixed button notification
+
+commit fae3ba450d51108f05ad5b21c80c5beb86c36108
+Merge: decf6bc 630b7ac
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Thu Sep 25 16:55:55 2014 -0700
+
+    Merge pull request #3 from imakewebthings/waypoints
+    
+    Add Waypoints to hide off-screen videos, save CPU cycles
+
+commit decf6bcd427c6a53117907df381124d0b5d56123
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 13:52:59 2014 -0700
+
+    google analytics
+
+commit 630b7acf13489a86647d1f0b12fc1795c0f18f74
+Author: imakewebthings <caleb@imakewebthings.com>
+Date:   Thu Sep 25 13:45:11 2014 -0700
+
+    Add Waypoints to hide off-screen videos, save CPU cycles
+
+commit bb86c5b70547726602174a68034c84d6a2df5425
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 13:27:51 2014 -0700
+
+    glitch random
+
+commit ce4c0689567a37fc8a5439ee333ca41349d83751
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 13:21:51 2014 -0700
+
+    adding glitch again
+
+commit 4096989108a318ed9ad49b98d39d92367083a38c
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:49:14 2014 -0700
+
+    hide invisible for now
+
+commit 234d4691d41c813a56da2d56a0fe2d2e125a68fd
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:46:36 2014 -0700
+
+    fixup on fp null check
+
+commit 8aaa487d130c5cba9457ea01864389a20b10cdd4
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:45:04 2014 -0700
+
+    fixup on fp
+
+commit 107bb90b48b8dcca89b1c6ac6851849ffefd3b0a
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Thu Sep 25 10:38:49 2014 -0700
+
+    half filter working
+
+commit 95658d7afd1b62aef6b81992d0faf94ead165900
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 25 08:01:24 2014 -0700
+
+    debugging
+
+commit 28c14c1dec44ced67d8bcfce2a42fa54fad9828b
+Author: Jen <jen@meatspac.es>
+Date:   Wed Sep 24 22:00:21 2014 -0700
+
+    removed debugging
+
+commit d3299e4e5b3ea5827fed8299fcc95b6a72c82e0b
+Author: Jen <jen@meatspac.es>
+Date:   Wed Sep 24 21:58:21 2014 -0700
+
+    fixed muting support
+
+commit 5c04146ee31e72b4197bfba06e3c33e754f64f5b
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Wed Sep 24 19:47:34 2014 -0700
+
+    mute support
+
+commit 6a7b5ed8ccb65bac8b03b06f7c1dde8f040a6943
+Merge: b275b4d 6105106
+Author: Jen Fong-Adwent <jen@meatspac.es>
+Date:   Wed Sep 24 19:43:16 2014 -0700
+
+    Merge pull request #1 from nvcexploder/master
+    
+    Adding basic auth basics.
+
+commit 6105106954fb816f2703ac0977f480ce107c5477
+Author: nvcexploder <benacker@gmail.com>
+Date:   Wed Sep 24 17:28:35 2014 -0700
+
+    change route configuration to use 'try' instead of straight 'session'.
+
+commit ed52051a0db3c732c2a4ca7532b83480990cb023
+Author: nvcexploder <benacker@gmail.com>
+Date:   Wed Sep 24 17:19:05 2014 -0700
+
+    add hapi-auth-cookie and wrap stuff in a server registration
+
+commit b275b4d39ff9b1e4d920de0b4236b00355616fca
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:39:37 2014 -0700
+
+    normal pt 2
+
+commit 195fb1d6a36e0d3cf03939ba62e7e4f0bf41532b
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:20:48 2014 -0700
+
+    normal
+
+commit c2665549a5286986c59c2efafa38324e049f6b8c
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:14:32 2014 -0700
+
+    fixed parsing
+
+commit 2c736390620c6bb7a2c99b3202cdf0126b6844d4
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:05:53 2014 -0700
+
+    disabling now
+
+commit 8d1c3b248dcc7a52795aa78fa0b89923952983d9
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 23:03:12 2014 -0700
+
+    added live user counter; added fingerprint checking
+
+commit fe56f792c747bdf0d4bcd7e1d45431b6eae2a122
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 19:06:03 2014 -0700
+
+    save to db
+
+commit fdd73b602323929b7a090612d8810cee0d5509ea
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 18:27:58 2014 -0700
+
+    set chat limit
+
+commit ee27eb062fde6e04fd4d6977ceb8a183248810ab
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 17:48:46 2014 -0700
+
+    switch to socket.io
+
+commit 7dc3b3695bc9caed4500111b2624670499f0c181
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 11:41:14 2014 -0700
+
+    sad browser links
+
+commit ea464ff40a12d6400fa393e38f9f45c2541f7c7f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 11:32:58 2014 -0700
+
+    sad browser ;_;
+
+commit 3e6874c145e725b2edc433daea664635de3998bc
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 11:28:26 2014 -0700
+
+    sad browser
+
+commit 767d48a2120f8d87b71b9ac392fed0738efc7d56
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 10:34:19 2014 -0700
+
+    scroll into view
+
+commit 5b0707342159223c196363f5d17d8257f7d75225
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 10:22:17 2014 -0700
+
+    testing smear channel
+
+commit cfd4d1317ce88c45dce19c5fc5ee0dcc3d1dac4f
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 10:14:00 2014 -0700
+
+    kill processes after 3 seconds
+
+commit e6913d041cd5838d00ff131b36252f35f065a587
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Tue Sep 23 09:57:33 2014 -0700
+
+    change to broadcast
+
+commit 5acfa1250f581b23749a7e6ec7e91ceca042daa7
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 08:38:05 2014 -0700
+
+    trying red/blue
+
+commit 833e9cea5dc851b52dac37dd5df750f40b3f1b8d
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 08:33:03 2014 -0700
+
+    change count position
+
+commit b4578e92de1850d8fc7b74fc3dd1243481030ede
+Author: Jen <jen@meatspac.es>
+Date:   Tue Sep 23 08:22:28 2014 -0700
+
+    removed fluent-ffmpeg; cleanup
+
+commit 79c0dd93c126b059d53d42756f3c8a928953ab2f
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 20:39:38 2014 -0700
+
+    delete all files
+
+commit 934a8178b685087e89538be41871726c8a02516f
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 20:29:34 2014 -0700
+
+    added setimmediate
+
+commit 5ae76f3334ed06d950f2e9b17bd9870c9eb7326b
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 20:09:51 2014 -0700
+
+    removed async lib
+
+commit fc17b3589bd544d44b3391f712fec60e7c857351
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Sep 22 15:18:24 2014 -0700
+
+    updated readme
+
+commit 826954c0050a3bfa7bca786fe9ce3437244402d0
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Sep 22 15:17:14 2014 -0700
+
+    remove mock content on public feed
+
+commit 3e5c20a58d1a207b909ff53250de00b9572405b3
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Mon Sep 22 15:08:00 2014 -0700
+
+    converting pngs to webm!
+
+commit 31186e7cf8c2a307f1b042069bcbf82bfb37cba9
+Author: Jen <jen@meatspac.es>
+Date:   Mon Sep 22 07:55:51 2014 -0700
+
+    wip ffmpeg conversion
+
+commit 40c312ac22cee513f9749fc21c13ae9a217a443b
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 18:44:47 2014 -0700
+
+    stub mute/filter/unfilter buttons
+
+commit 32d41e20160a81a9cdc09bf8002be116cea0fdab
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 18:27:12 2014 -0700
+
+    added messaging to invisible mode; layout fixes
+
+commit 913b341c0f934f12e90347344d7a8b1f317a65a3
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 18:13:42 2014 -0700
+
+    added invisible mode msg
+
+commit fff72a8609e42c36fe4c2a0e50a2c6aa945b4f11
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 17:22:08 2014 -0700
+
+    current stub websocket test
+
+commit afd4e71b34f5c84f7fd4247e3898ccc49a41fe28
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 17:21:53 2014 -0700
+
+    added fluent-ffmpeg
+
+commit 0e7fac489159285becd79a4839056159f6598cdb
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 12:16:04 2014 -0700
+
+    more layout updates
+
+commit f3a12b2ea928cda5044547e019cdb5c2bd24e3a2
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 11:38:18 2014 -0700
+
+    layout w/ filter toggle test
+
+commit 5fc98698ebc8b6f918982ba97b78c9d2c9e680eb
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 11:38:08 2014 -0700
+
+    fix gulpfile
+
+commit 2bc6b768a5ba60d235061c7fc4cf482bdf2e3a10
+Author: Jen <jen@meatspac.es>
+Date:   Sat Sep 20 11:37:54 2014 -0700
+
+    resize samples
+
+commit 0ae22bcc39e5413d3e425e559ae03c4df567e115
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 19 23:21:00 2014 -0700
+
+    layout test
+
+commit e58b346dc11b8812c40ebf06432e390bbd088ddd
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 19 19:08:19 2014 -0700
+
+    buttduck test
+
+commit ca3114fcd723ff04a771e7c68516d8ba089fddd1
+Author: Jennifer Fong <jen@ednapiranha.com>
+Date:   Fri Sep 19 16:51:03 2014 -0700
+
+    moved sockets back to index.js
+
+commit 90660d5c0ebca8fb2a4f38c5f6fac4b093e6f88b
+Author: Jen <jen@meatspac.es>
+Date:   Fri Sep 19 10:11:52 2014 -0700
+
+    added services
+
+commit fffd3cbe60743f584e3057363bea4ec9701f4085
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 23:03:58 2014 -0700
+
+    base css and structure
+
+commit 4b66304706eddf36ddc6b00d323980fdaeb35daa
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:23:57 2014 -0700
+
+    updated start script
+
+commit 5f63b953722070d665ba3d80804457a72bebae29
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:20:43 2014 -0700
+
+    added default dependencies and stub layout
+
+commit b7ce68585041c71cd6faa0ad800b129d8a935bd5
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:06:53 2014 -0700
+
+    obsessed with zalgo 3
+
+commit a93567a25e358267e0bfc685fb9d2cca41a65e95
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 20:00:44 2014 -0700
+
+    obsessed with zalgo 2
+
+commit 2f7e78c3ed8a970c292a6d8945a8fd7f1dc1c636
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 19:55:29 2014 -0700
+
+    obsessed with zalgo
+
+commit c58336fdc361fa14dcb149a098e2d34217f4fd9b
+Author: Jen <jen@meatspac.es>
+Date:   Thu Sep 18 18:25:02 2014 -0700
+
+    initial commit

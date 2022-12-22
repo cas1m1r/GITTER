@@ -1,0 +1,4584 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# HackServ IRC Bot
+
+[![Version](https://img.shields.io/badge/version-1.3.3-red.svg)]() [![GitHub license](https://img.shields.io/github/license/trackmastersteve/HackServ.svg)](https://github.com/trackmastersteve/HackServ/tree/master/LICENSE) [![Python3](https://img.shields.io/badge/python-3.10-green.svg)]() [![GitHub issues](https://img.shields.io/github/issues/trackmastersteve/HackServ.svg)](https://github.com/trackmastersteve/HackServ/issues) [![GitHub stars](https://img.shields.io/github/stars/trackmastersteve/HackServ.svg)](https://github.com/trackmastersteve/HackServ/stargazers)  [![GitHub forks](https://img.shields.io/github/forks/trackmastersteve/HackServ.svg)](https://github.com/trackmastersteve/HackServ/network) 
+
+Advanced IRC bot/botnet PoC written in python 3. This bot is for educational purposes only!
+Do **NOT** use this bot on a computer or network without written permission from the owner(s)!
+This bot can connect to IRC over SSL and is compatible with Unrealircd's nospoof:PING.
+Seperate config file for easy upgrades.
+
+### Installation:
+
+The following packages are required. You'll need to install the following using the
+package manager:
+
+```sudo apt install python3 python3-nmap nmap```
+
+Then clone this project by running the following command:
+
+```git clone https://github.com/trackmastersteve/HackServ.git```
+
+If you have sudo privleges, you can make the bot persist:
+
+```sudo useradd hackserv```
+
+Edit: ```hackserv.service``` with correct location of script i.e. ```/usr/local/bin/.hackserv.py```
+
+```sudo cp hackserv.py /usr/local/bin/.hackserv.py```
+
+```sudo cp hsConfig.py /usr/local/bin/hsConfig.py``` (Don't forget to edit this file aftwards)
+
+```sudo cp hackserv.service /etc/systemd/system/hackserv.service```
+
+```sudo systemctl enable --now hackserv.service```
+
+### So far it responds to the following commands:
+
+```.help``` (HELP menu)
+
+```.username``` (shows username of machine bot is running on)
+
+```.uptime``` (shows bot uptime)
+
+```.uname``` (get 1-line system info)
+
+```.sysinfo``` (get formated system info)
+
+```.osversion``` (get OS Version info)
+
+```.memory``` (get memory stats from linux machine)
+
+```.ip``` (get ip address of bot)
+
+```.macaddress``` (get mac address info)
+
+```.rsh [target] [port]``` (reverse shell to target)
+
+```.cmd [shell command]``` (run shell command on host)
+
+```.cno [shell command]``` (run shell command without output)
+
+```.chmd [file] [permissions]``` (change permissions of a file)
+
+```.fsdl``` (run file server to download files from)
+
+```.scan [ip] [comma,seperated,ports]``` (nmap port scanner)
+
+```.msg [target] [message]``` (sends a msg to a user/channel)
+
+```.ntc [target] [message]``` (sends a notice to a user/channel)
+
+```Hi [botnick]``` (responds to any user saying hello to it)
+
+```bye [botnick]``` (tells bot to quit)
+
+```.join [channel]``` (tells bot to join channel)
+
+```.part [channel]``` (tells bot to part channel)
+
+```.pj [channel]``` (tells bot to part then join channel)
+
+```.kick [channel] [nick] [reason]``` (tells bot to kick a user from a channel)
+
+```.mode [target] [mode]``` (set mode on nick or channel)
+
+```.nick [newnick]``` (sets a new botnick)
+
+```.raw [command]``` (sends a raw command to the server)
+
+```.ls [dir]``` (lists files in a directory)
+
+```.dl [url] [file]``` (downloads [url] and saves as [file])
+
+```.run [execute type] [executable file]``` (execute a file)
+
+```.upgrade [link] [file]``` (upgrades the hackserv.py file)
+
+```.mining [start/stop]``` (**coming soon!**)
+
+```.persistence``` (**testing**)
+
+### TODO
+
+- [x] Move configuration to external file to make updates more seamless
+
+- [x] Send/Receive CTCP commands (so far it responds to **CTCP VERSION** only)
+
+- [x] Persistence (**.service file was created to run this as a systemd service**)
+
+- [ ] Convert the port scanner from nmap to sockets (to remove the nmap dependency) (TO Do List)
+
+- [ ] Send/Receive DCC commands (CHAT and TRANSFER) (To DO List)
+
+- [x] Accept uploads from admin (File Server)
+
+- [ ] Auto Vuln/Port/Proxy Scan on join (Need ability to get IP from server) (To Do List)
+
+- [ ] Key Logger (To Do List)
+
+- [ ] Self Replicating (**testing, not working yet**)
+
+- [ ] Proxy Scanner (To Do List)
+
+- [ ] Vuln Scanner (To Do List)
+
+- [ ] Crypto Miner (To Do List)
+
+- [ ] Self proxy (To Do List)
+
+- [ ] DoS/DDoS (To Do List)
+
+- [x] Open reverse shell/meterpreter
+
+- [x] Run in Background - ('debugmode = False' setting allows bot to run in the background)
+
+- [x] Better error handling (still a few bugs to work out)
+
+- [x] Send downloads to admin (File Server)
+
+- [x] Better handling of disconnects etc.
+
+- [x] Run single shell commands
+
+- [x] Better sigterm handling
+
+- [x] Join and Part Channels
+
+- [x] Execute files/code
+
+- [x] NickServ Identify
+
+- [x] SASL Auth Support
+
+- [x] Connect over SSL 
+
+- [x] Get ip address
+
+- [x] File Server
+
+- [x] Self update
+
+- [x] Help Menu
+
+====================== GIT HISTORY: ======================
+ad532d6 HEAD@{0}: clone: from https://github.com/trackmastersteve/HackServ
+commit ad532d61ae18de454c0a69ad14d59cf8eadf2f4b
+Merge: 6c4d880 8846e27
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 8 19:38:06 2022 -0700
+
+    Merge pull request #31 from kimmywacky/master
+    
+    removed pip
+
+commit 8846e27349e150a0d27de2f0602d0d3e0250b9f4
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Sat Oct 8 19:37:05 2022 -0700
+
+    removed pip
+
+commit 994f96fe9c09ccac19bc969fd26b9bbd201c4903
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Sat Oct 8 19:29:35 2022 -0700
+
+    updated python version
+
+commit 56ed1b823850e1051277166eb4ce9976f598c9cd
+Merge: 9e23589 6c4d880
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Sat Oct 8 18:38:41 2022 -0700
+
+    Merge pull request #2 from trackmastersteve/master
+    
+    update
+
+commit 6c4d880cc985dab223f627fff9125b01b1a174a1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Feb 20 15:24:14 2022 -0800
+
+    bugfix in .dl command
+
+commit 420a52316383893eec304f15daa735fe4425f6a9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Jan 2 10:40:02 2022 -0800
+
+    Update LICENSE
+
+commit fe3377f938e6065d7b235611c69d98101f3c2bfa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Jan 2 10:39:26 2022 -0800
+
+    Update hsConfig.py
+
+commit 62b6231d4c26971708d69d7e5bf971ca49337ef3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Jan 2 10:38:46 2022 -0800
+
+    Update hackserv.py
+
+commit 9e235894063801b0edd60ceadb086b44e560fbee
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Jun 10 11:50:11 2021 -0700
+
+    Updated version
+
+commit e9efe5348d62695d193354d3b135761fd10aa54b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Jun 10 11:49:45 2021 -0700
+
+    Updated version and last mod date
+
+commit 063638912f41cf986572880b894eae8daf60060a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Jun 10 11:49:10 2021 -0700
+
+    Added '.proxy' to the help menu
+
+commit 5617b3d9430b3f43eee1959aa7e824b86b299146
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Jun 10 11:46:46 2021 -0700
+
+    fixed typo
+
+commit eadb0a23cccd02865a7484b4b346d167ff112c11
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Jun 8 11:59:25 2021 -0700
+
+    Updated version
+
+commit 2cff328f6a23f0d1a3d7b96341e2630cf3fea09f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Jun 8 11:58:52 2021 -0700
+
+    Updated version and last mod date
+
+commit 5060da7c799794840cb7a2412ed077da88216f9e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Jun 8 11:58:13 2021 -0700
+
+    added response to '.proxy' command
+
+commit f46292eef0934eebe5ee0617e38fb518f8a4569e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Jun 5 10:26:25 2021 -0700
+
+    Update LICENSE
+
+commit ac12611089f335d2fc1995e53cb33eec6e3a8fa0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Jun 5 09:51:58 2021 -0700
+
+    Updated version
+
+commit b89e2551df3622870bf5b283a8bf1b083b5e0dcd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Jun 5 09:51:30 2021 -0700
+
+    Updated version and last mod date
+
+commit 6272e4db87d524f465e61fc9be06e3ebd965ce64
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Jun 5 09:50:49 2021 -0700
+
+    fixed typo
+
+commit 00f0ea58a8de333a9d14ed2e66da256eb7e04357
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Jun 4 12:28:45 2021 -0700
+
+    fixed bug in nonExist()
+
+commit dacebe0535d2d71a6a8b0b001b7424be09071cb6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Jun 4 12:25:43 2021 -0700
+
+    fixed typo
+
+commit 3bcdd30e7967ce28faab4130ed3872edf29123ac
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Jun 4 12:23:17 2021 -0700
+
+    Updated version
+
+commit ae00699e9c4a01b00a16896262ddad223b7f88a9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Jun 4 12:22:40 2021 -0700
+
+    Updated version and last mod date
+
+commit 8ad8e78c9457771f9f4b2fc593c6af94c0766dc1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Jun 4 12:22:03 2021 -0700
+
+    Updated nonExist() function
+
+commit 63a89933b091a02ddce03132544f70e962781567
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Jun 2 12:02:02 2021 -0700
+
+    Updated version
+
+commit ce800fa25096bd5ac8befb9006b13cd950cc7199
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Jun 2 12:01:31 2021 -0700
+
+    Updated version and last mod date
+
+commit 779dc90c082e9c4b0d538758f4ec07eb189b5fc6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Jun 2 12:01:01 2021 -0700
+
+    Added response to '.mining' command
+
+commit 3c70fbfbb1189008db75372fdde6f9373d0a3a62
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Jun 1 12:06:46 2021 -0700
+
+    Updated version
+
+commit 25a48b7c51b6ca23547e3dfe2d5c3dce37106ef8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Jun 1 12:06:22 2021 -0700
+
+    Updated version and last mod date
+
+commit 3935b5b6448b875a3c13b43f6168fc704211ab53
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Jun 1 12:04:48 2021 -0700
+
+    Added nonExsist() function
+
+commit 85b012d282dd122b9b3aeca5a33fca3481ee5dc3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 29 22:13:02 2021 -0700
+
+    Updated version
+
+commit 6a4045026e6809ac863b581cf1273c4581d50d27
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 29 22:12:42 2021 -0700
+
+    Updated version and last mod date
+
+commit 6de1022798de1c3a3010980963bd307fd1f04f7c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 29 22:12:13 2021 -0700
+
+    Fixed bbug in .persistence command
+
+commit f4f762f35820b6d2e8397e48d2c9a8cc34fdf4e6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 28 09:51:13 2021 -0700
+
+    Updated version
+
+commit 0716e77db9a671e0da89784ec5434fb07ca2ccc1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 28 09:50:55 2021 -0700
+
+    Updated version and last mod date
+
+commit 2726bb50083f7020ea11f31f469e61b64cf04ace
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 28 09:50:24 2021 -0700
+
+    Created the .persistence command
+
+commit 045cc93535c1a46c200b50ddbe74dc809d1c16ff
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 24 11:03:30 2021 -0700
+
+    Updated version
+
+commit cf78122a88af3eaa65bfecb925a685c937c81cc9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 24 11:03:13 2021 -0700
+
+    Update README.md
+
+commit b9a5a99557d41963e80b2bdfa0925b3f6273ecec
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 24 11:00:34 2021 -0700
+
+    Updated version and last mod date
+
+commit 493ca2d5112f3dabf9edec9f99d37f9e9c861116
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 24 10:59:31 2021 -0700
+
+    updated persistence check function name
+
+commit 9ad34eba8a57e51fa0081d58b17f65b78f15a723
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 24 10:57:48 2021 -0700
+
+    Updated bot startup
+
+commit 61176b656b5160a82e5d171ddcb6963e97edebd4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 24 10:55:13 2021 -0700
+
+    Updated .help message
+
+commit 6b7a2cceb15a1bb20620d6b514b8c5dd60307969
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun May 23 09:48:18 2021 -0700
+
+    Update README.md
+
+commit 742a8210a1047f88b5af82fa4bd689003e55319c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 22 09:02:24 2021 -0700
+
+    Fixed IRC (Excess Flood) bug in .ls
+
+commit b28c52d46fd2dc8d2e680c2b68ed1a46faa00dce
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 22 08:49:55 2021 -0700
+
+    fixed typo
+
+commit 51cef759961d607a82e2a3978732dbce65985c15
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 22 08:47:49 2021 -0700
+
+    Updated version
+
+commit f217f927e69caeae8203957a6ae1436a09bdeb63
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 22 08:47:26 2021 -0700
+
+    Updated version and last mod date
+
+commit 9aead7d49d7fa737523c71e8818b105d73550f8e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 22 08:46:50 2021 -0700
+
+    Updated bgMining()
+
+commit c9e2bc67bf37524c2ea26d39beccb5730c151c69
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 22 08:40:16 2021 -0700
+
+    Updates to srtChk()
+
+commit 6ed07e53ce5ae5ccca076effc677a284f8967f86
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 21 12:03:14 2021 -0700
+
+    Update README.md
+
+commit 5f6e92f69dec4742eb2b6edec957a17e180cbba3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 21 12:00:13 2021 -0700
+
+    Fixed a typo
+
+commit a189187a33b1e93b91745aeac2e1d7795741b7fd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu May 20 11:44:49 2021 -0700
+
+    Update README.md
+
+commit b28eb8426de98adc80d64cf748c5fc67cb673ae8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 19 11:53:23 2021 -0700
+
+    Update README.md
+
+commit c4cfce694d7c025de7fc917edd11bd7cabb0e3cb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 18 11:46:52 2021 -0700
+
+    Comments
+
+commit 399e9e5019da89fbee1edf74cebc28a70c38153c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 17 11:56:44 2021 -0700
+
+    Added bgMining():
+    
+    This doesn't actually do anything yet.
+
+commit 1371f6beaa626a1df4e6eb4deb638d2131280bc2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 15 09:32:02 2021 -0700
+
+    Added config_version
+
+commit 89b9f0d7df1dd3d8b2d242d182370da4cd4c3ce1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 15 09:12:31 2021 -0700
+
+    Update persistence_install.sh
+
+commit ea524f73d89c3ccda07c967e98df6731b311ba7c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 14 12:05:01 2021 -0700
+
+    Update persistence_install.sh
+
+commit eea7abea9861152e4913dd2ba3268873908952e8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 12 12:31:20 2021 -0700
+
+    Updated version
+
+commit bb770e70245a3dae8f7a253280008b6d7a419e32
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 12 12:30:54 2021 -0700
+
+    Updated version and last mod date
+
+commit c55a681f8477068ec465ade5d66737935c430f0b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 12 12:30:24 2021 -0700
+
+    Updates to srtChk()
+
+commit fc5e6a4f9aea82d8ef2caebca301798b3f153f40
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 11 12:19:39 2021 -0700
+
+    comments
+
+commit 0d109888b9ed2a12c22ff005e6633a0966f1ee99
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 10 12:06:17 2021 -0700
+
+    Checking for root
+
+commit 5460be21708675deee240ee36346762cfeda31b2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 10 11:59:50 2021 -0700
+
+    Updates to '.username' command
+
+commit d104eb86dc34aab355e114a7e4e1f93d59bc6f49
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 10 11:53:02 2021 -0700
+
+    Update README.md
+
+commit 228635e7df0b50da3d28a66dd61266fb67aaf38d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 10 11:52:44 2021 -0700
+
+    Updated version and last mod date
+
+commit 637f24346598a333db564b2920030b6eb69893b3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 10 11:50:16 2021 -0700
+
+    Updates to startup check
+
+commit f9c829148a349c37a4aa9da5654ddcb3232de615
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon May 10 11:45:17 2021 -0700
+
+    Updates to startup check
+
+commit 3133ca39410ca170703a02b5b95ed14ff2d774f4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat May 8 18:59:02 2021 -0700
+
+    fixed typo
+
+commit 57f9e03087e9bb79b7846954eeffc7254d5c146e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 7 12:09:27 2021 -0700
+
+    Updated version
+
+commit 945597ab888fa314a186be587020dd6f8a3e0dee
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 7 12:08:55 2021 -0700
+
+    Updated version and last mod date
+
+commit 1b1499c141dc85070890cb615e616bc84ce28335
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 7 12:08:22 2021 -0700
+
+    Updates to srtChk function
+
+commit f3f584bcf69874e1ba756c99cc51d9137d16d5ce
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri May 7 12:06:31 2021 -0700
+
+    imported shutil
+
+commit 8401d0858d70a54b046b06f057b000b3d5a85d70
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu May 6 11:49:02 2021 -0700
+
+    Update README.md
+
+commit 66f505eb90326ccd19973e8d3fa994cb209e6c39
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 5 08:46:36 2021 -0700
+
+    Added '.ls [dir]' to help menu
+
+commit 656105270828217e73c0a53d2003dce91dd22f39
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 5 08:44:55 2021 -0700
+
+    Added '.ls' command
+
+commit 493d33565031a04724779af5ca10a7c1e5ef5c21
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 5 08:43:26 2021 -0700
+
+    Updated version
+
+commit 73e4605e18dcd6f49c4ff14e891010a0ffca854d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 5 08:42:10 2021 -0700
+
+    Updated version and last mod date
+
+commit 7c8e0ad2f24e2622fce86aa53a1b7d06fc48f188
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 5 08:41:31 2021 -0700
+
+    Updated '.ls' command
+
+commit a5708ca2b9f607b750be84f6f113c33f960493c8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed May 5 08:36:18 2021 -0700
+
+    Updated fileList() function
+
+commit cb81382fb05243fd14bc9d0d1d61d58e8052ef51
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 4 09:40:16 2021 -0700
+
+    Updates to fileList() function and '.ls' command
+
+commit 7a2aa423227ff732c21ebe5c529118bd593dfc76
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 4 09:27:35 2021 -0700
+
+    Updated fileList() function
+
+commit 65d70baa28eda8ca51c72697e7bef327f8bcb1a0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 4 09:09:50 2021 -0700
+
+    fixed print statements in fileList()
+
+commit 5551d35e8b2601a41d67a4306c8aef0d3e03d88e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 4 09:07:37 2021 -0700
+
+    Updated fileList() function.
+
+commit 08a959e9163911536ff45ef36f560ede2887c028
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 4 08:49:40 2021 -0700
+
+    Fixed bug in '.ls' command
+
+commit a87a92d4a3143cb63585402e8d7277c420f44b24
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue May 4 08:43:35 2021 -0700
+
+    Added '.ls' command
+
+commit a4bda1be5bfffc7e65fcf06a93f79e7617877c3f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun May 2 20:19:55 2021 -0700
+
+    Update README.md
+
+commit e7c6f99949270bc5bc39077771f03861c5fa7901
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 30 11:54:57 2021 -0700
+
+    checked another feature of the list
+
+commit 8f69aca4351e6e42d610a605a91dbaec9c797135
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 29 11:56:58 2021 -0700
+
+    Updated last mod date
+
+commit 53ffd425945d5c0c7ce1e3575d2ffd714479262c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 29 11:55:49 2021 -0700
+
+    comments
+
+commit 0b561ace0f0be8974960ec2fbb509db28ea989d2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 29 11:34:20 2021 -0700
+
+    comment
+
+commit 9b503573c140a6f8862326d2aee476ca427637db
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 28 19:17:23 2021 -0700
+
+    Updated version
+
+commit c81a85fc0adb7f4cdbae65f08ce247c331c8a368
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 28 19:16:40 2021 -0700
+
+    Updated version and last mod date
+
+commit e7aee013c9ce6a26cbc4412027f2af4285c81e45
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 28 19:16:01 2021 -0700
+
+    bugfix
+
+commit 4856eae2c46b09c0f4f4dd14e1342341594db84b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 28 19:14:27 2021 -0700
+
+    bugfix
+
+commit 32667935382620110997e9e42ec839c829afb0a8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 27 11:44:12 2021 -0700
+
+    bugfix in fileList
+
+commit d24f7f3297df25e6c925e3a6b30e70d5de09280f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 27 11:39:16 2021 -0700
+
+    Updated version
+
+commit 7c9b4e08cb08642cb5c27b8bba64f8949409877b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 27 11:38:47 2021 -0700
+
+    Updated version and last mod date
+
+commit 7b53a3c1ab2b415753a0c0b205a7e1f832e895f7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 27 11:38:11 2021 -0700
+
+    Activated file list on startup.
+
+commit e1402b1aa08b8ca5e646657ff89ef9769de81f8f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 26 11:42:12 2021 -0700
+
+    Updated version
+
+commit fc15228f96cadc1ff7330b59c0cb6c2db27a95a6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 26 11:41:35 2021 -0700
+
+    Updated version and last mod date
+
+commit 503639869ecbce098f8839dcf87b6532e2668c36
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 26 11:40:50 2021 -0700
+
+    Added debug switch for startList function
+
+commit 47e253c5e43cc15e91a809e5c7948d9beb7d921b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 25 21:04:40 2021 -0700
+
+    Updated version
+
+commit a89c23709b1847fbdf83c96eacb92773e86f774d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 25 21:04:16 2021 -0700
+
+    Updated version and last mod date
+
+commit 16de617672292f8f5b779b124711112ff5c09c66
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 25 21:03:31 2021 -0700
+
+    Created startList Function
+
+commit ce801abee2fbcae2daafe9405e2310c10041db2c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 23 23:23:11 2021 -0700
+
+    Update persistence_install.sh
+
+commit d7ea6df5566c2bd42cdbdf5cfd818dc1b9f637bf
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 21 13:03:28 2021 -0700
+
+    Added command to create hidden hackserv user
+
+commit 6422f0955c6887c896ed8e10538fd5d1eaefe881
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 20 19:30:12 2021 -0700
+
+    fixed spacing
+
+commit 90ad6ae062bb185c3d475c8b8c9d449995fd144d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 19 12:11:49 2021 -0700
+
+    Updated version
+
+commit c355bb35f7c27c3aba0c0216c5cb35569728bcc7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 19 12:11:27 2021 -0700
+
+    Updated version
+
+commit 8d87d6ac001607e0c027e02b308a7028a9d32bbd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 19 12:11:06 2021 -0700
+
+    comments
+
+commit 4c21636b78d0992e8055b8272c310660517b2e5a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 19 12:06:07 2021 -0700
+
+    Updated last mod date
+
+commit 7fba8ab45929d2278fc7ea7a62cfe45a4870c968
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 19 12:05:38 2021 -0700
+
+    Updated some onJoin functionality
+
+commit e6d525faa5a5dfd356f0e6df99173a23824c6231
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 18 09:07:27 2021 -0700
+
+    Rename install.sh to persistence_install.sh
+
+commit 804c9ea35af3975f5ee7f7f5c29c908d6a91ac85
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 18 09:05:46 2021 -0700
+
+    Create install.sh
+
+commit bac05bfbc40e3a60a997fb218dcf154a97c42e73
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 17 20:33:14 2021 -0700
+
+    Updated version
+
+commit 7dc52d6f703cd681f61a6b8ca71ab88cdf206077
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 17 20:32:48 2021 -0700
+
+    Updated version and last mod date
+
+commit 484e1c7533127056d16c2147efd474995ad83828
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 17 20:31:31 2021 -0700
+
+    Added hostname to onJoin msg to admin
+
+commit 381ef529a483bb393f9d846775ea81f4bc4a2a20
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 16 12:08:59 2021 -0700
+
+    Updated version
+
+commit 8221603aa9bbdfafab6c825323d1541fb6356fbb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 16 12:08:36 2021 -0700
+
+    Updated version
+
+commit 11e3e6194f2ead44f91fa7243b2dfd31923d3c64
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 16 12:08:15 2021 -0700
+
+    removed hostname capture due to bug
+
+commit 2c470b36a152f3d43d5f570bb15d065633e331a2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 16 11:56:24 2021 -0700
+
+    Updated last mod date
+
+commit adb4531d69f000c237bfb29917214cbfbbb5718f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 16 11:55:53 2021 -0700
+
+    dns bug
+
+commit 930dbf47ca5da823b49096c2fc188a91e08dde26
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 15 11:56:19 2021 -0700
+
+    Updated version
+
+commit 467a1df64450b236d76f9fb7a66528f81efd780c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 15 11:55:58 2021 -0700
+
+    Updated version and last mod date
+
+commit 3d0d654da00958da82898c21fab2af203529e83c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 15 11:55:25 2021 -0700
+
+    Added some sleep timers to prevent IRC flooding
+
+commit 6f5656292bf404df553acb559119bfec69a631b9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 14 11:59:01 2021 -0700
+
+    Updated version
+
+commit 5a4ea9aa67a0ea225cb84c36a4b989d9489392a5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 14 11:58:38 2021 -0700
+
+    Updated version
+
+commit 053cf4a21d57288e5c5c148c2d30b4161d218c08
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 14 11:58:01 2021 -0700
+
+    Added IP/hostname to JOIN messages
+
+commit 9d89fae191c4a16b6c4299f22abec3e88c6166bb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 14 11:42:47 2021 -0700
+
+    Updated last mod date
+
+commit 33432a75e0a2ed3f1ecff933a26246042a031970
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Apr 14 11:42:15 2021 -0700
+
+    lowered error reconnect time
+
+commit 97ee60f558d8afe415936029d5d32b204b743ad0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 13 12:48:15 2021 -0700
+
+    fixed typo
+
+commit 107bb6868f0771e0bcd0e052a8ff9c246b70f622
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 13 12:43:44 2021 -0700
+
+    PONG nospoof bug
+
+commit 627675e912570612f720dc491487f279dde779e8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 13 12:35:41 2021 -0700
+
+    Updated version
+
+commit 9344e8fd2031db5e2cae7db19e43f131a7e45e82
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 13 12:35:04 2021 -0700
+
+    Updated version and last mod date
+
+commit 86d81523b0fccd41c1956a90c4380fc12051fbd4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Apr 13 12:34:23 2021 -0700
+
+    Respond to 'ERROR' from server
+
+commit e3e5e0c516730e0daa7d5f7d482c54c1e7eec00d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 12 12:26:33 2021 -0700
+
+    Updated version
+
+commit a75fd495bbe3120e5229b9c2d47b89ef846bb717
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 12 12:26:10 2021 -0700
+
+    Updated version and last mod date
+
+commit 661e0499c6672a9134653b6c9196012b5f509ad6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 12 12:25:29 2021 -0700
+
+    Added DNS onJoin
+
+commit 4447f89256a6ce999eb862c16204ede650dc97c0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 11 11:32:30 2021 -0700
+
+    Updated version and last mod date
+
+commit 246e0fe74e59515139c1b89f27cb7ca46a4ff3d1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 11 11:31:47 2021 -0700
+
+    Added onJoin Boolean
+
+commit 60a1890836c8c81a497f46e5c0784a4ef4ffe01e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 11 11:29:58 2021 -0700
+
+    Added onJoin toggle
+
+commit b2467e5c9a28b3dee73d2aa42711d18cfd59a082
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 10 20:15:03 2021 -0700
+
+    Updated version
+
+commit d0466acef47e9975da49347e84c02b547c656413
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 10 20:14:45 2021 -0700
+
+    Updated version and last mod date
+
+commit 6907d12fe9fc35b2d54149474de2233134757479
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 10 20:14:12 2021 -0700
+
+    Added 'on-join' functionality
+    
+    This is where I will scan users that join channel...
+
+commit eb6578ece431164ef1d0ae1f767421fa84834db3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 8 20:29:21 2021 -0700
+
+    Update README.md
+
+commit cc66afec871f60402abf143e1dff7058ec61a401
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 8 11:25:46 2021 -0700
+
+    fixed typo
+
+commit 6175a8bf85f8308a28f1efa0d8050dcc363fbd90
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 8 11:25:09 2021 -0700
+
+    Update README.md
+
+commit 6af90c762d168df7b285b72391d02dd27ccca55a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 5 13:02:46 2021 -0700
+
+    Updated version
+
+commit 1b48030fd33a1fd409bf2233d9e9deae33584273
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 5 13:02:17 2021 -0700
+
+    Updated version and last mod date
+
+commit 0670ef38f71de71de2f4724839485dc7a0b5fc5e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Apr 5 13:01:41 2021 -0700
+
+    bugfix
+
+commit 11120536719f0438c4092330f3f6301ec1692afa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 4 20:39:21 2021 -0700
+
+    Changed last mod date
+
+commit b00e052089f208e2d50d101a37349486f0ddc429
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Apr 4 20:38:51 2021 -0700
+
+    Comments
+
+commit 73f7e4fe9e70e3e2c8024d9c60d48af11ca2514d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 20:36:58 2021 -0700
+
+    bugfix in startup process
+
+commit ffa378ce4427eaa8d83a8fb6af3fa464692498f7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 17:59:47 2021 -0700
+
+    Update hackserv.service
+
+commit 979f976e6ada65630f326435eca0dac12eb952fd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 15:19:40 2021 -0700
+
+    Updated version
+
+commit 5f6a5f6af15c75afb449ff724f439ceef53b1444
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 15:19:04 2021 -0700
+
+    Updated version number
+
+commit 2f731e7df7021b140a6be367d3210b36b4e0cf72
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 15:18:03 2021 -0700
+
+    hsConfig systemd bugfix
+
+commit f9b64e7a69aa6883a505202a21a350bf421d50d3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 14:38:41 2021 -0700
+
+    Update hackserv.service
+
+commit bff9f2a97ecc22cb78e256fd396901edcfbc3f80
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 11:34:22 2021 -0700
+
+    Updated version
+
+commit 4413862fa78ae94ba5e16c1f23d994b7421027e5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 11:15:01 2021 -0700
+
+    Update hackserv.service
+
+commit 83d96c06e1b5631d7f71a39a5021540a8480f865
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 11:09:27 2021 -0700
+
+    Update hackserv.service
+
+commit 86cc64c52b9c872bb10a0972ec31b43745816b32
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 10:56:24 2021 -0700
+
+    fixed bug in botnick ip
+
+commit 5754b94b9c4baee848537ac8775e59c65edab0de
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 10:54:11 2021 -0700
+
+    import random
+
+commit 23cd9b0852a69e70a1a4e5e97dd2e24c5c294801
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 09:59:56 2021 -0700
+
+    Update hsConfig.py
+
+commit ab364dcf0361edb1ac87ea503779a96e22194a7b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 09:57:26 2021 -0700
+
+    Updated version and last mod date
+
+commit da2610b276109c9a88eb48800de563e3bb55bbbd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Apr 3 09:56:36 2021 -0700
+
+    Check if hsConfig.py exists
+
+commit 69f90e7c4e2130edf76af5cdc734c29670af8a07
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:55:00 2021 -0700
+
+    Updated version number
+
+commit cad8fae044a1f478c0b5141554efa109a6497dad
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:54:20 2021 -0700
+
+    Update hsConfig.py
+
+commit 5cb3ef556ca232fe367e7615367d263959b7861f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:53:14 2021 -0700
+
+    Updated version and last mod date
+
+commit fa9a26499d60466c81940e880a04118eba575e0a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:51:56 2021 -0700
+
+    Update hsConfig.py
+
+commit cbddc449728effddddfae973e4ebc4695be24069
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:50:59 2021 -0700
+
+    Config variables were moved to seperate file
+
+commit e58297cc4e28d564f07ab7cc539c5802a98d7c71
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:48:15 2021 -0700
+
+    Moved config variables to this file
+
+commit e474dd67154311f1f12cdba797d49c61f8b97b51
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:46:45 2021 -0700
+
+    Added hsConfig file to imports
+
+commit dc70401592151fe22a22c8ba9bc4435d840fbf65
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Apr 2 11:43:10 2021 -0700
+
+    Create hsConfig.py
+
+commit cc589b85984039803a20f9f96551935054108261
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 1 19:44:10 2021 -0700
+
+    Update README.md
+
+commit dbba1dc9056abd4d5830a7f940aca5a9cf4e577a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 1 11:52:44 2021 -0700
+
+    Update hackserv.py
+
+commit ee30221bac57711c3ab5ca3a5b470c9d4cd105c2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Apr 1 11:51:05 2021 -0700
+
+    Added some comments.
+
+commit 434cc6b6589c392c2ec1048816953feed1e94798
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Mar 31 11:59:45 2021 -0700
+
+    Changed version
+
+commit 12da41bb8afb54579dfd8d5f56162fa330d24025
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Mar 31 11:59:21 2021 -0700
+
+    Changed version and last mod date
+
+commit efc7117503ee5c46407c4a467a5659e2cbead697
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Mar 31 11:57:49 2021 -0700
+
+    Added '.dl [file] [link]' command.
+
+commit 04b75e5c769a60e1ebd221b36a01dcd456bd290a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Mar 31 11:48:58 2021 -0700
+
+    Update to rShell function
+
+commit 1882dc0c3c7d4527706eccdd30e3b2660037c4e1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 30 20:48:45 2021 -0700
+
+    Update README.md
+
+commit 2747fa082d6ff0e8c650cca6213ebe103a007533
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 30 20:42:01 2021 -0700
+
+    Update README.md
+
+commit 18f0ec39f23b0367a89512b11f25317e8b6c5af2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 30 20:41:45 2021 -0700
+
+    Update README.md
+
+commit 730a415835d62e518280cd1be6505a0ed40b8d9f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 30 20:35:59 2021 -0700
+
+    Update README.md
+
+commit 6b1958dadcffe751a5c764aa194dfcb29d81a07d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 30 12:35:30 2021 -0700
+
+    Updated help message
+
+commit 7e11aa7110313c5c964f189fb7de314fcedf950f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 30 12:32:27 2021 -0700
+
+    Updated version and last mod date
+
+commit ee305dfddbe0fcd8453a5c35a298f74ec388907f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 30 12:31:16 2021 -0700
+
+    Added .chmd command
+
+commit 84588eb76a0af13f78281d0d4e8b4c6388d917e4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 20:00:01 2021 -0700
+
+    Updated version to 1.0.0!
+
+commit 9fee14f4d78cab63a6080e9cd6228b637b5560b2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 18:33:05 2021 -0700
+
+    fixed typos in help menu
+
+commit 05d1c55af2ff876f5b44f794af8f1269331b1ad1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 15:11:20 2021 -0700
+
+    Update README.md
+
+commit 2e6c5b4e2feb3f3af7c1efbc491785c983a3b30c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 14:24:45 2021 -0700
+
+    fixed permissions bug in update function
+
+commit e5e44e52164d513691d91325ad06dd633e0e8e08
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 13:45:06 2021 -0700
+
+    changes to update script
+
+commit ad79260fd7264175b743d940bc6ad78c4a3e82ba
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 13:10:52 2021 -0700
+
+    changes to update function
+
+commit 1ffc85983de947b91e4574e9218f77fc615fe43b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 11:27:41 2021 -0700
+
+    changes to the update function
+
+commit 4c05be85728baf891244b4159b32068e0a86d441
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 08:41:54 2021 -0700
+
+    fixed typo
+
+commit bebaa22612a686ba3647d162e11b5db5ca93b48e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 28 08:36:43 2021 -0700
+
+    changed last mod date
+
+commit f3bf2699d37d2a4d751fabfe3cd36887c2e01506
+Merge: e08ffe9 85d87ee
+Author: Stephen Harris <trackmastersteve@gmail.com>
+Date:   Sun Mar 28 08:34:08 2021 -0700
+
+    Merge branch 'master'
+
+commit e08ffe9154f58d28ebab7cd2b17b88afe3a71541
+Author: Stephen Harris <trackmastersteve@gmail.com>
+Date:   Sun Mar 28 08:32:58 2021 -0700
+
+    bug fixes
+
+commit 85d87ee9e374ff9ce126a5a0658e556d687e5b00
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Mar 24 10:08:07 2021 -0700
+
+    changes to update function
+
+commit 49be548476e48954a4f4122af64af3bf40ec228d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 23 12:16:03 2021 -0700
+
+    minor changes
+
+commit 5fea4a2d86dd93a3bdab64174ef0341f1cd45a1d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 20 22:34:38 2021 -0700
+
+    Added more threading
+
+commit 853356ca2f923635f5785455df485e59aa0ab8fc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 20 21:43:10 2021 -0700
+
+    Update requirements.txt
+
+commit bb1a648de5b33d1f2ef33fd5bd1dae725469d91e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 20 13:37:34 2021 -0700
+
+    Update README.md
+
+commit 53976048ab2f2d3b963fd609ff1761a45a250e8f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 20 13:29:22 2021 -0700
+
+    Update README.md
+
+commit 5d827c95d800d747a7b587ddf574003a14d56163
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 20 13:26:15 2021 -0700
+
+    Added persistence instructions
+
+commit c8cfe80e7c37432fa9ad7ea8e4c5654674096c15
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 20 11:42:09 2021 -0700
+
+    Update README.md
+
+commit 4b1a5da5bf5ef855cb285ef5df14646b7fd0028c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Mar 19 23:23:53 2021 -0700
+
+    updated github info
+
+commit cd29c8a78ad0594a40913ddccd3467480e8a37db
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Mar 19 23:22:39 2021 -0700
+
+    Updated version and mod date
+
+commit da3ee2e3c004070ebb520cb52dad0e174696d722
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Mar 19 23:21:56 2021 -0700
+
+    Added threading to a few commands
+
+commit 24f859cd21d0ccc31ca77db7d7535a8e64b0ed34
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 16 12:03:59 2021 -0700
+
+    Update hackserv.service
+
+commit 2e8864d37f7cf2e1d391217d8ea30efc99f714f9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 14 18:30:00 2021 -0700
+
+    Update README.md
+
+commit da76e74b93d40468cdc1151c1d2b9b05ff9e0881
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 14 18:27:15 2021 -0700
+
+    Update README.md
+
+commit 1901308b75951ca5e9dc5dc721dc494dfb644d81
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Mar 14 18:24:42 2021 -0700
+
+    Create hackserv.service
+
+commit 760f1838b40d704340fc58a3096c70b200cb5a60
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 13 21:13:51 2021 -0800
+
+    Update README.md
+
+commit 6f951f121970d853d73b4071edb9d8712db8ea54
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Mar 13 21:12:07 2021 -0800
+
+    Update README.md
+
+commit 6c2b7063d946f5361e148890112dfa93b4adc2bf
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 9 20:28:35 2021 -0800
+
+    Updated the modified date
+
+commit fea7be75d1a05ffd2ea83d6a244bb3a209682ddc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Mar 9 20:27:29 2021 -0800
+
+    bot.py > hackserv.py refernce change
+
+commit f46f6a3d5409859b5e49f485efe96e6e1e81fedd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Feb 19 19:24:50 2021 -0800
+
+    Update hackserv.py
+
+commit be2ddb6f49cffdf8eb51958710d9b87f19a5af80
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Feb 19 19:16:18 2021 -0800
+
+    Update hackserv.py
+
+commit 9aa7787bce68ed13b47d3c4cbb79ffea728672fd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Feb 19 19:15:04 2021 -0800
+
+    Rename bot.py to hackserv.py
+
+commit 888dc36910a4b6e86fa424bbddacf05dd5a79a3f
+Merge: 23bd595 223795f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 6 18:27:15 2020 -0700
+
+    Merge pull request #24 from kimmywacky/master
+    
+    Updated README.md
+
+commit 223795f153a7d4f74c86ebe0176554d1e7d36137
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Tue Oct 6 18:23:56 2020 -0700
+
+    Update README.md
+
+commit d924269392434daaa268db466c5dfc642c7c1c0a
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Tue Oct 6 18:23:16 2020 -0700
+
+    Update README.md
+
+commit 23bd59519c0e5ac7c36fa32e834d49e87c5847ad
+Merge: 1aa36d1 c81f076
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 8 11:46:16 2019 -0700
+
+    Merge pull request #19 from kimmywacky/master
+    
+    corrected mod date
+
+commit c81f0763bb0ad9a76dfb57be7379d87832ad1bda
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Tue Oct 8 11:27:29 2019 -0700
+
+    changed 'last mod' date
+
+commit 1aa36d1103c748dd12167386130f1717f7a39039
+Merge: f270ab6 aa8ab51
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 8 11:21:58 2019 -0700
+
+    Merge pull request #18 from kimmywacky/master
+    
+    Added missing comments to code
+
+commit aa8ab5113cc0ff77ebdba866e926af977b740997
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Tue Oct 8 11:18:42 2019 -0700
+
+    Added missing comments in the code
+
+commit a9ffa5b2af3b829585c42c6fb685282debc8c574
+Merge: 22b7d23 f270ab6
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Tue Oct 8 11:04:31 2019 -0700
+
+    Merge pull request #1 from trackmastersteve/master
+    
+    update my fork
+
+commit f270ab60bb5567e8e3f17cc2a4777dd04a9b36bf
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 29 22:10:00 2019 -0700
+
+    Update README.md
+
+commit 073e01e04258e9ea5d0418a2062e60d49fa5369b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 29 21:23:16 2019 -0700
+
+    Fixed install instructions
+
+commit a49a8b3d9ed61598c75f20417ef06875e1f2f678
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 29 21:19:33 2019 -0700
+
+    removed ipgetter
+
+commit a02d35bac91533a96fecf23604b631f8b1fe1882
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 29 21:11:34 2019 -0700
+
+    changed mod date
+
+commit 24c67710a51939e9c44168ed55681fa8f401542d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 29 21:11:02 2019 -0700
+
+    fixed bug in .cmd
+    
+    Fixed the bug that causes bot to hang after running the .cmd command.
+
+commit 6dfbedefe5772bc18b9a0410947f1d275d372682
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 28 21:19:28 2019 -0700
+
+    fixed bug in .cmd
+
+commit f09dbe0a054a8ad197beb5632275b76a4d1d05db
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 28 20:55:55 2019 -0700
+
+    changes to .cmd command
+    
+    these changes allow the bot to return several lines of output. But the bot hangs afterwards. I'm still trying to figure out what I'm missing.
+
+commit 87101e6c0ed42ec93d6153334edc45ca0dca01eb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 28 20:51:22 2019 -0700
+
+    Update bot.py
+
+commit 4ba2f4f8183749611917c7bcc282cadd7aa084ed
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 28 20:51:03 2019 -0700
+
+    Update bot.py
+
+commit 231e5ef3fbc40456524ecec6406d88ba428ab9fb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 27 21:49:04 2019 -0700
+
+    Update bot.py
+
+commit 70d71ba997e51b22e384dfad03c9093ebbf47b07
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 27 21:48:44 2019 -0700
+
+    minor changes to .cmd command
+    
+    I still have some changes that need to be made for commands that return several lines of output.
+
+commit f28bfb57224c4104dfefe22b0fe1e83ed7ec9b2a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 22 20:22:51 2019 -0700
+
+    Update bot.py
+
+commit b4672e07c7c125a43e8cd8709c0087dbeda9b4bb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 22 20:15:33 2019 -0700
+
+    Update bot.py
+
+commit 90f709d3d15bf468e6e55ff4e44dc2b3d668a8d0
+Merge: 1c043a5 4cdaf02
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 2 08:40:46 2019 -0700
+
+    Merge pull request #16 from imhajes/patch-1
+    
+    bot.py
+
+commit 4cdaf02fcbf48ea981f0592a41b1cebd672595fa
+Author: imhajes <imhajes@gmail.com>
+Date:   Sat Jul 27 23:20:08 2019 +0300
+
+    bot.py
+    
+    update .ip becuse ipgetter not work
+
+commit 1c043a54a54613c01ed912e164e6d16bf6836cbf
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Jul 26 19:22:54 2019 -0700
+
+    Update bot.py
+
+commit 27f5e21b729ffa5dc888c278fe414ad2a935766a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Jul 26 19:21:33 2019 -0700
+
+    Update bot.py
+
+commit 0dd60ac31204b4b160bbffa6e9b21c86b356d75a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Nov 13 13:21:46 2018 -0800
+
+    changes to srtChk()
+
+commit 956d3b7039b76ebd9bd3ba55c3e4cb364ea39cbc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Nov 13 13:12:27 2018 -0800
+
+    changes to srtChk()
+
+commit fab6f7f42a601dea30e3929ad080ea32af4301e0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Nov 5 18:30:14 2018 -0800
+
+    Update README.md
+
+commit 001563a1bced599ad0b2232ea9f9960a70dd866f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Nov 5 18:29:59 2018 -0800
+
+    version bump
+
+commit e1ec11ded475a08a315738a44e46183a819b7a79
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Nov 5 18:28:24 2018 -0800
+
+    change to strChk()
+
+commit b07a03fb0a0d92cbe2e743ba7b2859d3c1227c03
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 30 19:56:51 2018 -0700
+
+    Update bot.py
+
+commit b77700bed2afad9d30d813e2ba8aae43b30c3fed
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 30 19:41:59 2018 -0700
+
+    Added some persistence code (work in progress)
+
+commit afd113e9d5daa8168f16b898dd32ad01e37709f4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 29 18:10:55 2018 -0700
+
+    Update README.md
+
+commit cda6a8347c3b84234aac0e2badbdb51e254af346
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 24 20:16:09 2018 -0700
+
+    mod date change
+
+commit 32bdb761ba8035dcc056a74cbd41681fc89fe855
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 24 19:12:04 2018 -0700
+
+    Added some commented code for future use on start
+
+commit d5a9dc58fb1e0887cc8a83bede51693a075df47e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 24 19:10:25 2018 -0700
+
+    Added startCheck() function
+
+commit 9b2bd16a3a47935756020b339beb7479af7b6eb6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 23 14:03:22 2018 -0700
+
+    Update README.md
+
+commit c4e518f7875543454fdeb0bb902db630fdeb4907
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 22 18:59:55 2018 -0700
+
+    Update README.md
+
+commit b0a62099d7cb14535f0cf8a15a7ec259f6ff492d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 15:19:49 2018 -0700
+
+    fixed typo
+
+commit 97ef1ba3f6ca50d10c0f3155f4b8791b69eefd58
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 15:09:41 2018 -0700
+
+    changes to update() and execute()
+
+commit f65ac092d07ef6b2eab1cd5971d697170f00dcfe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 15:07:44 2018 -0700
+
+    Update README.md
+
+commit 6f2cc6bea15d551610621f75ec912f15a1324b74
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 15:07:22 2018 -0700
+
+    Update README.md
+
+commit 86f27824c9d89141461ca73eca26800a6791d544
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 15:03:31 2018 -0700
+
+    Update README.md
+
+commit 410ed84a3a323fce8a2ff492ee276deb40c70c5d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 15:01:57 2018 -0700
+
+    version bump
+
+commit 7d1687ed257b7d0301b8272a5f2ece624347e85e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 15:01:28 2018 -0700
+
+    Added .cno to help menu
+
+commit 2f8c3ddc8fbdf8ce2958a31f8d771d937d0a774e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 14:59:35 2018 -0700
+
+    Added .cno command
+
+commit 783bbd1c30b2a895a954570375fdda863051c9f1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 21 14:57:11 2018 -0700
+
+    Added no-output version of runcmd()
+
+commit a1706f520373459cdd87e35b49feb6f3d8d5f7ce
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 15:46:41 2018 -0700
+
+    changes to runcmd() format
+
+commit df841b6aec8004b4ec456177ee088937f4d81deb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 13:58:29 2018 -0700
+
+    slight change to default botnick
+
+commit cb8cf06651ca8dd911d7676c0a393fb8a6116b1a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 13:28:48 2018 -0700
+
+    removed ns ident on connect
+
+commit ca3f05e3fede82ea219cf78adb41e5074ec6ced3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 11:07:16 2018 -0700
+
+    Update README.md
+
+commit 62ac974b53281cec1025f18e7a1dc765fecbe0b5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 11:06:17 2018 -0700
+
+    change to help menu
+
+commit 4c6a6db1211c2554448b2cb4b0b822e7584726df
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 11:02:12 2018 -0700
+
+    changes to .run command
+
+commit fba0a0ca73d57eb73ce09a3335263166f2b2e231
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 10:00:00 2018 -0700
+
+    change in help menu
+
+commit e69d82cfef2de1b9474ab5db467cc37dbcfe031c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 07:59:05 2018 -0700
+
+    Update README.md
+
+commit 1dd0fc9d77c5637e0dee123bdb4af78cd0257a7d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 07:56:05 2018 -0700
+
+    Update README.md
+
+commit f75aa5aa5e8172aa1a44f552b78b37cc3fb9f224
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 07:55:43 2018 -0700
+
+    version bump
+
+commit 9db12915766c0ad82c6d0225e6f759996aaea2ff
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 20 07:53:25 2018 -0700
+
+    execute() function changes
+
+commit c0a4bf17c0fa111fd2761fdc6e8cad6a17c8b582
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Oct 19 09:01:12 2018 -0700
+
+    code clean-up
+
+commit 879f115cfdba8b445bc2965f461e9a246c887dbc
+Merge: 4adb79a 22b7d23
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 18 20:42:53 2018 -0700
+
+    Merge pull request #13 from kimmywacky/master
+    
+    changes to update output message
+
+commit 22b7d23aa6600374d170195ddd1934d0ba1a2c8b
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Thu Oct 18 20:42:31 2018 -0700
+
+    changes to update output message
+
+commit 4adb79ad95de3311d9d73900b1d1319ebb605276
+Merge: 60e9a9c e912992
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 18 20:38:13 2018 -0700
+
+    Merge pull request #12 from kimmywacky/master
+    
+    Update README.md
+
+commit e9129920491d8165e52d67f31e57890e58bd390c
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Thu Oct 18 20:37:49 2018 -0700
+
+    Update README.md
+
+commit 60e9a9ce11b45fab35cac6ddb08e79dba5535052
+Merge: fcbc6de bc18a92
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 18 20:36:02 2018 -0700
+
+    Merge pull request #11 from kimmywacky/master
+    
+    changes to help menu
+
+commit bc18a92c035e488066cdbce6ea75738da737c777
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Thu Oct 18 20:35:34 2018 -0700
+
+    changes to help menu
+
+commit fcbc6de184c511d131b76505f0802ea4c7fb4414
+Merge: 8d2c99e a4661d1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 18 20:33:45 2018 -0700
+
+    Merge pull request #10 from kimmywacky/master
+    
+    changes to upgrade if statement
+
+commit a4661d16e326989d22167fbd954a2e08b7516bd0
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Thu Oct 18 20:33:15 2018 -0700
+
+    changes to upgrade if statement
+
+commit 8d2c99e0ec5f2b2315924fd301c565c817817cd8
+Merge: 642dfa1 064fdc3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 18 20:23:37 2018 -0700
+
+    Merge pull request #9 from kimmywacky/patch-1
+    
+    changes to update function
+
+commit 064fdc31ce1202fe318f13397ba86bf3ae611084
+Author: kimmywacky <44282461+kimmywacky@users.noreply.github.com>
+Date:   Thu Oct 18 20:22:39 2018 -0700
+
+    changes to update function
+
+commit 642dfa1f5f16d0925aecf8ed1efe9e921884c851
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 18 09:16:55 2018 -0700
+
+    imported threading
+
+commit 0290409ef1fda0c582a069f6ede6dfe3e7fe408c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:25:51 2018 -0700
+
+    Update README.md
+
+commit 21c308d3fc2e4fa36e47e753ba9f91ac90b1ffd6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:24:57 2018 -0700
+
+    Update README.md
+
+commit 191780a0d61a04128869d39cfbe151f8684f5d94
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:24:08 2018 -0700
+
+    Added .fsdl to help menu
+
+commit 01bd3e237b35fc9a1048b61eed6607fce0c6268b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:18:27 2018 -0700
+
+    Update README.md
+
+commit 778b06025719117dbed3b2df4000bfa8dc200943
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:18:07 2018 -0700
+
+    version bump
+
+commit bcef334a78711a93d1f553faa766d21cd297edbe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:17:20 2018 -0700
+
+    Added .fsdl command to download from file server.
+
+commit e7cb748028da9ca5a7f55fef1b494d59c660e12f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:14:25 2018 -0700
+
+    Added file server function
+
+commit 0812fcd940943883511ff8d89ceeb8b27be819fa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 17 19:12:30 2018 -0700
+
+    Added retrieve file function
+
+commit bf18681302b3e6bc74ea6e4a71408ecab610956a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 16 20:53:05 2018 -0700
+
+    Update README.md
+
+commit b0ae3e656cfda414e2a5a0c22400eab0983b4966
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 15 13:32:05 2018 -0700
+
+    fixed typo in rShell()
+
+commit f4cdd1782505f51f887ad3e2e049db0b73601024
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 11 19:55:20 2018 -0700
+
+    minor change to NickServ identify
+
+commit c0ca4544080a10a3cbacce9535e4c0c7c2cdf2fe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 11 18:17:00 2018 -0700
+
+    Update README.md
+
+commit 72390a1e4a936b4a8e09fb92053faef331674020
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 11 18:15:35 2018 -0700
+
+    version bump
+
+commit f63f9347a10db914b68ea949bd914ac1b4e3d456
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 11 18:06:00 2018 -0700
+
+    clean-up download()
+
+commit e6a2b495aa26a7eca49101354170a5d37a77d64f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 11 17:57:46 2018 -0700
+
+    changes to update()
+
+commit fa2ec5f878c559af4af5b28b6b22b14e07a03c70
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 11:04:15 2018 -0700
+
+    minor change to nmapScan()
+
+commit 536c372d9dc6fa04e7e1f887280fa36fa8270402
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 09:43:29 2018 -0700
+
+    minor change to .cmd
+
+commit f7fc1e0477c7d118e2dd94fe000c114e1cb04424
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 09:41:04 2018 -0700
+
+    minor change to .cmd
+
+commit 233db4d2b126800b2ae59738efeb8ff2caa83cff
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 09:08:49 2018 -0700
+
+    minor changes to rShell()
+
+commit 1ec5962e8b9af3a07f7107aabd01d9b3ffc42e42
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 09:01:36 2018 -0700
+
+    fixed typo in sendversion()
+
+commit cd3dc2ddd722d95f37137dde0a638496dec1735f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 08:46:42 2018 -0700
+
+    Update README.md
+
+commit fb97a79517021d829a6f4130e5ef8c79459ff47a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 08:45:36 2018 -0700
+
+    version bump
+
+commit 041e16ad0f454655caaffedeb8075d56d8e2aaae
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 08:45:02 2018 -0700
+
+    code clean-up
+
+commit 8265ad75ffaf95c09b3750a52d1a35293d93267f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 10 08:33:12 2018 -0700
+
+    fixed connection bug
+
+commit 4ec8e8f7f001e70dfcbd7ae5f61edd53c4b71675
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 19:38:44 2018 -0700
+
+    Update README.md
+
+commit 50e052cde8439d7af403585c5a3044c1a7874bb9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 19:26:57 2018 -0700
+
+    fixed bug in reconnect()
+
+commit 0100dfe48430dd49af2634622bf191af2bc1e502
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:46:52 2018 -0700
+
+    Update README.md
+
+commit a2a63473c37cafd12209868eb40eb48b23fdcd4b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:46:23 2018 -0700
+
+    version bump
+
+commit 4ecdd03ef55db7227e40ad262ef62bfa4b0c8164
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:45:21 2018 -0700
+
+    code clean-up in main()
+
+commit cd485c0f66501d4cea6d336a2315243bd45e8a58
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:37:45 2018 -0700
+
+    function code clean-up
+
+commit aec550d719c0200b5cc26ef21c6072b46702db04
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:35:19 2018 -0700
+
+    function code clean-up
+
+commit e7ba85f5b1f18d61a0e9a68bb7cc43700ba89054
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:32:19 2018 -0700
+
+    code clean-up in join, part, pj, and ping
+
+commit 0ad74d65e80fd9d2f8156b838e2b9b8b6c7f8202
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:28:16 2018 -0700
+
+    code clean-up in reconnect()
+
+commit 0c559ff6a2524258bd1e8a348f7bed267e52089f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 8 11:26:03 2018 -0700
+
+    code clean-up in connect()
+
+commit 1def5bda71c35d34f04a70b1f68428824e3b3113
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 15:09:46 2018 -0700
+
+    imported base64
+
+commit 3a92a99c7b0b024762557ea9284880229df9196c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 14:13:20 2018 -0700
+
+    Added comments to the SASL Auth section
+
+commit b067ed2b677aaf81ba776494e550612c190cf371
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 14:10:58 2018 -0700
+
+    Added comments to connect() and reconnect()
+
+commit c5dec1f48705474ffb6da4bd1b82242885e3ce55
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 14:09:20 2018 -0700
+
+    Added comment to sasl boolean
+
+commit 66f840bccdaec9eca1699d5007a65f0fb91514a2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 14:06:58 2018 -0700
+
+    Update README.md
+
+commit 623c41a270ad31a1c72620e612287fcc38ea25bb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 14:05:45 2018 -0700
+
+    version bump
+
+commit e2319ffaf9d01b7b32123eddeef982e67441cecd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 14:05:20 2018 -0700
+
+    Added SASL authentication support
+
+commit 1c76a42024cdf272dbbcff5c3d5cd5fe1848ddcc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 07:08:23 2018 -0700
+
+    minor changes to bot settings
+
+commit fe983d127bcb4dca43feee3dd6d54dd288b5a4fa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 07:05:16 2018 -0700
+
+    minor changes to Bot Settings
+
+commit 2805ee27ff6bc2b6eaa447b00e93b85ed26a075f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 07:02:41 2018 -0700
+
+    changes to update() function
+
+commit 38deaef1b94d667f2907140e393e18370d1ad8ba
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 06:51:34 2018 -0700
+
+    Changed wording on ctrl+c termination msg
+
+commit d415e909ffa607bf238d6312a0ea957107a2be55
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Oct 7 06:33:36 2018 -0700
+
+    fixed typo in .sysinfo
+
+commit 94389dd24eb389c106f00d277634b62a5cd8a4e5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 16:11:31 2018 -0700
+
+    changed from exec to os.system
+
+commit bf489061b67982ca4dc110c75fe3f9af79c0dc4f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:39:53 2018 -0700
+
+    Update README.md
+
+commit 1d2af36ce868f858745b23b7d84f382a6fe5ffde
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:38:14 2018 -0700
+
+    version bump
+
+commit fa36e2c37dfc4c8071f61145d3fdf434e1e9e7d0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:37:49 2018 -0700
+
+    Added .run and .upgrade to help menu
+
+commit 5b1322602872b5220023436ee0c791c2bcd33ae1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:33:30 2018 -0700
+
+    Added .run command
+
+commit dcc7af4dbf5888d6d71b4ad8418280466f9ecf00
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:26:45 2018 -0700
+
+    fixed exec bugs
+
+commit 8c736422c49ea8b78c3fd13e8cf314d0226515a2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:20:39 2018 -0700
+
+    fixed .dl bug
+
+commit 4ac15180264f0bfd21e01436d2b56630ac3bb5c0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:18:04 2018 -0700
+
+    fixed .dl bug
+
+commit 2ad4290482f0a038312ec0f76b63ab22ccbcddfe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 15:06:35 2018 -0700
+
+    fixed download() bug
+
+commit 2c4130ef94f619f313dffa59a9cb6b930106b1fe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:54:45 2018 -0700
+
+    Update README.md
+
+commit 9aa0cdf847085d0857173de59c306fe9438a2f47
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:52:34 2018 -0700
+
+    version bump
+
+commit c48acc002ef9671712bf500e360af5ab5e6b41f5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:51:47 2018 -0700
+
+    Added '.upgrade' command
+
+commit ca67a4c82c16b7de2e3c4b50f8e5418d57bcd5e2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:47:34 2018 -0700
+
+    Added update() function
+
+commit 91fcdba68e39651ba28503f97ca4f4a0c06539bb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:22:41 2018 -0700
+
+    Changes to download() function and .dl command
+
+commit 9626b846cf5490e8c9e346844d47c4ca3766477a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:16:27 2018 -0700
+
+    Update README.md
+
+commit b7360c32b8175876fa4e733a4091c409b12db9b0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:14:07 2018 -0700
+
+    Added '.dl' to help menu
+
+commit aed9ba7cc92094e2bce67d3438d9bd6b96c2df39
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 14:12:26 2018 -0700
+
+    .mode bug fix and .dl command addition
+
+commit 5cb59d1ff39f29d05ac29cbcd953ed5e03991922
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 13:56:01 2018 -0700
+
+    Added download() function
+
+commit 37ecc98918a550ba31cb64d4f946fc21c4228e0a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 12:06:13 2018 -0700
+
+    Changed a couple sendmsg's to sendntc
+
+commit 2ad2f052a595e0d097bf8ab5508274a95f41a639
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 09:59:08 2018 -0700
+
+    fixed output format in rShell()
+
+commit 59ddf31f742c58e9b17eb49dda4087df6e247941
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 09:34:40 2018 -0700
+
+    changed .rshell to .rsh in help menu
+
+commit f511c632acc6c35c72ec8c1bbcb8fa7e4a4bf332
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 09:32:14 2018 -0700
+
+    Update README.md
+
+commit d662b9ca6b8ab8c8f0a5d4c79f11d359d7b32cea
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 09:30:47 2018 -0700
+
+    Update README.md
+
+commit 610e8bfcd58ceab0a3513a74a56b17467a914972
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 09:30:18 2018 -0700
+
+    version bump
+
+commit 3d5fada1cd94e88a327ece1f67a0592be4f659fc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 09:21:59 2018 -0700
+
+    fixed Exception error in rShell()
+
+commit 67964985bbe57870c7fc5d7f7eea375f4140a354
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 08:59:19 2018 -0700
+
+    fixed typo
+
+commit 334d7776e95444d42fa85cba5bb4aa8b72625e8e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 08:53:16 2018 -0700
+
+    fixed a few Exception bugs
+
+commit eb964a6823bb7eb611be06fabc4be49f2c41c119
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Oct 6 08:18:46 2018 -0700
+
+    fixed bug in sockwrite()
+
+commit e90b9205fb040c1c1bbc6b560f1df145c387f52b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Oct 5 20:25:11 2018 -0700
+
+    minor change to rshell output
+
+commit 7769b6b1e3b64d9590af977b3c84e00163ff1315
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 4 20:18:38 2018 -0700
+
+    Update README.md
+
+commit e7067c63db588c7622cc90f72c41fd2c494cd210
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 4 20:16:52 2018 -0700
+
+    changes to help menu
+
+commit ce4d39fca6dfe8ce583708101b22f8496cda4efa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 4 20:12:55 2018 -0700
+
+    fixed bug in rShell
+
+commit 7ae70145ab48a1e51e85294c072ef10140b596db
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 4 19:56:19 2018 -0700
+
+    Update README.md
+
+commit ba2da347c0e1f246173031ab1aada23fd662126e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 4 19:54:38 2018 -0700
+
+    version bump
+
+commit 90ed0ba584d9bd0b56503646e52af29b1fbd7751
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Oct 4 19:54:16 2018 -0700
+
+    changes to rShell()
+
+commit 20986c8a408c2e984b21e288385512829e5c3e8e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 20:54:25 2018 -0700
+
+    bug fix in rShell
+
+commit 8d817968627a5b524ba4323fa658a606fa1aa0b2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 20:43:57 2018 -0700
+
+    Update README.md
+
+commit 246a20dfc9ac7ce0cd85e8c0234aaaba0715c810
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 20:43:35 2018 -0700
+
+    version bump
+
+commit e9526aa1f3cb55b4a6f4e3c2730a9bf1b3ad0520
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 20:43:14 2018 -0700
+
+    more bug fixes
+
+commit 08bc59e2485852ef07853699cf7b3a365f705356
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 20:03:25 2018 -0700
+
+    minor update to help menu
+
+commit 3b2a300d621343f65ba77c28a5d0f374938564db
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 20:01:30 2018 -0700
+
+    Update README.md
+
+commit ca59013ee9b831eaeed56e945767e4eaf4a99bbb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 19:59:01 2018 -0700
+
+    minor fixes to rShell
+
+commit 241cf4d65c9a3e99fcfde02a77d022ec95c9fb34
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 18:43:18 2018 -0700
+
+    Update README.md
+
+commit e2663035b0c5aaf86ace5d8fee8e0ec975c3a6fd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 18:42:50 2018 -0700
+
+    version bump
+
+commit 00be09b9879ed6ca5419092c43b5a1e4f3611e92
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Oct 3 18:42:25 2018 -0700
+
+    Fixed a few connection errors caused by rShell()
+
+commit 5645598142897ab53d6d09809599c291bf473f58
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 2 16:08:57 2018 -0700
+
+    Update README.md
+
+commit 6420bb6a3a8f432226a630aa7b1aee7794dd4014
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 2 16:08:03 2018 -0700
+
+    version bump
+
+commit e96f210317a94136a580b2c812a75427218d0e95
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Oct 2 16:07:30 2018 -0700
+
+    Added sockwrite() function
+
+commit 87026fc91d5dda59ad12d708d23f8e85af74fa48
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 1 20:26:46 2018 -0700
+
+    changed mod date
+
+commit 53370db92146dd3d9fe8d39b2df12783fbf0e6cc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Oct 1 20:26:03 2018 -0700
+
+    Changed '.rshell' command to '.rsh'
+
+commit f574cb4520b997f2a43edf5cfe5f3084ee12b776
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 19:37:36 2018 -0700
+
+    Added on-connect ns ident
+
+commit 6f449703e1d0ed37b05517eece6b09d9b62dac00
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 08:50:13 2018 -0700
+
+    fixed typo
+
+commit 3b90073bfedf0dc3b4196d7d9be10c8b2a970a8a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 08:43:12 2018 -0700
+
+    Added '.raw' to help menu
+
+commit c05b47d3c6d2759d641e44007967108ff236f5d9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 08:42:01 2018 -0700
+
+    Update README.md
+
+commit 276cd444a7955cea1eea44e1e778048b54e4d0c9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 08:40:52 2018 -0700
+
+    version bump
+
+commit 41b277363c3202a437dd1489759b3771d2abe7ec
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 08:40:18 2018 -0700
+
+    Added '.raw' command
+
+commit 7f75a4f6d333dc945200824aee5cd8836e6f1cf4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 08:33:18 2018 -0700
+
+    Added a raw command function
+
+commit 0b8b1d7d837f6515539dc4eac564e861d654db18
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 30 07:53:06 2018 -0700
+
+    Update README.md
+
+commit 051e07f1becd2f677a03e08fa9fcfd2fe902cf28
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 21:51:28 2018 -0700
+
+    Update README.md
+
+commit 5da7dcf64a55c12171a5aae494d2d0fb9befca79
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 21:49:42 2018 -0700
+
+    Update README.md
+
+commit 4479d68f98045b9e04873e57acfd001f8f97ddae
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 21:49:22 2018 -0700
+
+    version bump
+
+commit 02e9ac2289711e42d7643b644c888fe282ff1c89
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 21:48:21 2018 -0700
+
+    Added 'disabled' notice to .rshell
+
+commit fa885ab74d72cb8ef3d8c2dc91eeb0a8c66db30d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:43:39 2018 -0700
+
+    minor update to settings
+
+commit cdacafcdbc3689fe1f8a6d12110319264d4646b9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:32:14 2018 -0700
+
+    Added Boolean to disable .rshell
+
+commit 17c9c81aedf3cd2f969cb2940630a95532fab90a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:27:59 2018 -0700
+
+    minor fix to help menu
+
+commit a3c673f10c2bc2a103dd53c65601a1bdc7f96ad0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:25:54 2018 -0700
+
+    Added .rshell to help menu
+
+commit cce00c77caaea394991af7797085492b99c24e8d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:21:13 2018 -0700
+
+    Update README.md
+
+commit 0bf90b0266e7f6ccead54755e99bd8c36d202c5e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:19:59 2018 -0700
+
+    version bump
+
+commit 416a99b19b7d1eb0c840705156c02f3ac2ffa2be
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:14:07 2018 -0700
+
+    Added '.rshell [target] [port]' command
+
+commit fd89e55dbaf8850be0716a7b6b7874d8cb9966e3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 29 15:04:15 2018 -0700
+
+    Added rShell function
+
+commit 7d0cc97e9eb4fe6f471b75f0de54a1f65d42d391
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 28 20:16:59 2018 -0700
+
+    Added a Boolean to enable/disable shell commands
+
+commit 8504befbfc4f22af424d9b47464cc9053fc2fff1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 28 20:09:19 2018 -0700
+
+    Update README.md
+
+commit 6bd09ba31b9d35620a791486348e88c9ffb54c06
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 28 20:06:21 2018 -0700
+
+    Update README.md
+
+commit 0862507973d88636e69c806e5b5169cdba8469c5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 28 20:05:53 2018 -0700
+
+    Added '.cmd' to help menu
+
+commit 328a41d4fda42b07f1d0d58be3a514e474255d87
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 28 20:04:33 2018 -0700
+
+    version bump
+
+commit 481db8176d1c0aa6266b75dd9e990ce1658de6c7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 28 20:03:53 2018 -0700
+
+    Added shellcmd function and command
+
+commit 4ed11c14aa39d43731a25e81f9c8ebba06eb164b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:38:07 2018 -0700
+
+    linuxmemory() comment
+
+commit 9f73536ba44826c712dbdcda8989abacabfdc228
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:36:33 2018 -0700
+
+    macaddress() comment
+
+commit 63a4bf78abc04277fbddaff5140c94d7e114dc36
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:35:45 2018 -0700
+
+    username() comment
+
+commit 9d887ea9fdd381766a6808206f472f37d8239b66
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:28:38 2018 -0700
+
+    Updated help menu
+
+commit c6857076f928b15c838f1af6c33b979e547dc13e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:23:57 2018 -0700
+
+    Added missing imports
+
+commit 5a74e8e201bd5d8e74d0d2e110bb84d22f2e4ffa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:10:50 2018 -0700
+
+    fixed bug in '.memory'
+
+commit 5784b6307980b141c59f22c0d3b53b4b8d891826
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:07:11 2018 -0700
+
+    Update README.md
+
+commit f54a296e44685384625351c0e3d758f974ac82d5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:05:58 2018 -0700
+
+    Update README.md
+
+commit 02b9593552a383437abb43050d8067af11e4c0ce
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:04:46 2018 -0700
+
+    Update README.md
+
+commit d222a54d53dec3465e5b0d57ee8c344d4b353645
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 17:04:26 2018 -0700
+
+    version bump
+
+commit 0a98bcaefe6051473e68b3551bb89e996f4b2d5c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:56:19 2018 -0700
+
+    Updated help menu
+
+commit 8be7fea1bebb51c1b3d6c60bd2c6f7db7638b4d2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:53:38 2018 -0700
+
+    Added '.username' command
+
+commit 98a9b13351107de10b8fab8a197d40fbd36d048b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:45:28 2018 -0700
+
+    Updated help menu
+
+commit d8104e63647451453593852f939621bac08e352d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:43:45 2018 -0700
+
+    Added '.macaddress' command
+
+commit c84a7c9674b0bc74a036f268a7892ef70b2bd88c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:38:45 2018 -0700
+
+    Update README.md
+
+commit 4f5e06a0aa3eeacc0e1c7061144ff8767dbece2c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:38:18 2018 -0700
+
+    version bump
+
+commit 7a7829eb3ce4971beb240f0c9ac0676b454d7f3a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:27:00 2018 -0700
+
+    updated help menu
+
+commit fc5f5e43aee9f0d65fd89eb30729af08226b6fbb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 27 16:26:29 2018 -0700
+
+    update to '.linuxmemory' command
+    
+    Now known as '.memory'
+
+commit d016fb10d13f538656ad224bc06d3871ce9ab489
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 26 18:51:15 2018 -0700
+
+    changes to ping()
+
+commit ea8e7452c778238307b2f6f1984aa8dbae8efd47
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 26 17:48:23 2018 -0700
+
+    Update README.md
+
+commit a67953924824743966cb07a1edd7ed9a96270d8c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 26 17:46:12 2018 -0700
+
+    Update README.md
+
+commit 4f56fad0073f32910458288b9f6f948e01344619
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 26 17:45:55 2018 -0700
+
+    version bump
+
+commit ec5af68768c0177e5ab9ee9e11a6d59a2abc4d4a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 26 17:45:01 2018 -0700
+
+    fixed ping timeout bug
+
+commit 39bb82c154c83fa17421937ec84d5500a8007f20
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 26 17:42:26 2018 -0700
+
+    fixed bugs in connect and reconnect
+
+commit db91ed2cac6e2793f6681474510d8cc960d8e228
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 25 20:26:54 2018 -0700
+
+    Update README.md
+
+commit d48f92183f96b6998f30635d440eb79e99a8fdfe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 25 20:11:53 2018 -0700
+
+    Update README.md
+
+commit cd01392beb6917837307287cac1b825ea2274a58
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 24 19:55:42 2018 -0700
+
+    Update README.md
+
+commit b12a95635ed1920f3de2bccf5a6b9d3001825fa6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 24 19:50:53 2018 -0700
+
+    Update README.md
+
+commit 85f4b0033a7ce27952bf2149039964e646f989c8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 24 19:19:25 2018 -0700
+
+    Added comments
+
+commit a2fdf622f5fe71d8df579d0ee24df87c3c3ef97e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 24 19:17:00 2018 -0700
+
+    Update README.md
+
+commit e7a1afaf0f052226792e1a8b2351fee23a0df5f0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 24 19:16:38 2018 -0700
+
+    version bump
+
+commit 713ebfe53bba02ce349e726037df51cf991c90f8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 24 19:16:03 2018 -0700
+
+    Trying to fix the PING timeout bug
+
+commit e15f8f9009dbc9a24fba9668dd5e2745bf3ee89c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 12:15:28 2018 -0700
+
+    fixed typo in VERSION output
+
+commit 7a0a49a18aa29f39aa8c1ec8a3f154864aeec995
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 11:49:27 2018 -0700
+
+    Update README.md
+
+commit 2195d62991c973fad035c5f97332c184e5f3d70b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 11:45:45 2018 -0700
+
+    fixed 'pj chan' from crashing bot
+
+commit 0da80999745efa1a090c15d3c3dca63309a42aea
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 11:33:05 2018 -0700
+
+    version bump
+
+commit 0ca5582f394ea2a969f803d15dd7ddc8205f12af
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 11:32:38 2018 -0700
+
+    Changed most PRIVMSGs to NOTICE
+    
+    I did this to prevent a lot of private message windows from opening on your IRC client while controlling several of these bots at once.
+
+commit 09a10171011c4764dd7f9f45a28d51729e81e465
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 11:21:39 2018 -0700
+
+    Changed VERSION output
+
+commit e0b119c3e6d8eb535faccfb5c47df3ef5e222f43
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:58:21 2018 -0700
+
+    fixed bug in '.cycle channel'
+    
+    Now known as '.pj channel' (part join channel)
+
+commit b63de8fde6b52cce34a0ff4aa5a88dab7512ef04
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:46:21 2018 -0700
+
+    fixed bug in '.notice'
+    
+    now known as '.ntc'
+
+commit cfdd876d95168845a1d4c4da7125ed44e65ebdd2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:27:45 2018 -0700
+
+    Update README.md
+
+commit 48b8f20d197b90b19b3f9d4f8c64e03a1fbd011e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:24:39 2018 -0700
+
+    Update README.md
+
+commit 2d507276c15c259881686c6e86c51e05374c6c42
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:22:50 2018 -0700
+
+    version bump
+
+commit b703d64bf461eac9ec6b878520fae50b1ab2475f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:21:54 2018 -0700
+
+    Added '.linuxmemory' to help menu
+
+commit 35df62ae06d66d4043941bfef8858775850b414b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:19:43 2018 -0700
+
+    Added '.linuxmemory' command
+
+commit 9fa6680f44cfadafdf65549303b35b2138fe406c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 10:17:50 2018 -0700
+
+    Added linuxMemory function
+
+commit c2d51968c161b936c35878003ef5c59cf02039b5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 09:59:06 2018 -0700
+
+    Added '.osversion' to help menu
+
+commit cba7dbb5b5773f79eaee519000b6f63e1ebdf98f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 09:58:11 2018 -0700
+
+    Added '.osversion' command
+
+commit f8fc37fca0a147e38e32a667f63bc0a843d388b8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 09:50:02 2018 -0700
+
+    fixed typo
+
+commit 66f3a9c5bb5232756273dcb6ceef6354041717f3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 09:45:44 2018 -0700
+
+    Udate to '.sysinfo'
+
+commit 7f64732f5639e10c80323ac90941f5b9bb723d29
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 08:38:21 2018 -0700
+
+    Added '.sysinfo' to help menu
+
+commit dbe638f21bf0a532df265219103c96a65b25a8c8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 08:36:56 2018 -0700
+
+    Update README.md
+
+commit bea426ae177bc1e90af6e2a6263368bfab10158c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 08:35:23 2018 -0700
+
+    Update README.md
+
+commit b6578011add29fd9e4047eb1cb21497f8189a720
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 08:35:02 2018 -0700
+
+    version bump
+
+commit 7231cde1720aa964ea838d8b92a07a1db6c44bb3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 23 08:34:32 2018 -0700
+
+    Added '.sysinfo' command
+
+commit 683615f9b675e266d47aa6265c00ecc4221d059e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 22 21:39:57 2018 -0700
+
+    Some additions to '.uname'
+
+commit 93ef0f67391cadd6488eb62a73c3c5e3f8444457
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 21 20:45:05 2018 -0700
+
+    Update README.md
+
+commit 8b689a94b683358b207e5cb2c4bcf2d57f9e48d9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 21 20:17:11 2018 -0700
+
+    version bump
+
+commit fd2b4d48722ffea2b9d8b296deb203950bf8f2db
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 21 20:16:37 2018 -0700
+
+    Removed the privmsg on connect
+
+commit 4b5fe6c132d976aa716ba4938075fa6a7399f051
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 21 20:13:10 2018 -0700
+
+    Changed a couple default settings
+
+commit f3732dd377a9b2cb7747c6565693a18997f51d39
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 21 20:07:58 2018 -0700
+
+    Update README.md
+
+commit 455e8f72c3495ae086f0da9925c52ce31cfe37a3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 20 19:55:47 2018 -0700
+
+    Update README.md
+
+commit e90aff8a82b28e9f333ba16cd067aa674193a2b1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 20 19:53:46 2018 -0700
+
+    Update README.md
+
+commit db18d366a56ab4e812f0bc26495bbe5b58a592bb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 20 18:45:12 2018 -0700
+
+    removed the delay on join/msg
+    
+    Trying to figure out why it won't autojoin OR msg botmaster on connect to freenode. It works fine on my Unrealircd test server.
+
+commit b6e7b36524aa0d6346fa451c52f47f5f6dcfd64b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 20 17:57:39 2018 -0700
+
+    Update README.md
+
+commit b22cca9c0984fe27c8ea7ec05e3b2ee8b4fdb396
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 20 17:56:21 2018 -0700
+
+    version bump
+
+commit 3907d60d91997bf985694ec2d7d94dfe09662d49
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 20 17:55:32 2018 -0700
+
+    minor change to post connect
+
+commit 60bd72c54f83ff70ddcd9815f76b0baacba92c9b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 19 20:04:28 2018 -0700
+
+    Added some more comments
+
+commit 8a2f5d9ee315f78bc8e8f46ed07e6670f73de542
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 19 19:56:27 2018 -0700
+
+    Update README.md
+
+commit b23a72b5e278480f6556a86b73547eaf77f541af
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 19 19:55:54 2018 -0700
+
+    version bump
+
+commit 19a02bb0a997ad2a23cccc10d274a2782db97d44
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 19 19:55:23 2018 -0700
+
+    Added some more comments
+
+commit 79b2edcc806ce426c1c21932037463027eeba920
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 19 19:53:20 2018 -0700
+
+    Added Scheduler to check current time
+
+commit 216761cd562c744c4d2d4e35d4e5ab8029676d21
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 19 18:06:04 2018 -0700
+
+    Update README.md
+
+commit 3af52f896ddea742e6db30c17a928b19ccdc944e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 18 20:40:01 2018 -0700
+
+    Update README.md
+
+commit 9ad1386d77a0d8ace27cdc1b575aca73c462e4ea
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 18 20:15:10 2018 -0700
+
+    Update README.md
+
+commit bfa32cd076fd48bb09562c051c94a0fbaafdc13e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 18 20:14:47 2018 -0700
+
+    version bump
+
+commit 842ab46197b909f64efb282bf86c26027ff95886
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 18 20:14:17 2018 -0700
+
+    Added a few comments
+
+commit 217c540b8981ce1be47f04efb82c1c2ef32b3bf2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 18 20:12:29 2018 -0700
+
+    Added a check if still connected
+
+commit 7212fec749be6432b1d0f4465c51a632cbbe7010
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 16 06:54:29 2018 -0700
+
+    Update README.md
+
+commit 5a7b09f7eddc8f191d0c91e5d8f30f4d777db89e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 16 06:33:26 2018 -0700
+
+    Update README.md
+
+commit dc7428cec9721892444c983372c256d3614aebe0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 16 06:33:04 2018 -0700
+
+    version bump
+
+commit 666c017808d86ed77f96de510e13fb2083454171
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 16 06:32:30 2018 -0700
+
+    Added comments to 'debugmode' if statements
+
+commit a71f083df09c1c06cd8f7801136dcf40fac583cc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 16 06:27:57 2018 -0700
+
+    Added comment to 'debugmode' setting
+
+commit d0b29d64ffd85a9eadc3d118389d72473fb1d2f1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 16 06:26:04 2018 -0700
+
+    Added debug mode
+    
+    Debug mode will print msgs to the screen. If disabled, no msgs will print to the screen and bot can easily run in the background.
+
+commit 40982fc859a27aac1747d01f0139747940ef0437
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 15 20:31:19 2018 -0700
+
+    Some more useservpass comments
+
+commit e749ab48ce6c542eee6d357c7e026f2f729f230d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 15 20:26:40 2018 -0700
+
+    Changed comment on servpass setting
+
+commit 6f7a6117398248bb323258ed6db8f4ef309c0347
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 15 20:23:09 2018 -0700
+
+    changed comment on exitcode setting
+
+commit b3a3913ea4aa3899c4a046991e6e45414ba08ece
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 15 16:58:16 2018 -0700
+
+    Update README.md
+
+commit 0a6bc391a653dd4c180645656b18352fcb43cfd3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 15 16:57:49 2018 -0700
+
+    version bump
+
+commit 82f51f48cfe879c6b39bced2342da116cdd8144f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 15 16:57:08 2018 -0700
+
+    Some changes to NickServ identify
+
+commit dd069ed9734e6c564fa8e36ba524d6d37f99f36a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 15 16:52:28 2018 -0700
+
+    Added server password boolean
+
+commit 717d4b71a43fd3335619c034bc11d54fb4b0ab37
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Sep 14 20:11:56 2018 -0700
+
+    Added some more comments
+
+commit 4ae7cefd40b2357e600af59d4e3a0b0f60c5465f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 13 19:26:31 2018 -0700
+
+    Update README.md
+
+commit c37ab497458c4a4d083643f9dedd42a8e24c82ff
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 13 19:26:14 2018 -0700
+
+    version bump
+
+commit 5e33f41e8b77260997cb5c12d591c2a83a45e0fe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 13 19:25:43 2018 -0700
+
+    changes to PING timeout
+
+commit 0b46756d95c8082487c52f9dd9d8cd52685fdbac
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 13 18:38:55 2018 -0700
+
+    changes to '.ip' '.uname' and '.uptime' outputs
+
+commit 531beab8510072c7227411a7c36c0940fbd6650a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 13 17:43:49 2018 -0700
+
+    fixed typo in guest 'help menu'
+
+commit 7cb8c9c073eca569a978a0fed170edaac2ee43df
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Sep 13 17:31:43 2018 -0700
+
+    update IP before giving result for '.ip' command
+
+commit e5df700e504926a977a088ffc2c4d4880457db69
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 12 20:05:32 2018 -0700
+
+    Added comment for serverpass
+
+commit e241da11f9736d6bc8fa811fb3479ac01bf93bbf
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 12 19:57:47 2018 -0700
+
+    Update README.md
+
+commit e4431c40cfe23f7246bd6553c7c4c753a9dee2f4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 12 19:57:23 2018 -0700
+
+    version bump
+
+commit ff87e28b7101be04b2c658f609a67115f3546fb0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 12 19:57:02 2018 -0700
+
+    changes to nickserv identify
+
+commit 30400bc5a8b561eb3d771fb17f17631e899bb4f2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 12 17:17:48 2018 -0700
+
+    version bump
+
+commit a345f1ce7a78609ed1265d369a3d9317c173a521
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Sep 12 17:17:18 2018 -0700
+
+    minor updates
+
+commit 5b368bc0d519cebba2ca41bb658336e200abb35b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 11 19:08:30 2018 -0700
+
+    Update README.md
+
+commit db99e2115b7ab8ee58dc5e15684a062acc75e2aa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 11 19:08:12 2018 -0700
+
+    version bump
+
+commit 0547d64514299ccaaee85584ce7e04d7643b6663
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 11 19:07:39 2018 -0700
+
+    fixed QUIT messages
+
+commit efebe94a97955c04661eb09c0b17c321f7d679d4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 11 18:12:44 2018 -0700
+
+    fixed ssl bug
+
+commit ba1cdfc34880a830d2ed4b714a237a2cd23479da
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 11 15:51:32 2018 -0700
+
+    Update README.md
+
+commit 4e724b1a9c27fcaec28c8c253a46098ef8be4880
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 11 15:51:10 2018 -0700
+
+    version bump
+
+commit 28090d39173d97c8b8d643b5e9f60bc3ef425439
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 11 15:46:52 2018 -0700
+
+    Fixed a few connection failure bugs
+
+commit 271869f786668267cf716a689efc8cf56e25eceb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 10 17:31:35 2018 -0700
+
+    Update README.md
+
+commit 42c1f58e8f5145fc8e7abb40d3597beb657a9dec
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 10 17:31:12 2018 -0700
+
+    version bump
+
+commit 965d8cafc302d657e5c98c4c39595767e652ea4f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 10 17:30:28 2018 -0700
+
+    changes to reconnect
+
+commit 2b81a7af661191d5dc44ad0969a5f78889c5affb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 10 14:36:48 2018 -0700
+
+    fixed typo in '.help' menu
+
+commit 74edf071e6505c73fdf82b1e16f8f748e3e961f6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 10 14:35:34 2018 -0700
+
+    Update README.md
+
+commit 8e39a9cec0f2d402ed5eafc766f4c0869376656f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 9 20:00:45 2018 -0700
+
+    Update README.md
+
+commit 9c1d8045e66e54d1f85986b60610c348413bf06f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 9 11:13:44 2018 -0700
+
+    changes to NickServ identify
+
+commit 00e25ca23b64cca57c7ea94709c4c4d0d3f3a50c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 9 07:24:45 2018 -0700
+
+    Update README.md
+
+commit 0df42a8112e90bd7b1e4a8854ce4e90d647a406d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 8 13:41:32 2018 -0700
+
+    changes to 'exitcode'
+
+commit b095f9a35cedcb48f04cf4dd660887bcd98ece18
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 8 13:18:45 2018 -0700
+
+    version bump
+
+commit 4826be14de37b0137baf5443f5fea1b2fab528a2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 8 13:18:21 2018 -0700
+
+    changes to '.nick'
+
+commit 274c218f2cb6133846dd868314de151a107d72f7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 8 11:19:01 2018 -0700
+
+    changed KeyboardInterrupt msg
+
+commit adb46848d1eb1bac52e0f723115abd33cc64e5b1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 8 11:12:07 2018 -0700
+
+    Changed KeyboardInterrupt msg
+
+commit c17039d4666a618ca2038c7d931c6be1b778c157
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 8 09:50:03 2018 -0700
+
+    change to KeyboardInterrupt msg
+
+commit 7375fec4ee2492af02249a5d69b64f7855470f23
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 4 20:53:41 2018 -0700
+
+    changed 'ctrl+c' output
+
+commit f8dec83187a5c424940e4704911d4c5647f959ee
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 4 13:58:53 2018 -0700
+
+    mod date change
+
+commit 7f644537633a8cba039b31adffe2b64644c246fd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Sep 4 13:58:07 2018 -0700
+
+    comments
+
+commit 6abd14dad59c4a2f38e388e01a403706a94eb829
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 17:50:26 2018 -0700
+
+    Update README.md
+
+commit cc9479770067bb58f139139c2cb29e826ad3337c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 17:49:06 2018 -0700
+
+    version bump
+
+commit 1c3844636482fba7022c98e346e9e9dfee7b17c9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 17:48:49 2018 -0700
+
+    Additions to the reconnect code
+
+commit 1a4788fd40d00d6a482c6ceacb4b268a36db161a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 11:37:58 2018 -0700
+
+    increased threshold
+
+commit 0f1ffbcefa9b8ea7fd3facc906b0234b1a87a1e0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 11:35:42 2018 -0700
+
+    Update README.md
+
+commit 28dd1879d4afd7664229545f6847ed7e0df10ae1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 11:35:19 2018 -0700
+
+    version bump
+
+commit 93a591d636f68b65099817c6ee61f83e256f20ae
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 11:34:53 2018 -0700
+
+    Added some more 'reconnect' code
+
+commit eb004e6e6eb50839cd6aba492de08201d4583000
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 08:09:04 2018 -0700
+
+    version bump
+
+commit 02a17fbc007491fee4db62a5b56b99c86cee3831
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Sep 3 08:08:35 2018 -0700
+
+    fixed bug in 'botnick' code
+
+commit 6020182383d9e23d828ce11eaacf4b8154cbc887
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 20:05:04 2018 -0700
+
+    fixed bug in lastping
+
+commit 1eb1e7a60356e7bfeff111aff87bc7d788c090d6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 19:57:08 2018 -0700
+
+    fixed bug in lastping
+
+commit a151b48c9d39b425b4e88ce5ebeaa130fa95ec4b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 19:34:32 2018 -0700
+
+    Update README.md
+
+commit 8a012ab238e217e5881d18e48864e61d5b94b2af
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 19:33:28 2018 -0700
+
+    changes to '.help'
+
+commit 2a032da262a0ca81af058bdc965ff10d52c308e2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 19:24:51 2018 -0700
+
+    increased threshold
+
+commit 92e9d7b4bf606b8c6e5bcdd88133d10d5f4308da
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 19:12:16 2018 -0700
+
+    fixed bug in 'nick taken' code
+
+commit a6477a73c17f84d70f554675f817af311a044be7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 19:05:41 2018 -0700
+
+    import random and vers bump
+
+commit 466c5c9852044b8ded85b831aefd761dd63c4bd8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 19:01:14 2018 -0700
+
+    fixed bug in 'nick taken' code
+
+commit 1b0a5823713a3e29c31520fbdfddb424b0ffc83a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 18:59:08 2018 -0700
+
+    fixed bugs in 'connected' code
+
+commit fadbd28d04cb63da0775eddcf57dcf4594b47a3a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 18:39:12 2018 -0700
+
+    Update bot.py
+
+commit e30c232b88886635fbbaea43eaec38cf1d8d9eaa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 17:09:40 2018 -0700
+
+    version bump
+
+commit 2c25a02a1c3f2d69c1d86de5cf80536fedc3cea1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 17:09:19 2018 -0700
+
+    bugs in 'connected'
+
+commit 10c996a16e8121ba17b5ce04856ab9928d01d566
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 12:58:31 2018 -0700
+
+    fixed connected bug
+
+commit 74f3440da7459e31f8c22033d34599a5465627ec
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 12:48:07 2018 -0700
+
+    reconnect on disconnect
+
+commit a96aa82cf949caebdee4faec16936d11a3701638
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 12:24:55 2018 -0700
+
+    auto-change nick if nick exsists
+
+commit 12222c2247062882b82fade3ead8e694c4faefd7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 11:44:55 2018 -0700
+
+    Update README.md
+
+commit ee83ee2f8f0c76588a525fd26992defabce1bc59
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 11:21:20 2018 -0700
+
+    version bump
+
+commit 576f29fa445718b442a563ebe69c910e184b23bd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 11:20:45 2018 -0700
+
+    updated '.help' command
+
+commit 74059effffaa0b8650e48dd9fe194791964d1aeb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 09:45:45 2018 -0700
+
+    Update README.md
+
+commit a4f955b8fa267097e893e42e0897546e50668349
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Sep 2 09:06:28 2018 -0700
+
+    .help update
+
+commit 8df2602b6d296daf071f73993dfb0c921ac35cee
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 1 21:36:26 2018 -0700
+
+    fixed bug in .help command
+
+commit 6daf6a782f7a13607df722708bf1b69aa99af6fe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 1 11:19:10 2018 -0700
+
+    Separated '.help' responses for admin and others
+
+commit 9a6308eb21dd5b2ec966d9e60a3d583efb796cc0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 1 08:44:42 2018 -0700
+
+    Update README.md
+
+commit 24aece4d231c3323cf409c33b9cfbd3b9e4af36b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 1 08:44:05 2018 -0700
+
+    Update README.md
+
+commit 729dce6c3173b17e3ac92ce4b24c9ce12e6cdec5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 1 08:43:30 2018 -0700
+
+    Update README.md
+
+commit 5eebb3c7a09d87d4e6debad6e6a46cc4d104aa76
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 1 08:43:11 2018 -0700
+
+    version bump
+
+commit d386f76ad0088435fbd2cf697385a8d055c9369c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Sep 1 08:42:39 2018 -0700
+
+    Added the '.help' command
+
+commit 5aa08a8ffb79f2ffb2930ad77a86c74d1a2d948c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 31 11:04:32 2018 -0700
+
+    Added 'help' function
+
+commit d7fbd108a9d70f56b6da8220aecd0eebc9eac23c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 30 15:54:25 2018 -0700
+
+    fixed some comments
+
+commit a6cab8f8c26783e833157a5c8485ed949d008d93
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 30 15:40:06 2018 -0700
+
+    Update README.md
+
+commit 16bd0fc8ecae8805c592a004bec32e100b3dc112
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 19:36:54 2018 -0700
+
+    fixed bug in .nick
+
+commit 3660e8ab1505855320b205c0ea0e56d29f0f024b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 19:32:31 2018 -0700
+
+    version bump
+
+commit 6aa37e298a966ce819186e21e097670cf290583b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 19:31:39 2018 -0700
+
+    fixed bug in .nick
+
+commit 01bf75c9697ade92cbfcc8fa51205f5304397599
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 19:25:28 2018 -0700
+
+    Update bot.py
+
+commit e22bb8710118ccaf68b3b2f5611a5d43b3433a24
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 19:04:20 2018 -0700
+
+    Update README.md
+
+commit 6eed2e1e5eb0c5c5a5ae487156fc9cb4d08280df
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 18:53:17 2018 -0700
+
+    version bump
+
+commit 472b26bbd31842a9120038f7dc74693a1c5edeca
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 10:44:40 2018 -0700
+
+    Update bot.py
+
+commit c0d5d65e5b07e00937508804974048fbceb999e3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 29 10:43:24 2018 -0700
+
+    Added .kick
+
+commit e23eec35fd5ebc601c6c43328c9ae02ef1ec7e11
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 28 21:04:28 2018 -0700
+
+    Updated some comments
+
+commit b3314b8f05a69a02e53ebc5fb129bd89275edb7c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 28 21:01:22 2018 -0700
+
+    Update README.md
+
+commit c3986dc3b7a420bfffd4f767d1468523104b0c92
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 28 21:00:56 2018 -0700
+
+    Added comments
+
+commit d500afc35076f478158ecdf68d8676c883d68848
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 28 20:59:30 2018 -0700
+
+    Added '.kick [channel] [nick] [reason]' command
+
+commit 2133d2d010582db2c0e4ecbdc8fb9ddb896a290d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 28 20:56:59 2018 -0700
+
+    Added kick function
+
+commit 16a369a10382d284e60bf8e92b76e32a509829ae
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 28 19:09:55 2018 -0700
+
+    updated version number
+
+commit 4b592e59ce214910c5192ad9f7cab63588fbe13e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 28 19:09:23 2018 -0700
+
+    Added keyboard kill method
+
+commit df154e7facb599ac196796eaa249b042b4a378fe
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 27 18:40:45 2018 -0700
+
+    Update README.md
+
+commit ba0a1aef98bc48967739b02a4b59ff3e7ee841be
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 27 18:38:27 2018 -0700
+
+    changes to nickserv code
+
+commit 1cb6ac4988f9a0e7d0e09a72a797d1a72252187f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 27 15:30:32 2018 -0700
+
+    version update
+
+commit 455fa069ce89228a443cac06fb2b4544a10ae374
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 27 15:19:58 2018 -0700
+
+    update to 'nickserv identify' code
+
+commit 58159889a48dcf1e2c882e2c894b43336f03f765
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 27 04:20:33 2018 -0700
+
+    Update README.md
+
+commit b95592b82ebc3c49fcc5db8a9f7fd9578023e7c9
+Merge: 164a155 a0f0761
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 27 04:19:26 2018 -0700
+
+    Merge pull request #3 from Abdur-rahmaanJ/master
+    
+    updated todo
+
+commit a0f07619a11c7abc1c1324dfa464cd757ab60cf6
+Merge: 164a155 fcacacd
+Author: Abdur-Rahmaan Janhangeer <cryptolabour@gmail.com>
+Date:   Mon Aug 27 09:12:21 2018 +0400
+
+    Merge pull request #1 from Abdur-rahmaanJ/Abdur-rahmaanJ-patch-1
+    
+    updated todo
+
+commit fcacacdc706d79f149bf552aa701a5967972d46d
+Author: Abdur-Rahmaan Janhangeer <cryptolabour@gmail.com>
+Date:   Mon Aug 27 09:11:59 2018 +0400
+
+    updated todo
+
+commit 164a1553eebbf59bad0aa324a5ffcf5ef90bfbd0
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 18:46:59 2018 -0700
+
+    Added '.nick [newnick]' command
+
+commit c42d651dc10cac69bb3b50cae7b4502fe8327299
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 18:34:23 2018 -0700
+
+    create nick function
+
+commit a35da3495a8f7f1efd29facf1e9db6469bd720a4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 12:32:26 2018 -0700
+
+    Update README.md
+
+commit 0894ceeb3d6e0e914ae40d5f216d4ed3383e97f3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 12:24:20 2018 -0700
+
+    Update README.md
+
+commit 1b7ec056a0c0c9021ca462399e716aad1d11ed5a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 12:24:01 2018 -0700
+
+    nmap improvement
+
+commit f8d6fc13cd3ce376ed13244b9405a9ce01e2cc22
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 08:54:44 2018 -0700
+
+    Update README.md
+
+commit 74919635d36ac1095aae6d6d9f727392e29de766
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 08:35:34 2018 -0700
+
+    Update bot.py
+
+commit 34c588760066111d6cbec6fbff68de1b796e4996
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 08:33:50 2018 -0700
+
+    Update bot.py
+
+commit 5f566a572b97def6758792bc7c9173dc3e38ae75
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 08:29:55 2018 -0700
+
+    Added connect() function
+    
+    Added the ability to keep trying to connect every 10 seconds until successful.
+
+commit 34e67a8de919e99d730a779b5d73f7ef842a37cc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 07:44:48 2018 -0700
+
+    Updated '.version' command
+
+commit 4d252df1ae1c044d5494fe0e83d7e8b296d528e6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 07:34:58 2018 -0700
+
+    Update README.md
+
+commit 8b37cd3e9b5981a28c4244c2ba5196a175f09ef2
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 07:29:36 2018 -0700
+
+    IRC Server Password support
+    
+    Added support for password protected IRC servers.
+
+commit e9e198e9c5e81e7ec296ec1b6de2ee5d3ff2bccb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 06:52:58 2018 -0700
+
+    Update README.md
+
+commit 2a388612510b10d8ca42fb4b76f72bec0eb73c69
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 06:43:16 2018 -0700
+
+    Update README.md
+
+commit cef89ac6fa7f031ad152169216c37c449272fe2e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 05:49:26 2018 -0700
+
+    Update bot.py
+
+commit 48b3d41f8e087529da75526739202e27cc10ac14
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 04:58:31 2018 -0700
+
+    Update README.md
+
+commit e6f909eb7b0508fe095dc9eaba5b78995065d54a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 04:55:42 2018 -0700
+
+    Update README.md
+
+commit 49b6cb8242bf23aaa2f9c45862b336b9d5bbeac3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 26 04:54:48 2018 -0700
+
+    Update README.md
+
+commit 808885d463f812f586958f0ff04c118503d696a1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 21:16:10 2018 -0700
+
+    Fixed a few comments
+
+commit b9e2bbdd9439678265569a7e1dfce19bed24c434
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 13:31:04 2018 -0700
+
+    Update README.md
+
+commit b76a54843394dd9d4ebb7a389f3acf2cfd89ff2c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 13:30:40 2018 -0700
+
+    fixed bug in '.mode'
+
+commit 84a99ef4502e5dfdc75422e846770743cea08556
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 12:43:35 2018 -0700
+
+    fixed bug in .mode
+
+commit 3830f7b43c69c188bc62f16357eac93be3edfa14
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 12:37:43 2018 -0700
+
+    mode modification
+
+commit abca18612b655b96d01215d15abb5f9d9b8a38aa
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 12:05:36 2018 -0700
+
+    Update README.md
+
+commit ce5c0a5365240a19fd7dcba08732194414ec4dc9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 12:03:30 2018 -0700
+
+    Update README.md
+
+commit 89be2db33fe7c3b6d1ac0afb96efe29866903f10
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 12:02:45 2018 -0700
+
+    Update README.md
+
+commit 53fa0a1a8c48b6624708e3d196f863c0972b1f35
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 25 12:01:21 2018 -0700
+
+    Update README.md
+
+commit 0e3cee98c5f6ffb4823fa821d0173cb05e09bce9
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 24 20:18:01 2018 -0700
+
+    version bump
+
+commit 6f38e02d27e346d6f8a4d9e367350e256c61a427
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 24 20:17:36 2018 -0700
+
+    fixed bug in '.cycle'
+
+commit ad51f9d0506538b174ca0acc2e49e3c16ccda19d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 24 17:27:00 2018 -0700
+
+    Added response to CTCP VERSION
+
+commit ab3790a64ac94172d8ad78fcde4a5f976e3661ab
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 24 14:56:14 2018 -0700
+
+    Added join/msg-on-connect
+
+commit d38153294e09cf5c204b16ddec29ad33a6186c0b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 23 20:27:51 2018 -0700
+
+    Update bot.py
+
+commit f546fbfec1380200cf119b78bf148f1185629726
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 23 19:25:57 2018 -0700
+
+    Update README.md
+
+commit 0350231191f3951956893a1dd82a0e5f0587f61f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 23 19:21:17 2018 -0700
+
+    Implemented the '.cycle' command
+
+commit 0a92e47d79f2093be0e90755df10462a159a9a4b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 23 19:15:48 2018 -0700
+
+    Added the 'cycle' function
+
+commit bc110156f1482c46502a3bbf78824811e6fcca1d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 19:49:14 2018 -0700
+
+    possible name conflict fix
+
+commit 8f30a90cd0af99248920b34ded806e0c80fc8d7e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 19:28:27 2018 -0700
+
+    version bump
+
+commit f7ffe5e5fccb8ec6a9bb36bca95e35f699b72799
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 19:22:26 2018 -0700
+
+    fixed more .join .part bugs
+
+commit b6914020560fae8a89eb6518f00d8b0b6e02e0e8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 18:58:59 2018 -0700
+
+    .part typo bug
+
+commit 2c1c7b808f7a87d9f114317082f2f1c538d30e28
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 18:47:01 2018 -0700
+
+    .join .part bugfix
+    
+    Fixed a bug in .join and .part typos missing the '#' causing the bot to hang.
+
+commit daceeb27cca49531579636718a4651cd7ea6e401
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 16:03:27 2018 -0700
+
+    nickserv ident modification
+
+commit 4617406061622c115b93381964e618be3e504bf3
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 15:11:25 2018 -0700
+
+    missing closing quotations
+
+commit 8954d794028f7b767a73e79ed28b7c63c18288a7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 11:17:15 2018 -0700
+
+    Update README.md
+
+commit 6a3f565b62735046430c770882e6844bb9f8f357
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 11:16:01 2018 -0700
+
+    Added .notice command
+
+commit 91a498554a51284958bd7bd10d3c18edb5254741
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 10:53:08 2018 -0700
+
+    renamed .tell to .msg
+
+commit fbada4c19a96478af0832daa11da591a177a9be7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 22 10:52:29 2018 -0700
+
+    NIckServ bugfix and renamed .tell to .msg
+
+commit 1341c5fe4fa645682c8bcf21390b51bf564e7d1d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 21 21:07:48 2018 -0700
+
+    Update bot.py
+
+commit 5037830417b8b1fd54ad874107ba2691eb915597
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 21 20:17:13 2018 -0700
+
+    Update README.md
+
+commit 934c449bd514ff4163bf1179e129d894a4e7f6ba
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 21 19:54:30 2018 -0700
+
+    Update README.md
+
+commit 696e3b637da250fe18c9967cf5680c01d7974f15
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 21 19:01:14 2018 -0700
+
+    Update README.md
+
+commit 9ad9d57e48a21e5e18773e12c19ff3ac77ca5036
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 21 12:02:17 2018 -0700
+
+    minor bug fix
+
+commit c91d5f3f40a565cfd2db56e4d52193646307fd66
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 20 20:24:35 2018 -0700
+
+    Update bot.py
+
+commit 785fc0ac2add4995f453563105e321220aa75524
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 20 19:45:46 2018 -0700
+
+    Minor bug fixes
+
+commit df1487972bfe22e60f5a77119bd49370f4364f75
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 20 16:01:54 2018 -0700
+
+    Update bot.py
+
+commit 3e5a4224dbb23eaa02572cb33acbc732047f1e55
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 20 15:41:18 2018 -0700
+
+    Added .mode command
+
+commit a3dbcc62c998655cc25a8f20d1ce6520f64ba4df
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 21:30:59 2018 -0700
+
+    Update README.md
+
+commit 0f2e6b24056b9c7e29a595f26232ea47b05a623d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 21:29:30 2018 -0700
+
+    Added VERSION and BG compatibility
+    
+    Added VERSION replies and added the ability to run in the background.
+
+commit 7dd454dffe8df796b587f32486f74f6b0b165ffc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 21:12:15 2018 -0700
+
+    Update README.md
+
+commit 8b06fd09643930d60abc44dc066773fa75f9d406
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 14:19:19 2018 -0700
+
+    Update README.md
+
+commit 4b204b7b45b73dc461c0515641ec005ae8792943
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 13:55:39 2018 -0700
+
+    Create requirements.txt
+
+commit b5a110a0a4c6b60a16b6e1bafef8cc2e2d540229
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 13:45:56 2018 -0700
+
+    Update README.md
+
+commit 03fde2e775fa7c9a82711cf627c33dc669929047
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 12:42:18 2018 -0700
+
+    Update README.md
+
+commit 312b5181dacee13f90023746157028e94d0358fb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 12:12:49 2018 -0700
+
+    Unrealircd nospoof compatibility
+    
+    Added Unrealircd 'nospoof' compatibility to ping response.
+
+commit 71108c39b7a506dd838400e6ce58ab8ed5df5563
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 07:58:56 2018 -0700
+
+    Update README.md
+
+commit 2fa59f3e11ad232c1404938e0688497c74cf7a2c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 19 07:55:00 2018 -0700
+
+    Update bot.py
+
+commit 4745970b613da9175b1006c7bb0f654517e96cbb
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 18 19:19:54 2018 -0700
+
+    changed nickserv ident
+
+commit d2416f4fb3281833c7e2e70c16fc1ea61ca4b02b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 18 18:02:04 2018 -0700
+
+    ident to nickserv on connect
+
+commit 2f380ed5c4957a40d91478f1b0776ec760db0e96
+Author: trackmastersteve <trackmastersteve@gmail.com>
+Date:   Sat Aug 18 17:34:29 2018 -0700
+
+    made bot.py executable
+
+commit 5eff53bc17b4e83d614fb1454ed7e16fdefb61a5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 18 17:30:11 2018 -0700
+
+    Update README.md
+
+commit d3e356ab600a7d8074cb7cb0c9483eacccfc9b6b
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 17 18:29:42 2018 -0700
+
+    Update README.md
+
+commit 4cbef0a6fa8c7afe7a782eb8c3f4e84877005b33
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 17 17:06:03 2018 -0700
+
+    Fixed bugs in .join and .part
+
+commit feec696fb2a88f26e54fced321dd93534195c447
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 17 16:17:07 2018 -0700
+
+    Update README.md
+
+commit 0d4c884fef76b14f89cd2c01768db3785c1d33b4
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 17 16:06:03 2018 -0700
+
+    Added .join and .part commands
+
+commit a42b182984cbbf21cfd25a5e70bd86b941872044
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 21:21:49 2018 -0700
+
+    Updated TODO list
+
+commit a6665c2206f53c41dbdcab2d814895e8dea6c6ee
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 20:42:53 2018 -0700
+
+    Update README.md
+
+commit 2c461351bf53ddff569b62b99f3e908b88ee0c81
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 20:41:07 2018 -0700
+
+    bug fixes
+
+commit 385724183e50bacc0449a3431855eef4a5684441
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 20:34:45 2018 -0700
+
+    bug fix
+
+commit 4f127442c74d23df55397e8a23accf5c8c15f0ec
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 20:29:35 2018 -0700
+
+    bug fixes
+
+commit b7f0ed4ac9db5852d1c406f6e61dc69b828c900c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 20:11:34 2018 -0700
+
+    fixed ssl bug
+
+commit b0838fbbed002567bec5c1fd4b847b35408a620e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 19:57:01 2018 -0700
+
+    fixed bug in ip-to-botnick
+
+commit 265ff323cd8a8668a0ce0b8fc7c8646bebc135cd
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 19:50:23 2018 -0700
+
+    botnick to ip code adjustment
+
+commit c6082c649f3c45419090328053744faca91172b6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 19:23:50 2018 -0700
+
+    fixed bug in .ip command
+
+commit c4ccaae7877ae1f5fec140acd55a3d8129d11176
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 19:10:02 2018 -0700
+
+    SSL, .ip command, and auto-ip-nick
+    
+    Added SSL support. Added the ```.ip``` command and added a feature to automatically set the nick to the ip address.
+
+commit 5875a52c6bf3b9c35ae4e2bb17bb0f2c14350fa1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 05:57:42 2018 -0700
+
+    Added to TODO list.
+
+commit de0f6477b4eb08233ad743a0c9a0175b261574b5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 16 04:35:18 2018 -0700
+
+    Update README.md
+
+commit f2a95ee7028ed0c57ce16436c3735483e4132806
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 15 17:41:00 2018 -0700
+
+    .scan multi ports
+    
+    Added the ablility to scan multiple ports from one ```.scan``` command.
+
+commit 00ec304ef1b7c6474dfed42fd95974e21349e072
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 15 11:35:25 2018 -0700
+
+    Update README.md
+
+commit 6c4f44ac456e549ef0db411445bcd0986efd7606
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 15 11:25:43 2018 -0700
+
+    Update README.md
+
+commit deaa3f09a64f84bfa4a335fc25bc0cc589981bc5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 14 18:12:55 2018 -0700
+
+    Updated version
+
+commit fa4108e8667866a5aec30b9e665e7177cc9e8cc7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 14 18:11:48 2018 -0700
+
+    fixed uptime
+
+commit 353445ca15ed09d5e8a0cb1f6a83dc427f23b368
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 14 17:48:14 2018 -0700
+
+    minor fix to msg
+    
+    Changed the wording to the results msg.
+
+commit 5a8bdf916bdfa0e70342a123092d499315603684
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 14 17:42:18 2018 -0700
+
+    bug fixes
+    
+    Fixed bugs in .uname and .uptime.
+
+commit 4506d5059607e0a789a64c4a380320f2d40e931d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 14 17:26:52 2018 -0700
+
+    bug fixes
+    
+    Fixed a few bugs in .uptime, .uname, and .scan.
+
+commit 1577587460797e7143bcb99009a3b3b3ca480947
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Tue Aug 14 15:32:45 2018 -0700
+
+    added .uname command
+
+commit 6c1bc4e2c52236ea89a7f45d2e96b577fb391de6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 13 18:40:32 2018 -0700
+
+    Update README.md
+
+commit 4d4022428eb498ce9a0cf32b13e1738b28bca2ef
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 13 18:38:55 2018 -0700
+
+    Update README.md
+
+commit 16e45f5bb8a69d01b64280460f91e0ce5aa9e055
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 13 18:36:47 2018 -0700
+
+    Update README.md
+
+commit c00a27330079cee3287b7c3cf0aecb190ad14d6d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 12 10:54:52 2018 -0700
+
+    Update bot.py
+
+commit e01c6f46c84ffecd7eda1ddb47d6ec816171149d
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 12 10:49:04 2018 -0700
+
+    .scan bug fix
+
+commit 89982e07fce0854670a7a028fe213344c84febce
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 12 09:27:21 2018 -0700
+
+    Update to .scan command
+
+commit 36f03a3509ac29f5c41f517fc40fa3d6bdf1ba6a
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 11 11:18:58 2018 -0700
+
+    Update README.md
+
+commit 663fc991f601e803d566117e3e7448f360a66b66
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 11 11:01:40 2018 -0700
+
+    Update README.md
+
+commit 5d30d6e13829c02cb66d1f638bfbca3c3b4283a6
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 11 11:01:05 2018 -0700
+
+    Rename ircbot.py to bot.py
+
+commit 592de21b9c8196918e51df3a4b044994f8835841
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 10 16:02:23 2018 -0700
+
+    Update README.md
+
+commit 7a93b97c122b0cab7fecd0e924020431457aa664
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 10 14:35:52 2018 -0700
+
+    Update README.md
+
+commit 10e2ab349368183e8300bfa4254a671f5c06ba0f
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 10 14:34:06 2018 -0700
+
+    Update README.md
+
+commit a7b176b93afd07f2622491ef71292311cab366c8
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Thu Aug 9 17:38:52 2018 -0700
+
+    Update README.md
+
+commit e2566eca3f5875e284888043de8d30da21894467
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 8 19:47:14 2018 -0700
+
+    added version and commants
+
+commit a0532b4e6321726f7be566befba8f765e27b2289
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Wed Aug 8 19:40:10 2018 -0700
+
+    Update README.md
+
+commit 60c53eac89374f409939103fde7501be8611fcbc
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Mon Aug 6 19:06:11 2018 -0700
+
+    Added .uptime command
+
+commit 0a1976b5b91c2ab22c22727a04ace6ad8ec686a7
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 5 09:44:39 2018 -0700
+
+    Update ircbot.py
+
+commit 052be7c46716e19e65b7c297d2ac7255cd62d4f5
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 5 09:33:56 2018 -0700
+
+    Update ircbot.py
+
+commit 1a3acc712e6f9376b3d52a4f87e350e4b865d31c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sun Aug 5 09:22:10 2018 -0700
+
+    Started .uptime and .scan code
+
+commit 077181fb539d8d264b92ff5b4328bff08b93c46c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 4 16:51:05 2018 -0700
+
+    Added port variable
+
+commit f21182d94399fa15508697eea71e0174f65f9f5e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 4 15:06:50 2018 -0700
+
+    Update ircbot.py
+
+commit d70362f64a14a8f99ac62f9b89075ff46c81464c
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Sat Aug 4 15:03:57 2018 -0700
+
+    Added copyright to file
+
+commit e01dcd79c36512231bf2a14b95dbb94905bfdaa1
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 3 19:43:44 2018 -0700
+
+    Add files via upload
+
+commit 1a485af855026e2a1ecb1f876000d4ca3ee31b3e
+Author: Stephen Harris <trackmastersteve@users.noreply.github.com>
+Date:   Fri Aug 3 19:43:15 2018 -0700
+
+    Initial commit

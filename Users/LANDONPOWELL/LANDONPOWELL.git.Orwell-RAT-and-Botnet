@@ -1,0 +1,130 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Orwell - Cross Platform Botnet and RAT package.
+
+Orwell is a RAT and Botnet designed as a trio of programs. 
+The bigbro.py, which is ran on a remote server and used to 
+give commands and information to proles; the innerPart.py,
+used to send commands to BB that are given to the proles;
+and prole.py, used as the zombie client. Prole.py currently
+supports Unix-Like OSes (MacOS and Linux) and Windows.
+
+### Donate Bitcoin - `125QsXyFV5mWTGaJHZBzE6TDr4iMi2jSTp`
+
+## A quick tutorial on the use of Orwell - 
+* Run `bigbro.py` on a server of your choice, and forward the port '1984'.
+* The `bigbro.py` file will ask for a password. Set and remember a secure one.
+* Change the `bigBro` variable on line 9 of `prole.py` to `bigbro.py`'s IP.
+* Compile `prole.py` for the OSes you're targeting using the resources below.
+* Run your compiled prole executable on zombie systems. 
+* Run the `innerParty.py` file on your home computer. Consider a proxy or Torify.
+* The `innerParty.py` file will ask you for BB's IP and for BB's password. 
+* Congrats, you're now running a full Orwell botnet.
+
+## Orwell commands - 
+* `shell`   - Run command line code on a prole.
+* `log`     - Print a string to a prole's prompt.
+* `kill`    - Shuts down a prole's system.
+* `~`, `s`, or `switch` - Change who a command is sent to based upon an IP.
+* `?`, `l`, or `listen` - Listen for emits for a given time, or even 'forever'.
+
+# TO COMPILE OR RUN, - 
+## You need these - 
+*    https://docs.python.org/2/library/socket.html
+*    https://docs.python.org/2/library/hashlib.html
+
+This is the work of Landon Powell, and is licensed under 
+Creative Commons Zero. A non-professional and 
+not-applicable-in-a-court-of-law summary of the license 
+is effectively: do whatever you want with this.
+====================== GIT HISTORY: ======================
+b10f9df HEAD@{0}: clone: from https://github.com/LandonPowell/Orwell-RAT-and-Botnet
+commit b10f9df04820d233a94039eac82d2094b64585fb
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Mon May 22 16:44:39 2017 -0400
+
+    Update README.md
+
+commit 6df218bae9dac94006ae8f5110a14034fc6d8d69
+Author: god <makeamericagr8agen@gmail.com>
+Date:   Sun Feb 26 22:07:43 2017 +0000
+
+    Oops, forgot to remove this.
+
+commit 7d93ce7a6a5457cb0c8743f3d0875d4a84ceee50
+Author: god <makeamericagr8agen@gmail.com>
+Date:   Sun Feb 26 22:07:19 2017 +0000
+
+    Added user authentication.
+
+commit 2503c81dff32cc50ab3ad8b235a9e5ff7e52d715
+Author: god <makeamericagr8agen@gmail.com>
+Date:   Sun Feb 26 21:56:28 2017 +0000
+
+    Removed that trash.
+
+commit cffbcbfc02d776d46229dfa3f38688139c2f0f22
+Author: god <makeamericagr8agen@gmail.com>
+Date:   Sun Feb 26 21:48:57 2017 +0000
+
+    Added groundwork for DDoS command.
+
+commit 6ba6b38f454659f219534e9b7a84f4576b3f2955
+Author: god <makeamericagr8agen@gmail.com>
+Date:   Sun Feb 26 21:31:36 2017 +0000
+
+    New junk.
+
+commit c1fb92d105eced5d54f632dcaa492ac3f7582e40
+Author: god <makeamericagr8agen@gmail.com>
+Date:   Sun Feb 26 21:24:10 2017 +0000
+
+    InnerParty system now works.
+
+commit 012b71cbbe1f7f15ad500f81abb55c8f2385bab0
+Author: god <makeamericagr8agen@gmail.com>
+Date:   Sun Feb 26 18:11:48 2017 +0000
+
+    We're not using that socketio trash anymore.
+
+commit 6c4b37db36bb773f574949d15a6cefb0a11cd2c1
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Wed Jun 8 15:11:34 2016 -0400
+
+    Changed Default Server IP for the sake of P R O F E S S I O N A L I S M
+
+commit 97a5e3bd62039c14c370000766bf42b4903e4762
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Tue Jun 7 23:54:21 2016 -0400
+
+    Smaller BTC Address
+
+commit f7b98ebde708eaf5502f4aa0fd107d156d6212df
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Tue Jun 7 23:52:33 2016 -0400
+
+    Added Bitcoin Address
+
+commit 916a18b74f922748f2d2f3f27f02bbbb6a5aaf80
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Tue Jun 7 06:06:25 2016 -0400
+
+    Orwell - RAT and Botnet
+
+commit eb44b3a4496a6ff8f48a35ad7cd215aa764e13e9
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Tue Jun 7 06:04:51 2016 -0400
+
+    Orwell - RAT and Botnet
+
+commit e8209ccc3023fe1fef49fd1dd200485bcec57e3f
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Tue Jun 7 06:00:56 2016 -0400
+
+    Orwell - RAT and Botnet
+
+commit ceb8d32f76beae241c25de3d7ce92b1aa3e6b6f4
+Author: Landon Powell <landonjpowell@airmail.cc>
+Date:   Tue Jun 7 06:00:43 2016 -0400
+
+    Initial commit

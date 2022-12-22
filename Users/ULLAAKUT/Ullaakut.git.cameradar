@@ -1,0 +1,2636 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 1b91e5441f48b88127b9c5e0273551a29b51a63b
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Oct 3 19:22:19 2022 +0200
+
+    Fix typo in loaders.go (#311)
+
+commit d73878a1e1e210a6f9ed9be482e41ad79f724faf
+Author: Robert Wiggins <51722811+RandomRobbieBF@users.noreply.github.com>
+Date:   Mon May 16 14:32:48 2022 +0100
+
+    Update README.md (#305)
+    
+    Co-authored-by: Brendan Le Glaunec <brendan@glaulabs.com>
+
+commit 1cc3eaa0fa2c545868fcaea9696ca66f41879822
+Author: supremepot <63981037+supremepot@users.noreply.github.com>
+Date:   Thu Mar 17 14:29:40 2022 +0100
+
+    New password proposal (#304)
+    
+    Co-authored-by: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+
+commit bf65c3cf45e6e6d1b9467bff5d28433d5a14f2b6
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 8 16:58:25 2021 +0000
+
+    Update install instructions (#291)
+
+commit 456a1508c05ee1683d591f3cc232e0ebe62b955f
+Author: ArturFormella <ArturFormella@users.noreply.github.com>
+Date:   Sun Sep 26 07:27:54 2021 +0200
+
+    Added a new proposal password (#295)
+
+commit 3991f1625ffdabe58ae098efb64d3e0232be6209
+Author: Justin Buchanan <justbuchanan@gmail.com>
+Date:   Sun Aug 8 21:47:48 2021 -0700
+
+    readme.md: fix typo in docker build command (#288)
+
+commit 4c1493506d331a6cfb3f57ca8777998363774ea7
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Apr 13 19:10:04 2021 +0200
+
+    Display nmap warnings correctly before exiting when a fatal error occurs (#285)
+
+commit 80e75061da1e73dc8c5fecf24ceeed73699ef6c1
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Apr 5 15:58:07 2021 +0200
+
+    Create separate go module for xplatform magefile (#284)
+
+commit 5b48737cc733ea198fe0fe7c643589d0b4370d41
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Apr 5 15:38:28 2021 +0200
+
+    Add crossplatform docker builds (#283)
+
+commit da2dac70ac4d05b341b63dd5118d2e8c4f043727
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Apr 5 12:48:48 2021 +0200
+
+    Update curl-dev dependency version (#282)
+
+commit 8c8ea1209b352671ca99e07eb4de0b96b833506f
+Author: Sliicy <Sliicy@users.noreply.github.com>
+Date:   Thu Aug 13 03:48:43 2020 -0400
+
+    Update routes with support for Lorex LHB927 (#270)
+    
+    The Lorex LHB927 supports RTSP streams which have routes:
+    ch1/0 for camera 1
+    ch2/0 for camera 2
+    ...
+    They start counting from 1, not 0.
+    Alternatively, they can also be reached at:
+    ch1_0
+    ch2_0
+    ...
+    Adding more routes (for cameras #3 & 4) increases the odds of finding the DVR, if for example, camera 1 is offline.
+
+commit df3718a06c90858a6dcb9386225ed9dbe0f02d25
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Aug 12 09:10:29 2020 +0200
+
+    Remove /v5 in module path in documentation
+
+commit 6486d04e615b3fc0fb8f9b454875d520f09e3d45
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:37:26 2020 +0200
+
+    Test debug mode in attack & remove unnecessary aliases & newlines
+
+commit 96928ac43c101e3faaeccb8cf4866aca31f746a3
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:04:18 2020 +0200
+
+    Set module version to v5
+    
+    * Update README to reflect changes
+    * Various README improvements
+
+commit 8e7de3f59e35c4b738c770a185ca8a4d7c07a1ba
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:02:43 2020 +0200
+
+    Support multi-route detection
+    
+    * Change stream model to support multiple routes
+    * Simplify attack algorithm
+    * Use dummy route to detect cameras which accept all routes
+
+commit fbc0b7a66d12580a75c5393fbd88125b926c754d
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:00:18 2020 +0200
+
+    Move issue template to .github and remove old changelog file
+
+commit 78eda6672e5268aeaf2b7f2667cc760f9f74c51a
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 07:59:22 2020 +0200
+
+    Fix stream discovery on non-standard ports by using service info mode in nmap scan
+
+commit 9f05634531a008fdadff133cca0688e5720158a7
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 07:58:43 2020 +0200
+
+    Reword error message when no stream is found
+
+commit defc308a9df234debc63ace042044aec934df006
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 07:57:41 2020 +0200
+
+    Remove unnecessary import alias
+
+commit 9a6c030a74b424b06f58a1d324c96541ed788687
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jan 21 08:49:36 2020 +0100
+
+    Remove spam from curl verbose mode (#257)
+
+commit afe2caddd60f9576b973dbfad7e8759305752603
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jan 21 08:39:06 2020 +0100
+
+    Add routes and credentials for Besder IP cameras (#256)
+
+commit 8349bc7c3a0d8018ccb826096954dc5d9fe638e9
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jan 17 09:47:38 2020 +0100
+
+    Fix scan unit tests (#253)
+
+commit 04ab1cfc8dd78fd60ec4a3d7c28a862a0d423744
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jan 17 09:18:22 2020 +0100
+
+    Use older curl version to fix digest authentication (#252)
+
+commit d233fd850e0ed6426defd9e332a7e663bd6ba3f1
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Nov 30 16:57:27 2019 +0100
+
+    Update nmap dependency to v2.0.0 (#250)
+
+commit 948aca316b93cb1203e2b3784aa1a839d0c5be2b
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Nov 30 16:23:14 2019 +0100
+
+    Add libcurl requirement to build from binary (#249)
+
+commit 3f05737bf2f1ec78a8b9184bd4b93a3ea68003b7
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Nov 16 09:46:09 2019 +0100
+
+    Fix scan interval option (#246)
+
+commit 4aabf47a5de049e197ea3f0d5cb643038c1c2ebb
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 11 21:42:38 2019 +0100
+
+    Add scan interval option (#245)
+    
+    * Add scan interval option
+    
+    * Update tests for scan interval
+    
+    * Handle missing target properly
+    
+    * Update documentation to reflect that durations are not in milliseconds
+
+commit cb47aef7e4d81cab037909ac0b223d4a5df65aed
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 11 20:17:39 2019 +0100
+
+    Fix capitalization issues in import path (#244)
+
+commit bb05fcff6fe5dd811296f0cb2d3daff0857afa1b
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Fri Oct 18 07:55:17 2019 +0200
+
+    Update funding
+
+commit 8634ba84cacd4e6c48f1839a67b6c04423bb222a
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 3 22:04:17 2019 +0200
+
+    Update dictionaries & dependencies for dictionary fetch tool (#240)
+
+commit 3bd6b9171e4e5a68307696f22b1b0f87872493a9
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 2 09:37:26 2019 +0200
+
+    Encourage people to donate to charities
+
+commit 18a933ba45f42e3ea291feb25726f9e0afa87f88
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 29 04:27:57 2019 +0200
+
+    Remove goreleaser (#232)
+    
+    * Debug goreleaser
+    
+    * Remove goreleaser
+
+commit 0187d9a553490f7e0890748ac607abdd9657e0cf
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 29 04:23:01 2019 +0200
+
+    Update dependencies
+
+commit 7672da5b6d6fdcbd71b79cc99afc1bb181dceb4e
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 29 03:03:17 2019 +0200
+
+    Update dependencies for release 4.1.0 (#231)
+    
+    * Update dependencies for release 4.1.0
+    
+    * Update packages in travis build
+
+commit 966266f74251bbbe54b5505fb61c658e83425bad
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jun 27 07:23:52 2019 +0200
+
+    Fix erroneous build instructions (#230)
+
+commit 0738d089660c4f9092cf12b19e5556d9f6befbef
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 20:21:07 2019 +0200
+
+    Fix goreleaser deployment (#228)
+
+commit 4603096b93f03aa05daf97a39efb453305226381
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 18:36:35 2019 +0200
+
+    Use os.ExpandEnv for injecting gopath in dict path (#227)
+
+commit a5d345533325248b8bacf98c4dbd4548bbaa13ca
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 13:52:56 2019 +0200
+
+    Add Goreleaser (#226)
+
+commit c83f961ffc9bd2cfea9c567a6f6b78d0ae635eb8
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 08:06:48 2019 +0200
+
+    Change curl errors from debug to error level (#223)
+
+commit a6ed312eaf2eb20bdddace186e3cbbbaaaa6b59f
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 11 09:07:38 2019 +0200
+
+    Update second occurrence of build instructions (#220)
+
+commit 35b0cf26d9192088fef4df58cd87074650c49b3b
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 11 09:02:24 2019 +0200
+
+    Improve documentation and add warning when no gopath (#219)
+    
+    * Improve documentation
+    
+    * Add warning when no GOPATH set with default dictionaries
+
+commit 0f011a17978e12b99f154449540cdd78ec248c61
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jun 6 10:04:55 2019 +0200
+
+    Fix attack loop and add reolink routes (#215)
+
+commit 7719110f1ea46104d859251fea0ccdc285453951
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 27 01:57:19 2019 +0200
+
+    Remove changelog in favor of github release page
+
+commit 212ac2f0d592266f45347d682522f0932017aaee
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun May 26 08:33:08 2019 +0200
+
+    Cameradar v4 (#212)
+    
+    * Refactor of cameradar library
+    
+    * Old unit tests updated & improved. New unit tests inc
+    
+    * Update documentation & issue template
+    
+    * Update dependencies
+    
+    * Update TravisCI build script to reflect argument change
+    
+    * Remove outdated contributing guide
+    
+    * Update README with more examples and remove part on library
+    
+    * Add second camera to Travis build script & improve error detection
+    
+    * Fix typo in travis script & add missing image to readme
+    
+    * Remember that travis uses bash syntax not fish
+    
+    * Use relative paths for images in the README
+
+commit 2e49587cc291ebc90ca30b66fe58c93dc754db4d
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 23 09:19:04 2019 +0200
+
+    Remove erroneous route and update dictionary updater (#207)
+    
+    * Remove erroneous route and update dictionary updater
+    
+    * Rename dictionary updater
+
+commit 47285675b99149e920fe8aeda645348e1beeb487
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 23 01:42:04 2019 +0200
+
+    Add route dictionary generator (#204)
+
+commit 2678df2e4c89ea0177d83e2ad9bfc6405d1f1b27
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed May 22 22:25:32 2019 +0200
+
+    Add default credentials for aiphone cameras (#203)
+
+commit 862e9f3de951fa3e999b5c4bc74b44345373d17b
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Wed May 22 22:08:35 2019 +0200
+
+    Add unit tests for DetectAuthType function
+
+commit 260a9645bee8ba7e327c8c8f3c4cced1002ea38b
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 21 11:03:02 2019 +0200
+
+    Add digest authentication support
+
+commit 1d5d6060852d2e94b0889f651360660c03f0db0e
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 21 07:31:18 2019 +0200
+
+    Update documentation on new dependency management (#200)
+
+commit c249be1cc06d3ba2cb0d3dedc462df2a135d0d37
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 11 16:48:37 2019 +0200
+
+    Update documentation on new dependency management (#196)
+
+commit 1ec3a5fe44e6ce30d1b2f8b27a713dbcb5e85e77
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 11 16:33:16 2019 +0200
+
+    Update documentation on new dependency management (#195)
+
+commit 3b082ea736d21b76dcd1fa8fa9599235cfa06e04
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Sat Apr 6 12:56:15 2019 +0200
+
+    Update to disgo 0.3.0
+
+commit b6ebd468c65350fbfa95466d67bced15333472ed
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sun Mar 10 20:12:46 2019 +0100
+
+    Integrate Disgo for user interface (#193)
+
+commit ceb210f2815c3381bb37c03528eabf260044965b
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sun Mar 10 19:14:11 2019 +0100
+
+    Switch to go modules, use forked go-curl to fix CI (#192)
+
+commit fcb627dccdf3879a0ecaad086385badf689c16ae
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sun Mar 10 17:16:39 2019 +0100
+
+    Update Readme with new dependencies and update copyright date (#191)
+
+commit 098460702b793ee79a6e52d6ff729fc1ad0a0b64
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jan 24 09:43:13 2019 +0100
+
+    Fix environment key delimiter & fix environment overrides in docker image
+
+commit 58498982833fa6aad86d1d28e1c66fa9c1a6ae3b
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jan 22 21:16:16 2019 +0100
+
+    Cameradar 3.0.0: Uses ullaakut/nmap, runs faster, removed legacy code (#188)
+    
+    Unit tests functional and coverage back to 100%
+    
+    Add more routes to dictionary, add more credentials, add default port 5554, rename cameradar logs ENV variable, improve unit test readability, remove tmp file
+
+commit 878ca9f03240fed8f79839b4150fc4bd3be360a5
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Tue Dec 25 10:17:54 2018 +0100
+
+    Update dependencies
+
+commit 24f86b74f51859e67094a50f628c502298b1e87f
+Author: Isaev Denis <idenx@yandex.com>
+Date:   Mon Nov 26 10:47:48 2018 +0300
+
+    Add .golangci.yml and update dep (#184)
+    
+    * add .golangci.yml and update dep
+    
+    Prepare environment for https://golangci.com builds by installing
+    libcurl-dev.
+    Also update dep from 0.4.1 to 0.5.0
+    
+    * Fix coveralls command in TravisCI script
+
+commit a8c1c8c63b519919b3b375209fbc0b5da091a377
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 12 07:41:23 2018 +0100
+
+    Remove erroneous backquote from README
+
+commit 1ff17c429b70a7eb90a341d445f6b19ed285344e
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 12 07:40:31 2018 +0100
+
+    #169 Parse target list from text file (#177)
+    
+    * Add file parsing for targets & fix multi targets in docker
+    
+    * Remove deprecated info in README & update examples
+
+commit 145724bc955f3e98f84f778f48ccddc1dba6d347
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Oct 17 08:44:59 2018 +0200
+
+    Add dep to dependencies
+
+commit 5aefc9831d5c3c37e1644ed7ff238b9a1d0a45b9
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Tue Oct 2 08:45:25 2018 +0200
+
+    Add golang CI badge & redesign readme header
+
+commit cf3ca440b95f808c888594e63698b294c0ca935a
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon Oct 1 19:52:15 2018 +0200
+
+    Simplify condition checks to improve code readability
+
+commit 4109a4405df70da458f1546e8ee31b4cce20ce0c
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Jul 22 17:26:06 2018 +0200
+
+    Add unit tests for stream validation
+
+commit 055dc69158958f0cb32968310f78b8158b378224
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Jul 22 17:03:10 2018 +0200
+
+    Add stream validation pt2 -- need to add unit tests
+
+commit 1ea98508424d1fa60f35742586968b6fa4566f66
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Jul 22 16:25:56 2018 +0200
+
+    Add stream validation -- need to add unit tests
+
+commit 6e92eecdf628f9ef747fe656d8f2bde404f2c103
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 16:58:30 2018 +0200
+
+    Fix import typo
+
+commit 844f1e31af9a13c405fdd592ab09d88857ce0065
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 16:18:59 2018 +0200
+
+    Fix XML model addrtype attribute name
+
+commit fd83be9d954c641d0151b32eaf80f49abf5c9e2c
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 14:12:22 2018 +0200
+
+    Add unit test with ipv4 and MAC addr
+
+commit 456f7fffc50222218782b4c9228908dfa45ef3a0
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 14:05:04 2018 +0200
+
+    No longer import hosts using their MAC addresses
+
+commit 541d64168d25aa1f5c532fcebc98eb8ad597c314
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 4 16:38:48 2018 +0200
+
+    Remove docker push from CI script after realization it's insecure
+
+commit 26c4c80fd2913ca8aeb011c17c53ee8d28befaef
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 4 16:20:34 2018 +0200
+
+    Add default credentials for dahua NVR (http://www.dahuatech.com/)
+
+commit bcc8099f9197bbf597a996de9e330631b30f3bb5
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Mar 13 10:24:25 2018 +0100
+
+    Fix crash #174 by duplicating curl handle
+    
+    Wrap libcurl to bypass lack of covariance support
+
+commit 6392dcd9a020224e5fd801d4ca2b7e9751d464fe
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 12 15:29:02 2018 +0100
+
+    Update contributing guidelines & update CHANGELOG
+
+commit 916e1713d807046b0ea6adbc8016f8f2a233fb0e
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 12 14:16:44 2018 +0100
+
+    Update dependencies
+
+commit 08fcfcdac8335a7b3902fd78cd5408d4db75664a
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 12 14:15:07 2018 +0100
+
+    Remove responsibility for Attack methods to declare no attack success as an error
+
+commit 20daf733711bcddee513f2225ef3946d4b3fb107
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Feb 18 19:18:05 2018 +0100
+
+    Migrate cameradar server to cameradar-app repo
+
+commit b909643c21b90970722d7aca0a7383ce0cfe49c7
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Feb 16 16:53:31 2018 +0100
+
+    Remove all mentions of glide & add instructions to install dep
+
+commit 5a0ee4aaa7084f985984f908ff704fa79ca1215e
+Author: Brendan Le Glaunec <harold.kutenberg@gmail.com>
+Date:   Fri Feb 16 15:00:27 2018 +0100
+
+    Move repository to Ullaakut
+
+commit 8289f1eddaf1d058493e54c279f850f6a9776545
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Feb 15 15:53:56 2018 +0100
+
+    Add coverage badge
+
+commit 74672f66259e036c0f6a819e5a6b0b0bc39c528f
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Feb 14 13:49:28 2018 +0100
+
+    Increase test coverage, mock libcurl & uniformize error messages
+
+commit c1ea6b167cb07ad58bd7ca129eab602aa0c29ab9
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Feb 5 10:49:48 2018 +0100
+
+    Fix misspelling and format using the -s option
+
+commit 71679691c4f97c005659a01bc84247f4a6440e99
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Feb 5 08:14:46 2018 +0100
+
+    Add example usage for testing purposes
+
+commit cbf6f647aa38cabea46b018ed5845136caf7bbc0
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Feb 5 06:45:47 2018 +0100
+
+    Add Coveralls integration
+
+commit fb9c5afc5f0018f563ee6afc7269ac9c4cc82163
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Feb 2 10:27:59 2018 +0100
+
+    Switch from glide to dep & fix CI (#152) (#153)
+
+commit 5d2626b6391dff5be67d2e5ca7f7d34b563f2180
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Dec 1 18:02:21 2017 +0100
+
+    Change license to MIT
+
+commit 2399df693de579ac9a01be871812a2fc31805ca9
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Dec 1 17:47:52 2017 +0100
+
+    Add examples in help message
+
+commit df44c7d6f16c3143fc466f8c9a2691f79aea43cb
+Author: Ishan Jain <ishanjain28@gmail.com>
+Date:   Fri Oct 27 06:56:36 2017 +0530
+
+    Add environment variables support
+
+commit 6d296b84d5b2be7611575b7dc36bcd870aa99e24
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 31 11:37:39 2017 +0100
+
+    Clean implementation of JSONRPC server
+
+commit 1dadb9345260c5e31efc3d492aea0234b008380c
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 31 11:22:02 2017 +0100
+
+    Cameradar service scans & attacks over WS
+
+commit 6ea4f6e12330fd675a0ff4f50438f40ba7552436
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 31 10:23:17 2017 +0100
+
+    WIP JSONRPC2 implementation
+
+commit 5a8417cf18a4e007c6185afcddb851c56153efd8
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 23 17:20:41 2017 +0200
+
+    Basic bidirectional WS server
+    
+    - Fake temporary protocol (will probably be JSON RPC later)
+    - Service can write freely to client through server
+    - Any new component we need (workers, etc.) can access the channels to write to the client
+
+commit 4e922a2a48ca336f00c392e2e90a168f8775d8dd
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Oct 20 08:38:16 2017 +0200
+
+    Start cameradar server to communicate with GUI
+
+commit 3ef48a97cf26d508dbc14334c04e4acbfa3d78f3
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 21:03:21 2017 +0200
+
+    Fix CI for PRs originating from forks
+
+commit 35d629d8cebe0b17260b4152c1eb28f627abdedb
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 20:56:15 2017 +0200
+
+    Nmap output is now correctly logged
+
+commit dba1391a0811b3817a5270d07203c17da2c082dc
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 20:32:23 2017 +0200
+
+    Fix dictionary path for binary & use glide in CI
+
+commit 961d34d05a6f21e2bf2fea1e60c7c32b7bdff3a6
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 18:46:53 2017 +0200
+
+    Migrate GUI to another repository
+
+commit 5d0c21c5d9e65f0d366644b06d07c8d94a024c02
+Author: Gael du Plessix <gael.duplessix@gmail.com>
+Date:   Thu Oct 19 11:45:59 2017 +0200
+
+    Setup travis email notifications for Brendy only
+
+commit 71046216cea89db526e56813f5239fcaeb159ac8
+Author: Gael du Plessix <gael.duplessix@etixgroup.com>
+Date:   Tue Oct 17 21:39:30 2017 +0200
+
+    Add GUI dev environment (#114)
+    
+    Setup dev tools to build GUI using ReasonML + Electron
+    
+    Use react-scripts instead of custom build config
+    
+    Add electron command
+    
+    Rename command
+
+commit 89647ae457cc2629d55cce53d45f76652eec83e2
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Oct 18 08:43:02 2017 +0200
+
+    Fix timeout and unresponsive cameras being detected as successful & add error message
+    
+    Update unit tests
+    
+    Fix deadlock in libcurl for tests to stop failing randomly
+
+commit 216d30fd45de3e132252eaf73f66c81e2e3db490
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Oct 16 11:23:46 2017 +0200
+
+    Add issue template
+
+commit 82e36e1fd37a96da565f58666b1687b098793aee
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 12 17:02:10 2017 +0200
+
+    Update file architecture to make go install work
+
+commit 34994e615adce0b07424a22131f6b687ef4de631
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 12 16:55:35 2017 +0200
+
+    Fix in README.md
+
+commit 6daceaeb2b1b9e9fbca3362dc871290a8170c913
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 12 13:51:54 2017 +0200
+
+    Add glide package manager
+
+commit 50da5ea82d622193225d517f7cd60d303073a530
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Oct 10 16:57:26 2017 +0200
+
+    Fix usage of custom dictionaries in docker image
+
+commit da7fb6cd4941999f791d359085e0eb91639b652d
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Oct 10 13:09:57 2017 +0200
+
+    Add more credentials to default dictionary
+
+commit cfa90b36d86371f95ffb7e6ff50d951def27541a
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 10 10:53:10 2017 +0200
+
+    Fix output when logs enabled
+
+commit 72fb21b1328831b2312f856bd9ff17e26c78fd65
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 23:52:15 2017 +0200
+
+    Add multi stage docker build
+    
+    Upgrade travis docker version
+
+commit 948bfce5a00d75f73e9850d480614d36476d9888
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 15:46:09 2017 +0200
+
+    Removed Output part from README
+
+commit 049a43ace2fde768e0a3b51795a0bd499d01b172
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 15:44:07 2017 +0200
+
+    Add gif to README.md
+
+commit 1c845d2b3cd2fc5ef36e84c64b2cfc930bd21861
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 14:23:57 2017 +0200
+
+    Improve UX - Add spinner and messages
+    
+    Improve UX - Add number of streams being attacked
+
+commit cb74761675107f58b5100431ffa2601af1a0ef08
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Sep 29 19:22:31 2017 +0200
+
+    Add unit tests and functional test in CI
+    
+    * Unit tests Discover 90%
+    
+    The NmapRun function needs a refacto to make it use adaptors instead of directly calling exec.Command, exec.Command.StdoutPipe, exec.Command.Start, bufio.Scanner.Scan and bufio.Scanner.Err
+    It makes me uncomfortable to push a test file that covers only 90%, but it's better than none, and the 10 missing %s are not very error-prone so it should be okay to delay this part a bit. For now it's more urgent to test as much of the code as possible
+    
+    * Unit tests Helpers 100%
+    
+    * Unit tests Loaders 100% - Attack 85%
+    
+    Once again, the Attack functions are not as simple as the rest to unit test, so I will refacto all of this to use a CURL adaptor later, but for now the total is of 88.6% of coverage, which is good enough for something I spent 2 hours on
+    
+    * Add testing to CI validation process
+    
+    * CI now does functional testing with RTSPATT
+    
+    * Change travis language to bash
+
+commit be63c6a231577e91ab7eee66dcbf2a5164699058
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 26 09:51:17 2017 +0200
+
+    Add package overview & fix dead link
+
+commit eab18925c70dff54864e8406768b84a6c2c490e4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 25 20:46:22 2017 +0200
+
+    Add godoc badge and remove temporary images
+
+commit 4c9d23acb112a9dce936356e1c5ca778d7eef75f
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 25 19:17:24 2017 +0200
+
+    Improve comments & improve cameraccess speed
+
+commit ecdac0014566c66b28ddac93623552987273fa13
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 25 15:47:57 2017 +0200
+
+    Move cameradar to root folder
+
+commit 2555a86f5f6e1392f1305483ebba7b1ee092a459
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 17:45:33 2017 +0200
+
+    Add known bugs to README & update examples
+
+commit ebce96573088d5edbedfd04a91a5e66b20646e13
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 11:14:37 2017 +0200
+
+    Remove debug logs from previous PR
+
+commit a2af1329d7022af0a55e4e42fc218e44533a989c
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 11:02:20 2017 +0200
+
+    Fix bug for some cameras running gst rtsp server
+
+commit bf3a967fadf1f10bbed2c4d532a16979f8d93de4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 07:49:01 2017 +0200
+
+    Fix entrypoint ignoring parameters & fix default dictionary values
+
+commit 3dcc80a0e8536d0c0479e80ab35e887450de9081
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Sep 18 22:54:35 2017 +0200
+
+    Fixes in readme and contributing.md (#77) (#79)
+    
+    Remove codacy badge
+
+commit 624ff8bc1b99c00bd411d194b15711c5d1e430ad
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Sep 18 22:43:30 2017 +0200
+
+    Fixes in readme and contributing.md (#77)
+
+commit 59f51f6149827f78873ee1e609df60238ab20e07
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Sep 18 22:07:19 2017 +0200
+
+    Cameradar becomes a golang library and cameraccess replaces the old cameradar (#75)
+    
+    * Better performance
+    * Better UX
+    * Lighter docker image
+    * More control over the features
+    * Suited for devs
+    * Better documentation
+    
+    * No tests yet
+
+commit b4090b8301b7bfeb576635f47caf758d1625e55c
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Jun 7 15:12:22 2017 +0200
+
+    Improve README.md
+
+commit 02b58ad1a9b510a26736e81c2a2d4b42f341b4aa
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 12 10:51:49 2017 +0200
+
+    Rename bruteforce to dictionary attack to avoid confusion (#71)
+
+commit 81b7e893dc96ec7252d59865a5f64f281fec5b12
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 9 08:15:50 2017 +0200
+
+    Rename subnet to target to avoid confusion (#70)
+
+commit 8c6c94cc3431d8d2a1211124f92a400382d79910
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 8 08:25:59 2017 +0200
+
+    Update README.md (#69)
+    
+    Add more precision to the subnetwork (-s) argument to cameradar to improve user experience
+
+commit fac60679bcfdc10151e89b7d133c7f6c8d0331e5
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 4 09:48:19 2017 +0200
+
+    Rename CONTRIBUTION.md to CONTRIBUTING.md (#66)
+
+commit 55122d523c6118e2ca93b4db0d1437379c92eb6a
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 4 09:48:05 2017 +0200
+
+    Add new RTSP routes (#67)
+
+commit 5825f14ef17f7679f160a2127c574151d6e10541
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Mar 23 15:28:54 2017 +0100
+
+    Fix golang style issues (#65)
+    
+    In writeResult.go, two error strings began with an uppercase letter and ended with a dot.
+    See https://github.com/golang/go/wiki/Errors for more information
+
+commit 60c2f1f18c8b473ed21388f950c43a47c9cb9238
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 20 10:30:18 2017 +0100
+
+    Update Codacy badge URL
+
+commit 44e3911e0193e5f003db30a7338cc738d1c8448d
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Feb 1 09:16:45 2017 +0100
+
+    Usage of the develop branch unrestricted
+    
+    I decided that putting a `2.0.0` branch in place would require too much work as it would mean maintaining two versions of Cameradar at the same time. Thus, we will just keep the normal workflow as we used to.
+
+commit 28f642d39fa59101d32eb168ab7088942cf4875a
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Feb 1 09:13:59 2017 +0100
+
+    Fix automatic Docker Hub deployment
+    
+    The previous travis script was only tagging latest and not the
+    tag of the branch, which resulted in outdated tags on the DockerHub
+
+commit 4dfe99064bc6ace2bd394f5430a7e76a14d9deb1
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Jan 18 13:45:01 2017 +0100
+
+    Release 1.1.4
+
+commit 097cbe3df37232661adb7154585f1925b4d0b3a4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Jan 18 09:37:24 2017 +0100
+
+    Rename MySQL table & Update CONTRIBUTION.md for 2.0.0
+
+commit 3123e34076091b024610245d09b1c7d860fadc42
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Dec 22 09:28:47 2016 +0100
+
+    Improve docker image usage
+
+commit c334ea9f91f943375c63cd953001bd8e18df6bd8
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Dec 13 15:22:53 2016 +0100
+
+    Fix critical functional test bug
+
+commit bfecea00ad95d65f9cf3f073b1683c888dcc98ac
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Dec 15 12:28:06 2016 +0100
+
+    Add contribution doc & update readme & dictionaries
+
+commit 1c7c462771d91b07289d76cf209390063bc1c990
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Dec 13 12:04:32 2016 +0100
+
+    Add code quality check & fixed output format
+
+commit 308ba24e90e25df46a150e48224e21b1bee68164
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Dec 2 16:28:41 2016 +0100
+
+    Improve output & remove legacy code
+
+commit 4a8f6550af1933bba54ad934f7941795ffa73f7c
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Dec 2 15:49:58 2016 +0100
+
+    Put Gitflow back in place
+
+commit c56cce6319bdf1277c92ef179615307bfba89d4a
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Dec 2 11:49:38 2016 +0100
+
+    Update contribution format guidelines
+
+commit 832e4f9fa2f57d4e1cd76a928f971f503799e4ee
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Dec 1 17:13:45 2016 +0100
+
+    Update contribution info
+
+commit 63008d19afb3b1b14b1f906e655866429c11621e
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Dec 1 15:44:26 2016 +0100
+
+    Enhanced the latest release badge
+    
+    Replaced the raw version with one that will get the latest tag automatically and update the badge.
+
+commit fbd78301a0c47c3e1bdd84f11584964908184b93
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 23 06:38:59 2016 +0100
+
+    Travis functional testing & minor changes
+
+commit 2961d68200a1aff29b28e37da20e91bf6e7445a7
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sun Nov 20 13:17:25 2016 +0100
+
+    Travis build test integration & changes to docker deployment
+
+commit f86683d9ca1ff7cfccaf79aa7e5d390fc1ee6fe3
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 14 13:40:54 2016 +0100
+
+    Add docker pulls badge to README.md
+
+commit 58bcfb9ee57fe8b402a873eb1c710d024024083d
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sat Nov 12 12:55:32 2016 +0100
+
+    Fix functional tests & multiple bugfixes & use CES
+
+commit 5be5124e702fa3194238d8526db18078bafd2cc0
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Nov 3 16:34:54 2016 +0100
+
+    Remove unnecessary null pointer checks
+
+commit b8291710d9c0bccd4df4468f7d67e76f1a8a0f28
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Nov 3 08:45:20 2016 +0100
+
+    Docker Hub instructions update
+
+commit b51a8da1259ddfadb7bb83341f44fcf6ef0265c7
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 14:41:29 2016 +0100
+
+    Deployment update & Docker Hub integration
+
+commit 2a0882869b84ec957608035ca9bb27ca119128fb
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 10:29:23 2016 +0100
+
+    Update deployment process
+
+commit c3d690371b965a54828afc048a175e866fba9d6e
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 08:42:45 2016 +0100
+
+    Update package
+
+commit 30c099f872ac4aebb82fe80b42beb510a8227ab4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 07:56:03 2016 +0100
+
+    Fix multithreading & add timeout to ffmpeg
+
+commit c660c1a6764873b065898286510244b9df5856b5
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 31 10:02:53 2016 +0100
+
+    Update package
+
+commit c44a88b57a016dd9dc4540a1968e10e0e6068cc7
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 31 10:01:13 2016 +0100
+
+    Add GST RTSP SERVER option
+
+commit 509017f8df5e32e467b9d9ce0cfe33607a052469
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sat Oct 29 08:57:51 2016 +0200
+
+    Add package generation to README
+
+commit 7243059cdb33d9bb9a27dd5df7f7e82396fd4697
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sat Oct 29 08:55:14 2016 +0200
+
+    Update package name & add packge generation script
+
+commit cd3cfc383792aa9dd382d0ae39d6bad406ac1bf4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Oct 28 10:53:41 2016 +0200
+
+    Update Readme & Remove debug logs
+
+commit 509d68f023b4e92be36f080bb0d0fa489c53a2b8
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Oct 28 09:50:37 2016 +0200
+
+    Multithreading & UX update
+
+commit de757e848dc401ad484aa3c36ee9095e1630bab6
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 13 15:51:30 2016 +0200
+
+    Add Cameradar logo to README.md
+
+commit 1fb462bab46c71d682f90e50c0beaf8fa4a788e6
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 13 15:43:48 2016 +0200
+
+    Add Cameradar logo
+
+commit 4c4312f9b5e89124343d2b302151ffcc6789fe2b
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 24 14:02:51 2016 +0200
+
+    Add standard Comelit RTSP URL to dictionary
+
+commit ff684d7544040f948de4e623e35acd40dd100523
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 12 14:28:28 2016 +0200
+
+    Update testing binary
+
+commit b69b4dc98ca4ad881f59d876b72fc00fe3aea591
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Aug 31 10:36:39 2016 +0200
+
+    Create CHANGELOG.md
+
+commit 34351ae14e27c75ae428ab11559e26be3fd87ad4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Aug 31 12:46:21 2016 +0200
+
+    Fix potential failure in MySQL CM and fix describe method
+
+commit d9945f5e261f2b64fefb0ef0579d9bf698aeab7f
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Aug 31 09:39:08 2016 +0200
+
+    Fix nmap package detection
+
+commit 6247656a63d4b7185f18621c890ae2d4945bb6fc
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jul 8 15:05:17 2016 +0200
+
+    Improve README.md
+
+commit c46217918f7bc898ac9200981017a3a54025cacc
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Aug 30 16:58:46 2016 +0200
+
+    Fix GStreamer check
+
+commit 330e4a1e855393b5d339753ba20f235fb8c23b1e
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Aug 26 12:59:46 2016 +0200
+
+    Remove forgotten logs
+
+commit bded05688eca86c527c0bd7687521519ac12f8d3
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Aug 24 12:11:54 2016 +0200
+
+    Fix issues with MySQL CM
+
+commit 13e183660411765ae983fa341c8c3d77741773a6
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Jul 7 17:47:08 2016 +0200
+
+    Update OS to 16.04 & remove boost dependency
+
+commit d611d00b55b113326873c8ae12eabb9238eded7f
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 21 11:00:35 2016 +0200
+
+    Update deployment version
+
+commit e4a2e06def5623291262553b7280cdaed8ed76ee
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 21 10:53:24 2016 +0200
+
+    Add functionnal testing
+
+commit df3c21701d54c0ca9c4a914a30d83a44f2d29b08
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 7 12:38:17 2016 +0200
+
+    Improve README.md
+
+commit 85c816c8cb703b0ead3d369eadc22832dffa74f8
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jun 3 09:07:07 2016 +0200
+
+    Fix issue with MySQL & deployment
+
+commit 4633d3f520b437626aebf3ea817c5872387fa764
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jun 3 08:49:55 2016 +0200
+
+    Improve CMakeLists.txt
+
+commit 60288c09e49b83908949fac193998779ed8516ac
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jun 2 10:13:48 2016 +0200
+
+    Improve README.md
+
+commit 49bc3820aa410786b954663d7cba38d7864ca3c5
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 27 14:36:52 2016 +0200
+
+    Cameradar now supports badly configured cameras
+
+commit eed8aa0e9da68cedbb3e2e04e7cea0f9f5485135
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 26 10:52:29 2016 +0200
+
+    Improve README.md
+
+commit e13879ab77b7c99a909ccda61c3f2a5a127f05c5
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 24 08:56:11 2016 +0200
+
+    Add quick MySQL docker deployment & code cleaning
+
+commit 8a8e4faa42dd79bfcfcf9d6e9daded8491daf031
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 11:17:08 2016 +0200
+
+    Add MySQL Cache Manager & code cleanup
+
+commit faa25708837eeb5824d1a2ac7119f48fbd6efcf4
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 00:39:14 2016 +0200
+
+    Deployment / CPack / Docker / Boost / Versionning
+
+commit 5c0ee0c5a0c0e2a57f2e570952afe4bc17b08e3e
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 17:02:33 2016 +0200
+
+    Fix jsoncpp download issue
+
+commit 780a32d706d67771bdc6ad085469e4bab17fc12a
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri May 20 13:43:28 2016 +0200
+
+    Improve README.md
+
+commit 29f05e0b708cc87e3089dfc69e414e8bdb2c799c
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 23 17:14:41 2016 +0200
+
+    Improve README.md
+
+commit 0144b569adc7aa3f7ce4b82ce3151f74aa77dd80
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 00:58:22 2016 +0200
+
+    Update cloning method to HTTPS
+
+commit dd2747d12a468fc0089056f348a1613f14772933
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 00:39:14 2016 +0200
+
+    Add Deployment / CPack / Docker / Boost / Versionning
+
+commit 5ef63cd7e6eb21a0fa6629bd9c13b4fe648b42f6
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 21:36:48 2016 +0200
+
+    Update README to add future improvement
+
+commit ac6002028dedbc83812690bab278937e13c18801
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 21:30:36 2016 +0200
+
+    Improve jsoncpp integration
+
+commit 5f80f1b76af0f46f2042b15cc9989329204cb169
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 17:02:33 2016 +0200
+
+    Add dependencies & improve readme
+
+commit 95276760be1eb19427b0a4df79227d0be23b27f4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri May 20 13:43:28 2016 +0200
+
+    Initial commit
+
+commit 2af5f4475edbf887435f547ab36122f185a3a685
+Author: Jeremy Letang <letang.jeremy@gmail.com>
+Date:   Fri May 20 13:35:41 2016 +0200
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 1b91e5441f48b88127b9c5e0273551a29b51a63b
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Oct 3 19:22:19 2022 +0200
+
+    Fix typo in loaders.go (#311)
+
+commit d73878a1e1e210a6f9ed9be482e41ad79f724faf
+Author: Robert Wiggins <51722811+RandomRobbieBF@users.noreply.github.com>
+Date:   Mon May 16 14:32:48 2022 +0100
+
+    Update README.md (#305)
+    
+    Co-authored-by: Brendan Le Glaunec <brendan@glaulabs.com>
+
+commit 1cc3eaa0fa2c545868fcaea9696ca66f41879822
+Author: supremepot <63981037+supremepot@users.noreply.github.com>
+Date:   Thu Mar 17 14:29:40 2022 +0100
+
+    New password proposal (#304)
+    
+    Co-authored-by: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+
+commit bf65c3cf45e6e6d1b9467bff5d28433d5a14f2b6
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 8 16:58:25 2021 +0000
+
+    Update install instructions (#291)
+
+commit 456a1508c05ee1683d591f3cc232e0ebe62b955f
+Author: ArturFormella <ArturFormella@users.noreply.github.com>
+Date:   Sun Sep 26 07:27:54 2021 +0200
+
+    Added a new proposal password (#295)
+
+commit 3991f1625ffdabe58ae098efb64d3e0232be6209
+Author: Justin Buchanan <justbuchanan@gmail.com>
+Date:   Sun Aug 8 21:47:48 2021 -0700
+
+    readme.md: fix typo in docker build command (#288)
+
+commit 4c1493506d331a6cfb3f57ca8777998363774ea7
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Apr 13 19:10:04 2021 +0200
+
+    Display nmap warnings correctly before exiting when a fatal error occurs (#285)
+
+commit 80e75061da1e73dc8c5fecf24ceeed73699ef6c1
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Apr 5 15:58:07 2021 +0200
+
+    Create separate go module for xplatform magefile (#284)
+
+commit 5b48737cc733ea198fe0fe7c643589d0b4370d41
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Apr 5 15:38:28 2021 +0200
+
+    Add crossplatform docker builds (#283)
+
+commit da2dac70ac4d05b341b63dd5118d2e8c4f043727
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Apr 5 12:48:48 2021 +0200
+
+    Update curl-dev dependency version (#282)
+
+commit 8c8ea1209b352671ca99e07eb4de0b96b833506f
+Author: Sliicy <Sliicy@users.noreply.github.com>
+Date:   Thu Aug 13 03:48:43 2020 -0400
+
+    Update routes with support for Lorex LHB927 (#270)
+    
+    The Lorex LHB927 supports RTSP streams which have routes:
+    ch1/0 for camera 1
+    ch2/0 for camera 2
+    ...
+    They start counting from 1, not 0.
+    Alternatively, they can also be reached at:
+    ch1_0
+    ch2_0
+    ...
+    Adding more routes (for cameras #3 & 4) increases the odds of finding the DVR, if for example, camera 1 is offline.
+
+commit df3718a06c90858a6dcb9386225ed9dbe0f02d25
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed Aug 12 09:10:29 2020 +0200
+
+    Remove /v5 in module path in documentation
+
+commit 6486d04e615b3fc0fb8f9b454875d520f09e3d45
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:37:26 2020 +0200
+
+    Test debug mode in attack & remove unnecessary aliases & newlines
+
+commit 96928ac43c101e3faaeccb8cf4866aca31f746a3
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:04:18 2020 +0200
+
+    Set module version to v5
+    
+    * Update README to reflect changes
+    * Various README improvements
+
+commit 8e7de3f59e35c4b738c770a185ca8a4d7c07a1ba
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:02:43 2020 +0200
+
+    Support multi-route detection
+    
+    * Change stream model to support multiple routes
+    * Simplify attack algorithm
+    * Use dummy route to detect cameras which accept all routes
+
+commit fbc0b7a66d12580a75c5393fbd88125b926c754d
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 08:00:18 2020 +0200
+
+    Move issue template to .github and remove old changelog file
+
+commit 78eda6672e5268aeaf2b7f2667cc760f9f74c51a
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 07:59:22 2020 +0200
+
+    Fix stream discovery on non-standard ports by using service info mode in nmap scan
+
+commit 9f05634531a008fdadff133cca0688e5720158a7
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 07:58:43 2020 +0200
+
+    Reword error message when no stream is found
+
+commit defc308a9df234debc63ace042044aec934df006
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 4 07:57:41 2020 +0200
+
+    Remove unnecessary import alias
+
+commit 9a6c030a74b424b06f58a1d324c96541ed788687
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jan 21 08:49:36 2020 +0100
+
+    Remove spam from curl verbose mode (#257)
+
+commit afe2caddd60f9576b973dbfad7e8759305752603
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jan 21 08:39:06 2020 +0100
+
+    Add routes and credentials for Besder IP cameras (#256)
+
+commit 8349bc7c3a0d8018ccb826096954dc5d9fe638e9
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jan 17 09:47:38 2020 +0100
+
+    Fix scan unit tests (#253)
+
+commit 04ab1cfc8dd78fd60ec4a3d7c28a862a0d423744
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jan 17 09:18:22 2020 +0100
+
+    Use older curl version to fix digest authentication (#252)
+
+commit d233fd850e0ed6426defd9e332a7e663bd6ba3f1
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Nov 30 16:57:27 2019 +0100
+
+    Update nmap dependency to v2.0.0 (#250)
+
+commit 948aca316b93cb1203e2b3784aa1a839d0c5be2b
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Nov 30 16:23:14 2019 +0100
+
+    Add libcurl requirement to build from binary (#249)
+
+commit 3f05737bf2f1ec78a8b9184bd4b93a3ea68003b7
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Nov 16 09:46:09 2019 +0100
+
+    Fix scan interval option (#246)
+
+commit 4aabf47a5de049e197ea3f0d5cb643038c1c2ebb
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 11 21:42:38 2019 +0100
+
+    Add scan interval option (#245)
+    
+    * Add scan interval option
+    
+    * Update tests for scan interval
+    
+    * Handle missing target properly
+    
+    * Update documentation to reflect that durations are not in milliseconds
+
+commit cb47aef7e4d81cab037909ac0b223d4a5df65aed
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 11 20:17:39 2019 +0100
+
+    Fix capitalization issues in import path (#244)
+
+commit bb05fcff6fe5dd811296f0cb2d3daff0857afa1b
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Fri Oct 18 07:55:17 2019 +0200
+
+    Update funding
+
+commit 8634ba84cacd4e6c48f1839a67b6c04423bb222a
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 3 22:04:17 2019 +0200
+
+    Update dictionaries & dependencies for dictionary fetch tool (#240)
+
+commit 3bd6b9171e4e5a68307696f22b1b0f87872493a9
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 2 09:37:26 2019 +0200
+
+    Encourage people to donate to charities
+
+commit 18a933ba45f42e3ea291feb25726f9e0afa87f88
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 29 04:27:57 2019 +0200
+
+    Remove goreleaser (#232)
+    
+    * Debug goreleaser
+    
+    * Remove goreleaser
+
+commit 0187d9a553490f7e0890748ac607abdd9657e0cf
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 29 04:23:01 2019 +0200
+
+    Update dependencies
+
+commit 7672da5b6d6fdcbd71b79cc99afc1bb181dceb4e
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 29 03:03:17 2019 +0200
+
+    Update dependencies for release 4.1.0 (#231)
+    
+    * Update dependencies for release 4.1.0
+    
+    * Update packages in travis build
+
+commit 966266f74251bbbe54b5505fb61c658e83425bad
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jun 27 07:23:52 2019 +0200
+
+    Fix erroneous build instructions (#230)
+
+commit 0738d089660c4f9092cf12b19e5556d9f6befbef
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 20:21:07 2019 +0200
+
+    Fix goreleaser deployment (#228)
+
+commit 4603096b93f03aa05daf97a39efb453305226381
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 18:36:35 2019 +0200
+
+    Use os.ExpandEnv for injecting gopath in dict path (#227)
+
+commit a5d345533325248b8bacf98c4dbd4548bbaa13ca
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 13:52:56 2019 +0200
+
+    Add Goreleaser (#226)
+
+commit c83f961ffc9bd2cfea9c567a6f6b78d0ae635eb8
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sat Jun 15 08:06:48 2019 +0200
+
+    Change curl errors from debug to error level (#223)
+
+commit a6ed312eaf2eb20bdddace186e3cbbbaaaa6b59f
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 11 09:07:38 2019 +0200
+
+    Update second occurrence of build instructions (#220)
+
+commit 35b0cf26d9192088fef4df58cd87074650c49b3b
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 11 09:02:24 2019 +0200
+
+    Improve documentation and add warning when no gopath (#219)
+    
+    * Improve documentation
+    
+    * Add warning when no GOPATH set with default dictionaries
+
+commit 0f011a17978e12b99f154449540cdd78ec248c61
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jun 6 10:04:55 2019 +0200
+
+    Fix attack loop and add reolink routes (#215)
+
+commit 7719110f1ea46104d859251fea0ccdc285453951
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 27 01:57:19 2019 +0200
+
+    Remove changelog in favor of github release page
+
+commit 212ac2f0d592266f45347d682522f0932017aaee
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun May 26 08:33:08 2019 +0200
+
+    Cameradar v4 (#212)
+    
+    * Refactor of cameradar library
+    
+    * Old unit tests updated & improved. New unit tests inc
+    
+    * Update documentation & issue template
+    
+    * Update dependencies
+    
+    * Update TravisCI build script to reflect argument change
+    
+    * Remove outdated contributing guide
+    
+    * Update README with more examples and remove part on library
+    
+    * Add second camera to Travis build script & improve error detection
+    
+    * Fix typo in travis script & add missing image to readme
+    
+    * Remember that travis uses bash syntax not fish
+    
+    * Use relative paths for images in the README
+
+commit 2e49587cc291ebc90ca30b66fe58c93dc754db4d
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 23 09:19:04 2019 +0200
+
+    Remove erroneous route and update dictionary updater (#207)
+    
+    * Remove erroneous route and update dictionary updater
+    
+    * Rename dictionary updater
+
+commit 47285675b99149e920fe8aeda645348e1beeb487
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 23 01:42:04 2019 +0200
+
+    Add route dictionary generator (#204)
+
+commit 2678df2e4c89ea0177d83e2ad9bfc6405d1f1b27
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Wed May 22 22:25:32 2019 +0200
+
+    Add default credentials for aiphone cameras (#203)
+
+commit 862e9f3de951fa3e999b5c4bc74b44345373d17b
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Wed May 22 22:08:35 2019 +0200
+
+    Add unit tests for DetectAuthType function
+
+commit 260a9645bee8ba7e327c8c8f3c4cced1002ea38b
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 21 11:03:02 2019 +0200
+
+    Add digest authentication support
+
+commit 1d5d6060852d2e94b0889f651360660c03f0db0e
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 21 07:31:18 2019 +0200
+
+    Update documentation on new dependency management (#200)
+
+commit c249be1cc06d3ba2cb0d3dedc462df2a135d0d37
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 11 16:48:37 2019 +0200
+
+    Update documentation on new dependency management (#196)
+
+commit 1ec3a5fe44e6ce30d1b2f8b27a713dbcb5e85e77
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 11 16:33:16 2019 +0200
+
+    Update documentation on new dependency management (#195)
+
+commit 3b082ea736d21b76dcd1fa8fa9599235cfa06e04
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Sat Apr 6 12:56:15 2019 +0200
+
+    Update to disgo 0.3.0
+
+commit b6ebd468c65350fbfa95466d67bced15333472ed
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sun Mar 10 20:12:46 2019 +0100
+
+    Integrate Disgo for user interface (#193)
+
+commit ceb210f2815c3381bb37c03528eabf260044965b
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sun Mar 10 19:14:11 2019 +0100
+
+    Switch to go modules, use forked go-curl to fix CI (#192)
+
+commit fcb627dccdf3879a0ecaad086385badf689c16ae
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sun Mar 10 17:16:39 2019 +0100
+
+    Update Readme with new dependencies and update copyright date (#191)
+
+commit 098460702b793ee79a6e52d6ff729fc1ad0a0b64
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jan 24 09:43:13 2019 +0100
+
+    Fix environment key delimiter & fix environment overrides in docker image
+
+commit 58498982833fa6aad86d1d28e1c66fa9c1a6ae3b
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jan 22 21:16:16 2019 +0100
+
+    Cameradar 3.0.0: Uses ullaakut/nmap, runs faster, removed legacy code (#188)
+    
+    Unit tests functional and coverage back to 100%
+    
+    Add more routes to dictionary, add more credentials, add default port 5554, rename cameradar logs ENV variable, improve unit test readability, remove tmp file
+
+commit 878ca9f03240fed8f79839b4150fc4bd3be360a5
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Tue Dec 25 10:17:54 2018 +0100
+
+    Update dependencies
+
+commit 24f86b74f51859e67094a50f628c502298b1e87f
+Author: Isaev Denis <idenx@yandex.com>
+Date:   Mon Nov 26 10:47:48 2018 +0300
+
+    Add .golangci.yml and update dep (#184)
+    
+    * add .golangci.yml and update dep
+    
+    Prepare environment for https://golangci.com builds by installing
+    libcurl-dev.
+    Also update dep from 0.4.1 to 0.5.0
+    
+    * Fix coveralls command in TravisCI script
+
+commit a8c1c8c63b519919b3b375209fbc0b5da091a377
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 12 07:41:23 2018 +0100
+
+    Remove erroneous backquote from README
+
+commit 1ff17c429b70a7eb90a341d445f6b19ed285344e
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 12 07:40:31 2018 +0100
+
+    #169 Parse target list from text file (#177)
+    
+    * Add file parsing for targets & fix multi targets in docker
+    
+    * Remove deprecated info in README & update examples
+
+commit 145724bc955f3e98f84f778f48ccddc1dba6d347
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Oct 17 08:44:59 2018 +0200
+
+    Add dep to dependencies
+
+commit 5aefc9831d5c3c37e1644ed7ff238b9a1d0a45b9
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Tue Oct 2 08:45:25 2018 +0200
+
+    Add golang CI badge & redesign readme header
+
+commit cf3ca440b95f808c888594e63698b294c0ca935a
+Author: Ullaakut <brendan.le-glaunec@epitech.eu>
+Date:   Mon Oct 1 19:52:15 2018 +0200
+
+    Simplify condition checks to improve code readability
+
+commit 4109a4405df70da458f1546e8ee31b4cce20ce0c
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Jul 22 17:26:06 2018 +0200
+
+    Add unit tests for stream validation
+
+commit 055dc69158958f0cb32968310f78b8158b378224
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Jul 22 17:03:10 2018 +0200
+
+    Add stream validation pt2 -- need to add unit tests
+
+commit 1ea98508424d1fa60f35742586968b6fa4566f66
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Jul 22 16:25:56 2018 +0200
+
+    Add stream validation -- need to add unit tests
+
+commit 6e92eecdf628f9ef747fe656d8f2bde404f2c103
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 16:58:30 2018 +0200
+
+    Fix import typo
+
+commit 844f1e31af9a13c405fdd592ab09d88857ce0065
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 16:18:59 2018 +0200
+
+    Fix XML model addrtype attribute name
+
+commit fd83be9d954c641d0151b32eaf80f49abf5c9e2c
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 14:12:22 2018 +0200
+
+    Add unit test with ipv4 and MAC addr
+
+commit 456f7fffc50222218782b4c9228908dfa45ef3a0
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jul 3 14:05:04 2018 +0200
+
+    No longer import hosts using their MAC addresses
+
+commit 541d64168d25aa1f5c532fcebc98eb8ad597c314
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 4 16:38:48 2018 +0200
+
+    Remove docker push from CI script after realization it's insecure
+
+commit 26c4c80fd2913ca8aeb011c17c53ee8d28befaef
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 4 16:20:34 2018 +0200
+
+    Add default credentials for dahua NVR (http://www.dahuatech.com/)
+
+commit bcc8099f9197bbf597a996de9e330631b30f3bb5
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Tue Mar 13 10:24:25 2018 +0100
+
+    Fix crash #174 by duplicating curl handle
+    
+    Wrap libcurl to bypass lack of covariance support
+
+commit 6392dcd9a020224e5fd801d4ca2b7e9751d464fe
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 12 15:29:02 2018 +0100
+
+    Update contributing guidelines & update CHANGELOG
+
+commit 916e1713d807046b0ea6adbc8016f8f2a233fb0e
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 12 14:16:44 2018 +0100
+
+    Update dependencies
+
+commit 08fcfcdac8335a7b3902fd78cd5408d4db75664a
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 12 14:15:07 2018 +0100
+
+    Remove responsibility for Attack methods to declare no attack success as an error
+
+commit 20daf733711bcddee513f2225ef3946d4b3fb107
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Sun Feb 18 19:18:05 2018 +0100
+
+    Migrate cameradar server to cameradar-app repo
+
+commit b909643c21b90970722d7aca0a7383ce0cfe49c7
+Author: Brendan Le Glaunec <brendan.le-glaunec@epitech.eu>
+Date:   Fri Feb 16 16:53:31 2018 +0100
+
+    Remove all mentions of glide & add instructions to install dep
+
+commit 5a0ee4aaa7084f985984f908ff704fa79ca1215e
+Author: Brendan Le Glaunec <harold.kutenberg@gmail.com>
+Date:   Fri Feb 16 15:00:27 2018 +0100
+
+    Move repository to Ullaakut
+
+commit 8289f1eddaf1d058493e54c279f850f6a9776545
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Feb 15 15:53:56 2018 +0100
+
+    Add coverage badge
+
+commit 74672f66259e036c0f6a819e5a6b0b0bc39c528f
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Feb 14 13:49:28 2018 +0100
+
+    Increase test coverage, mock libcurl & uniformize error messages
+
+commit c1ea6b167cb07ad58bd7ca129eab602aa0c29ab9
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Feb 5 10:49:48 2018 +0100
+
+    Fix misspelling and format using the -s option
+
+commit 71679691c4f97c005659a01bc84247f4a6440e99
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Feb 5 08:14:46 2018 +0100
+
+    Add example usage for testing purposes
+
+commit cbf6f647aa38cabea46b018ed5845136caf7bbc0
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Feb 5 06:45:47 2018 +0100
+
+    Add Coveralls integration
+
+commit fb9c5afc5f0018f563ee6afc7269ac9c4cc82163
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Feb 2 10:27:59 2018 +0100
+
+    Switch from glide to dep & fix CI (#152) (#153)
+
+commit 5d2626b6391dff5be67d2e5ca7f7d34b563f2180
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Dec 1 18:02:21 2017 +0100
+
+    Change license to MIT
+
+commit 2399df693de579ac9a01be871812a2fc31805ca9
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Dec 1 17:47:52 2017 +0100
+
+    Add examples in help message
+
+commit df44c7d6f16c3143fc466f8c9a2691f79aea43cb
+Author: Ishan Jain <ishanjain28@gmail.com>
+Date:   Fri Oct 27 06:56:36 2017 +0530
+
+    Add environment variables support
+
+commit 6d296b84d5b2be7611575b7dc36bcd870aa99e24
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 31 11:37:39 2017 +0100
+
+    Clean implementation of JSONRPC server
+
+commit 1dadb9345260c5e31efc3d492aea0234b008380c
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 31 11:22:02 2017 +0100
+
+    Cameradar service scans & attacks over WS
+
+commit 6ea4f6e12330fd675a0ff4f50438f40ba7552436
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 31 10:23:17 2017 +0100
+
+    WIP JSONRPC2 implementation
+
+commit 5a8417cf18a4e007c6185afcddb851c56153efd8
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 23 17:20:41 2017 +0200
+
+    Basic bidirectional WS server
+    
+    - Fake temporary protocol (will probably be JSON RPC later)
+    - Service can write freely to client through server
+    - Any new component we need (workers, etc.) can access the channels to write to the client
+
+commit 4e922a2a48ca336f00c392e2e90a168f8775d8dd
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Oct 20 08:38:16 2017 +0200
+
+    Start cameradar server to communicate with GUI
+
+commit 3ef48a97cf26d508dbc14334c04e4acbfa3d78f3
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 21:03:21 2017 +0200
+
+    Fix CI for PRs originating from forks
+
+commit 35d629d8cebe0b17260b4152c1eb28f627abdedb
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 20:56:15 2017 +0200
+
+    Nmap output is now correctly logged
+
+commit dba1391a0811b3817a5270d07203c17da2c082dc
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 20:32:23 2017 +0200
+
+    Fix dictionary path for binary & use glide in CI
+
+commit 961d34d05a6f21e2bf2fea1e60c7c32b7bdff3a6
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 19 18:46:53 2017 +0200
+
+    Migrate GUI to another repository
+
+commit 5d0c21c5d9e65f0d366644b06d07c8d94a024c02
+Author: Gael du Plessix <gael.duplessix@gmail.com>
+Date:   Thu Oct 19 11:45:59 2017 +0200
+
+    Setup travis email notifications for Brendy only
+
+commit 71046216cea89db526e56813f5239fcaeb159ac8
+Author: Gael du Plessix <gael.duplessix@etixgroup.com>
+Date:   Tue Oct 17 21:39:30 2017 +0200
+
+    Add GUI dev environment (#114)
+    
+    Setup dev tools to build GUI using ReasonML + Electron
+    
+    Use react-scripts instead of custom build config
+    
+    Add electron command
+    
+    Rename command
+
+commit 89647ae457cc2629d55cce53d45f76652eec83e2
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Oct 18 08:43:02 2017 +0200
+
+    Fix timeout and unresponsive cameras being detected as successful & add error message
+    
+    Update unit tests
+    
+    Fix deadlock in libcurl for tests to stop failing randomly
+
+commit 216d30fd45de3e132252eaf73f66c81e2e3db490
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Oct 16 11:23:46 2017 +0200
+
+    Add issue template
+
+commit 82e36e1fd37a96da565f58666b1687b098793aee
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 12 17:02:10 2017 +0200
+
+    Update file architecture to make go install work
+
+commit 34994e615adce0b07424a22131f6b687ef4de631
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 12 16:55:35 2017 +0200
+
+    Fix in README.md
+
+commit 6daceaeb2b1b9e9fbca3362dc871290a8170c913
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Oct 12 13:51:54 2017 +0200
+
+    Add glide package manager
+
+commit 50da5ea82d622193225d517f7cd60d303073a530
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Oct 10 16:57:26 2017 +0200
+
+    Fix usage of custom dictionaries in docker image
+
+commit da7fb6cd4941999f791d359085e0eb91639b652d
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Oct 10 13:09:57 2017 +0200
+
+    Add more credentials to default dictionary
+
+commit cfa90b36d86371f95ffb7e6ff50d951def27541a
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Oct 10 10:53:10 2017 +0200
+
+    Fix output when logs enabled
+
+commit 72fb21b1328831b2312f856bd9ff17e26c78fd65
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 23:52:15 2017 +0200
+
+    Add multi stage docker build
+    
+    Upgrade travis docker version
+
+commit 948bfce5a00d75f73e9850d480614d36476d9888
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 15:46:09 2017 +0200
+
+    Removed Output part from README
+
+commit 049a43ace2fde768e0a3b51795a0bd499d01b172
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 15:44:07 2017 +0200
+
+    Add gif to README.md
+
+commit 1c845d2b3cd2fc5ef36e84c64b2cfc930bd21861
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 9 14:23:57 2017 +0200
+
+    Improve UX - Add spinner and messages
+    
+    Improve UX - Add number of streams being attacked
+
+commit cb74761675107f58b5100431ffa2601af1a0ef08
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Sep 29 19:22:31 2017 +0200
+
+    Add unit tests and functional test in CI
+    
+    * Unit tests Discover 90%
+    
+    The NmapRun function needs a refacto to make it use adaptors instead of directly calling exec.Command, exec.Command.StdoutPipe, exec.Command.Start, bufio.Scanner.Scan and bufio.Scanner.Err
+    It makes me uncomfortable to push a test file that covers only 90%, but it's better than none, and the 10 missing %s are not very error-prone so it should be okay to delay this part a bit. For now it's more urgent to test as much of the code as possible
+    
+    * Unit tests Helpers 100%
+    
+    * Unit tests Loaders 100% - Attack 85%
+    
+    Once again, the Attack functions are not as simple as the rest to unit test, so I will refacto all of this to use a CURL adaptor later, but for now the total is of 88.6% of coverage, which is good enough for something I spent 2 hours on
+    
+    * Add testing to CI validation process
+    
+    * CI now does functional testing with RTSPATT
+    
+    * Change travis language to bash
+
+commit be63c6a231577e91ab7eee66dcbf2a5164699058
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 26 09:51:17 2017 +0200
+
+    Add package overview & fix dead link
+
+commit eab18925c70dff54864e8406768b84a6c2c490e4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 25 20:46:22 2017 +0200
+
+    Add godoc badge and remove temporary images
+
+commit 4c9d23acb112a9dce936356e1c5ca778d7eef75f
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 25 19:17:24 2017 +0200
+
+    Improve comments & improve cameraccess speed
+
+commit ecdac0014566c66b28ddac93623552987273fa13
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 25 15:47:57 2017 +0200
+
+    Move cameradar to root folder
+
+commit 2555a86f5f6e1392f1305483ebba7b1ee092a459
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 17:45:33 2017 +0200
+
+    Add known bugs to README & update examples
+
+commit ebce96573088d5edbedfd04a91a5e66b20646e13
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 11:14:37 2017 +0200
+
+    Remove debug logs from previous PR
+
+commit a2af1329d7022af0a55e4e42fc218e44533a989c
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 11:02:20 2017 +0200
+
+    Fix bug for some cameras running gst rtsp server
+
+commit bf3a967fadf1f10bbed2c4d532a16979f8d93de4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Sep 19 07:49:01 2017 +0200
+
+    Fix entrypoint ignoring parameters & fix default dictionary values
+
+commit 3dcc80a0e8536d0c0479e80ab35e887450de9081
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Sep 18 22:54:35 2017 +0200
+
+    Fixes in readme and contributing.md (#77) (#79)
+    
+    Remove codacy badge
+
+commit 624ff8bc1b99c00bd411d194b15711c5d1e430ad
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Sep 18 22:43:30 2017 +0200
+
+    Fixes in readme and contributing.md (#77)
+
+commit 59f51f6149827f78873ee1e609df60238ab20e07
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Sep 18 22:07:19 2017 +0200
+
+    Cameradar becomes a golang library and cameraccess replaces the old cameradar (#75)
+    
+    * Better performance
+    * Better UX
+    * Lighter docker image
+    * More control over the features
+    * Suited for devs
+    * Better documentation
+    
+    * No tests yet
+
+commit b4090b8301b7bfeb576635f47caf758d1625e55c
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Jun 7 15:12:22 2017 +0200
+
+    Improve README.md
+
+commit 02b58ad1a9b510a26736e81c2a2d4b42f341b4aa
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 12 10:51:49 2017 +0200
+
+    Rename bruteforce to dictionary attack to avoid confusion (#71)
+
+commit 81b7e893dc96ec7252d59865a5f64f281fec5b12
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 9 08:15:50 2017 +0200
+
+    Rename subnet to target to avoid confusion (#70)
+
+commit 8c6c94cc3431d8d2a1211124f92a400382d79910
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 8 08:25:59 2017 +0200
+
+    Update README.md (#69)
+    
+    Add more precision to the subnetwork (-s) argument to cameradar to improve user experience
+
+commit fac60679bcfdc10151e89b7d133c7f6c8d0331e5
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 4 09:48:19 2017 +0200
+
+    Rename CONTRIBUTION.md to CONTRIBUTING.md (#66)
+
+commit 55122d523c6118e2ca93b4db0d1437379c92eb6a
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 4 09:48:05 2017 +0200
+
+    Add new RTSP routes (#67)
+
+commit 5825f14ef17f7679f160a2127c574151d6e10541
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Mar 23 15:28:54 2017 +0100
+
+    Fix golang style issues (#65)
+    
+    In writeResult.go, two error strings began with an uppercase letter and ended with a dot.
+    See https://github.com/golang/go/wiki/Errors for more information
+
+commit 60c2f1f18c8b473ed21388f950c43a47c9cb9238
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Mar 20 10:30:18 2017 +0100
+
+    Update Codacy badge URL
+
+commit 44e3911e0193e5f003db30a7338cc738d1c8448d
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Feb 1 09:16:45 2017 +0100
+
+    Usage of the develop branch unrestricted
+    
+    I decided that putting a `2.0.0` branch in place would require too much work as it would mean maintaining two versions of Cameradar at the same time. Thus, we will just keep the normal workflow as we used to.
+
+commit 28f642d39fa59101d32eb168ab7088942cf4875a
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Feb 1 09:13:59 2017 +0100
+
+    Fix automatic Docker Hub deployment
+    
+    The previous travis script was only tagging latest and not the
+    tag of the branch, which resulted in outdated tags on the DockerHub
+
+commit 4dfe99064bc6ace2bd394f5430a7e76a14d9deb1
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Jan 18 13:45:01 2017 +0100
+
+    Release 1.1.4
+
+commit 097cbe3df37232661adb7154585f1925b4d0b3a4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Jan 18 09:37:24 2017 +0100
+
+    Rename MySQL table & Update CONTRIBUTION.md for 2.0.0
+
+commit 3123e34076091b024610245d09b1c7d860fadc42
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Dec 22 09:28:47 2016 +0100
+
+    Improve docker image usage
+
+commit c334ea9f91f943375c63cd953001bd8e18df6bd8
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Dec 13 15:22:53 2016 +0100
+
+    Fix critical functional test bug
+
+commit bfecea00ad95d65f9cf3f073b1683c888dcc98ac
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Dec 15 12:28:06 2016 +0100
+
+    Add contribution doc & update readme & dictionaries
+
+commit 1c7c462771d91b07289d76cf209390063bc1c990
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Dec 13 12:04:32 2016 +0100
+
+    Add code quality check & fixed output format
+
+commit 308ba24e90e25df46a150e48224e21b1bee68164
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Dec 2 16:28:41 2016 +0100
+
+    Improve output & remove legacy code
+
+commit 4a8f6550af1933bba54ad934f7941795ffa73f7c
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Dec 2 15:49:58 2016 +0100
+
+    Put Gitflow back in place
+
+commit c56cce6319bdf1277c92ef179615307bfba89d4a
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Dec 2 11:49:38 2016 +0100
+
+    Update contribution format guidelines
+
+commit 832e4f9fa2f57d4e1cd76a928f971f503799e4ee
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Dec 1 17:13:45 2016 +0100
+
+    Update contribution info
+
+commit 63008d19afb3b1b14b1f906e655866429c11621e
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Dec 1 15:44:26 2016 +0100
+
+    Enhanced the latest release badge
+    
+    Replaced the raw version with one that will get the latest tag automatically and update the badge.
+
+commit fbd78301a0c47c3e1bdd84f11584964908184b93
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 23 06:38:59 2016 +0100
+
+    Travis functional testing & minor changes
+
+commit 2961d68200a1aff29b28e37da20e91bf6e7445a7
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sun Nov 20 13:17:25 2016 +0100
+
+    Travis build test integration & changes to docker deployment
+
+commit f86683d9ca1ff7cfccaf79aa7e5d390fc1ee6fe3
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon Nov 14 13:40:54 2016 +0100
+
+    Add docker pulls badge to README.md
+
+commit 58bcfb9ee57fe8b402a873eb1c710d024024083d
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sat Nov 12 12:55:32 2016 +0100
+
+    Fix functional tests & multiple bugfixes & use CES
+
+commit 5be5124e702fa3194238d8526db18078bafd2cc0
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Nov 3 16:34:54 2016 +0100
+
+    Remove unnecessary null pointer checks
+
+commit b8291710d9c0bccd4df4468f7d67e76f1a8a0f28
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Nov 3 08:45:20 2016 +0100
+
+    Docker Hub instructions update
+
+commit b51a8da1259ddfadb7bb83341f44fcf6ef0265c7
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 14:41:29 2016 +0100
+
+    Deployment update & Docker Hub integration
+
+commit 2a0882869b84ec957608035ca9bb27ca119128fb
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 10:29:23 2016 +0100
+
+    Update deployment process
+
+commit c3d690371b965a54828afc048a175e866fba9d6e
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 08:42:45 2016 +0100
+
+    Update package
+
+commit 30c099f872ac4aebb82fe80b42beb510a8227ab4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Nov 2 07:56:03 2016 +0100
+
+    Fix multithreading & add timeout to ffmpeg
+
+commit c660c1a6764873b065898286510244b9df5856b5
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 31 10:02:53 2016 +0100
+
+    Update package
+
+commit c44a88b57a016dd9dc4540a1968e10e0e6068cc7
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 31 10:01:13 2016 +0100
+
+    Add GST RTSP SERVER option
+
+commit 509017f8df5e32e467b9d9ce0cfe33607a052469
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sat Oct 29 08:57:51 2016 +0200
+
+    Add package generation to README
+
+commit 7243059cdb33d9bb9a27dd5df7f7e82396fd4697
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Sat Oct 29 08:55:14 2016 +0200
+
+    Update package name & add packge generation script
+
+commit cd3cfc383792aa9dd382d0ae39d6bad406ac1bf4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Oct 28 10:53:41 2016 +0200
+
+    Update Readme & Remove debug logs
+
+commit 509d68f023b4e92be36f080bb0d0fa489c53a2b8
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Oct 28 09:50:37 2016 +0200
+
+    Multithreading & UX update
+
+commit de757e848dc401ad484aa3c36ee9095e1630bab6
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 13 15:51:30 2016 +0200
+
+    Add Cameradar logo to README.md
+
+commit 1fb462bab46c71d682f90e50c0beaf8fa4a788e6
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Oct 13 15:43:48 2016 +0200
+
+    Add Cameradar logo
+
+commit 4c4312f9b5e89124343d2b302151ffcc6789fe2b
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Oct 24 14:02:51 2016 +0200
+
+    Add standard Comelit RTSP URL to dictionary
+
+commit ff684d7544040f948de4e623e35acd40dd100523
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Mon Sep 12 14:28:28 2016 +0200
+
+    Update testing binary
+
+commit b69b4dc98ca4ad881f59d876b72fc00fe3aea591
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Wed Aug 31 10:36:39 2016 +0200
+
+    Create CHANGELOG.md
+
+commit 34351ae14e27c75ae428ab11559e26be3fd87ad4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Aug 31 12:46:21 2016 +0200
+
+    Fix potential failure in MySQL CM and fix describe method
+
+commit d9945f5e261f2b64fefb0ef0579d9bf698aeab7f
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Aug 31 09:39:08 2016 +0200
+
+    Fix nmap package detection
+
+commit 6247656a63d4b7185f18621c890ae2d4945bb6fc
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jul 8 15:05:17 2016 +0200
+
+    Improve README.md
+
+commit c46217918f7bc898ac9200981017a3a54025cacc
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Tue Aug 30 16:58:46 2016 +0200
+
+    Fix GStreamer check
+
+commit 330e4a1e855393b5d339753ba20f235fb8c23b1e
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri Aug 26 12:59:46 2016 +0200
+
+    Remove forgotten logs
+
+commit bded05688eca86c527c0bd7687521519ac12f8d3
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Wed Aug 24 12:11:54 2016 +0200
+
+    Fix issues with MySQL CM
+
+commit 13e183660411765ae983fa341c8c3d77741773a6
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Thu Jul 7 17:47:08 2016 +0200
+
+    Update OS to 16.04 & remove boost dependency
+
+commit d611d00b55b113326873c8ae12eabb9238eded7f
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 21 11:00:35 2016 +0200
+
+    Update deployment version
+
+commit e4a2e06def5623291262553b7280cdaed8ed76ee
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 21 10:53:24 2016 +0200
+
+    Add functionnal testing
+
+commit df3c21701d54c0ca9c4a914a30d83a44f2d29b08
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue Jun 7 12:38:17 2016 +0200
+
+    Improve README.md
+
+commit 85c816c8cb703b0ead3d369eadc22832dffa74f8
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jun 3 09:07:07 2016 +0200
+
+    Fix issue with MySQL & deployment
+
+commit 4633d3f520b437626aebf3ea817c5872387fa764
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri Jun 3 08:49:55 2016 +0200
+
+    Improve CMakeLists.txt
+
+commit 60288c09e49b83908949fac193998779ed8516ac
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu Jun 2 10:13:48 2016 +0200
+
+    Improve README.md
+
+commit 49bc3820aa410786b954663d7cba38d7864ca3c5
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 27 14:36:52 2016 +0200
+
+    Cameradar now supports badly configured cameras
+
+commit eed8aa0e9da68cedbb3e2e04e7cea0f9f5485135
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Thu May 26 10:52:29 2016 +0200
+
+    Improve README.md
+
+commit e13879ab77b7c99a909ccda61c3f2a5a127f05c5
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Tue May 24 08:56:11 2016 +0200
+
+    Add quick MySQL docker deployment & code cleaning
+
+commit 8a8e4faa42dd79bfcfcf9d6e9daded8491daf031
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 11:17:08 2016 +0200
+
+    Add MySQL Cache Manager & code cleanup
+
+commit faa25708837eeb5824d1a2ac7119f48fbd6efcf4
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 00:39:14 2016 +0200
+
+    Deployment / CPack / Docker / Boost / Versionning
+
+commit 5c0ee0c5a0c0e2a57f2e570952afe4bc17b08e3e
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 17:02:33 2016 +0200
+
+    Fix jsoncpp download issue
+
+commit 780a32d706d67771bdc6ad085469e4bab17fc12a
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri May 20 13:43:28 2016 +0200
+
+    Improve README.md
+
+commit 29f05e0b708cc87e3089dfc69e414e8bdb2c799c
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Mon May 23 17:14:41 2016 +0200
+
+    Improve README.md
+
+commit 0144b569adc7aa3f7ce4b82ce3151f74aa77dd80
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 00:58:22 2016 +0200
+
+    Update cloning method to HTTPS
+
+commit dd2747d12a468fc0089056f348a1613f14772933
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Sat May 21 00:39:14 2016 +0200
+
+    Add Deployment / CPack / Docker / Boost / Versionning
+
+commit 5ef63cd7e6eb21a0fa6629bd9c13b4fe648b42f6
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 21:36:48 2016 +0200
+
+    Update README to add future improvement
+
+commit ac6002028dedbc83812690bab278937e13c18801
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 21:30:36 2016 +0200
+
+    Improve jsoncpp integration
+
+commit 5f80f1b76af0f46f2042b15cc9989329204cb169
+Author: Brendan LE GLAUNEC <brendan.le-glaunec@epitech.eu>
+Date:   Fri May 20 17:02:33 2016 +0200
+
+    Add dependencies & improve readme
+
+commit 95276760be1eb19427b0a4df79227d0be23b27f4
+Author: Brendan LE GLAUNEC <brendan.leglaunec@etixgroup.com>
+Date:   Fri May 20 13:43:28 2016 +0200
+
+    Initial commit
+
+commit 2af5f4475edbf887435f547ab36122f185a3a685
+Author: Jeremy Letang <letang.jeremy@gmail.com>
+Date:   Fri May 20 13:35:41 2016 +0200
+
+    Initial commit

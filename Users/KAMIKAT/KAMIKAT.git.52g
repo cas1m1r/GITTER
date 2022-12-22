@@ -1,0 +1,361 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+52g
+---
+
+[![Build Status](https://travis-ci.org/kamikat/52g.svg?branch=master)](https://travis-ci.org/kamikat/52g)
+
+Process & query leaked password data using bloom filter.
+
+Installation
+------------
+
+Prerequisites:
+
+- CMake &gt;= 3.0
+- GCC &gt;= 4.9 / clang with C++11 support
+- Node.js + npm
+
+On OS X
+
+    brew install cmake nodejs
+
+On Ubuntu
+
+    apt install build-essential cmake nodejs-legacy npm
+
+Execute following command in project root:
+
+    git submodule update --init --recursive
+    npm install
+
+should build following artifacts in `build/`
+
+- mkbfidx: create a bloom filter index
+- openidx: query a bloom filter index created by mkbfidx
+
+See `--help` for option details.
+
+License
+-------
+
+(The MIT License)
+====================== GIT HISTORY: ======================
+64f7b7a HEAD@{0}: clone: from https://github.com/kamikat/52g
+commit 64f7b7a7fd7c34e20a1318791a36a8acc0a4a931
+Author: 纸喵 <kirisetsz@gmail.com>
+Date:   Fri Jul 1 12:01:22 2016 +0800
+
+    Update README.md
+
+commit c5830010854a4bdd176584946ecef3de080bf96a
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 14 19:24:37 2016 +0800
+
+    add build status badge
+
+commit d676767e158b34d850c2365f3499b2aa13392bd7
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 14 19:17:26 2016 +0800
+
+    add travis configuration
+
+commit 0852e4398d1b7c21f455187e85e268a10b7f8ae1
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Tue Apr 12 19:56:35 2016 +0800
+
+    build release on npm install
+
+commit 36d480104fbb67c508fb3fa4fa2580bb02ad3fa5
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Tue Apr 12 19:46:17 2016 +0800
+
+    update README.md
+
+commit dcd49dbc75ffc6927e7c62f675317d9ad3fc7ac3
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Tue Apr 12 19:45:07 2016 +0800
+
+    update README.md
+
+commit 37fa1e8bb1d10b58397c2fa94c652eee33b6be4d
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Tue Apr 12 16:51:54 2016 +0800
+
+    normalize: ignore case of mail
+
+commit 41e625d94114ce4742ed2c67ed7279ef9ea5e556
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Tue Apr 12 01:51:24 2016 +0800
+
+    remove static page resource
+
+commit 14e329cfb228fde1f7eb0711bdecb424592ba729
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Tue Apr 12 01:28:55 2016 +0800
+
+    disable static asset serve
+
+commit 2dbefe9da8471f80933b2dfc129bc8ba676a083b
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Tue Apr 12 01:27:07 2016 +0800
+
+    refine READMe and support Node 0.10.0
+
+commit 44192f86dd848ba0b09afe73a8c927b5abce8d40
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 20:28:59 2016 +0800
+
+    add source data normalize script
+
+commit ce67d3f6956ef92563a88ac842cd57e4bf747a7b
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 18:42:37 2016 +0800
+
+    remove unused dependencies
+
+commit 916b7bdcaa59371d712475fcbde12a1d58ecadfe
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 18:13:35 2016 +0800
+
+    update libbf
+
+commit b038f6acb9e8c6202c238849cb65aded6c55739f
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 03:21:08 2016 +0800
+
+    add fold_str and tests
+
+commit df2558c2f349724195e6cf19a475b13002de84ca
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 02:55:17 2016 +0800
+
+    use faster script/stylesheet cdn
+
+commit 15dc479c30323400f90880d8d61548062e443934
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 02:46:46 2016 +0800
+
+    better responsiveness
+
+commit f4cd8fd1d39653359e2cdf559dc76f5cdf555c29
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 02:26:05 2016 +0800
+
+    update libbf module
+
+commit dc57dfe40c475569cfec263c84a1085abb911e85
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 02:17:31 2016 +0800
+
+    update tests
+
+commit fc0bc1a4f40d62b4ea859416c8c0eb8b9d10d9af
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 02:07:03 2016 +0800
+
+    update frontend
+
+commit b1de009480eade3a146ef62f0807b5d06938b7f4
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 01:58:40 2016 +0800
+
+    add frontend
+
+commit 96aa604daa0539ef0450c598dd90bb0008dc8e20
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Mon Apr 11 00:56:32 2016 +0800
+
+    fix debug hash function
+
+commit 5eaeb731fc5992b386a0aa56ce125180200cfe5f
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 21:05:41 2016 +0800
+
+    use dev log in development
+
+commit 4804ea75b8003b4124cb4f4748ae8f7ddfff85ae
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 20:55:14 2016 +0800
+
+    fix overflow...
+
+commit d4240bc4c9cf72c72a645da4b4c91ce0954b3a69
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 20:44:06 2016 +0800
+
+    add nodemon
+
+commit 1050cdecab636d7667a2b584537341d1670ea1ee
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 20:42:37 2016 +0800
+
+    add foo.idx test file
+
+commit 65f5efac9fddc9803cab1d9e947dee1e8a657ddd
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 20:38:10 2016 +0800
+
+    add node server wrapper to openidx query
+
+commit b945877639d090536549dc250dcaaddf58a8925f
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 20:28:23 2016 +0800
+
+    change log style
+
+commit b40d6f5d10697b171a5a1dd77a0fb7412afd5ebf
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 20:20:27 2016 +0800
+
+    implement hexadecimal query
+
+commit 18d3d54e02a80566bf25e0cec81e1987935e8c62
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 18:38:19 2016 +0800
+
+    tweak cmake list
+
+commit bffebe21ef585b50b4cdb554da3f14501c7bed6b
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 18:37:28 2016 +0800
+
+    read/write seed
+
+commit 3938aa0e86c433117da55179b97797f926f245c5
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 17:15:30 2016 +0800
+
+    simple SSL/TLS support...
+
+commit 33c3d63d1fe2766d4c5ce4a6078e30a201c33578
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 15:46:44 2016 +0800
+
+    add hello world test of nghttp2_asio
+
+commit e28b00bd49fa4cb95759a0dff0547c9032502291
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Sat Apr 9 15:46:23 2016 +0800
+
+    update nghttp2_asioConfig
+
+commit d98979cb0c86a38f5d3bfb9548dccb618af4e92a
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Fri Apr 8 23:20:46 2016 +0800
+
+    it's a server support only HTTP/2?
+
+commit 10152638896903ec2df0061549e102f08e86c803
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Fri Apr 8 22:14:18 2016 +0800
+
+    update cmake
+
+commit 43e27e996a861c34725dcc9d4f77220b536d53b9
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Fri Apr 8 20:41:35 2016 +0800
+
+    fix cmake script
+
+commit df3c922afa547791a7e0fa777f11ca2ae561287f
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Fri Apr 8 16:05:34 2016 +0800
+
+    add api server
+
+commit b84a3a4b64ccb9ce072915c520858049d372363b
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Fri Apr 8 01:18:57 2016 +0800
+
+    add json11
+
+commit ca2e3670120686abeb218ef130f4477198a0c9a8
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 22:26:46 2016 +0800
+
+    implement openidx
+
+commit 8e5a2e06e16b62c1c6ab1f3b8594ee893e8ee8d3
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 20:52:56 2016 +0800
+
+    update commandline usage
+
+commit 1887c08b1b3960a780cc59cdc0bdb61b9efaf13d
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 20:31:05 2016 +0800
+
+    support commandline options
+
+commit 528dcc939b10d2fa3b661b99250dc6d29ac3b75e
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 17:54:51 2016 +0800
+
+    add findidx executable
+
+commit 2115ea60677940e0c86c1ed10d53a7bc6e4f0aa2
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 17:34:25 2016 +0800
+
+    refactor
+
+commit 321c9c66104d6b8ebf3c6da36698f59da59885dc
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 17:27:47 2016 +0800
+
+    rename client -> asset
+
+commit b8ca6eda920a44901e7ad80ffddabe1a9d0db392
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 17:26:42 2016 +0800
+
+    add docopt module & move libbf
+
+commit 62f52291dd145765d64e9327d89bf4dada258d97
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 17:08:50 2016 +0800
+
+    refactor ...
+
+commit 9886c0dab7ab6c98bee89a350359aa09161d901a
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 15:06:39 2016 +0800
+
+    add README
+
+commit 0b06d715cc65413c6f79a0622bc76a4d3f15d493
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 15:05:59 2016 +0800
+
+    line fold
+
+commit c391e66fc59931c269d6350025a00ce11dbde424
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 13:59:44 2016 +0800
+
+    read data from stdin and dump to stdout
+
+commit a88d985950e1ee3582d597502c1254d83650f15a
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 13:06:30 2016 +0800
+
+    dump to stdout
+
+commit 31758963373c1a2ec6d302045ba2e68740ba7a08
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Thu Apr 7 00:28:21 2016 +0800
+
+    make project structure
+
+commit 77eb78e2cb667deb644c2bec53967bc766b8b9b8
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Wed Apr 6 22:03:54 2016 +0800
+
+    update comment
+
+commit b0d6565f178e48728de3c4b46c3573a300cd0947
+Author: kirisetsz <kirisetsz@gmail.com>
+Date:   Wed Apr 6 22:03:01 2016 +0800
+
+    Initial Commit

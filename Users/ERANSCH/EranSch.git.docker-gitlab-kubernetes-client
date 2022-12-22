@@ -1,0 +1,476 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 658890c9b59b9b58d1af82e0ec97df8486dd66a2
+Author: Eran Schoellhorn <me@eran.sh>
+Date:   Mon Jun 18 05:45:08 2018 -0400
+
+    Use existing `apk` command to install jq
+
+commit b4df24a8b7432d5a84968f0ae44e08e8e63757ce
+Author: Eran Schoellhorn <me@eran.sh>
+Date:   Mon Jun 18 05:32:43 2018 -0400
+
+    Include jq in image for json parsing
+
+commit b42538374e31b42eb2b93f0298590f1558ba9047
+Author: Eran Schoellhorn <me@eran.sh>
+Date:   Sat Jun 16 16:27:18 2018 -0400
+
+    Remove app name
+    
+    This is causing unexpected service names, hopefully this helps
+
+commit 3cb9f1ae6fd8c7e5a644cb0116761e8a92c6a384
+Author: Eran Schoellhorn <eschoellhorn@352inc.com>
+Date:   Tue May 15 12:59:19 2018 -0400
+
+    Roll helm version back for compatibility with Gitlab installed version
+
+commit dac471116c11a183036b68994a19e62632166efa
+Author: Eran Schoellhorn <eschoellhorn@352inc.com>
+Date:   Tue May 15 07:32:00 2018 -0400
+
+    Replace basic docker image with docker-bash
+
+commit efcd3c08736bcf9221f39a2b97c36a8640e65880
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Mon Apr 30 12:53:28 2018 +0200
+
+    Bump helm version to v2.9.0, kubernetes 10.0.2
+
+commit f57cebbf2a3ae794e45da2820457b65ea95ba4f5
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Apr 19 15:47:19 2018 +0200
+
+    Bump to helm 2.8.2, kubernetes 1.10.1
+
+commit 36051bd9027185ad04b4370fbc46efcf05f1453e
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Feb 8 11:19:14 2018 +0100
+
+    Add jobs resource to tiller
+
+commit 385074d5d2528a26638922c1794c1c2dfa997549
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Jan 30 11:22:45 2018 +0100
+
+    Make sure tiller only listens to localhost
+
+commit 775529187a75e82eb220496b3b252d8f8e6676fe
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Mon Jan 29 15:42:34 2018 +0100
+
+    Kubernetes 1.9 support, with helm upgrade
+
+commit 898f2a475263889641183a03d006cc14495e1d30
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Mon Jan 29 15:40:59 2018 +0100
+
+    single APK command
+
+commit c5317446901bb34393cfe588d7681d2b14a1a430
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Fri Dec 22 11:35:01 2017 +0100
+
+    install curl too
+
+commit 318ce826f6de6afdfb4afed31ccc62827f8eb55c
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 11:55:50 2017 +0100
+
+    README: more links, improve descriptions
+
+commit b50d075588f6f491d5c0f8e6f856bb6dce1599e4
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 11:11:29 2017 +0100
+
+    README: mention serviceaccount imagePullSecrets
+
+commit 935418f68a6beb392b1ca5f638a7790f71e1bc02
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 01:09:40 2017 +0100
+
+    Use docker as base image
+
+commit 9749f9cc4ffb266e702d75f1b6e518b2f7fa85ad
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 00:47:06 2017 +0100
+
+    Improve README
+
+commit bdf9941f3da1ab647bc789a53311d05bc360c7d8
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 00:24:27 2017 +0100
+
+    Improve usage based on deployment experience
+
+commit a37de1b30206c1525b994171564e390e15687b9c
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Wed Dec 20 23:53:01 2017 +0100
+
+    create-release: improve output
+
+commit 9780f72f6be0c9e9fe421a3e7f3290707162b3cb
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 19:34:36 2017 +0100
+
+    disable grace-period
+
+commit 0ce49010d0a8b613134a7b662c6204f2049ddbe8
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 18:32:40 2017 +0100
+
+    fix bash syntax
+
+commit fdb499947cd44803854806bf910f09b284caf8ef
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 18:31:26 2017 +0100
+
+    increase grace period
+
+commit 6e05282088290345b27c9fcaaee0d8e037b01436
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 18:27:50 2017 +0100
+
+    fix CI_COMMIT_TAG
+
+commit f8909c5033d23d7f3b66e7b84e090543efedb48a
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 17:56:45 2017 +0100
+
+    improve tiller detection
+
+commit 941d18a3567b1ced5b7461dd99e68945fcaf362c
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 16:57:57 2017 +0100
+
+    add helm status note
+
+commit 73aa2d85cc85401afda9c0bed094c8ff77fbdb83
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 16:57:43 2017 +0100
+
+    create-namespace: persistentvolume is an admin object
+
+commit 3d4e8351fdd89eccd443785f7e561dc46c069bfe
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 15:12:39 2017 +0100
+
+    simplify role names
+
+commit 5d887795556b2534098b9b16edb60757b523ac75
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 15:12:01 2017 +0100
+
+    use helm init --skip-refresh for faster startups
+
+commit f7bff0daef845ab9db464951b16c1b870b54892d
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 14:54:32 2017 +0100
+
+    create-image-pull-secret: support minimal auth permissions, no get secret
+
+commit 10cb5f9285c3191ad583298ed0154ebe4440f703
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 14:50:00 2017 +0100
+
+    README: add docker instructions
+
+commit 690ae0c712c06d54076133892a3a1b095fb63dba
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 14:49:50 2017 +0100
+
+    try apply --force
+
+commit a65f81293c9574993f5d54568cb0d0494aa4d3a6
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:37:04 2017 +0100
+
+    add volume support to tiller
+
+commit bd2962b1807b6d9d15750d49f6828b4175d013ac
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:29:23 2017 +0100
+
+    allow to override TILLER_NAMESPACE
+
+commit 05c21e488447ca2b3c6660f8c4152cd0ae4262b5
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:23:34 2017 +0100
+
+    use kubectl apply instead of replace
+
+commit df23a927fbac1aa293abbc3ad50d280d4bcc9760
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:14:59 2017 +0100
+
+    allow create-release to find proper tiller install
+
+commit 5780ed840b832fe449f1c2122ca93deebb2b77e1
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:14:48 2017 +0100
+
+    fix more namespaces
+
+commit 67532051349a9c11d29510b775cbabef51b55cbc
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 12:33:12 2017 +0100
+
+    fix namespace access
+
+commit 7c7b5fe8179cf6b9f789da0acb6be9b691b54952
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 12:17:34 2017 +0100
+
+    add license, merge RUN commands
+
+commit 1d715c17646b607cc8d0deb5b4194748cf06a7f2
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 12:12:45 2017 +0100
+
+    README: syntax
+
+commit 55adc5b7288240355a155f2973dd403ab6043d01
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 11:59:19 2017 +0100
+
+    Initial version
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 658890c9b59b9b58d1af82e0ec97df8486dd66a2
+Author: Eran Schoellhorn <me@eran.sh>
+Date:   Mon Jun 18 05:45:08 2018 -0400
+
+    Use existing `apk` command to install jq
+
+commit b4df24a8b7432d5a84968f0ae44e08e8e63757ce
+Author: Eran Schoellhorn <me@eran.sh>
+Date:   Mon Jun 18 05:32:43 2018 -0400
+
+    Include jq in image for json parsing
+
+commit b42538374e31b42eb2b93f0298590f1558ba9047
+Author: Eran Schoellhorn <me@eran.sh>
+Date:   Sat Jun 16 16:27:18 2018 -0400
+
+    Remove app name
+    
+    This is causing unexpected service names, hopefully this helps
+
+commit 3cb9f1ae6fd8c7e5a644cb0116761e8a92c6a384
+Author: Eran Schoellhorn <eschoellhorn@352inc.com>
+Date:   Tue May 15 12:59:19 2018 -0400
+
+    Roll helm version back for compatibility with Gitlab installed version
+
+commit dac471116c11a183036b68994a19e62632166efa
+Author: Eran Schoellhorn <eschoellhorn@352inc.com>
+Date:   Tue May 15 07:32:00 2018 -0400
+
+    Replace basic docker image with docker-bash
+
+commit efcd3c08736bcf9221f39a2b97c36a8640e65880
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Mon Apr 30 12:53:28 2018 +0200
+
+    Bump helm version to v2.9.0, kubernetes 10.0.2
+
+commit f57cebbf2a3ae794e45da2820457b65ea95ba4f5
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Apr 19 15:47:19 2018 +0200
+
+    Bump to helm 2.8.2, kubernetes 1.10.1
+
+commit 36051bd9027185ad04b4370fbc46efcf05f1453e
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Feb 8 11:19:14 2018 +0100
+
+    Add jobs resource to tiller
+
+commit 385074d5d2528a26638922c1794c1c2dfa997549
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Jan 30 11:22:45 2018 +0100
+
+    Make sure tiller only listens to localhost
+
+commit 775529187a75e82eb220496b3b252d8f8e6676fe
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Mon Jan 29 15:42:34 2018 +0100
+
+    Kubernetes 1.9 support, with helm upgrade
+
+commit 898f2a475263889641183a03d006cc14495e1d30
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Mon Jan 29 15:40:59 2018 +0100
+
+    single APK command
+
+commit c5317446901bb34393cfe588d7681d2b14a1a430
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Fri Dec 22 11:35:01 2017 +0100
+
+    install curl too
+
+commit 318ce826f6de6afdfb4afed31ccc62827f8eb55c
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 11:55:50 2017 +0100
+
+    README: more links, improve descriptions
+
+commit b50d075588f6f491d5c0f8e6f856bb6dce1599e4
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 11:11:29 2017 +0100
+
+    README: mention serviceaccount imagePullSecrets
+
+commit 935418f68a6beb392b1ca5f638a7790f71e1bc02
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 01:09:40 2017 +0100
+
+    Use docker as base image
+
+commit 9749f9cc4ffb266e702d75f1b6e518b2f7fa85ad
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 00:47:06 2017 +0100
+
+    Improve README
+
+commit bdf9941f3da1ab647bc789a53311d05bc360c7d8
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Thu Dec 21 00:24:27 2017 +0100
+
+    Improve usage based on deployment experience
+
+commit a37de1b30206c1525b994171564e390e15687b9c
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Wed Dec 20 23:53:01 2017 +0100
+
+    create-release: improve output
+
+commit 9780f72f6be0c9e9fe421a3e7f3290707162b3cb
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 19:34:36 2017 +0100
+
+    disable grace-period
+
+commit 0ce49010d0a8b613134a7b662c6204f2049ddbe8
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 18:32:40 2017 +0100
+
+    fix bash syntax
+
+commit fdb499947cd44803854806bf910f09b284caf8ef
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 18:31:26 2017 +0100
+
+    increase grace period
+
+commit 6e05282088290345b27c9fcaaee0d8e037b01436
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 18:27:50 2017 +0100
+
+    fix CI_COMMIT_TAG
+
+commit f8909c5033d23d7f3b66e7b84e090543efedb48a
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 17:56:45 2017 +0100
+
+    improve tiller detection
+
+commit 941d18a3567b1ced5b7461dd99e68945fcaf362c
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 16:57:57 2017 +0100
+
+    add helm status note
+
+commit 73aa2d85cc85401afda9c0bed094c8ff77fbdb83
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 16:57:43 2017 +0100
+
+    create-namespace: persistentvolume is an admin object
+
+commit 3d4e8351fdd89eccd443785f7e561dc46c069bfe
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 15:12:39 2017 +0100
+
+    simplify role names
+
+commit 5d887795556b2534098b9b16edb60757b523ac75
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 15:12:01 2017 +0100
+
+    use helm init --skip-refresh for faster startups
+
+commit f7bff0daef845ab9db464951b16c1b870b54892d
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 14:54:32 2017 +0100
+
+    create-image-pull-secret: support minimal auth permissions, no get secret
+
+commit 10cb5f9285c3191ad583298ed0154ebe4440f703
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 14:50:00 2017 +0100
+
+    README: add docker instructions
+
+commit 690ae0c712c06d54076133892a3a1b095fb63dba
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 14:49:50 2017 +0100
+
+    try apply --force
+
+commit a65f81293c9574993f5d54568cb0d0494aa4d3a6
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:37:04 2017 +0100
+
+    add volume support to tiller
+
+commit bd2962b1807b6d9d15750d49f6828b4175d013ac
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:29:23 2017 +0100
+
+    allow to override TILLER_NAMESPACE
+
+commit 05c21e488447ca2b3c6660f8c4152cd0ae4262b5
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:23:34 2017 +0100
+
+    use kubectl apply instead of replace
+
+commit df23a927fbac1aa293abbc3ad50d280d4bcc9760
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:14:59 2017 +0100
+
+    allow create-release to find proper tiller install
+
+commit 5780ed840b832fe449f1c2122ca93deebb2b77e1
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 13:14:48 2017 +0100
+
+    fix more namespaces
+
+commit 67532051349a9c11d29510b775cbabef51b55cbc
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 12:33:12 2017 +0100
+
+    fix namespace access
+
+commit 7c7b5fe8179cf6b9f789da0acb6be9b691b54952
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 12:17:34 2017 +0100
+
+    add license, merge RUN commands
+
+commit 1d715c17646b607cc8d0deb5b4194748cf06a7f2
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 12:12:45 2017 +0100
+
+    README: syntax
+
+commit 55adc5b7288240355a155f2973dd403ab6043d01
+Author: Diederik van der Boor <vdboor@edoburu.nl>
+Date:   Tue Dec 19 11:59:19 2017 +0100
+
+    Initial version

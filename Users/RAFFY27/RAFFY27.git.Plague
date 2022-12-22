@@ -1,0 +1,249 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Plague
+Just and older botnet, migrated from a private BitBucket repo.
+Written in Delphi, targeting Windows computers. Plague is/was capable of spreading automatically using multiple lateral movement vectors.
+
+## Features
+### Basic Client Functions
+* Restart
+* Update
+* Uninstall
+### File Functions
+* Download File
+* Upload File
+### Module Execution and Exploitation Functions
+* Download and Execute [Drop method]
+* Download and Execute [In-memory method]
+* Download and Execute [DLL in-memory method]
+* Password Recovery
+* XMR Mining
+* UDP Flood
+### Control over the Spreading mechanisms
+
+## Basic execution flow
+The basic execution loop is defined in the main unit (Plague.lpr). Once this loop is reached, the execution of the bot instance stays essentially the same.
+
+```delphi
+Repeat
+  Net.GetCommands; //Download the current command list
+  For J:=1 to Net.CommandCount do Begin //Iterate through the available commands
+    if Net.Commands[J].Type='Abort' then Begin //If an Abort command is found
+      if CommandUnderExecution(Net.Commands[J]) then //and the given command is under execution
+        AbortCommand(Net.Commands[J]); //then abort it
+    end else Begin //If the command is not an Abort
+      if Not(CommandUnderExecution(Net.Commands[J])) then Begin //and it's awaiting execution
+        I:=FindAPlace; //then find an empty place in the Worker Array
+        NewWorker(I, Net.Commands[J]); //and create a new Worker to execute the command.
+      end;
+    end;
+  End;
+  Sleep(Delay); //Wait before contacting the server again
+Until False; //Endless loop
+```
+## Screenshots
+
+<p align="center">
+  <img alt="Login interface" src="https://i.imgur.com/M7Ye0M3.png">
+  <img alt="Bot list" src="https://i.imgur.com/HFDeFPz.png">
+  <img alt="World map" src="https://i.imgur.com/2N95UCw.png">
+  <img alt="Builder" src="https://i.imgur.com/GBCDyqo.png">
+</p>
+
+## Detection Log
+1/29/2019 --> ![Eset](https://i.imgur.com/qM8FDvK.png) Eset NOD32 - a variant of Win32/Agent.TMP trojan
+
+ * **Tools** --> OpenURL --> `ShellExecute` changed to `ShellExecuteW`
+ * **CmdWorker** --> Execute --> Mine --> String `config.json` moved to Protected String Storage
+ * **CmdWorker** --> Execute --> MemExec --> String `MemExec` added to String Table as `bb32d835`
+ * **CmdWorker** --> Execute --> DropExec --> String `DropExec` added to String Table as `896bb1db`
+ * **CmdWorker** --> Execute --> Download --> String `Download successful.` moved to Protected String Storage
+====================== GIT HISTORY: ======================
+b821473 HEAD@{0}: clone: from https://github.com/Raffy27/Plague
+commit b821473968bf799d80f1c776592bc05e02a3a6e0
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Jun 12 17:21:37 2020 +0300
+
+    Removed junk for readability
+
+commit e162a7a47e661687dc81e76fd835624cf535eb8e
+Author: Raffy E <40180848+Raffy27@users.noreply.github.com>
+Date:   Fri Jun 12 17:15:41 2020 +0300
+
+    Migrating / new Readme
+    
+    Updated the Readme so that people can actually understand what this is.
+
+commit 5e786654d5e865ae22b1749d9af855a7f6d5d7d4
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Feb 1 16:53:37 2019 +0200
+
+    Important typo
+
+commit aa180a4494b2edaeead105d7965942d6d426c38d
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Feb 1 16:52:16 2019 +0200
+
+    FUD Commit + further bugfixes
+
+commit 25df8d7a02bdfdef5875c62722b29e48504027b2
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Jan 19 22:07:46 2019 +0200
+
+    Alpha Release
+
+commit e95f18030f3cbc2852faa689b62c07ac2e816758
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Jan 19 22:02:36 2019 +0200
+
+    Win32/Agent.TMP fixed, Debug Build
+
+commit 4bfe5ae5ba5e34dc5d247bcaa8fb81f9894963d2
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Tue Jan 15 21:00:46 2019 +0200
+
+    Bugfix commit
+
+commit 647f12f6b4782b21b5638863707e77cb4c650ce1
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Jan 12 19:24:15 2019 +0200
+
+    FIRST RELEASE! LET'S GOOO!
+
+commit c011507a2874e5e7cdde2db44296e49705bb5900
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Mon Jan 7 20:18:32 2019 +0200
+
+    Secondary Mapping Update (Backup Server)
+
+commit 87b25fe587f13892811c683874e6fac7044ec30e
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Jan 4 17:38:28 2019 +0200
+
+    Bugfixes and Open URL feature
+
+commit 80f7a5131affeee7dca5f4e4392063abc835fdf6
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Thu Dec 27 16:11:08 2018 +0200
+
+    Bugfixes and Server optimizations (added INI Parsing)
+
+commit 1c367218167b1b1070d5df52f2be79e9c7eb3c62
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Wed Dec 26 13:31:34 2018 +0200
+
+    Bugfixes and Stability improvements
+
+commit 55fa436d910dc5438bd93b7bd607edef674b74f6
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Wed Dec 26 12:21:33 2018 +0200
+
+    Bugfix commit
+
+commit 0749aec83501b4fd0c8d04635afc5b1f997094a4
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sun Dec 23 18:51:26 2018 +0200
+
+    Security and bugfix commit
+
+commit 65e7b25bbd697aa545c722d3fb9dfc076c357481
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sun Dec 23 14:56:27 2018 +0200
+
+    Full functionality + Debug mode
+
+commit ffe412eac53a34a105f467159fde331d76437a7f
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Dec 22 22:02:16 2018 +0200
+
+    Server changes: Statistics
+
+commit a50bd8106796665369524647d2bb8965cd59a715
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Dec 22 12:57:54 2018 +0200
+
+    Binder + Server changes (!)
+
+commit dd3c80ad861e2f3d69781f05074b273a1496628b
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sun Dec 16 21:13:12 2018 +0200
+
+    Full continuous command support
+
+commit a3de581583ab9e59e9098cebee71a7e8a9fa1a39
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Dec 15 22:18:36 2018 +0200
+
+    Spreading and initial (continuous) command support
+
+commit 0b956add7b84be48483a0db4b45bd192359bb330
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Dec 8 19:01:57 2018 +0200
+
+    Build + Install + Uninstall update!
+
+commit 80b6a00288b56ee1a9c6e141578365b149205be1
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Wed Dec 5 21:31:35 2018 +0200
+
+    Server updates
+
+commit f26996511b12530d479db6643978af0ab0603384
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Wed Dec 5 21:29:24 2018 +0200
+
+    Builder: Initial commit
+
+commit 27b4cad237be679f7837fa51c1a319015349f1d4
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Tue Nov 27 21:24:08 2018 +0200
+
+    Added USB Spreading and removed safety stuff
+
+commit 5b1bb7f653bc74022eada16bf96ffc5d25c909b9
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Nov 23 15:48:14 2018 +0200
+
+    Safety commit + moving stuff
+
+commit 3f5067fac0a7969f118a124408af5007accd7330
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sun Nov 18 17:13:17 2018 +0200
+
+    Added XMR Mining and secured the Modules
+
+commit b7232670915fa5a38bf4557a2c90f524a5bc6b7f
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Nov 16 22:41:14 2018 +0200
+
+    Added password recovery and basic module handling
+
+commit e34265ad52b29b051f493286034a37fd6c2dc9a3
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sun Nov 11 21:55:14 2018 +0200
+
+    Added Flooding
+
+commit 370c6255a771f6d5c6f53a2c226ea9e7e50d0cf0
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Nov 10 22:20:36 2018 +0200
+
+    Added Execution functions
+
+commit 0d4bb899f745f4b6cc100f593827a69249c047b9
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Sat Nov 10 18:25:12 2018 +0200
+
+    Post request bugfix
+
+commit cc8ae46448fbc065ea9e5f1aa90c63df0f9dcd2e
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Nov 9 19:19:59 2018 +0200
+
+    Initial commit
+
+commit f685226032c926db8118179607c63195f2197b64
+Author: Raffy Efrényi <raffy27@pm.me>
+Date:   Fri Nov 9 19:19:35 2018 +0200
+
+    Initial commit

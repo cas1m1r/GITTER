@@ -1,0 +1,904 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Buttinsky #
+
+## Open Source Botnet Monitoring ##
+
+### Description ###
+
+Botnet monitoring is a crucial part in threat analysis and often neglected due to the lack of proper open source tools. Our tool will provide an open source framework for automated botnet monitoring. The modular design will allow full customization of the used protocols, the monitoring clients behavior, how we log the collected information, processing of the data to analyze the botnets purpose, size and threat and how the monitoring task are distributed between dedicated nodes.====================== GIT HISTORY: ======================
+1a2a1b2 HEAD@{0}: clone: from https://github.com/mushorg/buttinsky
+commit 1a2a1b29f1d4078fdad051813a8d90080a1a1e84
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Tue Jun 4 17:32:28 2013 +0200
+
+    Update requirements.rst
+
+commit 4531d9f7ecd3b0f672fbfd0028d75f6be9928029
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Jun 3 23:48:31 2013 +0200
+
+    catching the keyboard interrupt properly
+
+commit b9a583ba1c2b13e8e17c3846b138d2f1e462253e
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Jun 3 23:48:04 2013 +0200
+
+    Basic logger added
+
+commit 972a48e48c7c9695bfa33c072e1e003b49ec0524
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Jun 3 23:23:50 2013 +0200
+
+    File handler leak fixed
+
+commit c971d71c2b3124d46b46986868e727e5ef6e5243
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Jun 3 20:37:36 2013 +0200
+
+    Minor clean-up
+
+commit ccedc664bbe8a1d85d5ed2fa6f5535698d7ee20c
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Jun 3 20:27:21 2013 +0200
+
+    Fetching XMLRPC server socket error
+
+commit 010c2d6d18a23e07144eeaf08dc07ed5de8f2225
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Jun 3 20:20:39 2013 +0200
+
+    Key error fix
+
+commit 5396102d671abd06c8885a4c16042aba42004781
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Mon Jun 3 11:15:51 2013 +0200
+
+    hpfeeds requirement added
+
+commit 666a68f4b8084bf5fbb989ad290b051c2e181de5
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu May 30 21:21:25 2013 +0200
+
+    Starting CLI and spawner in buttinsky.py
+
+commit f1b6c8d3883a1d1767f16a85a1287954fadd6ff0
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Apr 19 00:33:38 2013 +0200
+
+    More CLI exception handling
+
+commit 7689deecbd3cacf3dfb48b98826e9da6c691a9aa
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Apr 19 00:29:01 2013 +0200
+
+    More explicit error handling.
+    More feedback from XMLRPC methods.
+
+commit 5b519c34b35bd09effa9f7d27f539f65f915aa1c
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Apr 19 00:18:57 2013 +0200
+
+    Missing argument handling
+
+commit 0d94aca75f7a5ed612e6936be3b0eaa6a7983962
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Apr 19 00:13:56 2013 +0200
+
+    More CLI exception handling
+
+commit 9eaea958725c4c346a74694ea52f6485c0aad47b
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Apr 19 00:08:10 2013 +0200
+
+    Stabilizing HTTP communication
+
+commit 724e94a1510cbcfce42fa83ad8a50bb140ab6265
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Apr 18 20:08:59 2013 +0200
+
+    Logic :/
+
+commit cb8fd907197a9f66846991f73163ca1b59a97402
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Apr 18 20:02:21 2013 +0200
+
+    Using proper grammar
+
+commit a7c6ff62581914ca34aa04d77cb5447601ef4ca5
+Merge: cd7f28c 1cf0dd2
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Apr 18 00:07:43 2013 +0200
+
+    Merge branch 'dev' of github.com:buttinsky/buttinsky into dev
+
+commit cd7f28c564ca9ba627fc39e78c94a65079756763
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Apr 18 00:05:32 2013 +0200
+
+    setup instructions added
+
+commit c79a11ef4637427f553de4fbc4cfce608e3e7ba6
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Apr 18 00:03:00 2013 +0200
+
+    Error handling in do_load of CLI
+
+commit 11269f81e8ea66ef02507ccb467cf2b8d4937d79
+Author: glaslos <glaslos@gmail.com>
+Date:   Wed Apr 17 23:55:37 2013 +0200
+
+    Usage page added
+
+commit 1cf0dd2532a349cb7f30ed7c0b4d02ad5215501e
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Apr 17 23:49:31 2013 +0200
+
+    More general implementation of netzob parser. Added support for data variables in the model parser
+
+commit ceafed147c441ee36f56a3d9e72b5072389ad4d2
+Author: glaslos <glaslos@gmail.com>
+Date:   Wed Apr 17 23:49:03 2013 +0200
+
+    Don't spawn hpfeeds if not enabled.
+    Documentation updated.
+
+commit 4f736543d782aff1923542646a8fd1c4f2853f3c
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Mon Apr 15 20:10:26 2013 +0200
+
+    Comments describing the PoC for the Netzob protocol model
+
+commit 75a6d82e3e9e09e3ba1655e44055837043141774
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Mon Apr 15 19:56:10 2013 +0200
+
+    Refactored Netzob protocol model
+
+commit 461851191e34693504e1a50e7088c79a9c30968e
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Mon Apr 15 17:34:59 2013 +0200
+
+    Added custom IRC protocol behavior based on model from Netzob
+
+commit e6a4f094ca005324ccb3f6efcff318b8d8e0ea3a
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Mon Mar 11 01:36:11 2013 +0100
+
+    Patched client event loop
+    
+    Uses non-blocking mode (for the first time only).
+
+commit 419b55c12ec2f8f879f37daf67f7529fd293cc44
+Merge: d807514 3410123
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Thu Mar 7 01:41:02 2013 +0100
+
+    Merging branch issue_8 with dev
+
+commit d807514526fee5db0fa682eb36914578480d8fc2
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Thu Mar 7 01:32:19 2013 +0100
+
+    Fixed new JSON schema validation
+    
+    Generic settings file validation for both IRC and HTTP.
+    Specific validation for HTTP will be added later.
+
+commit 55ed4408b0ed8377cdb3fbdeb5f54e888d8548ce
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Thu Mar 7 00:54:14 2013 +0100
+
+    HTTP testing behavior renamed to "address_check"
+
+commit c42c8b7788ae368775d89f47e8c8857cde7ef382
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Tue Mar 5 01:50:52 2013 +0100
+
+    More work for issue #8, need to define a basic testing behavior
+
+commit 3600ae27eb54303115b39854036eccd4cfd8ffac
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Sun Feb 24 19:55:11 2013 +0100
+
+    Draft for issue #8.
+    
+    Not working yet, just to check if I'm going in the right direction
+
+commit 5ae5c158be08dd70d599cf55a8895da0be252e74
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Thu Mar 7 00:31:11 2013 +0100
+
+    Renamed settings template file to IRC-specific settings template file
+    
+    Changed JSON validation of proxy type, host, port.
+    Renamed default IRC nickname and channel (buttinksky prefix)
+
+commit 5ffa9ad46890b09dc14cf403d711a0a6c8e3e647
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Wed Mar 6 01:43:20 2013 +0100
+
+    Default proxy set to "socks5" (remote DNS resolution)
+
+commit 052275d2d860998bfb03063f9639243ba1b75aa2
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Wed Mar 6 01:19:21 2013 +0100
+
+    Some bugfixes in JSON validation and SOCKS sockets
+
+commit 0faac3e15ec1de0b63b54b0b7f25bcc0f83e8d23
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Tue Mar 5 01:42:20 2013 +0100
+
+    Some socket bugfixes
+
+commit 341012321decce4f2f51dad555bff0aa7f295042
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Tue Mar 5 01:50:52 2013 +0100
+
+    More work for issue #8, need to define a basic testing behavior
+
+commit 11ea0923c3f0ea08a70d1cd287b2ed8c04d9fe27
+Merge: fda48f5 661c17c
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Tue Mar 5 01:23:33 2013 +0100
+
+    Merge branch 'dev' of github.com:buttinsky/buttinsky into dev
+
+commit 661c17cd24506402874e312e05d14636c6bf9365
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Mar 3 21:38:56 2013 +0100
+
+    Minor code clean-ups. Requirements file added.
+
+commit 115612e3abd18dc9e67516e4dac6c901545fd726
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Mar 3 21:18:45 2013 +0100
+
+    ignoring PyCharm conf file
+
+commit 1b102c79590f348658b4b73bdb07fe036f1e2357
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Mar 3 21:18:04 2013 +0100
+
+    Fix for #47 Unused class initialization parameter removed
+
+commit 657936eeea19c608f0be878f695963b5c930c79c
+Merge: 1879c27 cebf149
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Thu Feb 28 01:04:58 2013 -0800
+
+    Merge pull request #46 from adepasquale/issue_13
+    
+    Support for TOR and generic SOCKS proxies (issue #13)
+
+commit cebf149f407242137a61847d00a2ead7cf72d785
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Thu Feb 28 00:22:38 2013 +0100
+
+    SOCKS proxy settings loaded from config file (issue #13)
+
+commit e94f8f168e76e35404759ebe05f601a050892483
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Wed Feb 27 00:48:48 2013 +0100
+
+    Simple SOCKS socket (issue #13)
+    
+    Install module with `easy_install socksipy-branch`
+    Still not loading config from settings file!
+
+commit c175692fbaa0ad794c754ad1c62ff7563395d275
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Sun Feb 24 19:55:11 2013 +0100
+
+    Draft for issue #8.
+    
+    Not working yet, just to check if I'm going in the right direction
+
+commit fda48f5e863a7602cd4ac4da00d4f5d3a32e08fb
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Fri Feb 22 18:40:19 2013 +0100
+
+    Minor change to avoid "unused variable" warning
+
+commit 1879c270db33bbd24dd635dc7fa96324ca34a6ff
+Merge: adc713a 64bf3ed
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Wed Jan 30 13:21:08 2013 -0800
+
+    Merge pull request #45 from ihpd/dev
+    
+    Minor updates to dependencies documentation.
+    Error message more explaining.
+
+commit 64bf3ed87056841a4adf13b12f786358b25cf7bb
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 21:47:21 2013 +0530
+
+    Updated exit messages consistently across
+
+commit e0c625903fca951ab7421dd0612d33f940bc1745
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 21:45:08 2013 +0530
+
+    Updating new dependencies
+
+commit adc713a979b1fba5d5cd17b4ede217fbb97826ff
+Merge: 80abdc0 4730693
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Wed Jan 30 05:48:36 2013 -0800
+
+    Merge pull request #40 from ihpd/dev
+    
+    Issue # 19 JSON validation and few updates
+
+commit 4730693b14367c9dad7969276e3d0f6f17d4211c
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 19:04:17 2013 +0530
+
+    Error message updated
+
+commit fe9c6227c7fd0301ee858533ffd9da2ffbf994b4
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 18:58:56 2013 +0530
+
+    Moved to new location
+
+commit 84f4afe1059a990a7beab678ac8db74e07cbfb28
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 18:57:50 2013 +0530
+
+    Issue #19 Initial JSON validation updated
+
+commit 180ee37e7cb40756d6289e00ce5bb50ec873bf1b
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 17:27:28 2013 +0530
+
+    Issue #19 Initial JSON validation
+
+commit 61631f9ba720edf9a0b831d733e4db85aeb68ad7
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 17:25:14 2013 +0530
+
+    Minor bug fix
+
+commit 4d61795b1f596fc0212d9098ffaff5272c6de219
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Wed Jan 30 16:29:44 2013 +0530
+
+    Exit if config file is not found on startup
+
+commit 80abdc03227c1504c56527458bcca98e78a358b9
+Merge: 2137bc3 5b0fb9d
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Tue Jan 29 00:31:50 2013 -0800
+
+    Merge pull request #38 from ihpd/dev
+    
+    Issue #18 HPFeeds sink integration
+
+commit 5b0fb9d8fb8d6d6d1689a8b72a9001cd73f0e616
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Mon Jan 28 15:44:05 2013 +0530
+
+    Issue #18 HPFeeds sink integration
+
+commit 2137bc35c2db1c685cd04121aa7fea7d805b6542
+Merge: f7ebade 09cc5df
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Mon Jan 28 01:23:21 2013 -0800
+
+    Merge pull request #37 from ihpd/dev
+    
+    Exit if config file is not found on startup
+
+commit 09cc5dfff3d0aedd7d87a925a52e321aa3d43a13
+Author: ihpd <ihp.deva@gmail.com>
+Date:   Sun Jan 27 20:44:45 2013 +0530
+
+    Exit if config file is not found on startup
+
+commit f7ebade22f274adaad42cdcf1370126dd9db7a29
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Jan 18 00:25:12 2013 +0100
+
+    Port fixed and some clean-up. Module works. Needs integration.
+
+commit eb237af26a9816c588fec49ffbfb4d361a879ab1
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Jan 18 00:21:53 2013 +0100
+
+    Can't write object to file. String works much better...
+
+commit 21aa24209f66277103e2fcb0b0226af06f4bd19e
+Author: glaslos <glaslos@gmail.com>
+Date:   Sat Jan 12 21:24:58 2013 +0100
+
+    removing the dev configuration
+
+commit 34907bc90953604af469fa226e4abf9e7c886328
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Jan 11 09:27:26 2013 +0100
+
+    Minor code style hiccup fixed
+
+commit 2a0128dbf841b766a2983ec2c33d07d586e70ebf
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Jan 11 09:25:38 2013 +0100
+
+    .gitignore added
+    configuration renamed
+
+commit c60b3b29d207ce454efb046277f87ff5dcc21b8e
+Merge: f59391b a8e3e5f
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Fri Jan 11 00:14:36 2013 -0800
+
+    Merge pull request #36 from ihpd/dev
+    
+    Minor changes in space-tab and trimming of leftovers
+
+commit a8e3e5fe159466d3b4e4674a5036a5417f9ce579
+Author: Devanand <deva.security@gmail.com>
+Date:   Fri Jan 11 10:36:53 2013 +0530
+
+    Minor changes on trimming leftovers
+
+commit 2b68b71f7842736c5f7c0e13ccdef7b33e737551
+Author: Devanand <deva.security@gmail.com>
+Date:   Fri Jan 11 10:35:07 2013 +0530
+
+    Minor change in space-tab for coding style
+
+commit f59391b4b966b3bd04c90b0c9066cd2ce4e21f44
+Merge: 96cc58e aa73533
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Thu Jan 10 11:53:46 2013 -0800
+
+    Merge pull request #35 from ihpd/dev
+    
+    Removal of line 258 , initial hpfeeds broadcast in spawner
+
+commit aa735331b752b64dea0def2d6496f88511a4cf44
+Author: Devanand <deva.security@gmail.com>
+Date:   Thu Jan 10 23:07:53 2013 +0530
+
+    Updated with space/tab changes in spawner.py
+
+commit f94b64569809e0b46c31e798c97c3d712e5865ce
+Author: Devanand <deva.security@gmail.com>
+Date:   Thu Jan 10 22:14:01 2013 +0530
+
+    Removed line 258 in the spawner.py
+
+commit 96cc58e34dea08453a1145ea261935c6e96c7cb5
+Merge: 9473870 615aee4
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Wed Jan 9 04:49:50 2013 -0800
+
+    Merge pull request #30 from ihpd/dev
+    
+    Issue # 6 HPFeeds connection for publishing data
+
+commit 615aee41314d4059482456c34fb7dfe42c30235f
+Author: Devanand <deva.security@gmail.com>
+Date:   Wed Jan 9 18:14:06 2013 +0530
+
+    Source channel included in config
+
+commit 330fd30b35d0f7bb1d5f55a1b9aee0747388d8df
+Author: Devanand <deva.security@gmail.com>
+Date:   Wed Jan 9 11:42:21 2013 +0530
+
+    Issue # 6 HPFeeds connection for publishing data
+
+commit 94738709e65d1c388c6184e9834dbbf1af29e726
+Merge: 6b686b2 02407be
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Sun Jan 6 05:14:35 2013 -0800
+
+    Merge pull request #25 from adepasquale/dev
+    
+    Protocol can be configured in settings file
+
+commit 02407be860604df64143cb23bdad210101d84fb4
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Sat Jan 5 20:40:26 2013 +0100
+
+    Issue #23: TCP/UDP protocol preference loaded from settings file
+
+commit 6b686b2b992a0b76c29360481bdb1a98d486fefe
+Merge: f6dd8d7 819bfa6
+Author: Lukas Rist <glaslos@gmail.com>
+Date:   Sat Jan 5 06:28:58 2013 -0800
+
+    Merge pull request #24 from adepasquale/dev
+    
+    Draft for issue #23
+
+commit 8faf1c0228814670b08e379363baebb7b49bcc2b
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Fri Jan 4 18:42:34 2013 +0100
+
+    Minor PEP cleanup
+
+commit 819bfa686f982f94ae4fbd801a2a1777138a4383
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Fri Jan 4 17:24:03 2013 +0100
+
+    Issue #23: draft of TCP and UDP socket connections
+
+commit 745d8db8fd45e1e1f31551402bc75e770457e9c8
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Fri Jan 4 17:20:35 2013 +0100
+
+    Added feature to quit CLI with CTRL-D
+
+commit a9930ef7b23526cd9d886552173916f753808076
+Author: Andrea De Pasquale <andrea@de-pasquale.name>
+Date:   Fri Jan 4 17:18:01 2013 +0100
+
+    Minor PEP8 auto formatting
+
+commit f6dd8d781a7408646a579485ff63175fce41e512
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Tue Dec 11 16:16:18 2012 +0000
+
+    Added monitoring of greenlet exceptions and number of retries of reconnecting in settings file
+
+commit a074857b762985406bc0f96aecc8c34dd1370640
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Dec 5 14:40:25 2012 +0000
+
+    added config for stack: protocol and log plugins
+
+commit 7722fcd53c86d00cac15a10889fc57de0b27cd25
+Author: glaslos <glaslos@gmail.com>
+Date:   Tue Dec 4 15:17:11 2012 +0100
+
+    extending doc minimal struct added
+    minor doc changes
+
+commit 51f0524600225b07c4ea2b935f6dffecd4bf0f70
+Author: glaslos <glaslos@gmail.com>
+Date:   Tue Dec 4 14:43:28 2012 +0100
+
+    minimal documentation added
+
+commit 4ce2a1225ace505be73076e8c00099611fc5a3cb
+Author: glaslos <glaslos@gmail.com>
+Date:   Tue Dec 4 13:40:06 2012 +0100
+
+    documentation init
+
+commit 841bc196a5008f7c696cf74150964349f5c595af
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Dec 2 23:39:42 2012 +0100
+
+    creating the configuration from the hpfeeds sandbox report object
+
+commit 864ee83100cdbe5125712509123ad0b32da04fd5
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Nov 29 22:01:29 2012 +0100
+
+    setting renamed
+
+commit 587618d807c4fe92b8ec257b79a9636ab3dc4d77
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Nov 29 22:00:51 2012 +0100
+
+    configuration changes reflected.
+
+commit 79890c9c29b02df08d707405a966f3d4c1ee406f
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Nov 29 21:59:24 2012 +0100
+
+    Get XMLRPC config from configuration file.
+    Create new monitor from HPFeeds configuration file.
+
+commit cf1e81fd339e87a4c6ddb8f40886a3864bfbac7c
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Nov 29 21:49:20 2012 +0100
+
+    Minor code clean-ups
+
+commit 07773925860a437f17f12ca9a783d8cf74ce049e
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Nov 29 21:47:17 2012 +0100
+
+    code clean-ups
+    typo fixed
+
+commit 3644cf86aecf8f91485de0d585bd453b8799f671
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Nov 29 21:46:03 2012 +0100
+
+    Minor code clean-ups
+
+commit 5af3c95684d5ca170c37807f8431930b5aeeae10
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Nov 29 21:44:41 2012 +0100
+
+    Minor code clean-ups
+
+commit 514608a887faefec82bc86ee3784442339ae52f8
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Thu Nov 29 16:12:06 2012 +0100
+
+    Fixed issue with duplicate logging
+
+commit e881910c04df313bb6371987708d743c3de8f499
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Thu Nov 29 14:49:57 2012 +0100
+
+    Added CLI/RPC command create + fixed error checking for ids
+
+commit 9182374758bb18baa2eb43461a13f324a3140e6a
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 28 20:07:00 2012 +0100
+
+    Minor fix
+
+commit d9637b6d4008f7ce8c2998a22dae515472afc9a8
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 28 19:45:04 2012 +0100
+
+    Added XML server settings in order to set server hostname and port
+
+commit 37167244e3e3e32753482242fafade208ee62340
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 28 19:34:07 2012 +0100
+
+    Implemented status, list, delete commands for CLI/XMLRPC
+
+commit 48269ed00bd58c7c4a8bc4b8ed89288e7677bd2c
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 28 18:27:28 2012 +0100
+
+    Improved restart command: create new monitor stack on restart request
+
+commit 118070628e64017cad70b43e3e375e78fc6325c2
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 28 16:11:49 2012 +0000
+
+    Improved start and stop commands for CLI/XMLRPC
+
+commit 5ed4fc3414a234bb7a7e1698f89435ef2ed29f26
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 28 15:07:17 2012 +0100
+
+    Added restart and stop commands in CLI and RPC server
+
+commit 8881ff256dcc5f3fe351715ca8c5818f4027918e
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 28 14:40:55 2012 +0100
+
+    Spawning monitor based on CLI
+
+commit f12fd8d7aeff58551e8e25bf4fb37b26615c6c1a
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Tue Nov 27 21:09:16 2012 +0100
+
+    Added simple JSON config and initial CLI/RPC commands: load, create, status
+
+commit 0938247256d88b126b14105e18f74abcad174dca
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Tue Nov 27 17:26:50 2012 +0100
+
+    New cli based on cmd.Cmd. Separated spawner and cli into a client/server architecture
+
+commit 7cdf65e24eea438135841703f1192edbf6815f39
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Fri Nov 23 16:29:03 2012 +0000
+
+    Added some colors to CLI
+
+commit c0739f7a8f94f5d9b9566aff575894ecd1a863d0
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Fri Nov 23 16:05:07 2012 +0000
+
+    CLI logo and new commands
+
+commit 4bd9e7b4289803709a65743a3af772316e418e3d
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 18 13:08:14 2012 +0100
+
+    basic source module added
+    simple hpfeeds subscriber added
+
+commit d1c244b308756346c724148a3d85a2edb02633df
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 18 13:07:01 2012 +0100
+
+    Logging removed
+    minor code clean-up
+
+commit 6d5f063a4c99df7a9655ef21a3c3a6bade9fb2cf
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 18 13:02:51 2012 +0100
+
+    minor code clean-up
+    prevent overwriting of build-in 'str'
+
+commit 61d7c895ccc934ca5c470f50617cb09025dae7b5
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Sun Nov 18 12:25:37 2012 +0100
+
+    CLI: add settings and spawn based on settings file
+
+commit 603a1b28e2809bf7687f214d162b948f4ebd8e48
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Wed Nov 14 16:32:58 2012 +0000
+
+    Initial commit of new non-blocking CLI
+
+commit b13ab347a1e883e32aed2cf79c8e38ee5ec4d2e9
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Mon Nov 12 15:25:01 2012 +0000
+
+    Renamed branch
+
+commit f6ec4b7a5c21b7c3c61969ca6a7b59924670543f
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 11 22:08:21 2012 +0100
+
+    hpfeeds module moved to util.
+    hpfeeds sink placeholder added.
+
+commit cd8c2bc495fe078431a655bf2235a8de3473e048
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 11 00:52:03 2012 +0100
+
+    hpfeeds reporter added
+
+commit 9d8cfca58247a764b685adb0e09c44ea89cbe48a
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 11 00:50:59 2012 +0100
+
+    Removed the old logging stuff...
+
+commit 190343256d194288752cb2b1ee2b39ae3d67e92a
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 11 00:49:11 2012 +0100
+
+    Fixed location of logger import in reporter handler
+
+commit 63e6cdaa84d360448b9716968244a191e3580282
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 11 00:43:34 2012 +0100
+
+    HPFeeds module added (and ignoring it in the module loader)
+
+commit 3b4649c5034232d8bc4182f94def686d29528097
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Nov 11 00:41:33 2012 +0100
+
+    Rearranged the reporting modules.
+    Some minor changes in the main butt...
+
+commit 4965bce630dcff12ad0a0c05fc0aeff8dfdca0ab
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Fri Nov 9 17:14:18 2012 +0000
+
+    Small logging module fix
+
+commit 6c1174f2609c6b15913face7986746adad40c9e4
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Fri Nov 9 18:01:36 2012 +0100
+
+    Added logging modules
+
+commit 461bb3df6207f79d5d7d3b3f305926eb1f947f11
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Tue Nov 6 19:25:57 2012 +0100
+
+    Fixed IRC bot JOIN cmd
+
+commit 4e0773d275037b30928e6de86f3dec3813409120
+Author: glaslos <glaslos@gmail.com>
+Date:   Sat Oct 27 15:24:35 2012 +0200
+
+    Removed unneeded eventloop module place holder.
+    Minor code clean-ups.
+
+commit 8e64e6e651a752f6bde49d07090a84f93b76ef2f
+Author: glaslos <glaslos@gmail.com>
+Date:   Sat Oct 27 15:21:04 2012 +0200
+
+    Minor code clean-ups
+
+commit 44768087d87ef01205bcdbd7af3533f017284451
+Author: glaslos <glaslos@gmail.com>
+Date:   Sat Oct 27 15:20:00 2012 +0200
+
+    Minor code clean-ups
+
+commit 70199047b85003e68179ddd8684ac14e25c1b4cd
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Thu Oct 25 20:23:57 2012 +0200
+
+    Suggestion for a protocol design pattern
+
+commit 941cfc952a122839d9bdb062f725f257c8caa219
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Mon Oct 15 20:21:48 2012 +0200
+
+    Pushed gevent_client.py changes
+
+commit 45f0c32a529a53475f214b877ce9a8bd542da0d3
+Author: pjlantz <patrik@pjlantz.com>
+Date:   Mon Oct 15 20:18:21 2012 +0200
+
+    Added CLI and fixed issue in gevent socket.connect
+
+commit ec4c5004f315023724293a835d44b14fb9a81773
+Author: glaslos <glaslos@gmail.com>
+Date:   Sun Sep 30 13:05:27 2012 +0200
+
+    Using gevent
+    gevent client reduced to essentials
+    small fixes in IRC protocol
+
+commit 1862c7df3581007aced68f10057cb338d60f15c6
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Sep 28 13:55:42 2012 +0200
+
+    Example monitoring client
+    IRC minimal protocol reworked
+
+commit da21cb39ffa90019570bd9274c44c8e8caa8db10
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Sep 28 13:43:01 2012 +0200
+
+    minimal irc protocol implementation
+
+commit da430dc38bdb143419be3fdb8cae936a2ffb8f0e
+Author: glaslos <glaslos@gmail.com>
+Date:   Fri Sep 28 13:37:25 2012 +0200
+
+    Blank configuration and setting files added
+
+commit cf381bbf27ffb3b0c794e7bdfef852566d9b61c9
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Sep 27 16:27:03 2012 +0200
+
+    protocols directory added
+
+commit 1bbb7a419702d6ae181312c0aae985cd6573ceb1
+Author: glaslos <glaslos@gmail.com>
+Date:   Thu Sep 27 16:26:21 2012 +0200
+
+    Reworked the asyncore client
+
+commit ec625f4b031782293c26fe4b8243904a02e72560
+Author: glaslos <glaslos@gmail.com>
+Date:   Tue Sep 25 14:11:35 2012 +0300
+
+    Description added
+
+commit a005b123e07c1765a224bb18d9c0f0f810702b49
+Author: glaslos <glaslos@gmail.com>
+Date:   Tue Sep 25 13:03:15 2012 +0200
+
+    Example source added
+
+commit 9ab5e56da0785a18fb7f91b59e9effa7e8602450
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Sep 17 16:03:44 2012 +0200
+
+    base files added
+
+commit b43418380ac9a0091c52e926e4b5019d505757b3
+Author: glaslos <glaslos@gmail.com>
+Date:   Mon Sep 17 14:11:56 2012 +0200
+
+    License added
+    Asyncore example client added
+    Evnet example client added
+    gevent, pyev and pyuv info added
+
+commit 45d1257a25af2022f89dc598ab790dd3a3b96d95
+Author: glaslos <glaslos@gmail.com>
+Date:   Sat Sep 15 08:04:35 2012 -0700
+
+    Initial commit

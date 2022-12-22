@@ -1,0 +1,669 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+community
+=========
+
+Volatility plugins developed and maintained by the community. See the README file inside each author's subdirectory for a link to their respective GitHub profile page where you can find usage instructions, dependencies, license information, and future updates for the plugins. 
+
+usage
+=========
+
+1. Git clone the [Volatility](https://github.com/volatilityfoundation/volatility) repository or [Download a Release](http://www.volatilityfoundation.org/#!releases/component_71401)
+2. Git clone this repository to $PLUGINSPATH
+3. Pass the --plugins=$PLUGINSPATH option to Volatility when you run it (see [Specifying Additional Plugin Directories](https://github.com/volatilityfoundation/volatility/wiki/Volatility%20Usage#specifying-additional-plugin-directories))
+
+NOTE: If you pass the root of the $PLUGINSPATH directory, then all plugins will recursively be loaded. Its possible that plugins may try to register the same command line options and produce a conflict. If this happens, just point --plugins at one or more specific subdirectories (`:` separated on Linux/Mac or `;` separated on Windows). 
+
+disclaimer
+=========
+These plugins are written by various authors and collected from the authors' GitHub repositories, websites and blogs at a particular point in time. We don't guarantee that the plugins you download from this repo will be the most recent ones published by the individual authors, that they're compatible with the most recent version of Volatility, or that they report results accurately. 
+
+contributing
+=========
+
+The best way to contribute is to fork the repository, add or modify plugins, and then submit a pull request. 
+
+frameworks 
+=========
+
+Researchers and developers in the community have also created frameworks that build on top of Volatility. These aren't necessarily Volatility plugins (that you would import with --plugins) and usually they contain additional modules, configurations, and components. For that reason, we don't feature those frameworks in this repository, but we'd still like to reference them: 
+
+* [Autopsy Plugins](https://github.com/markmckinnon/Autopsy-Plugins/tree/master/Volatility) by Mark McKinnon
+* [PyREBox](https://github.com/Cisco-Talos/pyrebox) by Xabier Ugarte-Pedrero at Cisco Talos
+* [Cuckoo Sandbox](https://github.com/cuckoobox/cuckoo) uses Volatility for its Memory module
+* [VolDiff](https://github.com/aim4r/VolDiff) Malware Memory Footprint Analysis by @aim4r
+* [Evolve](https://github.com/JamesHabben/evolve) Web interface for the Volatility Memory Forensics Framework by James Habben
+* [GVol](https://github.com/eg-cert/GVol) Lightweight GUI (Java) by EG-CERT
+* [LibVMI](https://github.com/libvmi/libvmi) Simplified Virtual Machine Introspection 
+* [DAMM](https://github.com/504ensicsLabs/DAMM) Differencial Analysis of Malware in Memory
+* [YaraVol](https://bitbucket.org/Ft44k/yavol/) GUI for Volatility Framework and Yara
+* [VolUtility](https://github.com/kevthehermit/VolUtility) Web Interface for Volatility by Kevin Breen
+* [ROPMEMU](https://github.com/vrtadmin/ROPMEMU) A framework to analyze, dissect and decompile complex code-reuse attacks by Mariano Graziano 
+* [VolatilityBot](https://github.com/mkorman90/VolatilityBot) An automated memory analyzer for malware samples and memory dumps by Martin Korman
+* [ProfileScan](https://github.com/P1kachu/VolatilityProfileScan) Profile detection for Volatility by Stanislas Lejay (P1kachu)
+
+Don't see your project here? Let us know by submitting a pull request, creating an issue, or tweet us at @volatility. 
+====================== GIT HISTORY: ======================
+d9fc072 HEAD@{0}: clone: from https://github.com/volatilityfoundation/community
+commit d9fc0727266ec552bb6412142f3f31440c601664
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Fri Nov 15 10:52:01 2019 -0600
+
+    push the 2019 plugin and analysis contest submissions
+
+commit 44444741ade637f1742bdacd6d6518c053b42fc8
+Merge: d98cdd9 e0a6dec
+Author: atcuno <andrew@dfir.org>
+Date:   Thu Oct 17 14:27:30 2019 -0400
+
+    Merge branch 'master' of https://github.com/volatilityfoundation/community
+
+commit d98cdd9e9e62623c056f2da4e869c0b16f26bcca
+Author: atcuno <andrew@dfir.org>
+Date:   Thu Oct 17 14:27:12 2019 -0400
+
+    update autoruns plugin
+
+commit e0a6dec5b1f5d829a806a3bc21e460523e73db81
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Sat Jul 27 19:01:38 2019 -0500
+
+    add .DS_Store to gitignore
+
+commit 099619c76e751296e688cfec22197af82fe38504
+Merge: 321162d 3341215
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Wed Jan 16 10:00:00 2019 -0600
+
+    Merge pull request #28 from patriknisen/fix_threadmap_addresses
+    
+    threadmap: Fixes incorrect zero-padding of addresses in disassembly
+
+commit 321162de8748796e86d69778daa4d8983efd8d7f
+Merge: 800a84a 7103002
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Wed Jan 16 09:59:50 2019 -0600
+
+    Merge pull request #29 from ruben03/patch-3
+    
+    Update baseline.py
+
+commit 800a84a4aded9c93d92160279d065136d2df8b19
+Merge: 5b15e31 6bcef0d
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Wed Jan 16 09:59:34 2019 -0600
+
+    Merge pull request #31 from citronneur/master
+    
+    Add Windows Notification Facilities parse plugin
+
+commit 6bcef0d40c1d70a394144f8e0e78224acfb8b9db
+Author: citronneur <citronneur@gmail.com>
+Date:   Tue Jan 15 15:37:50 2019 +0100
+
+    Add Windows Notification Facilities parse plugin
+
+commit 5b15e31ff7f08f6a86ab9f7c6dde5aa9335edd50
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Fri Nov 16 12:03:36 2018 -0600
+
+    push the 2018 plugin and analysis contest submissions
+
+commit 7103002f60266b74b0b26ef9600b2b99d9aaf956
+Author: ruben03 <32181184+ruben03@users.noreply.github.com>
+Date:   Wed Nov 14 03:00:04 2018 +0100
+
+    Update baseline.py
+    
+    This change makes driverbl plugin work with version 2.6 of volatility.
+
+commit 334121567b76e9ee1fbabf639abb736a577eb703
+Author: Patrik Nisen <patrik@nisen.name>
+Date:   Mon Nov 12 13:14:54 2018 +0200
+
+    threadmap: Fixes incorrect zero-padding of addresses in disassembly
+    
+    The same patch was submitted to the original repository.
+    
+    https://github.com/kslgroup/threadmap/pull/1
+
+commit b4d65bd01870299c8c08e1e11b7b70dfe96cd1dd
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Tue Nov 21 08:17:48 2017 -0600
+
+    Update README.md
+
+commit 44d43066c370ab26c167e608551bddbb3efa9a68
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Tue Nov 21 08:15:29 2017 -0600
+
+    Adding code from the 2017 volatility plugin contest
+
+commit 784b22ab7eddb5cff08dd1d4fb7d0ae5a31bd745
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Mon Oct 23 10:13:55 2017 -0500
+
+     Move unstable plugins, plugins still under development, and plugins maintained/supported by members of the community to the community repository
+
+commit 9ca9aafaf4366918d73ebe3bb41a92cb98ecc8ac
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Mon Oct 23 09:48:52 2017 -0500
+
+    The directory name for the haystack plugin was messing up python imports on some platforms
+
+commit 11b3a9b7d7f3b619847add9c6f77624d6f1614e8
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Mon Oct 23 09:48:29 2017 -0500
+
+    The directory name for the haystack plugin was messing up python imports on some platforms
+
+commit acc431996b068ebbad79e19b730ddbf3b14d6221
+Merge: 72369c5 3b9413f
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Tue Mar 28 16:56:14 2017 -0400
+
+    Merge pull request #19 from morallo/master
+    
+    Fix for import errors
+
+commit 72369c566ec66de068faabb75d6d76987aff47be
+Author: atcuno <andrew@dfir.org>
+Date:   Mon Mar 27 11:24:24 2017 -0500
+
+    Update shimcachemem to support very early versions of Windows 10
+
+commit 3b9413fbf84ed1b0931e1a2a22e291c281cf8aa2
+Author: morallo <marcos.orallo@airbus.com>
+Date:   Mon Feb 6 12:26:11 2017 +0100
+
+    Added missing __init__.py files
+
+commit c70fb62359a80d48763945926a3ae7952dbc9106
+Author: morallo <marcos.orallo@airbus.com>
+Date:   Mon Feb 6 12:25:10 2017 +0100
+
+    Fixes wrong callstacks import
+
+commit 29b07e7223f55e3256e3faee7b712030676ecdec
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Fri Dec 2 08:49:55 2016 -0500
+
+    add some contest submission documentation
+
+commit 37947ed5b060832f5243fce15083bf1e408b7800
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Wed Nov 30 10:43:48 2016 -0500
+
+    Update README.md
+
+commit 76dd7899b77d693621c7f7ecb1ce2431b1980563
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Wed Nov 30 10:23:45 2016 -0500
+
+    push some of the 2016 contest submissions
+
+commit 4abee87acf61b2c786dfba9c3018d7a38a955bd0
+Merge: 58d3688 e08c850
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Thu Sep 29 10:36:08 2016 -0400
+
+    Merge pull request #12 from P1kachu/master
+    
+    Add profilescan plugin suite
+
+commit 58d36880ae35e4de00d80694d54c4cae278b21c7
+Author: atcuno <andrew@dfir.org>
+Date:   Wed Aug 24 20:55:56 2016 -0500
+
+    Add prefetch fix to generator function
+
+commit 0d4ab003084bd0dcb7ff04c834d5656a79197791
+Author: atcuno <andrew@dfir.org>
+Date:   Wed Aug 24 18:20:04 2016 -0500
+
+    Prevent a fall through bug in the prefetch plugin
+
+commit a034a7d701a3b236d97eb7e63919857898cccbdb
+Merge: bcde6f9 ff8ca45
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Wed Jul 6 14:40:16 2016 -0400
+
+    Merge pull request #14 from 0xF2EDCA5A/master
+    
+    Windows 10 and unified output support
+
+commit ff8ca45598f6246673146a60daf5eadb37abd390
+Author: fhouse <fred.house@mandiant.com>
+Date:   Wed Jul 6 14:38:32 2016 -0400
+
+    Windows 10 and unified output support
+
+commit e08c850b89d5c46ac57a0a512d844780dc47202b
+Author: Stanislas P1kachu Lejay <p1kachu@lse.epita.fr>
+Date:   Fri Jul 1 14:52:27 2016 +0200
+
+    Add ICLA
+    
+    Signed-off-by: Stanislas P1kachu Lejay <p1kachu@lse.epita.fr>
+
+commit bcde6f9584c9a6eed5f612f3e8d227fcf97b2945
+Merge: 759a584 da77fc8
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Fri Jun 3 12:01:51 2016 -0400
+
+    Merge pull request #13 from datquoc93/master
+    
+    List URL and Cookies of Firefox 46 on LinuxOS  #309
+
+commit da77fc84e70d954d94116da442b618d6fe08c7e9
+Author: datquoc93 <datquoc93@gmail.com>
+Date:   Fri Jun 3 22:58:32 2016 +0700
+
+    Delete LinuxFireFox.py
+
+commit ba393fc1e07e125be02facc04a786ca1f0f7ade7
+Author: datquoc93 <datquoc93@gmail.com>
+Date:   Fri Jun 3 22:58:13 2016 +0700
+
+    Delete Readme.docx
+
+commit 4f562568321360d3b0f3a93af6068ec24ce41187
+Author: datquoc93 <datquoc93@gmail.com>
+Date:   Fri Jun 3 22:52:14 2016 +0700
+
+    Readme.pdf
+
+commit 718d350e7a8bf609796b9b6137dab51d1ae9007a
+Author: datquoc93 <datquoc93@gmail.com>
+Date:   Fri Jun 3 22:50:44 2016 +0700
+
+    Readme
+
+commit b81c55fd5dab78e31d8e798bd2fb5134e95a7c1c
+Author: datquoc93 <datquoc93@gmail.com>
+Date:   Fri Jun 3 22:40:15 2016 +0700
+
+    Listing URL and Cookies of Firefox 46 on LinuxOS
+
+commit e917f72195a98a547e582f3420804e601f41b472
+Author: datquoc93 <datquoc93@gmail.com>
+Date:   Fri Jun 3 22:18:23 2016 +0700
+
+    List URL and Cookies of Firefox 46 on LinuxOS
+
+commit 759a584dfc0b84bfe4f22e9d0632314f9fc1cc5a
+Author: Dave Lassalle <dave@superponible.com>
+Date:   Sat May 21 23:05:16 2016 -0500
+
+    added @hiddenillusion's changes for full paths
+
+commit e66d3808f207e91f8e0ac4b8e71ef585f5c0c4c2
+Author: Stanislas Lejay <stanislas.lejay@epita.fr>
+Date:   Sun May 15 14:43:40 2016 +0200
+
+    Add profilescan plugin suite
+    
+    Signed-off-by: Stanislas Lejay <stanislas.lejay@epita.fr>
+
+commit 317003b299707cf6cb96cac91cf958953386f8e3
+Merge: ca5e066 f704f69
+Author: superponible <dave@superponible.com>
+Date:   Mon Apr 25 18:38:20 2016 -0500
+
+    Merge pull request #11 from superponible/master
+    
+    Adding foreign_count field to firefoxhistory
+
+commit f704f6999558d50efaf2589bdd03fc2d32d34136
+Author: Dave Lassalle <dave@superponible.com>
+Date:   Mon Apr 25 18:36:47 2016 -0500
+
+    added foreign_count field from FFv34+
+
+commit e5b19951608b904418a68506aec01300f376dd57
+Merge: d33142c ca5e066
+Author: superponible <dave@superponible.com>
+Date:   Mon Apr 25 18:35:23 2016 -0500
+
+    Merge pull request #1 from volatilityfoundation/master
+    
+    Update from main repo
+
+commit ca5e066451c6b43ec2ec31bc691ecaf8b9b426d7
+Merge: acb3038 8c3145a
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Wed Jan 20 11:14:57 2016 -0500
+
+    Merge pull request #10 from Itaykr/master
+    
+    ApiFinder Plugin
+
+commit 8c3145a0496dc4d8ae8a38bd36c718635e386de5
+Author: itayk <itayk@cyberhat.co.il>
+Date:   Wed Jan 20 16:36:30 2016 +0200
+
+    ApiFinder plugin
+
+commit 415fd53459dccf040959c96a214885f844a9fddc
+Merge: b22fc88 4e3d368
+Author: itayk <itayk@cyberhat.co.il>
+Date:   Wed Jan 20 16:35:26 2016 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit b22fc88e38656354720d35c0f6b9ab22c25c4ee9
+Author: itayk <itayk@cyberhat.co.il>
+Date:   Wed Jan 20 16:35:11 2016 +0200
+
+    ApiFinder plugin
+
+commit acb30380d813a91786bb29bcb5a3768375f4b6fb
+Merge: d5bfd68 4e3d368
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Wed Jan 20 09:09:09 2016 -0500
+
+    Merge pull request #9 from Itaykr/master
+    
+    antianaysis plugin
+
+commit 4e3d368948927f975762c454daa449fbc533ea5e
+Author: Itay <itayk@cyberhat.co.il>
+Date:   Wed Jan 20 16:04:52 2016 +0200
+
+    Update antianalysis.py
+
+commit 5074a8efc650428674e7c586390868597591c68f
+Author: itayk <itayk@cyberhat.co.il>
+Date:   Wed Jan 20 15:54:37 2016 +0200
+
+    antianaysis plugin
+
+commit d5bfd6869bdf4f9d4b11b857fdbc3e4e290cae66
+Merge: cd3b1a7 2351c96
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Wed Dec 23 20:46:10 2015 -0500
+
+    Merge pull request #8 from hiddenillusion/master
+    
+    Adding SystemInfo plugin
+
+commit 2351c96d03ff0c0926d85f704e0b7b741b6c63c2
+Author: hiddenillusion <hiddenillusion@gmail.com>
+Date:   Wed Dec 23 18:48:25 2015 -0500
+
+    Adding SystemInfo plugin
+
+commit cd3b1a73ba56af32b73e9076e745059fc144a16c
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Tue Nov 10 09:31:22 2015 -0600
+
+    readme update
+
+commit 3517c573d176544c41bc1a47e6767b2d23702041
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Tue Nov 10 09:25:37 2015 -0600
+
+    add Fabien Perigaud's plugx plugin from https://blog.airbuscybersecurity.com/post/2015/08/Volatility-plugin-for-PlugX-updated
+
+commit e5d480448ad247e3ea4407ab7166aa914ea4c1f6
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Mon Nov 9 10:12:48 2015 -0600
+
+    push Marcin Ulikowski's bitlocker plugin from https://github.com/elceef
+
+commit d1640285ebea0eb09401767cad72347462b6db54
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Mon Nov 9 09:15:07 2015 -0600
+
+    Update README.md
+
+commit 36ac42fd929e4d72030608681b7d0fb35cf53470
+Merge: d33142c e8b569c
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Thu Oct 29 20:55:08 2015 -0500
+
+    Merge pull request #7 from trolldbois/master
+    
+    update for haystack v0.30
+
+commit e8b569c5bec6f0236bf7de1516f408762feb3c42
+Author: Loic Jaquemet <loic.jaquemet+github@gmail.com>
+Date:   Thu Oct 29 14:52:18 2015 -0600
+
+    update for haystack v0.30
+
+commit d33142ce2df74f4a5cedd2f3b7bfbbe6067ee33f
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Thu Oct 29 10:33:09 2015 -0400
+
+    added JPCERT/CC plugins from apt17scan.py
+
+commit 7ce3bcd41faea2b5d32f7a1b07bad1ade7af0773
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Thu Oct 29 10:05:23 2015 -0400
+
+    sync Joe Greenwood's attributeht plugin with the latest version from his page here https://github.com/4ARMED/volatility-attributeht/blob/master/attributeht.py
+
+commit 8adc7dfb5be3429f9298133f9d362d65327f4c30
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Sat Oct 24 16:36:10 2015 -0500
+
+    add francesco picasso's mimikatz plugin
+
+commit 6c410634bcb5aeb815b8401b501157376290bae6
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Sat Oct 24 11:03:03 2015 -0500
+
+    Update README.md
+
+commit afb47b542c7fcff4655692d5998b39d4d65a7708
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Sat Oct 24 10:46:08 2015 -0500
+
+    push contest 2015 plugins
+
+commit 71b8605aa2533dd02500409f4759242cf63feeae
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Tue Oct 20 20:35:07 2015 -0500
+
+    Update README.md
+
+commit f171b22e11ba8ab8f340e21df84fcb19c41832e9
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Tue Oct 20 16:24:29 2015 -0500
+
+    Update README.md
+
+commit 6072ca5651f0b63d9b48432e55802cd8c5b48a7f
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Thu Oct 15 10:56:33 2015 -0500
+
+    add a couple contributors
+
+commit 26a11ef47a7d99ba91d0f2d18c9cbf9407ad9b4f
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Thu Oct 15 10:39:18 2015 -0500
+
+    Update README.md
+
+commit ec457bc419140e825b7f223e41ccefd5b9d86640
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Thu Oct 15 10:33:10 2015 -0500
+
+    add Tom Spencer's USNParser
+
+commit b35fac03233dedaf67601d28dd5ceb2f04091a23
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Thu Oct 15 10:27:50 2015 -0500
+
+    missing inits
+
+commit 02e852b58946731e8314d1c36e61ac673a459956
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Wed Oct 14 23:06:43 2015 -0500
+
+    Update README.md
+
+commit 476629d3771b6d9b467bd61822f6bc1c369ea28a
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Wed Oct 14 22:55:37 2015 -0500
+
+    Update README.md
+
+commit f6eefb9a27014345f9e62d6dfd48ec197125ca53
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Wed Oct 14 22:46:54 2015 -0500
+
+    Update README.md
+
+commit b14259087ad1fbd668fbe74f796b0aba37f301dd
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Wed Oct 14 15:24:11 2015 -0500
+
+    add the remaining volatility plugin contest results from 2014
+
+commit 31a9b93bf0a063c748543766a3adb586961991a9
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Wed Oct 14 15:12:34 2015 -0500
+
+    Csaba's plugins and add readme for others
+
+commit e17c6e4b1d38bf84616303e3e178b3d92e100096
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Wed Oct 14 14:54:56 2015 -0500
+
+    add Cem
+
+commit acbc73250aba5ed18a82bb2d639f56b67cb6a558
+Author: Michael Ligh <mligh@volexity.com>
+Date:   Wed Oct 14 14:46:51 2015 -0500
+
+    set up directory structure by author
+
+commit 9ae133c540df3ae3b75f8061b49bbb318bd5d22b
+Merge: 7e9229b 464b819
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Fri May 8 12:30:48 2015 -0400
+
+    Merge pull request #6 from emdel/master
+    
+    kstackps
+
+commit 464b8190e1643109e11797312240f0c1908e8f96
+Author: emdel <graziano@eurecom.fr>
+Date:   Fri May 8 13:23:37 2015 +0200
+
+    kstackps
+
+commit 7e9229b9de6ffd46a1df7f6c30f3ee4a554c7523
+Merge: 8bcebc0 d42692f
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Mon Apr 27 14:09:44 2015 -0400
+
+    Merge pull request #5 from wroersma/master
+    
+    Hyper-V plugin updates
+
+commit d42692f7996b7f90c1d1e5ba403bd1015f169e34
+Author: wroersma <wyattroersma@gmail.com>
+Date:   Mon Apr 27 09:02:25 2015 -0500
+
+    Removing useless code and making it cleaner
+
+commit 7d28926caeba6ed1d8bb95e078173952c539ae1b
+Author: wroersma <wyattroersma@gmail.com>
+Date:   Sun Apr 26 21:09:51 2015 -0400
+
+    Adding unified output to the vmwp plugin and a few format fixes
+
+commit 8896ff6c52174d3ecfc4b28efc827068fcc9eca1
+Author: wroersma <wyattroersma@gmail.com>
+Date:   Sun Apr 26 20:49:00 2015 -0400
+
+    Remove hard tabs and reformat plugin before adding uni output format
+
+commit 63c5abf21bdf4efe0f39f2625d30aaf9e5c6cfca
+Merge: 40b4877 8bcebc0
+Author: wroersma <wyattroersma@gmail.com>
+Date:   Sun Apr 26 19:51:07 2015 -0400
+
+    Merge branch 'master' of https://github.com/volatilityfoundation/community
+    
+    Sync with master branch
+
+commit 8bcebc0d96e7b56dd6a6fb495d04226fb2363947
+Merge: f8deac9 b4a4694
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Sun Apr 26 01:25:06 2015 -0400
+
+    Merge pull request #4 from superponible/master
+    
+    check in my plugins to the community repo
+
+commit b4a46942136136d5d9affc0d38c3eb9425162b04
+Author: dave <dave@c02lc0nqfft4.tardy.net>
+Date:   Fri Apr 24 20:29:08 2015 -0500
+
+    check in my plugins to the community repo
+
+commit f8deac9343a91da1a83332fb61a507455dedf776
+Merge: 6a621de f4b9284
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Fri Apr 24 07:47:41 2015 -0500
+
+    Merge pull request #3 from olliencc/master
+    
+    NCC Group's Windows 2000/XP/2003 Firewall Hooks plugin
+
+commit f4b9284d65b9962626de3ce427e7ebeed9cde60c
+Author: Ollie.Whitehouse <ollie.whitehouse@nccgroup.com>
+Date:   Fri Apr 24 09:47:18 2015 +0100
+
+    NCC Group's Windows 2000/XP/2003 Firewall Hooks plugin
+
+commit 40b4877ea8e1fddb8a40f1c7603e0433090cd3dd
+Author: Wyatt Roersma <wyattroersma@gmail.com>
+Date:   Thu Mar 19 22:50:13 2015 -0400
+
+    Create __init__.py
+
+commit 6a621deec2da5cda27e08d5a703bc672c5bfd7b2
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Thu Mar 19 17:30:30 2015 +0000
+
+    initial add of __init__.py
+
+commit 564fd574a3ed96881ee8fcd2a32676089efd0809
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Thu Mar 19 17:30:05 2015 +0000
+
+    modified README
+
+commit 8df74511c3a9918cb4b48a8f3069fa333f2ac75f
+Merge: 7e747a8 c7f20e4
+Author: gleeda <jamie@memoryanalysis.net>
+Date:   Thu Mar 19 17:24:12 2015 +0000
+
+    Merge pull request #2 from wroersma/patch-1
+    
+    Create hpv.py
+
+commit 105d10e29a3f2ac90e63ee34954b7fd0eec92f43
+Author: Wyatt Roersma <wyattroersma@gmail.com>
+Date:   Thu Mar 19 12:56:55 2015 -0400
+
+    Create hpv.py
+
+commit c7f20e4c58a87eae880179a3941280360fad116d
+Author: Wyatt Roersma <wyattroersma@gmail.com>
+Date:   Thu Mar 19 12:55:29 2015 -0400
+
+    Create hpv.py
+    
+    port hpv.py for pull request
+
+commit 7e747a885ac4ebe6c660513ef0c6993eadfd17ac
+Author: iMHLv2 <michael.ligh@mnin.org>
+Date:   Mon Jul 28 16:05:04 2014 -0500
+
+    Initial commit

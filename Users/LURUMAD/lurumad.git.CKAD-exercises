@@ -1,0 +1,2236 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 84188648e8220ac75f363bbfabcc6a4ae402288d
+Author: Tuna Tore <tunatore@users.noreply.github.com>
+Date:   Sun Oct 25 19:33:43 2020 +0100
+
+    Update b.multi_container_pods.md (#150)
+
+commit 49ff5181f46cba0311c9fb81c54e510ceabfd3f4
+Author: ismail yenigul <ismailyenigul@gmail.com>
+Date:   Sun Oct 25 21:32:39 2020 +0300
+
+    removing leading '/' from kubectl cp busybox:./etc/passwd (#147)
+
+commit c9cbe8b1c8d2c296fcacf414209cdbf87d60d5b8
+Author: Steven Jenkins De Haro <20492442+StevenJDH@users.noreply.github.com>
+Date:   Sat Oct 24 03:03:23 2020 +0200
+
+    Fixed TLS certificate validation not implemented (#136)
+    
+    Issue is caused by busybox's wget, which cannot validate SSL connections. The easy solution is to use a http page that doesn't redirect to https, which kubernetes.io does.
+
+commit d7fb20c17e6b39cb85e61925895dc2bc4097c557
+Author: Amarpreet Singh <amarpreet.singh1985@gmail.com>
+Date:   Fri Oct 23 18:02:07 2020 -0700
+
+    fix a typo when exposing a deployment in Services & Deployment section (#146)
+
+commit 0d80bb74f3a4b880ec55694cb10f31b905421bb8
+Author: James F McMahon <JamesMcMahon@users.noreply.github.com>
+Date:   Fri Oct 23 19:28:51 2020 -0500
+
+    Add specific name to job (#149)
+    
+    This is so the next step makes more sense.
+    
+    IE,
+    ```bash
+    kubectl logs pi-**** # get the pi numbers
+    kubectl delete job pi
+    ```
+
+commit 8f423cce2ffb70a51e139f7848182c27e749f5aa
+Author: Aleksandr Melnikov <inzheneher@users.noreply.github.com>
+Date:   Sun Oct 18 23:51:02 2020 -0400
+
+    Multi-container Pods task description was confusing. This commit is fixing it. (#144)
+    
+    Co-authored-by: Aleksandr Melnikov <amelnikov@eastbanctech.com>
+
+commit 05c0b20c0b83aa3322a9e06582e762f7ebcef483
+Author: riyazwalikar <riyazwalikar@gmail.com>
+Date:   Mon Oct 12 22:28:15 2020 +0530
+
+    Fixed --label-columns shorthand to -L (#141)
+
+commit f2b13d5ced61d22437def1357535089e297057e6
+Author: riyazwalikar <riyazwalikar@gmail.com>
+Date:   Sat Oct 10 11:36:58 2020 +0530
+
+    Added -n mynamespace to generate yaml command (#140)
+
+commit f9857b2fefdbc5534988530ee193cb8029f836b1
+Author: Bruno Ferreira <bmibferreira@gmail.com>
+Date:   Mon Oct 5 04:07:31 2020 +0100
+
+    fix dry-run command (#138)
+
+commit 744b3ec07c808a2e38c0585062dbdc44ecce2b25
+Author: Sylvain Coulombel <scoulomb@users.noreply.github.com>
+Date:   Mon Oct 5 05:06:52 2020 +0200
+
+    Update a.core_concepts.md (#106)
+
+commit 869758d74dd747814a428b6d1518628f6c455c44
+Author: Dirc <e.e.cornet@gmail.com>
+Date:   Mon Oct 5 05:03:26 2020 +0200
+
+    fix dry-run command (all others are ok) (#135)
+    
+    Co-authored-by: Dirc <eric.cornet@cinqict.nl>
+
+commit 1b7a01ca7dc395c68a4436089cfe0c039ceb5f5d
+Author: ramnar <raam.soft@gmail.com>
+Date:   Mon Oct 5 08:33:13 2020 +0530
+
+    Update f.services.md (#137)
+    
+    simpler version of deploy command
+
+commit c519345e0df4ae4b007d8e18c73837504bb63533
+Author: amit-godse <34045944+amit-godse@users.noreply.github.com>
+Date:   Mon Oct 5 14:02:11 2020 +1100
+
+    deployment with replicas and port (#131)
+
+commit f480cb0c59104e259596706d2cd70cc9060570ad
+Author: Vikas Ray <rayvikas.27@gmail.com>
+Date:   Mon Oct 5 08:31:37 2020 +0530
+
+    Update f.services.md (#133)
+    
+    The 'run' command is deprecated for deployment. Updating the command to 'create' with service creation.
+
+commit 98a17ac87afdd10dee4804457569c495ae4a4ec0
+Author: Vikas Ray <rayvikas.27@gmail.com>
+Date:   Mon Oct 5 08:29:25 2020 +0530
+
+    Update f.services.md (#132)
+    
+    Removing the run command for the creation of the deployment as this will create only confusion although the explanation is mentioned below that. It seems unnecessary to have a command which is deprecated.
+
+commit 55c7c51f6a11de9d7c018dc2b5ef23111b0ca9a0
+Author: Balasundaram Karthikeyan <balabtech@hotmail.com>
+Date:   Wed Sep 9 17:31:45 2020 -0400
+
+    Issue #100: Updating the question to expose the port 80 (#128)
+
+commit 8d57cefab3387447910dbdbb32821a3aa5500109
+Author: Timothy <yexiaozhou2003@gmail.com>
+Date:   Thu Sep 10 05:28:21 2020 +0800
+
+    update all dry-run commands (#125)
+    
+    Co-authored-by: Timothy.Ye <timothy.ye@shopee.com>
+
+commit 93e4bd8fadba85009738b6c6db1aa357d6271fde
+Author: Dirc <e.e.cornet@gmail.com>
+Date:   Wed Sep 9 23:27:16 2020 +0200
+
+    Add new multi container exercise (#122)
+    
+    * Add new multi container exercise
+    
+    Add new multi container exercise with:
+    - initContainer
+    - shared volume
+    
+    * Correct object: startingDeadlineSeconds
+    
+    The yaml was already correct, but the description not
+
+commit e9dbb7ba5efae98188c24e3b5c5d65fe3f4177ae
+Author: Mike Stewart <2521245+mike-stewart@users.noreply.github.com>
+Date:   Sat Aug 22 17:08:26 2020 -0300
+
+    Fix CronJob solution to match question (#121)
+
+commit 7d53606b91d9c8fec56f6a55128935f37d267c35
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Tue Aug 11 18:18:36 2020 +0100
+
+    v1.18 way of creating job and cj (#111)
+
+commit 4e959ab6a00dc2a440e28c252eced9cd96859db2
+Author: Ole <ovstuckrad@gmail.com>
+Date:   Tue Aug 11 19:17:53 2020 +0200
+
+    Pod design and state update (#112)
+    
+    * Update c.pod_design.md with affinity example
+    
+    * Update g.state.md with clearer hostPath instructions (fixes #97)
+    
+    Co-authored-by: digitole <ole.von.stuckrad@digitalistgroup.com>
+
+commit adc8474b1e8079b3d5b542f1bddfe0af0e30236d
+Author: Michael C. Beck <14676+mcb@users.noreply.github.com>
+Date:   Tue Aug 11 19:17:37 2020 +0200
+
+    Fixed label selector (#113)
+
+commit 70a1f0d7d9cebcba89db11d6202e0ea1f2bb07eb
+Author: Benedetto Lo Giudice <bennythejudge@users.noreply.github.com>
+Date:   Tue Aug 11 19:17:08 2020 +0200
+
+    Changing the image of a container in a pod restarts the container, not the pod (#115)
+    
+    Fixing this exercise, because it's the container that is restarted, not the Pod.
+    
+    ```
+    Change pod's image to nginx:1.7.1. Observe that the pod will be killed and recreated as soon as the image gets pulled
+    ```
+
+commit 736e40d443442c302c43fd10240453c9f8e0ae2c
+Author: Abdul Rauf <abdulraufmujahid@gmail.com>
+Date:   Tue Aug 11 22:16:49 2020 +0500
+
+    fix(c.pod_design): command in "check the annotations for pod nginx1" section (#116)
+
+commit 7da99d06c3ae19e372ea1f59daf07412dbed0cc5
+Author: Ricardo Piteira <ricardo.piteira@gmail.com>
+Date:   Tue Aug 11 19:16:32 2020 +0200
+
+    Update d.configuration.md (#117)
+    
+    Added missing command : kubectl create -f pod.yaml
+
+commit 3668d61085a140130557c01e7513d738bb47003d
+Author: kreuzwerker-patrick <50367838+kreuzwerker-patrick@users.noreply.github.com>
+Date:   Tue Aug 11 19:16:13 2020 +0200
+
+    add additional way for checking "annotations" (#118)
+    
+    kubectl get pods  -o custom-columns=Name:metadata.name,ANNOTATIONS:metadata.annotations.description
+    is a more distinctive way of checking the annotations - probably better than to grep the result of kubectl describe - and certainly more straight forward as jsonpath :-)
+
+commit 5747d1d79c370fa8bf266c585d68bf01a10950db
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Thu Jun 25 23:58:18 2020 +0100
+
+    v1.18 way of creating a deployment (#110)
+
+commit bf863038e0551339fd26b1f33544bb2c8da26690
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Thu Jun 25 22:55:42 2020 +0100
+
+    short form for all namespaces (#109)
+
+commit b721368e16c4c2eef8ebaafce176b3bc3d9169f9
+Author: aalmanzaui1 <39139203+aalmanzaui1@users.noreply.github.com>
+Date:   Thu Jun 25 08:50:38 2020 +0200
+
+    Update a.core_concepts.md (#107)
+    
+    Updating the way to use the "dry-run" option in the new version of kubectl
+
+commit cd1a5d99a7574b724ab16bbd7e9bd987edd8fce2
+Author: Barkov Alexander <bars83@gmail.com>
+Date:   Thu Jun 25 09:49:27 2020 +0300
+
+    Get IP (and port) and run pod in one line (#105)
+
+commit bf6986c3b1b9f11ee3eface01da3597ff021978f
+Author: Bertrand BENOIT <contact@bertrand-benoit.net>
+Date:   Fri May 29 21:50:53 2020 +0200
+
+    Improved Core Concepts documentation/sample. (#104)
+
+commit a6f96708e610e4c03e90f123dbfae2892565a12f
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Mon May 11 23:36:44 2020 +0100
+
+    use short form for --all-namespace (#102)
+
+commit f7a4f832a47dbedca28230fbd3201621dd8b4f19
+Author: djendrju87 <46528265+djendrju87@users.noreply.github.com>
+Date:   Tue Apr 14 12:03:27 2020 -0700
+
+    Fix activeDeadlineSeconds value inconsistency (#96)
+    
+    In one place the instruction says that activeDeadlineSeconds has to be set to 17 seconds, but in another that value is 30.
+
+commit 2489de22660b4af19dc9b7be871541aea752742a
+Author: Aurelie Vache <scraly@gmail.com>
+Date:   Tue Apr 14 21:02:29 2020 +0200
+
+    fix: job.spec.activeDeadlineSeconds=17 (#98)
+
+commit 5951aabf57d954cb7390d8a677ae49d95c148314
+Author: Alexander Omyshev <a.omyshev@gmail.com>
+Date:   Mon Apr 6 21:11:49 2020 +0300
+
+    Update Pod Design section (#94)
+    
+    * Update Pod Design section
+    
+    Add one more exercise for CronJob.
+    
+    * Update c.pod_design.md
+    
+    Fixes according to PR remarks.
+
+commit 92b36d1a7292a5d994cfe7c48b2f6ddbe904ba9c
+Author: Justas <justas.narbutas@gmail.com>
+Date:   Sat Apr 4 18:33:33 2020 +0300
+
+    Add --timeout option for wget in temporary pods (#91)
+    
+    * Add --timeout option
+    
+    Add --timeout option for temporary pod.
+    
+    * Add comments for --timeout option
+
+commit 2d9c87c688b291ce0e0464d1d3c590249ffbc68d
+Author: Wely Lau <wely_live@live.com>
+Date:   Sun Mar 29 08:42:10 2020 +0800
+
+    change storageClassName to normal (#93)
+    
+    to match the previous question; otherwise it may not be bounded
+
+commit 8049e5a1255f75002dd445bb9e7b127c97a6e71d
+Author: Otto Jongerius <otto.jongerius@gmail.com>
+Date:   Mon Feb 17 21:01:21 2020 +1300
+
+    `describe` does not support specifying output format (#89)
+    
+    Fixes #75
+
+commit 4a78136527b0273980e1e79cf3dea270b12aaa9a
+Author: Otto Jongerius <otto.jongerius@gmail.com>
+Date:   Mon Feb 17 21:00:30 2020 +1300
+
+    Use label value without ambiguous meaning (#88)
+    
+    YAML 1.1 parsers interpret strings that match the following regular expressions as Booleans. ie: using true (or variations thereof)
+    
+    https://yaml.org/type/bool.html
+    ```
+     y|Y|yes|Yes|YES|n|N|no|No|NO
+    |true|True|TRUE|false|False|FALSE
+    |on|On|ON|off|Off|OFF
+    ```
+    
+    The result is that trying to create a network policy using the suggested label will return:
+    
+    ```
+    Error from server (BadRequest): error when creating "network.yaml": NetworkPolicy in version "v1" cannot be handled as a NetworkPolicy: v1.NetworkPolicy.Spec: v1.NetworkPolicySpec.Ingress: []v1.NetworkPolicyIngressRule: v1.NetworkPolicyIngressRule.From: []v1.NetworkPolicyPeer: v1.NetworkPolicyPeer.PodSelector: v1.LabelSelector.MatchLabels: ReadString: expects " or n, but found t, error found in #10 byte of ...|"access":true}}}]}],|..., bigger context ...|{"from":[{"podSelector":{"matchLabels":{"access":true}}}]}],"podSelector":{"matchLabels":{"run":"ngi|...
+    ```
+    
+    I think there is some merit to teaching subtleties of YAML, and if you are keen on keeping on doing that, I'd suggest instead adding a follow up question, suggesting to change the label from "access: granted" to "access: yes" or "access: no" so that folks using it would be able to diagnose what is wrong faster.
+
+commit 27b42b837b46ee8667658a9221cefd00a693b5f1
+Author: Otto Jongerius <otto.jongerius@gmail.com>
+Date:   Mon Feb 17 20:59:18 2020 +1300
+
+    Change periodSeconds to non default value (#87)
+    
+    Change `periodSeconds` to a value different than its default.
+    
+    From pods.spec.containers.livenessProbe:
+    
+    ```
+       periodSeconds        <integer>
+         How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
+         value is 1.
+    ```
+
+commit b35da74bcdad9e423e2831e6d9f8aac1c165ec84
+Author: Andres Olarte <olarte.andres@gmail.com>
+Date:   Wed Jan 22 15:30:12 2020 -0600
+
+    Update f.services.md (#86)
+    
+    The Cluster IP is associated to the Service, not the Pod.
+
+commit 7453df9426511f1263e983bb85626eddb330a29b
+Author: Jeferson Pereira <23460187+Jeskz0rd@users.noreply.github.com>
+Date:   Sun Jan 19 00:40:21 2020 -0300
+
+    Cleanup deprecated --export flag (#85)
+    
+    * Remove --export deprecated flag, add yaml output samples
+    
+    * Remove --export deprecated flag
+    
+    * Remove --export deprecated flag
+
+commit 2436e24df9d7c79c44f6ad1ba6fbb24e59b43fe8
+Author: Velmurugan Velayutham <velmuruganvelayutham@users.noreply.github.com>
+Date:   Wed Jan 15 11:11:30 2020 +0530
+
+    --label-columns & --selector (#83)
+
+commit 499833e6adae192fe69906cb15a45fef9f066377
+Author: bvntejasvi <bvntejasvi@gmail.com>
+Date:   Sun Jan 12 16:44:20 2020 -0500
+
+    Update f.services.md (#82)
+    
+    Fixed the typo in kubectl command
+
+commit a8e139c08786555a891aed99686743cda58e98bd
+Author: Abhi D <abhi358@gmail.com>
+Date:   Sat Jan 11 18:41:04 2020 +1100
+
+    Added short one-liner to connect to second container and 'ls' (#81)
+    
+    * Added one-liner to 'ls' into the second container
+    
+    Updated command to run 'ls' on the second container with just 1 line
+    
+    * Fixed grammar
+    
+    Fixed grammar in the comment
+
+commit 2e074d7c8a48b29482b8bdf20c126206d0138671
+Author: Abhi D <abhi358@gmail.com>
+Date:   Sat Jan 4 05:41:42 2020 +1100
+
+    added shorter command to annotate 3 pods at once (#79)
+
+commit 57161ef37144cd3244d3eeb754c9e8436a2024ec
+Author: Jim Werwath <werwath@gmail.com>
+Date:   Fri Jan 3 12:41:16 2020 -0600
+
+    Fix typo (#80)
+
+commit e5ce2a0fef8f806da28b06289febd2b7e3972e5d
+Author: Amit Thakkar <vigildbest@gmail.com>
+Date:   Fri Dec 6 22:27:48 2019 +0100
+
+    Correcting revision number (#77)
+    
+    As the first revision is for a new deployment.
+    The second revision is for version nginx:1.7.9
+    The third revision is for the rollout undo.
+    The fourth revision is for the wrong version: nginx:1.91
+
+commit aa7051335e39640990e918ea2fbdb2e6739366aa
+Author: Louis-Guillaume MORAND <lgm@lgmorand.com>
+Date:   Thu Nov 14 04:02:20 2019 +0100
+
+    Controlling Job termination (#70)
+    
+    Example on how to control job termination and cleanup
+
+commit 39f0863a3b15f631020a9179838529c4217880dd
+Author: Matt Jarrett <16245634+cujarrett@users.noreply.github.com>
+Date:   Wed Nov 13 21:01:31 2019 -0600
+
+    chore: adds docs reference for labels section (#72)
+
+commit f1127690f8551bae1c36b6b58bf80d28ba724b20
+Author: Matt Jarrett <16245634+cujarrett@users.noreply.github.com>
+Date:   Mon Nov 11 23:47:31 2019 -0600
+
+    Fixes typo in example solution (#71)
+
+commit f951d233206ee1b29e244588e26421fc376cda0b
+Author: Tigran Tch <3153333+NargiT@users.noreply.github.com>
+Date:   Tue Oct 8 03:00:47 2019 +0200
+
+    encourage usage of cli instead of manual operation (#66)
+    
+    * simplify service account for pod
+    
+    simplify usage to avoid manual mistakes
+    
+    * Update d.configuration.md
+
+commit 7153f583dc669909d4d2a248aab2f253c87a7503
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Thu Sep 26 23:42:26 2019 -0500
+
+    Updated an option with one-liner (#67)
+
+commit af2dd830bd9f511133f07ca960e8c80661f9fe35
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Thu Sep 26 23:42:07 2019 -0500
+
+    Changed the question (#68)
+    
+    Based on my understanding of the "default" command, it's the one that is set under "ENTRYPOINT" section of the container image. So, when you want to run that container with its default command, we should not override that default command while creating the container from that image. But here, when we use "-- perl ..." in either create job or run job commands, it would override the default command of the job and does not just update the "args" of the default command. I hope this makes sense. Otherwise, feel free to reject the pull request.
+
+commit fdc1cbe89353cd57a4a3615ff6736451847db73e
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Thu Sep 26 23:40:44 2019 -0500
+
+    Corrected the command (#69)
+    
+    * Corrected the command
+    
+    `-d` switch is not a valid option for `base64` command. It should be either `base64 -D` or `base64 --decode`.
+    
+    * Reverted the change and updated comment
+
+commit b003269da6f15c0980b9ae66c033285e88fa6737
+Author: Yuji Tabata <yujitabata@icloud.com>
+Date:   Mon Sep 23 11:39:30 2019 +0900
+
+    Update d.configuration.md (#65)
+    
+    It seems that the username file shouldn't have newline at the end.
+
+commit c971aff9b4fcfb7d96389f3ca5bf4284993f6685
+Author: Shubham Rajvanshi <shubhamrajvanshi9@gmail.com>
+Date:   Tue Sep 17 12:30:46 2019 -0700
+
+    Added a small code snippet (#64)
+
+commit 1365338e5ad3c0f233702e27595004f391adeb99
+Author: Tigran Tch <3153333+NargiT@users.noreply.github.com>
+Date:   Tue Sep 17 21:26:18 2019 +0200
+
+    no need to expose port for probes (#53)
+    
+    * no need to expose port for probes
+    
+    I was doing the exerice and there is no need to expose the container port on kubernetes v1.15.1
+    
+    * Revert "no need to expose port for probes"
+    
+    This reverts commit 8ea9e448ac174a61b9742c7a14679ad67dd64b5f.
+    
+    * add comment
+    
+    * fix typo
+
+commit 8ed638807e8cf6592e22efbbe911e5a8c2da8925
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sun Sep 15 13:35:22 2019 -0400
+
+    Added more elegant option for the answer (#63)
+    
+    * Added more elegant option for the answer
+    
+    Added one more approach to create a deployment using more elegant way.
+    
+    * Changed the verbiage as suggested
+
+commit 405cb715e6f02e5f67ea4a34b328ee0216aa7054
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sun Sep 15 01:12:00 2019 -0400
+
+    Enriched the question (#62)
+    
+    - Enriched the question definition to add more clarity
+    - Added commands to delete the service and the pod as per the ask
+
+commit 3025c76f1943a4d817ca35aa5424ce461988c9aa
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 14 15:50:51 2019 -0400
+
+    "export" is a deprecated flag (#59)
+
+commit 3b3aea1d4c0838342d158c5c728585fb3f626616
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 14 15:50:12 2019 -0400
+
+    Updated the question to avoid the confusion (#60)
+    
+    I found the question confusing as "UID" is also a field under metadata. I created a pod with that and found that this question was actually referring to user ID to run the pod with.
+
+commit 2d46feb865e7703d7db544c44491b6e221800caa
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sun Sep 8 21:28:45 2019 -0500
+
+    Added more specifics to the question (#56)
+    
+    * Added more specifics to the question
+    
+    The connection can be of various types. So, added the specifics.
+    
+    * Updated the shell execution instruction
+
+commit e052ad33011df3bf0fbca4ad270f1c06c16664b7
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 7 20:07:36 2019 -0500
+
+    Cleared the instructions to avoid confusion (#55)
+    
+    I got very confused about the questions and could not understand that the question was referring to the previously created nginx pod. So, I thought to add this line to help others.
+
+commit 2c288a5467f6ce32c580937d0a0ca1c614186462
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 7 19:22:13 2019 -0500
+
+    Changed RQ question definition to match the answer (#54)
+    
+    Thank you!!
+
+commit efb4b18598d2a9c4b6e57f8038b4137d3fe1c17e
+Author: Johannes Scheuermann <johscheuer@users.noreply.github.com>
+Date:   Wed Sep 4 23:08:54 2019 +0200
+
+    Simplify the wget call (#52)
+
+commit 12e618315ddfbbe5d94523d9f66b06e9b670336c
+Author: jonathansimas <jonathansimas@gmail.com>
+Date:   Wed Aug 7 17:25:38 2019 -0300
+
+    Removed deprecated --export flags (#51)
+    
+    Flag --export has been deprecated, This flag is deprecated and will be removed in future.
+
+commit a3d251cf0abed569606e21b8b1c75c14ed95062d
+Author: baogang <baogang20@gmail.com>
+Date:   Wed Jul 3 15:54:20 2019 +0800
+
+    add minikube ip comment (#48)
+
+commit c0ee023f4b17b7fcb3711d2cc8325dc2b18c42f8
+Author: Robin Naundorf <r.naundorf@fh-muenster.de>
+Date:   Tue Jun 25 09:15:58 2019 +0200
+
+    Fix small typo in pod design doc (#47)
+
+commit f5bab9f1e6029a60d173c313119e2ad03a512d88
+Author: Batool Abbas <abbassbatoolali@gmail.com>
+Date:   Sat Jun 15 16:47:20 2019 +0500
+
+    minor change (#45)
+    
+    Thanks!
+
+commit c593ff465663002d55360941b1670886957e3a9a
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Thu Jun 13 10:46:56 2019 +0300
+
+    Update g.state.md
+
+commit 23b424be1bb639710a19c6cd15e1b8873fa710e6
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Jun 10 23:01:19 2019 +0300
+
+    Create CODE_OF_CONDUCT.md (#43)
+
+commit 62c948f370f1e08ecf1908723e42781fe569bd82
+Author: 839 <8398a7@gmail.com>
+Date:   Tue Jun 11 04:58:32 2019 +0900
+
+    Modify command and description (#42)
+    
+    * Easy to understand where to change
+    
+    * Modified to a command that can be executed
+    
+    before:
+    
+    ```bash
+    $ kubectl cp busybox:/etc/passwd .
+    tar: removing leading '/' from member names
+    error: open .: is a directory
+    $ cat passwd
+    cat: passwd: No such file or directory
+    ```
+    
+    * Add reference to metrics-server
+
+commit 8fed1d659dc92dcb496f4c41f5ac1157ebe84bff
+Author: RHT <askrht@users.noreply.github.com>
+Date:   Tue May 28 04:47:11 2019 -0500
+
+    Added links to official documentation before an exercise. (#41)
+    
+    * Added links to official documentation before an exercise
+    
+    * fixed spelling
+
+commit 30b5542671274079b74963749c3990ad5f49fd3e
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon May 27 14:37:10 2019 +0300
+
+    Fixes #40
+
+commit 7dfb5fd9728222ed5eb4be428653a90fab4e6117
+Author: Kim Wuestkamp <kim@wuestkamp.com>
+Date:   Fri May 24 00:23:10 2019 +0200
+
+    create serviceaccount command (#39)
+
+commit bc4c725aa8bf5de8abfef8a5f6ea261c699fd930
+Author: Al S <xee5ch.gh.al@il5.in>
+Date:   Mon May 13 04:08:31 2019 -0400
+
+    Fix log check for job with counting pi digits (#38)
+    
+    You reference `kubectl logs perl-**** # get the pi numbers` which references the container image name, but the pod name `pi-****`. A minor issue but could be confusing.
+
+commit 376c9b63dd752292f6b310216aa53d6f937ca2a4
+Author: Anna <annajung@users.noreply.github.com>
+Date:   Mon May 13 03:05:24 2019 -0500
+
+    Add alternative commands for deprecated run command in pod_design (#37)
+
+commit ba799d47566d010cdbb53733fdf078e274caa91f
+Author: bargom <baris.gomlek@gmail.com>
+Date:   Wed May 1 18:58:23 2019 +0200
+
+    Update g.state.md (#36)
+    
+    Fix error : error converting YAML to JSON: yaml: line 35: did not find expected key
+
+commit 76aa0150c6b619ae6078c4f124715a93e37e8d89
+Author: bargom <baris.gomlek@gmail.com>
+Date:   Wed May 1 15:09:28 2019 +0200
+
+    Update d.configuration.md (#35)
+    
+    one liner for decoding a secret with jsonpath
+
+commit 9c0570c4877404c0004209c8e6ebf032a6ccc503
+Author: mattiaperi <mattiaperi@users.noreply.github.com>
+Date:   Tue Apr 23 18:29:29 2019 +0200
+
+    Update f.services.md (#34)
+    
+    * Update f.service.md, Network Policy check added
+
+commit 68419ef9d7c3c53fd91009a3400db465ef4d1a06
+Author: AbdullahBM <36033293+AbdullahBM@users.noreply.github.com>
+Date:   Mon Apr 1 16:08:37 2019 +0500
+
+     Easier way to find resources with the help of labels (#33)
+    
+    * Easier way to find resources with the help of labels
+    
+    * Easier way to find resources with the help of labels
+
+commit b53ddefafc9b2d082b03bb204f76418774352f6f
+Author: Benjamin Muschko <benjamin.muschko@gmail.com>
+Date:   Wed Mar 13 16:12:52 2019 -0600
+
+    Fix typo (#31)
+    
+    Thanks!
+
+commit 7cf9047874e221ac0206bd29ae5f82f92ff41208
+Author: Dani Comnea <dani_comnea@yahoo.com>
+Date:   Wed Mar 6 16:20:42 2019 +0000
+
+    Added few alternatives to core_concepts (#28)
+
+commit d3c3bdf45191e397b5b4b5d5a37b4390222e0027
+Author: Dani Comnea <dani_comnea@yahoo.com>
+Date:   Wed Mar 6 16:18:43 2019 +0000
+
+    Fix describe po annotation (#29)
+
+commit 203cb2ab4c14eb2cf9c36dc6f69859c7fc1bf3b6
+Author: Benjamin Muschko <benjamin.muschko@gmail.com>
+Date:   Wed Mar 6 05:51:13 2019 -0700
+
+    Fix typo (#30)
+
+commit 6da78ab7965f078b8472685f172a9d518dbf2c28
+Author: Dylan Graham <dylan.graham@gmail.com>
+Date:   Sun Feb 10 13:41:41 2019 +1100
+
+    Use label selector to remove labels (#26)
+    
+    * Use label selector to remove labels
+    
+    * Restore second option
+
+commit 02dd15a753eefd124afeff0fa720218f536b9318
+Merge: 64862e5 3350a2a
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Jan 23 07:38:57 2019 +0200
+
+    Merge pull request #25 from chokkoyamada/fix/typo-kubectl-describe
+    
+    Added "po" with describe command
+
+commit 3350a2a6c929df119e4f3b0b3fb1b8f1d908b09a
+Author: chokkoyamada <yamada@kirishikistudios.com>
+Date:   Wed Jan 23 13:57:56 2019 +0900
+
+    add "po" with descibe command
+
+commit 64862e537002d9ceb9ef41e5e390edcff6d5ffe8
+Merge: 79a81a2 9eb9d1d
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jan 20 16:14:49 2019 +0200
+
+    Merge pull request #24 from ZCJ/patch-1
+    
+    Update a.core_concepts.md
+
+commit 9eb9d1d3b5cdf4a7fe94c1742699ba970c61253a
+Author: Ziad Jammal <ziad@eljammal.com>
+Date:   Sun Jan 20 18:08:04 2019 +0400
+
+    Update a.core_concepts.md
+    
+    fixing issue #12
+
+commit 79a81a22ec7013ce50d5950ee18013745cb8c689
+Merge: 87005f8 e3c5234
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jan 13 12:01:19 2019 +0200
+
+    Merge pull request #23 from erkanerol/patch-2
+    
+    replace pod with container
+
+commit e3c5234dbcb5c81fe548309eca05de81746789d7
+Author: Erkan Erol <erkanerol92@gmail.com>
+Date:   Sun Jan 13 12:43:43 2019 +0300
+
+    replace pod with container
+
+commit 87005f88100066bf0ddc4a364810c21756b5630f
+Merge: 9b20809 432b0bd
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sat Jan 12 11:14:00 2019 +0200
+
+    Merge pull request #22 from erkanerol/patch-1
+    
+    remove yaml edit part
+
+commit 432b0bd1de04757ab90042555315c76254f02027
+Author: Erkan Erol <erkanerol92@gmail.com>
+Date:   Sat Jan 12 11:58:27 2019 +0300
+
+    remove yaml edit part
+    
+    you can use --command option instead of editing generated yaml file
+
+commit 9b208090cc5dffe7f0aaa973fcf496cb546487e3
+Merge: a0530b1 39b2a96
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jan 8 16:06:09 2019 +0200
+
+    Merge pull request #19 from tortuga-feliz/patch-1
+    
+    Fix typo
+
+commit 39b2a96a2a1c88a9aa8aa18a85e655aa8a013bc5
+Author: tortuga-feliz <katarzyna.zarnowiec@gmail.com>
+Date:   Tue Jan 8 15:03:57 2019 +0100
+
+    Fix image name to be the same as in the question
+
+commit a0530b192df1820122c8d02f548442ceb9c77162
+Merge: e63ba26 bb7c9a2
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jan 8 09:49:59 2019 +0200
+
+    Merge pull request #20 from ChenyuanZ/typo_fix
+    
+    Update from GB to Gi
+
+commit bb7c9a24833b539580635e39f728540c97abacb6
+Author: Chenyuan <chenyuaz@alumni.cmu.edu>
+Date:   Mon Jan 7 17:49:20 2019 -0600
+
+    update from GB to Gi
+
+commit b708d3fd23e7e34820d7dce72488bdfe0b89e745
+Author: tortuga-feliz <katarzyna.zarnowiec@gmail.com>
+Date:   Sat Jan 5 23:18:34 2019 +0100
+
+    Fix typo
+
+commit e63ba26ac4a8f66ce915321d83521ac894c49d27
+Merge: 496050e 5967d75
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Thu Jan 3 19:42:33 2019 +0200
+
+    Merge pull request #18 from derdanu/patch-2
+    
+    Typo. Either endpoints or ep but not endpoint
+
+commit 5967d756ea3c019686a280382c7b46ac1dfb7648
+Author: Daniel Falkner <bmw@740i.de>
+Date:   Thu Jan 3 14:41:36 2019 +0100
+
+    Typo. Either endpoints or ep but not endpoint
+
+commit 496050e8f5dc0e749628b8b5b26396e67c7d387d
+Merge: 4437e6a 783724f
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Thu Jan 3 13:16:34 2019 +0200
+
+    Merge pull request #17 from derdanu/patch-1
+    
+    added missing yaml option for -o
+
+commit 783724fa3e78a5a623e1732737466e5e916cdbbd
+Author: Daniel Falkner <bmw@740i.de>
+Date:   Thu Jan 3 12:14:41 2019 +0100
+
+    added missing yaml option for -o
+
+commit 4437e6aaa4c1402d77f8d5bf59e14d286b55d56c
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Fri Dec 28 11:28:11 2018 +0200
+
+    updated references
+
+commit b2784f88ed4902cbc1381f08db802f97abe83288
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Fri Dec 28 11:13:08 2018 +0200
+
+    feedback based on #16
+
+commit d85c1bf4db9a1e15dd4aad65f1176d75b1e18b4c
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Dec 16 20:43:59 2018 +0200
+
+    Update g.state.md
+    
+    Updates based on #13
+
+commit cc6b0be0c485768c056cfbc08b76782c11c3f2f8
+Merge: f093036 fb92d56
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Dec 4 16:04:11 2018 +0100
+
+    Merge pull request #10 from daviddykeuk/master
+    
+    Fixed up a couple of typos in solutions
+
+commit fb92d56388f57686f99938fdfc6ac659438907a8
+Author: David Dyke <daviddykeuk@gmail.com>
+Date:   Tue Dec 4 10:56:15 2018 +1100
+
+    fixed the storageClassName on persistentVolumeClaim
+
+commit e371db5166df8eb1cda8b1dd836023c839c67c94
+Author: David Dyke <daviddykeuk@gmail.com>
+Date:   Tue Dec 4 10:53:48 2018 +1100
+
+    fixed a typo in getting logs
+
+commit f093036dcb26d9d8d7560a22a92ca2abba1cce7e
+Merge: b54f4a7 1b60867
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Nov 26 12:07:38 2018 +0200
+
+    Merge pull request #9 from aamirpinger/master
+    
+    small contribution in d.configration.md file, fixes #8
+
+commit 1b60867c0a052505f749a4698695e1a27e6796c5
+Author: aamirpinger <aamirpinger@yahoo.com>
+Date:   Mon Nov 26 12:31:43 2018 +0500
+
+    little correction made in question and answer # 5
+
+commit c6b1b0eb4426133c69fdb2992b11803b03372e5a
+Author: aamirpinger <aamirpinger@yahoo.com>
+Date:   Mon Nov 26 12:27:18 2018 +0500
+
+    small contribution in d.configration.md, little correction made in answer # 4
+
+commit b54f4a7623f2b8a5da85075982ae64c2b626245b
+Merge: ce607a1 e6809ce
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Nov 12 11:18:04 2018 +0200
+
+    Merge pull request #7 from lucassha/master
+    
+    updated set image for changing to nginx:1.7.1
+
+commit e6809ce24baba923a84a936be4985653ea9e12cf
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Nov 12 11:17:35 2018 +0200
+
+    Update a.core_concepts.md
+
+commit c5bc14dd3fd5ff837a6b41bc258d71b6c6982405
+Merge: ce607a1 c0d59d6
+Author: Shannon <lucassha@oregonstate.edu>
+Date:   Mon Nov 12 14:40:49 2018 +1000
+
+    Merge pull request #1 from lucassha/lucassha-patch-1
+    
+    updated set image for changing to nginx:1.7.1
+
+commit c0d59d60935ceffe9a4d027580ccbd178cf8ebdd
+Author: Shannon <lucassha@oregonstate.edu>
+Date:   Mon Nov 12 14:35:46 2018 +1000
+
+    updated set image for changing to nginx:1.7.1
+    
+    possibly a newer version of k8s requires specificity on type of object for updating the image. i couldn't get it to work with the above example.
+    
+    my kubectl client and server version: v1.12.1
+
+commit ce607a1a4b1f440b924a8eddff35ad43504ffe92
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Nov 7 21:22:51 2018 +0200
+
+    Update README.md
+
+commit dfe8ca173ab43f0a91fcf88955d436949ff8dbac
+Merge: fd1cb80 370a844
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Nov 7 17:59:50 2018 +0200
+
+    Merge pull request #6 from sureshoao/patch-1
+    
+    Update c.pod_design.md
+
+commit 370a844c2b135f42e2e0396eb66d8aed10f43693
+Author: sureshoao <37149117+sureshoao@users.noreply.github.com>
+Date:   Wed Nov 7 10:53:03 2018 -0500
+
+    Update c.pod_design.md
+
+commit fd1cb8086e7b885c91010c080a5d25aae1983293
+Merge: 171a655 250b039
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Oct 28 21:03:19 2018 +0200
+
+    Merge branch 'master' of https://github.com/dgkanatsios/CKAD-exercises
+
+commit 171a655749c255de9cbd13dceb2bd5987dc698c1
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Oct 28 21:03:03 2018 +0200
+
+    fix for #5, thanks to @ChrisCooney
+
+commit 250b0394e2f7636f47db99ac3ea0f3c5892fcf52
+Merge: 8f118ac d05c857
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sat Oct 20 15:27:29 2018 +0300
+
+    Merge pull request #4 from kentakozuka/master
+    
+    fix a misspelling
+
+commit d05c8574f039bd7b6d6f7f92e620a547f085a057
+Author: Kenta Kozuka <kentakozuka@users.noreply.github.com>
+Date:   Sat Oct 20 21:17:04 2018 +0900
+
+    fix a misspelling
+
+commit 8f118ac50145d1343983b0ab913f82512a47cc00
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jul 10 18:17:54 2018 +0300
+
+    minor
+
+commit 2e2e8f0b4122a2489d3b9dd61bd8cbe8b2f7c2b0
+Merge: 88bbdf4 29e33f2
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jul 10 18:15:33 2018 +0300
+
+    Merge pull request #3 from diegoparra/small-fix
+    
+    small fix
+
+commit 29e33f22fb1033c101b04af8f4f3d0c429a1189d
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jul 10 18:15:11 2018 +0300
+
+    Update a.core_concepts.md
+
+commit 6ad5dbd21a154e41da611140c90582605c4c5737
+Author: Diego Parra <diego.ferreira@miraeducacao.com.br>
+Date:   Tue Jul 10 11:46:44 2018 -0300
+
+    small fix
+
+commit 88bbdf4dcccdb2cbd4b9ed97cb9d667f0ad2f9fc
+Merge: 2092552 4d2591e
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Jul 4 14:13:06 2018 +0300
+
+    Merge pull request #2 from nicoben/master
+    
+    Some corrections
+
+commit 4d2591ec49f5355718e1d83e1690a6c36da00f39
+Author: Nicola Benaglia <nicola.benaglia@sorint.it>
+Date:   Wed Jul 4 12:14:08 2018 +0200
+
+    corrected not valid parameter
+
+commit 579d6cb2dc37211ac340e759a0fe6b00bb2f012d
+Author: Nicola Benaglia <nicola.benaglia@sorint.it>
+Date:   Wed Jul 4 11:46:11 2018 +0200
+
+    parameter to grep event error
+
+commit 2092552a800014bbd8d63a4f1c9d8ea51e777bea
+Merge: dea9190 619eaba
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Jul 2 20:28:28 2018 +0300
+
+    Merge pull request #1 from diegoparra/fix/b-multi-container
+    
+    correct container and image name
+
+commit 619eabac23418e3ca62ef21e2650d3165333c291
+Author: Diego Parra <diego.ferreira@miraeducacao.com.br>
+Date:   Mon Jul 2 14:20:16 2018 -0300
+
+    correct container and image name
+
+commit dea91901bae4d049063a668c7b6d31bd4c57a8c9
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Jul 2 10:24:09 2018 +0300
+
+    minor
+
+commit 071ce4aaf670c65c3633ad26c0052c61f6c2481e
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 18:25:47 2018 +0300
+
+    small bug
+
+commit b307497e51450764e30fdee610367f3a8c71dede
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 10:39:28 2018 +0300
+
+    analytics and typos
+
+commit ac934cd7f950236e6c153436223bab9fb6b26cfc
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 10:33:31 2018 +0300
+
+    typos
+
+commit 69b21c87b14bab4a9fd8d2edc2ca294e15fc84b3
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 09:55:14 2018 +0300
+
+    text
+
+commit bcca622f3297f5ce5ac6c3aba6eee7ff4b6ecb59
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 09:53:55 2018 +0300
+
+    adding weight of domains
+
+commit 00ed961140f175faac8f9fc2b075f12040bf8677
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 09:51:49 2018 +0300
+
+    initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 84188648e8220ac75f363bbfabcc6a4ae402288d
+Author: Tuna Tore <tunatore@users.noreply.github.com>
+Date:   Sun Oct 25 19:33:43 2020 +0100
+
+    Update b.multi_container_pods.md (#150)
+
+commit 49ff5181f46cba0311c9fb81c54e510ceabfd3f4
+Author: ismail yenigul <ismailyenigul@gmail.com>
+Date:   Sun Oct 25 21:32:39 2020 +0300
+
+    removing leading '/' from kubectl cp busybox:./etc/passwd (#147)
+
+commit c9cbe8b1c8d2c296fcacf414209cdbf87d60d5b8
+Author: Steven Jenkins De Haro <20492442+StevenJDH@users.noreply.github.com>
+Date:   Sat Oct 24 03:03:23 2020 +0200
+
+    Fixed TLS certificate validation not implemented (#136)
+    
+    Issue is caused by busybox's wget, which cannot validate SSL connections. The easy solution is to use a http page that doesn't redirect to https, which kubernetes.io does.
+
+commit d7fb20c17e6b39cb85e61925895dc2bc4097c557
+Author: Amarpreet Singh <amarpreet.singh1985@gmail.com>
+Date:   Fri Oct 23 18:02:07 2020 -0700
+
+    fix a typo when exposing a deployment in Services & Deployment section (#146)
+
+commit 0d80bb74f3a4b880ec55694cb10f31b905421bb8
+Author: James F McMahon <JamesMcMahon@users.noreply.github.com>
+Date:   Fri Oct 23 19:28:51 2020 -0500
+
+    Add specific name to job (#149)
+    
+    This is so the next step makes more sense.
+    
+    IE,
+    ```bash
+    kubectl logs pi-**** # get the pi numbers
+    kubectl delete job pi
+    ```
+
+commit 8f423cce2ffb70a51e139f7848182c27e749f5aa
+Author: Aleksandr Melnikov <inzheneher@users.noreply.github.com>
+Date:   Sun Oct 18 23:51:02 2020 -0400
+
+    Multi-container Pods task description was confusing. This commit is fixing it. (#144)
+    
+    Co-authored-by: Aleksandr Melnikov <amelnikov@eastbanctech.com>
+
+commit 05c0b20c0b83aa3322a9e06582e762f7ebcef483
+Author: riyazwalikar <riyazwalikar@gmail.com>
+Date:   Mon Oct 12 22:28:15 2020 +0530
+
+    Fixed --label-columns shorthand to -L (#141)
+
+commit f2b13d5ced61d22437def1357535089e297057e6
+Author: riyazwalikar <riyazwalikar@gmail.com>
+Date:   Sat Oct 10 11:36:58 2020 +0530
+
+    Added -n mynamespace to generate yaml command (#140)
+
+commit f9857b2fefdbc5534988530ee193cb8029f836b1
+Author: Bruno Ferreira <bmibferreira@gmail.com>
+Date:   Mon Oct 5 04:07:31 2020 +0100
+
+    fix dry-run command (#138)
+
+commit 744b3ec07c808a2e38c0585062dbdc44ecce2b25
+Author: Sylvain Coulombel <scoulomb@users.noreply.github.com>
+Date:   Mon Oct 5 05:06:52 2020 +0200
+
+    Update a.core_concepts.md (#106)
+
+commit 869758d74dd747814a428b6d1518628f6c455c44
+Author: Dirc <e.e.cornet@gmail.com>
+Date:   Mon Oct 5 05:03:26 2020 +0200
+
+    fix dry-run command (all others are ok) (#135)
+    
+    Co-authored-by: Dirc <eric.cornet@cinqict.nl>
+
+commit 1b7a01ca7dc395c68a4436089cfe0c039ceb5f5d
+Author: ramnar <raam.soft@gmail.com>
+Date:   Mon Oct 5 08:33:13 2020 +0530
+
+    Update f.services.md (#137)
+    
+    simpler version of deploy command
+
+commit c519345e0df4ae4b007d8e18c73837504bb63533
+Author: amit-godse <34045944+amit-godse@users.noreply.github.com>
+Date:   Mon Oct 5 14:02:11 2020 +1100
+
+    deployment with replicas and port (#131)
+
+commit f480cb0c59104e259596706d2cd70cc9060570ad
+Author: Vikas Ray <rayvikas.27@gmail.com>
+Date:   Mon Oct 5 08:31:37 2020 +0530
+
+    Update f.services.md (#133)
+    
+    The 'run' command is deprecated for deployment. Updating the command to 'create' with service creation.
+
+commit 98a17ac87afdd10dee4804457569c495ae4a4ec0
+Author: Vikas Ray <rayvikas.27@gmail.com>
+Date:   Mon Oct 5 08:29:25 2020 +0530
+
+    Update f.services.md (#132)
+    
+    Removing the run command for the creation of the deployment as this will create only confusion although the explanation is mentioned below that. It seems unnecessary to have a command which is deprecated.
+
+commit 55c7c51f6a11de9d7c018dc2b5ef23111b0ca9a0
+Author: Balasundaram Karthikeyan <balabtech@hotmail.com>
+Date:   Wed Sep 9 17:31:45 2020 -0400
+
+    Issue #100: Updating the question to expose the port 80 (#128)
+
+commit 8d57cefab3387447910dbdbb32821a3aa5500109
+Author: Timothy <yexiaozhou2003@gmail.com>
+Date:   Thu Sep 10 05:28:21 2020 +0800
+
+    update all dry-run commands (#125)
+    
+    Co-authored-by: Timothy.Ye <timothy.ye@shopee.com>
+
+commit 93e4bd8fadba85009738b6c6db1aa357d6271fde
+Author: Dirc <e.e.cornet@gmail.com>
+Date:   Wed Sep 9 23:27:16 2020 +0200
+
+    Add new multi container exercise (#122)
+    
+    * Add new multi container exercise
+    
+    Add new multi container exercise with:
+    - initContainer
+    - shared volume
+    
+    * Correct object: startingDeadlineSeconds
+    
+    The yaml was already correct, but the description not
+
+commit e9dbb7ba5efae98188c24e3b5c5d65fe3f4177ae
+Author: Mike Stewart <2521245+mike-stewart@users.noreply.github.com>
+Date:   Sat Aug 22 17:08:26 2020 -0300
+
+    Fix CronJob solution to match question (#121)
+
+commit 7d53606b91d9c8fec56f6a55128935f37d267c35
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Tue Aug 11 18:18:36 2020 +0100
+
+    v1.18 way of creating job and cj (#111)
+
+commit 4e959ab6a00dc2a440e28c252eced9cd96859db2
+Author: Ole <ovstuckrad@gmail.com>
+Date:   Tue Aug 11 19:17:53 2020 +0200
+
+    Pod design and state update (#112)
+    
+    * Update c.pod_design.md with affinity example
+    
+    * Update g.state.md with clearer hostPath instructions (fixes #97)
+    
+    Co-authored-by: digitole <ole.von.stuckrad@digitalistgroup.com>
+
+commit adc8474b1e8079b3d5b542f1bddfe0af0e30236d
+Author: Michael C. Beck <14676+mcb@users.noreply.github.com>
+Date:   Tue Aug 11 19:17:37 2020 +0200
+
+    Fixed label selector (#113)
+
+commit 70a1f0d7d9cebcba89db11d6202e0ea1f2bb07eb
+Author: Benedetto Lo Giudice <bennythejudge@users.noreply.github.com>
+Date:   Tue Aug 11 19:17:08 2020 +0200
+
+    Changing the image of a container in a pod restarts the container, not the pod (#115)
+    
+    Fixing this exercise, because it's the container that is restarted, not the Pod.
+    
+    ```
+    Change pod's image to nginx:1.7.1. Observe that the pod will be killed and recreated as soon as the image gets pulled
+    ```
+
+commit 736e40d443442c302c43fd10240453c9f8e0ae2c
+Author: Abdul Rauf <abdulraufmujahid@gmail.com>
+Date:   Tue Aug 11 22:16:49 2020 +0500
+
+    fix(c.pod_design): command in "check the annotations for pod nginx1" section (#116)
+
+commit 7da99d06c3ae19e372ea1f59daf07412dbed0cc5
+Author: Ricardo Piteira <ricardo.piteira@gmail.com>
+Date:   Tue Aug 11 19:16:32 2020 +0200
+
+    Update d.configuration.md (#117)
+    
+    Added missing command : kubectl create -f pod.yaml
+
+commit 3668d61085a140130557c01e7513d738bb47003d
+Author: kreuzwerker-patrick <50367838+kreuzwerker-patrick@users.noreply.github.com>
+Date:   Tue Aug 11 19:16:13 2020 +0200
+
+    add additional way for checking "annotations" (#118)
+    
+    kubectl get pods  -o custom-columns=Name:metadata.name,ANNOTATIONS:metadata.annotations.description
+    is a more distinctive way of checking the annotations - probably better than to grep the result of kubectl describe - and certainly more straight forward as jsonpath :-)
+
+commit 5747d1d79c370fa8bf266c585d68bf01a10950db
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Thu Jun 25 23:58:18 2020 +0100
+
+    v1.18 way of creating a deployment (#110)
+
+commit bf863038e0551339fd26b1f33544bb2c8da26690
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Thu Jun 25 22:55:42 2020 +0100
+
+    short form for all namespaces (#109)
+
+commit b721368e16c4c2eef8ebaafce176b3bc3d9169f9
+Author: aalmanzaui1 <39139203+aalmanzaui1@users.noreply.github.com>
+Date:   Thu Jun 25 08:50:38 2020 +0200
+
+    Update a.core_concepts.md (#107)
+    
+    Updating the way to use the "dry-run" option in the new version of kubectl
+
+commit cd1a5d99a7574b724ab16bbd7e9bd987edd8fce2
+Author: Barkov Alexander <bars83@gmail.com>
+Date:   Thu Jun 25 09:49:27 2020 +0300
+
+    Get IP (and port) and run pod in one line (#105)
+
+commit bf6986c3b1b9f11ee3eface01da3597ff021978f
+Author: Bertrand BENOIT <contact@bertrand-benoit.net>
+Date:   Fri May 29 21:50:53 2020 +0200
+
+    Improved Core Concepts documentation/sample. (#104)
+
+commit a6f96708e610e4c03e90f123dbfae2892565a12f
+Author: Israel Ogbole <iogbole@yahoo.com>
+Date:   Mon May 11 23:36:44 2020 +0100
+
+    use short form for --all-namespace (#102)
+
+commit f7a4f832a47dbedca28230fbd3201621dd8b4f19
+Author: djendrju87 <46528265+djendrju87@users.noreply.github.com>
+Date:   Tue Apr 14 12:03:27 2020 -0700
+
+    Fix activeDeadlineSeconds value inconsistency (#96)
+    
+    In one place the instruction says that activeDeadlineSeconds has to be set to 17 seconds, but in another that value is 30.
+
+commit 2489de22660b4af19dc9b7be871541aea752742a
+Author: Aurelie Vache <scraly@gmail.com>
+Date:   Tue Apr 14 21:02:29 2020 +0200
+
+    fix: job.spec.activeDeadlineSeconds=17 (#98)
+
+commit 5951aabf57d954cb7390d8a677ae49d95c148314
+Author: Alexander Omyshev <a.omyshev@gmail.com>
+Date:   Mon Apr 6 21:11:49 2020 +0300
+
+    Update Pod Design section (#94)
+    
+    * Update Pod Design section
+    
+    Add one more exercise for CronJob.
+    
+    * Update c.pod_design.md
+    
+    Fixes according to PR remarks.
+
+commit 92b36d1a7292a5d994cfe7c48b2f6ddbe904ba9c
+Author: Justas <justas.narbutas@gmail.com>
+Date:   Sat Apr 4 18:33:33 2020 +0300
+
+    Add --timeout option for wget in temporary pods (#91)
+    
+    * Add --timeout option
+    
+    Add --timeout option for temporary pod.
+    
+    * Add comments for --timeout option
+
+commit 2d9c87c688b291ce0e0464d1d3c590249ffbc68d
+Author: Wely Lau <wely_live@live.com>
+Date:   Sun Mar 29 08:42:10 2020 +0800
+
+    change storageClassName to normal (#93)
+    
+    to match the previous question; otherwise it may not be bounded
+
+commit 8049e5a1255f75002dd445bb9e7b127c97a6e71d
+Author: Otto Jongerius <otto.jongerius@gmail.com>
+Date:   Mon Feb 17 21:01:21 2020 +1300
+
+    `describe` does not support specifying output format (#89)
+    
+    Fixes #75
+
+commit 4a78136527b0273980e1e79cf3dea270b12aaa9a
+Author: Otto Jongerius <otto.jongerius@gmail.com>
+Date:   Mon Feb 17 21:00:30 2020 +1300
+
+    Use label value without ambiguous meaning (#88)
+    
+    YAML 1.1 parsers interpret strings that match the following regular expressions as Booleans. ie: using true (or variations thereof)
+    
+    https://yaml.org/type/bool.html
+    ```
+     y|Y|yes|Yes|YES|n|N|no|No|NO
+    |true|True|TRUE|false|False|FALSE
+    |on|On|ON|off|Off|OFF
+    ```
+    
+    The result is that trying to create a network policy using the suggested label will return:
+    
+    ```
+    Error from server (BadRequest): error when creating "network.yaml": NetworkPolicy in version "v1" cannot be handled as a NetworkPolicy: v1.NetworkPolicy.Spec: v1.NetworkPolicySpec.Ingress: []v1.NetworkPolicyIngressRule: v1.NetworkPolicyIngressRule.From: []v1.NetworkPolicyPeer: v1.NetworkPolicyPeer.PodSelector: v1.LabelSelector.MatchLabels: ReadString: expects " or n, but found t, error found in #10 byte of ...|"access":true}}}]}],|..., bigger context ...|{"from":[{"podSelector":{"matchLabels":{"access":true}}}]}],"podSelector":{"matchLabels":{"run":"ngi|...
+    ```
+    
+    I think there is some merit to teaching subtleties of YAML, and if you are keen on keeping on doing that, I'd suggest instead adding a follow up question, suggesting to change the label from "access: granted" to "access: yes" or "access: no" so that folks using it would be able to diagnose what is wrong faster.
+
+commit 27b42b837b46ee8667658a9221cefd00a693b5f1
+Author: Otto Jongerius <otto.jongerius@gmail.com>
+Date:   Mon Feb 17 20:59:18 2020 +1300
+
+    Change periodSeconds to non default value (#87)
+    
+    Change `periodSeconds` to a value different than its default.
+    
+    From pods.spec.containers.livenessProbe:
+    
+    ```
+       periodSeconds        <integer>
+         How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
+         value is 1.
+    ```
+
+commit b35da74bcdad9e423e2831e6d9f8aac1c165ec84
+Author: Andres Olarte <olarte.andres@gmail.com>
+Date:   Wed Jan 22 15:30:12 2020 -0600
+
+    Update f.services.md (#86)
+    
+    The Cluster IP is associated to the Service, not the Pod.
+
+commit 7453df9426511f1263e983bb85626eddb330a29b
+Author: Jeferson Pereira <23460187+Jeskz0rd@users.noreply.github.com>
+Date:   Sun Jan 19 00:40:21 2020 -0300
+
+    Cleanup deprecated --export flag (#85)
+    
+    * Remove --export deprecated flag, add yaml output samples
+    
+    * Remove --export deprecated flag
+    
+    * Remove --export deprecated flag
+
+commit 2436e24df9d7c79c44f6ad1ba6fbb24e59b43fe8
+Author: Velmurugan Velayutham <velmuruganvelayutham@users.noreply.github.com>
+Date:   Wed Jan 15 11:11:30 2020 +0530
+
+    --label-columns & --selector (#83)
+
+commit 499833e6adae192fe69906cb15a45fef9f066377
+Author: bvntejasvi <bvntejasvi@gmail.com>
+Date:   Sun Jan 12 16:44:20 2020 -0500
+
+    Update f.services.md (#82)
+    
+    Fixed the typo in kubectl command
+
+commit a8e139c08786555a891aed99686743cda58e98bd
+Author: Abhi D <abhi358@gmail.com>
+Date:   Sat Jan 11 18:41:04 2020 +1100
+
+    Added short one-liner to connect to second container and 'ls' (#81)
+    
+    * Added one-liner to 'ls' into the second container
+    
+    Updated command to run 'ls' on the second container with just 1 line
+    
+    * Fixed grammar
+    
+    Fixed grammar in the comment
+
+commit 2e074d7c8a48b29482b8bdf20c126206d0138671
+Author: Abhi D <abhi358@gmail.com>
+Date:   Sat Jan 4 05:41:42 2020 +1100
+
+    added shorter command to annotate 3 pods at once (#79)
+
+commit 57161ef37144cd3244d3eeb754c9e8436a2024ec
+Author: Jim Werwath <werwath@gmail.com>
+Date:   Fri Jan 3 12:41:16 2020 -0600
+
+    Fix typo (#80)
+
+commit e5ce2a0fef8f806da28b06289febd2b7e3972e5d
+Author: Amit Thakkar <vigildbest@gmail.com>
+Date:   Fri Dec 6 22:27:48 2019 +0100
+
+    Correcting revision number (#77)
+    
+    As the first revision is for a new deployment.
+    The second revision is for version nginx:1.7.9
+    The third revision is for the rollout undo.
+    The fourth revision is for the wrong version: nginx:1.91
+
+commit aa7051335e39640990e918ea2fbdb2e6739366aa
+Author: Louis-Guillaume MORAND <lgm@lgmorand.com>
+Date:   Thu Nov 14 04:02:20 2019 +0100
+
+    Controlling Job termination (#70)
+    
+    Example on how to control job termination and cleanup
+
+commit 39f0863a3b15f631020a9179838529c4217880dd
+Author: Matt Jarrett <16245634+cujarrett@users.noreply.github.com>
+Date:   Wed Nov 13 21:01:31 2019 -0600
+
+    chore: adds docs reference for labels section (#72)
+
+commit f1127690f8551bae1c36b6b58bf80d28ba724b20
+Author: Matt Jarrett <16245634+cujarrett@users.noreply.github.com>
+Date:   Mon Nov 11 23:47:31 2019 -0600
+
+    Fixes typo in example solution (#71)
+
+commit f951d233206ee1b29e244588e26421fc376cda0b
+Author: Tigran Tch <3153333+NargiT@users.noreply.github.com>
+Date:   Tue Oct 8 03:00:47 2019 +0200
+
+    encourage usage of cli instead of manual operation (#66)
+    
+    * simplify service account for pod
+    
+    simplify usage to avoid manual mistakes
+    
+    * Update d.configuration.md
+
+commit 7153f583dc669909d4d2a248aab2f253c87a7503
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Thu Sep 26 23:42:26 2019 -0500
+
+    Updated an option with one-liner (#67)
+
+commit af2dd830bd9f511133f07ca960e8c80661f9fe35
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Thu Sep 26 23:42:07 2019 -0500
+
+    Changed the question (#68)
+    
+    Based on my understanding of the "default" command, it's the one that is set under "ENTRYPOINT" section of the container image. So, when you want to run that container with its default command, we should not override that default command while creating the container from that image. But here, when we use "-- perl ..." in either create job or run job commands, it would override the default command of the job and does not just update the "args" of the default command. I hope this makes sense. Otherwise, feel free to reject the pull request.
+
+commit fdc1cbe89353cd57a4a3615ff6736451847db73e
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Thu Sep 26 23:40:44 2019 -0500
+
+    Corrected the command (#69)
+    
+    * Corrected the command
+    
+    `-d` switch is not a valid option for `base64` command. It should be either `base64 -D` or `base64 --decode`.
+    
+    * Reverted the change and updated comment
+
+commit b003269da6f15c0980b9ae66c033285e88fa6737
+Author: Yuji Tabata <yujitabata@icloud.com>
+Date:   Mon Sep 23 11:39:30 2019 +0900
+
+    Update d.configuration.md (#65)
+    
+    It seems that the username file shouldn't have newline at the end.
+
+commit c971aff9b4fcfb7d96389f3ca5bf4284993f6685
+Author: Shubham Rajvanshi <shubhamrajvanshi9@gmail.com>
+Date:   Tue Sep 17 12:30:46 2019 -0700
+
+    Added a small code snippet (#64)
+
+commit 1365338e5ad3c0f233702e27595004f391adeb99
+Author: Tigran Tch <3153333+NargiT@users.noreply.github.com>
+Date:   Tue Sep 17 21:26:18 2019 +0200
+
+    no need to expose port for probes (#53)
+    
+    * no need to expose port for probes
+    
+    I was doing the exerice and there is no need to expose the container port on kubernetes v1.15.1
+    
+    * Revert "no need to expose port for probes"
+    
+    This reverts commit 8ea9e448ac174a61b9742c7a14679ad67dd64b5f.
+    
+    * add comment
+    
+    * fix typo
+
+commit 8ed638807e8cf6592e22efbbe911e5a8c2da8925
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sun Sep 15 13:35:22 2019 -0400
+
+    Added more elegant option for the answer (#63)
+    
+    * Added more elegant option for the answer
+    
+    Added one more approach to create a deployment using more elegant way.
+    
+    * Changed the verbiage as suggested
+
+commit 405cb715e6f02e5f67ea4a34b328ee0216aa7054
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sun Sep 15 01:12:00 2019 -0400
+
+    Enriched the question (#62)
+    
+    - Enriched the question definition to add more clarity
+    - Added commands to delete the service and the pod as per the ask
+
+commit 3025c76f1943a4d817ca35aa5424ce461988c9aa
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 14 15:50:51 2019 -0400
+
+    "export" is a deprecated flag (#59)
+
+commit 3b3aea1d4c0838342d158c5c728585fb3f626616
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 14 15:50:12 2019 -0400
+
+    Updated the question to avoid the confusion (#60)
+    
+    I found the question confusing as "UID" is also a field under metadata. I created a pod with that and found that this question was actually referring to user ID to run the pod with.
+
+commit 2d46feb865e7703d7db544c44491b6e221800caa
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sun Sep 8 21:28:45 2019 -0500
+
+    Added more specifics to the question (#56)
+    
+    * Added more specifics to the question
+    
+    The connection can be of various types. So, added the specifics.
+    
+    * Updated the shell execution instruction
+
+commit e052ad33011df3bf0fbca4ad270f1c06c16664b7
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 7 20:07:36 2019 -0500
+
+    Cleared the instructions to avoid confusion (#55)
+    
+    I got very confused about the questions and could not understand that the question was referring to the previously created nginx pod. So, I thought to add this line to help others.
+
+commit 2c288a5467f6ce32c580937d0a0ca1c614186462
+Author: Parth Pandit <34379542+parth-pandit@users.noreply.github.com>
+Date:   Sat Sep 7 19:22:13 2019 -0500
+
+    Changed RQ question definition to match the answer (#54)
+    
+    Thank you!!
+
+commit efb4b18598d2a9c4b6e57f8038b4137d3fe1c17e
+Author: Johannes Scheuermann <johscheuer@users.noreply.github.com>
+Date:   Wed Sep 4 23:08:54 2019 +0200
+
+    Simplify the wget call (#52)
+
+commit 12e618315ddfbbe5d94523d9f66b06e9b670336c
+Author: jonathansimas <jonathansimas@gmail.com>
+Date:   Wed Aug 7 17:25:38 2019 -0300
+
+    Removed deprecated --export flags (#51)
+    
+    Flag --export has been deprecated, This flag is deprecated and will be removed in future.
+
+commit a3d251cf0abed569606e21b8b1c75c14ed95062d
+Author: baogang <baogang20@gmail.com>
+Date:   Wed Jul 3 15:54:20 2019 +0800
+
+    add minikube ip comment (#48)
+
+commit c0ee023f4b17b7fcb3711d2cc8325dc2b18c42f8
+Author: Robin Naundorf <r.naundorf@fh-muenster.de>
+Date:   Tue Jun 25 09:15:58 2019 +0200
+
+    Fix small typo in pod design doc (#47)
+
+commit f5bab9f1e6029a60d173c313119e2ad03a512d88
+Author: Batool Abbas <abbassbatoolali@gmail.com>
+Date:   Sat Jun 15 16:47:20 2019 +0500
+
+    minor change (#45)
+    
+    Thanks!
+
+commit c593ff465663002d55360941b1670886957e3a9a
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Thu Jun 13 10:46:56 2019 +0300
+
+    Update g.state.md
+
+commit 23b424be1bb639710a19c6cd15e1b8873fa710e6
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Jun 10 23:01:19 2019 +0300
+
+    Create CODE_OF_CONDUCT.md (#43)
+
+commit 62c948f370f1e08ecf1908723e42781fe569bd82
+Author: 839 <8398a7@gmail.com>
+Date:   Tue Jun 11 04:58:32 2019 +0900
+
+    Modify command and description (#42)
+    
+    * Easy to understand where to change
+    
+    * Modified to a command that can be executed
+    
+    before:
+    
+    ```bash
+    $ kubectl cp busybox:/etc/passwd .
+    tar: removing leading '/' from member names
+    error: open .: is a directory
+    $ cat passwd
+    cat: passwd: No such file or directory
+    ```
+    
+    * Add reference to metrics-server
+
+commit 8fed1d659dc92dcb496f4c41f5ac1157ebe84bff
+Author: RHT <askrht@users.noreply.github.com>
+Date:   Tue May 28 04:47:11 2019 -0500
+
+    Added links to official documentation before an exercise. (#41)
+    
+    * Added links to official documentation before an exercise
+    
+    * fixed spelling
+
+commit 30b5542671274079b74963749c3990ad5f49fd3e
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon May 27 14:37:10 2019 +0300
+
+    Fixes #40
+
+commit 7dfb5fd9728222ed5eb4be428653a90fab4e6117
+Author: Kim Wuestkamp <kim@wuestkamp.com>
+Date:   Fri May 24 00:23:10 2019 +0200
+
+    create serviceaccount command (#39)
+
+commit bc4c725aa8bf5de8abfef8a5f6ea261c699fd930
+Author: Al S <xee5ch.gh.al@il5.in>
+Date:   Mon May 13 04:08:31 2019 -0400
+
+    Fix log check for job with counting pi digits (#38)
+    
+    You reference `kubectl logs perl-**** # get the pi numbers` which references the container image name, but the pod name `pi-****`. A minor issue but could be confusing.
+
+commit 376c9b63dd752292f6b310216aa53d6f937ca2a4
+Author: Anna <annajung@users.noreply.github.com>
+Date:   Mon May 13 03:05:24 2019 -0500
+
+    Add alternative commands for deprecated run command in pod_design (#37)
+
+commit ba799d47566d010cdbb53733fdf078e274caa91f
+Author: bargom <baris.gomlek@gmail.com>
+Date:   Wed May 1 18:58:23 2019 +0200
+
+    Update g.state.md (#36)
+    
+    Fix error : error converting YAML to JSON: yaml: line 35: did not find expected key
+
+commit 76aa0150c6b619ae6078c4f124715a93e37e8d89
+Author: bargom <baris.gomlek@gmail.com>
+Date:   Wed May 1 15:09:28 2019 +0200
+
+    Update d.configuration.md (#35)
+    
+    one liner for decoding a secret with jsonpath
+
+commit 9c0570c4877404c0004209c8e6ebf032a6ccc503
+Author: mattiaperi <mattiaperi@users.noreply.github.com>
+Date:   Tue Apr 23 18:29:29 2019 +0200
+
+    Update f.services.md (#34)
+    
+    * Update f.service.md, Network Policy check added
+
+commit 68419ef9d7c3c53fd91009a3400db465ef4d1a06
+Author: AbdullahBM <36033293+AbdullahBM@users.noreply.github.com>
+Date:   Mon Apr 1 16:08:37 2019 +0500
+
+     Easier way to find resources with the help of labels (#33)
+    
+    * Easier way to find resources with the help of labels
+    
+    * Easier way to find resources with the help of labels
+
+commit b53ddefafc9b2d082b03bb204f76418774352f6f
+Author: Benjamin Muschko <benjamin.muschko@gmail.com>
+Date:   Wed Mar 13 16:12:52 2019 -0600
+
+    Fix typo (#31)
+    
+    Thanks!
+
+commit 7cf9047874e221ac0206bd29ae5f82f92ff41208
+Author: Dani Comnea <dani_comnea@yahoo.com>
+Date:   Wed Mar 6 16:20:42 2019 +0000
+
+    Added few alternatives to core_concepts (#28)
+
+commit d3c3bdf45191e397b5b4b5d5a37b4390222e0027
+Author: Dani Comnea <dani_comnea@yahoo.com>
+Date:   Wed Mar 6 16:18:43 2019 +0000
+
+    Fix describe po annotation (#29)
+
+commit 203cb2ab4c14eb2cf9c36dc6f69859c7fc1bf3b6
+Author: Benjamin Muschko <benjamin.muschko@gmail.com>
+Date:   Wed Mar 6 05:51:13 2019 -0700
+
+    Fix typo (#30)
+
+commit 6da78ab7965f078b8472685f172a9d518dbf2c28
+Author: Dylan Graham <dylan.graham@gmail.com>
+Date:   Sun Feb 10 13:41:41 2019 +1100
+
+    Use label selector to remove labels (#26)
+    
+    * Use label selector to remove labels
+    
+    * Restore second option
+
+commit 02dd15a753eefd124afeff0fa720218f536b9318
+Merge: 64862e5 3350a2a
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Jan 23 07:38:57 2019 +0200
+
+    Merge pull request #25 from chokkoyamada/fix/typo-kubectl-describe
+    
+    Added "po" with describe command
+
+commit 3350a2a6c929df119e4f3b0b3fb1b8f1d908b09a
+Author: chokkoyamada <yamada@kirishikistudios.com>
+Date:   Wed Jan 23 13:57:56 2019 +0900
+
+    add "po" with descibe command
+
+commit 64862e537002d9ceb9ef41e5e390edcff6d5ffe8
+Merge: 79a81a2 9eb9d1d
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jan 20 16:14:49 2019 +0200
+
+    Merge pull request #24 from ZCJ/patch-1
+    
+    Update a.core_concepts.md
+
+commit 9eb9d1d3b5cdf4a7fe94c1742699ba970c61253a
+Author: Ziad Jammal <ziad@eljammal.com>
+Date:   Sun Jan 20 18:08:04 2019 +0400
+
+    Update a.core_concepts.md
+    
+    fixing issue #12
+
+commit 79a81a22ec7013ce50d5950ee18013745cb8c689
+Merge: 87005f8 e3c5234
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jan 13 12:01:19 2019 +0200
+
+    Merge pull request #23 from erkanerol/patch-2
+    
+    replace pod with container
+
+commit e3c5234dbcb5c81fe548309eca05de81746789d7
+Author: Erkan Erol <erkanerol92@gmail.com>
+Date:   Sun Jan 13 12:43:43 2019 +0300
+
+    replace pod with container
+
+commit 87005f88100066bf0ddc4a364810c21756b5630f
+Merge: 9b20809 432b0bd
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sat Jan 12 11:14:00 2019 +0200
+
+    Merge pull request #22 from erkanerol/patch-1
+    
+    remove yaml edit part
+
+commit 432b0bd1de04757ab90042555315c76254f02027
+Author: Erkan Erol <erkanerol92@gmail.com>
+Date:   Sat Jan 12 11:58:27 2019 +0300
+
+    remove yaml edit part
+    
+    you can use --command option instead of editing generated yaml file
+
+commit 9b208090cc5dffe7f0aaa973fcf496cb546487e3
+Merge: a0530b1 39b2a96
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jan 8 16:06:09 2019 +0200
+
+    Merge pull request #19 from tortuga-feliz/patch-1
+    
+    Fix typo
+
+commit 39b2a96a2a1c88a9aa8aa18a85e655aa8a013bc5
+Author: tortuga-feliz <katarzyna.zarnowiec@gmail.com>
+Date:   Tue Jan 8 15:03:57 2019 +0100
+
+    Fix image name to be the same as in the question
+
+commit a0530b192df1820122c8d02f548442ceb9c77162
+Merge: e63ba26 bb7c9a2
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jan 8 09:49:59 2019 +0200
+
+    Merge pull request #20 from ChenyuanZ/typo_fix
+    
+    Update from GB to Gi
+
+commit bb7c9a24833b539580635e39f728540c97abacb6
+Author: Chenyuan <chenyuaz@alumni.cmu.edu>
+Date:   Mon Jan 7 17:49:20 2019 -0600
+
+    update from GB to Gi
+
+commit b708d3fd23e7e34820d7dce72488bdfe0b89e745
+Author: tortuga-feliz <katarzyna.zarnowiec@gmail.com>
+Date:   Sat Jan 5 23:18:34 2019 +0100
+
+    Fix typo
+
+commit e63ba26ac4a8f66ce915321d83521ac894c49d27
+Merge: 496050e 5967d75
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Thu Jan 3 19:42:33 2019 +0200
+
+    Merge pull request #18 from derdanu/patch-2
+    
+    Typo. Either endpoints or ep but not endpoint
+
+commit 5967d756ea3c019686a280382c7b46ac1dfb7648
+Author: Daniel Falkner <bmw@740i.de>
+Date:   Thu Jan 3 14:41:36 2019 +0100
+
+    Typo. Either endpoints or ep but not endpoint
+
+commit 496050e8f5dc0e749628b8b5b26396e67c7d387d
+Merge: 4437e6a 783724f
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Thu Jan 3 13:16:34 2019 +0200
+
+    Merge pull request #17 from derdanu/patch-1
+    
+    added missing yaml option for -o
+
+commit 783724fa3e78a5a623e1732737466e5e916cdbbd
+Author: Daniel Falkner <bmw@740i.de>
+Date:   Thu Jan 3 12:14:41 2019 +0100
+
+    added missing yaml option for -o
+
+commit 4437e6aaa4c1402d77f8d5bf59e14d286b55d56c
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Fri Dec 28 11:28:11 2018 +0200
+
+    updated references
+
+commit b2784f88ed4902cbc1381f08db802f97abe83288
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Fri Dec 28 11:13:08 2018 +0200
+
+    feedback based on #16
+
+commit d85c1bf4db9a1e15dd4aad65f1176d75b1e18b4c
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Dec 16 20:43:59 2018 +0200
+
+    Update g.state.md
+    
+    Updates based on #13
+
+commit cc6b0be0c485768c056cfbc08b76782c11c3f2f8
+Merge: f093036 fb92d56
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Dec 4 16:04:11 2018 +0100
+
+    Merge pull request #10 from daviddykeuk/master
+    
+    Fixed up a couple of typos in solutions
+
+commit fb92d56388f57686f99938fdfc6ac659438907a8
+Author: David Dyke <daviddykeuk@gmail.com>
+Date:   Tue Dec 4 10:56:15 2018 +1100
+
+    fixed the storageClassName on persistentVolumeClaim
+
+commit e371db5166df8eb1cda8b1dd836023c839c67c94
+Author: David Dyke <daviddykeuk@gmail.com>
+Date:   Tue Dec 4 10:53:48 2018 +1100
+
+    fixed a typo in getting logs
+
+commit f093036dcb26d9d8d7560a22a92ca2abba1cce7e
+Merge: b54f4a7 1b60867
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Nov 26 12:07:38 2018 +0200
+
+    Merge pull request #9 from aamirpinger/master
+    
+    small contribution in d.configration.md file, fixes #8
+
+commit 1b60867c0a052505f749a4698695e1a27e6796c5
+Author: aamirpinger <aamirpinger@yahoo.com>
+Date:   Mon Nov 26 12:31:43 2018 +0500
+
+    little correction made in question and answer # 5
+
+commit c6b1b0eb4426133c69fdb2992b11803b03372e5a
+Author: aamirpinger <aamirpinger@yahoo.com>
+Date:   Mon Nov 26 12:27:18 2018 +0500
+
+    small contribution in d.configration.md, little correction made in answer # 4
+
+commit b54f4a7623f2b8a5da85075982ae64c2b626245b
+Merge: ce607a1 e6809ce
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Nov 12 11:18:04 2018 +0200
+
+    Merge pull request #7 from lucassha/master
+    
+    updated set image for changing to nginx:1.7.1
+
+commit e6809ce24baba923a84a936be4985653ea9e12cf
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Nov 12 11:17:35 2018 +0200
+
+    Update a.core_concepts.md
+
+commit c5bc14dd3fd5ff837a6b41bc258d71b6c6982405
+Merge: ce607a1 c0d59d6
+Author: Shannon <lucassha@oregonstate.edu>
+Date:   Mon Nov 12 14:40:49 2018 +1000
+
+    Merge pull request #1 from lucassha/lucassha-patch-1
+    
+    updated set image for changing to nginx:1.7.1
+
+commit c0d59d60935ceffe9a4d027580ccbd178cf8ebdd
+Author: Shannon <lucassha@oregonstate.edu>
+Date:   Mon Nov 12 14:35:46 2018 +1000
+
+    updated set image for changing to nginx:1.7.1
+    
+    possibly a newer version of k8s requires specificity on type of object for updating the image. i couldn't get it to work with the above example.
+    
+    my kubectl client and server version: v1.12.1
+
+commit ce607a1a4b1f440b924a8eddff35ad43504ffe92
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Nov 7 21:22:51 2018 +0200
+
+    Update README.md
+
+commit dfe8ca173ab43f0a91fcf88955d436949ff8dbac
+Merge: fd1cb80 370a844
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Nov 7 17:59:50 2018 +0200
+
+    Merge pull request #6 from sureshoao/patch-1
+    
+    Update c.pod_design.md
+
+commit 370a844c2b135f42e2e0396eb66d8aed10f43693
+Author: sureshoao <37149117+sureshoao@users.noreply.github.com>
+Date:   Wed Nov 7 10:53:03 2018 -0500
+
+    Update c.pod_design.md
+
+commit fd1cb8086e7b885c91010c080a5d25aae1983293
+Merge: 171a655 250b039
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Oct 28 21:03:19 2018 +0200
+
+    Merge branch 'master' of https://github.com/dgkanatsios/CKAD-exercises
+
+commit 171a655749c255de9cbd13dceb2bd5987dc698c1
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Oct 28 21:03:03 2018 +0200
+
+    fix for #5, thanks to @ChrisCooney
+
+commit 250b0394e2f7636f47db99ac3ea0f3c5892fcf52
+Merge: 8f118ac d05c857
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Sat Oct 20 15:27:29 2018 +0300
+
+    Merge pull request #4 from kentakozuka/master
+    
+    fix a misspelling
+
+commit d05c8574f039bd7b6d6f7f92e620a547f085a057
+Author: Kenta Kozuka <kentakozuka@users.noreply.github.com>
+Date:   Sat Oct 20 21:17:04 2018 +0900
+
+    fix a misspelling
+
+commit 8f118ac50145d1343983b0ab913f82512a47cc00
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jul 10 18:17:54 2018 +0300
+
+    minor
+
+commit 2e2e8f0b4122a2489d3b9dd61bd8cbe8b2f7c2b0
+Merge: 88bbdf4 29e33f2
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jul 10 18:15:33 2018 +0300
+
+    Merge pull request #3 from diegoparra/small-fix
+    
+    small fix
+
+commit 29e33f22fb1033c101b04af8f4f3d0c429a1189d
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Tue Jul 10 18:15:11 2018 +0300
+
+    Update a.core_concepts.md
+
+commit 6ad5dbd21a154e41da611140c90582605c4c5737
+Author: Diego Parra <diego.ferreira@miraeducacao.com.br>
+Date:   Tue Jul 10 11:46:44 2018 -0300
+
+    small fix
+
+commit 88bbdf4dcccdb2cbd4b9ed97cb9d667f0ad2f9fc
+Merge: 2092552 4d2591e
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Wed Jul 4 14:13:06 2018 +0300
+
+    Merge pull request #2 from nicoben/master
+    
+    Some corrections
+
+commit 4d2591ec49f5355718e1d83e1690a6c36da00f39
+Author: Nicola Benaglia <nicola.benaglia@sorint.it>
+Date:   Wed Jul 4 12:14:08 2018 +0200
+
+    corrected not valid parameter
+
+commit 579d6cb2dc37211ac340e759a0fe6b00bb2f012d
+Author: Nicola Benaglia <nicola.benaglia@sorint.it>
+Date:   Wed Jul 4 11:46:11 2018 +0200
+
+    parameter to grep event error
+
+commit 2092552a800014bbd8d63a4f1c9d8ea51e777bea
+Merge: dea9190 619eaba
+Author: Dimitris-Ilias Gkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Jul 2 20:28:28 2018 +0300
+
+    Merge pull request #1 from diegoparra/fix/b-multi-container
+    
+    correct container and image name
+
+commit 619eabac23418e3ca62ef21e2650d3165333c291
+Author: Diego Parra <diego.ferreira@miraeducacao.com.br>
+Date:   Mon Jul 2 14:20:16 2018 -0300
+
+    correct container and image name
+
+commit dea91901bae4d049063a668c7b6d31bd4c57a8c9
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Mon Jul 2 10:24:09 2018 +0300
+
+    minor
+
+commit 071ce4aaf670c65c3633ad26c0052c61f6c2481e
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 18:25:47 2018 +0300
+
+    small bug
+
+commit b307497e51450764e30fdee610367f3a8c71dede
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 10:39:28 2018 +0300
+
+    analytics and typos
+
+commit ac934cd7f950236e6c153436223bab9fb6b26cfc
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 10:33:31 2018 +0300
+
+    typos
+
+commit 69b21c87b14bab4a9fd8d2edc2ca294e15fc84b3
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 09:55:14 2018 +0300
+
+    text
+
+commit bcca622f3297f5ce5ac6c3aba6eee7ff4b6ecb59
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 09:53:55 2018 +0300
+
+    adding weight of domains
+
+commit 00ed961140f175faac8f9fc2b075f12040bf8677
+Author: dgkanatsios <dgkanatsios@outlook.com>
+Date:   Sun Jul 1 09:51:49 2018 +0300
+
+    initial commit

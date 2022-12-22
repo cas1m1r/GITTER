@@ -1,0 +1,870 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# PwnedPW [![CI](https://github.com/luketainton/PwnedPW/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/luketainton/PwnedPW/actions/workflows/ci.yml) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=luketainton_PwnedPW&metric=alert_status)](https://sonarcloud.io/dashboard?id=luketainton_PwnedPW)
+
+Checks if your password has been leaked.
+
+Thanks to Troy Hunt at [haveibeenpwned.com](https://haveibeenpwned.com) for providing the API powering this tool.
+====================== GIT HISTORY: ======================
+805eedd HEAD@{0}: clone: from https://github.com/luketainton/PwnedPW
+commit 805eedd77e3e4c6ea0cd1a58b6232b22364fdffc
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Dec 21 14:45:07 2022 +0000
+
+    Update dependency attrs to v22.2.0 (#96)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 7a22afd76704f2c2633d87134f407f5f43d4d3be
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Dec 17 11:56:00 2022 +0000
+
+    [SECURITY] Update dependency certifi to v2022.12.7 [SECURITY] (#92)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit cfb491868e71d3fe42fe615deaf0bc10eac14a1d
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Dec 17 10:56:51 2022 +0000
+
+    Update dependency isort to v5.11.3 (#95)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit ab8c99162e8a5d591287e46b480b158798e04787
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Mon Dec 12 21:09:34 2022 +0000
+
+    Update dependency isort to v5.11.1 (#94)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 02352bebf4b4d98098915ba2d35f96c16efbd7d4
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Dec 10 09:20:56 2022 +0000
+
+    Update dependency pathspec to v0.10.3 (#93)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit bf6b72d434a856aacc8d7587e898be59e708c52a
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Dec 10 09:19:30 2022 +0000
+
+    Update dependency packaging to v22 (#90)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 247f840039e661344ab04e9efd5101fe9379c22c
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Dec 7 18:11:48 2022 +0000
+
+    Update dependency platformdirs to v2.6.0 (#88)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit bceda15269c4141a24767e27dd63745861cf0332
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Thu Dec 1 23:55:26 2022 +0000
+
+    Update dependency chardet to v5.1.0 (#87)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit eafd6457e10ac75c22f053e4ca0c1bfef930d43f
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Thu Nov 24 07:34:42 2022 +0000
+
+    Update dependency urllib3 to v1.26.13 (#86)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit aaa616e1c2d7af47457951f6804af813cd08be1d
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Nov 19 19:20:42 2022 +0000
+
+    Update dependency astroid to v2.12.13 (#85)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 777b66a9d6bb7a8a2721d19f8c870d033b26877a
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Nov 13 20:21:31 2022 +0000
+
+    Update dependency pathspec to v0.10.2 (#83)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 4587c48973dac73d5b8b80dab2f9adf65be67d90
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Nov 13 20:18:59 2022 +0000
+
+    Update dependency platformdirs to v2.5.4 (#84)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 4f30e02653604dd4efb4c9f5dee6c2c4b3ff082a
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Nov 6 17:47:24 2022 +0000
+
+    Update dependency platformdirs to v2.5.3 (#82)
+
+commit b8f12fcad2289ffe496a56563c2425072973294d
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Fri Oct 28 09:14:16 2022 +0100
+
+    Update dependency tomlkit to v0.11.6 (#81)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 9c38f81fdd0d8a49c1a53979a6d3e8004abb3080
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Oct 26 19:20:45 2022 +0100
+
+    Update dependency lazy-object-proxy to v1.8.0 (#80)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 4bcdf70db4a8bf5b602d98ae3c43c28b0b078eeb
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Mon Oct 24 07:41:59 2022 +0100
+
+    Update dependency dill to v0.3.6 (#79)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 1f534f3f1ac526790b062e5f16e40166e0341ec9
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Oct 19 17:45:31 2022 +0100
+
+    Update dependency astroid to v2.12.12 (#76)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 48a381a64792eb48fb81450658ccbae87c23f052
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Oct 16 18:40:45 2022 +0100
+
+    Update README.md
+
+commit 397c3d2b8f39fe76fb6d431e2eda877033dee836
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Oct 16 18:36:58 2022 +0100
+
+    Update dependency pylint to v2.15.4 (#77)
+    
+    * Update dependency pylint to v2.15.4
+    
+    * Update dependencies
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+    Co-authored-by: Luke Tainton <luke@tainton.uk>
+
+commit 0a8f7d44c479efd93977c56eef959cd28f5f3914
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Sep 25 16:25:59 2022 +0100
+
+    Update dependency pylint to v2.15.3 (#74)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 3877101a7f4577fde34b8cf7d4b2dae11c842717
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Sep 25 16:23:45 2022 +0100
+
+    Update dependency certifi to v2022.9.24 (#75)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 059a56bee3e729398d6005bf7cc8027dd2a12b42
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Sep 25 16:20:18 2022 +0100
+
+    Update dependency astroid to v2.12.10 (#73)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 74db4f792ad5fa8c9b15cd25856304166665d709
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Sep 14 22:23:19 2022 +0100
+
+    Update dependency idna to v3.4 (#72)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 695d43827d0ef99f4918e1832250f2e44af9d06e
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Sep 14 22:19:17 2022 +0100
+
+    Update dependency certifi to v2022.9.14 (#71)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 26a41549dda400cbcc7c20cfd8563de2f0a4a51e
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Sep 14 22:16:41 2022 +0100
+
+    Update dependency pylint to v2.15.2 (#70)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit c751f3a88f165532100a4e74f452bb88119cfd36
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Sep 14 22:14:34 2022 +0100
+
+    Update dependency astroid to v2.12.9 (#69)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 6d63d3c4d3b3917efcc9d7079ac599dcdab4c4be
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Sep 4 17:34:58 2022 +0100
+
+    Update dependency pytest to v7.1.3 (#68)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit cc71e842bb6a3a473e18fa478292236740d227c1
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Mon Aug 29 17:25:47 2022 +0100
+
+    Update dependency astroid to v2.12.5 (#67)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 5d99275948170d5ed46258f2d2d01c3661919a6e
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Aug 27 19:37:53 2022 +0100
+
+    Update dependency pylint to v2.15.0 (#66)
+    
+    * Update dependency pylint to v2.15.0
+    
+    * Update requirements-dev.txt
+    
+    * Update ci.yml
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+    Co-authored-by: Luke Tainton <luke@tainton.uk>
+
+commit 9246f44b4abc3f495972e30bd191f518b861b764
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Aug 27 19:30:48 2022 +0100
+
+    Update dependency astroid to v2.12.4 (#55)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 7c8e1f06e30922349160effe42c6ccf6a857e59b
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Mon Aug 22 16:05:01 2022 +0100
+
+    Update dependency urllib3 to v1.26.12 (#65)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit b1eee8785e626e3b1f57286bce96edc2936bb45e
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Mon Aug 22 11:47:38 2022 +0100
+
+    Update dependency charset-normalizer to v2.1.1 (#64)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 0d39b2c33fd111bee2dd8837dc35ea0fb97d4481
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Aug 13 22:22:30 2022 +0100
+
+    Switch to SonarCloud (#63)
+    
+    * Switch to SonarCloud
+    
+    * Switch to SonarCloud
+    
+    * Switch to SonarCloud
+
+commit ba66b66713f8218216a581fc4b772c5514bd3e75
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Jul 30 20:05:58 2022 +0100
+
+    Update dependency pylint to v2.14.5 (#59)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 2d42869913af65c3e7cd82c47e7c234aafbaf761
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Jul 30 19:55:23 2022 +0100
+
+    Update dependency urllib3 to v1.26.11 (#60)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit e3f3ec8c25d5a9fefad85696f09b357195470ec5
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sat Jul 30 19:26:58 2022 +0100
+
+    Update dependency attrs to v22 (#61)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 7057a9902537ce0c6dabb35d874bf2ba2931a350
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Jul 10 18:49:44 2022 +0100
+
+    Update dependency charset-normalizer to v2.1.0 (#50)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 4b1ba79ccf368c4a79d0ae71ca9c186503d87f60
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 17:38:43 2022 +0100
+
+    Enable unit test metrics
+
+commit 11b39d5a8adacb80be8b4c04cb0d8dfed008571a
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 16:55:22 2022 +0100
+
+    Disable shallow clone
+
+commit a54df973f513cc185b054ab749c15e2bef432bb2
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 16:50:35 2022 +0100
+
+    Add Sonar (#58)
+    
+    * Add Sonar
+    
+    * Sonar: python:S5886
+    
+    * Fix lint
+    
+    * Add Sonar config
+    
+    * Remove DS
+    
+    * Remove DS
+
+commit ba1a4b4ea494276b66802efa761eb405c160057a
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 16:23:48 2022 +0100
+
+    Add Sonar
+
+commit b7ab25dbaea58b1e55ad77e4592c132aaf3684ed
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 14:44:37 2022 +0100
+
+    Remove Codecov from CI
+
+commit 56c8c3c84e1d801ff6fb6b5f55ccaa6d0a676e3f
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 14:41:35 2022 +0100
+
+    Add DS badge to README
+
+commit 5fae357acdea18b9e534482e8ccaea5f4e5315ff
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 14:38:22 2022 +0100
+
+    Run coverage when pushing to main
+
+commit 363ccfd9f45dcc6e0120879f87f7cc1ae852c106
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Jul 10 14:35:44 2022 +0100
+
+    Update dependency requests to v2.28.1 (#52)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 10d461ecabfe3ffb8376449a9909fa7e46f84867
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Jul 10 14:33:51 2022 +0100
+
+    Update dependency urllib3 to v1.26.10 (#54)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit 2fe3f69257061e8a0b74930e55acc158639deb69
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Jul 10 14:31:51 2022 +0100
+
+    Update dependency cffi to v1.15.1 (#53)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit c8c6345ccc99db22676f4ab9d3a8bd63a0e0880c
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Jul 10 14:30:47 2022 +0100
+
+    Update dependency chardet to v5 (#51)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+commit d532e44672d510a99f82102eaacb2d8b23383c24
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Jul 10 14:29:23 2022 +0100
+
+    Update dependency certifi to v2022.6.15 (#49)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+    Co-authored-by: Luke Tainton <luke@tainton.uk>
+
+commit db885256ec31c505cbcd6619318af2506b55f814
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 14:22:54 2022 +0100
+
+    Refactor CI
+
+commit f14381294e434743efd08ee41432cb5b8446f77a
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 14:11:57 2022 +0100
+
+    Refactor CI
+
+commit cba8ce5a27f99e45d5827a63f44125a5507cc55d
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 13:59:31 2022 +0100
+
+    Add Deepsource
+
+commit eb48b9b858b097737f7b97d6d273d23d391444b1
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jul 10 13:30:17 2022 +0100
+
+    Add DeepSource
+
+commit f21044bb5d49da510bdd347b49f89a426a3c5f58
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Thu Jun 30 19:09:40 2022 +0000
+
+    Update dependency pylint to v2.14.4
+
+commit dbf23c52a9791c0496255bc389f339be6da668f8
+Author: Luke Tainton <ltainton@cisco.com>
+Date:   Thu Jun 30 20:09:17 2022 +0100
+
+    Add CODEOWNERS, reconfigure Renovate
+
+commit c99fb00889f7d67cab3202437d225ee0659dead1
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Jun 13 17:52:12 2022 +0000
+
+    Update dependency astroid to v2.11.6
+
+commit 473fa722c0f4e0e921c9f9414d0a061f47203586
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Jun 9 19:56:49 2022 +0000
+
+    Update dependency pylint to v2.14.1
+
+commit f6d1ef10e1614a9f194eca04dd6e1e791b48cdd6
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Jun 9 17:53:24 2022 +0000
+
+    Update dependency requests to v2.28.0
+
+commit 90a72ff90d79866086d392b745cc26e46e5a2e81
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Jun 8 18:44:07 2022 +0000
+
+    Update actions/setup-python action to v4
+
+commit 7bc990cd99ce318f985c1cffbc110b4fbeb8c548
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Jun 1 17:20:11 2022 +0000
+
+    Update dependency pylint to v2.14.0
+
+commit 1f0453ec2b6ff7951ea4732d5d0d6217ab1d73b1
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat May 21 15:50:35 2022 +0100
+
+    Ignore main function in coverage
+
+commit f14843092ac824a87bba4fe54f3ba9481627f489
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat May 21 14:45:07 2022 +0000
+
+    Update dependency certifi to v2022
+
+commit 77e7fe132112a3356a8970a153c01426613e4bee
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat May 21 14:44:27 2022 +0000
+
+    Update dependency pylint to v2.13.9
+
+commit 6204bd59b13f9304fc82b9b0885011b2d366726b
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat May 21 14:42:48 2022 +0000
+
+    Update dependency dill to v0.3.5.1
+
+commit bf4e5b13c5c75603078169c43fbcc27bc22c8ab6
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat May 21 14:42:24 2022 +0000
+
+    Update dependency pyparsing to v3.0.9
+
+commit d29e71e32ed6901bdc240acc6847c77455c6778d
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon May 9 13:46:31 2022 +0000
+
+    Update dependency astroid to v2.11.5
+
+commit 9bf751cb6ab1a7de2fcb10c2dff231d2ed8a7e16
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon May 2 13:15:18 2022 +0000
+
+    Update dependency astroid to v2.11.4
+
+commit bd319007e8196a3ca75ded5722702c684f24c9ea
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon May 2 06:04:33 2022 +0000
+
+    Update dependency wrapt to v1.14.1
+
+commit bc08944f324d2f351f077cc6ca435eb109047e3a
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 30 12:18:21 2022 +0100
+
+    Add CI badge
+
+commit be92e9e128b4079f3212846f236594a4612834ea
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 30 11:47:03 2022 +0100
+
+    Create codecov.yml
+
+commit 46f7eadd7ecd5c8af07d92f181874b68b1c5cefc
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 30 10:53:10 2022 +0100
+
+    Fix tests in CI #3
+
+commit 9b559d74731f1f79f9d334e1e5193c1c06366254
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 30 10:46:13 2022 +0100
+
+    Coverage: ignore main
+
+commit 40692698d1377d7817f96bcb27e54c9a058dd859
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 30 10:43:33 2022 +0100
+
+    Add '__init__.py' to modules
+
+commit f20bb2fffc1b0923565d65e329e0a216f5bc27aa
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 30 10:40:04 2022 +0100
+
+    Fix lint errors for CI #1
+
+commit 962e7b7eab625e6dcdce9e5c036a6658e5fad933
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 30 10:32:05 2022 +0100
+
+    Confirm to luketainton/template
+
+commit 4f0c3fa0b6cb40e47c8cdd9cd1ce283ae9744b0e
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:58:59 2022 +0100
+
+    Separate workflows
+
+commit 3edbbbabe73e6c67636252b5bbcc8e95e25706af
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat Apr 23 15:51:50 2022 +0000
+
+    Update actions/setup-python action to v3
+
+commit c4e068b6b4c9096c2a3a60b79aaee4b3171bedde
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat Apr 23 15:51:47 2022 +0000
+
+    Update actions/checkout action to v3
+
+commit a00f8152a9a5bf9fb9379988f0560c3664c1e9fb
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:52:49 2022 +0100
+
+    Create codeql-analysis.yml
+
+commit c00f03bba52c5e2d46aa2114339c34f4a404f28b
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:50:06 2022 +0100
+
+    Remove Python 3.6 from supported versions
+
+commit 3dc3f6f3dfa97a9bae3103caf208c705549de304
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:48:47 2022 +0100
+
+    Add multiple Python versions
+
+commit f015ea7c1bcb87e2aabd9eb31cbb0dd4ede6bd0e
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:43:28 2022 +0100
+
+    FIX - Test 4 - C0123
+
+commit f582ceadb2cba0e178d2d39a14f2c6d5d460f65d
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:41:57 2022 +0100
+
+    Fix linting errors
+
+commit 43b03d42ee2845dc12351197a99ae4d7a8ae5e89
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:33:28 2022 +0100
+
+    Fix Actions
+
+commit c1f02e137feef83fbd82965cc526e9311e21ac8f
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:32:54 2022 +0100
+
+    Fix Actions
+
+commit 1e38bc3b7a6f6f1354161381d9ac72cc5520b054
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:31:40 2022 +0100
+
+    Remove Pipenv, add GH Actions
+
+commit 42bceab2cdd124c3516df24a79a6d4626c7370bc
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 16:20:02 2022 +0100
+
+    Add testing
+
+commit 7aa6f57390ab27268d9334560ce64c9efa62cbd3
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Apr 23 15:58:38 2022 +0100
+
+    Add Drone CI
+
+commit c21e7219150e00cbe58512f2147fae05bf9ca6ac
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Wed Jan 5 22:22:25 2022 +0000
+
+    Move to GitLab
+
+commit af1899f549679a5a0b250aab62f98f211fe2808b
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Jan 5 16:21:18 2022 +0000
+
+    Update dependency requests to v2.27.1
+
+commit a1ba61680e55a4e11b4dcda97469070edc1476b2
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat Nov 6 13:03:59 2021 +0000
+
+    Update dependency pycparser to v2.21
+
+commit b663f86d44f68f4359a5a94a0a07e993faf74085
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Oct 19 21:51:01 2021 +0000
+
+    Update dependency cffi to v1.15.0
+
+commit 7dbd2c08d25f41a5a7e41f428357a1d28ba460a1
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Oct 19 21:51:05 2021 +0000
+
+    Update dependency idna to v3.3
+
+commit 4efee8bac63f0c7b9a1d0ebfaaccfdacea9ac22d
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Oct 18 20:07:37 2021 +0000
+
+    Update dependency urllib3 to v1.26.7
+
+commit 3d788c364ff698ef94968ad4b4e9dbaad6bb978b
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Oct 18 20:07:41 2021 +0000
+
+    Update dependency certifi to v2021.10.8
+
+commit 77cd31e7019ca59ada6172588379bcedaec10507
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Jul 13 15:38:34 2021 +0000
+
+    Update dependency requests to v2.26.0
+
+commit db38eb228c19f1ef0edd104f7d47b3dce461bb06
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Jul 9 04:10:36 2021 +0000
+
+    Update dependency cffi to v1.14.6
+
+commit e0c42161b4f0d59139c845ef3d88a7a97c18d23d
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Jun 25 13:53:33 2021 +0000
+
+    Update dependency urllib3 to v1.26.6
+
+commit b8f819185fc9b430b8e464696cd2a3e57fcb9b65
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat May 29 17:56:38 2021 +0000
+
+    Update dependency idna to v3.2
+
+commit 9e3231aafce6c5907eaae12b8d7be650de5bc94c
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sun May 30 16:38:53 2021 +0000
+
+    Update dependency certifi to v2021
+
+commit ac8e0a520a86393543db5c09c3d3af29f43b4e73
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed May 26 17:26:50 2021 +0000
+
+    Update dependency urllib3 to v1.26.5
+
+commit 8d09915c8e027f424cc9c742459a9da43cae42d1
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed May 5 14:51:39 2021 +0000
+
+    Update dependency six to v1.16.0
+
+commit 5fc81f255e6f482993a05804917d6725efed7d2b
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Mar 15 15:44:17 2021 +0000
+
+    Update dependency urllib3 to v1.26.4
+
+commit 575244c9f34f619482dd1c7a00fb0c80bd86d605
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Feb 11 22:17:06 2021 +0000
+
+    Update dependency cffi to v1.14.5
+
+commit 6468bb32e31fea543adc34d69c9eaa09d792a2f0
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Feb 2 15:59:50 2021 +0000
+
+    Update dependency urllib3 to v1.26.3
+
+commit 6c5931ebfff6a6c4a924f3ae1fb33e555818eafc
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jan 17 20:03:08 2021 +0000
+
+    Create LICENSE.md
+
+commit b0ad5a3378878f75644fb75a462263267868504c
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sun Jan 17 20:02:21 2021 +0000
+
+    Delete LICENSE
+
+commit 4a65cc96431f2a21ca3fb386b8b9c91f709e99ac
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Jan 6 02:59:46 2021 +0000
+
+    Update dependency idna to v3
+
+commit 94edd3ae70b6beb7186737ed26af4b6b22b8f8a1
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Jan 6 02:59:34 2021 +0000
+
+    Update dependency requests to v2.25.1
+
+commit 1e1afcc36dc6602747f5354a9136585e5c2742bc
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat Dec 12 10:46:56 2020 +0000
+
+    Update dependency chardet to v4
+
+commit d31cc101fdcd0149c7325dc625e22f9fafe394dc
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Dec 10 13:00:31 2020 +0000
+
+    Update dependency urllib3 to v1.26.2
+
+commit 79451f8e1162351300362c6954a685b813dd3356
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Dec 10 13:00:20 2020 +0000
+
+    Update dependency certifi to v2020.12.5
+
+commit 9f83c797fb663db76d34ea2b2d1fd082a1cda80e
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sun Nov 29 19:03:54 2020 +0000
+
+    Update dependency idna to v2.10
+
+commit dd5cb983c480ddc6427ce46688a17d4f02affbd8
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sun Nov 29 19:04:05 2020 +0000
+
+    Update dependency requests to v2.25.0
+
+commit b78216c02462172900744742b3e30788d0c55b23
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sun Nov 29 19:03:45 2020 +0000
+
+    Update dependency certifi to v2020.11.8
+
+commit 445cfde04c6e8a5cdb57a7bf8008f9b6cc59ff61
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat Nov 28 13:54:01 2020 +0000
+
+    Update dependency cffi to v1.14.4
+
+commit fa79ce6edd9484a483bad6a044836d597df71ee1
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat Nov 7 11:25:21 2020 +0000
+
+    Create standard dependencies file
+
+commit aee1f915af0c1801e2cc0681e9ce412668ba3f2c
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Fri Nov 6 16:16:08 2020 +0000
+
+    Create LICENSE
+
+commit 9be708b81a8548f951e9d26fbfedcebcf2f35ccf
+Merge: 8eda473 945b502
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat May 30 19:18:18 2020 +0100
+
+    🐛 FIX: Fix merge conflict
+    
+    Signed-off-by: Luke Tainton <luke@tainton.uk>
+
+commit 8eda473393bda108ba41123a3e9d5d3659418a1f
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat May 30 19:16:19 2020 +0100
+
+    👌 IMPROVE: Move to Pipenv
+    
+    Signed-off-by: Luke Tainton <luke@tainton.uk>
+
+commit 945b50237ad3ae3eb09f3e209cac53b1013b9b7a
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu May 21 15:46:05 2020 +0000
+
+    Update dependency six to v1.15.0
+
+commit 9f891c5eae2ae8c5daa7f4a32228a4d4d79ec3b2
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Thu May 7 20:07:26 2020 +0100
+
+    Add renovate.json (#1)
+    
+    Co-authored-by: Renovate Bot <bot@renovateapp.com>
+
+commit 75e8cd9dd56eb2dbd842198a4ed85162d8e8d7c8
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat May 2 13:49:37 2020 +0100
+
+    Create README.md
+
+commit 30ce2f34500eef2591093f099fe5358db8d4ad65
+Author: Luke Tainton <luke@tainton.uk>
+Date:   Sat May 2 13:47:54 2020 +0100
+
+    📦 NEW: Inital commit
+    
+    Signed-off-by: Luke Tainton <luke@tainton.uk>

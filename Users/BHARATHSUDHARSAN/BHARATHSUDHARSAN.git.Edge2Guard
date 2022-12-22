@@ -1,0 +1,252 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Edge2Guard: Botnet Attacks Detection on IoT Devices
+
+## Overview
+
+Edge2Guard (E2G) enables IoT devices to instantly detect attacks without depending on networks (standalone) or any external protection mechanisms. Due to the resource-friendly design of E2G models, they can execute on MCU-based tiny devices, without imposing computational pressure, also without disturbing device routine.
+
+Link to paper: [https://ieeexplore.ieee.org/document/9431086](https://ieeexplore.ieee.org/document/9431086)
+
+## Data Profiling
+
+**Benign/Gafgyt/Mirai_data_profile.html:** Here, we generate and present the profile reports from the DataFrame of the Benign/Gafgyt/Mirai traffic data to facilitate exploratory data analysis. In the report's *Overview* section, the high-level data statistics starting from the number of variables until the average record size in memory is available. The next variables section contains multiple subsections such as *Statistics, Histograms, Common values*, and *Extreme values* to describe each of the available 117 variables.
+
+**Note:** Download the Benign/Gafgyt/Mirai_data_profile.html file, then open via browser (cannot view directly from the repo). The file content sample is shown in below image (scroll after opening .html files to explore more).
+ 
+![alt text](https://github.com/bharathsudharsan/Edge2Guard/blob/main/Mirai_report_html_file.PNG)
+
+## Data Preprocessing, Analysis and Model Training
+
+**Dataset_wrangling.ipynb:** Loads the N-BaIoT dataset and presents information such as the data dimension, individual device data count and feature information, memory consumed by each class of data with its range index, and data profile of each malware. It also checks for any null values and combines all data into one CSV file. 
+
+**Exploratory_data_analysis.ipynb:** Here, we used the PCA dimensionality reduction method to mathematically reduce the 115 features into 2 features and visualize them by making 2D and 3D (shown below) scatter plots, using which we explore the patterns and find out trends between the malicious and benign traffic data.
+ 
+![alt text](https://github.com/bharathsudharsan/Edge2Guard/blob/main/EDA_3D_2D_plots.png)
+
+The following can be observed from the above plots:
+
+1. Plots of the Provision PT737E and PT-838 camera models both have similar traffic patterns. Also the plots of SimpleHome 1002 and 1003 camera models have similar patterns. From this, we can infer that both Mirai and Bashlite malware behave the same way for devices from the same brand.
+
+2. We can notice from the plot for a baby monitor that it contains benign data (regular traffic plotted in green) that is spread across the plot, indicating that frequent activities are performed on the baby monitor compared to other IoT devices.
+
+3. From the bar graphs, it is clear that the dataset is highly imbalanced (unequal distribution of classes) with a 1:13 ratio of normal:attack traffic. Hence we need to pre-process the dataset before training in order to obtain unbiased E2G models. 
+
+**Data_preprocessing_and_E2G_model_training.ipynb:** We pre-process the data to group it into four categories. We follow a 70-30 Training-testing split and used all the 115 features. We use this pre-processed data and train multiple supervised learning and One-class learning models, and evaluate it using Accuracy, F1 score, Kappa, and Matthews Correlation Coefficient (MCC) metrics.
+
+## Evaluation Results of Models
+
+**E2G_model_training_and_evaluation_results.docx:** This file contains the detailed evaluation results (confusion Matrix, precision, recall, F1-score, support, accuracy, macro avg, weighted avg) of all the types of E2G attack detecting classifiers trained using the preprocessed data along with the feature importance for each type of model. 
+
+The results are breifly presented in below Tables (data taken from .docx file).
+
+![alt text](https://github.com/bharathsudharsan/Edge2Guard/blob/main/Model_perf_comparison.PNG)
+
+![alt text](https://github.com/bharathsudharsan/Edge2Guard/blob/main/Top_perform_models.PNG)
+
+**If the code is useful, please consider citing Edge2Guard paper using the BibTex entry below.**
+
+```
+@inproceedings{sudharsan2021edge2guard,
+  title={Edge2Guard: Botnet Attacks Detecting Offline Models for Resource-Constrained IoT Devices},
+  author={Sudharsan, Bharath and Sundaram, Dineshkumar and Patel, Pankesh and Breslin, John G and Ali, Muhammad Intizar},
+  booktitle={2021 IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops)},
+  pages={680--685},
+  year={2021},
+  organization={IEEE}
+}
+```
+For any clarification/further information please don't hesitate to contact me. Email: b.sudharsan1@nuigalway.ie====================== GIT HISTORY: ======================
+944ce2d HEAD@{0}: clone: from https://github.com/bharathsudharsan/Edge2Guard
+commit 944ce2d9342c6ab357657c4a267ac14254d4f5a9
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Fri Aug 6 19:32:49 2021 +0100
+
+    Update README.md
+
+commit c63d427bb4520e752f9412ab481797a059b73bda
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:47:50 2021 +0100
+
+    Update README.md
+
+commit 5f18b88d228d2749f89bb0ba2b2bcdb4252f3052
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:41:23 2021 +0100
+
+    Update README.md
+
+commit 467000de5cc11414e6b9054e336b56bbd9819889
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:39:17 2021 +0100
+
+    Create EDA_3D_2D_plots.png
+
+commit 35530566065c264d0ac547035cc4c2a701dc9994
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:34:39 2021 +0100
+
+    Update README.md
+
+commit f2d61c9d48638d9787c8ff7be35725e2eb7b0b90
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:30:47 2021 +0100
+
+    Update README.md
+
+commit de96184c2adeb509cc0228baf401563ae13347d7
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:29:00 2021 +0100
+
+    Update README.md
+
+commit 50fada1b7b0cf985e38f220797f91c6c02377824
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:26:16 2021 +0100
+
+    added results
+
+commit 0e375d263cd9dce2390e8332eb87e2cc6005e779
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 22:03:26 2021 +0100
+
+    Update README.md
+
+commit 1f7d0573c5d573a8d8ade1764d2aabdb17019a73
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:53:39 2021 +0100
+
+    Update README.md
+
+commit 298e436662235f447c8b95bf2ae17a1395604d17
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:45:10 2021 +0100
+
+    Update README.md
+
+commit dba2962609c7097650e1c39be2e052e835b766c8
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:44:31 2021 +0100
+
+    rename
+
+commit ba89e8115de04228e873d7e239480b2ad0e3595d
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:40:45 2021 +0100
+
+    Update Mirai_report_html_file_sample.PNG
+
+commit d02c1150b94b11898e2d0278a648903d61d035dd
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:39:12 2021 +0100
+
+    Update README.md
+
+commit 87ab338ff85fe948dc81942c4801edc2e0cc03ce
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:38:27 2021 +0100
+
+    added img
+
+commit 4576d1f018634638374b2520de1b10f4d8d9ed99
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:34:20 2021 +0100
+
+    Update README.md
+
+commit cb54b6628410e8a894c6dbb83ed15f88416f6995
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:17:57 2021 +0100
+
+    Update README.md
+
+commit bd2efee816d642c24fc32f128173ca88e602c0bb
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:16:16 2021 +0100
+
+    Update README.md
+
+commit 75fe8c3ba6e97be1fc9c37ef559b74dfd5b7b5a2
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Aug 5 21:14:24 2021 +0100
+
+    Update README.md
+
+commit 6b479fed09504164d749d23b0dd09696d2441d77
+Merge: 873014e 86c9055
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Thu Nov 5 12:14:03 2020 +0000
+
+    Merge branch 'main' of https://github.com/bharathsudharsan/Edge2Guard into main
+
+commit 86c9055237b3c0974ca0ed932e9719c98ccc361c
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Thu Nov 5 09:24:29 2020 +0000
+
+    Update README.md
+
+commit 7c6a47829f2fd6aef522d3250c5e2aaaaa0f6b7d
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Thu Nov 5 09:14:12 2020 +0000
+
+    Update README.md
+
+commit 06d07243bdd260669e190e14b9c7e8f3dc43f3ee
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Thu Nov 5 08:44:58 2020 +0000
+
+    Update README.md
+
+commit f1669ac029de7e8bbf681fe20bdbbb084d690a24
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Thu Nov 5 08:43:29 2020 +0000
+
+    Update README.md
+
+commit 57713c019a4db9d1b0d8cb2f14ec501ab0937f81
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Thu Nov 5 08:30:02 2020 +0000
+
+    Update README.md
+
+commit 56149fdfbde10ad3a4800e38c2c25ec87d0ebc5a
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Wed Nov 4 13:32:31 2020 +0000
+
+    Update README.md
+
+commit 34f02c17fe57ed18b2909b0e00495bb7f91a514a
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Wed Nov 4 13:32:12 2020 +0000
+
+    Update README.md
+
+commit 173a6e1cc73db93fdaba4650013f3db39825f9bc
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Wed Nov 4 13:25:47 2020 +0000
+
+    Update README.md
+
+commit f27ff538660974a583088ae996bc0cc5c45de5da
+Author: db_023 <bharath_s@rocketmail.com>
+Date:   Wed Nov 4 13:24:21 2020 +0000
+
+    Update README.md
+
+commit 873014e549258be836c2362fe3edc25157a9c7f8
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Wed Nov 4 13:18:23 2020 +0000
+
+    added heat maps
+
+commit 6cbee2caa5358a553c12bd951e03cde431cdd369
+Author: bharath sudharsan <bhasud@ie.deri.local>
+Date:   Wed Nov 4 13:15:58 2020 +0000
+
+    added files from Dinesh repo
+
+commit a0fc370b09dc04eca4dfa3847cda5ab715273add
+Author: Bharath Sudharsan <bharath_s@rocketmail.com>
+Date:   Sat Oct 10 23:19:36 2020 +0100
+
+    Initial commit

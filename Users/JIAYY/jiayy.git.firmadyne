@@ -1,0 +1,1046 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 32ccd902c59a4a3eca52286178b9d489c4953586
+Author: brianpow <brianpow@gmail.com>
+Date:   Mon Oct 12 02:16:54 2020 +0800
+
+    Add 10M free space for the QEMU image created for the Linux kernel. Code reformatted for better consistency (#161)
+    
+    * add 10M free space for the QEMU image created
+    * be more verbose
+
+commit cf717c6fee0b1afbf86e0a17f6ffb14c3c992025
+Author: brianpow <brianpow@gmail.com>
+Date:   Fri Oct 9 08:38:20 2020 +0800
+
+    Improvement to makeImage.sh (#158)
+    
+    * compute power-of-2 image size for QEMU image, instead of fixed 1GB hard-coded
+    * extract tarball directly instead of copying and extracting
+
+commit 6a3c89d4be887036e58b2f7c6191678520acb8fc
+Author: Firmy Yang <firmianay@gmail.com>
+Date:   Wed Sep 23 03:47:04 2020 +0800
+
+    Update README.md (#157)
+    
+    fix urls
+
+commit 38cc2199042c4a1fac2d70449c7be0a719631117
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Tue Sep 15 15:08:41 2020 -0400
+
+    remove mention of ubuntu 14.04
+
+commit 3d7e15ce4c7f9d6f4f26b3217ddef731f2c0599e
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Sun Sep 13 14:17:11 2020 -0400
+
+    improve loopback detection
+
+commit dce5e85540e8a46f351d68efb4034b49fd8528bf
+Author: brianpow <brianpow@gmail.com>
+Date:   Fri Sep 11 03:16:29 2020 +0800
+
+    tweak usage section (#151)
+    
+    * tweak usage section
+    * make scripts/mount.sh and scripts/umount.sh more verbose
+
+commit e860c9e471b466f84d70074aee7141af90dfb420
+Author: brianpow <brianpow@gmail.com>
+Date:   Thu Sep 10 03:01:52 2020 +0800
+
+    download only if needed (#150)
+    
+    * download only if needed
+
+commit ffffcd37ba8167266c4dfdf0bcdd4cc57c91fdf9
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Sep 1 17:39:45 2020 -0400
+
+    update scraper submodule
+
+commit d1d1ffb94ead98eb471dfdf4511b514c08a3099a
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Sep 1 17:39:24 2020 -0400
+
+    update to kernel v2.6.39 for MIPS
+
+commit 71f17f23b9cf86f04b7e11fcc97ad6ad1340ed47
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Mon Jul 13 13:08:34 2020 -0400
+
+    add FAQ entry for init process
+
+commit 1eac6e17abbbede61738467cb8f049f936010e7e
+Author: D3xt3r <44285870+0xd3xt3r@users.noreply.github.com>
+Date:   Thu May 7 15:33:40 2020 +0530
+
+    fixed binwalk dependency
+
+commit 865f8ff670cfd9e71c016fff83fa6b2986f73f06
+Author: Asutosh Palai <asupalai@gmail.com>
+Date:   Sun Apr 26 23:23:00 2020 +0000
+
+    Using python2 for jefferson in setup.sh (#139)
+    
+    Jefferson code doesn't support being installed via pip3
+
+commit 52fd43d81b4cbd377fc9b2ecbdc4472027701c48
+Author: Fitz_BC <353655285@qq.com>
+Date:   Mon Mar 2 01:15:21 2020 +0800
+
+    Fix id conflict bug (#131)
+
+commit 3f7925054e666443aee5a6772b28e857ef3f0dd9
+Author: Nathan <nathan.bolam@fairfaxmedia.com.au>
+Date:   Sat Jan 4 08:16:49 2020 +1030
+
+    fix unmounting (#126)
+    
+    * fix unmounting, closes #89
+
+commit 5b7f4d0a358aa2a7173bfa11102c26c8188a5deb
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Wed Dec 18 17:30:24 2019 -0500
+
+    fix qemu socket networking
+
+commit 7224391ce5416f9ac1032b773dccfcaada04cb01
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Tue Dec 10 13:13:53 2019 -0500
+
+    more fixes for vlan initialization
+
+commit c44a0c5d0ac4a6a9010f0cc3e4361f3b6a0b9705
+Author: zi0Black <13380579+zi0Black@users.noreply.github.com>
+Date:   Tue Dec 10 08:25:34 2019 +0100
+
+    Workaround for qemu >= 2.1.1 - tested on qemu 3.1 (#122)
+    
+    * Workaround for qemu >= 2.1.1 - tested on qemu 3.1, closes #96
+     and #119
+
+commit d0162e651a855e5615b7816f0c0e572b1ecbca31
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Sun Dec 8 02:26:13 2019 -0500
+
+    fix vlan initialization
+
+commit 15c4800b04e3b200bb13fb4bf97fc181c2d1d358
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Fri Aug 30 17:24:41 2019 -0400
+
+    add note about qemu version, #119
+
+commit 5bd542f1bb435d432159138d65bdd54f7a818ff8
+Author: mborgerson <contact@mborgerson.com>
+Date:   Fri Aug 16 20:02:20 2019 -0700
+
+    Add a basic Dockerfile (#118)
+    
+    This patch adds a Dockerfile, along with a setup.sh script to install
+    necessary dependencies. An example_analysis.sh script is included which
+    demonstrates how to run an analysis from within the container.
+
+commit 7de5bd8c8cbb9144919497dda67cdb353d1884c8
+Author: gal0is <zhipeng.job@hotmail.com>
+Date:   Sat Jun 15 12:46:44 2019 -0400
+
+    Solve a compatible issue in both Python3 and Python2. (#110)
+
+commit 12d8643b4dc78f2ab5bbdda2d7a79e831138d0c9
+Author: Cory Nance <canance@coastal.edu>
+Date:   Wed May 22 15:24:18 2019 -0400
+
+    Added toolchain config variable for GCC dependencies. (#107)
+
+commit f212ed1c09f89049fdb6c945a5c2617efe86aa50
+Author: Lorenzo Comi <lorenzo.comi@studenti.unimi.it>
+Date:   Fri Oct 5 18:09:45 2018 +0200
+
+    bugfix for #89 issue (#90)
+    
+    * bugfix to issue 89
+    
+    https://github.com/firmadyne/firmadyne/issues/89
+
+commit 1a63d21ae12f39459a187e73a7d660cc0b2ebd76
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Aug 2 16:29:12 2018 -0400
+
+    fix tar2db.py, close #84
+
+commit abc283ecbb6c9797781c944f0c4e80985f2eb1cd
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Aug 2 16:18:49 2018 -0400
+
+    update script to libnvram v1.0c
+
+commit 7e6ceb0c8b279db8a85a3038b33d2d860d256741
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Aug 2 16:06:25 2018 -0400
+
+    update submodules
+
+commit fdda7fb06dc8fd2266973fa9e7f6203e7c43d865
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Wed May 16 22:04:22 2018 -0400
+
+    readme: use gfw-safe links for chinese users
+
+commit 2f9170e5ff5e22d4f1b6cbee7879701b92c25149
+Merge: c1968c5 da4b98f
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Mar 15 12:57:52 2018 -0400
+
+    Merge pull request #73 from xiaohuajiao/master
+    
+    fixed getArch.sh return bug and add one more search directory
+
+commit da4b98f35a72dbdc1c9bf5811f5ddded95b11e95
+Author: xiaohuajiao <hjxie04@gmail.com>
+Date:   Thu Mar 15 20:21:36 2018 +0800
+
+    fixed getArch.sh return empty string && add one more search directories /bin
+
+commit c1968c540771ecbf1aa9827a09566d9ef0a72dd1
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Dec 16 13:23:45 2017 -0700
+
+    add missing dmsetup
+
+commit 27976a168e69672c43a75dc903eafed48149c5fc
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Nov 20 15:30:39 2017 -0500
+
+    update submodules
+
+commit 95a403095122e3355f63d939a30189b29e849f6b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Jul 4 12:49:30 2017 -0400
+
+    update FAQ
+
+commit 84fc361d5ad8ff96dfe6ec961bb828b4184c1081
+Merge: 7445b5b cede1f8
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Feb 14 20:57:35 2017 -0500
+
+    Merge pull request #42 from kyechou/master
+    
+    resolve links before creating files in /etc
+
+commit cede1f842c52afe2566d4cac858b7412bc4e8325
+Author: kyechou <forendef2846@gmail.com>
+Date:   Wed Feb 15 08:30:27 2017 +0800
+
+    quote the arguments
+
+commit 774d72e1550588dc3908c9c144ad77399a69f895
+Author: kyechou <forendef2846@gmail.com>
+Date:   Tue Feb 14 11:06:58 2017 +0800
+
+    create the target directory
+
+commit 170883573251f9991e2dc0755c2956e14695e80a
+Author: kyechou <forendef2846@gmail.com>
+Date:   Tue Feb 14 10:39:48 2017 +0800
+
+    resolve links before creating files in /etc
+
+commit 7445b5b8d8f91d272ee27583c5fd55d782e8fc20
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Feb 13 15:38:33 2017 -0500
+
+    Further fix #37
+
+commit 2482e30656c863e9495919c2a0b662709c9f5f01
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Feb 2 16:57:08 2017 -0500
+
+    Fix deletion of network tap device, #40
+
+commit fa561f7d6c525749fdeb1981b8a1cbb0fe285c39
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Feb 2 16:51:32 2017 -0500
+
+    Fix incorrect path, #39
+
+commit ab5219959edb3bf45e2a8c71b0545367e5d8253f
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Jan 9 17:20:09 2017 -0500
+
+    Fix bug with unmount failing
+
+commit 027c1d2cfeadcb19d4ea20e631a49aa06b45d868
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jan 8 16:30:11 2017 -0500
+
+    Fix #37
+
+commit e55b5d9f5ee212a4850af0affb72e128004cba25
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Jan 5 17:36:25 2017 -0500
+
+    Fix #35
+
+commit 4812a6231bdf37e58951ccf5685d10a659569d71
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jan 1 16:09:51 2017 -0500
+
+    Enable default console during emulation
+
+commit b799d2728c0d299838cd5e5f55ef7076e7804bdc
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Dec 13 15:21:49 2016 -0500
+
+    Clean up network interface generation, fix crash from #27
+
+commit 95fa952cf420250798a0070c122ad3366e6cf5df
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Dec 12 17:49:45 2016 -0500
+
+    Enable VNC server by default
+
+commit 4f39a876311373f048bc96a3d169c81ecd52bf78
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Dec 12 16:55:11 2016 -0500
+
+    Fix NVRAM path problems
+
+commit c0365aac5b6e0636ea9f6e028a90c58a1d2241bf
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Dec 12 16:54:43 2016 -0500
+
+    Update README, gitignore
+
+commit e3a0415a01a657b8fc2a4643ee258247fc942aba
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Fri Dec 9 16:34:09 2016 -0500
+
+    Fix patch in #25
+
+commit b9b5845ed27ccb03ffacb233e3e40401e756d512
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Fri Nov 4 11:49:59 2016 -0400
+
+    fix typo, close #19
+
+commit b72dcdae7f5fdf78f098af0fb924cfdb993c23d0
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Oct 11 12:27:14 2016 -0400
+
+    Minor bug fixes and cleanups
+
+commit afb3af50e74f7e153ae1e86640270250c3024eda
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Mon Oct 3 21:49:55 2016 +0800
+
+    remove 2 "fi" endings
+
+commit 4df159a68e2df97423ebe0e722cddb6fa8e74fa6
+Merge: b1ce327 165dc09
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Oct 4 18:13:55 2016 +0000
+
+    Merge pull request #16 from niorehkids/master
+    
+    change some commands to make it more general to other linux distro
+
+commit 165dc09f86ac9f007cd06c39426f4fe4e148bedf
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Wed Oct 5 00:16:26 2016 +0800
+
+    use ip commands to configure network
+
+commit ac962dda7b4a51dc86bd6e7921372112237dc604
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Tue Oct 4 22:12:11 2016 +0800
+
+    escape the ']' in regex
+
+commit 4d2669a870a666ea4e651068045ae691866fd0f4
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Tue Oct 4 22:06:48 2016 +0800
+
+    use "\n" as the delimiter for splitting lines
+
+commit b9dba2c04b68fd9d93ca9a50bb1663ecb757777b
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Tue Oct 4 21:55:19 2016 +0800
+
+    change find's -or to -o to make it POSIX compliant
+
+commit b1ce3271450ba48ea7edb998543c2c65176e57b9
+Merge: 8406ec3 d49f917
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jun 12 21:14:47 2016 -0700
+
+    Merge pull request #10 from m-1-k-3/delete_script
+    
+    script to delete a project
+
+commit 8406ec3fa15803de104f68faf0a39a53ea7587c3
+Merge: e466c56 649b0e4
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jun 12 21:07:26 2016 -0700
+
+    Merge pull request #9 from m-1-k-3/analyzerscript
+    
+    Nmap analyzer script
+
+commit d49f91712cb23f11fa19406d19f2945af5853db7
+Author: Michael Messner <devnull@s3cur1ty.de>
+Date:   Fri Jun 10 11:39:22 2016 +0200
+
+    script to delete a project
+
+commit 649b0e4934880f2932049ca7e7457cf604e61a7b
+Author: Michael Messner <devnull@s3cur1ty.de>
+Date:   Fri Jun 10 11:34:30 2016 +0200
+
+    nmap analyzer script
+
+commit e466c56cbc59e5a917f05928d12bd6fcc96546a7
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Jun 4 12:56:34 2016 -0700
+
+    another update for scraper submodule
+
+commit 0bfb65a9ac559e0b1f356f6ed019ddbfe254fe88
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Jun 2 23:44:17 2016 -0700
+
+    update scraper submodule
+
+commit 49aff8c83b92bdd6b6f51225f9a34be734cc1dbe
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 14:31:55 2016 -0400
+
+    add FAQ to README
+
+commit ec9bde09fb1e1adec9bf5c10b60799c4dcbd13a9
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 14:09:09 2016 -0400
+
+    makeNetwork: fix some bugs
+
+commit 1bd219599ab09a92eceaaf09c90ad92e289fbfe8
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 11:33:49 2016 -0400
+
+    scraper: update submodule
+
+commit c625758ffea29fcd7b773a4fe83239b816471f68
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 04:01:42 2016 -0400
+
+    makeNetwork: fix typo
+    
+    close #5
+
+commit 0255f44ca17e1c3febf63d1f89ffe4c65a53d45b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Wed Apr 13 03:21:50 2016 -0400
+
+    deprecate jefferson fork since changes have been merged upstream
+
+commit 154a57bf5d18e08ac3470248b9f5e9ee5730b1d2
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Fri Apr 1 21:58:25 2016 +0000
+
+    scraper: update submodule
+
+commit ae51a6c80652dfb97b0a041e2df6431791e5f5b9
+Merge: ff07213 83b501b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Mar 20 17:35:40 2016 -0400
+
+    Merge pull request #3 from dfbravo/master
+    
+    firmadyne.config: Fixing logic of check_arch
+
+commit 83b501b2532e3e6ba442ba341de991ef43e9d69f
+Author: Diego Bravo <diego.bravo56@gmail.com>
+Date:   Sat Mar 19 01:34:48 2016 -0400
+
+    firmadyne.config: Fixed incorrect logic of check_arch
+    Modified respective scripts to accomodate fix
+    Removed double square brackets
+    Added quotes around variable substitution
+
+commit ff07213ffac4dbdc9f0d00939005ebe4aaf46db5
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Wed Mar 16 14:17:08 2016 -0400
+
+    update README to account for Debian-packaging issue
+    
+    Certain firmware binaries and symlinks in /usr/share/qemu are only installed by the qemu-system-x86 package and its dependencies.
+
+commit 1fc8a827754024c672283125a438bb809a05c40e
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Mar 3 00:02:16 2016 +0000
+
+    update information about new exploits
+
+commit dfcbe70c5a029ac71d39e80861eab205fd55356f
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 22:32:10 2016 +0000
+
+    extractor: update to master
+
+commit 60fc5d8267ac0dbfa6bd63a620f2165f734ccf9b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 08:07:26 2016 +0000
+
+    inferNetwork: fix return value from timeout
+
+commit dc4de2c8fbc556e9171a7d4db15fb4c108f931c6
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 07:59:49 2016 +0000
+
+    scripts: better mounting/unmounting, handle spaces
+
+commit 4e9a6e35298f98315994312076290776f587f4ed
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 07:59:15 2016 +0000
+
+    readme: fix busybox package dependency
+
+commit 7b21c26fd12794821f26f4dd3fc033a3a95ec13e
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Feb 23 10:04:40 2016 -0800
+
+    exploits: add details and tracking id's
+
+commit 2fef6ea7023f8db1042913731151836981f5ab05
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Feb 16 01:28:56 2016 +0000
+
+    initial import
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 32ccd902c59a4a3eca52286178b9d489c4953586
+Author: brianpow <brianpow@gmail.com>
+Date:   Mon Oct 12 02:16:54 2020 +0800
+
+    Add 10M free space for the QEMU image created for the Linux kernel. Code reformatted for better consistency (#161)
+    
+    * add 10M free space for the QEMU image created
+    * be more verbose
+
+commit cf717c6fee0b1afbf86e0a17f6ffb14c3c992025
+Author: brianpow <brianpow@gmail.com>
+Date:   Fri Oct 9 08:38:20 2020 +0800
+
+    Improvement to makeImage.sh (#158)
+    
+    * compute power-of-2 image size for QEMU image, instead of fixed 1GB hard-coded
+    * extract tarball directly instead of copying and extracting
+
+commit 6a3c89d4be887036e58b2f7c6191678520acb8fc
+Author: Firmy Yang <firmianay@gmail.com>
+Date:   Wed Sep 23 03:47:04 2020 +0800
+
+    Update README.md (#157)
+    
+    fix urls
+
+commit 38cc2199042c4a1fac2d70449c7be0a719631117
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Tue Sep 15 15:08:41 2020 -0400
+
+    remove mention of ubuntu 14.04
+
+commit 3d7e15ce4c7f9d6f4f26b3217ddef731f2c0599e
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Sun Sep 13 14:17:11 2020 -0400
+
+    improve loopback detection
+
+commit dce5e85540e8a46f351d68efb4034b49fd8528bf
+Author: brianpow <brianpow@gmail.com>
+Date:   Fri Sep 11 03:16:29 2020 +0800
+
+    tweak usage section (#151)
+    
+    * tweak usage section
+    * make scripts/mount.sh and scripts/umount.sh more verbose
+
+commit e860c9e471b466f84d70074aee7141af90dfb420
+Author: brianpow <brianpow@gmail.com>
+Date:   Thu Sep 10 03:01:52 2020 +0800
+
+    download only if needed (#150)
+    
+    * download only if needed
+
+commit ffffcd37ba8167266c4dfdf0bcdd4cc57c91fdf9
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Sep 1 17:39:45 2020 -0400
+
+    update scraper submodule
+
+commit d1d1ffb94ead98eb471dfdf4511b514c08a3099a
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Sep 1 17:39:24 2020 -0400
+
+    update to kernel v2.6.39 for MIPS
+
+commit 71f17f23b9cf86f04b7e11fcc97ad6ad1340ed47
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Mon Jul 13 13:08:34 2020 -0400
+
+    add FAQ entry for init process
+
+commit 1eac6e17abbbede61738467cb8f049f936010e7e
+Author: D3xt3r <44285870+0xd3xt3r@users.noreply.github.com>
+Date:   Thu May 7 15:33:40 2020 +0530
+
+    fixed binwalk dependency
+
+commit 865f8ff670cfd9e71c016fff83fa6b2986f73f06
+Author: Asutosh Palai <asupalai@gmail.com>
+Date:   Sun Apr 26 23:23:00 2020 +0000
+
+    Using python2 for jefferson in setup.sh (#139)
+    
+    Jefferson code doesn't support being installed via pip3
+
+commit 52fd43d81b4cbd377fc9b2ecbdc4472027701c48
+Author: Fitz_BC <353655285@qq.com>
+Date:   Mon Mar 2 01:15:21 2020 +0800
+
+    Fix id conflict bug (#131)
+
+commit 3f7925054e666443aee5a6772b28e857ef3f0dd9
+Author: Nathan <nathan.bolam@fairfaxmedia.com.au>
+Date:   Sat Jan 4 08:16:49 2020 +1030
+
+    fix unmounting (#126)
+    
+    * fix unmounting, closes #89
+
+commit 5b7f4d0a358aa2a7173bfa11102c26c8188a5deb
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Wed Dec 18 17:30:24 2019 -0500
+
+    fix qemu socket networking
+
+commit 7224391ce5416f9ac1032b773dccfcaada04cb01
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Tue Dec 10 13:13:53 2019 -0500
+
+    more fixes for vlan initialization
+
+commit c44a0c5d0ac4a6a9010f0cc3e4361f3b6a0b9705
+Author: zi0Black <13380579+zi0Black@users.noreply.github.com>
+Date:   Tue Dec 10 08:25:34 2019 +0100
+
+    Workaround for qemu >= 2.1.1 - tested on qemu 3.1 (#122)
+    
+    * Workaround for qemu >= 2.1.1 - tested on qemu 3.1, closes #96
+     and #119
+
+commit d0162e651a855e5615b7816f0c0e572b1ecbca31
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Sun Dec 8 02:26:13 2019 -0500
+
+    fix vlan initialization
+
+commit 15c4800b04e3b200bb13fb4bf97fc181c2d1d358
+Author: Dominic Chen <1108560+ddcc@users.noreply.github.com>
+Date:   Fri Aug 30 17:24:41 2019 -0400
+
+    add note about qemu version, #119
+
+commit 5bd542f1bb435d432159138d65bdd54f7a818ff8
+Author: mborgerson <contact@mborgerson.com>
+Date:   Fri Aug 16 20:02:20 2019 -0700
+
+    Add a basic Dockerfile (#118)
+    
+    This patch adds a Dockerfile, along with a setup.sh script to install
+    necessary dependencies. An example_analysis.sh script is included which
+    demonstrates how to run an analysis from within the container.
+
+commit 7de5bd8c8cbb9144919497dda67cdb353d1884c8
+Author: gal0is <zhipeng.job@hotmail.com>
+Date:   Sat Jun 15 12:46:44 2019 -0400
+
+    Solve a compatible issue in both Python3 and Python2. (#110)
+
+commit 12d8643b4dc78f2ab5bbdda2d7a79e831138d0c9
+Author: Cory Nance <canance@coastal.edu>
+Date:   Wed May 22 15:24:18 2019 -0400
+
+    Added toolchain config variable for GCC dependencies. (#107)
+
+commit f212ed1c09f89049fdb6c945a5c2617efe86aa50
+Author: Lorenzo Comi <lorenzo.comi@studenti.unimi.it>
+Date:   Fri Oct 5 18:09:45 2018 +0200
+
+    bugfix for #89 issue (#90)
+    
+    * bugfix to issue 89
+    
+    https://github.com/firmadyne/firmadyne/issues/89
+
+commit 1a63d21ae12f39459a187e73a7d660cc0b2ebd76
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Aug 2 16:29:12 2018 -0400
+
+    fix tar2db.py, close #84
+
+commit abc283ecbb6c9797781c944f0c4e80985f2eb1cd
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Aug 2 16:18:49 2018 -0400
+
+    update script to libnvram v1.0c
+
+commit 7e6ceb0c8b279db8a85a3038b33d2d860d256741
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Aug 2 16:06:25 2018 -0400
+
+    update submodules
+
+commit fdda7fb06dc8fd2266973fa9e7f6203e7c43d865
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Wed May 16 22:04:22 2018 -0400
+
+    readme: use gfw-safe links for chinese users
+
+commit 2f9170e5ff5e22d4f1b6cbee7879701b92c25149
+Merge: c1968c5 da4b98f
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Mar 15 12:57:52 2018 -0400
+
+    Merge pull request #73 from xiaohuajiao/master
+    
+    fixed getArch.sh return bug and add one more search directory
+
+commit da4b98f35a72dbdc1c9bf5811f5ddded95b11e95
+Author: xiaohuajiao <hjxie04@gmail.com>
+Date:   Thu Mar 15 20:21:36 2018 +0800
+
+    fixed getArch.sh return empty string && add one more search directories /bin
+
+commit c1968c540771ecbf1aa9827a09566d9ef0a72dd1
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Dec 16 13:23:45 2017 -0700
+
+    add missing dmsetup
+
+commit 27976a168e69672c43a75dc903eafed48149c5fc
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Nov 20 15:30:39 2017 -0500
+
+    update submodules
+
+commit 95a403095122e3355f63d939a30189b29e849f6b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Jul 4 12:49:30 2017 -0400
+
+    update FAQ
+
+commit 84fc361d5ad8ff96dfe6ec961bb828b4184c1081
+Merge: 7445b5b cede1f8
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Feb 14 20:57:35 2017 -0500
+
+    Merge pull request #42 from kyechou/master
+    
+    resolve links before creating files in /etc
+
+commit cede1f842c52afe2566d4cac858b7412bc4e8325
+Author: kyechou <forendef2846@gmail.com>
+Date:   Wed Feb 15 08:30:27 2017 +0800
+
+    quote the arguments
+
+commit 774d72e1550588dc3908c9c144ad77399a69f895
+Author: kyechou <forendef2846@gmail.com>
+Date:   Tue Feb 14 11:06:58 2017 +0800
+
+    create the target directory
+
+commit 170883573251f9991e2dc0755c2956e14695e80a
+Author: kyechou <forendef2846@gmail.com>
+Date:   Tue Feb 14 10:39:48 2017 +0800
+
+    resolve links before creating files in /etc
+
+commit 7445b5b8d8f91d272ee27583c5fd55d782e8fc20
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Feb 13 15:38:33 2017 -0500
+
+    Further fix #37
+
+commit 2482e30656c863e9495919c2a0b662709c9f5f01
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Feb 2 16:57:08 2017 -0500
+
+    Fix deletion of network tap device, #40
+
+commit fa561f7d6c525749fdeb1981b8a1cbb0fe285c39
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Feb 2 16:51:32 2017 -0500
+
+    Fix incorrect path, #39
+
+commit ab5219959edb3bf45e2a8c71b0545367e5d8253f
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Jan 9 17:20:09 2017 -0500
+
+    Fix bug with unmount failing
+
+commit 027c1d2cfeadcb19d4ea20e631a49aa06b45d868
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jan 8 16:30:11 2017 -0500
+
+    Fix #37
+
+commit e55b5d9f5ee212a4850af0affb72e128004cba25
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Jan 5 17:36:25 2017 -0500
+
+    Fix #35
+
+commit 4812a6231bdf37e58951ccf5685d10a659569d71
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jan 1 16:09:51 2017 -0500
+
+    Enable default console during emulation
+
+commit b799d2728c0d299838cd5e5f55ef7076e7804bdc
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Dec 13 15:21:49 2016 -0500
+
+    Clean up network interface generation, fix crash from #27
+
+commit 95fa952cf420250798a0070c122ad3366e6cf5df
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Dec 12 17:49:45 2016 -0500
+
+    Enable VNC server by default
+
+commit 4f39a876311373f048bc96a3d169c81ecd52bf78
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Dec 12 16:55:11 2016 -0500
+
+    Fix NVRAM path problems
+
+commit c0365aac5b6e0636ea9f6e028a90c58a1d2241bf
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Mon Dec 12 16:54:43 2016 -0500
+
+    Update README, gitignore
+
+commit e3a0415a01a657b8fc2a4643ee258247fc942aba
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Fri Dec 9 16:34:09 2016 -0500
+
+    Fix patch in #25
+
+commit b9b5845ed27ccb03ffacb233e3e40401e756d512
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Fri Nov 4 11:49:59 2016 -0400
+
+    fix typo, close #19
+
+commit b72dcdae7f5fdf78f098af0fb924cfdb993c23d0
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Oct 11 12:27:14 2016 -0400
+
+    Minor bug fixes and cleanups
+
+commit afb3af50e74f7e153ae1e86640270250c3024eda
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Mon Oct 3 21:49:55 2016 +0800
+
+    remove 2 "fi" endings
+
+commit 4df159a68e2df97423ebe0e722cddb6fa8e74fa6
+Merge: b1ce327 165dc09
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Oct 4 18:13:55 2016 +0000
+
+    Merge pull request #16 from niorehkids/master
+    
+    change some commands to make it more general to other linux distro
+
+commit 165dc09f86ac9f007cd06c39426f4fe4e148bedf
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Wed Oct 5 00:16:26 2016 +0800
+
+    use ip commands to configure network
+
+commit ac962dda7b4a51dc86bd6e7921372112237dc604
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Tue Oct 4 22:12:11 2016 +0800
+
+    escape the ']' in regex
+
+commit 4d2669a870a666ea4e651068045ae691866fd0f4
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Tue Oct 4 22:06:48 2016 +0800
+
+    use "\n" as the delimiter for splitting lines
+
+commit b9dba2c04b68fd9d93ca9a50bb1663ecb757777b
+Author: niorehkids <forendef2846@gmail.com>
+Date:   Tue Oct 4 21:55:19 2016 +0800
+
+    change find's -or to -o to make it POSIX compliant
+
+commit b1ce3271450ba48ea7edb998543c2c65176e57b9
+Merge: 8406ec3 d49f917
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jun 12 21:14:47 2016 -0700
+
+    Merge pull request #10 from m-1-k-3/delete_script
+    
+    script to delete a project
+
+commit 8406ec3fa15803de104f68faf0a39a53ea7587c3
+Merge: e466c56 649b0e4
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Jun 12 21:07:26 2016 -0700
+
+    Merge pull request #9 from m-1-k-3/analyzerscript
+    
+    Nmap analyzer script
+
+commit d49f91712cb23f11fa19406d19f2945af5853db7
+Author: Michael Messner <devnull@s3cur1ty.de>
+Date:   Fri Jun 10 11:39:22 2016 +0200
+
+    script to delete a project
+
+commit 649b0e4934880f2932049ca7e7457cf604e61a7b
+Author: Michael Messner <devnull@s3cur1ty.de>
+Date:   Fri Jun 10 11:34:30 2016 +0200
+
+    nmap analyzer script
+
+commit e466c56cbc59e5a917f05928d12bd6fcc96546a7
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Jun 4 12:56:34 2016 -0700
+
+    another update for scraper submodule
+
+commit 0bfb65a9ac559e0b1f356f6ed019ddbfe254fe88
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Jun 2 23:44:17 2016 -0700
+
+    update scraper submodule
+
+commit 49aff8c83b92bdd6b6f51225f9a34be734cc1dbe
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 14:31:55 2016 -0400
+
+    add FAQ to README
+
+commit ec9bde09fb1e1adec9bf5c10b60799c4dcbd13a9
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 14:09:09 2016 -0400
+
+    makeNetwork: fix some bugs
+
+commit 1bd219599ab09a92eceaaf09c90ad92e289fbfe8
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 11:33:49 2016 -0400
+
+    scraper: update submodule
+
+commit c625758ffea29fcd7b773a4fe83239b816471f68
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Apr 28 04:01:42 2016 -0400
+
+    makeNetwork: fix typo
+    
+    close #5
+
+commit 0255f44ca17e1c3febf63d1f89ffe4c65a53d45b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Wed Apr 13 03:21:50 2016 -0400
+
+    deprecate jefferson fork since changes have been merged upstream
+
+commit 154a57bf5d18e08ac3470248b9f5e9ee5730b1d2
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Fri Apr 1 21:58:25 2016 +0000
+
+    scraper: update submodule
+
+commit ae51a6c80652dfb97b0a041e2df6431791e5f5b9
+Merge: ff07213 83b501b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sun Mar 20 17:35:40 2016 -0400
+
+    Merge pull request #3 from dfbravo/master
+    
+    firmadyne.config: Fixing logic of check_arch
+
+commit 83b501b2532e3e6ba442ba341de991ef43e9d69f
+Author: Diego Bravo <diego.bravo56@gmail.com>
+Date:   Sat Mar 19 01:34:48 2016 -0400
+
+    firmadyne.config: Fixed incorrect logic of check_arch
+    Modified respective scripts to accomodate fix
+    Removed double square brackets
+    Added quotes around variable substitution
+
+commit ff07213ffac4dbdc9f0d00939005ebe4aaf46db5
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Wed Mar 16 14:17:08 2016 -0400
+
+    update README to account for Debian-packaging issue
+    
+    Certain firmware binaries and symlinks in /usr/share/qemu are only installed by the qemu-system-x86 package and its dependencies.
+
+commit 1fc8a827754024c672283125a438bb809a05c40e
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Thu Mar 3 00:02:16 2016 +0000
+
+    update information about new exploits
+
+commit dfcbe70c5a029ac71d39e80861eab205fd55356f
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 22:32:10 2016 +0000
+
+    extractor: update to master
+
+commit 60fc5d8267ac0dbfa6bd63a620f2165f734ccf9b
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 08:07:26 2016 +0000
+
+    inferNetwork: fix return value from timeout
+
+commit dc4de2c8fbc556e9171a7d4db15fb4c108f931c6
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 07:59:49 2016 +0000
+
+    scripts: better mounting/unmounting, handle spaces
+
+commit 4e9a6e35298f98315994312076290776f587f4ed
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Sat Feb 27 07:59:15 2016 +0000
+
+    readme: fix busybox package dependency
+
+commit 7b21c26fd12794821f26f4dd3fc033a3a95ec13e
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Feb 23 10:04:40 2016 -0800
+
+    exploits: add details and tracking id's
+
+commit 2fef6ea7023f8db1042913731151836981f5ab05
+Author: Dominic Chen <d.c.ddcc@gmail.com>
+Date:   Tue Feb 16 01:28:56 2016 +0000
+
+    initial import

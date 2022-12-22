@@ -1,0 +1,1301 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+Mesh-Networking Demonstration: IRC Botnet App (Mac)
+========
+
+This is an educational demo project used to teach security concepts to programming beginners:
+
+- what are trojans and how are they built
+- what are worms and how are they built
+- what makes a botnet & networked viruses in general
+- command and control via IRC
+- modular exploit design
+- safe self-updating
+
+This repo demonstrates simple intrusion and virus building concepts introduced in
+the book "Violent Python", to be run on the test bed provided by [`mesh-networking`](https://github.com/pirate/mesh-networking).
+The book is a a funny overview of Python & system security by
+a US Military Paratrooper, and I highly recommend checking it out. This is an ideal demonstration
+of the mesh-networking project because it needs a large, organic, networked app to show off its true capability.
+
+It would be incredibly difficult to install or get away with using this for malicious purposes
+in the real world. It makes no attempts to shield communications or evade filesystem detection in any way because the
+mesh-networking hosts are not adversarial and do not have any of the protection measures like SIP or Gatekeeper.
+
+This is not a "real"/malicious botnet that you can use off-the-shelf, it's just an educational example of of a botnet-style program that can run on the [`mesh-networking`](https://github.com/pirate/mesh-networking) network simulation library.
+
+**Book: ["Violent Python"](http://books.google.com/books/about/Violent_Python.html?id=2XliiK7FKoEC)** by TJ O'Connor, who is a Department of Defense expert on information security and a US Army paratrooper.  
+**Modules: [Violent-Python-Examples](https://github.com/shadow-box/Violent-Python-Examples)**
+
+
+## Developer Install:
+```bash
+git clone https://github.com/pirate/python-medusa.git
+cd python-medusa
+nano bot.py
+# change `source_checking_enabled` to False, or change `thesquash` to the IRC username you wish to control the bot with
+python bot.py
+# Log into your test IRC channel on irc.freenode.net and type a command (e.g. `!status`)
+```
+
+## Uninstall:
+
+1. Open Terminal.app
+2. Run this command to kill the bot: 
+```sh
+sudo kill `ps -ax|grep -v grep|grep bot.py|head -1|awk '{print $1}'`
+```
+3. Remove its runtime files, logs, and boot persistence with the following:
+
+```sh
+sudo launchctl unload -w /Library/LaunchDaemons/sys.daemon.connectd.plist
+sudo rm -Rf /var/softupdated
+sudo rm /Library/LaunchDaemons/sys.daemon.connectd.plist
+sudo kill `ps -ax|grep -v grep|grep bot.py|head -1|awk '{print $1}'`
+```
+
+## Information:  
+2015 -- MIT License  
+
+After reading a [book](http://books.google.com/books/about/Violent_Python.html?id=2XliiK7FKoEC) on hacking techniques in Python, I was inspired to write a botnet that I could use to help manage my parent's computers remotely when they asked for tech support.  I followed along while reading the book and implemented some of the more fun modules (such as [scanning Skype message logs](https://github.com/pirate/python-medusa/blob/master/modules/skype.py) and network traffic for [credit card numbers](https://github.com/pirate/python-medusa/blob/master/modules/cardcheck.py)), and so I decided to open source it and use it as a project, (and no... of course it's not running on my parents computers, nice try).  I only run this on VMs for my mesh-networking project, and it's highly inneffective in the real world, there are plenty of better open source botnets out there.  That being said, it is open source, and I am not responsible for anyone who has copied the (already freely available in the book) exploit code and used it for evil purposes.
+
+For my [mesh-networking](https://github.com/pirate/mesh-networking) project, this botnet communicates over all network interfaces in a test subnet, forming its own internally routed network by finding the minimum spanning trees between infected nodes.  I can then visualize its growth and use the botnet code to run arbitrary programs for testing on all the network simulated nodes.
+
+Screenshots:  
+========
+**1. Trojan impersonates Google Chrome and unwitting victim types in their password*:**  
+![](http://i.imgur.com/200NfKl.png)  
+**2. Bot installs installs itself with boot hook and connects to the C&C IRC channel:**  
+![](http://i.imgur.com/FEIRtR3.png)  
+**3. Host can be controlled by sending a privmsg to the bot:**  
+![](http://i.imgur.com/KJnwaGU.png)  
+**4. Bots can be controlled en-masse by sending commands to the whole C&C channel:**
+![](http://imgur.com/tu8y9ym.png)
+
+\* I removed the Google Chrome trojan from Github because I don't want script kiddies finding 
+this and attempting to use it on people.
+
+Development Guide:  
+========
+
+1. Install the [Github App](http://mac.github.com) or [GitUp](http://gitup.co/) for an easy GUI
+2. Pick a folder to store your code in
+3. Download the source to that folder:
+
+  ```bash
+  cd ~/Desktop/
+  git clone https://github.com/pirate/python-medusa.git
+  cd python-medusa
+  ```
+4. To run it and debug, do the following:
+  ```bash
+  sudo ./test.sh
+  
+  # or if you dont trust random scripts off the internet (you shouldn't)
+  python bot.py & tail -f bot_v*.log
+  ```
+
+  
+* Listen to badass music, you're a real hacker now!  
+* Pick a good editor like [Sublime Text 3](http://appdl.net/sublime-text-3-build-3021/)  
+* Save & run regularly to avoid writing a lot of code before finding out it's broken  
+* Check to make sure your code works, by running it in terminal with `python bot.py &`   
+* There is great documentation on Python all over the web: [http://www.python.org/doc/](http://www.python.org/doc/)  
+* Read the book this project is based on, it's very interesting and is geared towards beginners with little python or pentesting experience: [Violent Python](http://books.google.com/books/about/Violent_Python.html?id=2XliiK7FKoEC)
+
+## How to use Git
+
+Git is a program that tracks the changes you make to code, then shares those changes you make with others.  A collection of code in one folder is called a "repository" (repo for short).  Groups of changes are put together to make a "commit".  You can view a history of all the commits made using `git log`.
+
+**Editing locally**   
+
+  1. Edit the code you want to edit, save it, test it, fix it, save it
+  2. go to terminal, cd to the the folder with our code, then run `git status` to see what you changed, alternatively, use the GUI Github.app downloadable from github.com 
+  3. Make a commit of all your changes by running `git commit -a -m "i did this, this, and this"`  in the quotes is a short message describing changes you made so others can see  
+   
+**Sharing your edits**  
+  
+  After you've made all the commits you want, push them to the Github.com  
+  
+  1. `git remote update` to make sure your local code is up to date  
+  2. `git pull --rebase` to update your code if it isnt up to date  
+  3. `git push origin master` to push your code  
+====================== GIT HISTORY: ======================
+5bf6eb8 HEAD@{0}: clone: from https://github.com/pirate/mesh-botnet
+commit 5bf6eb822bcb49cab3f5c657805e3039fb3f4d14
+Author: Nick Sweeting <git@sweeting.me>
+Date:   Wed Mar 17 10:21:35 2021 -0400
+
+    Update README.md
+
+commit 192b73657104c69d9036f22390ea40ad4f17962a
+Author: Nick Sweeting <git@sweeting.me>
+Date:   Tue Mar 9 05:01:53 2021 -0500
+
+    Update README.md
+
+commit fc947c68b535103ee057fbb3a268ff40157df634
+Author: Nick Sweeting <git@sweeting.me>
+Date:   Fri Jan 1 15:37:53 2021 -0500
+
+    Update README.md
+
+commit 94a20563be275840d3a4239c3d392840f8ce1e6a
+Author: Nick Sweeting <git@sweeting.me>
+Date:   Fri Jan 1 15:35:51 2021 -0500
+
+    Update README.md
+
+commit d4ca8b3e84544bef9e108022da7dc9c8e685efb6
+Author: Nick Sweeting <git@sweeting.me>
+Date:   Tue Jan 29 15:36:30 2019 -0800
+
+    Update bot.py
+
+commit daf435fed2948c480be50eaacdb69dd6d7614dce
+Author: Nick Sweeting <git@sweeting.me>
+Date:   Tue Jan 29 15:35:46 2019 -0800
+
+    Update bot.py
+
+commit d189fe93270f2cc455831059daf65c09234245dd
+Author: Nick Sweeting <git@sweeting.me>
+Date:   Sat Dec 29 13:44:32 2018 -0500
+
+    Update communication.py
+
+commit ae6d6a073866e9cba4b25cdaee17fdc1de243ddd
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 21:13:41 2018 -0400
+
+    Update README.md
+
+commit 11daae2b9f8cda1699e2f92c24a178751d16f6fc
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 21:11:20 2018 -0400
+
+    Update README.md
+
+commit 5cca9972197c57689e2b720848c9755d1de9802f
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 21:10:58 2018 -0400
+
+    Update README.md
+
+commit 92ba98971d41e8728f84e2e6426f57a875b82a33
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 21:10:34 2018 -0400
+
+    Update README.md
+
+commit 2f0ab477a08a8e907b3a9c297c25b62f0744bcd9
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 21:09:41 2018 -0400
+
+    Update README.md
+
+commit bf9f3a4cd4479c231d21a8bd6caaf122756ff869
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 20:59:01 2018 -0400
+
+    Update README.md
+
+commit b79a2845efcca1d264ebc8eac30f510d8b865817
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 20:57:08 2018 -0400
+
+    Update README.md
+
+commit 997f346373bd1baf16bef6a2468f2d945edb9efe
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri May 4 20:55:36 2018 -0400
+
+    Update README.md
+
+commit 3de2154a9a35b999f8b0234b4adbd4c34ac628ed
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Dec 29 13:10:09 2017 -0500
+
+    Update README.md
+
+commit c1b18160913ea7cbd9804612ef4a4a4bb709827c
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Sun May 7 16:46:28 2017 -0400
+
+    defunct message
+
+commit f0765b48696baa9044db4ac4d1e0125f0ee72d3b
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Sun Nov 20 00:56:47 2016 -0500
+
+    added note about SIP making this defunct
+
+commit 7ee57234fe664744fc092cb11162a6b990d94cd7
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Sun Nov 20 00:53:07 2016 -0500
+
+    add routing info plans to readme
+
+commit e91c3fe3356d78bbf44d1bfe71a3b870098352b6
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Apr 8 13:00:52 2016 -0500
+
+    safety warning for the idiots who keep installing this
+
+commit 756b47e8d12daf6955d4fb36dcd9887a9031ce7a
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Mon Dec 7 17:09:35 2015 -0800
+
+    Add steps to screenshots
+
+commit 4a7a779beeb2823012b6c71ed1d641a16b568639
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Mon Dec 7 16:58:33 2015 -0800
+
+    screenshot annotations
+
+commit 87ef5474fd30b113d68235136022307a7eb22ed1
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Mon Dec 7 16:51:07 2015 -0800
+
+    better screenshot
+
+commit ca32be9c8dd7f3754db0fe9fc5b4b243e80e30a2
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Mon Dec 7 16:39:43 2015 -0800
+
+    Add IRC screenshots
+
+commit 319936e93cf901e9cd08e8478650a2562ad1eb83
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:40:41 2015 -0700
+
+    Update README.md
+
+commit c719a8a50c462a0f028f84046eea471c87be9af7
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:40:10 2015 -0700
+
+    Update README.md
+
+commit 237de976c1736806110a5ddb81764c69108c718e
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:39:55 2015 -0700
+
+    Update README.md
+
+commit 490145957de78c528081996b586bc9caadcfe079
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:39:22 2015 -0700
+
+    Update README.md
+
+commit 19a2ce77c70d196c960f0bd110fd25033b6ddcc7
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:38:16 2015 -0700
+
+    Update README.md
+
+commit 08b770f7ef4f0b48c7baf5badb75e81441423ada
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:37:37 2015 -0700
+
+    Update README.md
+
+commit ea69059f2c11db91512676ea9473ad476dc7a4bf
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:36:10 2015 -0700
+
+    Update README.md
+
+commit 7131bb6ed3145146ae61b434fe895e92c646c9ba
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:33:12 2015 -0700
+
+    Update README.md
+
+commit f093a8e66f3e48e055cc0e711cc65b299b19bf64
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:32:48 2015 -0700
+
+    Update README.md
+
+commit 7a2aca705354ead940b92ffecbab6942b0cbbede
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:31:46 2015 -0700
+
+    Update README.md
+
+commit 94b59662b839138ea52e8bcc6c7b8b5e9309c472
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:31:07 2015 -0700
+
+    Update README.md
+
+commit ff4cf23d0fa7a618223c2d67e130d566d9d3e3ec
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:29:31 2015 -0700
+
+    Update README.md
+
+commit 1e5047086ce12a2ae8e3f055c66acbac3dd29254
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:28:38 2015 -0700
+
+    Update README.md
+
+commit 4d5957a0688e5feb045a20a5dfa778a60e882c72
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:28:20 2015 -0700
+
+    Update README.md
+
+commit 5b80bac201ea6b57abb881fb20a9735a66406545
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:27:49 2015 -0700
+
+    Update README.md
+
+commit f53d9fb342cca3cca10f0755f60e09d57d262318
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:24:06 2015 -0700
+
+    more info on the violent python book
+
+commit b0dfeeaac22eb115f02d71cb6b04a9e0501fd0ad
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:13:56 2015 -0700
+
+    Update README.md
+
+commit 5d794a8c38f26b3ed97bbf29858fd97cd4256555
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:12:17 2015 -0700
+
+    Update README.md
+
+commit 21e8c2bd3467f9c004a2eb40fc71a2e345882604
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:04:34 2015 -0700
+
+    Update README.md
+
+commit 4cc8cbc3a7b2be57cda2db15133d29d4317cb9ac
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 14:04:13 2015 -0700
+
+    Update README.md
+
+commit 4850e80e6f04552db5375668c5eb5ea0d3dab1ec
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 13:29:59 2015 -0700
+
+    More honest explanation of bot's purpose
+
+commit 4fdb01e5eae2adfe0fc954b9b8e3aa847a766eb4
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 13:17:21 2015 -0700
+
+    added privilige escalator trojan
+
+commit 372cc40947f72c46a0ef9e12556af2db00185975
+Author: Nick Sweeting <git@nicksweeting.com>
+Date:   Fri Sep 25 13:16:58 2015 -0700
+
+    added tentative connector for linking over the mesh-networking project
+
+commit c72260f562364fa35d0f269409e1857f7180ee44
+Author: Nick Sweeting <githubpirate@gmail.com>
+Date:   Fri Aug 8 21:50:44 2014 -0400
+
+    Update README.md
+
+commit 976cfb65378c50d61ee89a77cb7d8df68c0abc0c
+Author: Nick Sweeting <githubpirate@gmail.com>
+Date:   Tue Aug 5 12:10:14 2014 -0400
+
+    added syntax highlighting
+
+commit 380a9f0274d9a3b87f8f659664ddc85965eaa167
+Author: Nick Sweeting <nickwentboom@gmail.com>
+Date:   Fri Feb 7 20:39:57 2014 -0800
+
+    Update README.md
+
+commit 2ca413588a2fbd418c168fb17fbdfdd1b126cb66
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Fri Jan 24 00:07:14 2014 -0800
+
+    bot v8.4 and readme updates
+
+commit f125b56722771a361df62d49c0a44266735d92ef
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu Jun 27 11:52:49 2013 +0800
+
+    deploy of bot v8.1
+
+commit bdf1f20a3803faaf17b27d65ce572a38092a516c
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 11:28:33 2013 +0800
+
+    updated .gitignore
+
+commit db2df280fbbe960a7e5452eaa46e3b7ec44e543e
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 11:27:40 2013 +0800
+
+    new test and deploy scripts
+
+commit 0637519a125f54b87eac8f1642cbcbd07c681830
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 11:20:36 2013 +0800
+
+    deploy of bot v8.0
+
+commit 5dd64524f2e08000b0aea968c4c07e6e68767537
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 10:11:48 2013 +0800
+
+    deploy of bot v7.9
+
+commit 115fcdd5bf44384d3b34683ec835fca4d6ecc96e
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 09:38:05 2013 +0800
+
+    deploy of bot v7.9
+
+commit bf4fd4d8f733bff34c438c9deac5997261e4aa36
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 01:54:56 2013 +0800
+
+    deploy of bot v7.8
+
+commit 0a38dcbdaa9b2c7705f0be77ec9fc80e78a15ba8
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 01:54:07 2013 +0800
+
+    deploy of bot v7.8
+
+commit 5a5fd45d8767149065db6792562d0e362945df9b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 01:49:40 2013 +0800
+
+    deploy of bot v7.7
+
+commit 03e63b15657489d6d363449ec734def18689d0cd
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 01:42:16 2013 +0800
+
+    deploy of bot v7.7
+
+commit 1cd2224ee529b7b1a8da33f8b080ec84f50ac2e9
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 01:21:31 2013 +0800
+
+    deploy of bot v7.6
+
+commit 7e94164818956dfc40022e6570048c38980a4cfb
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 01:05:23 2013 +0800
+
+    deploy of bot v7.6
+
+commit d5d9b9088a8faaf056a6d44fac984d7fcb6da4ae
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 01:04:23 2013 +0800
+
+    deploy of bot v7.5
+
+commit a5ea3672b71f8f9f5847da4629884cb7b1d58ba0
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 00:58:01 2013 +0800
+
+    deploy of bot v7.5
+
+commit 43c133e414d0798403faa9da21e0c1491e4a794b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 00:53:41 2013 +0800
+
+    deploy of bot v"7.5"
+
+commit 3be5386e22faba033a8e72f55772311cef63ada6
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed Jun 26 00:39:52 2013 +0800
+
+    connection checker integraded with status report and timeout detection
+
+commit b311878a14a1196e1a1681958a9e63cdd856b6d7
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 23:39:20 2013 +0800
+
+    new connection checker module
+
+commit 1051f31b14d14e67ec13780871bc828af2e2eff5
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 23:33:31 2013 +0800
+
+    new connection checker module
+
+commit 25cde5b65b8d58b423e60232dfee4a25a8416f4d
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 23:30:13 2013 +0800
+
+    new connection checker module
+
+commit bbe0ea4a0f8c831c176991a150b55f1cbc2e531b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 23:05:29 2013 +0800
+
+    updated bot version
+
+commit 59872c02d7fce0e6fc71844ccb5fcf77c0be2e5d
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 23:01:50 2013 +0800
+
+    updated droplet app
+
+commit 597cbe3b2a23c0c8e7c15f778c04e78930765c27
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 22:25:32 2013 +0800
+
+    fixed timeout problems and bot.py duplicate instances
+
+commit c1aed028ee39e0462dda31838988ca16f05ee60c
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 20:00:58 2013 +0800
+
+    updated droplet app
+
+commit 0a7f541bc8e5b540d51651e5e081ab3eb2f606de
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 18:06:12 2013 +0800
+
+    added ping speed check
+
+commit 808d13cb0378c903ecfb3345519de17fc6dbdc44
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:35:17 2013 +0800
+
+    added ping speed check
+
+commit f4b93cbf7fb52834906f323d0968084c580b487c
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:34:31 2013 +0800
+
+    added ping speed check
+
+commit b13de8829beb2b8201a36ac27dcb86fb806cc381
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:33:19 2013 +0800
+
+    added ping speed check
+
+commit 02e694d93710fbb7b08fe2b6a5fba569e64d2252
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:30:39 2013 +0800
+
+    added ping speed check
+
+commit 742cf1febcb4ebe99696bde97b45999b83437cba
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:29:32 2013 +0800
+
+    added ping speed check
+
+commit 89b3f189009f4adf72631d5372325e53dd827d58
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:28:17 2013 +0800
+
+    added ping speed check
+
+commit a4fe6132e4737a5ce1d0f82e13b32e3027a86299
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:09:23 2013 +0800
+
+    small formatting fixes
+
+commit ff3b843b329be1dd3b1987bbb85f8cc31787504c
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:06:47 2013 +0800
+
+    new connection settings and status module
+
+commit ba8ce00503fbf071000e4a8a4af9582b45685b35
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 17:03:19 2013 +0800
+
+    new timeout rules
+
+commit d4ea9fa90bb29d7792f6abf82fabac7cd30b7e19
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 16:56:26 2013 +0800
+
+    new timeout rules
+
+commit 32af93b2034ffad4deff4fefbea2cf8a78f9de82
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 16:50:53 2013 +0800
+
+    new timeout rules
+
+commit 8ef2b00a4230931ca1056c7eb30f2f5f175f6f0c
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 16:42:20 2013 +0800
+
+    new timeout rules
+
+commit ab1fddff9626656e055b0140f5847ab392a2fcdc
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 16:42:09 2013 +0800
+
+    new timeout rules
+
+commit 5e3497fac8c6b2f69900bcc288bfaaa1e9422538
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue Jun 25 15:09:17 2013 +0800
+
+    new timeout rules
+
+commit c6b8537ffa72663cfae9d85980de6caa94e28de5
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 12:01:17 2013 +0800
+
+    finished new update method
+
+commit fa05ce0e6548e1c7e36a12b427cacd2c5137a986
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:54:25 2013 +0800
+
+    new update method
+
+commit 6699ab3af517a0ab32112d4d8c5256a50857cd5b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:45:48 2013 +0800
+
+    new update method
+
+commit 572a5cc5ade7c123b9268bc207d8c68800b00449
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:44:57 2013 +0800
+
+    new update method
+
+commit b1befba1048f79bdc4112e46f001214cdec6ba6a
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:43:46 2013 +0800
+
+    new update method
+
+commit db0cb129b76caf2365bced9ff89abeb9b51d5dda
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:40:06 2013 +0800
+
+    new update method
+
+commit 4c62e84f5816835f141af6681051b2fb370e33dc
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:37:01 2013 +0800
+
+    new update method
+
+commit db7b24db81f0f9788e734dd299e5c2f070ac4df5
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:28:34 2013 +0800
+
+    removed install.sh for updates
+
+commit f49d2af77a56c0fb788e1a45a8cac3ab73c0fcb4
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 11:12:05 2013 +0800
+
+    updated main_user nick setting
+
+commit 5862468c98939dab52d394ada39394018a26007b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 09:05:14 2013 +0800
+
+    updated bot version
+
+commit df64d61b544d7ba063ae74dab0525e2d5bbab466
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 09:04:16 2013 +0800
+
+    updated gitignore
+
+commit b468bb416497abfc5a3fee60e05c05e362fb8ae9
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 09:03:08 2013 +0800
+
+    updated droplet app
+
+commit 05dba6da09aa62a59459d3e07b2f31e7dfb28649
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 01:08:03 2013 +0800
+
+    update debugging
+
+commit fd642392c9353bce6fe26d0aca6aaa245f3e1248
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 01:05:17 2013 +0800
+
+    update debugging
+
+commit ac7707d49c776b11da14a9112b07a4b7401b8ceb
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 01:00:19 2013 +0800
+
+    update debugging
+
+commit b216fd0d5413d2e0e0f921644c4d639cbcf0a205
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 01:00:05 2013 +0800
+
+    update debugging
+
+commit 82ae4d52cbce328e823078aa8b60c0083a8eaf6d
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:59:29 2013 +0800
+
+    update debugging
+
+commit a21dc096f8061ded63c482b9404925cf4e991d41
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:49:28 2013 +0800
+
+    update debugging
+
+commit 73985c09e02ac71e1778cdfde4cd5965c4f345dc
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:46:42 2013 +0800
+
+    update debugging
+
+commit 52fa994325a3c269fe902678676a0dedd6d58fe8
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:42:03 2013 +0800
+
+    update debugging
+
+commit ab8d9c12a48309238ac3c52b03af3b42ef62a396
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:30:54 2013 +0800
+
+    update debugging
+
+commit 4284566345ae61b30a2030199d7841f8b30587eb
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:30:24 2013 +0800
+
+    update debugging
+
+commit 18009f6eee0e0799f744cd82e5bc80bcb76f0bf6
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:27:41 2013 +0800
+
+    update debugging
+
+commit 797478592494164bd9ff065bff370b23957b2e54
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:27:30 2013 +0800
+
+    update debugging
+
+commit 964823c55ee65fd6fa14a7540186d8d846db402f
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:23:02 2013 +0800
+
+    update debugging
+
+commit 6aa6934a9a6455887fc444b5fdf8cb8efa7edf16
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:22:21 2013 +0800
+
+    update debugging
+
+commit 9551dc3cb1e2c0ad212c9c0595ae8f658ba8313a
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:16:19 2013 +0800
+
+    update debugging
+
+commit ccf9e5245b576d7f90c192eebd23cab3456f469b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:15:36 2013 +0800
+
+    fixed main_user mixup
+
+commit 1bbe6cf08c059b2544d91243975599416961cb0e
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:14:24 2013 +0800
+
+    fixed main_user mixup
+
+commit 5dd191f31f9928dfacbb9dcc48658ff8c370d90a
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:10:43 2013 +0800
+
+    fixed main_user mixup
+
+commit 50b432053b5a60035c403e915470fe5e1e8a42d5
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:08:15 2013 +0800
+
+    fixed main_user mixup
+
+commit 8614fb9e18fd4bf1fff45cdfc60bce65994e01f2
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:04:16 2013 +0800
+
+    fixed main_user mixup
+
+commit ab4393be9a7a115f0225113f0615c56788812201
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Jun 24 00:00:43 2013 +0800
+
+    fixed main_user mixup
+
+commit 84fea4caa9527bf82a4630c555ea1f99ae7068d5
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:58:55 2013 +0800
+
+    fixed main_user mixup
+
+commit 8028a18b28c056712ff8874a685e0de889b642e6
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:57:12 2013 +0800
+
+    fixed main_user mixup
+
+commit 17e7401c631bf56abddf8ffdf5cc594834b7263a
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:53:24 2013 +0800
+
+    fixed main_user mixup
+
+commit 5e3a38c5645b88d099f518dd1afa2f2b2b2875f6
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:50:21 2013 +0800
+
+    fixed main_user mixup
+
+commit b6bf33382d4a60a483b213b933fab74239e097ac
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:43:26 2013 +0800
+
+    fixed main_user mixup
+
+commit 6d43072bd32a56aae1f9b00e233dfae7bae0645e
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:41:24 2013 +0800
+
+    fixed main_user mixup
+
+commit dc453bf9cb1721ee3a4a5fdebd03e9926f2a2257
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:32:19 2013 +0800
+
+    added installer app zip
+
+commit 249a2c1aba4cad5da57e067dfc8d76cb34ca25dd
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 23:30:46 2013 +0800
+
+    added installer app
+
+commit 7943f620eb2329b9674464cdbea0332873494d75
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 21:24:08 2013 +0800
+
+    bot comment fixes
+
+commit 171c3c4430185a54ddd52dfa3c33903faa258256
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 21:18:28 2013 +0800
+
+    added launchd agent and installer script
+
+commit 0e0a504bf2dc7abc7a9e7b3d695f6f20f264bccc
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 17:44:15 2013 +0800
+
+    fixes to skype profile recognition
+
+commit 6c064d79326d0f9216bcc37e7039ea1a6ffb1972
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 17:15:29 2013 +0800
+
+    various small bot updates
+
+commit a49eaee3b7065213edff591596eb8d05348dba6b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 17:12:13 2013 +0800
+
+    various small bot updates
+
+commit ad34a661b0072b0e6cddc297bc36c71be9dab960
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 17:07:07 2013 +0800
+
+    various small bot updates
+
+commit 9da2d5cd9c2f3e7c4f0dc938c24f14bbd8f9c79d
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 16:32:45 2013 +0800
+
+    new module system
+
+commit 1f5d0dc8c30fa90d96b72787f4271d9c5bb40acc
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 16:31:59 2013 +0800
+
+    new naming conventions and support for multiple skype DBs
+
+commit f4a261bc3e611d8438236932c929946307f24b31
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 16:31:33 2013 +0800
+
+    added new function to scan entire skype db for cc numbers
+
+commit 205525e3b68ca91eaadcf06ff1fcaad76128b857
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun Jun 23 16:31:13 2013 +0800
+
+    major changes to module imports
+
+commit a13c33afae99241f95b0893e1407bb3f91250a2c
+Merge: 84808e9 00c2654
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Fri Jun 7 14:30:55 2013 +0800
+
+    Merge branch 'master' of https://github.com/nikisweeting/violent-python
+
+commit 84808e9c05bfd82710a05ba05751af1a12924b47
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Fri Jun 7 14:30:22 2013 +0800
+
+    bot bugfixes
+
+commit 00c26548ef550ac04c31a0ae482a9cb620266829
+Author: Nick Sweeting <nickwentboom@gmail.com>
+Date:   Fri Jun 7 15:28:28 2013 +0900
+
+    Update README.md
+
+commit c558bb8f50aba2907d8ef030cd5396b214362137
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sat Jun 1 15:25:49 2013 +0800
+
+    fixed reconnect bug
+
+commit 62cd9010c355120b0d4de6ae5be2228f8259d800
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sat Jun 1 00:45:11 2013 +0800
+
+    added bot skeleton for future development
+
+commit f1c965f50490568bfcc34ef425da70ee0c74f076
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 30 23:00:20 2013 +0800
+
+    added new module organization system with subfolders
+
+commit aa6dcf6d15ed5973c726973940e264e0225c28f0
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 30 22:29:12 2013 +0800
+
+    4.0 rewrote run_shell with better timing blocks
+
+commit 339dcf148e76fb0d02ecfe444b67f2494c76074d
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 30 21:27:51 2013 +0800
+
+    new parsing method
+
+commit 50a7060287bc214e20a78eb0027e20a0d04f9383
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 30 21:06:56 2013 +0800
+
+    adding bugfixes for exception handling
+
+commit 7b6fa59fa5773ab7591e0c767aa3ac25266e6df7
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 30 20:56:18 2013 +0800
+
+    updated to v3.6 with major bugfixes to output buffering and selfupdating
+
+commit 54fa752477b7982f5a884b4e026a17b22e011e82
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 30 20:55:43 2013 +0800
+
+    added unix shadow cracking script
+
+commit 2bd5feec1139e6b604c6840b38bdadd2930a3f9f
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 30 14:06:05 2013 +0800
+
+    begin upgrading irc_bot to bot using new command structure
+
+commit 8668f0a96e48d753422e88cc1af7924ed3a40fde
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Fri May 24 21:47:54 2013 +0800
+
+    added geolocate module
+
+commit 36b90527445f53457a977115a2ddb5b1bb89d749
+Merge: 9f500d6 7724538
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun May 12 11:49:34 2013 +0800
+
+    Merge branch 'master' of https://github.com/nikisweeting/violent-python
+
+commit 9f500d6e1fea90076f45cc8294ef0a044026c579
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Sun May 12 11:49:19 2013 +0800
+
+    new refactored command system using polymorphism
+
+commit 7724538c82922e2a746cb2c5e33c4e9e59cc23d8
+Author: Nick Sweeting <nickwentboom@gmail.com>
+Date:   Sun May 12 12:48:15 2013 +0900
+
+    removed some explitives
+
+commit 29d91784c9db4d2d47300e155b8909e8327126c8
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Fri May 10 19:53:40 2013 +0800
+
+    added SIGTERM catching, better command running, better exception handling
+
+commit b69eacdb6b617434db14e9bb5c4384113169f2d6
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Fri May 10 16:54:24 2013 +0800
+
+    started refactoring irc_bot to improve clarity and speed
+
+commit b7467b99e27408cf83169efa837f0f8530e59f75
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 9 03:36:10 2013 +0800
+
+    todo
+
+commit aef547f5e9e4fa40bdacb46ef5d55abd1d031e74
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 9 01:09:57 2013 +0800
+
+    full_identify now grabs info from skype profile as well
+
+commit 6d3e9286376938fe76d8361885763037cd323a4b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 9 00:26:16 2013 +0800
+
+    updated skype support to find profile auotmatically
+
+commit ebe697fbd5cc7b194adc4c46aaabf18b6a12cd2c
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 9 00:11:40 2013 +0800
+
+    added skype integration
+
+commit ff8b7063a352d216f2a2667edf9f0c1056ebef7d
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 23:57:46 2013 +0800
+
+    clearer update.sh, possibly merge selfupdate function into update.sh later on...
+
+commit 9a90b18574dd700f309af92dbd9574078da00d2f
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 23:51:20 2013 +0800
+
+    clearer commenting and spacing
+
+commit ed6bdbf4d8e54344d113d71fa98a3f085cd05781
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 23:42:23 2013 +0800
+
+    better identification based on main user detection
+
+commit 985ce90972f79a8adb1310f096e8ac96f79c0560
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 23:31:58 2013 +0800
+
+    faster main_user detection
+
+commit 2a53659ee9303106978bbf4fa5615014cc6aeba4
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 23:15:13 2013 +0800
+
+    version 2.0.0 with lots of fixups and formatting changes
+
+commit 4c14d49b5c4398786ca46dfa1e0114fae6c0ec3b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 22:57:00 2013 +0800
+
+    finished eval/exec function and updated helpmsg, fixed some timeout bugs, made comments clearer
+
+commit bb45de7e9b8e0362feab571003dbb7fde89bc7b8
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 22:18:33 2013 +0800
+
+    fixed timout problem and changed eval to include exec and eval
+
+commit 49b8280c616b241562e29b7040827a7206a42601
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 22:07:01 2013 +0800
+
+    fixed import bug
+
+commit d1603a0402c15d817b46a4ae9c578cf67583a5da
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 22:05:45 2013 +0800
+
+    changed python exec method
+
+commit 10d32d79d53ee8bfd2f3903bf544e14e91f98df3
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 21:36:54 2013 +0800
+
+    added python evaluation
+
+commit dbe0c4659be72795c8fe052fc66209e0758c95be
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 21:30:36 2013 +0800
+
+    changed version to string
+
+commit 49f168fb0e9e52d1cae0ae3608ab404651315aa5
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 21:27:17 2013 +0800
+
+    buxfix in updater script
+
+commit 399a9317eb67382653f9f6c77dd9a9f4632ac4eb
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 21:25:12 2013 +0800
+
+    changed delay back to 1 sec
+
+commit 6d4a203260456380d06d55f1c75de39b8ea9e9ff
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 21:09:11 2013 +0800
+
+    added logging to main bot
+
+commit 51345382eb6216d6aebaf5985cdd7e72d5a374d8
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 21:00:40 2013 +0800
+
+    reduced delay between privmsgs
+
+commit 2382308c96e0116d73d36091738a98b412955a98
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 20:55:25 2013 +0800
+
+    fixing ping timeout bug
+
+commit 9cae25b92f4d13ad30e33df8c4a68d9860be4888
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 20:44:47 2013 +0800
+
+    bugfix for non-string privmsgs
+
+commit ba36d75b6c72857eab6e08be7ae6185722115c59
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 20:41:36 2013 +0800
+
+    updated help message, added version command, bugfix for commands containing dollar sign
+
+commit da87acca0ddbed09c7d0fda0e611ca613e78991a
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 20:02:12 2013 +0800
+
+    added killer to update script
+
+commit 55d38a06f59c0f0e039a7c5acb9a759fe724bb66
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 19:55:09 2013 +0800
+
+    changed selfupdate method to use recursive replacement
+
+commit e7d45158ccff9f40035c936753aae6a07b6f03ae
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 19:42:35 2013 +0800
+
+    fixed wrong directory bug
+
+commit e82ea5e4a4c88856d7ca75e5a19b275776abad28
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 19:17:31 2013 +0800
+
+    updated updater
+
+commit cc3c4e1a74aba9404db38bdaeba674d7ba65ec18
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 18:52:57 2013 +0800
+
+    new selfupdate method
+
+commit 1800031db078b843f7b9de2091f14c6ba066d079
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 18:35:13 2013 +0800
+
+    added selfupdate script
+
+commit e507f11107ba1a1ddf91c00440c0fba0f6daf85d
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 14:28:38 2013 +0800
+
+    more changes to irc_bot, better command running
+
+commit ed5add446fa3c5a307fa412e2f3b5a54e1290df1
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 11:30:52 2013 +0800
+
+    added bash function libs from old skypeupdate virus
+
+commit 5c20a8a97e4c3f4c3828cee22cde77b68030f6e9
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Wed May 8 11:30:16 2013 +0800
+
+    updated irc_bot with new email+Attachments and identify features
+
+commit 9ccb4c03a9c159e71b18e5664d9cf9433b56cfa6
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue May 7 17:15:06 2013 +0800
+
+    added help command and made minor changes to IRC bot
+
+commit 1724e372acce32b407479dd7fdf8abc3003245f8
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Tue May 7 15:59:36 2013 +0800
+
+    added refactored irc_bot and new skeleteton for custom bots
+
+commit 7b609592b5690bf4e1a547e55ec5d31d863e7e4b
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Thu May 2 19:29:46 2013 +0800
+
+    updated irc bot with lots of new features
+
+commit 1b3a72a4bc1ed2503185b476a5cf8d75b7e25c49
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Apr 29 21:41:43 2013 +0800
+
+    added irc bot script
+
+commit 76dda7a6603ef83aefd100026258f25aa7bdd67f
+Author: Nick Sweeting <nickwentboom@gmail.com>
+Date:   Mon Apr 29 21:32:23 2013 +0800
+
+    added music requirement to README.md
+
+commit cfcdde349d9059b922599e2e051934ec0cfcd1b8
+Author: Nick Sweeting <nickwentboom@gmail.com>
+Date:   Mon Apr 29 21:24:29 2013 +0800
+
+    Updated the README
+
+commit 81aaf8a6c56517ed418df2d0a8340e216419fba4
+Author: Nick Sweeting <nikisweeting@gmail.com>
+Date:   Mon Apr 29 20:21:10 2013 +0800
+
+    added initial scripts

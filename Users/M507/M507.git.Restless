@@ -1,0 +1,223 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+
+# Restless
+
+### DISCLAIMERS
+The information contained in this repo is for educational purposes ONLY! I DO NOT hold any responsibility for any misuse or damage of the information provided in my blog posts, discussions, activities, repositories, or exercises.
+
+#### This is a low hanging fruit for Red-Blue themed competitions.
+
+### What is Restless?
+Restless is a small in-memory implant using C#. It uses SharpPcap, which uses Npcap APIs internally. Npcap is a new standard library update to the old WinPcap library.  
+
+RestlessCLI is a C2 that controls Restless implants using ICMP-like packets. Restless implant listens for specific ICMP-like packets and applies instructions given by Restless-CLI.py. Restless Controller/Server can task clients to execute pre-baked or arbitrary commands.
+
+![alt text](/poc_.gif)
+
+
+### Status
+- Restless implants have been tested on Windows7/10/12/16/19 and evaded detections on 10 :).
+- Restless implants bypass Windows Inbound firewall rules.
+- Server sends "encrypted" messages, Caesar Cipher; it can be adjusted using the SHIFT parameter.
+- Server uses raw sockets to send customized ICMP-like packets.
+- The server's CLI supports Command 2 All bots. 
+- The final payload is 20.0 KB without modifications.
+- Integrated with pwnboard. 
+
+### Files:
+- Config.py Where are the configuration parameters. (Have to be changed according to your system)
+- pwnAgent.py is a stand-alone script that updates pwnboard.
+- ips.conf Where all the targeted IPs should be placed.
+
+### Dependencies:
+- Dotnet core
+- Npcap
+====================== GIT HISTORY: ======================
+f6b1175 HEAD@{0}: clone: from https://github.com/M507/Restless
+commit f6b11757a2924f18c49d9224984b6df93430e11a
+Author: M507 <Mohammed10work@gmail.com>
+Date:   Sat Oct 2 00:05:57 2021 -0400
+
+    Adding try and catch
+
+commit e512ff65fe81ed8d34754d0dff03a7a06590afbe
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Thu Dec 3 16:36:29 2020 -0500
+
+    Update README.md
+
+commit e92e3d5d9afcedce4f771ad77a6938cb1d895e5d
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Mon Sep 7 05:11:22 2020 -0400
+
+    Delete poc.gif
+
+commit a7fa96f4909c0c21dab6781c1fbac82deb59427a
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Mon Sep 7 05:11:07 2020 -0400
+
+    Update README.md
+
+commit 0fc62cae360a1b226567b7a922188f1491824611
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Mon Sep 7 05:10:25 2020 -0400
+
+    Add files via upload
+
+commit ff065674fc815a2a4557df9e88a7443e55622552
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Aug 26 19:14:49 2020 -0400
+
+    Update README.md
+
+commit 6cb6296a623b0918e108d419935ba4dbef3be4b8
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Aug 26 19:11:39 2020 -0400
+
+    Update README.md
+
+commit bf0b6cd325f628bf55a349d4d59235d69d5778fa
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Aug 26 19:09:27 2020 -0400
+
+    Add files via upload
+
+commit 5697221050058a7c9aabf6dbacbf6da0f0fb1bcd
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Aug 26 19:08:11 2020 -0400
+
+    Update Restless-CLI.py
+
+commit 8bc794e0898730fe0dd7a2f5f5096fe32038504f
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Aug 26 14:00:39 2020 -0400
+
+    Update README.md
+
+commit 17dd89121a61ec4ce4cb8a77983b39ba029cb4f9
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Aug 25 16:35:23 2020 -0400
+
+    Update Packets.py
+
+commit 83ee0fcf9c1d362a6e366eb6f5fb11e3309317ca
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Aug 25 16:35:12 2020 -0400
+
+    Update Restless-CLI.py
+
+commit f6f74b00784bc4dfd9bbe60a25d32c2fc92be558
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Aug 25 16:35:05 2020 -0400
+
+    Update Common.py
+
+commit 5841ce2490dd9a5d96d1220e103b489ffceccdf7
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Aug 25 16:33:47 2020 -0400
+
+    Update Common.py
+
+commit 6247ca930c5a9774984bc3df9229186de4a03701
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Aug 25 16:32:10 2020 -0400
+
+    Update README.md
+
+commit b352753742b78173484205ea4853effb241c00a4
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Aug 25 16:31:00 2020 -0400
+
+    Update README.md
+
+commit 712c48eff4815d1812bbe1b08fa9ab819c693d62
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Jan 29 11:21:22 2020 -0500
+
+    Update README.md
+
+commit 905873636fab65145e19990eb83d3f2bdfae6c0f
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Jan 1 22:45:06 2020 -0500
+
+    Update README.md
+
+commit 145a9b0422e22743598be1faa0a1b0d87566a9e7
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Jan 1 22:44:18 2020 -0500
+
+    Update README.md
+
+commit 8d13695a349b5f1501a121481f88bf9221c4623c
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Wed Jan 1 22:43:50 2020 -0500
+
+    Update README.md
+
+commit cec01abcd07dfec948bc881ff1bcecf5c0969d53
+Author: m507 <mohammed10work@gmail.com>
+Date:   Wed Jan 1 19:36:44 2020 -0500
+
+    Added documentation
+
+commit 8d129a0aca023a018da51100218d90ec5a79d6d7
+Author: m507 <mohammed10work@gmail.com>
+Date:   Wed Jan 1 19:28:34 2020 -0500
+
+    Timeout updated
+
+commit 45eb6769e033495dc51a618c8b25af2183a9d844
+Merge: 95866f8 b8f0338
+Author: m507 <mohammed10work@gmail.com>
+Date:   Wed Jan 1 15:34:07 2020 -0500
+
+    Update
+
+commit 95866f83f647cbcfa4a32c80787f92cb3d161671
+Author: m507 <mohammed10work@gmail.com>
+Date:   Wed Jan 1 15:26:09 2020 -0500
+
+    Implant v1
+
+commit b8f0338d1fea6754bf308c66455612791de8d4a3
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Dec 31 05:51:21 2019 -0500
+
+    Update README.md
+
+commit 1b29de3851b64e97f1f183e1fce1e41b9ec1d58b
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Dec 31 05:51:03 2019 -0500
+
+    Update README.md
+
+commit 5dcf066d72a811765863e7aab4c42ad5826dda4d
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Dec 31 05:46:17 2019 -0500
+
+    Update README.md
+
+commit bd35c6b488e22d415e11be758f76c369403d1987
+Author: m507 <mohammed10work@gmail.com>
+Date:   Tue Dec 31 05:44:30 2019 -0500
+
+    First commit
+
+commit 4ed8159213e4d9bc3a48621f33270a562bbabd3a
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Dec 31 05:41:02 2019 -0500
+
+    Update README.md
+
+commit fe0aa67fac24cde3b2e20364756fffca7a23fc10
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Tue Dec 31 05:39:23 2019 -0500
+
+    Update README.md
+
+commit b49a8cca00b30d888e7f821ec36e5a1df474f7f4
+Author: Mohad <38591075+M507@users.noreply.github.com>
+Date:   Mon Dec 30 22:51:54 2019 -0500
+
+    Create README.md

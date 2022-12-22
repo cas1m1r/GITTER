@@ -1,0 +1,663 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-multiverse-welcome_small.png "UFONet Welcome")
+
+----------
+
+ + Website:   https://ufonet.03c8.net
+
+----------
+
+#### Description:
+
+  UFONet - is a free software, P2P and cryptographic -disruptive toolkit- that allows to perform DoS and DDoS attacks; 
+on the Layer 7 (APP/HTTP) through the exploitation of Open Redirect vectors on third-party websites to act as a botnet 
+and on the Layer3 (Network) abusing the protocol.
+
+  It also works as an encrypted DarkNET to publish and receive content by creating a global client/server network based 
+on a direct-connect P2P architecture.
+
+  See these links for more info:
+
+   - FAQ:
+     https://ufonet.03c8.net/FAQ.html
+
+   - CWE-601:Open Redirect: 
+     https://cwe.mitre.org/data/definitions/601.html
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-schema.png "UFONet Schema")
+
+   - LOIC: 
+     https://en.wikipedia.org/wiki/Low_Orbit_Ion_Cannon
+
+   - LORIS: 
+     https://en.wikipedia.org/wiki/Slowloris_(software)
+
+   - UFOSYN: 
+     https://en.wikipedia.org/wiki/SYN_flood
+
+   - FRAGGLE: 
+     https://en.wikipedia.org/wiki/Fraggle_attack
+
+   - UFORST: 
+     https://ddos-guard.net/en/terminology/attack_type/rst-or-fin-flood
+
+   - SPRAY: 
+     https://en.wikipedia.org/wiki/DRDOS
+
+   - SMURF: 
+     https://en.wikipedia.org/wiki/Smurf_attack
+
+   - XMAS: 
+     https://en.wikipedia.org/wiki/Christmas_tree_packet
+
+   - DROPER: 
+     https://en.wikipedia.org/wiki/IP_fragmentation_attack
+
+   - SNIPER: 
+     https://www.imperva.com/learn/application-security/snmp-reflection/
+
+   - TACHYON: 
+     https://www.us-cert.gov/ncas/alerts/TA13-088A
+
+   - PINGER: 
+     https://www.cloudflare.com/learning/ddos/ping-icmp-flood-ddos-attack/
+
+   - MONLIST: 
+     https://www.us-cert.gov/ncas/alerts/TA14-013A
+
+   - UFOACK: 
+     https://www.f5.com/services/resources/glossary/push-and-ack-flood
+
+   - OVERLAP: 
+     https://cyberhoot.com/cybrary/fragment-overlap-attack/
+
+   - UFOUDP: 
+     https://en.wikipedia.org/wiki/UDP_flood_attack
+
+   - NUKE: 
+     https://dl.packetstormsecurity.net/papers/general/tcp-starvation.pdf
+
+----------
+
+#### Installing:
+
+  UFONet runs on many platforms. It requires Python (>=3) and the following libraries:
+
+       python3-pycurl - Python bindings to libcurl (Python 3)
+       python3-geoip - Python3 bindings for the GeoIP IP-to-country resolver library
+       libgeoip-dev - Development files for the GeoIP library
+       libgeoip1 - non-DNS IP-to-country resolver library
+       python3-whois - Python module for retrieving WHOIS information - Python 3
+       python3-crypto - cryptographic algorithms and protocols for Python 3
+       python3-requests - elegant and simple HTTP library for Python3, built for human beings
+       python3-scapy - Packet crafting/sniffing/manipulation/visualization security tool
+
+  You can automatically get all required libraries using (as root):
+
+       python3 setup.py install
+
+  For manual installation, on Debian-based systems (ex: Ubuntu), run:
+
+       sudo apt-get install python3-pycurl python3-geoip python3-whois python3-crypto python3-requests python3-scapy libgeoip1 libgeoip-dev
+
+  On other systems such as: Kali, Ubuntu, ArchLinux, ParrotSec, Fedora, etc... also run:
+
+       pip3 install GeoIP
+       pip3 install python-geoip
+       pip3 install pygeoip
+       pip3 install requests
+       pip3 install pycrypto
+       pip3 install pycurl
+       pip3 install whois
+       pip3 install scapy-python3
+
+####  Source libs:
+
+   * Python: https://www.python.org/downloads/
+   * PyCurl: http://pycurl.sourceforge.net/
+   * GeoIP: https://pypi.python.org/pypi/GeoIP/
+   * Python-geoip: https://pypi.org/project/python-geoip/
+   * Pygeoip: https://pypi.org/project/pygeoip/
+   * Whois: https://pypi.python.org/pypi/whois
+   * PyCrypto: https://pypi.python.org/pypi/pycrypto
+   * PyRequests: https://pypi.python.org/pypi/requests
+   * Scapy-Python3: https://pypi.org/project/scapy-python3/
+   * Leaflet: http://leafletjs.com/ (provided)
+
+----------
+
+####  License:
+
+  UFONet is released under the GPLv3. You can find the full license text
+in the [LICENSE](./docs/LICENSE) file.
+
+----------
+
+####  Screenshots (current version!):
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-phantom-shell-1.png "UFONet Shell Version")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-phantom-shell-2.png "UFONet Shell Board")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-phantom-shell-3.png "UFONet GUI Shell")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-phantom-main_small.png "UFONet GUI Main Panel")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-kraken-help_small.png "UFONet GUI Help")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-phantom-botnet.png "UFONet GUI Botnet")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-kraken-stats.png "UFONet GUI General Stats")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-multiverse-ranking_small.png "UFONet GUI Ranking")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-kraken-attack.png "UFONet GUI Attack")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-kraken-board_small.png "UFONet GUI Board")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-kraken-wargames_small.png "UFONet GUI Wargames")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-gui3_small.png "UFONet GeoMap /deploying/")
+
+  ![UFONet](https://ufonet.03c8.net/ufonet/ufonet-gui4_small.png "UFONet GeoMap /attacking/")
+
+====================== GIT HISTORY: ======================
+e5d4014 HEAD@{0}: clone: from https://github.com/epsylon/ufonet
+commit e5d40140fa5ae5a4acd91a85ec88538dadb3e997
+Author: psy <epsylon@riseup.net>
+Date:   Sun Jul 24 16:57:57 2022 +0200
+
+    advanced warping
+
+commit 753904e3923c9d972997ff7b060acce38c3801f9
+Author: psy <epsylon@riseup.net>
+Date:   Sat Jul 23 10:06:35 2022 +0200
+
+    maintenance fixes
+
+commit 62d1a70001ae1f944556a3ac2fa8785b8d5178cd
+Author: psy <epsylon@riseup.net>
+Date:   Thu Mar 24 20:05:12 2022 +0100
+
+    fixed syntax warning
+
+commit 195c29b42a55a64586559090ac6c71322b737fa3
+Author: psy <epsylon@riseup.net>
+Date:   Tue Mar 15 03:20:13 2022 +0100
+
+    fixed UPLOADING zombies
+
+commit 04687cbf0904b501fec7d449e68eb829b175d0f2
+Author: psy <epsylon@riseup.net>
+Date:   Sat Mar 12 13:03:10 2022 +0100
+
+    fixed GUI menu links
+
+commit ba3a8c239b852cf1e54dc2ad1a9a36dc5a9c8c00
+Author: psy <epsylon@riseup.net>
+Date:   Sat Mar 12 12:49:27 2022 +0100
+
+    minor fixes
+
+commit 1fc4a7ce75891d0b7f2736d7f3bfb9be49971ca7
+Author: psy <epsylon@riseup.net>
+Date:   Tue Mar 8 20:18:20 2022 +0100
+
+    release v1.8 - DarK-PhAnT0m
+
+commit ea1d2cff4b1bde592c679b441003ed5023013e83
+Author: psy <epsylon@riseup.net>
+Date:   Tue Mar 1 13:24:22 2022 +0100
+
+    updated nodes.dat
+
+commit d9191b1a381a6ea70f8e5d41d072dee98ff3c5be
+Author: psy <epsylon@riseup.net>
+Date:   Fri Sep 17 23:15:58 2021 +0200
+
+    updated Community botnet sources
+
+commit 985701eb7d0c0f66c39a9f5667ca1c4167308db8
+Author: psy <epsylon@riseup.net>
+Date:   Sun Jul 25 14:10:01 2021 +0200
+
+    fixed GUI attack
+
+commit 11ad31d838a2ea087c0ca2f7e3b69bd886e2dcb9
+Author: psy <epsylon@riseup.net>
+Date:   Sat Jul 17 15:10:34 2021 +0200
+
+    badkeys sanitize
+
+commit 4cdf01135ad57c3a4d0904cd01668bb8b8e71c84
+Author: psy <epsylon@riseup.net>
+Date:   Wed Jul 14 14:00:45 2021 +0200
+
+    release v1.7 - /KRäKEN/
+
+commit ed3dd2a65f4611dc61cc546e34192b80959c9784
+Author: psy <epsylon@riseup.net>
+Date:   Sat Mar 6 22:28:59 2021 +0100
+
+    fixed GUI logs output
+
+commit 9561ad7f444c6457a1f6a0d2284d109a29b2309c
+Author: psy <epsylon@riseup.net>
+Date:   Sat Mar 6 22:15:42 2021 +0100
+
+    fixed some syntax warnings
+
+commit 6633a1607f7c7e610dc8cee9545f4509697ca7cf
+Author: psy <epsylon@riseup.net>
+Date:   Mon Nov 23 08:12:45 2020 +0100
+
+    updated zombies.txt
+
+commit a45f9fadcd3b6e2e1da3e4431dc2d2ef50a29682
+Author: psy <epsylon@riseup.net>
+Date:   Fri Sep 18 15:47:17 2020 +0200
+
+    fixed grid
+
+commit 3f1fca6d32d32e03d7e60f4b9033a7de1f6c76e6
+Author: psy <epsylon@riseup.net>
+Date:   Fri Sep 18 14:44:54 2020 +0200
+
+    fixed board
+
+commit 5127e9b9150386f8be862a36ba3dc98bae148d95
+Author: psy <epsylon@riseup.net>
+Date:   Fri Sep 18 14:18:48 2020 +0200
+
+    minor detail
+
+commit d9980f21822570672bd4195f9790adef8ef2f1b6
+Author: psy <epsylon@riseup.net>
+Date:   Fri Sep 18 14:13:14 2020 +0200
+
+    fixed grider
+
+commit 6c8a6810ebdf2ae6de11586282c3d32672916b13
+Author: psy <epsylon@riseup.net>
+Date:   Tue Aug 18 00:28:07 2020 +0200
+
+    release v1.6 - M4RAuD3R
+
+commit adf84378696d0834f0002cc7efdbfb455fb53055
+Author: psy <epsylon@riseup.net>
+Date:   Sat Jul 25 12:36:44 2020 +0200
+
+    updated AUTHOR projects
+
+commit 6d3ec0bd8f26497a16c5b5a9370680ecf9cb6953
+Author: epsylon <epsylon@riseup.net>
+Date:   Mon Jun 8 02:04:46 2020 +0200
+
+    added default botnet
+
+commit a6a300aa2c7e3b3eb0a1218e0b4e94857e920cbf
+Author: epsylon <epsylon@riseup.net>
+Date:   Mon Jun 8 00:50:46 2020 +0200
+
+    release v1.5 - MuLTi.V3rSe
+
+commit f80cf83081f1495287fe74691a9138bb33a8fd14
+Author: epsylon <epsylon@riseup.net>
+Date:   Wed Feb 26 06:25:45 2020 +0100
+
+    added default exit msg
+
+commit d57eb2380ec865dab814ee9ee5c7ee2fbf4d13f8
+Author: epsylon <epsylon@riseup.net>
+Date:   Wed Feb 26 05:59:38 2020 +0100
+
+    added default mothership name
+
+commit 78541d040273ec4562417c034b4a0b1be7f112f5
+Author: epsylon <epsylon@riseup.net>
+Date:   Wed Feb 26 05:21:25 2020 +0100
+
+    added anti-cheating for mothership naming
+
+commit d6117dd5cafa61454310ed4927e07adcf1c206db
+Author: epsylon <epsylon@riseup.net>
+Date:   Wed Feb 26 05:07:31 2020 +0100
+
+    fixed mothership id encoding
+
+commit a3bb1ce86aab8c53551499f4f4266e26f8beade9
+Author: epsylon <epsylon@riseup.net>
+Date:   Wed Feb 26 03:56:57 2020 +0100
+
+    general url_encoding fix
+
+commit 2276c68231cac794bb964376d722ceec9f57dd24
+Author: epsylon <epsylon@riseup.net>
+Date:   Tue Feb 25 04:13:11 2020 +0100
+
+    fixing pycurl.URL encoding
+
+commit d19096004e99a7e9ab6f43ca584c3953828be9ac
+Author: epsylon <epsylon@riseup.net>
+Date:   Sat Feb 15 10:56:46 2020 +0100
+
+    release v1.4.1
+
+commit f33a8b6441dcfdd897649e34b4b47c24e1de8d76
+Author: epsylon <epsylon@riseup.net>
+Date:   Fri Feb 7 07:52:23 2020 +0100
+
+    fixed Wargames engage
+
+commit dcfbe7141593b837962063ff52dc3ff138948277
+Author: epsylon <epsylon@riseup.net>
+Date:   Wed Feb 5 14:44:12 2020 +0100
+
+    better format output when updating
+
+commit 2e6fd3e5dfaead776a8fc6a91f464ab8a47455f5
+Author: epsylon <epsylon@riseup.net>
+Date:   Wed Feb 5 14:09:15 2020 +0100
+
+    minor detail at docs for github versions
+
+commit 46ad8efeb3e58af235fa1e02b1137d13aa632a37
+Author: epsylon <epsylon@riseup.net>
+Date:   Sat Feb 1 20:09:47 2020 +0100
+
+    release v1.4 - Tim3WaRS
+
+commit 37d112d6c850de1549e710267c621de1fa18ebf2
+Author: psy <epsylon@riseup.net>
+Date:   Fri Mar 8 01:34:30 2019 +0100
+
+    release v1.3 - SingularitY
+
+commit 3145622c33b788657b5070b0467502dd4d1b3742
+Author: psy <epsylon@riseup.net>
+Date:   Sun Feb 3 08:15:25 2019 +0100
+
+    Added STARVATION to docs
+
+commit 20f4bbb5fd7f677cb0439aeb26fcc7a32544e9a3
+Author: psy <epsylon@riseup.net>
+Date:   Sun Feb 3 08:00:53 2019 +0100
+
+    Increasing STARVATION default value
+
+commit da1e07146836177c615e91c9fb05fcaa5e2766b4
+Author: psy <epsylon@riseup.net>
+Date:   Sun Feb 3 07:53:54 2019 +0100
+
+    Added TCP-Starvation attack
+
+commit 2cc84541152fa5828f207beaa9962d730c01fedd
+Author: psy <epsylon@riseup.net>
+Date:   Tue Jan 1 01:10:44 2019 +0100
+
+    release v1.2 - Armageddon
+
+commit 9c5e267c608f5739769405b1a4e01b789219cd1a
+Author: psy <epsylon@riseup.net>
+Date:   Fri Nov 9 14:35:25 2018 +0100
+
+    fixing setup.py
+
+commit 7d328c507c114324b9d263306fdff41e085f6e10
+Author: psy <epsylon@riseup.net>
+Date:   Tue Sep 25 05:35:55 2018 +0200
+
+    release v1.1 - Quantum Hydra
+
+commit b5da87612c7dde28bb23bdf20bccfbdf2b30e6c2
+Author: psy <epsylon@riseup.net>
+Date:   Sun Aug 19 23:15:32 2018 +0200
+
+    fixed UCAVs when exception
+
+commit 252074e8ae0433b5bee4d6a742d4f6943e966ebf
+Author: psy <epsylon@riseup.net>
+Date:   Sat Aug 18 21:55:26 2018 +0200
+
+    fixed xml-rpc test
+
+commit 89b5976c7a286ff21deae7b08dd2389fb5ffa8dc
+Author: psy <epsylon@riseup.net>
+Date:   Sat Aug 18 21:36:29 2018 +0200
+
+    minor changes
+
+commit a19bb42a1ca9bfae3a364435b31b356e5c4e95e1
+Author: psy <epsylon@riseup.net>
+Date:   Sat Aug 18 21:25:29 2018 +0200
+
+    fixed XML-RPCs test when exception
+
+commit be77287a2bf40269b64e408af5b7b34966e10274
+Author: psy <epsylon@riseup.net>
+Date:   Mon Mar 12 16:07:13 2018 +0100
+
+    fixing update
+
+commit 8333dff5895ab97656c3944028f9cffe0a96a6a2
+Author: psy <epsylon@riseup.net>
+Date:   Mon Mar 12 15:52:07 2018 +0100
+
+    fixed update + removed deprecated search engines
+
+commit c1b84982d23805e622e04111400de4e9e7746eb3
+Author: psy <epsylon@riseup.net>
+Date:   Sat Mar 10 04:04:50 2018 +0100
+
+    fixing offline test
+
+commit 00e9577a9eb602493690872d525a8db610537813
+Author: psy <epsylon@riseup.net>
+Date:   Sat Mar 10 02:55:13 2018 +0100
+
+    fixing offline test
+
+commit f3b89462553923e0705929e134044e203da9b94d
+Author: psy <epsylon@riseup.net>
+Date:   Fri Mar 9 02:59:49 2018 +0100
+
+    minor detail
+
+commit 7c70a5c02461b36fbfccb41198cbf24f1f9c6c7f
+Author: psy <epsylon@riseup.net>
+Date:   Fri Mar 9 02:57:14 2018 +0100
+
+    release v1.0 - TachY0n
+
+commit 1c888988a35f010b08490bac7643a4913c686868
+Author: psy <epsylon@riseup.net>
+Date:   Fri Sep 1 15:31:17 2017 +0200
+
+    fixed script
+
+commit ae3a12cda970260aa5eff88d67148cae7e4e3014
+Author: psy <epsylon@riseup.net>
+Date:   Fri Jul 14 01:09:35 2017 +0200
+
+    release v0.9 - Blazar
+
+commit f9e168834bf9eea4386aaa0b74dc94389c4916ec
+Author: psy <epsylon@riseup.net>
+Date:   Wed May 24 15:46:05 2017 +0200
+
+    fixing path to images
+
+commit 3ce6d925c097870d1e7a2b8c271bfff938f67208
+Author: psy <epsylon@riseup.net>
+Date:   Sun Apr 9 14:21:03 2017 +0200
+
+    added tags to gui images
+
+commit f912580b814cf264654bb090e7c25fdfc37c9421
+Author: psy <epsylon@riseup.net>
+Date:   Sat Apr 8 21:17:38 2017 +0200
+
+    fixed Yahoo search engine + added more dorks
+
+commit a1caa7020e2fc071ea3357532e60a606e37cf8d9
+Author: psy <epsylon@riseup.net>
+Date:   Thu Mar 30 12:13:01 2017 +0200
+
+    fixed update
+
+commit a4531d6dfbe12f1bf1ebe57903a20d6223cfd8c0
+Author: psy <epsylon@riseup.net>
+Date:   Mon Dec 12 01:31:46 2016 +0100
+
+    added OSM tile + updated BTC donation + updated rpcs.txt
+
+commit a80bee5c495520935f9648488f972172bc8be61c
+Author: psy <epsylon@riseup.net>
+Date:   Wed Dec 7 18:37:16 2016 +0100
+
+    fixing xml-rpc + adding packaging support
+
+commit 0172a823c36b619311cce6edaa7ba7f7688bc2f6
+Author: psy <epsylon@riseup.net>
+Date:   Sun Oct 30 20:06:58 2016 +0100
+
+    updating requirements
+
+commit 73f0b5a813c3ddd84a1e36a7cecc6a16ab5357a4
+Author: psy <epsylon@riseup.net>
+Date:   Sun Oct 23 01:08:19 2016 +0200
+
+    fixed README.md
+
+commit 048ca01fffce70d0c95c5f21cab7b7f4f03ac34e
+Author: psy <epsylon@riseup.net>
+Date:   Sun Oct 23 00:58:48 2016 +0200
+
+    release v0.8 - U-NATi0n
+
+commit 123412518d4ce35dd612a887f5610cf7c20c8e9d
+Author: psy <epsylon@riseup.net>
+Date:   Fri Aug 19 02:06:22 2016 +0200
+
+    release v0.7 - Big Crunch
+
+commit 373ac6e588aea9b8fea8c950332608bab9f6cd22
+Author: psy <epsylon@riseup.net>
+Date:   Fri Aug 19 01:57:02 2016 +0200
+
+    release v0.7 - Big Crunch
+
+commit 028765539392a0c9ae6c8adc13265ae14b2db5d4
+Author: psy <epsylon@riseup.net>
+Date:   Sat Feb 20 22:12:05 2016 +0100
+
+    fixed detail on 'yahoo' search engine
+
+commit 4a486699b191cc188ad50e17620fd383a81f6d19
+Author: psy <epsylon@riseup.net>
+Date:   Sat Feb 20 20:50:29 2016 +0100
+
+    fixed detail on 'bing' search engine
+
+commit 42f42489c0f6a5954b7f75e14e9ee0f01af8a397
+Author: psy <epsylon@riseup.net>
+Date:   Mon Jan 4 20:29:51 2016 +0100
+
+    fixing libcurl bug: 'longjmp causes uninitialized stack frame'
+
+commit 6f34625cf998475399273d737b7645dd8061ba47
+Author: psy <epsylon@riseup.net>
+Date:   Wed Nov 4 23:57:16 2015 +0100
+
+    release v0.6 - Galactic OFFensive
+
+commit 3e8838097c793e501887ce77cda09606ca1d1a0b
+Author: psy <epsylon@riseup.net>
+Date:   Sun May 24 03:06:27 2015 +0200
+
+    changed detail on README
+
+commit 70d18bc8e99a2a5b5978d56f60e2e174ad7cbdb3
+Author: psy <epsylon@riseup.net>
+Date:   Sun May 24 03:01:01 2015 +0200
+
+    release v0.5b - Invasion
+
+commit 792f4b202425bf54d4e2f1327bd4573b5a335327
+Author: psy <epsylon@riseup.net>
+Date:   Fri May 22 16:17:25 2015 +0200
+
+    detail on README to check updater
+
+commit dc92621bb0b306780832897af62259b5b16458ab
+Author: psy <epsylon@riseup.net>
+Date:   Tue Dec 16 01:04:10 2014 +0100
+
+    fixed update
+
+commit db07b871d81d27583509dda2e09ac46c9bd65b40
+Author: psy <epsylon@riseup.net>
+Date:   Mon Dec 15 08:36:07 2014 +0100
+
+    clean README.md
+
+commit 6ab477e5e44967849db7587b32bf529f086b920b
+Author: psy <epsylon@riseup.net>
+Date:   Mon Dec 15 08:25:54 2014 +0100
+
+    release v0.4b - Infection
+
+commit 5484a90e305a71cb7d12edc3d026960cdfefb996
+Author: psy <epsylon@riseup.net>
+Date:   Sat Sep 27 21:19:16 2014 +0200
+
+    release v0.3.1b - Abduction + patches
+
+commit 374c95e186881e4ce26c2573541d0e742ab26e55
+Author: psy <epsylon@riseup.net>
+Date:   Wed Sep 17 17:15:41 2014 +0200
+
+    README.md
+
+commit 76455894b986a26aa244bc6c92c5881d71acd23b
+Author: psy <epsylon@riseup.net>
+Date:   Wed Sep 17 17:14:07 2014 +0200
+
+    cleaning garbage
+
+commit bcd8196c3844e7d4f116100f91dddc33738c1f93
+Author: psy <epsylon@riseup.net>
+Date:   Wed Sep 17 17:12:33 2014 +0200
+
+    release v0.3b - Abduction
+
+commit 20e0550f91fd09bf7516760eb7aaa465152e83d2
+Author: psy <epsylon@riseup.net>
+Date:   Sat Jun 22 20:33:16 2013 +0200
+
+    added some measures against cache
+
+commit b0051252af286867660539eb4e641ce48c786e64
+Author: psy <epsylon@riseup.net>
+Date:   Sat Jun 22 05:18:07 2013 +0200
+
+    release version 0.2b
+
+commit 77c5f28b13ebfa3b772d7652f4cad454bb55abbf
+Author: psy <psy@ventiska.(none)>
+Date:   Tue Jun 18 20:13:53 2013 +0200
+
+    initial commit
+
+commit 0d6d728d0ea8a4ac4077a2774866b05441ee8742
+Author: psy <psy@ventiska.(none)>
+Date:   Tue Jun 18 20:11:26 2013 +0200
+
+    first release
+
+commit 0d219751ae98b42b813fae00e8d0493ac293bb20
+Author: psy <epsylon@riseup.net>
+Date:   Tue Jun 18 11:11:26 2013 -0700
+
+    Initial commit

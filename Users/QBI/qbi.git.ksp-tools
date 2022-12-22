@@ -1,0 +1,390 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 32ffd28d689133d1bc2eded23db474c6645dda6c
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:24:35 2015 +0100
+
+    Also check for configfile in KSP_HOMEDIR
+
+commit 5d0806a3fe91bb92c9ee880ba7515ea31d4903f4
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:23:24 2015 +0100
+
+    Even more sanitizing
+
+commit f2f89e8c034a3e81ca9b2e91774d9b7d75c2f23a
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:17:56 2015 +0100
+
+    Replace sanitized chars with _
+
+commit 2a4c7ee12c4bdaf8fe72abc9c51e5fdcef8b4430
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:13:03 2015 +0100
+
+    Allow usage of the vhost name for the updatehook
+
+commit a83916a201d13daf429da34a4fc972813530a98e
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:10:16 2015 +0100
+
+    Improve/Fix sanitizing of the vhost name
+
+commit d26dd922c5d8d6ae956ba1d16dd12296e42d5dfe
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:56:19 2015 +0100
+
+    Add an updatehook (Fixes: #2)
+
+commit bc475aca02bb7567b8b9212782cee3d781f67d18
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:51:47 2015 +0100
+
+    Remove debugstuff
+
+commit 643b3d5778506640e87d514171d5c2785fe7facd
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:41:17 2015 +0100
+
+    support a simple configuration file and some commandline options
+
+commit aee1e517cb8a0cd1dcb282a2a9faf7a9373b1b1f
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:09:37 2015 +0100
+
+    Remove obsolete dependency
+
+commit 97067c55f6bbc89c1691645eb58197857dc9ed4a
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:07:33 2015 +0100
+
+    Only send one 200 Header. (Fixes #1)
+
+commit 468606e4214fa28647af0b33dca47e4ed45d237e
+Merge: e9b732b 8efde2a
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Wed Feb 18 15:17:54 2015 +0100
+
+    Merge pull request #2 from weaselp/long-keyids
+    
+    Do not use short key-ids
+
+commit e9b732bf930efcf3a7032dfe42fb3d411c96b78d
+Merge: b93690a 0aa3959
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Wed Feb 18 15:16:57 2015 +0100
+
+    Merge pull request #3 from weaselp/support-new-algorithms
+    
+    Allow processing of keys with algorithms the system GnuPG does not understand yet
+
+commit 8efde2a27b406a29ede683840d230043d505d081
+Author: Peter Palfrader <peter@palfrader.org>
+Date:   Wed Feb 18 15:14:44 2015 +0100
+
+    Do not use short key-ids
+
+commit 0aa3959eeabc956c2ee02a6f950cafd6f83506a3
+Author: Peter Palfrader <peter@palfrader.org>
+Date:   Wed Feb 18 15:13:24 2015 +0100
+
+    Allow processing of keys with algorithms the system GnuPG does not understand yet
+
+commit b93690a4f4a91bd96866b42262343969fbd8df1d
+Merge: ab54e49 5d21890
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Tue Sep 23 09:18:50 2014 +0200
+
+    Merge branch 'master' of github.com:formorer/ksp-tools
+
+commit ab54e49dbb5165ecb3fba032ea10485b4e582ecc
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Tue Sep 23 09:14:12 2014 +0200
+
+    Fix some typo
+
+commit 5d218905e88944d43f3593a5108d6046bd519783
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:14:34 2013 +0200
+
+    Add inoticoming to docs
+
+commit 66405536492641cc8d9c1a77033d8099efaf9652
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:12:13 2013 +0200
+
+    Compress list to avoid encoding problems
+
+commit 351c00471ba9f54974f7373e7dc985b07815b6f0
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:11:39 2013 +0200
+
+    Add list-header example
+
+commit 21cc3a3b7cd8b81e414e4016ab7660bebdac5f3a
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:11:18 2013 +0200
+
+    honour conf/list-header
+
+commit 545efc2631942b43f4e5233735d1a5ced45f893b
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:05:10 2013 +0200
+
+    Retidy kspkeyserver
+
+commit 5fc21f4ed142a508b88a7665d77304f5e85030b1
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:04:53 2013 +0200
+
+    Close gpg filehandle
+
+commit 2a336ba50d1d327b0c3f36cb9dedc81b7d4fb8c0
+Author: Joost van Baal <joostvb@debian.org>
+Date:   Tue Sep 23 07:59:44 2008 +0200
+
+    Document some requirements: needed perl modules. kspkeyserver.pl now honors KSP_HOMEDIR, document it.
+
+commit f8fe2621be37ea270e3cac80f307c579c798f4ba
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Thu Aug 21 20:53:48 2008 +0200
+
+    Add Karl-Heinz Geyers patches
+
+commit c96fb643eba8301c94893f1e1f15a0bff4e3df80
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Tue Nov 27 16:15:53 2007 +0000
+
+    Improve documentation
+
+commit a8c2702e81f9281334b7e1379d6984af2c060ee8
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 23:30:12 2007 +0000
+
+    Mention creation of a keys/ dir
+
+commit 8786d64940ca4db1a75f811f739a3ba400a9060a
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 22:51:09 2007 +0000
+
+    Make weasel happy
+
+commit 6f0687bbb38bee77c96351fc3bb85f47799e90a8
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 22:49:13 2007 +0000
+
+    Add license foo
+
+commit b80b679c10535c02cce737cca5fdefe27c4558a0
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 22:02:35 2007 +0000
+
+    Add license foo
+
+commit ed3901b8c1920a877e09aec354ef70cce1ef741c
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 21:58:09 2007 +0000
+
+    Remove test keyring
+
+commit ccd652f8276a87ef400a8daafd4e5c787c43a907
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 21:57:16 2007 +0000
+
+    Initial import
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 32ffd28d689133d1bc2eded23db474c6645dda6c
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:24:35 2015 +0100
+
+    Also check for configfile in KSP_HOMEDIR
+
+commit 5d0806a3fe91bb92c9ee880ba7515ea31d4903f4
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:23:24 2015 +0100
+
+    Even more sanitizing
+
+commit f2f89e8c034a3e81ca9b2e91774d9b7d75c2f23a
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:17:56 2015 +0100
+
+    Replace sanitized chars with _
+
+commit 2a4c7ee12c4bdaf8fe72abc9c51e5fdcef8b4430
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:13:03 2015 +0100
+
+    Allow usage of the vhost name for the updatehook
+
+commit a83916a201d13daf429da34a4fc972813530a98e
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 17:10:16 2015 +0100
+
+    Improve/Fix sanitizing of the vhost name
+
+commit d26dd922c5d8d6ae956ba1d16dd12296e42d5dfe
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:56:19 2015 +0100
+
+    Add an updatehook (Fixes: #2)
+
+commit bc475aca02bb7567b8b9212782cee3d781f67d18
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:51:47 2015 +0100
+
+    Remove debugstuff
+
+commit 643b3d5778506640e87d514171d5c2785fe7facd
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:41:17 2015 +0100
+
+    support a simple configuration file and some commandline options
+
+commit aee1e517cb8a0cd1dcb282a2a9faf7a9373b1b1f
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:09:37 2015 +0100
+
+    Remove obsolete dependency
+
+commit 97067c55f6bbc89c1691645eb58197857dc9ed4a
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Wed Feb 18 16:07:33 2015 +0100
+
+    Only send one 200 Header. (Fixes #1)
+
+commit 468606e4214fa28647af0b33dca47e4ed45d237e
+Merge: e9b732b 8efde2a
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Wed Feb 18 15:17:54 2015 +0100
+
+    Merge pull request #2 from weaselp/long-keyids
+    
+    Do not use short key-ids
+
+commit e9b732bf930efcf3a7032dfe42fb3d411c96b78d
+Merge: b93690a 0aa3959
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Wed Feb 18 15:16:57 2015 +0100
+
+    Merge pull request #3 from weaselp/support-new-algorithms
+    
+    Allow processing of keys with algorithms the system GnuPG does not understand yet
+
+commit 8efde2a27b406a29ede683840d230043d505d081
+Author: Peter Palfrader <peter@palfrader.org>
+Date:   Wed Feb 18 15:14:44 2015 +0100
+
+    Do not use short key-ids
+
+commit 0aa3959eeabc956c2ee02a6f950cafd6f83506a3
+Author: Peter Palfrader <peter@palfrader.org>
+Date:   Wed Feb 18 15:13:24 2015 +0100
+
+    Allow processing of keys with algorithms the system GnuPG does not understand yet
+
+commit b93690a4f4a91bd96866b42262343969fbd8df1d
+Merge: ab54e49 5d21890
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Tue Sep 23 09:18:50 2014 +0200
+
+    Merge branch 'master' of github.com:formorer/ksp-tools
+
+commit ab54e49dbb5165ecb3fba032ea10485b4e582ecc
+Author: Alexander Wirt <formorer@debian.org>
+Date:   Tue Sep 23 09:14:12 2014 +0200
+
+    Fix some typo
+
+commit 5d218905e88944d43f3593a5108d6046bd519783
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:14:34 2013 +0200
+
+    Add inoticoming to docs
+
+commit 66405536492641cc8d9c1a77033d8099efaf9652
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:12:13 2013 +0200
+
+    Compress list to avoid encoding problems
+
+commit 351c00471ba9f54974f7373e7dc985b07815b6f0
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:11:39 2013 +0200
+
+    Add list-header example
+
+commit 21cc3a3b7cd8b81e414e4016ab7660bebdac5f3a
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:11:18 2013 +0200
+
+    honour conf/list-header
+
+commit 545efc2631942b43f4e5233735d1a5ced45f893b
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:05:10 2013 +0200
+
+    Retidy kspkeyserver
+
+commit 5fc21f4ed142a508b88a7665d77304f5e85030b1
+Author: Alexander Wirt <formorer@grml.org>
+Date:   Wed Aug 28 09:04:53 2013 +0200
+
+    Close gpg filehandle
+
+commit 2a336ba50d1d327b0c3f36cb9dedc81b7d4fb8c0
+Author: Joost van Baal <joostvb@debian.org>
+Date:   Tue Sep 23 07:59:44 2008 +0200
+
+    Document some requirements: needed perl modules. kspkeyserver.pl now honors KSP_HOMEDIR, document it.
+
+commit f8fe2621be37ea270e3cac80f307c579c798f4ba
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Thu Aug 21 20:53:48 2008 +0200
+
+    Add Karl-Heinz Geyers patches
+
+commit c96fb643eba8301c94893f1e1f15a0bff4e3df80
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Tue Nov 27 16:15:53 2007 +0000
+
+    Improve documentation
+
+commit a8c2702e81f9281334b7e1379d6984af2c060ee8
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 23:30:12 2007 +0000
+
+    Mention creation of a keys/ dir
+
+commit 8786d64940ca4db1a75f811f739a3ba400a9060a
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 22:51:09 2007 +0000
+
+    Make weasel happy
+
+commit 6f0687bbb38bee77c96351fc3bb85f47799e90a8
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 22:49:13 2007 +0000
+
+    Add license foo
+
+commit b80b679c10535c02cce737cca5fdefe27c4558a0
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 22:02:35 2007 +0000
+
+    Add license foo
+
+commit ed3901b8c1920a877e09aec354ef70cce1ef741c
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 21:58:09 2007 +0000
+
+    Remove test keyring
+
+commit ccd652f8276a87ef400a8daafd4e5c787c43a907
+Author: Alexander Wirt <formorer@formorer.de>
+Date:   Mon Nov 26 21:57:16 2007 +0000
+
+    Initial import

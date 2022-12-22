@@ -1,0 +1,175 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# SSH-botnet
+A python tool(automation) for automatically finding SSH servers on the network and adding them to the botnet for mass administration and control.
+
+## Installation
+```
+$ pip install -r requirements.txt --user
+```
+
+## Usage
+```
+$ python ssh_botnet.py -u msfadmin -p msfadmin -i vboxnet0
+
+Author : Goutham R
+GitHub : https://github.com/G0uth4m
+	
+	- This is a simple tool handy for linux administrators 
+	in schools, colleges, etc where all the systems used by students
+	in the lab or elsewhere have same usernames and passwords.
+
+	- Future releases will be having a choice to input different usernames
+	and passwords via a file.
+
+	- This code was tested on a bunch metasploitable 2 servers.
+
+	- Using this tool for illegal stuff is highly not recommended.
+
+	- 'sudo' is unsupported. You can use root as username for superuser access.
+
+	 _         _           _              _   
+ ___ ___| |__     | |__   ___ | |_ _ __   ___| |_ 
+/ __/ __| '_ \    | '_ \ / _ \| __| '_ \ / _ \ __|
+\__ \__ \ | | |   | |_) | (_) | |_| | | |  __/ |_ 
+|___/___/_| |_|___|_.__/ \___/ \__|_| |_|\___|\__|
+             |_____|                              
+
+
+[*] Scanning network for ssh servers ...
+[+] Scan complete
+
+Running ssh servers : 
+Host : 192.168.56.105		port : 22
+Host : 192.168.56.106		port : 22
+Host : 192.168.56.107		port : 22
+
+Continue adding bots to the botnet?[Y/n] y
+
+ssh@botnet:~$ ls
+[*] Output from 192.168.56.105
+[+] ls
+vulnerable
+
+[*] Output from 192.168.56.106
+[+] ls
+vulnerable
+
+[*] Output from 192.168.56.107
+[+] ls
+vulnerable
+
+ssh@botnet:~$ uname -a
+[*] Output from 192.168.56.105
+[+] uname -a
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+
+[*] Output from 192.168.56.106
+[+] uname -a
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+
+[*] Output from 192.168.56.107
+[+] uname -a
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+
+ssh@botnet:~$ id
+[*] Output from 192.168.56.105
+[+] id
+uid=1000(msfadmin) gid=1000(msfadmin) groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),107(fuse),111(lpadmin),112(admin),119(sambashare),1000(msfadmin)
+
+[*] Output from 192.168.56.106
+[+] id
+uid=1000(msfadmin) gid=1000(msfadmin) groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),107(fuse),111(lpadmin),112(admin),119(sambashare),1000(msfadmin)
+
+[*] Output from 192.168.56.107
+[+] id
+uid=1000(msfadmin) gid=1000(msfadmin) groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),107(fuse),111(lpadmin),112(admin),119(sambashare),1000(msfadmin)
+
+ssh@botnet:~$ exit
+
+[*] History of commands stored in logs.txt
+
+
+```
+
+## Author
+* **Goutham** - [G0uth4m](https://github.com/G0uth4m)
+====================== GIT HISTORY: ======================
+f131ebf HEAD@{0}: clone: from https://github.com/G0uth4m/SSH-botnet
+commit f131ebff571792f61acf51bdb695e0b1b087acee
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Sun Dec 22 22:30:01 2019 +0530
+
+    code beautified
+
+commit 938ea9394ffa545ed4d007c51be649e21a369c6f
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Sun Dec 22 22:27:18 2019 +0530
+
+    Update README.md
+
+commit 193373ba3a2c89dfaf2973aed58e86eb79a7418e
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Sun Dec 22 22:24:47 2019 +0530
+
+    code beautified
+
+commit e64e481469c5bc374ca5cfe00379228bbeccd981
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Sun Dec 22 22:24:14 2019 +0530
+
+    code beautified
+
+commit 68a2eade34dc3d52f3dca3082ccbf3da3807c924
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Sun Dec 22 22:23:23 2019 +0530
+
+    nmap module name update
+
+commit 91418eb461b6eca96d02c934f77bafbd4ff3abde
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Sun Dec 22 22:22:25 2019 +0530
+
+    code beautified
+
+commit 09aeceebfdc534ab47ba5bce17ebe44ed474dc0f
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Mon Dec 2 11:13:49 2019 +0530
+
+    Update ssh_botnet.py
+
+commit 4cbc94a5ee52c75b4675cd9731f468fd2e983cf3
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Thu Aug 29 19:29:03 2019 +0530
+
+    Update README.md
+
+commit ea9cf37f3dcbe5c590464fc253a8e499783b957c
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Thu Aug 29 19:28:09 2019 +0530
+
+    Update ssh_botnet.py
+
+commit 674a0904c5726e9c403c94434e7c7f6eb5711231
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Thu Aug 29 19:24:08 2019 +0530
+
+    Update README.md
+
+commit 3eeff0b0a05bd1f8d21d70f33f66aaf4996349db
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Wed Aug 28 21:22:38 2019 +0530
+
+    Update README.md
+
+commit ab0adf4af42bda135e44eebf2ec9d0bcb2c73a3a
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Wed Aug 28 21:12:32 2019 +0530
+
+    Add files via upload
+
+commit a22835deabaa162cd47efd7afc4ba71c02643a1b
+Author: Goutham Ramesh <50041245+G0uth4m@users.noreply.github.com>
+Date:   Wed Aug 28 21:10:27 2019 +0530
+
+    Initial commit

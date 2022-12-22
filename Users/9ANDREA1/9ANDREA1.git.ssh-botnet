@@ -1,0 +1,163 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# ssh botnet 
+add ssh credentials into 'creds.txt' file and run './script.py'
+
+## Example
+```shell
+root@kali:~/script/ssh_botnet# ./script.py 
+Loading hosts...
+
+[0] List Hosts
+[1] Active Hosts
+[2] Update Hosts
+[3] Run Command
+[4] Open Shell
+[5] File Upload
+[6] File Download
+[7] Script Exec
+[8] Exit
+
+C&C $> 0
+
+ID    | Host                           | SysInfo        
+------------------------------------------------------------
+    0 | root@127.0.0.1:22              | Linux kali 4.0.0-kali1-amd64
+    1 | root@192.168.6.100:22          | Linux sk-srv16 3.11.0-18-generic 
+
+
+[0] List Hosts
+[1] Active Hosts
+[2] Update Hosts
+[3] Run Command
+[4] Open Shell
+[5] File Upload
+[6] File Download
+[7] Script Exec
+[8] Exit
+
+C&C $> 1
+
+ID    | Host                           | SysInfo        
+------------------------------------------------------------
+    0 | root@127.0.0.1:22              | Linux kali 4.0.0-kali1-amd64
+    1 | root@192.168.6.100:22          | Linux sk-srv16 3.11.0-18-generic 
+
+
+Active Hosts:
+ID	    Host			        Status
+----	---------------		    ---------------------
+0	    root@127.0.0.1:22	    12:07:32 up  2:42,  3 users,  load average: 0.42, 0.29, 0.29
+1	    root@192.168.6.100:22	12:07:33 up 227 days, 22:59,  1 user,  load average: 0.23, 0.06, 0.06
+
+
+[0] List Hosts
+[1] Active Hosts
+[2] Update Hosts
+[3] Run Command
+[4] Open Shell
+[5] File Upload
+[6] File Download
+[7] Script Exec
+[8] Exit
+
+C&C $> 3
+
+ID    | Host                           | SysInfo        
+------------------------------------------------------------
+    0 | root@127.0.0.1:22              | Linux kali 4.0.0-kali1-amd64
+    1 | root@192.168.6.100:22          | Linux sk-srv16 3.11.0-18-generic 
+
+
+Command: id
+Hosts id (0 1 2... / all) [default is all]: 
+
+[root@192.168.6.100:22]: id
+--------------------------------------------------------------------------------
+uid=0(root) gid=0(root) groups=0(root)
+
+
+[root@127.0.0.1:22]: id
+--------------------------------------------------------------------------------
+uid=0(root) gid=0(root) groups=0(root)
+
+[0] List Hosts
+[1] Active Hosts
+[2] Update Hosts
+[3] Run Command
+[4] Open Shell
+[5] File Upload
+[6] File Download
+[7] Script Exec
+[8] Exit
+
+C&C $> 4
+
+ID    | Host                           | SysInfo        
+------------------------------------------------------------
+    0 | root@127.0.0.1:22              | Linux kali 4.0.0-kali1-amd64 
+    1 | root@192.168.6.100:22          | Linux sk-srv16 3.11.0-18-generic 
+
+
+Host id: 0
+[root@127.0.0.1:22] Executing task 'open_shell'
+Last login: Tue Jun 21 10:38:12 2016 from localhost
+root@kali:~# id
+uid=0(root) gid=0(root) groups=0(root)
+root@kali:~#
+```
+====================== GIT HISTORY: ======================
+fa0cce6 HEAD@{0}: clone: from https://github.com/9andrea1/ssh-botnet
+commit fa0cce63093d2eb54764eeeb79dc4970e01e6ee3
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Thu Jul 7 12:13:40 2016 +0200
+
+    Update README.md
+
+commit fa347fadc489184de5503c27156653bd2cff6695
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Thu Jul 7 12:12:51 2016 +0200
+
+    Update README.md
+
+commit f58bc84ad24ffdb614ff01f85864e94d3ab0fe1a
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Tue Jun 21 11:11:08 2016 +0200
+
+    Update README.md
+
+commit c1cc5ac64378fb6a0db4fdcfab247a509501408a
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Tue Jun 21 10:43:45 2016 +0200
+
+    Update README.md
+
+commit 504b0ce69e184e0cc560583fb2d882f333430e4a
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Tue Jun 21 10:40:53 2016 +0200
+
+    Update README.md
+
+commit b36522f7ddba16a78a0bcd8a59e9802b69bfef83
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Tue Jun 21 10:40:19 2016 +0200
+
+    Update README.md
+
+commit 93005c6fb02dbb8f610350c7afad09873a4d1e2e
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Tue Jun 21 10:32:38 2016 +0200
+
+    Create script.py
+
+commit 5e7b1b9fa7f353c23aad21fce90049c9160a4014
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Tue Jun 21 10:31:48 2016 +0200
+
+    Create creds.txt
+
+commit dfdb9be711677a31c3f6ca7102213b6cfe3f6651
+Author: 9andrea1 <9andrea1@users.noreply.github.com>
+Date:   Tue Jun 21 10:30:59 2016 +0200
+
+    Create README.md

@@ -1,0 +1,171 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Bottleneck-Transformers-for-Visual-Recognition
+## Introduction
+
+PyTorch Implementation of **Bottleneck Transformers for Visual Recognition**. 
+
+Link to paper: https://arxiv.org/abs/2101.11605
+
+Structure of Self-Attention layer in paper:
+
+![self-attention layer](https://github.com/CandiceD17/Bottleneck-Transformers-for-Visual-Recognition/blob/master/asset/self-attention-layer.png)
+
+## Dependency
+
+External libraries: eniops, yacs
+
+Use pip command to install:
+
+```shell
+$ pip install eniops
+$ pip install yacs
+```
+
+## Train the Network
+
+To train BoTNet from scratch using the standard training process:
+
+```shell
+$ python3 train.py
+```
+
+To execute this code, you should have ImageNet downloaded in your local directory and correct path set in `_C.TRAIN.DATASET` and`_C.TEST.DATASET` in `util/config.py`.
+
+You can use `.yaml` or pass in any parameters in command line to overwrite the configures in `config.py`.
+
+For exmaple, to update `cfg.TRAIN.BATCH_SIZE`, you can either type `--train-batch_size` in command line or pass a `.yaml` file through `--cfg` using the below format:
+
+```yaml
+TRAIN:
+  BATCH_SIZE: 256
+```
+
+## References
+
+Part of the codes are cited from:
+
+Bottleneck Transformer Backbone:
+
+https://github.com/lucidrains/bottleneck-transformer-pytorch
+https://gist.github.com/aravindsrinivas/56359b79f0ce4449bcb04ab4b56a57a2
+
+Training Process:
+
+https://github.com/BIGBALLON/distribuuuu (Biggest credit to my mentor at Sensetime!!)
+
+## Features to come:
+
+- Downsample at the first stage of attention layer with correct dimensions
+- Object detection experiments for downstream task
+====================== GIT HISTORY: ======================
+492ebd2 HEAD@{0}: clone: from https://github.com/CandiceD17/Bottleneck-Transformers-for-Visual-Recognition
+commit 492ebd26325ca015fdf5817eff4ea96329ed2049
+Author: Candice D <ruideng17@gmail.com>
+Date:   Thu Mar 4 16:37:25 2021 +0800
+
+    build: add device
+
+commit cc327b27121c1e28959b0fc36e918d625ca46b4f
+Author: Candice D <ruideng17@gmail.com>
+Date:   Thu Mar 4 12:48:34 2021 +0800
+
+    build: readme
+
+commit f0b8a4ea27e6a714e4e39f2c6516a12a7e4f1611
+Author: Candice D <ruideng17@gmail.com>
+Date:   Thu Mar 4 12:47:44 2021 +0800
+
+    build: readme
+
+commit 4957964d0c405a68acd1c81fd729f65182a7b2a6
+Author: Candice D <ruideng17@gmail.com>
+Date:   Thu Mar 4 12:44:39 2021 +0800
+
+    build: readme
+
+commit aa6334a28dbcf262c9fdf8f4de70f3bef06beccd
+Merge: 871b515 9254eed
+Author: Candice D <ruideng17@gmail.com>
+Date:   Thu Mar 4 12:12:22 2021 +0800
+
+    build: reorg, add lr scheduler
+
+commit 9254eed71545ed4c2c23b8cb0bfebae725bfaa43
+Author: candiced <ruideng17@gmail.com>
+Date:   Wed Mar 3 16:45:36 2021 +0800
+
+    build: add description
+
+commit 2096db3508a031a17a661fd125acf4fa6bb8dfae
+Author: candiced <ruideng17@gmail.com>
+Date:   Wed Mar 3 16:44:50 2021 +0800
+
+    build: add description
+
+commit 498e5bf72fefdf4ddf6aa5c15617d92bd4fa4eeb
+Author: candiced <ruideng17@gmail.com>
+Date:   Wed Mar 3 16:30:43 2021 +0800
+
+    build: debug
+
+commit 057e237b69d6c63d0cd40d54bdbf1cd1d96deb53
+Author: candiced <ruideng17@gmail.com>
+Date:   Wed Mar 3 15:09:59 2021 +0800
+
+    build: debug
+
+commit 0c924a596f67407c2f0eb08c87b08b253692a4ea
+Author: candiced <ruideng17@gmail.com>
+Date:   Wed Mar 3 14:51:05 2021 +0800
+
+    build: add train
+
+commit c117a66db103a0b2f6f69440240e611a7d45f933
+Author: Candice D <ruideng17@gmail.com>
+Date:   Tue Mar 2 15:49:13 2021 +0800
+
+    build: BoTNet blocks and stacks, add resnet
+
+commit 871b5153235a1deefcbef03dbfb573cebc3c3fd3
+Author: Candice D <ruideng17@gmail.com>
+Date:   Tue Mar 2 17:16:56 2021 +0800
+
+    build: git ignore
+
+commit 411c920f61f25e2234feec0be67452acee498243
+Merge: 3d4380e 397e637
+Author: Candice D <ruideng17@gmail.com>
+Date:   Tue Mar 2 16:58:58 2021 +0800
+
+    Merge branch 'master' of https://github.com/CandiceD17/BoTNet-for-Visual-Recognition
+
+commit 3d4380ebbaca0fdd4d97a2d7fdb874cfbd677839
+Author: Candice D <ruideng17@gmail.com>
+Date:   Tue Mar 2 16:51:03 2021 +0800
+
+    build: debug
+
+commit 397e637154278b5245946d5c5fb409e08c9c69bd
+Author: Rui <47619020+CandiceD17@users.noreply.github.com>
+Date:   Tue Mar 2 15:52:11 2021 +0800
+
+    Update README.md
+
+commit 27e91f4ba84d9b46c719e20eaae58739f9079bd2
+Author: Candice D <ruideng17@gmail.com>
+Date:   Tue Mar 2 15:49:13 2021 +0800
+
+    build: BoTNet blocks and stacks
+
+commit 17147b3d6967c2df84639db7bd1ff6340f72228f
+Author: Rui <47619020+CandiceD17@users.noreply.github.com>
+Date:   Mon Mar 1 17:39:00 2021 +0800
+
+    Create README.md
+
+commit 8067e86063966d2c925b430d51b161e2f517c62f
+Author: candiced <ruideng17@gmail.com>
+Date:   Mon Mar 1 17:37:43 2021 +0800
+
+    build: pos embedding

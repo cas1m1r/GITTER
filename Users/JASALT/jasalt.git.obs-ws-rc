@@ -1,0 +1,312 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 8ff2c36bdd2ac1636feabb356864b9ebb20e9b30
+Merge: 4dd74a8 ca8aa96
+Author: Kirill Mysnik <KirillMysnik@users.noreply.github.com>
+Date:   Sun Oct 29 20:34:37 2017 +0300
+
+    Merge pull request #3 from Nibato/master
+    
+    Implemented Replay Buffer requests/events
+
+commit ca8aa96146104e12333a992f6cedc5cfdc07f21b
+Author: Jesse Ward <nibato@gmail.com>
+Date:   Sat Oct 28 15:40:23 2017 -0500
+
+    Implemented Replay Buffer requests/events
+
+commit 4dd74a861a3a2032d4c861e1c0d8c2d3f38938ff
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Thu Aug 10 12:18:05 2017 +0300
+
+    Add new example, reorganize examples dir structure
+
+commit fcec2657e0934060be7c1a4543752e382f99ac91
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Thu Aug 10 12:17:28 2017 +0300
+
+    Upload generate_protocol_rst.py and add protocol reference to docs
+
+commit 5d145aaa803d757e583c75b80198efdc7c24014e
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Thu Aug 10 12:16:24 2017 +0300
+
+    2.3.0
+    
+    OBSWS class: `event` method now returns a Future (instead of being a coroutine)
+
+commit ab4aa5e1a8536ecce37eeee3cafa5fbefe001ef3
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 20:57:07 2017 +0300
+
+    2.2.0
+    
+    OBSWS class: add `event` method
+    OBSWS class: deprecate `register_event_handler` and `unregister_event_handler` methods
+    Update "Indefinite Event Handling" example to use new `event` method instead of callbacks
+
+commit 80bb62cb522d99b53b0e2080987badf6c6b1b93c
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 19:51:38 2017 +0300
+
+    2.1.0
+    
+    Invalid event construction is now handled properly and logged
+    OBSWS class: remove 'done_event' property
+    OBSWS class: add 'closed' property
+    OBSWS class: implement __await__ protocol
+    Add logging output to "Indefinite Event Handling" example
+
+commit 68c7a173b352bdb4d5fa63586d56147e79823ac9
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 17:12:27 2017 +0300
+
+    Fix typo in docstrings
+
+commit d6bdc055ef74e7042b6022242daf3c240ccbc632
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 17:11:56 2017 +0300
+
+    Fix typo in docstrings
+
+commit 65f1dfb085f16655e1809da943d302566fce84c5
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 17:07:57 2017 +0300
+
+    Update docstrings
+
+commit ae6f46771c1f80f4b1f1aa1c7ab77a1fe193242f
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 16:58:22 2017 +0300
+
+    Update docstrings
+
+commit dbb423ff5b93d3921d996fc774227ff705977bea
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 15:38:56 2017 +0300
+
+    Another attempt to change docs theme
+
+commit 2b0f4768c2f52193fa4cf4eb6dbf44fc9b6190da
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 15:33:22 2017 +0300
+
+    v2.0.0
+    
+    Fix TypeError if auth is not required (protocol.json/PROTOCOL.md mismatch)
+    OBSWS class is much more stable
+    OBSWS class now relies on its _loop everywhere where asyncio API is concerned
+    'require' method now returns None if the connection is closed during communication
+    Remove 'sock_closed' method
+    New 'done_event' property that returns an asyncio.Event to await on for OBSWS termination
+    New 'close' and 'connect' methods that allow to use the OBSWS class without 'with' keyword
+    OBSWS methods ow raise ValueError if called in incorrect state (close/_close is an exception to this rule)
+    Add logging for cases when event handlers raise
+    Update docs
+    Update examples
+    Add tests
+
+commit b589fab2debf697c15bc70b2ed6f340b7ad6466e
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:53:38 2017 +0300
+
+    Fix TypeError in setup.py Python 3.5
+
+commit 3357b86a814929b99bf709256c8a76500be5ce7d
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:47:27 2017 +0300
+
+    Fixed TypeError on 3.5 (pathlib.Path didn't implement os.PathLike interface back then)
+
+commit 4c881ff31cb6721df671311f2adb03b9bbfd36a1
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:36:47 2017 +0300
+
+    protocol.json is now optional, it's possible to create all types/requests/events programmatically (prior to OBSWS initialization)
+
+commit 193b24ed6705c477c5ab271a4a2ac84ff43c990a
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:08:14 2017 +0300
+
+    Switch to alabaster theme
+
+commit 084f1e217703ef6b8e90231aafb4d8baf43d6813
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 07:23:13 2017 +0300
+
+    PyPi ready
+
+commit faa423c3ab35dea5fc202cab496f5e7eea2d6c11
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 02:41:33 2017 +0300
+
+    Add README.md
+
+commit 0bc9ff0c50b013c4bd45413e2deda6e2d8f41c34
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 02:31:24 2017 +0300
+
+    Docs
+
+commit 12a0faf0a7bd3d098df19c071b44e5686d20fb52
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 00:12:13 2017 +0300
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 8ff2c36bdd2ac1636feabb356864b9ebb20e9b30
+Merge: 4dd74a8 ca8aa96
+Author: Kirill Mysnik <KirillMysnik@users.noreply.github.com>
+Date:   Sun Oct 29 20:34:37 2017 +0300
+
+    Merge pull request #3 from Nibato/master
+    
+    Implemented Replay Buffer requests/events
+
+commit ca8aa96146104e12333a992f6cedc5cfdc07f21b
+Author: Jesse Ward <nibato@gmail.com>
+Date:   Sat Oct 28 15:40:23 2017 -0500
+
+    Implemented Replay Buffer requests/events
+
+commit 4dd74a861a3a2032d4c861e1c0d8c2d3f38938ff
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Thu Aug 10 12:18:05 2017 +0300
+
+    Add new example, reorganize examples dir structure
+
+commit fcec2657e0934060be7c1a4543752e382f99ac91
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Thu Aug 10 12:17:28 2017 +0300
+
+    Upload generate_protocol_rst.py and add protocol reference to docs
+
+commit 5d145aaa803d757e583c75b80198efdc7c24014e
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Thu Aug 10 12:16:24 2017 +0300
+
+    2.3.0
+    
+    OBSWS class: `event` method now returns a Future (instead of being a coroutine)
+
+commit ab4aa5e1a8536ecce37eeee3cafa5fbefe001ef3
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 20:57:07 2017 +0300
+
+    2.2.0
+    
+    OBSWS class: add `event` method
+    OBSWS class: deprecate `register_event_handler` and `unregister_event_handler` methods
+    Update "Indefinite Event Handling" example to use new `event` method instead of callbacks
+
+commit 80bb62cb522d99b53b0e2080987badf6c6b1b93c
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 19:51:38 2017 +0300
+
+    2.1.0
+    
+    Invalid event construction is now handled properly and logged
+    OBSWS class: remove 'done_event' property
+    OBSWS class: add 'closed' property
+    OBSWS class: implement __await__ protocol
+    Add logging output to "Indefinite Event Handling" example
+
+commit 68c7a173b352bdb4d5fa63586d56147e79823ac9
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 17:12:27 2017 +0300
+
+    Fix typo in docstrings
+
+commit d6bdc055ef74e7042b6022242daf3c240ccbc632
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 17:11:56 2017 +0300
+
+    Fix typo in docstrings
+
+commit 65f1dfb085f16655e1809da943d302566fce84c5
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 17:07:57 2017 +0300
+
+    Update docstrings
+
+commit ae6f46771c1f80f4b1f1aa1c7ab77a1fe193242f
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 16:58:22 2017 +0300
+
+    Update docstrings
+
+commit dbb423ff5b93d3921d996fc774227ff705977bea
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 15:38:56 2017 +0300
+
+    Another attempt to change docs theme
+
+commit 2b0f4768c2f52193fa4cf4eb6dbf44fc9b6190da
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Wed Aug 9 15:33:22 2017 +0300
+
+    v2.0.0
+    
+    Fix TypeError if auth is not required (protocol.json/PROTOCOL.md mismatch)
+    OBSWS class is much more stable
+    OBSWS class now relies on its _loop everywhere where asyncio API is concerned
+    'require' method now returns None if the connection is closed during communication
+    Remove 'sock_closed' method
+    New 'done_event' property that returns an asyncio.Event to await on for OBSWS termination
+    New 'close' and 'connect' methods that allow to use the OBSWS class without 'with' keyword
+    OBSWS methods ow raise ValueError if called in incorrect state (close/_close is an exception to this rule)
+    Add logging for cases when event handlers raise
+    Update docs
+    Update examples
+    Add tests
+
+commit b589fab2debf697c15bc70b2ed6f340b7ad6466e
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:53:38 2017 +0300
+
+    Fix TypeError in setup.py Python 3.5
+
+commit 3357b86a814929b99bf709256c8a76500be5ce7d
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:47:27 2017 +0300
+
+    Fixed TypeError on 3.5 (pathlib.Path didn't implement os.PathLike interface back then)
+
+commit 4c881ff31cb6721df671311f2adb03b9bbfd36a1
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:36:47 2017 +0300
+
+    protocol.json is now optional, it's possible to create all types/requests/events programmatically (prior to OBSWS initialization)
+
+commit 193b24ed6705c477c5ab271a4a2ac84ff43c990a
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 09:08:14 2017 +0300
+
+    Switch to alabaster theme
+
+commit 084f1e217703ef6b8e90231aafb4d8baf43d6813
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 07:23:13 2017 +0300
+
+    PyPi ready
+
+commit faa423c3ab35dea5fc202cab496f5e7eea2d6c11
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 02:41:33 2017 +0300
+
+    Add README.md
+
+commit 0bc9ff0c50b013c4bd45413e2deda6e2d8f41c34
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 02:31:24 2017 +0300
+
+    Docs
+
+commit 12a0faf0a7bd3d098df19c071b44e5686d20fb52
+Author: KirillMysnik <kirill@mysnik.com>
+Date:   Mon Aug 7 00:12:13 2017 +0300
+
+    Initial commit

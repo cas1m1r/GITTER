@@ -1,0 +1,794 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 7a270c11b5ec01240766005ef01af020a79e86a5
+Author: Michael <gbps@ctf.re>
+Date:   Sun Mar 21 18:14:10 2021 -0400
+
+    okay, problem is fixed!
+
+commit e8a46857c5dbfc4b43f58862190cfefd801d1464
+Author: Michael <gbps@ctf.re>
+Date:   Sun Mar 21 17:37:53 2021 -0400
+
+    debugging...
+
+commit 2cd815fab567def957454f6f3636d93329159753
+Author: Michael <gbps@ctf.re>
+Date:   Sun Mar 21 17:27:56 2021 -0400
+
+    debugging...
+
+commit 85d61802f4015e1a779c5d9330cb474e414608b6
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 20:03:52 2021 -0400
+
+    debugging...
+
+commit e13d416daccbcd128113b9069e354140d8f013ab
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 19:54:56 2021 -0400
+
+    debugging...
+
+commit 93144bd9320908513b482f0a7248741bc6691334
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 18:34:05 2021 -0400
+
+    and we're back
+
+commit 8397ac8c92bc85d12964a0290837021bf6e940f4
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 18:29:09 2021 -0400
+
+    modifying to load json entries as a merge
+
+commit 14b694ff155ce428ea851a364e8800d1312cec99
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:31:23 2021 -0400
+
+    fixed readme
+
+commit 9aa1adf1c1baf46441838d4c3c52dda3d3443d15
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:31:10 2021 -0400
+
+    fixed readme
+
+commit 75c32a7c2095aa5ba7dd5b33a75e862a80fd1872
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:30:42 2021 -0400
+
+    fixed readme
+
+commit 2331bf84770b4afd54b6d02ee04c490a4c4acb03
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:29:05 2021 -0400
+
+    Rewrote interface to only support json serialize and deserialize
+
+commit d5e5a8405ef9633c84af42fbcc734ec8dd73c198
+Merge: d67418f 3e1653e
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 26 14:57:01 2017 +0100
+
+    Merge pull request #27 from frankban/marshal-text
+    
+    Implement MarshalJSON on the jar.
+
+commit 3e1653ea1ce6af2840fb6baa09c316373867d7d3
+Author: Francesco Banconi <francesco.banconi@canonical.com>
+Date:   Thu Oct 26 09:00:45 2017 +0000
+
+    Update dependencies.
+
+commit 41b44f1855431ce863cca5939275df9026223be2
+Author: Francesco Banconi <francesco.banconi@canonical.com>
+Date:   Thu Oct 26 08:57:16 2017 +0000
+
+    Implement MarshalJSON on the jar.
+
+commit d67418f14c93a698e37b52468958d5d4dcf8a7dd
+Merge: 66e8ff7 38ea312
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:15:59 2017 +0100
+
+    Merge pull request #25 from rogpeppe/013-removeall
+    
+    add RemoveAll method
+
+commit 66e8ff7336830e7032335aecff102bb3395b1bae
+Merge: 7b4fc89 37f5485
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:15:47 2017 +0100
+
+    Merge pull request #23 from rogpeppe/011-parent-not-exist
+    
+    allow open to succeed when parent dir doesn't exist
+
+commit 37f5485b4c778fe2cde0fd5317e1f8da83944d0a
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 7 12:40:01 2017 +0100
+
+    allow open to succeed when parent dir doesn't exist
+
+commit 7b4fc8912638373840a5b7c3282eb66816b7d32b
+Merge: 5243747 714b8e7
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:09:50 2017 +0100
+
+    Merge pull request #24 from rogpeppe/012-no-persist
+    
+    add NoPersist option
+
+commit 38ea3129ad91e2c79cdc61a2de565448990cd16c
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:06:40 2017 +0100
+
+    add RemoveAll method
+
+commit 714b8e71f6cc1e81008851e6f168661d4c0c6134
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 16:15:20 2017 +0100
+
+    add NoPersist option
+    
+    Perhaps a little odd for a "persistent" cookiejar
+    to have an option to avoid persistence,
+    but useful for tests.
+
+commit 5243747bf8f2d0897f6c7a52799327dc97d585e8
+Merge: f44a529 62d3976
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Nov 15 13:33:28 2016 +0000
+
+    Merge pull request #21 from rogpeppe/010-fix-timeout
+    
+    revert back to file-based locking; increase timeout
+
+commit 62d3976e5e930b3b4306dae3c403df770ab974b5
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Nov 15 12:52:01 2016 +0000
+
+    revert back to file-based locking; increase timeout
+    
+    We want to use file-based locking because we're locking a file,
+    Non-file-based locking can't work when locking
+    on a shared filesystem.
+    
+    We also increase the timeout to because some users have
+    reported timeout errors.
+
+commit f44a52969446962d40be08c2d5f1a261a98b0e7b
+Merge: 05c678c 8bd52d7
+Author: Martin Packman <martin.packman@canonical.com>
+Date:   Tue Nov 15 12:33:32 2016 +0000
+
+    Merge pull request #20 from voidspace/change-lock-2
+    
+    Remve unneeded loop and increase polling time
+
+commit 8bd52d7861f9754af7445e3e7c5f75def327215d
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Tue Nov 15 11:48:41 2016 +0000
+
+    Remove unneeded loop and increase polling time
+
+commit 05c678c243d106a63c96835cf96a693d7bc905c8
+Merge: b48f5b9 b08309e
+Author: Martin Packman <martin.packman@canonical.com>
+Date:   Tue Nov 15 10:25:17 2016 +0000
+
+    Merge pull request #19 from voidspace/change-lock
+    
+    Update file locking to use juju/mutex
+
+commit b08309eef8ff360bb6f66dbe90bbfb5fa85e3116
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Mon Nov 14 22:02:09 2016 +0000
+
+    Variable rename
+
+commit 1cac6fcde2fcb261fd13dfcf608cdb82a7c1f9fe
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Mon Nov 14 12:12:00 2016 +0000
+
+    Update dependecies.tsv
+
+commit 16be201e3d0649c095553c1efdf5ae3de502906a
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Thu Nov 10 19:21:14 2016 +0000
+
+    Use hashing for lock name
+
+commit cf15fac85c44c8339296188cb9bb6fe02e298683
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Wed Nov 9 12:38:18 2016 +0000
+
+    Change locking behaviour
+
+commit b48f5b9290d63455d10de0c0e4c26e06e6e74842
+Merge: e710b89 0428de4
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Oct 7 17:41:21 2016 +0100
+
+    Merge pull request #18 from natefinch/removeall
+    
+    Add RemoveAllHost method.
+
+commit 0428de43ae8debd9caac9e8a2338e3aea0676db7
+Author: Nate Finch <nate.finch@gmail.com>
+Date:   Fri Oct 7 11:21:39 2016 -0400
+
+    add RemoveAllHost method
+
+commit e710b897c13ca52828ca2fc9769465186fd6d15c
+Merge: 178b7b1 58e6699
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Mar 31 18:12:27 2016 +0100
+
+    Merge pull request #15 from mhilton/000-allcookies-and-removecookie
+    
+    Add AllCookies and RemoveCookie
+
+commit 58e6699ca249cd7c87798e09254cfea27af86b45
+Author: Martin Hilton <martin.hilton@canonical.com>
+Date:   Thu Mar 31 15:38:08 2016 +0100
+
+    Add extra jar manipulations
+    
+    Add AllCookies which returns all cookies in the jar. Also add RemoveCookie
+    to remove a particular cookie.
+
+commit 178b7b1e02ed0286b7987c6661c1eb25de105960
+Merge: fa866b3 ae7997a
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Mar 8 07:42:28 2016 +0000
+
+    Merge pull request #14 from rogpeppe/009-fix-readme
+    
+    update README.md to reflect actual docs
+
+commit ae7997a5aa82d4e813a6c7885c5741b36289afd0
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Mar 8 07:39:57 2016 +0000
+
+    update README.md to reflect actual docs
+
+commit fa866b33e350f6357a566d1b4f1c09c5493cfbdb
+Merge: 95c954a 4d50e0e
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Feb 22 17:00:27 2016 +0000
+
+    Merge pull request #12 from rogpeppe/008-used-fixed-lock
+    
+    use fixed lock package
+
+commit 4d50e0eead87f008b130fe5f26967692737ed07b
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Feb 22 16:35:35 2016 +0000
+
+    use fixed lock package
+
+commit 95c954a46727e272292ffe015ce2b51dc8eb2afe
+Merge: c1502e8 ac19d25
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Wed Jan 20 11:17:46 2016 +0000
+
+    Merge pull request #10 from tasdomas/d001-note-locking-error
+    
+    Note error when locking fails.
+
+commit ac19d25eb23c0706136f99a747c9ce121f42bfc5
+Author: Domas Monkus <domas@monkus.lt>
+Date:   Tue Jan 19 18:53:01 2016 +0200
+
+    Note error in case locking fails.
+
+commit c1502e864932ca865fc79c94bb39e7ccd7edf7e0
+Merge: e855e5a cfc29d0
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Nov 2 12:13:01 2015 +0000
+
+    Merge pull request #9 from rogpeppe/007-no-error-on-old-format
+    
+    do not produce error when reading old format
+
+commit cfc29d0327b4777721cbb77f8812769c2d0a6686
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Nov 2 11:24:52 2015 +0000
+
+    do not produce error when reading old format
+
+commit e855e5a83c3204ad27447675263a75875759f848
+Merge: 433560f b52ca32
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 29 18:02:15 2015 +0000
+
+    Merge pull request #7 from rogpeppe/006-fix-lockfile-test
+    
+    fix TestLockFile
+
+commit b52ca3209ff350d82719d6675d5c1cc2384d7ffc
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 29 17:49:35 2015 +0000
+
+    fix TestLockFile
+
+commit 433560f1bbe7179d0dadd7ab431e264ba0fe746e
+Merge: 4ada74f 6aaff9c
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 29 10:06:41 2015 +0000
+
+    Merge pull request #6 from rogpeppe/005-persist-merge
+    
+    persist cookies; simplify API.
+
+commit 6aaff9c2ce0c881e26351a0a4c349a842bd82a08
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 22 18:14:19 2015 +0100
+
+    persist cookies; simplify API.
+
+commit 4ada74f3ebe5de4b2cff08ffa904e4c1ef461fec
+Merge: d4b3731 131cf7f
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Oct 26 16:27:59 2015 +0000
+
+    Merge pull request #5 from rogpeppe/004-merge
+    
+    Implement merging; for better concurrency; persistence next up.
+
+commit 131cf7f5ade66dc10ab29e1fbcd04a523a4807b0
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 22 12:38:20 2015 +0100
+
+    Merge method; preparing for persistent concurrency support
+
+commit d4b37319034c4091938bcd734602ad71a5b3928c
+Merge: 77a2935 d731fad
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 11:24:09 2015 -0500
+
+    Merge pull request #3 from rogpeppe/003-fix-doc-comment
+    
+    fix package doc comment
+
+commit d731fadbc43d77a08ede965e2d60093b46118079
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 11:23:36 2015 -0500
+
+    fix package doc comment
+
+commit 77a2935b7262ec3c0633677d94b35d7c01d3c346
+Merge: beee02c 748eeed
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 10:15:00 2015 -0500
+
+    Merge pull request #2 from rogpeppe/002-readme
+    
+    update README.md
+
+commit 748eeed2de9f8300dd6c225424f1f471a2c8d8e4
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 10:03:14 2015 -0500
+
+    update README.md
+
+commit beee02cb39231c7ad4a01a677fc54c48d2b46b08
+Merge: e28fb16 c5d6fa8
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Apr 9 10:48:35 2015 +0100
+
+    Merge pull request #1 from rogpeppe/001-easier-load-save
+    
+    keep filename around for Save
+
+commit c5d6fa83dc1f4301065cff2aa10e69ae910b9596
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Apr 9 10:19:49 2015 +0100
+
+    keep filename around for Save; lose LoadFromFile/SaveToFile
+
+commit e28fb169f70972003294f592f67c2c38c418eba3
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Dec 19 09:05:45 2014 +0000
+
+    initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 7a270c11b5ec01240766005ef01af020a79e86a5
+Author: Michael <gbps@ctf.re>
+Date:   Sun Mar 21 18:14:10 2021 -0400
+
+    okay, problem is fixed!
+
+commit e8a46857c5dbfc4b43f58862190cfefd801d1464
+Author: Michael <gbps@ctf.re>
+Date:   Sun Mar 21 17:37:53 2021 -0400
+
+    debugging...
+
+commit 2cd815fab567def957454f6f3636d93329159753
+Author: Michael <gbps@ctf.re>
+Date:   Sun Mar 21 17:27:56 2021 -0400
+
+    debugging...
+
+commit 85d61802f4015e1a779c5d9330cb474e414608b6
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 20:03:52 2021 -0400
+
+    debugging...
+
+commit e13d416daccbcd128113b9069e354140d8f013ab
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 19:54:56 2021 -0400
+
+    debugging...
+
+commit 93144bd9320908513b482f0a7248741bc6691334
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 18:34:05 2021 -0400
+
+    and we're back
+
+commit 8397ac8c92bc85d12964a0290837021bf6e940f4
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 18:29:09 2021 -0400
+
+    modifying to load json entries as a merge
+
+commit 14b694ff155ce428ea851a364e8800d1312cec99
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:31:23 2021 -0400
+
+    fixed readme
+
+commit 9aa1adf1c1baf46441838d4c3c52dda3d3443d15
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:31:10 2021 -0400
+
+    fixed readme
+
+commit 75c32a7c2095aa5ba7dd5b33a75e862a80fd1872
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:30:42 2021 -0400
+
+    fixed readme
+
+commit 2331bf84770b4afd54b6d02ee04c490a4c4acb03
+Author: Michael <gbps@ctf.re>
+Date:   Sat Mar 20 17:29:05 2021 -0400
+
+    Rewrote interface to only support json serialize and deserialize
+
+commit d5e5a8405ef9633c84af42fbcc734ec8dd73c198
+Merge: d67418f 3e1653e
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 26 14:57:01 2017 +0100
+
+    Merge pull request #27 from frankban/marshal-text
+    
+    Implement MarshalJSON on the jar.
+
+commit 3e1653ea1ce6af2840fb6baa09c316373867d7d3
+Author: Francesco Banconi <francesco.banconi@canonical.com>
+Date:   Thu Oct 26 09:00:45 2017 +0000
+
+    Update dependencies.
+
+commit 41b44f1855431ce863cca5939275df9026223be2
+Author: Francesco Banconi <francesco.banconi@canonical.com>
+Date:   Thu Oct 26 08:57:16 2017 +0000
+
+    Implement MarshalJSON on the jar.
+
+commit d67418f14c93a698e37b52468958d5d4dcf8a7dd
+Merge: 66e8ff7 38ea312
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:15:59 2017 +0100
+
+    Merge pull request #25 from rogpeppe/013-removeall
+    
+    add RemoveAll method
+
+commit 66e8ff7336830e7032335aecff102bb3395b1bae
+Merge: 7b4fc89 37f5485
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:15:47 2017 +0100
+
+    Merge pull request #23 from rogpeppe/011-parent-not-exist
+    
+    allow open to succeed when parent dir doesn't exist
+
+commit 37f5485b4c778fe2cde0fd5317e1f8da83944d0a
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 7 12:40:01 2017 +0100
+
+    allow open to succeed when parent dir doesn't exist
+
+commit 7b4fc8912638373840a5b7c3282eb66816b7d32b
+Merge: 5243747 714b8e7
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:09:50 2017 +0100
+
+    Merge pull request #24 from rogpeppe/012-no-persist
+    
+    add NoPersist option
+
+commit 38ea3129ad91e2c79cdc61a2de565448990cd16c
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 17:06:40 2017 +0100
+
+    add RemoveAll method
+
+commit 714b8e71f6cc1e81008851e6f168661d4c0c6134
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Apr 28 16:15:20 2017 +0100
+
+    add NoPersist option
+    
+    Perhaps a little odd for a "persistent" cookiejar
+    to have an option to avoid persistence,
+    but useful for tests.
+
+commit 5243747bf8f2d0897f6c7a52799327dc97d585e8
+Merge: f44a529 62d3976
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Nov 15 13:33:28 2016 +0000
+
+    Merge pull request #21 from rogpeppe/010-fix-timeout
+    
+    revert back to file-based locking; increase timeout
+
+commit 62d3976e5e930b3b4306dae3c403df770ab974b5
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Nov 15 12:52:01 2016 +0000
+
+    revert back to file-based locking; increase timeout
+    
+    We want to use file-based locking because we're locking a file,
+    Non-file-based locking can't work when locking
+    on a shared filesystem.
+    
+    We also increase the timeout to because some users have
+    reported timeout errors.
+
+commit f44a52969446962d40be08c2d5f1a261a98b0e7b
+Merge: 05c678c 8bd52d7
+Author: Martin Packman <martin.packman@canonical.com>
+Date:   Tue Nov 15 12:33:32 2016 +0000
+
+    Merge pull request #20 from voidspace/change-lock-2
+    
+    Remve unneeded loop and increase polling time
+
+commit 8bd52d7861f9754af7445e3e7c5f75def327215d
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Tue Nov 15 11:48:41 2016 +0000
+
+    Remove unneeded loop and increase polling time
+
+commit 05c678c243d106a63c96835cf96a693d7bc905c8
+Merge: b48f5b9 b08309e
+Author: Martin Packman <martin.packman@canonical.com>
+Date:   Tue Nov 15 10:25:17 2016 +0000
+
+    Merge pull request #19 from voidspace/change-lock
+    
+    Update file locking to use juju/mutex
+
+commit b08309eef8ff360bb6f66dbe90bbfb5fa85e3116
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Mon Nov 14 22:02:09 2016 +0000
+
+    Variable rename
+
+commit 1cac6fcde2fcb261fd13dfcf608cdb82a7c1f9fe
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Mon Nov 14 12:12:00 2016 +0000
+
+    Update dependecies.tsv
+
+commit 16be201e3d0649c095553c1efdf5ae3de502906a
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Thu Nov 10 19:21:14 2016 +0000
+
+    Use hashing for lock name
+
+commit cf15fac85c44c8339296188cb9bb6fe02e298683
+Author: Michael Foord <michael.foord@canonical.com>
+Date:   Wed Nov 9 12:38:18 2016 +0000
+
+    Change locking behaviour
+
+commit b48f5b9290d63455d10de0c0e4c26e06e6e74842
+Merge: e710b89 0428de4
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Oct 7 17:41:21 2016 +0100
+
+    Merge pull request #18 from natefinch/removeall
+    
+    Add RemoveAllHost method.
+
+commit 0428de43ae8debd9caac9e8a2338e3aea0676db7
+Author: Nate Finch <nate.finch@gmail.com>
+Date:   Fri Oct 7 11:21:39 2016 -0400
+
+    add RemoveAllHost method
+
+commit e710b897c13ca52828ca2fc9769465186fd6d15c
+Merge: 178b7b1 58e6699
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Mar 31 18:12:27 2016 +0100
+
+    Merge pull request #15 from mhilton/000-allcookies-and-removecookie
+    
+    Add AllCookies and RemoveCookie
+
+commit 58e6699ca249cd7c87798e09254cfea27af86b45
+Author: Martin Hilton <martin.hilton@canonical.com>
+Date:   Thu Mar 31 15:38:08 2016 +0100
+
+    Add extra jar manipulations
+    
+    Add AllCookies which returns all cookies in the jar. Also add RemoveCookie
+    to remove a particular cookie.
+
+commit 178b7b1e02ed0286b7987c6661c1eb25de105960
+Merge: fa866b3 ae7997a
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Mar 8 07:42:28 2016 +0000
+
+    Merge pull request #14 from rogpeppe/009-fix-readme
+    
+    update README.md to reflect actual docs
+
+commit ae7997a5aa82d4e813a6c7885c5741b36289afd0
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Tue Mar 8 07:39:57 2016 +0000
+
+    update README.md to reflect actual docs
+
+commit fa866b33e350f6357a566d1b4f1c09c5493cfbdb
+Merge: 95c954a 4d50e0e
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Feb 22 17:00:27 2016 +0000
+
+    Merge pull request #12 from rogpeppe/008-used-fixed-lock
+    
+    use fixed lock package
+
+commit 4d50e0eead87f008b130fe5f26967692737ed07b
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Feb 22 16:35:35 2016 +0000
+
+    use fixed lock package
+
+commit 95c954a46727e272292ffe015ce2b51dc8eb2afe
+Merge: c1502e8 ac19d25
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Wed Jan 20 11:17:46 2016 +0000
+
+    Merge pull request #10 from tasdomas/d001-note-locking-error
+    
+    Note error when locking fails.
+
+commit ac19d25eb23c0706136f99a747c9ce121f42bfc5
+Author: Domas Monkus <domas@monkus.lt>
+Date:   Tue Jan 19 18:53:01 2016 +0200
+
+    Note error in case locking fails.
+
+commit c1502e864932ca865fc79c94bb39e7ccd7edf7e0
+Merge: e855e5a cfc29d0
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Nov 2 12:13:01 2015 +0000
+
+    Merge pull request #9 from rogpeppe/007-no-error-on-old-format
+    
+    do not produce error when reading old format
+
+commit cfc29d0327b4777721cbb77f8812769c2d0a6686
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Nov 2 11:24:52 2015 +0000
+
+    do not produce error when reading old format
+
+commit e855e5a83c3204ad27447675263a75875759f848
+Merge: 433560f b52ca32
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 29 18:02:15 2015 +0000
+
+    Merge pull request #7 from rogpeppe/006-fix-lockfile-test
+    
+    fix TestLockFile
+
+commit b52ca3209ff350d82719d6675d5c1cc2384d7ffc
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 29 17:49:35 2015 +0000
+
+    fix TestLockFile
+
+commit 433560f1bbe7179d0dadd7ab431e264ba0fe746e
+Merge: 4ada74f 6aaff9c
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 29 10:06:41 2015 +0000
+
+    Merge pull request #6 from rogpeppe/005-persist-merge
+    
+    persist cookies; simplify API.
+
+commit 6aaff9c2ce0c881e26351a0a4c349a842bd82a08
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 22 18:14:19 2015 +0100
+
+    persist cookies; simplify API.
+
+commit 4ada74f3ebe5de4b2cff08ffa904e4c1ef461fec
+Merge: d4b3731 131cf7f
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Mon Oct 26 16:27:59 2015 +0000
+
+    Merge pull request #5 from rogpeppe/004-merge
+    
+    Implement merging; for better concurrency; persistence next up.
+
+commit 131cf7f5ade66dc10ab29e1fbcd04a523a4807b0
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Oct 22 12:38:20 2015 +0100
+
+    Merge method; preparing for persistent concurrency support
+
+commit d4b37319034c4091938bcd734602ad71a5b3928c
+Merge: 77a2935 d731fad
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 11:24:09 2015 -0500
+
+    Merge pull request #3 from rogpeppe/003-fix-doc-comment
+    
+    fix package doc comment
+
+commit d731fadbc43d77a08ede965e2d60093b46118079
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 11:23:36 2015 -0500
+
+    fix package doc comment
+
+commit 77a2935b7262ec3c0633677d94b35d7c01d3c346
+Merge: beee02c 748eeed
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 10:15:00 2015 -0500
+
+    Merge pull request #2 from rogpeppe/002-readme
+    
+    update README.md
+
+commit 748eeed2de9f8300dd6c225424f1f471a2c8d8e4
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Sep 3 10:03:14 2015 -0500
+
+    update README.md
+
+commit beee02cb39231c7ad4a01a677fc54c48d2b46b08
+Merge: e28fb16 c5d6fa8
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Apr 9 10:48:35 2015 +0100
+
+    Merge pull request #1 from rogpeppe/001-easier-load-save
+    
+    keep filename around for Save
+
+commit c5d6fa83dc1f4301065cff2aa10e69ae910b9596
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Thu Apr 9 10:19:49 2015 +0100
+
+    keep filename around for Save; lose LoadFromFile/SaveToFile
+
+commit e28fb169f70972003294f592f67c2c38c418eba3
+Author: Roger Peppe <rogpeppe@gmail.com>
+Date:   Fri Dec 19 09:05:45 2014 +0000
+
+    initial commit

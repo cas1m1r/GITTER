@@ -1,0 +1,283 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Sulphur
+![sulphur logo](sulphur.png)
+
+(My transliteration was bad in that image, but i can't recover the original project to fix it D:)
+
+## Info
+
+Sulphur botnet written in C++
+
+Competitor of [Marlborge for C++](https://github.com/PR3C14D0/Marlborge-Reloaded)
+
+(Made first as a joke with him and me, lol)
+
+Fixes issues and add more functionality + best practices (char[1024] FORBIDDEN HERE!!)
+
+Tested under Windows 8.1 x64
+
+Client & Server require at least 1 Visual C++ Redistributable Package to Run
+(vcruntime and msvcp), or compile with /MT (but precompiled libs won't work)
+
+You can remove the administrator perms in Client manifest.
+
+## Server UI
+Initial UI
+
+![SS of the UI](https://i.imgur.com/LoEwR5D.png)
+
+Client Control Menu
+
+![menu](https://i.imgur.com/MI839cR.png)
+
+If you deactivate the notifications, doesn't show anything when a client connects to server
+
+![notifications off](https://i.imgur.com/yn1QUGv.png)
+
+You can set up that option if you have a large botnet or the notifications annoy you
+
+### Requirements
+
+Extract all .zip in their respective folder!
+
+libssl and libcrypto required by client (to enable HTTPS requests), or build/download OpenSSL for Windows (You can download precompiled binaries)
+
+P.S. There's already static .libs in /lib compiled by me
+
+## WARNING!
+
+The libs included precompiled by me are with OpenSSL 1.1.1m MDx32, compile your own libs if you compile to/with;
+
+  * x64 or ARM CPUs
+
+  * MultiThread Compilations
+
+  * Static Compilations
+
+  * OpenSSL 3.0 Headers
+====================== GIT HISTORY: ======================
+6124ce3 HEAD@{0}: clone: from https://github.com/Nk125/Sulphur
+commit 6124ce3de5a104eb7809a3e692145b6bca9c1a1f
+Author: nk125 <nekes125@outlook.com>
+Date:   Thu Nov 24 08:54:18 2022 -0600
+
+    Update README.md
+
+commit 4578e8510e13cc6bd9a529fb6ad45d69bb68b877
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Aug 3 19:00:50 2022 -0500
+
+    Update README.md
+
+commit 87bb295dcbed9c0902abeba872b13259bd2d085a
+Author: nk125 <nekes125@outlook.com>
+Date:   Fri Jul 15 15:03:09 2022 -0500
+
+    Update winutils.hpp
+
+commit 2c553ec182a4738a5156a0e7271046ab9605f2ae
+Author: nk125 <nekes125@outlook.com>
+Date:   Fri Jul 8 11:58:37 2022 -0500
+
+    Update README.md
+
+commit 46163ecd5479806b20f0c100dd6fc874db7c7800
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:54:26 2022 -0500
+
+    Update README.md
+
+commit 78ae5aae9ee9c29cf3e90938da333172bc0523d1
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:47:44 2022 -0500
+
+    Add files via upload
+
+commit b674e8b7d388fd3cbe1fa2dc36f1cddc06cc6e0c
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:47:30 2022 -0500
+
+    Delete sqlite3.h
+
+commit 967ab92b4052dc8092cb8b0f8972c7c20f9696ab
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:47:11 2022 -0500
+
+    Delete json.hpp
+
+commit cc85049134c4a29645c736273191824c6c67eae1
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:46:24 2022 -0500
+
+    Add files via upload
+
+commit df0f7e1d3aee04ef38266582e3cd1ad40d474a28
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:45:55 2022 -0500
+
+    Delete sqlite3.c
+
+commit 2133b3a30302e221f86bdca7bd4d9a4066b9faf6
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:42:30 2022 -0500
+
+    OpenSSL include files
+    
+    Extract it in the same folder when you download the botnet
+
+commit bc85c69043059af168a7eef880705b573af0b165
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Jun 15 23:41:52 2022 -0500
+
+    Delete include/openssl directory
+
+commit 62e0eb07bd734dbb1dc073d749d2ac55e8a8b24d
+Author: nk125 <nekes125@outlook.com>
+Date:   Sat Jun 11 01:02:34 2022 -0500
+
+    Update README.md
+
+commit bffe3613146cd7b3f836c59bbe93f88a300ffb1e
+Author: nk125 <nekes125@outlook.com>
+Date:   Sat Apr 30 13:55:38 2022 -0500
+
+    Update README.md
+
+commit 5a7e6bd5902f8efde95b016a476dd20b82290896
+Author: nk125 <nekes125@outlook.com>
+Date:   Fri Apr 29 15:36:02 2022 -0500
+
+    Update README.md
+
+commit 16c705e23a0fe2b0b2076ede75fba31ef84871dd
+Author: nk125 <nekes125@outlook.com>
+Date:   Fri Apr 29 01:38:33 2022 -0500
+
+    Update README.md
+
+commit 8d2d523d00c36c376d7c6b368420b85a6d51c08d
+Author: nk125 <nekes125@outlook.com>
+Date:   Fri Apr 29 01:13:28 2022 -0500
+
+    Update README.md
+
+commit c5ddc5f6e323cd9cdb94f4a3a17510df3afd56c6
+Author: NK125 <nekes125@outlook.com>
+Date:   Thu Apr 28 11:33:09 2022 -0500
+
+    Add files via upload
+
+commit 7fe9f549404df8c72fe10e3376df63285bdd9436
+Author: nk125 <nekes125@outlook.com>
+Date:   Thu Apr 28 09:15:42 2022 -0500
+
+    Update Payloads.hpp
+
+commit 1b439fe2e019cfd15acc27dbbae082eed836534c
+Author: NK125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:49:47 2022 -0500
+
+    Add files via upload
+
+commit 1ac50b4010b8f31313d82b1de20aa71848fa1ec9
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:40:49 2022 -0500
+
+    Delete CONFIG.h
+
+commit 1c904e8b4aac1badf351896b94b1f87cd9548466
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:39:51 2022 -0500
+
+    Delete CONFIG.h
+
+commit fc2e1216e017ae4dde6091043a4c87045bcdfdcf
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:33:08 2022 -0500
+
+    Delete lib/Debug directory
+
+commit eb618dd36ef3c7318ffb2cd9c8e1168d9cdb276c
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:32:57 2022 -0500
+
+    Delete URLparse.lib
+
+commit 38910a9cd749944219c0a7642ad9757b52619b64
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:32:48 2022 -0500
+
+    Delete sqlite3.lib
+
+commit 72648bdf36cbc59558320d5badc9415a226c8048
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:32:01 2022 -0500
+
+    Delete Client.vcxproj.user
+
+commit d27b6e21d4b9aee763f4a3548985aaa741cd0b3b
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:31:46 2022 -0500
+
+    Delete Server.vcxproj.user
+
+commit 2aafb48602b0612e2ab01e159010517f76d88316
+Author: nk125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:31:08 2022 -0500
+
+    Update README.md
+
+commit 4356b784441ca3ce878ba9cee23a43a47cccffad
+Author: NK125 <nekes125@outlook.com>
+Date:   Wed Apr 27 21:29:14 2022 -0500
+
+    main
+
+commit c6226689b677928a7a80bf591c76b13f14dd0197
+Author: nk125 <nekes125@outlook.com>
+Date:   Thu Mar 10 23:12:34 2022 -0600
+
+    Update README.md
+
+commit 06009a362932ba21df0f4f3cf5bcdad8363446ea
+Author: nk125 <nekes125@outlook.com>
+Date:   Thu Mar 10 23:10:18 2022 -0600
+
+    Update README.md
+
+commit e9908dbe7e7718a263f4f9f0903763ac410d19ce
+Author: nk125 <nekes125@outlook.com>
+Date:   Thu Mar 10 23:08:27 2022 -0600
+
+    Add files via upload
+
+commit aa998508d206810e44d6db3c502a2e1fc5f050f1
+Author: nk125 <nekes125@outlook.com>
+Date:   Thu Mar 10 23:08:10 2022 -0600
+
+    Delete sulphur2.png
+
+commit 23782327fad1f946a719a25a61b1047fe3267e72
+Author: nk125 <nekes125@outlook.com>
+Date:   Thu Mar 10 23:07:54 2022 -0600
+
+    Add files via upload
+
+commit a4068b3805522c825f9ae0253b5b9d94c200ce64
+Author: nk125 <nekes125@outlook.com>
+Date:   Tue Mar 8 23:04:01 2022 -0600
+
+    Update README.md
+
+commit 2a7a923e68f67aa5a9f196135ecdf0b1d8aa99e7
+Author: nk125 <nekes125@outlook.com>
+Date:   Tue Mar 8 22:50:01 2022 -0600
+
+    Update README.md
+
+commit c492d72130b05fbba1a301df4f424266388e75b3
+Author: nk125 <nekes125@outlook.com>
+Date:   Tue Mar 8 22:46:09 2022 -0600
+
+    Initial commit

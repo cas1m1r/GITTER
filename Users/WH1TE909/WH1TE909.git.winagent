@@ -1,0 +1,1201 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+## THIS HAS BEEN REPLACED BY THE NEW CROSS-PLATFORM [GOLANG AGENT](https://github.com/wh1te909/rmmagent)
+
+### Tactical RMM Windows Agent
+
+[![Build Status](https://travis-ci.com/wh1te909/winagent.svg?branch=master)](https://travis-ci.com/wh1te909/winagent)
+[![Build Status](https://dev.azure.com/dcparsi/winagent/_apis/build/status/wh1te909.winagent?branchName=master)](https://dev.azure.com/dcparsi/winagent/_build/latest?definitionId=3&branchName=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
+
+#### Building (powershell, python 3.8.5)
+
+Download and install [Inno Setup](http://jrsoftware.org/isinfo.php)
+
+```commandline
+mkdir 'C:\Users\Public\Documents\tacticalagent'
+cd 'C:\Users\Public\Documents\tacticalagent'
+git clone https://github.com/wh1te909/winagent.git .
+python -m venv env
+.\env\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install --upgrade setuptools==49.6.0 wheel==0.35.1
+pip install --no-cache-dir -r requirements.txt
+python .\env\Scripts\pywin32_postinstall.py -install
+.\build.ps1
+```
+
+Exe will be in ```C:\Users\Public\Documents\tacticalagent\Output```
+====================== GIT HISTORY: ======================
+14c1bf6 HEAD@{0}: clone: from https://github.com/wh1te909/winagent
+commit 14c1bf658b8eaafb160e5c0d4094b2cd580739f3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Oct 12 14:01:16 2020 -0700
+
+    update readme for new agent
+
+commit 811d44718d2336ea732107cd0bab615ba5f33c74
+Merge: e397658 3465158
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue Sep 29 23:09:19 2020 -0700
+
+    Release 0.11.2
+
+commit 346515804c6a219c169327d8be7b583f76667719
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue Sep 29 23:01:34 2020 -0700
+
+    bump version
+
+commit f0d0352c49de45685fe4fa36e5ae0d3d671e32c0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue Sep 29 22:46:12 2020 -0700
+
+    add optional subprocess timeout flag, increase default timeout wh1te909/tacticalrmm#120
+
+commit 6d1e08c55a2fb425b5d6e209d6da5b0d9c506922
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Sep 23 02:38:01 2020 -0700
+
+    add support for domain CA
+
+commit e3976586ff66aaae5c7669ddf4f80fead55cb044
+Merge: af514d7 069461e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 20:18:57 2020 -0700
+
+    Release 0.11.1
+
+commit 069461e1e1822207cb35c0e800a632255b9a8377
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 19:19:22 2020 -0700
+
+    handle service stop/start now from inno setup during agent update
+
+commit af514d7fa3ce07cd3c695dd375316dcbe601183c
+Merge: 73740fd b106b7e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 03:09:19 2020 -0700
+
+    Release 0.11.0
+
+commit b106b7e1ed2b1f117d969d8f6dd6dab4fa1341d7
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 03:06:48 2020 -0700
+
+    bump version
+
+commit d767501a5ddb7c200e3ace29a562d8e6ed6d9390
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 03:05:43 2020 -0700
+
+    salt 1.1.0
+
+commit e4bfbdc1d40eac2b9ca918655f0787720636ff9c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 03:02:32 2020 -0700
+
+    json, not text
+
+commit a862ebe193a9746c2853ec1fc69713a1d784fb2a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 02:52:10 2020 -0700
+
+    small fixes
+
+commit 6c610073a14ee79607fcdb7ad9d46aa7f67660d4
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 02:14:00 2020 -0700
+
+    add separate 32 bit inno setup installer
+
+commit 1428f040095edc7c2e0d96af8281c41d10512797
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 01:41:35 2020 -0700
+
+    add 32bit support for inno setup script
+
+commit a87671d11f121b54a3f4acebe00ccc0658227a79
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 01:38:24 2020 -0700
+
+    add debug log for same salt ver update
+
+commit 95a9938c9b77a3a2d2da001c9c637245d741a5a1
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Sep 13 00:46:39 2020 -0700
+
+    don't remove salt dir, let the uninstaller remove it
+
+commit f2c3d45de90de2903686f7a473da773026b93972
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 23:48:00 2020 -0700
+
+    increase event log timeout
+
+commit 63a558f033d76f729670129bc8c3d2267de5e9e3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 23:34:52 2020 -0700
+
+    rework checks
+
+commit b443798b414fd4c661639049448d609a698a8b6d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 17:18:01 2020 -0700
+
+    change mesh cpu threshold
+
+commit acdea862f0782f4aeae53e77fd66c2e22da908a7
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 16:56:38 2020 -0700
+
+    hello v2
+
+commit 644d8591dda4909377760d1d7061451dbc2e0888
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 14:03:00 2020 -0700
+
+    add system info
+
+commit 035a7c6d31831f713385d6dcb4671a6fd3182aab
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 12:19:34 2020 -0700
+
+    improve salt update
+
+commit 1a3815d91080aee7374818fa6b5489d0b8f32d57
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 03:12:07 2020 -0700
+
+    salt / mesh fixes
+
+commit 836968d0db645144c9cb7bd4c199493babdda712
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 12 01:14:26 2020 -0700
+
+    32 bit support, installer improvements, code refactor
+
+commit b30df89b99ef0fa44f89ce1d765c3e22b011b7c5
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Sep 5 17:41:36 2020 -0700
+
+    update reqs
+
+commit 9f60a8d2c8a4b08e7d9267496a5ae59cce33b8c0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Sep 2 12:43:30 2020 -0700
+
+    add support for script arguments
+
+commit c21756be57e5a974580d5b91e82a0fe33a3ef351
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Sep 2 11:36:27 2020 -0700
+
+    black
+
+commit 805c399ed83f7e894fc5eb42c118486400561c03
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Sep 2 11:36:16 2020 -0700
+
+    update validators
+
+commit 73740fd14929bdb861ebcf580b64c314aa040bb0
+Merge: 38a5c6c de74920
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 23 19:38:42 2020 -0700
+
+    Release 0.10.2
+
+commit de74920c6a8061d6537d8d2586bdeaf9321007d3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 23 19:37:07 2020 -0700
+
+    bump version
+
+commit 931bd20bdf73f1a658bab59ceb623b7ca3bacdcd
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 23 17:54:35 2020 -0700
+
+    black
+
+commit 40ccbbcb0540cfed20b3efd1f43762d09c5e892e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 23 15:46:18 2020 -0700
+
+    add support for wildcard event id wh1te909/tacticalrmm#54
+
+commit 7a47c90e00e261b4114ef88c110764d29c09532e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 23 14:42:07 2020 -0700
+
+    uninstall any old salt-minions during install
+
+commit 0b063701094b67fe2174949cd951f2007aaa5fe7
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 22 18:37:17 2020 -0700
+
+    flush stdout so output can be shown when installer is wrapped in another exe/script
+
+commit ffaa70e9f85c3c316a9da25342be14da47afd66d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri Aug 21 08:26:29 2020 -0700
+
+    skip windows services that error out wh1te909/tacticalrmm#38
+
+commit 38a5c6c8be89ca46c38585f87c0e3567006ec594
+Merge: 6e551b6 3cc57d0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 15 18:18:26 2020 -0700
+
+    Release 0.10.1
+
+commit 3cc57d0def9407fe6db90154f5a088d342b63f19
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 15 18:17:41 2020 -0700
+
+    bump version
+
+commit eb6994aa9fc00a0c48d29c074c69a6281f50c988
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 15 18:16:22 2020 -0700
+
+    --local-salt and --local-mesh cli args can now be any valid file path, instead of requiring them to be in the agent's program directory
+
+commit 08d08390fd6f1d574aac3e45b8fafac46ec3756d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 15 03:07:35 2020 -0700
+
+    installer improvements, optional verbose logging, optional local salt and mesh binaries
+
+commit a8976680102efe54742fe999ca7174573bc8ec3c
+Merge: 5578374 553cab5
+Author: wh1te909 <7434746+wh1te909@users.noreply.github.com>
+Date:   Thu Aug 13 12:35:39 2020 -0700
+
+    Merge pull request #1 from dasyak/master
+    
+    Agent not calling hello endpoint on non-english clients
+
+commit 553cab57105cc94f6133ae3e97e62e0ad55eb7b5
+Author: dasyak <dasyak.bjoern@gmail.com>
+Date:   Thu Aug 13 16:39:05 2020 +0200
+
+    Update agent.py
+
+commit 6e551b6be513ba0972413db88d732cf6d0659f75
+Merge: 622b041 5578374
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 9 22:11:02 2020 -0700
+
+    Release 0.10.0
+
+commit 5578374fe180d74b45b99a90056de283129cf85b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 9 21:53:38 2020 -0700
+
+    bump version
+
+commit dffb99e91d729430f28c4cbdc9938f20e56c3c34
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 9 21:52:06 2020 -0700
+
+    update reqs
+
+commit 9cb8d5ba3912ec5af16e5453844ee810524e2a92
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 9 21:43:55 2020 -0700
+
+    add optional args to disable sleep/hibernate, enable ping and enable rdp during install
+
+commit e67ae912b7765844a732e8ab0471d23d158345b0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Aug 9 15:37:41 2020 -0700
+
+    use hostname as the default agent description if not set during install
+
+commit 2a1d2b62ef24958019ad56397da3e9a9d83292d1
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 8 22:58:33 2020 -0700
+
+    add recovery commands
+
+commit 0bbb61f406900a51f12f957d63ab1644c00b5b4d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 8 20:17:58 2020 -0700
+
+    black
+
+commit a37e9fe66319739858be000f792617664e88f77a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Aug 8 20:17:22 2020 -0700
+
+    improve salt update
+
+commit 622b041dccac6ba33736ad5032561f31e79a22c1
+Merge: 0aebc36 4a1ef56
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Jul 18 03:12:04 2020 -0700
+
+    Release 0.9.5
+
+commit 4a1ef568c8d487b2e3e7affd87ac61161ca9e68e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Jul 18 03:11:30 2020 -0700
+
+    increase agent check-in interval. send boot time with every check-in
+
+commit e3eedbd5c5ee516bd5aaee3cf0751d4bba8cd5c3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Jul 18 03:09:55 2020 -0700
+
+    update reqs
+
+commit 0aebc36658068e9d1b676c40d7cb1966cccc5575
+Merge: 6c3bd80 a395b5b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jul 12 20:47:47 2020 -0700
+
+    Release 0.9.4
+
+commit a395b5bec2e0d7c379481281d9da873b1a737bc7
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jul 12 20:44:25 2020 -0700
+
+    bump version
+
+commit e8a271762d6fd82c7cfa34e667dc9bc49ff28aaf
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jul 12 20:40:22 2020 -0700
+
+    add missing capture output
+
+commit 00ea33f56f11398264aabc831e333970daa291e0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jul 12 20:22:41 2020 -0700
+
+    improvements to mesh and salt watchdog
+
+commit d2525b79ba17ea1d6f646fc43f6121dd7934d763
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jul 12 19:48:59 2020 -0700
+
+    check for and handle existing installations during install
+
+commit 6c3bd80004581340a9a92afbef3591f330210955
+Merge: 8733159 1b9354b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Jul 6 01:52:05 2020 -0700
+
+    Release 0.9.3
+
+commit 1b9354bc640cb17eb719cb458214ccb0a52d2358
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Jul 6 01:26:29 2020 -0700
+
+    isort imports, code cleanup, remove version from db
+
+commit 037b9258f07d5a392631c1d6e44644057bf896b3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Jul 4 21:29:26 2020 -0700
+
+    fix incorrect cpu load
+
+commit 44cac7b26efa6a2ff252bb424a85f78441c96d7a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Jun 25 12:32:32 2020 -0700
+
+    create a single entry point because we want to eventually build with salt's tiamat
+
+commit 87331590b1b0414851a804144af9c36220f19ca7
+Merge: 0acd2ec 967fd61
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Jun 22 02:38:01 2020 -0700
+
+    salt-minion 1.0.3 wh1te909/salt@4d710904cc616a3eb144f6cd40df7e6fcc3247d3
+
+commit 967fd610b979db83896e5644a3d3183ab7baf807
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Jun 22 02:34:55 2020 -0700
+
+    salt-minion 1.0.3 wh1te909/salt@4d710904cc616a3eb144f6cd40df7e6fcc3247d3
+
+commit 0acd2ec603ede2303aada57e5cd33b84d6d71fbe
+Merge: ed5e960 f08f9cb
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Jun 17 01:15:42 2020 -0700
+
+    Release 0.9.2
+
+commit f08f9cbc12065a6d78a60410e277a7ffdd8c2df3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Jun 17 01:10:44 2020 -0700
+
+    make sure disk/service exists if policy check. ensure proper args are passed to salt function
+
+commit ed5e9607c43375a04c445e63fb3174d8909533e5
+Merge: de1252c f1eeb9a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jun 14 03:04:43 2020 -0700
+
+    Merge branch 'develop'
+
+commit f1eeb9adc4225cde1fceeffc2ab87de657b97131
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jun 14 02:52:35 2020 -0700
+
+    move fixsalt task from api to agent. add fixmesh task. cleanup tasks on uninstall
+
+commit de1252c311e645742682823b16b025f926a47d4d
+Merge: e6db139 d67bae9
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 30 19:31:41 2020 -0700
+
+    Merge branch 'develop'
+
+commit d67bae9ca68bf46ce57e8a45eaab5e2e841f4505
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 30 19:13:17 2020 -0700
+
+    agent updates to reflect checks refactor work done on rmm
+
+commit d83aea31a9cd8f061231d9c15804fa58d309b29f
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 30 19:09:26 2020 -0700
+
+    new salt-minion wh1te909/salt@b7d6de93e57bed11b659f93b081a2933f77c4e6a
+
+commit e6db13910d11d5ee607903ed1b95a946c1349105
+Merge: 1e5240e 64bc96c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun May 24 04:34:08 2020 -0700
+
+    Merge branch 'develop'
+
+commit 64bc96c131dbdb568e8552c85ed970d06af055df
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun May 24 04:30:55 2020 -0700
+
+    fix salt timeout issue
+
+commit 6c075739e0b1ed4e53b36d08376920577b3b35e6
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun May 24 03:34:48 2020 -0700
+
+    check for multiple mesh directories
+
+commit 1e5240ec944d2a984e3247f9228f5a494188142a
+Merge: d9fd008 9b077ee
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 23 23:30:05 2020 -0700
+
+    Merge branch 'develop'
+
+commit 9b077eef8f9e93cbfaae0bb02ff722d27b1db184
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 23 23:15:25 2020 -0700
+
+    installation is now done via cli for easier mass deployment
+
+commit d9fd00897d0038702e3046a59c16c71c6943a044
+Merge: 9a96c3f de54b26
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed May 20 01:04:58 2020 -0700
+
+    Merge branch 'develop'
+
+commit de54b262eab48f43d3eeb69a8940390507e71e03
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed May 20 00:59:30 2020 -0700
+
+    add event log checks
+
+commit 9a96c3f0f444bd26ea43b6b5cc3e25eee7037ef1
+Merge: 0a3f1db f6e96c6
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 16 01:39:26 2020 -0700
+
+    Merge branch 'develop'
+
+commit f6e96c6f9ac1e3bfbab0c00534ab534f7833c0e2
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 16 01:34:39 2020 -0700
+
+    agent now built with python 3.8.3
+
+commit f56aa4844005dbc6cf7822b1fa51ba366ac18854
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 16 00:55:06 2020 -0700
+
+    proactor event loop is now the default on windows on python 3.8
+
+commit 5607301937a1da882e05d7453127586c7c7cb24e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat May 16 00:27:11 2020 -0700
+
+    change taskrunner url to reflect api changes
+
+commit 0a3f1dbb2b26c03eb2b982eb1956bf9e78bc5efc
+Merge: df88bd5 ce50ebf
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri May 15 18:10:54 2020 -0700
+
+    Merge branch 'develop'
+
+commit ce50ebf427a821184210e9b3382257f2a8afcbc5
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri May 15 18:01:58 2020 -0700
+
+    rewrite functions to properly use asyncio
+
+commit 3514cf212afbd9105247640cc0e85ab3f735f2fb
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon May 11 12:41:59 2020 -0700
+
+    forcefully kill deadlocked threads
+
+commit df88bd52bcac4fae38199345e01aa39390a516a0
+Merge: 0bcbdc6 eeaa2f0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri May 8 01:25:18 2020 -0700
+
+    Merge branch 'develop'
+
+commit eeaa2f010ddce5fd599c0264d8644a55776c29b3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu May 7 23:26:45 2020 -0700
+
+    fix memory leak
+
+commit 0bcbdc61ead27b275e677876f7d08a57e44d8629
+Merge: 9415eee 436f48b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue May 5 13:56:12 2020 -0700
+
+    Merge branch 'develop'
+
+commit 436f48b6155929b205650d862d8c1eaafd95e792
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue May 5 13:55:44 2020 -0700
+
+    replace threading with multiprocessing, as too many race conditions with threading after checkrunner service runtime exceeds 48 hours
+
+commit 9415eeef663299ce33cecea47085c88ff767b3ff
+Merge: dfd2e9e 03427e2
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri May 1 15:38:56 2020 -0700
+
+    Merge branch 'develop'
+
+commit 03427e2e48834bce9d3479121641b393c38dbd64
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri May 1 15:30:02 2020 -0700
+
+    replace asyncio with threading for check runner
+
+commit dfd2e9e75e07629ae2ac7fb6e72b32ad197f76eb
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Apr 30 15:41:28 2020 -0700
+
+    update salt to 3000.2 for CVE fix
+
+commit b051c670d76b9044802e612233859d9441f1d229
+Merge: 29a073e c6da06e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue Apr 28 01:12:51 2020 -0700
+
+    Merge branch 'develop' update salt to python 3.7.7
+
+commit c6da06e3795041de98777ca7881658bc0af950ac
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue Apr 28 01:09:33 2020 -0700
+
+    update salt to python 3.7.7
+
+commit 29a073e70615bbccfee6a2b4be0904bfa558c316
+Merge: e00d84d 0a64d7a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Apr 16 01:11:20 2020 -0700
+
+    Merge branch 'develop'
+
+commit 0a64d7a6164b81edc53e7ae44b8c0061b8d82b8b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Apr 16 01:07:12 2020 -0700
+
+    1. added automated tasks
+    2. winupdater no longer runs as a service
+    3. updated reqs
+
+commit e00d84d3b6f832d0a4fd80429547ba9aa8b45d77
+Merge: 9efd65e f5b3445
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Apr 5 02:23:40 2020 -0700
+
+    Merge branch 'develop'
+
+commit f5b344501b04c490570501510b755857d35efa3c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Apr 5 02:22:34 2020 -0700
+
+    improvements to checks
+
+commit eb1df88363924daca23a7829350fe5bf15057f58
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri Apr 3 22:27:27 2020 -0700
+
+    add ability to run checks manually
+
+commit 9efd65e8d51690faa7f50f69132c8bbed4d1bc5c
+Merge: d4c1dee 470c955
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Apr 1 21:09:05 2020 -0700
+
+    Merge branch 'develop'
+
+commit 470c9558532a93b86a7fb9a9bd269594f384250e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Apr 1 21:07:54 2020 -0700
+
+    new salt minion 3000.1
+
+commit d4c1dee4c2f031b8dbc2cb8c93aa46cff745c9bf
+Merge: 965bc94 390d890
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Mar 30 01:19:28 2020 -0700
+
+    Merge branch 'develop'
+
+commit 390d890a49024643d50cd956579ce858c7e4df0f
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Mar 30 01:14:52 2020 -0700
+
+    wh1te909/tacticalrmm@78d087b1463abd0b42c0db20fdb6b09bf96a2329
+
+commit d9d12401e9847ae334a130f61554b6565478cb41
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Mar 29 23:56:44 2020 -0700
+
+    change fields to match serializers on rmm
+
+commit d0362186a37290e89643b9dece5d2fbaa2112b1d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Mar 29 16:22:05 2020 -0700
+
+    delay agent start to prevent inaccurate boot time reporting
+
+commit 965bc947f1cc0c220f02bf63eb83aab1b478e9ba
+Merge: bc07222 57df6c4
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Mar 28 14:44:58 2020 -0700
+
+    Merge branch 'develop'
+
+commit 57df6c42038aadd1579de975871e15e9bd4c1e34
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Mar 28 14:40:53 2020 -0700
+
+    add update salt-minion method, improve uninstall process, code cleanup
+
+commit e15ef3846b9aaba987bd3de145aeb513b412da48
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Mar 28 13:22:19 2020 -0700
+
+    use present for copyright range
+
+commit 8668801f667c08a2c58523629cf437fd7f0a6f5e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri Mar 27 20:31:34 2020 -0700
+
+    run elevated
+
+commit 836f5ca017e91cdc8dd152314366d5eace95d1d0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri Mar 27 20:27:57 2020 -0700
+
+    update reqs
+
+commit bc07222f179465f5b3dc05941aab2584ff251a1e
+Merge: d0f769c 95b51c2
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Mar 11 11:28:23 2020 -0700
+
+    Merge branch 'develop'
+
+commit 95b51c2ab7d92519525b7fe70f81011056337310
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Mar 11 11:23:47 2020 -0700
+
+    major rework of agent design
+
+commit d0f769cf3ab46448959efbe994df379e44af7e9e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Mar 1 19:53:29 2020 -0800
+
+    improved installer, new salt-minion
+
+commit 3e4bef7a49ed518be534ecf7efbd53c691b3e0b6
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Mar 1 05:44:35 2020 -0800
+
+    make default outputter json and rename a salt module
+
+commit b04823ef97bac6e31a8012783f223a4bd7e7b46f
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Feb 29 22:17:07 2020 -0800
+
+    add ability to run python scripts
+
+commit 756e4a0cd9117c035a40790dee0081e9431599a3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Feb 29 03:49:05 2020 -0800
+
+    bump version
+
+commit ee52827a6bddc57311b039d392697af934a8905e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Feb 29 03:01:58 2020 -0800
+
+    update reqs
+
+commit 2da6254cbf0bcdf013e46bc9fb5eb1025ff4ef6d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Feb 29 02:55:15 2020 -0800
+
+    remove stderr from install_update as it was returning if deperecation messages in stderr, even when updates sucessfully installed
+
+commit 4b4346eb41e390d49f08012b3eb958b367fc04d2
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Feb 29 02:44:54 2020 -0800
+
+    cleanup some functions
+
+commit f3e195e73d25e5ff6d7a49fcb359fd910c83975e
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri Feb 28 17:26:54 2020 -0800
+
+    remove get_cpu method, getting now from wmi through salt module
+
+commit 073a568d11130aeb2c01cec255c48b6299604406
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Feb 23 03:43:35 2020 -0800
+
+    recompiled salt-minion (fall back to WMI for now) until this is fixed saltstack/salt#56196
+
+commit 9feed19a25cd89ffa3733caa7f6a597b4a322ddf
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Feb 23 03:35:13 2020 -0800
+
+    update pysimplegui
+
+commit 7abfa5b03f9f8e95596cba04800206324c7fd43f
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Feb 16 01:00:21 2020 -0800
+
+    update salt minion to v3000
+
+commit 228cccda66c19818e76cfd9c8589eb791eb18f9f
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Feb 16 00:59:31 2020 -0800
+
+    update reqs
+
+commit beb776424595a35f2397145701d195e4e2cae6f9
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Feb 8 17:53:01 2020 -0800
+
+    fix travis test
+
+commit 71c5cf4eb526767c134f3b88e03959eb403eb4ee
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Feb 8 17:29:22 2020 -0800
+
+    check if salt minion accepted on master
+
+commit eb6b92cff2bfb839352b0ca028dec00f935b5a6b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Feb 6 20:58:31 2020 -0800
+
+    add python 3.8 to travis
+
+commit 27fcd37b07f6bc9c356ad811ff1a9c8a92c0f406
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Feb 5 22:26:07 2020 -0800
+
+    add script checks
+
+commit e00d6db8910a57beab0d01eead441ffda1f92d7c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Feb 5 22:25:44 2020 -0800
+
+    fix formatting
+
+commit b0f132f675a6696d4e3305c7f33c1877c14b1d08
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Jan 30 22:07:50 2020 -0800
+
+    remove duplicate package
+
+commit e017433690f16bc4c2ea40d10c8eaf531d243b7a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Jan 30 22:02:56 2020 -0800
+
+    update to salt 2019.2.3
+
+commit cb7562fd30548fc0a5f4b6f29768f9818d6648bb
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Thu Jan 30 22:01:50 2020 -0800
+
+    update reqs
+
+commit 8486727a7aa73ea9b1afc0cd972706b1a2754ace
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Fri Jan 17 20:56:00 2020 -0800
+
+    ensure agent run as admin
+
+commit 22cc0a07c02332f07c057d093bdb34993f16afd6
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Jan 15 17:07:03 2020 -0800
+
+    switched from qt to tkinter, moved install function, updated reqs
+
+commit 25a5d4483f314f4a2b5a8dc3aba34b9f36fa8296
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jan 5 15:58:59 2020 -0800
+
+    update readme
+
+commit 968445d38b14ea4b8151151af579a2f2fe728a2c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jan 5 02:49:47 2020 -0800
+
+    add agent's pk to salt minion id
+
+commit b55ba4dae51939b85eca8bd817c00da3340d1388
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Jan 5 00:47:20 2020 -0800
+
+    fix nssm installer and add agent pk to agent's local db
+
+commit 1a3322016cb92c63e8c8498f950db7d2f9af95e8
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Jan 1 12:33:30 2020 -0800
+
+    cleanup installer and fix crash when api not accessible
+
+commit a50bf8da7b67de21e97078f11a3c238174911d90
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Wed Jan 1 12:32:17 2020 -0800
+
+    update reqs
+
+commit 3861b0cf175fbe5416fec3dbe459bae9bb427ec6
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 22:17:10 2019 -0800
+
+    add windows 7 and server2008 pipeline agents
+
+commit 7c28de18d50f9abb24c33d8bc55237b07364733b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 04:08:53 2019 -0800
+
+    fix pipelines running on the wrong agents
+
+commit 8d398aadba232446581fe37913a07b3d7a6a2349
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 03:22:17 2019 -0800
+
+    removed choco, installed python manually
+
+commit aea25d8c9892abcb15f4a898710ee39b92ba2088
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 02:57:11 2019 -0800
+
+    try variables
+
+commit fd3a9054aaab4cb9c4a58d8fa112466c588fac35
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 02:46:40 2019 -0800
+
+    attempt to fix pipelines
+
+commit 46b6beb52946a3cdd01dafd018d8a62c597b1d89
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 02:37:20 2019 -0800
+
+    update pipeline agents to 3.7.6
+
+commit 4f1da2ee830a9b5fc7702b254ae79290489073da
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 02:26:31 2019 -0800
+
+    add windows 10, 8.1 and server2012R2 agents to pipelines
+
+commit c17616ad8730a7822e36e603b48d003a71b35a1a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 29 00:30:06 2019 -0800
+
+    add pipelines status
+
+commit c93eb1c77d1bc0091ec37242c5b5056fb0ed61a6
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 23:39:43 2019 -0800
+
+    add server 2016 agent
+
+commit 7e94a095739ce1d14c9967c00d2623d1b27a9238
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 21:57:38 2019 -0800
+
+    testing cmds
+
+commit 1d42c92779f965a171cfc32a5a1f43c9bb1a0c2c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 21:35:57 2019 -0800
+
+    refreshenv
+
+commit 5f51d3e1d16d0430af1e054a04e443c6d339df94
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 21:31:50 2019 -0800
+
+    add -y
+
+commit 4b2825eb29b64fa82c7b28a5423fb623a8399573
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 21:26:39 2019 -0800
+
+    forgot we are on windblows
+
+commit 164fd71ad9e99db9bf2e787a20798983b0ed177c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 21:24:35 2019 -0800
+
+    fix path
+
+commit c25d3f586f62b92e21e2c7504c4419742b1c4e74
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 21:23:30 2019 -0800
+
+    remove av cmds until fix permissions
+
+commit cb98c6f8337205ca8f8a8f255c5c0ce1d956ab70
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 21:12:50 2019 -0800
+
+    add path to pipelines
+
+commit 4f006b542a33e3b6bf63d9ae7b58783df05679e2
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 20:11:33 2019 -0800
+
+    using self-hosted agents for azure pipelines
+
+commit 5d4f1ed1820240cfd5c3db36541501fe4471359f
+Author: wh1te909 <7434746+wh1te909@users.noreply.github.com>
+Date:   Sat Dec 28 15:44:55 2019 -0800
+
+    update branch in pipelines
+
+commit ec6af962d482832b61e32af5415d30efe68f7125
+Author: wh1te909 <7434746+wh1te909@users.noreply.github.com>
+Date:   Sat Dec 28 15:11:36 2019 -0800
+
+    testing azure pipelines
+    
+    [skip ci]
+
+commit 9ffe951296cf02ccac5b9eac30009caf9332592b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 28 03:04:54 2019 -0800
+
+    format with black
+
+commit 8959c64118baa8f6f2bca62a8116fe66a1c05af1
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Tue Dec 17 23:37:34 2019 -0800
+
+    move async ping checks into winutils file and re-write tests
+
+commit af481d67244ee1c3ec05eedacce65f3302f31ff0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Dec 16 04:02:44 2019 -0800
+
+    increase checkrunner intervals
+
+commit 87b40f6c76718f52c65da82ac8b8c654bd8e1b89
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 15 18:30:12 2019 -0800
+
+    increase agent check-in intervals
+
+commit 7dc9d5b452d5e9677f2a28a53de9357de02bee45
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 15 18:06:38 2019 -0800
+
+    update reqs
+
+commit 4a6e6e3f8da9223db77cd59e70eb00449fb61e3c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Dec 9 00:24:04 2019 -0800
+
+    check patch policy from rmm before installing windows updates
+
+commit 6d8d324455bd557f3051552470c1b1d87966e50c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 8 15:33:20 2019 -0800
+
+    check if agent needs reboot after windows update
+
+commit 2cca44b1b9622a1cee47a424e6b5dcde8785af6b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 8 04:26:39 2019 -0800
+
+    trigger a patch scan once all updates finish installing
+
+commit 43f22d44f7c798592b14494e46ea4cc523738d42
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 8 03:37:29 2019 -0800
+
+    fix travis file
+
+commit 57dcd2e9920c01afd85b286f8bf83a25b43a55d7
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 8 03:35:47 2019 -0800
+
+    Revert "testing python 3.8"
+    
+    This reverts commit f59c28fe69a94ad5671a321abeea5911a4ae1ec0.
+
+commit 914f3061dfcf30e250113f51f2ee3e511b891f11
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 8 03:22:01 2019 -0800
+
+    fix travis language
+
+commit f59c28fe69a94ad5671a321abeea5911a4ae1ec0
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 8 03:19:31 2019 -0800
+
+    testing python 3.8
+
+commit fe945ec7f69e1841c0449cbaab67472102874a93
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 8 02:53:49 2019 -0800
+
+    add checkrunner tests
+
+commit 08dc2a3aa56ca229080b5928530f5d69177da92d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 7 23:42:57 2019 -0800
+
+    fix typo
+
+commit 9a37246328fb664a1515ceb55ddea91d3ac8a29d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 7 23:22:40 2019 -0800
+
+    add windows update functionality
+
+commit fb7ed43bcafe14bfcf846849bc00e731fdbe6b5b
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Dec 7 01:29:31 2019 -0800
+
+    update reqs
+
+commit 681a9b30f178ed262bb00770a92ca495f8515aaf
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Dec 1 16:32:26 2019 -0800
+
+    ensure public ip returned is always valid in case site down
+
+commit 6fa9c1db150d422e1db86e1c6fe7fe022808af39
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Nov 30 23:23:00 2019 -0800
+
+    use local meshagent to get mesh id hex instead of querying mongo
+
+commit a11218019fab1e3d2f7288e280c1530239366254
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Nov 30 23:21:34 2019 -0800
+
+    recompiled salt binary
+
+commit 588b4cbe492c11567ccfb49f2021ed6bcac7d2dc
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Nov 30 23:20:49 2019 -0800
+
+    update reqs
+
+commit 02b3de8ac1613996e73af22d46c23e43a9ad5611
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Nov 17 20:48:18 2019 -0800
+
+    use subprocess run instead of Popen
+
+commit ba7f885f8d19bc00cc41ffbdaae20af9f24612e3
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Nov 17 20:21:41 2019 -0800
+
+    use async subprocess exec instead of shell
+
+commit 354f5f1ee944e4251c1630ae85d4b33c988d200c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Nov 17 17:14:27 2019 -0800
+
+    bump version
+
+commit 817e8375eab120572323888ccaa4170bc8842929
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Nov 17 17:08:36 2019 -0800
+
+    get antivirus info
+
+commit 086cfcff74a6f7ce9c20f87a174a8db86e344d30
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sun Nov 17 01:26:26 2019 -0800
+
+    fix uninstallrun being executed multiple times when agent updated
+
+commit cd8df0640d020efe5a54dbad58315fb1ece090b8
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Nov 16 22:54:40 2019 -0800
+
+    update packages and add version upload
+
+commit 9c7502fe545855b0b5cf229321a834e53eec6d2a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Nov 16 22:03:31 2019 -0800
+
+    testing remotely update agents
+
+commit 24f50cfef61381a3c0dfaa4309678c4c8634b52d
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Oct 26 21:49:41 2019 -0700
+
+    optimize agent add/update methods
+
+commit 327d00ede8ae6c3075b7ebca074eb55cb452055a
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Sat Oct 26 21:49:10 2019 -0700
+
+    salt 2019.2.2 binary
+
+commit 6caf165cd0249427c0270d829639f239722ac185
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Oct 21 20:44:50 2019 -0700
+
+    add more tests
+
+commit 3e6cd110ad219c3dcfaebccfde59e0f43709fb55
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Oct 21 19:48:40 2019 -0700
+
+    add travis build status
+
+commit f2d58e59ca2fe85a0fa787fe19b16afa535d686c
+Author: wh1te909 <dcparsi@gmail.com>
+Date:   Mon Oct 21 19:33:30 2019 -0700
+
+    init

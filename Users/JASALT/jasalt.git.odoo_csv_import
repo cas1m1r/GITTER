@@ -1,0 +1,716 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 5273c174faa3cdc71b8b62fc6ad083a9dd84c97e
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 13:18:34 2019 +0100
+
+    [VERSION] Change vestion number
+
+commit bd22f647603c99c591551fdf23b0bb3e8e6fa838
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 13:14:56 2019 +0100
+
+    [FIX] Encoding is now consistent utf-8 by default, is a parameter each time is needed and get propagate properly
+
+commit cccfbdd688a1ef5cc2ab8e18ea287b85b7b0f14d
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 10:51:57 2019 +0100
+
+    [IMP] Remove default value for path and python exec, path was not compatible and user have to explicitly choose their own python exec
+
+commit 8c060ea326b3285aae2bc48c51a6fc69606da579
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 10:27:05 2019 +0100
+
+    [ADD] Test for join_file feature
+
+commit 4628b92e852b97a7d64be9a694d6352d37e3c768
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 10:18:37 2019 +0100
+
+    [FIX] Python3 binary mapper, return a str object not a byt object
+
+commit da044dc5f4ba92d4c3f0f63d670a8374632d5d3e
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Dec 9 16:36:07 2019 +0100
+
+    [FIX] Merge file feature, it's now integration in the processor with join_file function
+
+commit 080f67d2fa008bc3bae41ffabe32f8ea213f5964
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Fri Dec 6 10:00:02 2019 +0100
+
+    Update Requirements.txt
+
+commit a49139568cf0a2c12739fb937f72d6fb5c10a6e5
+Author: Jean Adam <jad@odoo.com>
+Date:   Mon Jul 22 13:47:33 2019 +0200
+
+    Initial readme
+
+commit 4f9924c835676daa31b86e453ea7317d37d2259c
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Jul 4 11:16:35 2019 +0200
+
+    [ADD]
+    odoo_convert_path_to_image.py : take a csv file, modify it convert path to binary encoded in base64, ideal to import product image
+    odoo_convert_url_to_image.py: Take a csv file, convert the given column from url to the content encoded in base64
+    Add mapper for conversion from URL
+    Change version to 2.2.0
+
+commit 2f4c29b875ef53cbb8e6a12bda15f6e0be07dbf4
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Mar 5 11:22:32 2019 +0100
+
+    [VERSION] change version tag
+
+commit 10b599b6937eeb43644369af4e2caf4c85b8012e
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Mar 5 11:21:48 2019 +0100
+
+    [FIX] fix stop iteration error in python 3.7
+
+commit 3708b765768996ec370afa12acd88e7dd8a116e2
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Mar 4 21:26:02 2019 +0100
+
+    [VERSION] change version tag
+
+commit f64c148f4b90b17aa5243853f2528354da91b6af
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Mar 4 21:25:23 2019 +0100
+
+    [FIX] Don't use maxsize for field_size_limit use 32 bit int it may crash on some platform but it will works on windows and linux
+
+commit 3028b74704f9e3934b58f39d1b766dbba51c98a9
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Mar 4 17:34:21 2019 +0100
+
+    [VERSION] change version tag
+
+commit 20d76e7eb9510e79d2419d15e3698e54f6ab1fc8
+Author: Jean Adam <jad@odoo.com>
+Date:   Tue Dec 18 13:18:32 2018 +0100
+
+    [FIX] Add --ignore option in write_to_file. Allow 'ignore' to be used in the import arguments of Process.process
+
+commit fac4c4b445c19a3986729347ab780a86eab6e60e
+Author: Teodor Yantcheff <teodor.yantchev@gmail.com>
+Date:   Mon Oct 22 09:50:21 2018 +0300
+
+    * requrements.txt updated to odoo-client-lib==1.2.0
+    
+    * requirements.txt file namaing
+    
+    * pep8 formatting
+
+commit 0beb614de54bf5da5a17217ffb5a4ad2f6b71e3a
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Oct 4 13:58:07 2018 +0200
+
+    [VERSION] change version number to 2.1.0
+
+commit b453f43e63c96dfefc3a8a2642d674775b289bb4
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jul 3 16:10:27 2018 +0200
+
+    [ADD] possibility to import properly o2m, even if it remain a bad id since it's not possible to define ID for now
+
+commit 7472319da45874f09b88f18ac4f404424bf629b8
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jul 3 16:08:02 2018 +0200
+
+    [FIX] more python 3 compatibility issue
+
+commit 3add9d207c55d77ac5c693f223b28a67f187c4bd
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jul 3 16:06:56 2018 +0200
+
+    [ADD] generic mapper for binary field
+
+commit d85f8bcdcbc57807dca3078f598647d17a2adabb
+Author: bartvanbossche <bvb@odoo.com>
+Date:   Mon Apr 16 14:19:16 2018 +0200
+
+    Put config file in constructor of processor
+
+commit 3f384913cb95953233943d2650f224bd30a3ec5b
+Author: bartvanbossche <bvb@odoo.com>
+Date:   Mon Apr 16 11:46:03 2018 +0200
+
+    Allow people to change the config file from within the script
+
+commit 1815a360f73315301e734ea0ec2bc28e51fa5364
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Jun 20 17:35:41 2018 +0200
+
+    [ADD] Version number
+
+commit 5d5a0373256ebfffb244810b5a93c92f26917ccf
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Feb 28 16:56:25 2018 +0100
+
+    [MIG] Migration to python 3 while keeping compatibility with python 2
+    [IMP] possibility to use file object or similar instead of file name for tranform, load and extract operation
+    [TEST] Launch test with python 2 and python 3 + generate coverage report
+    [MIG] migration odoo-client-lib a fork of openerp-client-lib that is now compatible with python 3
+    [IMP] change requirements and setu.py
+
+commit 35ebf93f8b69c04fc5a5cb195db62737c59dea27
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Aug 23 14:27:25 2017 +0200
+
+    [FIX] Make compatible with windows 10
+
+commit 08b87c2ff1a0dd60d11be08ef8f67c9ec546a0b0
+Author: Thammachart <bustheheroall@gmail.com>
+Date:   Sat Aug 12 16:40:05 2017 +0700
+
+    Typo Fixed in script files
+
+commit 7d1b54c30587bf080826086d6168fdd652f06037
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 27 12:00:57 2017 +0100
+
+    [VERSION] new version 1.1
+
+commit e171844b054d4e062873e6d45817a351a5da348f
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 27 11:46:08 2017 +0100
+
+    [ADD] Add preprocess feature that allow to work with the complete set of data, usefull when you need information from different line
+
+commit a4f6ce13dbbc0cb9bbae8cb6f64d243cd7f69cc1
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Feb 9 15:06:24 2017 +0100
+
+    [FIX] encoding in utf-8 of boolean failed
+
+commit 8889c5daf15451e31e9d2d581892bcb0fd97bdfb
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Fri Dec 30 01:04:29 2016 +0100
+
+    [ADD] setup.py use to upload the package on pypi package index
+
+commit 08b220f9f9f97ad3fd807eb65bea4fb336b73ceb
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Dec 29 22:38:54 2016 +0100
+
+    [LICENCING] Change license to LGPL since it's not only design as a script to be called by external application but also as a python library
+
+commit abbc2250da376ac891f37facb96e557e8670356a
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Dec 29 22:36:00 2016 +0100
+
+    [ADD] Wrap import and export tools in method in order to use them directly with python script
+    [ADD] Listwriter to allow direct manupilation of list in import/export script instead of using csv file, however csv manipulation is working and remains unchange
+    [RENAME] Add a more specific name for the top level package of the library
+
+commit 7f2bfb80f307c39e337eceec740fc4fda51f9186
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Fri Oct 14 15:35:42 2016 +0200
+
+    [ADD] requirement.txt file
+
+commit 47a31e5c16fb5753441df0b8aca5d17ef97a47e4
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Oct 11 11:08:07 2016 +0200
+
+    [ADD] export script
+
+commit 24047140afbd50d0dbf4b23a839ede51b7c32ab8
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Oct 4 17:17:02 2016 +0200
+
+    [ADD] Licensing + [FIX] Help
+
+commit 8aaad7da7833f25fb39515e2ecf124df273fbec0
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Sep 21 01:20:59 2016 +0200
+
+    [ADD] VERSION 10 product import
+
+commit 44cfbd262171481f5fe730fb492b33d2199d0c15
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Sep 20 22:21:10 2016 +0200
+
+    [CHANGE] rename split args into groupby [ADD] context as args
+
+commit 3100ea3d301f0b782b11736ac71e390a1d09214d
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Sep 20 21:19:20 2016 +0200
+
+    [RM] remove useless conf file
+
+commit ba52ffa912208db74073a24779ec011f80749b1f
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Sep 20 21:12:12 2016 +0200
+
+    [ADD] Product (with variant) test for V9 and below
+
+commit 92c23cbe3255978afbc6ce0bcf3612596f248cf6
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Mon Sep 19 19:37:24 2016 +0200
+
+    [ADD] missing modification on checker
+
+commit 7882e456116d2e98ca3d9fc6cfd56c2b8d2a433e
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Mon Sep 19 08:45:55 2016 +0200
+
+    [ADD] tests for binary, split and checker
+
+commit 315d2efd381af0ed69bdfaccf76b4ff2a56f193a
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Sat Sep 17 17:39:58 2016 +0200
+
+    [ADD] test and coverage in order to clean unuse code : In progress
+
+commit caf424e3156b2688b413b40cb64f4a42222cd929
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Sat Sep 10 02:33:48 2016 +0200
+
+    [CLEAN] to a better file organisation + v2 released
+
+commit 1d7219303e41c6ee1c0d38e34851663f1c764e4c
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Sep 8 00:42:58 2016 +0200
+
+    [WIP] working v2 with rpc_thread inheritance
+
+commit 8e630e2aca9a83ca0e1d2b798f56af210c9eb452
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Sun Sep 4 12:30:06 2016 +0200
+
+    [WIP] change to rpc thread class
+
+commit 4bf86d1600ce72fee207c55a063e70870a070a2b
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Aug 24 16:50:13 2016 +0200
+
+    [WIP] version 2 of odoo import thread
+
+commit 6825c3ca9b2b167e37d91bafac0f1eb1a1487af8
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Jun 29 16:42:53 2016 +0200
+
+    [ADD] Advanced concat mapper + [ADD] Split option on import_odoo_thread to try to avoid concurrent update
+
+commit 50f635b34ac40d9bc79839142d6e00081050dfe2
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Jun 29 14:04:49 2016 +0200
+
+    [ADD] new data file example + [IMP] Binary mapper
+
+commit 0f73a18873422c0e95e26cdf69a581d248f12060
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu May 12 12:00:13 2016 +0200
+
+    [ADD] few improvement + remove traillign space
+
+commit 0a1ea5e0138a6274cb34a4d684c9ce176f6825ac
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 29 16:56:56 2016 +0100
+
+    [ADD] missing data sample
+
+commit 3d69ab2a0009fca66ec74260b1b2fe2e8d5ebeae
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 29 16:45:47 2016 +0100
+
+    [ADD] example file + [FIX] remove os specifiv separator
+
+commit cd5aa3d42deccc010eb074f13fe0dbc9444f6bba
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Feb 25 16:38:54 2016 +0100
+
+    [CLEAN] remove old file
+
+commit d0c18eef05184c6a044a170dbc705da719d02483
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Feb 25 16:37:40 2016 +0100
+
+    [INIT] First commit of new framework for transformation
+
+commit 9230ef5ed3e3b173fe6b9aced10e7278cb39e612
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Fri Dec 11 15:09:53 2015 +0100
+
+    [ADD] script to preprocess data and helper + auto generate sh script to import all file in good order
+
+commit 16f1b4315f73d9021515b6ad84586646547ef288
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Aug 5 14:10:34 2015 +0200
+
+    [ADD] fail retry + better error message
+
+commit d82f8fc0a3107a1a52a5bb8b079243a69ac8c9f2
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jun 16 11:12:46 2015 +0200
+
+    [ADD] odoo import with thread to be faster
+
+commit b9629e52e35fa3b156fcdb599f8ee71ffdb28321
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon May 19 11:02:26 2014 +0200
+
+    [INIT] import large file
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 5273c174faa3cdc71b8b62fc6ad083a9dd84c97e
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 13:18:34 2019 +0100
+
+    [VERSION] Change vestion number
+
+commit bd22f647603c99c591551fdf23b0bb3e8e6fa838
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 13:14:56 2019 +0100
+
+    [FIX] Encoding is now consistent utf-8 by default, is a parameter each time is needed and get propagate properly
+
+commit cccfbdd688a1ef5cc2ab8e18ea287b85b7b0f14d
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 10:51:57 2019 +0100
+
+    [IMP] Remove default value for path and python exec, path was not compatible and user have to explicitly choose their own python exec
+
+commit 8c060ea326b3285aae2bc48c51a6fc69606da579
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 10:27:05 2019 +0100
+
+    [ADD] Test for join_file feature
+
+commit 4628b92e852b97a7d64be9a694d6352d37e3c768
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Dec 10 10:18:37 2019 +0100
+
+    [FIX] Python3 binary mapper, return a str object not a byt object
+
+commit da044dc5f4ba92d4c3f0f63d670a8374632d5d3e
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Dec 9 16:36:07 2019 +0100
+
+    [FIX] Merge file feature, it's now integration in the processor with join_file function
+
+commit 080f67d2fa008bc3bae41ffabe32f8ea213f5964
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Fri Dec 6 10:00:02 2019 +0100
+
+    Update Requirements.txt
+
+commit a49139568cf0a2c12739fb937f72d6fb5c10a6e5
+Author: Jean Adam <jad@odoo.com>
+Date:   Mon Jul 22 13:47:33 2019 +0200
+
+    Initial readme
+
+commit 4f9924c835676daa31b86e453ea7317d37d2259c
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Jul 4 11:16:35 2019 +0200
+
+    [ADD]
+    odoo_convert_path_to_image.py : take a csv file, modify it convert path to binary encoded in base64, ideal to import product image
+    odoo_convert_url_to_image.py: Take a csv file, convert the given column from url to the content encoded in base64
+    Add mapper for conversion from URL
+    Change version to 2.2.0
+
+commit 2f4c29b875ef53cbb8e6a12bda15f6e0be07dbf4
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Mar 5 11:22:32 2019 +0100
+
+    [VERSION] change version tag
+
+commit 10b599b6937eeb43644369af4e2caf4c85b8012e
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Mar 5 11:21:48 2019 +0100
+
+    [FIX] fix stop iteration error in python 3.7
+
+commit 3708b765768996ec370afa12acd88e7dd8a116e2
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Mar 4 21:26:02 2019 +0100
+
+    [VERSION] change version tag
+
+commit f64c148f4b90b17aa5243853f2528354da91b6af
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Mar 4 21:25:23 2019 +0100
+
+    [FIX] Don't use maxsize for field_size_limit use 32 bit int it may crash on some platform but it will works on windows and linux
+
+commit 3028b74704f9e3934b58f39d1b766dbba51c98a9
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Mar 4 17:34:21 2019 +0100
+
+    [VERSION] change version tag
+
+commit 20d76e7eb9510e79d2419d15e3698e54f6ab1fc8
+Author: Jean Adam <jad@odoo.com>
+Date:   Tue Dec 18 13:18:32 2018 +0100
+
+    [FIX] Add --ignore option in write_to_file. Allow 'ignore' to be used in the import arguments of Process.process
+
+commit fac4c4b445c19a3986729347ab780a86eab6e60e
+Author: Teodor Yantcheff <teodor.yantchev@gmail.com>
+Date:   Mon Oct 22 09:50:21 2018 +0300
+
+    * requrements.txt updated to odoo-client-lib==1.2.0
+    
+    * requirements.txt file namaing
+    
+    * pep8 formatting
+
+commit 0beb614de54bf5da5a17217ffb5a4ad2f6b71e3a
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Oct 4 13:58:07 2018 +0200
+
+    [VERSION] change version number to 2.1.0
+
+commit b453f43e63c96dfefc3a8a2642d674775b289bb4
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jul 3 16:10:27 2018 +0200
+
+    [ADD] possibility to import properly o2m, even if it remain a bad id since it's not possible to define ID for now
+
+commit 7472319da45874f09b88f18ac4f404424bf629b8
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jul 3 16:08:02 2018 +0200
+
+    [FIX] more python 3 compatibility issue
+
+commit 3add9d207c55d77ac5c693f223b28a67f187c4bd
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jul 3 16:06:56 2018 +0200
+
+    [ADD] generic mapper for binary field
+
+commit d85f8bcdcbc57807dca3078f598647d17a2adabb
+Author: bartvanbossche <bvb@odoo.com>
+Date:   Mon Apr 16 14:19:16 2018 +0200
+
+    Put config file in constructor of processor
+
+commit 3f384913cb95953233943d2650f224bd30a3ec5b
+Author: bartvanbossche <bvb@odoo.com>
+Date:   Mon Apr 16 11:46:03 2018 +0200
+
+    Allow people to change the config file from within the script
+
+commit 1815a360f73315301e734ea0ec2bc28e51fa5364
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Jun 20 17:35:41 2018 +0200
+
+    [ADD] Version number
+
+commit 5d5a0373256ebfffb244810b5a93c92f26917ccf
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Feb 28 16:56:25 2018 +0100
+
+    [MIG] Migration to python 3 while keeping compatibility with python 2
+    [IMP] possibility to use file object or similar instead of file name for tranform, load and extract operation
+    [TEST] Launch test with python 2 and python 3 + generate coverage report
+    [MIG] migration odoo-client-lib a fork of openerp-client-lib that is now compatible with python 3
+    [IMP] change requirements and setu.py
+
+commit 35ebf93f8b69c04fc5a5cb195db62737c59dea27
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Aug 23 14:27:25 2017 +0200
+
+    [FIX] Make compatible with windows 10
+
+commit 08b87c2ff1a0dd60d11be08ef8f67c9ec546a0b0
+Author: Thammachart <bustheheroall@gmail.com>
+Date:   Sat Aug 12 16:40:05 2017 +0700
+
+    Typo Fixed in script files
+
+commit 7d1b54c30587bf080826086d6168fdd652f06037
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 27 12:00:57 2017 +0100
+
+    [VERSION] new version 1.1
+
+commit e171844b054d4e062873e6d45817a351a5da348f
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 27 11:46:08 2017 +0100
+
+    [ADD] Add preprocess feature that allow to work with the complete set of data, usefull when you need information from different line
+
+commit a4f6ce13dbbc0cb9bbae8cb6f64d243cd7f69cc1
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Feb 9 15:06:24 2017 +0100
+
+    [FIX] encoding in utf-8 of boolean failed
+
+commit 8889c5daf15451e31e9d2d581892bcb0fd97bdfb
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Fri Dec 30 01:04:29 2016 +0100
+
+    [ADD] setup.py use to upload the package on pypi package index
+
+commit 08b220f9f9f97ad3fd807eb65bea4fb336b73ceb
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Dec 29 22:38:54 2016 +0100
+
+    [LICENCING] Change license to LGPL since it's not only design as a script to be called by external application but also as a python library
+
+commit abbc2250da376ac891f37facb96e557e8670356a
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Dec 29 22:36:00 2016 +0100
+
+    [ADD] Wrap import and export tools in method in order to use them directly with python script
+    [ADD] Listwriter to allow direct manupilation of list in import/export script instead of using csv file, however csv manipulation is working and remains unchange
+    [RENAME] Add a more specific name for the top level package of the library
+
+commit 7f2bfb80f307c39e337eceec740fc4fda51f9186
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Fri Oct 14 15:35:42 2016 +0200
+
+    [ADD] requirement.txt file
+
+commit 47a31e5c16fb5753441df0b8aca5d17ef97a47e4
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Oct 11 11:08:07 2016 +0200
+
+    [ADD] export script
+
+commit 24047140afbd50d0dbf4b23a839ede51b7c32ab8
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Oct 4 17:17:02 2016 +0200
+
+    [ADD] Licensing + [FIX] Help
+
+commit 8aaad7da7833f25fb39515e2ecf124df273fbec0
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Sep 21 01:20:59 2016 +0200
+
+    [ADD] VERSION 10 product import
+
+commit 44cfbd262171481f5fe730fb492b33d2199d0c15
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Sep 20 22:21:10 2016 +0200
+
+    [CHANGE] rename split args into groupby [ADD] context as args
+
+commit 3100ea3d301f0b782b11736ac71e390a1d09214d
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Sep 20 21:19:20 2016 +0200
+
+    [RM] remove useless conf file
+
+commit ba52ffa912208db74073a24779ec011f80749b1f
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Sep 20 21:12:12 2016 +0200
+
+    [ADD] Product (with variant) test for V9 and below
+
+commit 92c23cbe3255978afbc6ce0bcf3612596f248cf6
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Mon Sep 19 19:37:24 2016 +0200
+
+    [ADD] missing modification on checker
+
+commit 7882e456116d2e98ca3d9fc6cfd56c2b8d2a433e
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Mon Sep 19 08:45:55 2016 +0200
+
+    [ADD] tests for binary, split and checker
+
+commit 315d2efd381af0ed69bdfaccf76b4ff2a56f193a
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Sat Sep 17 17:39:58 2016 +0200
+
+    [ADD] test and coverage in order to clean unuse code : In progress
+
+commit caf424e3156b2688b413b40cb64f4a42222cd929
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Sat Sep 10 02:33:48 2016 +0200
+
+    [CLEAN] to a better file organisation + v2 released
+
+commit 1d7219303e41c6ee1c0d38e34851663f1c764e4c
+Author: Thibault Francois <francois.th@gmail.com>
+Date:   Thu Sep 8 00:42:58 2016 +0200
+
+    [WIP] working v2 with rpc_thread inheritance
+
+commit 8e630e2aca9a83ca0e1d2b798f56af210c9eb452
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Sun Sep 4 12:30:06 2016 +0200
+
+    [WIP] change to rpc thread class
+
+commit 4bf86d1600ce72fee207c55a063e70870a070a2b
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Aug 24 16:50:13 2016 +0200
+
+    [WIP] version 2 of odoo import thread
+
+commit 6825c3ca9b2b167e37d91bafac0f1eb1a1487af8
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Jun 29 16:42:53 2016 +0200
+
+    [ADD] Advanced concat mapper + [ADD] Split option on import_odoo_thread to try to avoid concurrent update
+
+commit 50f635b34ac40d9bc79839142d6e00081050dfe2
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Jun 29 14:04:49 2016 +0200
+
+    [ADD] new data file example + [IMP] Binary mapper
+
+commit 0f73a18873422c0e95e26cdf69a581d248f12060
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu May 12 12:00:13 2016 +0200
+
+    [ADD] few improvement + remove traillign space
+
+commit 0a1ea5e0138a6274cb34a4d684c9ce176f6825ac
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 29 16:56:56 2016 +0100
+
+    [ADD] missing data sample
+
+commit 3d69ab2a0009fca66ec74260b1b2fe2e8d5ebeae
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon Feb 29 16:45:47 2016 +0100
+
+    [ADD] example file + [FIX] remove os specifiv separator
+
+commit cd5aa3d42deccc010eb074f13fe0dbc9444f6bba
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Feb 25 16:38:54 2016 +0100
+
+    [CLEAN] remove old file
+
+commit d0c18eef05184c6a044a170dbc705da719d02483
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Thu Feb 25 16:37:40 2016 +0100
+
+    [INIT] First commit of new framework for transformation
+
+commit 9230ef5ed3e3b173fe6b9aced10e7278cb39e612
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Fri Dec 11 15:09:53 2015 +0100
+
+    [ADD] script to preprocess data and helper + auto generate sh script to import all file in good order
+
+commit 16f1b4315f73d9021515b6ad84586646547ef288
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Wed Aug 5 14:10:34 2015 +0200
+
+    [ADD] fail retry + better error message
+
+commit d82f8fc0a3107a1a52a5bb8b079243a69ac8c9f2
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Tue Jun 16 11:12:46 2015 +0200
+
+    [ADD] odoo import with thread to be faster
+
+commit b9629e52e35fa3b156fcdb599f8ee71ffdb28321
+Author: Thibault Francois <tfr@openerp.com>
+Date:   Mon May 19 11:02:26 2014 +0200
+
+    [INIT] import large file

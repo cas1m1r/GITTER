@@ -1,0 +1,246 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<h1 align="center">
+  <a href="https://github.com/loseys/Oblivion//"><img src="https://i.imgur.com/j1GdgLv.png" width="800" title="Oblivion"></a>
+</h1>
+
+[![platforms](https://img.shields.io/badge/platform-windows%20%7C%20linux-blue)](https://github.com/loseys/Oblivion/)
+[![version](https://img.shields.io/badge/version-v1.0.0-blue)](https://github.com/loseys/Oblivion/)
+[![Python 3.8.6](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-386/)
+[![license](https://img.shields.io/badge/license-BSD-blue)](https://github.com/loseys/Oblivion/)
+
+**Oblivion** is a tool focused in real time monitoring of new data leaks, notifying if the credentials of the user has been leak out. It's possible too verify if any credential of user has been leak out before. The Oblivion have two modes: 
+
+- Oblivion Client: graphical mode.
+- Oblivion Server: mode with API functionalities.
+
+**NOTE**: The Oblivion Client and the Oblivion Server are independents.
+
+
+<h1 align="center">
+  <p style="text-align:center;">Oblivion Client</p>
+  <a href="https://i.imgur.com/9SuF29i.png"><img src="https://i.imgur.com/uR0yHXj.png" width="800" title="Oblivion"></a>
+  <p style="text-align:center;">Oblivion Server</p>
+  <a href="https://i.imgur.com/uR0yHXj.png"><img src="https://i.imgur.com/9SuF29i.png" width="800" title="Oblivion"></a>
+</h1>
+
+
+### :cyclone: Oblivion Features
+
+* 💪 CVEs scan
+* ☑️ Works with powerful APIs
+* 🔗 Works too with Google Dorks
+* 🔎 Checks your password in Word Lists
+* 👀 Checks the last pastes in Pastebin
+* 📄 Output to txt, docx, pdf, xlsx, json, html, xml, db
+* 🔒 Output to encrypted files
+* 📦 Sends result files to multiples Buckets S3
+* 📁 Upload the result files to Google Drive
+* 📡 Cab send result files by SSH (work with EC2)
+* 📢 Notify by Telegram and e-mail
+* 📌 Includes option to hide passwords for demonstrations
+* 🕒 Works with scheduled scans
+* 🔁 Possible to execute loop scans
+---
+
+###  🔵 APIs
+
+| Service | Functions | Status |
+|-|-|-|
+| [HaveIBeenPwned](https://haveibeenpwned.com/) | E-mails and passwords | paid |
+| [Scylla.sh](https://scylla.sh/)| Cleartext passwords, hashs and salts, usernames, IPs, domain | free |
+| [IntelX.io](https://intelx.io/signup)| Cleartext passwords, hashs and salts, usernames, IPs, domain, Bitcoin Wallets, IBAN | paid |
+| [Circl.lu](https://cve.circl.lu/api/)| Checks for new CVEs| free |
+
+-----
+
+###  🔧 Usage and configuration
+
+For configuration or usage of Oblivion please read the documentation. All the steps were careful explained with images and examples.
+
+
+### ❗❗❗ IMPORTANT
+
+1 - If you want only to use the free Oblivion (without the paid API keys) make sure that the free APIs are working.
+Some times the free API of the Scylla.sh can be in manutence, and the Oblivion will return an error when you try to call the Scylla.sh API.
+
+2 - Make sure that you are using the indicated OS and Python version. Some OS can be not compatible or return some types of error when you 
+try to use Oblivion, for more information about compatibilities please read the Oblivion documentation.
+
+
+###  💙 Thanks and credits
+
+- Peter Kleissner and the Intelligence X team
+- Alejandro Caceres (Scylla)
+- <p><a href="https://github.com/khast3x/h8mail">khast3x</a></p>
+
+- <p><a href="https://github.com/danielmiessler">Daniel Miessler</a></p>
+
+- Gustavo Melgaço
+- <p><a href="https://github.com/decastroalberico">Alberico de Castro</a></p>
+- Eliabe Kaique
+====================== GIT HISTORY: ======================
+0f5619e HEAD@{0}: clone: from https://github.com/loseys/Oblivion
+commit 0f5619ecba6a9b1ebc6dc6f4988ef6c542bf8ca3
+Author: Gustavo <61597947+loseys@users.noreply.github.com>
+Date:   Fri Jan 22 11:17:02 2021 -0300
+
+    Update scylla.py
+
+commit fee774aebd8ba401bc2557f2ec72706ba5588d05
+Author: Gustavo <61597947+loseys@users.noreply.github.com>
+Date:   Fri Jan 22 11:16:15 2021 -0300
+
+    Update scylla.py
+
+commit b1d9d1560f5ba7076d9117b5170caed426c00d7d
+Author: Gustavo <61597947+loseys@users.noreply.github.com>
+Date:   Wed Jan 6 21:06:24 2021 -0300
+
+    Update README.md
+
+commit 20968b243c948eb3c9bcdd4435acd0267f852470
+Author: Gustavo <61597947+loseys@users.noreply.github.com>
+Date:   Wed Jan 6 20:46:09 2021 -0300
+
+    Update README.md
+
+commit f16dffbb6fab18c178aacda7f177ec3ae82d1997
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Tue Dec 8 11:38:00 2020 -0300
+
+    Update README.md
+
+commit 00d6b2625295d429aa10e041e94359f1e8abbb77
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Tue Dec 1 16:17:52 2020 -0300
+
+    Update README.md
+
+commit f40b9f76d89f8de199c0fa5f7e8cf1f026d95ab1
+Merge: e1bd6fe 4c5ef87
+Author: Gustavo Henrique <61597947+loseys@users.noreply.github.com>
+Date:   Mon Nov 30 02:34:08 2020 -0300
+
+    Merge branch 'master' of https://github.com/loseys/Oblivion
+
+commit e1bd6feaf6eea4bb0aa540331ee34d3cfa8ff531
+Author: Gustavo Henrique <61597947+loseys@users.noreply.github.com>
+Date:   Mon Nov 30 02:33:51 2020 -0300
+
+    Oblivion 1.0.0
+
+commit 4c5ef87c2d8326342b62e38a7401224e6f1098f4
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:55:48 2020 -0300
+
+    README.md
+
+commit 3b95cccc663f575bb63f07cb527e6c3b5c2a20b7
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:55:17 2020 -0300
+
+    Update README.md
+
+commit c4b72524bb15f60e11908bf8b898e446aa18981f
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:45:28 2020 -0300
+
+    Update README.md
+
+commit 4ca1852790161192e8b79653929c5077f225f9f7
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:44:56 2020 -0300
+
+    Update README.md
+
+commit 9f555645b7c9d9077a662daa850d3f6e21529564
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:43:53 2020 -0300
+
+    Update README.md
+
+commit 05bc4242cdf107d41e3d9c9d6a5fa14b152f7689
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:42:42 2020 -0300
+
+    Update README.md
+
+commit c56977fef08b2daf1e846107b17c256dcbce1176
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:31:29 2020 -0300
+
+    Update README.md
+
+commit e621fd5d10c71184bba37b19634bd2e090797047
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 22:30:23 2020 -0300
+
+    Update README.md
+
+commit 3b527a60d5332f11bfbc49de366fad9eaa15610b
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 21:41:58 2020 -0300
+
+    README.md
+
+commit a758a08faacf46e01c65f9856d0d6538e904c77e
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 21:41:34 2020 -0300
+
+    Delete README.md
+
+commit 0e52b6d05283f0eb19e242af0b473e26c08a8b43
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 21:39:06 2020 -0300
+
+    Create README.md
+
+commit c1ff6e64779b283e86497bcbea5cc150ac377471
+Merge: aa027f6 3409773
+Author: Gustavo Henrique <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 20:56:45 2020 -0300
+
+    Merge branch 'master' of https://github.com/loseys/Oblivion
+
+commit aa027f6b3b5fffd21ac89c962edc59a618600bbc
+Author: Gustavo Henrique <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 20:56:40 2020 -0300
+
+    Oblivion documentation
+
+commit 3409773703cc06448e45a143d7f93c27e2ff742f
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 18:55:31 2020 -0300
+
+    Delete .gitattributes
+
+commit 9d21c1780364f4750feb21528795406a586d4b65
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 18:54:58 2020 -0300
+
+    Delete README.md
+
+commit 7f60dad1d10c553db071f3c6646e94cff074f0f4
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 18:53:38 2020 -0300
+
+    Update README.md
+
+commit 120375db113f71b396d2b8105579c279d9ee4fe1
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 18:53:15 2020 -0300
+
+    Rename README to README.md
+
+commit 8859c93182f05212cee37792095d57de99391f03
+Author: Gustavo Torroni <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 18:52:40 2020 -0300
+
+    Create README
+
+commit 3a3e017dfa05eddc284df8cd71779b218a0d89c8
+Author: Gustavo Henrique <61597947+loseys@users.noreply.github.com>
+Date:   Sun Nov 29 18:52:09 2020 -0300
+
+    Oblivion 1.0.0

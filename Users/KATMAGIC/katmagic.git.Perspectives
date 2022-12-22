@@ -1,0 +1,794 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit ccab3adbc7b0cb65ac3a983dacdaa15b6deffd6c
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Dec 5 23:30:30 2010 -0800
+
+    fix issue #19: if a key was 'cur_inconsistent' and the notaries did not have history on it longer than perspectives.max_timespan_for_inconsistency_test (default value is 7 days).
+    
+    perspectives still correctly shows a red X and does not trust the site, but it does not show a 'red banner' warning, though it should.
+
+commit 5c8fbbf09427f6f85ab6fb098c8fd2831f286706
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 18:21:20 2010 -0800
+
+    Access notary list from a chrome URL.  Hopefully fixing issue #16
+
+commit 6cc1af92638ac004ce465a1b80a6b2119d83ffb5
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 16:32:43 2010 -0800
+
+    fix a couple bugs with whitelisting
+
+commit 5ea9d1dcde5d134c98fdeb29318ede1008424deb
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 15:17:45 2010 -0800
+
+    Prevent showing the same banner multiple times in a row.  This
+    prevents the "flashing banner" problem.
+    
+    Other clean-up as well, including correctly showing the 'progress' icon
+    when a check is explicitly requested (either via force-check or the
+    permission banner)
+
+commit 325324daa828432f32346bb221ffff1d7e834161
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 12:40:18 2010 -0800
+
+    Assume URI errors are transient failures, and show progress icon.
+    
+    Otherwise when the browser first loads, the initial page does not show
+    progress icon.
+
+commit 3a63bfb77ef93e37a4943cbe4a7f5e5421afe7b1
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 12:36:01 2010 -0800
+
+    consolidate duplicated notify code.
+
+commit 408d0505e55c1e6a6c7cf6fed37b878de83a4df2
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 12:19:39 2010 -0800
+
+    move banner code to its own file.
+
+commit e922575ae67ee741c616cf6d8c07f1b527a2eff0
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 10:41:24 2010 -0800
+
+    fix typos found by David Lawhon
+
+commit 6320704af95a057f26e908ac7f6e5493d27d60aa
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 00:11:49 2010 -0800
+
+    substantial additional consolidation around tab_info objects.
+    
+    also, return to using service-id as cache identifier.
+
+commit 3d1b856acaa02b6eea01f243c4e4fcf4ed029121
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Fri Nov 26 18:46:38 2010 -0800
+
+    move more data into the tab_info objects, including query_result_data and query_timeoutid_data
+
+commit b2ca5cc4194170ab5b856805cfa02361982a0ac8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Fri Nov 26 17:34:07 2010 -0800
+
+    get rid of ssl_cache, other_cache, merge them into tab_info object.
+
+commit 8d567de6dbaee2fadf0e7d2d46554bbbf7ed9cd9
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Nov 7 08:49:31 2010 -0800
+
+    whoops, forgot to disable debug
+
+commit b4d42ec4ff9ad3715639928516194d2d053faa41
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Nov 7 08:33:02 2010 -0800
+
+    Issue #8: fix exception thrown when URL bar accesses a 'file' URL
+
+commit bae617536e1cdf3a264b9b042a38c1f9cd293858
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 19:02:08 2010 -0700
+
+    Do not query on mixed content pages when the certificate is already trusted.  Reported by laxeraend@gmail.com
+
+commit c2f3c0e2265d3ea311f43d4ab38cff941aebad13
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 16:37:46 2010 -0700
+
+    re-add sea monkey support, now that we should be updating only from addons.mozilla.org
+
+commit db59494da8bfb97db86e8f9ba2d5909738b099e4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 16:22:11 2010 -0700
+
+    improve whitelists functionality for IP addresses
+
+commit 5beb093d3e3b2109c55190034591b75a87fd0aa7
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:48:55 2010 -0700
+
+    correctly declare STATE_QUERY
+
+commit a038f60cd85d3903167e8e16cf53d9b4412d9093
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:45:23 2010 -0700
+
+    bump version to represent post 4.0 development code
+
+commit 65347a68992ba3ffebecbd71f79258b80d31358d
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:33:50 2010 -0700
+
+    bump version to 4.0.  This version (same content as 3.9.1) will be release on the main addons.mozilla.org site as an approved extension.
+
+commit e7be4bc100a802d028bd019263af52ca7ce213a3
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:30:50 2010 -0700
+
+    bump to 3.9.1.  Had to remove seamonkey target to get update on www.cs.cmu.edu/~perspectives/ website to work.  4.0 will follow immeadiately, but only via the mozilla.org site
+
+commit 678ca0fd83927cb0186916b82c75ee93e465ded9
+Author: Igor Velkov <iav@aeons.lv>
+Date:   Wed Oct 20 09:43:41 2010 +0300
+
+    Add SeaMonkey support
+
+commit a6bf3b0b8947874722fa6407bd285d561f60fb9b
+Merge: e79d158 092c52a
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 17 23:02:27 2010 -0700
+
+    fix merge conflict in prefs.js
+
+commit 092c52a80d0c9c3ebcb1f0ede166fa7955ad8857
+Author: Dinesh Israni <ddi@andrew.cmu.edu>
+Date:   Tue Oct 12 14:06:30 2010 -0400
+
+    * Updated default settings to query notary servers for all https websites
+    * On upgrade, user is prompted on whether they want to keep their current
+      setting or update it
+
+commit e79d1587bb418022caab79be3e68ae8e628f9f3b
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Oct 12 00:29:07 2010 -0700
+
+    Fix undefined reference to STATE_STOP.
+    
+    Reported by: Jim.Leigh@comcast.net
+
+commit 1ff3ca76db35812042b6ad0a0b3134ff2a420de8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Mon Oct 11 23:55:19 2010 -0700
+
+    Initial whitelist functionality.  Add from status bar menu or drop-down.
+    
+    Can also view/add/modify regex list from preferences window (not user
+    friendly)
+
+commit 635bcbd5cc996cfec1691e57ad67cf9178df9520
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:29:35 2010 -0700
+
+    fix bad merge
+
+commit 5affac8d4c9951b2f8d2aba5ef02527b4dccd6c3
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:25:46 2010 -0700
+
+    bump version to 3.3.0
+
+commit fd39b8c8b49974d97511e19c0f7292111d69ee15
+Merge: 10f893b c689e12
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:24:26 2010 -0700
+
+    fix merge in common.js
+
+commit 10f893b4e8be5da4a2862e0261b0ad94cfad7c6f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:18:32 2010 -0700
+
+    Basic attack reporting functionality.
+
+commit c689e125f7507fde6f9c38eb2c9bdd8ee8b8a0dd
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 3 15:25:36 2010 -0700
+
+    seems that we may need <em:unpack> on some platforms for FF4 support
+
+commit db2ff412b37d1b0eab26e6f55525fa83f67e5608
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 3 14:48:27 2010 -0700
+
+    initial commit containing report functionality based on ethan's work.
+    
+    this is not yet complete.
+
+commit 5182a3529f5c5f6c435a4f3cd81c417ae8181ae7
+Merge: 9e64761 59b7729
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 23:54:05 2010 -0700
+
+    Merge branch 'master' into ff4
+
+commit 59b772921902c83f6e8f6575221e83a1751c0d64
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 23:53:56 2010 -0700
+
+    fix weird formatting in results_dialog.js that was truncating messages
+
+commit 9e64761dad3be00230e94f199a462b1ee4e9cff1
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 23:40:32 2010 -0700
+
+    Initial work to get Perspectives working on Firefox 4.0
+    
+    Required removing references to addons-manager, which was removed in 4.0
+
+commit 0145ece499fc20b70a168838099282de71f916b8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 22:39:42 2010 -0700
+
+    still override firefox security error even if insecure embedded
+    content is included.
+
+commit 7b4aac2d397954f2d6147766dd4113ceaed03d4f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 22:26:53 2010 -0700
+
+    remove whitelist.txt  that file is outdated and unused
+
+commit 2d13a59be1668e68e6b4b1e76e09ba452e336581
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 19:25:18 2010 -0700
+
+    bump version to 3.2.0, as adding weak consistency is a major enhancement.  This is not yet ready for public release.
+
+commit ee05a766cd50ddf59169a1e2caa130b849d43c70
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 19:21:15 2010 -0700
+
+    Timeout cached notary data after a user-configurable time period (default
+    is ~3 hours).  Prior to this, the Perspectives data would be cached
+    for a long time, which can potentially cause issues with stale data.
+    
+    I'm not sure why this has not caused more problems so far.
+
+commit ed8a1aff6c602e55d28b40fbb04a1c261f9c0d04
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 19:00:04 2010 -0700
+
+    Implementation of 'weak consistency' model that provides a way to
+    weakly validate keys for a website that consistently uses many different
+    keys.
+    
+    This commit changes a fair amount of critical code in notaries.js related
+    to setting the trusted/untrusted icon, so we should be sure to do a full
+    test before pushing this live.
+
+commit 154bf93ff0dd988fc46c1494338865a754d44df8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 16:30:38 2010 -0700
+
+    change tooltip for 'querying' state
+
+commit 0050df0177accf6ff4076a0c55cff49ee5784395
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Thu Sep 23 23:16:25 2010 -0700
+
+    Add README, license, and remove unneeded file
+
+commit 1765d756f0cc42e0531ff71d00b847f4935a6ce4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 17:46:24 2010 -0700
+
+    bump version number from 3.0.4 to 3.1.0
+
+commit c45260d7a8d4a401e80a503f59d06979055750bb
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 17:22:20 2010 -0700
+
+    Add status-bar menu option to force a query.  This is useful if you
+    only periodically want to contact notaries about a site, or if want to
+    refresh the results for a particular site.
+    
+    Based on patch provided by Ryan McBride <mcbride@openbsd.org>
+
+commit 8f6c689744fc99621bc9a5cad70956e9a000c37f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:57:29 2010 -0700
+
+    Show spinner icon when Perspectives is querying the notaries.
+
+commit 05419978429d11233a1d7cb21aa16ea350afc387
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:56:00 2010 -0700
+
+    Rename Base64 class to use "Pers_" prefix.
+
+commit e58a134d43c9f10c30af5e713dba287ac428f4b6
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:04:00 2010 -0700
+
+    Important security issue:  make sure we cannot count multiple replies
+    from the same notary toward our quorum.  Not clear if this was possible
+    before a prior change I made a couple days ago, but we should be careful
+    either way.
+    
+    Also, call refactored client_policy.js code.
+
+commit 7739d6cf1221e8d9a5e54af7fc52c0122df5e81d
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:00:52 2010 -0700
+
+    Always show the browser key in the graph, and show it as green (since seeing this color in the graph is good)
+
+commit 6604177b143a47f6664086d4ba5c77534f8855f5
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 15:59:56 2010 -0700
+
+    Refactor client_policy.js to reduce pollution of global id space.
+    
+    No intended functionality changes.
+
+commit a1ddd5106676f7be8124323a1514b17197bbe4b4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 15:59:06 2010 -0700
+
+    Remove whitelist functionality.  It is out of date and we should come up with something better anyway.
+
+commit 5fba803590c2590716f1d65b2e42323cb45795f4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Wed Sep 15 01:05:38 2010 -0700
+
+    no longer use Mozilla DNS interface to query each DNS address.
+    
+    This was used to try and identify RFC 1918 addresses to provide a more
+    useful message to the user, but it ended up broadcasting DNS lookups
+    for people using Tor + Perspectives.
+
+commit fce7df0981b4098e1f59d3aed4df38eda146de81
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Wed Sep 15 00:45:24 2010 -0700
+
+    Possible fix for issue seen with gmail.com where Perspectives gets stuck
+    in the 'Connecting...' status.  Apparent cause is that server key changes,
+    causing one part of the logic to think we're going to requery, but then to
+    avoid requiring because we think nothing has changed.
+
+commit 80cb4ca4188e8cd7a1582a74710ce5c4bdc6851b
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Sep 14 23:05:06 2010 -0700
+
+    Check if HTTPS page includes insecure content, in which case, don't show the green checkmark.
+    
+    We will still override a security error, as this maps to Firefox's approach of showing a page with mixed content, but hiding any positive security indicators.
+
+commit 2d8585887feab8916956adda88adcfbc3e80bdc2
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Sep 14 21:19:19 2010 -0700
+
+    change listeners that we trigger off of to avoid grabbing the cert too early, in which case firefox will sometimes give us the cert for the previous website
+
+commit a100d29acb09e2f97ab69f02772f74e8001b170d
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Sep 14 20:23:47 2010 -0700
+
+    Fix typo in tooltip
+
+commit b41e03fa80d6a3a0462f71e5ab4b541864e5c28b
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Wed Sep 15 01:13:03 2010 -0700
+
+    Cleaner handling of whitelist and notarylist files by Ethan.
+    
+    Also remove executable permissions on the files (no idea why they were set).
+
+commit b3777a077cbb58e41217d21f9ab0a36180b2886f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Mon Sep 13 23:16:08 2010 -0700
+
+    Initial commit based on Dinesh's changes to limit namespace pollution
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit ccab3adbc7b0cb65ac3a983dacdaa15b6deffd6c
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Dec 5 23:30:30 2010 -0800
+
+    fix issue #19: if a key was 'cur_inconsistent' and the notaries did not have history on it longer than perspectives.max_timespan_for_inconsistency_test (default value is 7 days).
+    
+    perspectives still correctly shows a red X and does not trust the site, but it does not show a 'red banner' warning, though it should.
+
+commit 5c8fbbf09427f6f85ab6fb098c8fd2831f286706
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 18:21:20 2010 -0800
+
+    Access notary list from a chrome URL.  Hopefully fixing issue #16
+
+commit 6cc1af92638ac004ce465a1b80a6b2119d83ffb5
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 16:32:43 2010 -0800
+
+    fix a couple bugs with whitelisting
+
+commit 5ea9d1dcde5d134c98fdeb29318ede1008424deb
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 15:17:45 2010 -0800
+
+    Prevent showing the same banner multiple times in a row.  This
+    prevents the "flashing banner" problem.
+    
+    Other clean-up as well, including correctly showing the 'progress' icon
+    when a check is explicitly requested (either via force-check or the
+    permission banner)
+
+commit 325324daa828432f32346bb221ffff1d7e834161
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 12:40:18 2010 -0800
+
+    Assume URI errors are transient failures, and show progress icon.
+    
+    Otherwise when the browser first loads, the initial page does not show
+    progress icon.
+
+commit 3a63bfb77ef93e37a4943cbe4a7f5e5421afe7b1
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 12:36:01 2010 -0800
+
+    consolidate duplicated notify code.
+
+commit 408d0505e55c1e6a6c7cf6fed37b878de83a4df2
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 12:19:39 2010 -0800
+
+    move banner code to its own file.
+
+commit e922575ae67ee741c616cf6d8c07f1b527a2eff0
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 10:41:24 2010 -0800
+
+    fix typos found by David Lawhon
+
+commit 6320704af95a057f26e908ac7f6e5493d27d60aa
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 27 00:11:49 2010 -0800
+
+    substantial additional consolidation around tab_info objects.
+    
+    also, return to using service-id as cache identifier.
+
+commit 3d1b856acaa02b6eea01f243c4e4fcf4ed029121
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Fri Nov 26 18:46:38 2010 -0800
+
+    move more data into the tab_info objects, including query_result_data and query_timeoutid_data
+
+commit b2ca5cc4194170ab5b856805cfa02361982a0ac8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Fri Nov 26 17:34:07 2010 -0800
+
+    get rid of ssl_cache, other_cache, merge them into tab_info object.
+
+commit 8d567de6dbaee2fadf0e7d2d46554bbbf7ed9cd9
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Nov 7 08:49:31 2010 -0800
+
+    whoops, forgot to disable debug
+
+commit b4d42ec4ff9ad3715639928516194d2d053faa41
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Nov 7 08:33:02 2010 -0800
+
+    Issue #8: fix exception thrown when URL bar accesses a 'file' URL
+
+commit bae617536e1cdf3a264b9b042a38c1f9cd293858
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 19:02:08 2010 -0700
+
+    Do not query on mixed content pages when the certificate is already trusted.  Reported by laxeraend@gmail.com
+
+commit c2f3c0e2265d3ea311f43d4ab38cff941aebad13
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 16:37:46 2010 -0700
+
+    re-add sea monkey support, now that we should be updating only from addons.mozilla.org
+
+commit db59494da8bfb97db86e8f9ba2d5909738b099e4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 16:22:11 2010 -0700
+
+    improve whitelists functionality for IP addresses
+
+commit 5beb093d3e3b2109c55190034591b75a87fd0aa7
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:48:55 2010 -0700
+
+    correctly declare STATE_QUERY
+
+commit a038f60cd85d3903167e8e16cf53d9b4412d9093
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:45:23 2010 -0700
+
+    bump version to represent post 4.0 development code
+
+commit 65347a68992ba3ffebecbd71f79258b80d31358d
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:33:50 2010 -0700
+
+    bump version to 4.0.  This version (same content as 3.9.1) will be release on the main addons.mozilla.org site as an approved extension.
+
+commit e7be4bc100a802d028bd019263af52ca7ce213a3
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sat Nov 6 11:30:50 2010 -0700
+
+    bump to 3.9.1.  Had to remove seamonkey target to get update on www.cs.cmu.edu/~perspectives/ website to work.  4.0 will follow immeadiately, but only via the mozilla.org site
+
+commit 678ca0fd83927cb0186916b82c75ee93e465ded9
+Author: Igor Velkov <iav@aeons.lv>
+Date:   Wed Oct 20 09:43:41 2010 +0300
+
+    Add SeaMonkey support
+
+commit a6bf3b0b8947874722fa6407bd285d561f60fb9b
+Merge: e79d158 092c52a
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 17 23:02:27 2010 -0700
+
+    fix merge conflict in prefs.js
+
+commit 092c52a80d0c9c3ebcb1f0ede166fa7955ad8857
+Author: Dinesh Israni <ddi@andrew.cmu.edu>
+Date:   Tue Oct 12 14:06:30 2010 -0400
+
+    * Updated default settings to query notary servers for all https websites
+    * On upgrade, user is prompted on whether they want to keep their current
+      setting or update it
+
+commit e79d1587bb418022caab79be3e68ae8e628f9f3b
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Oct 12 00:29:07 2010 -0700
+
+    Fix undefined reference to STATE_STOP.
+    
+    Reported by: Jim.Leigh@comcast.net
+
+commit 1ff3ca76db35812042b6ad0a0b3134ff2a420de8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Mon Oct 11 23:55:19 2010 -0700
+
+    Initial whitelist functionality.  Add from status bar menu or drop-down.
+    
+    Can also view/add/modify regex list from preferences window (not user
+    friendly)
+
+commit 635bcbd5cc996cfec1691e57ad67cf9178df9520
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:29:35 2010 -0700
+
+    fix bad merge
+
+commit 5affac8d4c9951b2f8d2aba5ef02527b4dccd6c3
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:25:46 2010 -0700
+
+    bump version to 3.3.0
+
+commit fd39b8c8b49974d97511e19c0f7292111d69ee15
+Merge: 10f893b c689e12
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:24:26 2010 -0700
+
+    fix merge in common.js
+
+commit 10f893b4e8be5da4a2862e0261b0ad94cfad7c6f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 10 19:18:32 2010 -0700
+
+    Basic attack reporting functionality.
+
+commit c689e125f7507fde6f9c38eb2c9bdd8ee8b8a0dd
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 3 15:25:36 2010 -0700
+
+    seems that we may need <em:unpack> on some platforms for FF4 support
+
+commit db2ff412b37d1b0eab26e6f55525fa83f67e5608
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Oct 3 14:48:27 2010 -0700
+
+    initial commit containing report functionality based on ethan's work.
+    
+    this is not yet complete.
+
+commit 5182a3529f5c5f6c435a4f3cd81c417ae8181ae7
+Merge: 9e64761 59b7729
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 23:54:05 2010 -0700
+
+    Merge branch 'master' into ff4
+
+commit 59b772921902c83f6e8f6575221e83a1751c0d64
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 23:53:56 2010 -0700
+
+    fix weird formatting in results_dialog.js that was truncating messages
+
+commit 9e64761dad3be00230e94f199a462b1ee4e9cff1
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 23:40:32 2010 -0700
+
+    Initial work to get Perspectives working on Firefox 4.0
+    
+    Required removing references to addons-manager, which was removed in 4.0
+
+commit 0145ece499fc20b70a168838099282de71f916b8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 22:39:42 2010 -0700
+
+    still override firefox security error even if insecure embedded
+    content is included.
+
+commit 7b4aac2d397954f2d6147766dd4113ceaed03d4f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 22:26:53 2010 -0700
+
+    remove whitelist.txt  that file is outdated and unused
+
+commit 2d13a59be1668e68e6b4b1e76e09ba452e336581
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 19:25:18 2010 -0700
+
+    bump version to 3.2.0, as adding weak consistency is a major enhancement.  This is not yet ready for public release.
+
+commit ee05a766cd50ddf59169a1e2caa130b849d43c70
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 19:21:15 2010 -0700
+
+    Timeout cached notary data after a user-configurable time period (default
+    is ~3 hours).  Prior to this, the Perspectives data would be cached
+    for a long time, which can potentially cause issues with stale data.
+    
+    I'm not sure why this has not caused more problems so far.
+
+commit ed8a1aff6c602e55d28b40fbb04a1c261f9c0d04
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 19:00:04 2010 -0700
+
+    Implementation of 'weak consistency' model that provides a way to
+    weakly validate keys for a website that consistently uses many different
+    keys.
+    
+    This commit changes a fair amount of critical code in notaries.js related
+    to setting the trusted/untrusted icon, so we should be sure to do a full
+    test before pushing this live.
+
+commit 154bf93ff0dd988fc46c1494338865a754d44df8
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 26 16:30:38 2010 -0700
+
+    change tooltip for 'querying' state
+
+commit 0050df0177accf6ff4076a0c55cff49ee5784395
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Thu Sep 23 23:16:25 2010 -0700
+
+    Add README, license, and remove unneeded file
+
+commit 1765d756f0cc42e0531ff71d00b847f4935a6ce4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 17:46:24 2010 -0700
+
+    bump version number from 3.0.4 to 3.1.0
+
+commit c45260d7a8d4a401e80a503f59d06979055750bb
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 17:22:20 2010 -0700
+
+    Add status-bar menu option to force a query.  This is useful if you
+    only periodically want to contact notaries about a site, or if want to
+    refresh the results for a particular site.
+    
+    Based on patch provided by Ryan McBride <mcbride@openbsd.org>
+
+commit 8f6c689744fc99621bc9a5cad70956e9a000c37f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:57:29 2010 -0700
+
+    Show spinner icon when Perspectives is querying the notaries.
+
+commit 05419978429d11233a1d7cb21aa16ea350afc387
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:56:00 2010 -0700
+
+    Rename Base64 class to use "Pers_" prefix.
+
+commit e58a134d43c9f10c30af5e713dba287ac428f4b6
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:04:00 2010 -0700
+
+    Important security issue:  make sure we cannot count multiple replies
+    from the same notary toward our quorum.  Not clear if this was possible
+    before a prior change I made a couple days ago, but we should be careful
+    either way.
+    
+    Also, call refactored client_policy.js code.
+
+commit 7739d6cf1221e8d9a5e54af7fc52c0122df5e81d
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 16:00:52 2010 -0700
+
+    Always show the browser key in the graph, and show it as green (since seeing this color in the graph is good)
+
+commit 6604177b143a47f6664086d4ba5c77534f8855f5
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 15:59:56 2010 -0700
+
+    Refactor client_policy.js to reduce pollution of global id space.
+    
+    No intended functionality changes.
+
+commit a1ddd5106676f7be8124323a1514b17197bbe4b4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Sun Sep 19 15:59:06 2010 -0700
+
+    Remove whitelist functionality.  It is out of date and we should come up with something better anyway.
+
+commit 5fba803590c2590716f1d65b2e42323cb45795f4
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Wed Sep 15 01:05:38 2010 -0700
+
+    no longer use Mozilla DNS interface to query each DNS address.
+    
+    This was used to try and identify RFC 1918 addresses to provide a more
+    useful message to the user, but it ended up broadcasting DNS lookups
+    for people using Tor + Perspectives.
+
+commit fce7df0981b4098e1f59d3aed4df38eda146de81
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Wed Sep 15 00:45:24 2010 -0700
+
+    Possible fix for issue seen with gmail.com where Perspectives gets stuck
+    in the 'Connecting...' status.  Apparent cause is that server key changes,
+    causing one part of the logic to think we're going to requery, but then to
+    avoid requiring because we think nothing has changed.
+
+commit 80cb4ca4188e8cd7a1582a74710ce5c4bdc6851b
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Sep 14 23:05:06 2010 -0700
+
+    Check if HTTPS page includes insecure content, in which case, don't show the green checkmark.
+    
+    We will still override a security error, as this maps to Firefox's approach of showing a page with mixed content, but hiding any positive security indicators.
+
+commit 2d8585887feab8916956adda88adcfbc3e80bdc2
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Sep 14 21:19:19 2010 -0700
+
+    change listeners that we trigger off of to avoid grabbing the cert too early, in which case firefox will sometimes give us the cert for the previous website
+
+commit a100d29acb09e2f97ab69f02772f74e8001b170d
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Tue Sep 14 20:23:47 2010 -0700
+
+    Fix typo in tooltip
+
+commit b41e03fa80d6a3a0462f71e5ab4b541864e5c28b
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Wed Sep 15 01:13:03 2010 -0700
+
+    Cleaner handling of whitelist and notarylist files by Ethan.
+    
+    Also remove executable permissions on the files (no idea why they were set).
+
+commit b3777a077cbb58e41217d21f9ab0a36180b2886f
+Author: dan <danwent@danwent-desktop.(none)>
+Date:   Mon Sep 13 23:16:08 2010 -0700
+
+    Initial commit based on Dinesh's changes to limit namespace pollution

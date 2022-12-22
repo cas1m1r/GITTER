@@ -1,0 +1,1288 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit ab8195b09d189d096863e1741cdc8edacdc53136
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Apr 23 23:39:45 2022 -0400
+
+    Refactor public API (#39)
+    
+    * Add parseKnownArgs and parseArgs to CLI
+    
+    * Forward CLI(Config config, COMMANDS...).main to CLI(Config config, COMMAND).main
+    
+    * Deprecate CLI(Config config)
+    
+    * Deprecate Main
+    
+    * Deprecate parseCLIKnownArgs and parseCLIArgs
+    
+    * Revert deletion of compile time example
+    
+    * Remove parenthesis
+    
+    * Add unit tests for CLI!T.parseArgs
+    
+    * Update readme
+
+commit e433a35db88e3cd2b63436c5d9e350ec133917c5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Apr 22 21:37:21 2022 -0400
+
+    Fix parsing of trailing args in subcommand
+
+commit 2f8326fdba614020d552d2ffc8c508b1fdc50afa
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Apr 22 22:01:15 2022 -0400
+
+    Add unit test
+
+commit e41982123c1134dc5e2ea1267300c314e0238d0b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:12:14 2022 -0400
+
+    Return Result from checkValuesCount
+
+commit 49403f25cab7b7d7d1fb8597bf7369aba777bfe1
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:11:26 2022 -0400
+
+    Add error state to Result
+
+commit b34561a793e0c8530856b47dbac939453de38d2a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:07:40 2022 -0400
+
+    Rename ParsingFunction -> ParsingArgument
+
+commit b139fb5bbf014b70ace06172900ab9056c9c3c44
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:03:20 2022 -0400
+
+    Add links to readme (#36)
+
+commit 961ade45104a8ab9e3b1940088d3f38efd61fced
+Author: John Kilpatrick <john.kilpatrick@outlook.com>
+Date:   Mon Mar 21 01:49:54 2022 +0000
+
+    Update README.md (#34)
+
+commit 8b60bf9638e0d27d3bd523f305e172e67d3e5a9a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Mar 16 21:23:20 2022 -0400
+
+    Default subcommand (#33)
+    
+    * Default subcommand
+    
+    * Update readme
+    
+    * Unit test
+
+commit bcfc96134fc92be3aac0b57258971e6dcf7f110f
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Mar 12 23:59:12 2022 -0500
+
+    Update readme (#32)
+
+commit 563b576ed021613314f52e7a0c99ff258b54b72b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Mar 12 23:57:55 2022 -0500
+
+    Move examples into sub dir (#31)
+
+commit 2c424b26fe5cbb409f5a8f49f24c898a32858354
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Mar 12 09:32:27 2022 -0500
+
+    Add sub-command support (#30)
+    
+    * Add CommandInfo.Summary
+    
+    * Add sub-command support
+    
+    * Add unit test
+    
+    * Add unit test
+    
+    * Update unit test
+    
+    * Remove try-catch
+    
+    * Remove redundant if
+    
+    * Fix subcommand object initialization
+    
+    * Adjust private attribute
+    
+    * Add CommandInfo parameter to CommandArguments ctor
+    
+    * Support commands with multiple names
+    
+    * Add CLI API
+    
+    * Update unit tests
+    
+    * Update readme
+
+commit 1003b4c2fd04538e976328d1ad0f1b3e3f5a890c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Mar 3 23:34:07 2022 -0500
+
+    Refactor (#29)
+
+commit eec6b2413ad0e34bbbf1e6b15a5edf8132333dbe
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Feb 20 10:35:12 2022 -0500
+
+    Refactoring (#28)
+    
+    * Introduce Parser struct
+    
+    * Remove ArgumentInfo.parsingTerminateCode
+    
+    * Remove CLIArgument
+    
+    * Refactor ParsingFunction
+    
+    * Spacing
+    
+    * Move checkArgumentName
+    
+    * Move checkRestrictions call
+    
+    * Remove createArguments
+    
+    * Use CommandArguments instead of Arguments
+    
+    * Move addArgument to CommandArguments
+    
+    * Correct function forwarding
+    
+    * Move setTrailingArgs from Arguments to CommandArguments
+    
+    * Move parseFunctions from Arguments to CommandArguments
+    
+    * Remove template parameter from Arguments
+    
+    * Spacing
+    
+    * Extract printHelp for Arguments
+    
+    * Add isHelpArgument
+    
+    * Print argument group only when there are arguments to print
+
+commit ca2aa75322c4df119f361cb583b4ffc6a4f0a67b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Feb 10 22:57:47 2022 -0500
+
+    Refactoring (#27)
+    
+    * Introduce Parser struct
+    
+    * Remove ArgumentInfo.parsingTerminateCode
+    
+    * Remove CLIArgument
+
+commit 2a2cc65e32608aea0cb834bb63ba69d66bf80c2b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Feb 9 15:01:49 2022 -0500
+
+    Rename ParseCLIResult -> Result (#25)
+    
+    * Rename ParseCLIResult -> Result
+    
+    * Change return type of parsing function to Result
+
+commit 8cbcb57882f3843cc24acd4ed67b9b4c2563b5ff
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Feb 9 14:55:02 2022 -0500
+
+    Update codecov.yml (#26)
+
+commit 3fab37534c4bcf585d0903f67b02b781d4bb2f51
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Feb 8 22:26:47 2022 -0500
+
+    Refactor (#24)
+    
+    * Rename splitArgumentName -> splitArgumentNameValue
+    
+    * Refactor main parseCLIKnownArgs function
+    
+    * Improve unit test
+    
+    * Rename in help text: usage -> Usage
+    
+    * Change parameter in parseCLIKnownArgs
+    
+    * Remove tuples usage
+    
+    * Remove run-time parameter in setDefaults
+    
+    * Make coverage happy
+
+commit a9ae8c3cc12b6b4212bd7a0e75763d00d66cc59c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Jan 18 17:36:14 2022 -0500
+
+    No value for flags by default (#22)
+
+commit 6d2e356165739c27b488b92df6d8f6e05ae2657a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Jan 18 16:39:39 2022 -0500
+
+    Create codecov.yml (#23)
+
+commit bcaf1455fe14bcecac555e1aa9f1c0dc80a15167
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Dec 30 13:32:03 2021 -0500
+
+    Multi-line wrapper for help text (#21)
+
+commit b7ee5098dee8f8d780e65f6a4b921ce51d17dc2e
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Dec 16 16:16:45 2021 -0500
+
+    Add 'RequiredTogether' and 'MutuallyExclusive' (#20)
+
+commit 4fae4065a061f7c19e02908d1214163e473c6501
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Dec 11 16:33:10 2021 -0500
+
+    Refactor (#19)
+    
+    * Remove requiredArguments
+    
+    * Rename filterByUDA -> hasNoUDAs
+    
+    * Change index type to size_t
+    
+    * Rename printArgumentName -> getArgumentName
+    
+    * Remove redundant parameter for NamedArgument
+    
+    * Add Arguments.checkRestrictions
+    
+    * Nitpicks
+    
+    * Introduce restrictions
+
+commit 870168852ab0936b41fb6e19e2bfd855f0a6e69d
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Dec 5 23:40:53 2021 -0500
+
+    Add argument groups (#18)
+    
+    * Add argument groups
+    
+    * Add unit test
+
+commit c6c342069598549e2cc71b813d18ddb961c667bf
+Merge: ccf0fd9 4158dac
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:52:34 2021 -0500
+
+    Merge pull request #16 from andrey-zherikov/improve-readme
+    
+    Improve readme
+
+commit ccf0fd9036c9890c2ef56610859cba991b3b4b7a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:51:57 2021 -0500
+
+    Do not trigger the build for changes in *.md (#17)
+
+commit 4158dac71be4799a21832393b848827423ee520c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:24:35 2021 -0500
+
+    Reformat readme
+
+commit 82167a59ed51cbb571cb140b6d73c2644374e231
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:23:20 2021 -0500
+
+    Improve examples
+
+commit 32801c2f55c3f24f3cdaa821faa895e67cc41741
+Merge: 1a61f28 486c5fc
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 12:46:58 2021 -0500
+
+    Merge pull request #15 from andrey-zherikov/help-example
+    
+    Improve help example
+
+commit 486c5fc086058ec949d3dbb65cb3d67ce17f6e24
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 12:42:31 2021 -0500
+
+    Improve help example
+
+commit 1a61f28916343a8c2662253af4e264a045ec3df0
+Merge: e42dd45 aa9e635
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:36:10 2021 -0500
+
+    Merge pull request #14 from andrey-zherikov/refactor
+    
+    Assorted changes
+
+commit aa9e635a83aa74e0616133da1a3aca782596cfd0
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:31:16 2021 -0500
+
+    Add unit test
+
+commit 934a0d8576e2b9c5ee16d911ddf6f2e1c8893f49
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:07:08 2021 -0500
+
+    Other improvements in documentation
+
+commit aa158495390f30a0d0b082963c9fdbf7c21974b1
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:06:20 2021 -0500
+
+    Document limiting of allowed values
+
+commit 23812043bf8fe32451d26feb9318544b6f3bdedb
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:04:09 2021 -0500
+
+    Document *NumberOfValues
+
+commit e6bb4d34694b596d1c5bd1219ff6c3d02eaefd97
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:02:56 2021 -0500
+
+    Improve error text
+
+commit a9c14394f9861efba39fc6e5b84ebaf4f46dd0a4
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:02:06 2021 -0500
+
+    Add a validator for enum type
+
+commit 089cf18c85664942e86d5b531748bfaab0f78459
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:00:33 2021 -0500
+
+    Rename metaValue -> placeholder
+
+commit aafc8ffb3287f590b8d92704a0dc88a4fd0ddbf6
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 10:56:59 2021 -0500
+
+    Cleanup usage of '@NamedArgument'
+
+commit 418e3aa61ff9230659af47fbcdfaccbb02ead5cd
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 10:54:24 2021 -0500
+
+    Few clarifications in examples
+
+commit ba5269bcb590b9832d16835a06bc12192a6cdda5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Nov 15 14:34:04 2021 -0500
+
+    Update output
+
+commit 0aec523eea686b6f078620275754ffce3325e0e4
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 14 23:52:35 2021 -0500
+
+    Support TrailingArguments UDA without parens
+
+commit 944f552e5eb038e9f39dc22fb5d420e183a3aac2
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 14 23:51:25 2021 -0500
+
+    Rename helpText -> description
+
+commit e42dd456b7a046e514fa3e70d2f5802ee7f150e7
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Nov 11 17:33:11 2021 -0500
+
+    Improve usage of @NamedArgument (#13)
+
+commit 201ce6be97bc19b5d8ee8c78bce7e9b7eee78b83
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Nov 10 20:12:02 2021 -0500
+
+    Refactor to support argument groups (#12)
+    
+    * Change cycle -> repeat
+    
+    * Add assert for duplicated names
+    
+    * Move setTrailingArgs()
+    
+    * Introduce argument groups
+
+commit a292edf4f803a90f132c6abc3efb0bfa0c3d799d
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Oct 24 00:29:56 2021 -0400
+
+    Examples refactoring (#10)
+
+commit 80e850daf10c018ace3767d0a38af13a1a2cf209
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Oct 16 22:46:07 2021 -0400
+
+    Update readme (#9)
+
+commit b925eb0f06e9bcfd356316732f04ea13eb490b43
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Oct 16 22:04:02 2021 -0400
+
+    Support structs without UDA (#8)
+    
+    * Support structs without UDA
+    
+    * Improve code coverage
+
+commit bca94322ee4e377206a0c56c17ecdccbfe43fa1b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Oct 12 15:43:10 2021 -0400
+
+    Help generation (#6)
+    
+    * Help generation
+    
+    * Build fix
+
+commit 24ae5a08e497dcf5174f5d0120fb1036bbb1a37f
+Merge: 2c97670 88b08cd
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Sep 10 23:26:18 2021 -0400
+
+    Merge pull request #5 from andrey-zherikov/refactoring
+    
+    Refactoring
+
+commit 88b08cd3b1372d82b4ce6947b1d1418209191148
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Sep 10 23:23:38 2021 -0400
+
+    Add unit tests
+
+commit 19304e9b44294c71f3602fa15606ffa13f058c03
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Sep 9 21:10:18 2021 -0400
+
+    Make Argument!T global + other changes
+
+commit ae460e8e78a38e9ffa480f1e117c0978e6e8735e
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Sep 7 20:58:33 2021 -0400
+
+    Convert boolean parsing result to integer
+
+commit 2c97670105020df8aa55affbda3285d901abdac9
+Merge: fd215ac b194e8a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Sep 6 22:13:07 2021 -0400
+
+    Merge pull request #2 from andrey-zherikov/add-more-parsing-functions
+    
+    Additional parseCLIArgs() and parseCLIKnownArgs() functions
+
+commit b194e8a07eeb56b77d2bda386db32e540625fe47
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Sep 6 20:51:08 2021 -0400
+
+    Formatting
+
+commit b4342c937fb2382eed800194704cebacbf224e8f
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Sep 6 17:44:10 2021 -0400
+
+    Add more unit tests
+
+commit fd215ac11f9a89e821476478cbe0fd3617c8efc6
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Sep 1 20:36:25 2021 -0400
+
+    Rename LICENSE to LICENSE.txt
+
+commit 1d86e356b201af7a6f4617f98be2d38ec5ed2ae2
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Sep 1 19:33:17 2021 -0400
+
+    Create LICENSE
+
+commit f2f1e818da72a87b3c613d9f1b0fc4bd9c6d00d5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Aug 30 22:26:33 2021 -0400
+
+    Additional parseCLIArgs() and parseCLIKnownArgs() functions
+
+commit 9c284744d95e9493722ee3db7fbfa63956081bb5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 21:16:28 2021 -0400
+
+    Add codecov badge
+
+commit 2f2230cae4955741234a61481eeb6d86c00af991
+Merge: 9af7b4c 84e7f35
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 21:08:21 2021 -0400
+
+    Merge pull request #4 from andrey-zherikov/rename-action
+    
+    Rename github action
+
+commit 84e7f35272cd21e462a7e9dcff09003ded50ed12
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 21:06:11 2021 -0400
+
+    Rename github action
+
+commit 9af7b4ca9ae19fcb450ad14ca448fffd35275bed
+Merge: 09a62a6 de67778
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 19:44:46 2021 -0400
+
+    Merge pull request #3 from andrey-zherikov/codecov-support
+    
+    Code coverage support
+
+commit de677788d0a2ce49d123570c1a648b54ae507bb9
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 08:09:16 2021 -0400
+
+    Codecov support
+
+commit 09a62a642f07e59a9b32f07c40edf86a15f17eb5
+Merge: b04093b 4b4b3d4
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Aug 30 22:16:28 2021 -0400
+
+    Merge pull request #1 from andrey-zherikov/remove-CommandLineParser
+    
+    Remove CommandLineParser
+
+commit 4b4b3d4ad4453f451ba29edcaf245e77070786af
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:22:14 2021 -0400
+
+    Remove CommandLineParser
+
+commit 4e4afb2064747ea6d192fd73e391ae663dcbec2c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:13:52 2021 -0400
+
+    Notice of API breaking changes
+
+commit df799988df059d6dd2936e0bc54ac932b41e5cd2
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:13:04 2021 -0400
+
+    Nitpicks
+
+commit 7cb959d316e2b99d93e252013949a3c6367779c0
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:10:46 2021 -0400
+
+    Make Config.onError() void
+
+commit b04093bc07d9abdaecc49708904d4038e0283300
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Jun 28 11:22:40 2021 -0400
+
+    Update readme
+
+commit 4dd83c8fbd9a3dbd40d45909d7d36f34b035baee
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Jun 28 11:13:16 2021 -0400
+
+    Proper support of callbacks
+
+commit 660b061dbbf33af3a99f7118cd6cc84924d0ea68
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Jun 28 11:04:27 2021 -0400
+
+    Message text fix
+
+commit ecf0da5556359f49dd677d09697d221a51675daa
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 17:32:57 2021 -0400
+
+    Update readme
+
+commit abe6f4863b87254a57f8f3682a64b76d093f8075
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 07:13:52 2021 -0400
+
+    Fix badge
+
+commit 12239d8d2f89b72784d5a71864c2da21e59f3516
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 07:08:41 2021 -0400
+
+    Add github action
+
+commit 65e36f2f0ab28b9d751c0389890d0f1b40aa7af1
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 06:48:44 2021 -0400
+
+    Update
+
+commit c5b4561d57d9d0253e985409d68de614599e9acd
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Apr 5 17:09:09 2021 -0400
+
+    First commit
+
+commit ef33bd2e8afe9448f850575b9e9316623887c13b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Apr 5 16:40:21 2021 -0400
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit ab8195b09d189d096863e1741cdc8edacdc53136
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Apr 23 23:39:45 2022 -0400
+
+    Refactor public API (#39)
+    
+    * Add parseKnownArgs and parseArgs to CLI
+    
+    * Forward CLI(Config config, COMMANDS...).main to CLI(Config config, COMMAND).main
+    
+    * Deprecate CLI(Config config)
+    
+    * Deprecate Main
+    
+    * Deprecate parseCLIKnownArgs and parseCLIArgs
+    
+    * Revert deletion of compile time example
+    
+    * Remove parenthesis
+    
+    * Add unit tests for CLI!T.parseArgs
+    
+    * Update readme
+
+commit e433a35db88e3cd2b63436c5d9e350ec133917c5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Apr 22 21:37:21 2022 -0400
+
+    Fix parsing of trailing args in subcommand
+
+commit 2f8326fdba614020d552d2ffc8c508b1fdc50afa
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Apr 22 22:01:15 2022 -0400
+
+    Add unit test
+
+commit e41982123c1134dc5e2ea1267300c314e0238d0b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:12:14 2022 -0400
+
+    Return Result from checkValuesCount
+
+commit 49403f25cab7b7d7d1fb8597bf7369aba777bfe1
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:11:26 2022 -0400
+
+    Add error state to Result
+
+commit b34561a793e0c8530856b47dbac939453de38d2a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:07:40 2022 -0400
+
+    Rename ParsingFunction -> ParsingArgument
+
+commit b139fb5bbf014b70ace06172900ab9056c9c3c44
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Apr 19 23:03:20 2022 -0400
+
+    Add links to readme (#36)
+
+commit 961ade45104a8ab9e3b1940088d3f38efd61fced
+Author: John Kilpatrick <john.kilpatrick@outlook.com>
+Date:   Mon Mar 21 01:49:54 2022 +0000
+
+    Update README.md (#34)
+
+commit 8b60bf9638e0d27d3bd523f305e172e67d3e5a9a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Mar 16 21:23:20 2022 -0400
+
+    Default subcommand (#33)
+    
+    * Default subcommand
+    
+    * Update readme
+    
+    * Unit test
+
+commit bcfc96134fc92be3aac0b57258971e6dcf7f110f
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Mar 12 23:59:12 2022 -0500
+
+    Update readme (#32)
+
+commit 563b576ed021613314f52e7a0c99ff258b54b72b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Mar 12 23:57:55 2022 -0500
+
+    Move examples into sub dir (#31)
+
+commit 2c424b26fe5cbb409f5a8f49f24c898a32858354
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Mar 12 09:32:27 2022 -0500
+
+    Add sub-command support (#30)
+    
+    * Add CommandInfo.Summary
+    
+    * Add sub-command support
+    
+    * Add unit test
+    
+    * Add unit test
+    
+    * Update unit test
+    
+    * Remove try-catch
+    
+    * Remove redundant if
+    
+    * Fix subcommand object initialization
+    
+    * Adjust private attribute
+    
+    * Add CommandInfo parameter to CommandArguments ctor
+    
+    * Support commands with multiple names
+    
+    * Add CLI API
+    
+    * Update unit tests
+    
+    * Update readme
+
+commit 1003b4c2fd04538e976328d1ad0f1b3e3f5a890c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Mar 3 23:34:07 2022 -0500
+
+    Refactor (#29)
+
+commit eec6b2413ad0e34bbbf1e6b15a5edf8132333dbe
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Feb 20 10:35:12 2022 -0500
+
+    Refactoring (#28)
+    
+    * Introduce Parser struct
+    
+    * Remove ArgumentInfo.parsingTerminateCode
+    
+    * Remove CLIArgument
+    
+    * Refactor ParsingFunction
+    
+    * Spacing
+    
+    * Move checkArgumentName
+    
+    * Move checkRestrictions call
+    
+    * Remove createArguments
+    
+    * Use CommandArguments instead of Arguments
+    
+    * Move addArgument to CommandArguments
+    
+    * Correct function forwarding
+    
+    * Move setTrailingArgs from Arguments to CommandArguments
+    
+    * Move parseFunctions from Arguments to CommandArguments
+    
+    * Remove template parameter from Arguments
+    
+    * Spacing
+    
+    * Extract printHelp for Arguments
+    
+    * Add isHelpArgument
+    
+    * Print argument group only when there are arguments to print
+
+commit ca2aa75322c4df119f361cb583b4ffc6a4f0a67b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Feb 10 22:57:47 2022 -0500
+
+    Refactoring (#27)
+    
+    * Introduce Parser struct
+    
+    * Remove ArgumentInfo.parsingTerminateCode
+    
+    * Remove CLIArgument
+
+commit 2a2cc65e32608aea0cb834bb63ba69d66bf80c2b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Feb 9 15:01:49 2022 -0500
+
+    Rename ParseCLIResult -> Result (#25)
+    
+    * Rename ParseCLIResult -> Result
+    
+    * Change return type of parsing function to Result
+
+commit 8cbcb57882f3843cc24acd4ed67b9b4c2563b5ff
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Feb 9 14:55:02 2022 -0500
+
+    Update codecov.yml (#26)
+
+commit 3fab37534c4bcf585d0903f67b02b781d4bb2f51
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Feb 8 22:26:47 2022 -0500
+
+    Refactor (#24)
+    
+    * Rename splitArgumentName -> splitArgumentNameValue
+    
+    * Refactor main parseCLIKnownArgs function
+    
+    * Improve unit test
+    
+    * Rename in help text: usage -> Usage
+    
+    * Change parameter in parseCLIKnownArgs
+    
+    * Remove tuples usage
+    
+    * Remove run-time parameter in setDefaults
+    
+    * Make coverage happy
+
+commit a9ae8c3cc12b6b4212bd7a0e75763d00d66cc59c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Jan 18 17:36:14 2022 -0500
+
+    No value for flags by default (#22)
+
+commit 6d2e356165739c27b488b92df6d8f6e05ae2657a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Jan 18 16:39:39 2022 -0500
+
+    Create codecov.yml (#23)
+
+commit bcaf1455fe14bcecac555e1aa9f1c0dc80a15167
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Dec 30 13:32:03 2021 -0500
+
+    Multi-line wrapper for help text (#21)
+
+commit b7ee5098dee8f8d780e65f6a4b921ce51d17dc2e
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Dec 16 16:16:45 2021 -0500
+
+    Add 'RequiredTogether' and 'MutuallyExclusive' (#20)
+
+commit 4fae4065a061f7c19e02908d1214163e473c6501
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Dec 11 16:33:10 2021 -0500
+
+    Refactor (#19)
+    
+    * Remove requiredArguments
+    
+    * Rename filterByUDA -> hasNoUDAs
+    
+    * Change index type to size_t
+    
+    * Rename printArgumentName -> getArgumentName
+    
+    * Remove redundant parameter for NamedArgument
+    
+    * Add Arguments.checkRestrictions
+    
+    * Nitpicks
+    
+    * Introduce restrictions
+
+commit 870168852ab0936b41fb6e19e2bfd855f0a6e69d
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Dec 5 23:40:53 2021 -0500
+
+    Add argument groups (#18)
+    
+    * Add argument groups
+    
+    * Add unit test
+
+commit c6c342069598549e2cc71b813d18ddb961c667bf
+Merge: ccf0fd9 4158dac
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:52:34 2021 -0500
+
+    Merge pull request #16 from andrey-zherikov/improve-readme
+    
+    Improve readme
+
+commit ccf0fd9036c9890c2ef56610859cba991b3b4b7a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:51:57 2021 -0500
+
+    Do not trigger the build for changes in *.md (#17)
+
+commit 4158dac71be4799a21832393b848827423ee520c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:24:35 2021 -0500
+
+    Reformat readme
+
+commit 82167a59ed51cbb571cb140b6d73c2644374e231
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Nov 30 22:23:20 2021 -0500
+
+    Improve examples
+
+commit 32801c2f55c3f24f3cdaa821faa895e67cc41741
+Merge: 1a61f28 486c5fc
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 12:46:58 2021 -0500
+
+    Merge pull request #15 from andrey-zherikov/help-example
+    
+    Improve help example
+
+commit 486c5fc086058ec949d3dbb65cb3d67ce17f6e24
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 12:42:31 2021 -0500
+
+    Improve help example
+
+commit 1a61f28916343a8c2662253af4e264a045ec3df0
+Merge: e42dd45 aa9e635
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:36:10 2021 -0500
+
+    Merge pull request #14 from andrey-zherikov/refactor
+    
+    Assorted changes
+
+commit aa9e635a83aa74e0616133da1a3aca782596cfd0
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:31:16 2021 -0500
+
+    Add unit test
+
+commit 934a0d8576e2b9c5ee16d911ddf6f2e1c8893f49
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:07:08 2021 -0500
+
+    Other improvements in documentation
+
+commit aa158495390f30a0d0b082963c9fdbf7c21974b1
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:06:20 2021 -0500
+
+    Document limiting of allowed values
+
+commit 23812043bf8fe32451d26feb9318544b6f3bdedb
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:04:09 2021 -0500
+
+    Document *NumberOfValues
+
+commit e6bb4d34694b596d1c5bd1219ff6c3d02eaefd97
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:02:56 2021 -0500
+
+    Improve error text
+
+commit a9c14394f9861efba39fc6e5b84ebaf4f46dd0a4
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:02:06 2021 -0500
+
+    Add a validator for enum type
+
+commit 089cf18c85664942e86d5b531748bfaab0f78459
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 11:00:33 2021 -0500
+
+    Rename metaValue -> placeholder
+
+commit aafc8ffb3287f590b8d92704a0dc88a4fd0ddbf6
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 10:56:59 2021 -0500
+
+    Cleanup usage of '@NamedArgument'
+
+commit 418e3aa61ff9230659af47fbcdfaccbb02ead5cd
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 28 10:54:24 2021 -0500
+
+    Few clarifications in examples
+
+commit ba5269bcb590b9832d16835a06bc12192a6cdda5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Nov 15 14:34:04 2021 -0500
+
+    Update output
+
+commit 0aec523eea686b6f078620275754ffce3325e0e4
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 14 23:52:35 2021 -0500
+
+    Support TrailingArguments UDA without parens
+
+commit 944f552e5eb038e9f39dc22fb5d420e183a3aac2
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Nov 14 23:51:25 2021 -0500
+
+    Rename helpText -> description
+
+commit e42dd456b7a046e514fa3e70d2f5802ee7f150e7
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Nov 11 17:33:11 2021 -0500
+
+    Improve usage of @NamedArgument (#13)
+
+commit 201ce6be97bc19b5d8ee8c78bce7e9b7eee78b83
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Nov 10 20:12:02 2021 -0500
+
+    Refactor to support argument groups (#12)
+    
+    * Change cycle -> repeat
+    
+    * Add assert for duplicated names
+    
+    * Move setTrailingArgs()
+    
+    * Introduce argument groups
+
+commit a292edf4f803a90f132c6abc3efb0bfa0c3d799d
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sun Oct 24 00:29:56 2021 -0400
+
+    Examples refactoring (#10)
+
+commit 80e850daf10c018ace3767d0a38af13a1a2cf209
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Oct 16 22:46:07 2021 -0400
+
+    Update readme (#9)
+
+commit b925eb0f06e9bcfd356316732f04ea13eb490b43
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Sat Oct 16 22:04:02 2021 -0400
+
+    Support structs without UDA (#8)
+    
+    * Support structs without UDA
+    
+    * Improve code coverage
+
+commit bca94322ee4e377206a0c56c17ecdccbfe43fa1b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Oct 12 15:43:10 2021 -0400
+
+    Help generation (#6)
+    
+    * Help generation
+    
+    * Build fix
+
+commit 24ae5a08e497dcf5174f5d0120fb1036bbb1a37f
+Merge: 2c97670 88b08cd
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Sep 10 23:26:18 2021 -0400
+
+    Merge pull request #5 from andrey-zherikov/refactoring
+    
+    Refactoring
+
+commit 88b08cd3b1372d82b4ce6947b1d1418209191148
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Sep 10 23:23:38 2021 -0400
+
+    Add unit tests
+
+commit 19304e9b44294c71f3602fa15606ffa13f058c03
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Thu Sep 9 21:10:18 2021 -0400
+
+    Make Argument!T global + other changes
+
+commit ae460e8e78a38e9ffa480f1e117c0978e6e8735e
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Sep 7 20:58:33 2021 -0400
+
+    Convert boolean parsing result to integer
+
+commit 2c97670105020df8aa55affbda3285d901abdac9
+Merge: fd215ac b194e8a
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Sep 6 22:13:07 2021 -0400
+
+    Merge pull request #2 from andrey-zherikov/add-more-parsing-functions
+    
+    Additional parseCLIArgs() and parseCLIKnownArgs() functions
+
+commit b194e8a07eeb56b77d2bda386db32e540625fe47
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Sep 6 20:51:08 2021 -0400
+
+    Formatting
+
+commit b4342c937fb2382eed800194704cebacbf224e8f
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Sep 6 17:44:10 2021 -0400
+
+    Add more unit tests
+
+commit fd215ac11f9a89e821476478cbe0fd3617c8efc6
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Sep 1 20:36:25 2021 -0400
+
+    Rename LICENSE to LICENSE.txt
+
+commit 1d86e356b201af7a6f4617f98be2d38ec5ed2ae2
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Wed Sep 1 19:33:17 2021 -0400
+
+    Create LICENSE
+
+commit f2f1e818da72a87b3c613d9f1b0fc4bd9c6d00d5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Aug 30 22:26:33 2021 -0400
+
+    Additional parseCLIArgs() and parseCLIKnownArgs() functions
+
+commit 9c284744d95e9493722ee3db7fbfa63956081bb5
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 21:16:28 2021 -0400
+
+    Add codecov badge
+
+commit 2f2230cae4955741234a61481eeb6d86c00af991
+Merge: 9af7b4c 84e7f35
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 21:08:21 2021 -0400
+
+    Merge pull request #4 from andrey-zherikov/rename-action
+    
+    Rename github action
+
+commit 84e7f35272cd21e462a7e9dcff09003ded50ed12
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 21:06:11 2021 -0400
+
+    Rename github action
+
+commit 9af7b4ca9ae19fcb450ad14ca448fffd35275bed
+Merge: 09a62a6 de67778
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 19:44:46 2021 -0400
+
+    Merge pull request #3 from andrey-zherikov/codecov-support
+    
+    Code coverage support
+
+commit de677788d0a2ce49d123570c1a648b54ae507bb9
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Tue Aug 31 08:09:16 2021 -0400
+
+    Codecov support
+
+commit 09a62a642f07e59a9b32f07c40edf86a15f17eb5
+Merge: b04093b 4b4b3d4
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Aug 30 22:16:28 2021 -0400
+
+    Merge pull request #1 from andrey-zherikov/remove-CommandLineParser
+    
+    Remove CommandLineParser
+
+commit 4b4b3d4ad4453f451ba29edcaf245e77070786af
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:22:14 2021 -0400
+
+    Remove CommandLineParser
+
+commit 4e4afb2064747ea6d192fd73e391ae663dcbec2c
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:13:52 2021 -0400
+
+    Notice of API breaking changes
+
+commit df799988df059d6dd2936e0bc54ac932b41e5cd2
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:13:04 2021 -0400
+
+    Nitpicks
+
+commit 7cb959d316e2b99d93e252013949a3c6367779c0
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Aug 27 07:10:46 2021 -0400
+
+    Make Config.onError() void
+
+commit b04093bc07d9abdaecc49708904d4038e0283300
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Jun 28 11:22:40 2021 -0400
+
+    Update readme
+
+commit 4dd83c8fbd9a3dbd40d45909d7d36f34b035baee
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Jun 28 11:13:16 2021 -0400
+
+    Proper support of callbacks
+
+commit 660b061dbbf33af3a99f7118cd6cc84924d0ea68
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Jun 28 11:04:27 2021 -0400
+
+    Message text fix
+
+commit ecf0da5556359f49dd677d09697d221a51675daa
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 17:32:57 2021 -0400
+
+    Update readme
+
+commit abe6f4863b87254a57f8f3682a64b76d093f8075
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 07:13:52 2021 -0400
+
+    Fix badge
+
+commit 12239d8d2f89b72784d5a71864c2da21e59f3516
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 07:08:41 2021 -0400
+
+    Add github action
+
+commit 65e36f2f0ab28b9d751c0389890d0f1b40aa7af1
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Fri Jun 25 06:48:44 2021 -0400
+
+    Update
+
+commit c5b4561d57d9d0253e985409d68de614599e9acd
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Apr 5 17:09:09 2021 -0400
+
+    First commit
+
+commit ef33bd2e8afe9448f850575b9e9316623887c13b
+Author: Andrey Zherikov <andrey.zherikov@gmail.com>
+Date:   Mon Apr 5 16:40:21 2021 -0400
+
+    Initial commit

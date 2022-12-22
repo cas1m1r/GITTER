@@ -1,0 +1,430 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+
+# Second interation of GoBot, https://github.com/SaturnsVoid/GoBot2
+
+# GoBot
+
+GoBot is a project i am working on as i learn Go. GoBot is a PoC(Proof of Concept) Trojan that uses HTTP connections for commands and sending information.
+
+# Development
+
+Stopped working on this; I am a vary bad coder and don't think i can do much more myself... I will continue trying to learn to code in Go though i may never work on this project again.... If ANYONE wants you can take over this project, see what Go can do.
+
+# Current Features
+
+* Base64 Encoding/Decoding
+* Uniqe ID Generation (MD5)
+* Message Box
+* Install
+* Open Website - Visable
+* Open Website - Hidden
+* Single Instance
+* Ring3 Rootkit (Written in C)
+* Download and Run
+* Open Program
+* Simple to use Control Panel (PHP, HTML, SQL)
+
+# How to Build and Use
+
+* Use the command go get https://github.com/SaturnsVoid/GoBot
+* Edit the settings to your liking in GoBot.go
+* Compile GoBot.go with the other folder inside src
+* Edit the Control Panels settings (Key = your login to see the control panel)
+* Import the MySQL database
+* Upload the Control Panel to a secure server
+* Run GoBot
+* Command from Control Panel (Example Panel Login: http://127.0.0.1/gobot.php?cmd=key)
+
+# Current Credits and Stuff
+
+* http://github.com/luisiturrios/gowin
+* http://code.google.com/p/winsvc/winapi
+* http://www.guidgen.com/
+* https://www.reddit.com/r/golang/
+* http://golang.org/pkg/net/http/
+* https://github.com/golang/go/wiki/WindowsDLLs
+* http://vxheaven.org/forum/index.php
+* https://mmcgrana.github.io/2012/09/go-by-example-timers-and-tickers.html
+* https://github.com/petercunha/GoAT
+
+# Terms of Use
+
+	* Do NOT use this on any computer you do not own, or are allowed to run this on.
+	* Credits must always be given, With linksback to here.
+	* You may NEVER attempt to sell this, its free and open source.
+	
+# Other
+
+Go is a amazing and powerful programming language. If you already haven't, check it out; https://golang.org/
+
+# Donations
+<img src="https://blockchain.info/Resources/buttons/donate_64.png"/>
+<p align="center">Please Donate To Bitcoin Address: <b>1AEbR1utjaYu3SGtBKZCLJMRR5RS7Bp7eE</b></p>
+ 
+
+----------Update Log---------------------
+
+10/11/2015 @ 5:15PM:
+- Rewrote how checking internet connection is done
+- New Ring3 Rootkit (https://github.com/petercunha/GoAT)
+- New Install Method (https://github.com/petercunha/GoAT)
+- New Control Panel
+- Download and Run (for exe's)
+- Run Program (exe, bat, ect..)
+- Added 1 minute delay before connecting to panel (Security)
+- Fixed custom "Check Command" timer
+- Send basic information to Control Panel
+- New DebugLog feature
+- Code Cleaning
+- Removed Uninstall (Have to rewrite it to work with new Rootkit and Install)
+
+10/07/2015 @ 1:40PM:
+- Rewrote GoBot.php to do the basics to test that the bot works.
+
+10/06/2015 @ 12:00PM:
+-  Changed the way the command URL is handled
+-  Made a temporary fix for the Timer issue cousing issues with running and compiling. (woops)
+====================== GIT HISTORY: ======================
+c699566 HEAD@{0}: clone: from https://github.com/SaturnsVoid/GoBot
+commit c6995663ed9a1d0c1335b0ab4de2b090a0bbf271
+Merge: dd71eee 2f7c03c
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Nov 25 02:27:50 2018 -0500
+
+    Merge pull request #4 from Brett-Kavanaugh/master
+    
+    Add melt module.
+
+commit 2f7c03c5c7fa3383781578aeacaede494dc3c90c
+Author: Brett-Kavanaugh <44075859+Brett-Kavanaugh@users.noreply.github.com>
+Date:   Wed Oct 17 08:05:33 2018 -0500
+
+    Create Melt.go
+
+commit dd71eee416cf733d707f4fafca63891aa42b63ce
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Fri Mar 31 16:52:51 2017 -0400
+
+    Update README.md
+
+commit 3b5732bbcad231e8b4ee320aa4471a8165727ce7
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Mar 15 14:49:19 2017 -0400
+
+    Update README.md
+
+commit 51cb6d05a3946df13fd8dad1cb5ddfc91e0ed3a6
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Tue Jan 3 21:30:49 2017 -0500
+
+    Set theme jekyll-theme-leap-day
+
+commit e8287fb4b1aea255305a2b38eb95308de41b727c
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Nov 13 16:53:50 2016 -0500
+
+    Update README.md
+
+commit a18d53109fb99bdc25973ce814389da5def19e55
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Nov 13 16:53:27 2016 -0500
+
+    Update README.md
+
+commit 4fb289191dc9e5f48ae4dbad6a0c8889743c3896
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Nov 13 16:52:34 2016 -0500
+
+    Update README.md
+
+commit 55ffe1ef2e7ea1d711d0e2ea09a9d15d4d4d1b56
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Nov 13 16:51:29 2016 -0500
+
+    Update README.md
+
+commit 91fd28cacb66fd931471798a621684d4308c9bcc
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Nov 13 15:20:00 2016 -0500
+
+    Update README.md
+
+commit 6cc4b34d62ea0395640b34b95d2900310e7a0b7b
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Fri Oct 7 16:29:26 2016 -0400
+
+    Update README.md
+
+commit 261c3a0a93a7a5ca471be3771718562ba42f930f
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Mar 27 13:53:31 2016 -0400
+
+    Update README.md
+
+commit c0d701803d51e7579ef0375866360be36d8a3b91
+Merge: 435b028 ad21263
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Mon Dec 7 00:23:55 2015 -0500
+
+    Merge pull request #2 from aravindc26/master
+    
+    Formats code, Thanks @aravindc26
+
+commit ad21263b20bca5843037f95fe108a0e71c594cf8
+Author: aravindc26 <aravindc26@gmail.com>
+Date:   Mon Dec 7 09:40:56 2015 +0530
+
+    Formats code
+
+commit 435b0282d39e281ebfe989dd9b93a2accb4f8ff6
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 25 23:22:39 2015 -0400
+
+    Update README.md
+    
+    fixed an issue
+
+commit d7866170ebbe94f4089da1daa982641caef6090f
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Mon Oct 12 12:05:25 2015 -0400
+
+    Update GoBot.go
+
+commit 8b026e96393b2d453319ae674aa57e086a082292
+Merge: 79d40a4 c64acfc
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Mon Oct 12 12:03:55 2015 -0400
+
+    Merge pull request #1 from petercunha/patch-1
+    
+    Stealth bug
+
+commit 79d40a4ccc69b6a067d8a51d9d8df04214388d47
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Mon Oct 12 12:03:38 2015 -0400
+
+    removed redundant steath
+
+commit c64acfc75d58512b9d6ff72d9116252ac0f057df
+Author: Peter Cunha <petercunha@users.noreply.github.com>
+Date:   Sun Oct 11 16:07:16 2015 -0700
+
+    Update GoBot.go
+    
+    Even if stealth was disabled, it would still be applied to the installation. Removing this line fixes that.
+
+commit 4fa9cb95acbd750af6dcc5ae0a22305172cc3a5a
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:32:27 2015 -0400
+
+    Update README.md
+
+commit 2d2fb95cc24b021b3ac2866b4e215f6747bf59c5
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:16:00 2015 -0400
+
+    Delete .gitignore
+
+commit ab73d0e0e7d260e9a1c907bb3b0b7e4ab4677618
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:15:21 2015 -0400
+
+    Create rootkit.c
+
+commit 71aeb69c42ffc63303615f3bb442b44cecef1424
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:14:53 2015 -0400
+
+    Create rootkit.go
+
+commit 6e40e7802ffab9b263eb1bb9bc7a866e31e08433
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:14:02 2015 -0400
+
+    Update README.md
+
+commit 9cabafb3129f60e70fc8b57dde9840b68142bad4
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:13:36 2015 -0400
+
+    Update README.md
+
+commit 70362dd60cd3a3fcc39aacad745984ff66a3c734
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:12:37 2015 -0400
+
+    updates
+
+commit daa22389dae387d5ca442d44b9a749a5fd9514e3
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:11:57 2015 -0400
+
+    Large update
+
+commit 1fe68759ccfdfc42452a674897bd36c073413fac
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:11:20 2015 -0400
+
+    Major Update
+
+commit 07448d016275bffe9d2057babb8d13c9073c0dfb
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sun Oct 11 18:10:44 2015 -0400
+
+    Initial Upload for Control Panel
+
+commit 22c2ec20ee79f659346400a7bfd38b01f82913b7
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Thu Oct 8 13:16:26 2015 -0400
+
+    forgot a "="
+
+commit fbbc2ed18e795dd1ff9a4faa3ecdf4f98b3faccc
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Oct 7 14:02:50 2015 -0400
+
+    404 is nicer
+
+commit 323f77ff83893669bf4bd34a64020b844d2b76f8
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Oct 7 13:59:10 2015 -0400
+
+    Initial basics
+
+commit cc317890d051aca9d90c25562ad6cd19237cc371
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Oct 7 13:57:21 2015 -0400
+
+    Initial basics
+
+commit e9c0497091e4ae77a82803f36f213c522ebc5d86
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Oct 7 13:56:47 2015 -0400
+
+    Initial basics
+
+commit ddab8c37b042828f37f6f2949f5d4fb3b39cc425
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Oct 7 13:49:20 2015 -0400
+
+    Initial basics
+
+commit b9a9b65dae6d7317522e164452d06ac78c12b7de
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Oct 7 13:42:11 2015 -0400
+
+    updated
+
+commit 31b35b6a7ccd4834d23d9fa82f9c95b7b1d800f7
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Oct 7 13:40:40 2015 -0400
+
+    Initial basics
+
+commit 698ca0a3c0aecdc95654f106cb5a134da58c1ba6
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Tue Oct 6 12:11:53 2015 -0400
+
+    Update GoBot.php
+
+commit 9fa6890614da0cde3e329fd878fd30d844278e78
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Tue Oct 6 12:11:22 2015 -0400
+
+    Update README.md
+
+commit af1192bad1a15164a6b3db0479d472efaaa6cf27
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Tue Oct 6 12:10:58 2015 -0400
+
+    fixes
+
+commit 8c0b9a1b702d9f50a00fafc8d35e61a7b9526098
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Tue Oct 6 12:05:01 2015 -0400
+
+    Update README.md
+
+commit dbf071ee600ab58b367b482c5856f3bca07366a3
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Tue Oct 6 12:00:13 2015 -0400
+
+    Update GoBot.go
+    
+    Edited the command panels URL handler
+    Fixed timer issue, Code should now run without issue.
+
+commit bfe3cb2a065adad052683e378311a807d28125a5
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Fri Sep 25 10:48:23 2015 -0400
+
+    Update GoBot.go
+
+commit 681291a30487d2008ae3fe19c0e90bd505a88957
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Fri Sep 25 10:41:43 2015 -0400
+
+    Update README.md
+
+commit f757d5d1cdb87bb08d05934ad9cbdbbbe203fecc
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Fri Sep 25 10:41:20 2015 -0400
+
+    Update README.md
+
+commit 6d6b13855721274f33690cac426d2e149397d531
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Fri Sep 25 10:39:14 2015 -0400
+
+    Update GoBot.go
+
+commit a3785ceae8061b320f572cf52538f2f1e9b62ffb
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Sep 23 12:42:39 2015 -0400
+
+    Update GoBot.php
+
+commit d11b12ea401a06561177c7ec0c618e0d519aaaa4
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Sep 23 12:42:27 2015 -0400
+
+    Update GoBot.go
+
+commit b0d414c9e8bd4cd06e0cd6bd6e6434a7b539466d
+Author: Adam <saturnsvoid@gmail.com>
+Date:   Wed Sep 23 12:30:49 2015 -0400
+
+    upload
+    
+    9/23/2015
+
+commit 167410fccfdb14d62bb82389e9ff6ff1c2f914bf
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Sep 23 12:28:35 2015 -0400
+
+    Update README.md
+
+commit 62e7f11ede859a7cade5711e4900ab0e5b04acd4
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Sep 23 12:28:02 2015 -0400
+
+    Update README.md
+
+commit d5ebd6e62257975a6de04d180255c23157b976fc
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Wed Sep 23 12:27:14 2015 -0400
+
+    Update README.md
+
+commit ab7c8a570acd499ebdd8d16ff09f858e1ce99125
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sat Sep 19 13:18:33 2015 -0400
+
+    Update README.md
+
+commit dc68ef5ce53673be21567451b85d511959a08c63
+Author: Adam <SaturnsVoid@users.noreply.github.com>
+Date:   Sat Sep 19 13:16:36 2015 -0400
+
+    Initial commit

@@ -1,0 +1,3036 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit fce503892181b0893ab65f833b20d784e1db3c2b
+Merge: 8264b72 b28cf58
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 9 23:31:04 2022 +0100
+
+    Merge pull request #138 from rails/flavorjones-prevent-select-style-combination
+    
+    prevent combination of `select` and `style` allowed tags
+
+commit b28cf58e957d876bfbf6e15fd8f6bcaebba44509
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 9 18:21:38 2022 -0400
+
+    update CHANGELOG for v1.4.3
+
+commit c871aa4034d3d80ad67cf33a3462154b0a0fb477
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 9 11:13:33 2022 -0400
+
+    fix: modify safelist option if it contains both `select` and `style`
+    
+    Addresses CVE-2022-32209
+
+commit 8264b72d6d6511ae8395447db70458895d5af449
+Merge: 3b3365c 39f23eb
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 2 13:09:41 2022 +0100
+
+    Merge pull request #132 from seyerian/fix-username-in-changelog
+    
+    Fix typo in username in changelog
+
+commit 3b3365cfcb38b32b20f5190a8b28c265ae088768
+Merge: cb42074 b7c0fea
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 2 12:35:37 2022 +0100
+
+    Merge pull request #131 from rails/flavorjones-clean-up-tests-use-helpers
+    
+    test: clean up tests by using the helpers
+
+commit 39f23ebef24194f4025cb5111b72870e012c0947
+Author: seyerian <seyerian@pm.me>
+Date:   Wed Jun 1 19:23:47 2022 -0500
+
+    Fix typo in username in changelog
+
+commit b7c0fea2a991e066f9521d7970d2494b70457d51
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri May 27 17:56:04 2022 -0400
+
+    test: clean up tests by using the helpers
+
+commit cb4207484acf15bf4962817abc42d7259fffbbd1
+Merge: 593a820 39565bd
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun May 29 16:03:30 2022 +0100
+
+    Merge pull request #128 from seyerian/allow-permit-scrubber-to-prune
+    
+    Add `prune` flag to PermitScrubber
+
+commit 39565bd654d2fc2783b1790f1b398e3b6f3c63d7
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun May 29 11:02:44 2022 -0400
+
+    update CHANGELOG
+    
+    [skip ci]
+
+commit b19975ffcfbda55f4d90fc5f1910770f85bc4de5
+Author: seyerian <seyerian@pm.me>
+Date:   Sat Apr 9 09:54:17 2022 -0500
+
+    Add `prune` flag to PermitScrubber and SafeListSanitizer
+    
+    By default PermitScrubber leaves behind inner content when scrubbing a
+    node. Setting the `prune` flag will remove the node *and* its content.
+    
+    Note that this feature also works with TargetScrubber.
+
+commit 593a820ed036a347e2d8e8d7c7296f2b6d4af1bd
+Merge: dd44073 8316d0e
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed May 4 22:21:35 2022 +0100
+
+    Merge pull request #129 from rails/flavorjones-update-tests-for-libxml_2_9_14
+    
+    test: ensure we pass with libxml 2.9.14
+
+commit 8316d0e770488b03e75e881808f2820b19babb5e
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed May 4 16:35:31 2022 -0400
+
+    test: ensure we pass with libxml 2.9.14
+    
+    see release notes for Nokogiri v1.13.5
+
+commit dd44073a01dbcdf84996fc9b5c42463fafdd608b
+Merge: d1414e8 6a1ae1b
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jan 23 15:19:35 2022 -0500
+
+    Merge pull request #126 from rails/125-nokogiri-system-libraries
+    
+    ci: add coverage for system libxml2
+
+commit 6a1ae1b88053ccc4070c307a757878cfbdca117d
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jan 23 15:13:56 2022 -0500
+
+    test: ensure tests pass when nokogiri uses system libxml2
+    
+    Specifically the patch that affects this behavior is
+    
+      nokogiri/patches/libxml2/0002-Update-entities-to-remove-handling-of-ssi.patch
+    
+    which was introduced to avoid server-side-include vulnerabilities, see
+    
+      https://github.com/sparklemotion/nokogiri/commit/4852e43
+
+commit 470ed3fdaa59c6f515f939a775deceee7c147a30
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jan 23 14:55:20 2022 -0500
+
+    ci: add coverage for system libxml2
+
+commit d1414e84f276dfacc8ac9913a0ab74fdb0907a83
+Merge: 1316d25 2ea0bc5
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Jan 17 13:12:08 2022 -0500
+
+    Merge pull request #123 from rails/flavorjones-update-ci-with-ruby31
+    
+    ci: include coverage of ruby 3.1 and jruby 9.3
+
+commit 2ea0bc51c7228c099cf9c44153885a79643ca098
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Jan 17 12:45:36 2022 -0500
+
+    ci: include coverage of ruby 3.1 and jruby 9.3
+
+commit 1316d25350d1adbbab97f65a5ed7450bb2ae80ac
+Merge: 550ab2f 4433d14
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Dec 16 02:10:41 2021 -0500
+
+    Merge pull request #122 from rails/flavorjones-update-readme-with-entities-note
+    
+    readme: caution users about persisting sanitized strings
+
+commit 4433d14d4b81e44a5f62617abdb5bf6bfb15dedd
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Dec 8 12:31:45 2021 -0500
+
+    readme: caution users about persisting sanitized strings
+
+commit 550ab2f2fc453e326a4b9f94266a406ff52fa7c6
+Merge: 018cf54 7f8e67b
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Oct 29 16:12:25 2021 -0400
+
+    Merge pull request #121 from rails/flavorjones-fix-css-hex-encoding-tests
+    
+    test: finally use the CSS hex encoding originally intended
+
+commit 7f8e67b61331bb196a8fca97573fc1efb1ca80a2
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Oct 29 00:38:54 2021 -0400
+
+    test: finally use the CSS hex encoding originally intended
+    
+    This was mis-fixed in c190b32 which encoded the Ruby strings as
+    unicode to fix the previous bad encoding which dated back to the
+    original Instiki that should have single-quoted the CSS unicode
+    strings.
+
+commit 018cf540737ae10ee1c673ce184408881852c479
+Merge: c86fed1 efbe454
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Sep 8 10:37:00 2021 -0400
+
+    Merge pull request #120 from gogainda/master
+    
+    Add Truffleruby head to CI
+
+commit efbe454b7921c52ec0190264c3ed4feeb10a7976
+Author: Igor Victor <gogainda@yandex.ru>
+Date:   Wed Sep 8 14:44:46 2021 +0200
+
+    Update ci.yml
+
+commit c86fed1dedb5380a4e46df5b4e8ee2904eac369d
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Aug 23 20:15:05 2021 -0400
+
+    version bump to v1.4.2
+
+commit d4943093aae59906bfe3c4c46515040d3b56f5f5
+Merge: db9ccec b1fe437
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Aug 23 17:54:56 2021 -0400
+
+    Merge pull request #118 from rails/flavorjones-tweak-comment-and-pi
+    
+    improve performance (slightly)
+
+commit b1fe437c9e0c59d367b8c49e09e4d42ef8628ace
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Aug 19 23:14:51 2021 -0400
+
+    perf: PermitScrubber#scrub checks node.element? before node.comment?
+    
+    Assuming elements are more common than comments, this is going to be
+    one less method call per node.
+
+commit ab21d78f75edb9fb8f91a668cd99875439522eb5
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Aug 19 23:12:57 2021 -0400
+
+    test: rewrite test coverage for comments and PIs
+    
+    to test behavior and not implementation.
+
+commit db9ccec4d4f6756488c59c89afd3a414777fdea5
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:52:13 2021 -0400
+
+    ci: update default git branch
+
+commit 97099c02569c86734c6d0f466bf066344716193e
+Merge: b41bc7a e73f3e9
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:50:33 2021 -0400
+
+    Merge pull request #119 from rails/flavorjones-port-ci-to-github-actions
+    
+    ci: add github actions workflow
+
+commit e73f3e940f267a9d399e48e7c4cfd6a536b01c1c
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:46:32 2021 -0400
+
+    ci: remove travis and update the CI badge
+
+commit 8d3db9211266fb87ab0a1d0015d91476b925df4f
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:00:03 2021 -0400
+
+    ci: add github actions workflow
+
+commit b41bc7a9d04190d4237aa263c9a2ff70afbcc5bf
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 16:51:54 2021 -0400
+
+    version bump to v1.4.1
+
+commit 04daa642d56a62e5b9d4d96d7852d7a79a1c2907
+Merge: 2e9ec19 ab16fa4
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 16:50:35 2021 -0400
+
+    Merge pull request #117 from rails/flavorjones-comment-handling2
+    
+    fix: pass comment nodes to the scrubber
+
+commit ab16fa47d7d9d96c13a72882964bcbfb530f1922
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 15:58:06 2021 -0400
+
+    fix: pass comment nodes to the scrubber
+    
+    Some scrubbers want to allow comments through, but in v1.4.0 didn't
+    get the chance because only elements were passed through to
+    `keep_node?`.
+    
+    This change allows comments and elements through, but still omits
+    other non-elements like processing instructions (see #115).
+
+commit 2e9ec19859c03c15c912732e5528ea0e8a7326da
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 13:10:27 2021 -0400
+
+    version bump to v1.4.0
+
+commit 3f833f6232fdda2f88909cbc695334d5c1c9d223
+Merge: 3b7551c 2a7d3f2
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Tue Jul 20 10:57:15 2021 -0400
+
+    Merge pull request #116 from rails/115-sanitize-processing-instructions
+    
+    PermitScrubber does not permit Processing Instructions
+
+commit 2a7d3f208601fa069f804c54744b8f33df901773
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jul 18 23:19:14 2021 -0400
+
+    CI: add modern rubies to the matrix
+
+commit c06d465f577818b438c1a475a0b5e1dbcbe5408a
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jul 18 23:15:14 2021 -0400
+
+    PermitScrubber does not permit Processing Instructions
+    
+    Fixes #115
+
+commit 3b7551c59e77ee95befc99a3f947267b76b8fb52
+Merge: d8bd426 f59ecbc
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Apr 21 23:40:52 2021 -0400
+
+    Merge pull request #113 from flavorjones/flavorjones-fix-css-scrubbing-tests
+    
+    fix css scrubbing tests
+
+commit d8bd4268230e9d74e9e3218ac54dc390a8d95600
+Merge: 1e64885 e1f3af0
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Apr 21 23:34:37 2021 -0400
+
+    Merge pull request #114 from jbampton/fix-spelling
+    
+    chore: fix spelling
+
+commit e1f3af01549e4ff743a7f64ba03f8521d973b447
+Author: John Bampton <jbampton@gmail.com>
+Date:   Wed Apr 14 05:32:24 2021 +1000
+
+    chore: fix spelling
+
+commit f59ecbcfc8300ce040efead7147af03283453b73
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Apr 8 11:53:34 2021 -0400
+
+    test: fix typographical errors in the XSS encoding test
+    
+    See https://github.com/flavorjones/loofah/pull/205 for a short history
+    of this test string.
+    
+    Related to #111
+
+commit c190b3247afe43329e696120a578cee8ac9c3fd4
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Apr 8 11:39:43 2021 -0400
+
+    test: fix encoding in the unicode XSS test
+    
+    See https://github.com/flavorjones/loofah/pull/205 for a short history
+    of this test string.
+    
+    Related to #111
+
+commit becbad07e734cfbc01cda98ef6d1c87a205df6d2
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Apr 8 11:39:11 2021 -0400
+
+    test: handle variations in loofah whitespace
+    
+    which changed in Loofah v2.9.0
+    
+    Related to #111
+
+commit 1e64885d30668165c63cccc4e371d1fc2755324a
+Author: Paul Mesnilgrente <web@paul-mesnilgrente.com>
+Date:   Tue Feb 9 18:03:27 2021 +0100
+
+    Add a note for whitelisted tags by default in the TargetScrubber (#110)
+    
+    * add a note for whitelisted tags by default in the TargetScrubber
+    
+    * reword the whitelisted to permitted
+    
+    Co-authored-by: Kasper Timm Hansen <kaspth@gmail.com>
+    
+    * added the permitted tag list to the README
+    
+    Co-authored-by: Kasper Timm Hansen <kaspth@gmail.com>
+
+commit 51dc564c6509201070f72456bb2c13f87bb373d6
+Author: George Claghorn <george@basecamp.com>
+Date:   Sun Oct 6 11:12:06 2019 -0400
+
+    v1.3.0
+
+commit 65b9f880f23abe9c7f2719da58bdf613f5f5c307
+Merge: 43a87f5 845da04
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Oct 5 17:55:02 2019 +0200
+
+    Merge pull request #102 from orien/gem-metadata
+    
+    Add project metadata to the gemspec
+
+commit 845da04cad37885aadc4495c8e7e476de54aa803
+Author: Orien Madgwick <_@orien.io>
+Date:   Sat Oct 5 12:14:39 2019 +1000
+
+    Add project metadata to the gemspec
+    
+    As per https://guides.rubygems.org/specification-reference/#metadata,
+    add metadata to the gemspec file. This'll allow people to more easily
+    access the source code, raise issues and read the changelog. These
+    `bug_tracker_uri`, `changelog_uri`, `documentation_uri`, and
+    `source_code_uri` links will appear on the rubygems page at
+    https://rubygems.org/gems/rails-html-sanitizer and be available via the
+    rubygems API after the next release.
+
+commit 43a87f538af42dd11cd72fddacbba2519d1e5c78
+Author: Josh Goodall <inopinatus@inopinatus.org>
+Date:   Sun Sep 29 20:20:30 2019 +1000
+
+    Match Loofah's API changes.
+    
+    Short term, reduces log noise due to deprecated constants.
+    Long term, necessary just to keep up.
+
+commit b8ea80d5f840a834a808a2171df3ada524b2a010
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Aug 9 00:02:02 2019 +0200
+
+    Prepare 1.2.0
+
+commit 55818711cce9e7d7185a116abe7b0cada7414785
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Thu Aug 8 23:56:28 2019 +0200
+
+    Remove needless white list sanitizer deprecations
+    
+    Keeping support for these methods, without deprecations, makes Rails 5.2
+    just work.
+    
+    Then Rails 6 will depend on 1.2.0 which uses safe_list_sanitizer etc.
+    
+    Sorry for all the needless ruckus and confusion around 1.1.0!
+
+commit 1a02a146058f51bdd24bcd5688d7a73da5acfead
+Merge: 0b64e50 31cf584
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Aug 5 17:51:57 2019 +0200
+
+    Merge pull request #96 from olleolleolle/patch-1
+    
+    CI: Drop unused sudo: false Travis directive
+
+commit 31cf584cd67419723ecb16d8505bcebde1b3c444
+Author: Olle Jonsson <olle.jonsson@gmail.com>
+Date:   Mon Aug 5 17:25:55 2019 +0200
+
+    CI: Drop unused sudo: false Travis directive
+    
+    See https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration for more details
+
+commit 0b64e50126cf1962d60fc0d67d3bca9300a8bb0f
+Merge: df0c946 21da038
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Aug 5 15:22:36 2019 +0200
+
+    Merge pull request #95 from rwojnarowski/patch-1
+    
+    Deprecated warning text, missing space
+
+commit 21da0389eae482818d6991eb1bba025c8b116927
+Author: rwojnarowski <radziu92@gmail.com>
+Date:   Mon Aug 5 13:34:11 2019 +0200
+
+    Deprecated warning text, missing space
+
+commit df0c946aa0c1913e9b8e94be96da59fb57ec9d67
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Aug 5 03:07:55 2019 +0200
+
+    Prepare version 1.1.0
+
+commit bf6adff57c5dad411064c97879b8ada55ee653a6
+Merge: c5912e7 b3c4f7d
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Wed May 22 11:14:28 2019 -0400
+
+    Merge pull request #91 from JuanitoFatas/doc/scrubbers
+    
+    Improve Scrubber documentations
+
+commit c5912e73ff6002fcc298c784230ff59363941741
+Merge: 2191bfe 5d735a7
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Wed May 22 11:13:41 2019 -0400
+
+    Merge pull request #92 from JuanitoFatas/link-sanitizer
+    
+    Remove href from LinkSanitizer tags list
+
+commit 5d735a7693d8bf3d016464e127299a5da549824f
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Fri May 10 15:17:04 2019 +0900
+
+    Improve LinkSanitizer's documentation
+
+commit 2523282e1e498fc39f395433877c94e09f106338
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Fri May 10 15:15:08 2019 +0900
+
+    href is not a HTML element
+    
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+commit b3c4f7d4951c7727c750c0cc5ec1ef98806a9bcf
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Fri May 10 13:40:01 2019 +0900
+
+    Improve Scrubber documentations
+    
+    - Fix code snippet of PermitScrubber
+    - Wraps code references
+
+commit 2191bfe73220070cb9c18d607973399af36fbaf9
+Merge: 5b73a09 41b0b49
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Apr 27 19:32:58 2019 +0200
+
+    Merge pull request #87 from JuanitoFatas/migrate-to-safelist
+    
+    Migrate to SafeListSanitizer
+
+commit 41b0b4972673b7f186bf1fd4426153a6f7f66f51
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Thu Mar 21 10:05:14 2019 +0900
+
+    Migrate to SafeListSanitizer
+    
+    SafeList is easier to understand
+
+commit 5b73a0962efea920525ae5e51e43d2c62e78a352
+Merge: 7d30b71 3ca8a87
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Apr 3 10:11:50 2019 +0200
+
+    Merge pull request #90 from JuanitoFatas/jf.fix-tests
+    
+    Fix build
+
+commit 3ca8a870d78e4e0adde8c5e27a695ca6670f14eb
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Tue Apr 2 13:55:44 2019 +0900
+
+    Update test behavior for Nokogiri > 1.9.1.
+    
+    Skip some tests for Ruby 2.2 because Nokogiri behavior changed.
+
+commit 7d30b71eec215229d3e28d23eac6818a7dc581ae
+Merge: ccb51ce 630d2f7
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sun Mar 31 19:19:02 2019 +0200
+
+    Merge pull request #89 from JuanitoFatas/rubies
+    
+    Update Ruby version matrix on CI
+
+commit ccb51ce89d43678f29cb86cb6e1dcf850b8af97f
+Merge: f82bfd2 89ae177
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sun Mar 31 19:18:52 2019 +0200
+
+    Merge pull request #88 from JuanitoFatas/jf.relax-bundler-dependency
+    
+    Use a inclusive Bundler version
+
+commit 630d2f7806067037c16366106662e69ca7b25ade
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Thu Mar 21 10:20:30 2019 +0900
+
+    Update Ruby version matrix on CI
+    
+    https://github.com/postmodern/ruby-versions/blob/3fc3154ae59668e518d271db58c095332478795c/ruby/stable.txt
+
+commit 89ae177f05f9336fd7af61b01e657404d4d1f60e
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Thu Mar 21 10:16:05 2019 +0900
+
+    Use a inclusive Bundler version
+    
+    Bundler 2.0 became the default on CI.
+    
+    This commit enables this gem with wider range of users.
+
+commit f82bfd25c02f806e51b5e2ae62334bba4e908ad8
+Merge: d4d823c cba410f
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Tue Feb 26 10:31:04 2019 +0100
+
+    Merge pull request #86 from tebs/fix-documentation-link
+    
+    Fix Nokogiri link in documentation
+
+commit cba410ff71d2d0bdb03b59a6bca1d6222b3d0b4d
+Author: Tebs <qatrera@gmail.com>
+Date:   Tue Feb 26 08:53:20 2019 +0000
+
+    Fix Nokogiri link in documentation
+
+commit d4d823c617fdd0064956047f7fbf23fff305a69b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Nov 5 17:56:54 2018 +0100
+
+    [ci skip] Please don't send more PRs trying to bump Loofah.
+
+commit fc5fd28cc74ad525243f4fe464e8089c99db7d83
+Merge: 53bf066 e4e6cab
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Tue Mar 27 14:10:35 2018 -0400
+
+    Merge pull request #71 from nicolasleger/patch-1
+    
+    [CI] Test against Ruby 2.5
+
+commit e4e6cabeafa2a032e24f06e251d127d10d2cf9fa
+Author: Nicolas Leger <nicolasleger@users.noreply.github.com>
+Date:   Tue Mar 27 13:02:35 2018 +0200
+
+    [CI] Allow failure with ruby head
+
+commit 4ccc7742d8cbd95e620887d60b802a1d9a83d424
+Author: Nicolas Leger <nicolasleger@users.noreply.github.com>
+Date:   Tue Mar 27 12:43:51 2018 +0200
+
+    [CI] Test against Ruby 2.5
+
+commit 53bf066ac3a163546a9c7c44c30998c21068c42d
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Thu Mar 22 14:53:34 2018 -0400
+
+    Prepare to 1.0.4 release
+
+commit f3ba1a839a35f2ba7f941c15e239a1cb379d56ae
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Wed Mar 21 15:23:56 2018 -0400
+
+    Make sure we address CVE-2018-8048
+    
+    Even that the issue was fixed on loofah we have our own logic to scrub
+    attributes so when the whitelist serializer is used the issue was still
+    present.
+    
+    Fix CVE-2018-3741.
+
+commit 7aea595ed0c9887b09484cd46435d1af165f24ef
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri May 12 14:44:43 2017 +0200
+
+    Remove rbx since it doesn't seem to install.
+    
+    https://travis-ci.org/rails/rails-html-sanitizer/jobs/229025256
+    
+    
+    Don't have time to look into why, but if other's are reading this and want to add rbx back: please do investigate.
+
+commit 9057f426df717e92130630cf80215bbbce745cdc
+Merge: 663bf35 2a2a715
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri May 12 14:42:08 2017 +0200
+
+    Merge pull request #66 from fschwahn/improve-tests
+    
+    Fix / improve tests
+
+commit 2a2a715348522f12e9831b17f54ee286e464724e
+Author: Fabian Schwahn <fabian.schwahn@gmail.com>
+Date:   Fri May 5 09:49:14 2017 +0200
+
+    Fix deprecation warning from Minitest
+
+commit 2e8a7063273015683ccfb7d76ca525382aabd840
+Author: Fabian Schwahn <fabian.schwahn@gmail.com>
+Date:   Fri May 5 09:47:50 2017 +0200
+
+    Make tests pass again with recent nokogiri versions
+
+commit 267b12113a71ad0932f7b5ff6eb1f896554cffd4
+Author: Fabian Schwahn <fabian.schwahn@gmail.com>
+Date:   Fri May 5 09:38:37 2017 +0200
+
+    Rename test to better reflect what is actually tested
+
+commit 663bf35d17cf35d0385861902362333a789cc642
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Fri Feb 10 20:37:04 2017 +0900
+
+    typos
+
+commit 362f72d1b7a3e7375956ad6ff1d78e6a1b29c5fe
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:33:03 2017 +0900
+
+    We're still testing against ruby 1.9 and 2.0 that aren't supported by nokogiri 1.7
+
+commit 1f8b16f133f190bff505a992d43eb677e31054fb
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:31:47 2017 +0900
+
+    activesupport 5 doesn't support ruby < 2.2.2 that are still tested in this repo
+
+commit 79884cdf5ae204775870f29de96ef6e954712592
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:30:09 2017 +0900
+
+    bundle with the newest released bundler
+    
+    to avoid old bundler bug that tries to bundle beta gems
+
+commit 13c29d01251f716104f23378b1176258446e9cb2
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:29:50 2017 +0900
+
+    Test against newer released rubies
+
+commit 57d549defff0de7b2cccfd563a2967fc39f7a0f4
+Author: Neo Elit <neo.999networks@gmail.com>
+Date:   Tue Apr 26 09:36:34 2016 +0530
+
+    [ci skip] Remove faulty overrides in scrubber example.
+    
+    Add initializer to CommentScrubber example replacing the method overrides with setting
+    tags and attributes.
+    
+    Signed-off-by: Kasper Timm Hansen <kaspth@gmail.com>
+
+commit f6d1156a33e6b9813f6c75313b8ca453e158140f
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Apr 25 08:47:27 2016 +0200
+
+    [ci skip] Change override method in PermitScrubber.
+    
+    `allowed_node?` is skipped if there are no `@tags`, so it would never be called for the
+    example comment scrubber.
+    
+    Shift to initialize and assign `tags` so people don't have to reimplement the allowed logic.
+
+commit 6025b501e46051ea22a00fb186277a7697a5ac7d
+Merge: 5c4354d 68fd038
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Tue Jan 26 17:01:47 2016 -0500
+
+    Merge pull request #47 from pvalena/patch-1
+    
+    Fix license filename in gemspec
+
+commit 68fd038b6aa23203aa2114c5661214f8174469b3
+Author: Pavel Valena <pvalena@redhat.com>
+Date:   Tue Jan 26 15:45:27 2016 +0100
+
+    Correct license filename
+    
+    License filename changed, but not in gemspec.
+    Which results to not including the file to gem.
+
+commit 5c4354db7524b1df891df0a3e29877ce9f7575ca
+Author: Aaron Patterson <aaron.patterson@gmail.com>
+Date:   Mon Jan 25 10:28:36 2016 -0800
+
+    bumping version
+
+commit 63903b0eaa6d2a4e1c91bc86008256c4c8335e78
+Author: Aaron Patterson <aaron.patterson@gmail.com>
+Date:   Thu Oct 29 12:06:26 2015 -0700
+
+    convert CDATA nodes to TEXT nodes to avoid XSS issues
+    
+    CDATA nodes will not be html escaped.  Users shouldn't be submitting
+    CDATA nodes in the first place, so we should convert them to text nodes
+    before escaping
+    
+    CVE-2015-7580
+
+commit 49dfc1584c5b8e35a4ffabf8356ba3df025e8d3f
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Mon Aug 10 16:22:15 2015 -0300
+
+    Do not unescape already escaped HTML entities
+    
+    The full sanitizer was using Loofah's #text method that automatically
+    escapes HTML entities. That behavior caused some problems where strings
+    that were not escaped in the older sanitizer started to be escaped. To
+    fix these problems we used the #text's `encode_special_chars` option as
+    `false` that not just skipped the HTML entities escaping but unescaped
+    already escaped entities.
+    
+    This introduced a security bug because an attacker can pass escaped HTML
+    tags that will not be sanitized and will be returned as unescaped HTML
+    tags.
+    
+    To fix it properly we introduced a new scrubber that will remove all
+    tags and keep just the text nodes of these tags without changing how
+    to escape the string.
+    
+    CVE-2015-7579
+
+commit 297161e29a3e11186ce4c02bf7defc088bf544d4
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Wed Nov 25 15:23:22 2015 -0200
+
+    Define a less permissive list of tags and attributes
+    
+    And use it by default.
+    
+    The new sanitizer were being a lot more permissive that we had in Rails
+    until the version 4.2.
+    
+    This was also allowing arbritary data attributes by default what can
+    lead to CSRF and XSS attacks.
+    
+    Now data attributes need to be explicitly allowed.
+    
+    CVE-2015-7578
+
+commit bc771d15989f00525a2f0547e6b0ba007ea06449
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Wed Nov 25 17:05:07 2015 -0200
+
+    Use the image hack name instead of the index
+    
+    It make easier to know what is failing.
+
+commit afa451ad250c24b63ce7d15bfeac0c01ff2bf5c8
+Merge: 9cbceb1 7a09522
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue Sep 1 18:57:41 2015 -0300
+
+    Merge pull request #43 from maclover7/contributing
+    
+    Add CONTRIBUTING.md
+
+commit 7a09522351832235bd2a88387709b4c24d574ed4
+Author: maclover7 <me@jonathanmoss.me>
+Date:   Tue Sep 1 12:28:41 2015 -0400
+
+    Add CONTRIBUTING.md [ci skip]
+
+commit 9cbceb1cb7a69e4a01ffb77c315994d4fba3a5d6
+Merge: 7cbe2d3 4f88fa1
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Jun 17 13:42:53 2015 +0200
+
+    Merge pull request #40 from yui-knk/refactor/permit
+    
+    Refactor TargetScrubber
+
+commit 4f88fa1712e1e6513aef19384ba2aa9fee6808ef
+Author: yui-knk <spiketeika@gmail.com>
+Date:   Wed Jun 17 20:14:36 2015 +0900
+
+    Refactor TargetScrubber
+    
+    TargetScrubber asts as reversal to PermitScrubber.
+    Two methods `allowed_node?` and `scrub_attribute?` is now
+    too much to know about implementaion of PermitScrubber.
+    It should simply reverse a result of parent method.
+
+commit 7cbe2d30af5c81fa2282bd453f7aa62dd943473b
+Merge: 4f0f781 633e029
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Mar 13 07:05:56 2015 +0100
+
+    Merge pull request #36 from JuanitoFatas/fix/gemspec
+    
+    Fix homepage uri in gemspec.
+
+commit 633e029afc19700a39a3aac3706fee9487d1ff8b
+Author: Juanito Fatas <katehuang0320@gmail.com>
+Date:   Fri Mar 13 11:05:42 2015 +0800
+
+    Fix homepage uri in gemspec.
+
+commit 4f0f7810fce6c8aa63de07a40d69d6027a30acaf
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Mar 7 00:36:24 2015 +0100
+
+    Bump version to 1.0.2 and use container builds.
+
+commit 670fd7a9a2667d824a6c1b271989a4fd4ed51cb6
+Merge: 1d0ba0c 2362298
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Mar 7 00:31:42 2015 +0100
+
+    Merge pull request #34 from rails/accept-ascii-8bit-strings
+    
+    Prevent "unknown encoding: ASCII-8BIT" errors
+
+commit 1d0ba0c1822280afc14707c811b8b1de6af80be0
+Merge: 1206877 a454c6a
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Mar 4 23:05:39 2015 +0100
+
+    Merge pull request #35 from rails/pass-options-to-sanitize
+    
+    Pass options to the text method.
+
+commit a454c6af56f30f67e1834db55ec2d5ce2a54f8fa
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Mar 4 22:22:03 2015 +0100
+
+    Pass options to the text method.
+    
+    This lets us avoid encoding special chars twice in Rails.
+
+commit 23622984e12521ecb9866af4208149b7c727db7b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Mar 4 21:56:36 2015 +0100
+
+    Prevent "unknown encoding: ASCII-8BIT" errors
+    
+    Nokogiri would throw these errors when outputting the fragment with #to_s.
+    Instead call the format serializers directly and pass a UTF-8 encoding.
+
+commit 1206877e9560701835f55bb2a671483b370d9ac3
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Feb 9 16:14:55 2015 -0200
+
+    Use the argument in the helper method
+
+commit 7f3e53917065d6ed9ca835117dbc0954e85f2f78
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Oct 29 15:21:54 2014 +0100
+
+    Explain the gem's use is only for Rails apps.
+
+commit 1c710bea787998e5f2d67277e8a9daefa6b91349
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue Oct 28 19:31:35 2014 -0200
+
+    Fix typo
+
+commit 3a1a91b0ff9586d92af587cd4bec38780a5ca633
+Author: Godfrey Chan <godfreykfc@gmail.com>
+Date:   Tue Oct 28 14:21:46 2014 -0700
+
+    This gem is now the default on 4.2 [ci skip]
+
+commit 643009712ca5f82639519c9617606f3fdb744b63
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Thu Sep 25 16:38:51 2014 -0300
+
+    Fix false possitive test
+    
+    This test was passing because the assert_dom_equal was only comparing
+    the top level tag.
+    
+    This bug was fixed at
+    https://github.com/rails/rails-dom-testing/commit/c06500ce4185aed04b40806feff6e123d741f235
+    and released as rails-dom-testing 1.0.3
+
+commit 6b14d6a9e11b58253337df95f2b699665cf8b463
+Author: Godfrey Chan <godfreykfc@gmail.com>
+Date:   Fri Sep 26 01:05:30 2014 +0900
+
+    Reword changelog message [ci skip]
+
+commit c7b10b0ee24d416f5efddf5ef607fa4e34250a81
+Author: Godfrey Chan <godfreykfc@gmail.com>
+Date:   Fri Sep 26 01:01:35 2014 +0900
+
+    Prepare for releasing 1.0.1
+
+commit bc0866df707675cc64400cfc509fd2c952b7bad4
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Sep 10 22:44:04 2014 -0300
+
+    No need to define the sanitizer_vendor since it is the default
+
+commit 91d123d00feed7b3b03ff22593c43cfe476df2c0
+Merge: 64f5108 2dbae3e
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Sep 3 11:22:55 2014 +0200
+
+    Merge pull request #24 from rails/deprecate-options
+    
+    Deprecate old sanitizer options.
+
+commit 2dbae3e43ebaf01c1da10318cccaaba55c2b6d6b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Tue Sep 2 20:39:10 2014 +0200
+
+    Deprecate old sanitizer options.
+
+commit 64f51085a473a3b305a36926d6a15a3f0385349b
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Sep 1 23:27:50 2014 -0300
+
+    Allow failures on jruby
+
+commit 2dbd320bfd07b52b115ccb8d734ef950d926b800
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Sep 1 23:23:32 2014 -0300
+
+    Move default implementation to this gem
+
+commit 371a6fa3dd50a91fd56700485d912201462ff2fd
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Sep 1 22:46:49 2014 -0300
+
+    Define the method in the right place
+
+commit b0895de7aa4d8483841b4d8db0164a5356f8e4b2
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Aug 22 09:35:11 2014 +0200
+
+    Spelling fix in gem summary.
+
+commit 71d89f668ee103b8a8422155ac61fe9f0754946d
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Tue Aug 19 16:13:10 2014 -0300
+
+    Require loofah 2.0
+    
+    And add a fallback for when https://github.com/flavorjones/loofah/pull/70 is merged
+
+commit b22d4d8cc475fe26e88996b04561437f911107d0
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Aug 18 20:45:00 2014 -0300
+
+    Remove the method before redefining
+
+commit 0d2e64b8e148fc2af97a9a0a69d4d1effd592af0
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Sun Aug 17 22:28:59 2014 -0300
+
+    Configure travis
+
+commit 079788de9d83d8c5583f5770020fda0978ef9fce
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Sun Aug 17 22:24:57 2014 -0300
+
+    Prepare for the first release
+
+commit 8c0973bd2576d23cb5b5b52396ed0f73edd2d2f1
+Merge: 48c0f01 9221a65
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Aug 16 20:42:35 2014 +0200
+
+    Merge pull request #23 from rails/partial-release-prep
+    
+    Undefault the gem.
+
+commit 9221a65e42f860de5ae347181cf56dffd8652a18
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Aug 16 20:37:05 2014 +0200
+
+    Undefault the gem.
+
+commit 48c0f014c99c90124bd568940060d3fcebb788a6
+Author: Timm <kaspth@gmail.com>
+Date:   Tue May 27 12:56:20 2014 +0200
+
+    Change Sanitizer to class with class methods.
+
+commit edb3b0d4c8ea8f2820e61f371f091214714abc90
+Author: Timm <kaspth@gmail.com>
+Date:   Sat May 24 00:01:31 2014 +0200
+
+    Add Sanitizer module responding to sanitizer_vendor interface.
+
+commit 5a9a91f2f7ed1aa1cc15f9a3d75f35b8734bee02
+Merge: 05dd1b9 30b754e
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue May 20 12:38:18 2014 -0300
+
+    Merge pull request #22 from rafaelfranca/last-test-fixes
+    
+    Update expected test values.
+
+commit 05dd1b9f640e88703ada4a9d1a57afa30a0a0aae
+Merge: e68a255 d38b090
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue May 20 12:37:21 2014 -0300
+
+    Merge pull request #21 from rafaelfranca/doc-the-whitespace
+    
+    Add documentation about whitespace handling.
+
+commit e68a255cf9af97de00fab0c63fecb51f8e90b9d0
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 20:43:56 2014 +0200
+
+    remove_xpaths is private and doesn't need to handle string inputs.
+
+commit 30b754e61aae29a17c2c3de814f34076e45a12bf
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 20:23:57 2014 +0200
+
+    Update expected test values.
+
+commit d38b090313e315505781943f9f4c7482f08307db
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 20:11:07 2014 +0200
+
+    Add documentation about whitespace handling.
+
+commit 7307b0bcb4550d4c93dcadb850f17a69b9b96a83
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 17:28:31 2014 +0200
+
+    Added documentation explaining the class level options.
+
+commit 8ce5eb8bbd0ce806cda8539543dd3b97ba466f6e
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 17:23:30 2014 +0200
+
+    Use the nokogumbo enabled branch.
+
+commit a6bfe8fb92eeac3d92d048e0ed0f7cec5fa4e4b2
+Merge: 6cb789b 3dd3144
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon May 5 20:42:47 2014 +0200
+
+    Merge pull request #20 from rafaelfranca/add-travis
+    
+    Add travis integration.
+
+commit 3dd3144fd6a3118d2655bb83cca2c6e8f5150638
+Author: Timm <kaspth@gmail.com>
+Date:   Tue Apr 29 16:08:51 2014 +0200
+
+    Add travis integration.
+
+commit 6cb789b73fae080a1817e16ed75bf8c7b77ffe71
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Fri Apr 25 23:55:49 2014 -0300
+
+    rails-dom-testing is a development dependecy
+
+commit 76fcb67d770aa2b539319457e898d9ea17115f47
+Merge: fa7f864 fb35879
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue Apr 15 18:06:58 2014 -0300
+
+    Merge pull request #18 from rafaelfranca/cdata-change
+    
+    Change expected value for undetermined CDATA section test.
+
+commit fb35879d8185923e3bdeecc236aaaeddbfa719f7
+Author: Timm <kaspth@gmail.com>
+Date:   Sat Apr 12 21:00:25 2014 +0200
+
+    Change expected value for undetermined CDATA section test.
+
+commit fa7f8644e96d0615040e8c9a21d9fa0e7fd157d4
+Merge: 8f5f68f b18edac
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Thu Apr 10 16:44:13 2014 -0300
+
+    Merge pull request #15 from rafaelfranca/change-expected-values
+    
+    Change expectation values for skipped tests.
+
+commit 8f5f68f19eef34818c91fe2fc2b04f434a4be1e7
+Merge: 23264ba 4ac6012
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Mar 21 20:39:12 2014 +0100
+
+    Merge pull request #17 from rafaelfranca/test-dry
+    
+    Test cleanup
+
+commit 4ac6012952c69517cb0aa5d11fd1840fd97a6b77
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 21 20:16:07 2014 +0100
+
+    Move assertions to own methods.
+
+commit 0ac1ad8112cf92b76cb8bacd3182a869ee5e526e
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 21 19:50:37 2014 +0100
+
+    Remove @sanitizer instance variable.
+
+commit 27748671e9da321020c991ceeeb40622a902e006
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 21 19:48:36 2014 +0100
+
+    Extract sanitizer creation and sanitize call to their own methods.
+
+commit b18edac2c930720f07ea8a5bff1251b9a04b7c98
+Author: Timm <kaspth@gmail.com>
+Date:   Wed Mar 19 16:35:19 2014 +0100
+
+    Change expectation values for skipped tests.
+
+commit 23264bab010ab8ce9bb41ada28bc3d61b9d2cae5
+Merge: b555502 f29b8d7
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Sat Mar 15 11:27:02 2014 -0500
+
+    Merge pull request #14 from rafaelfranca/more-test-fixes
+    
+    More test fixes
+
+commit f29b8d732dc3d61d5d0254462e407f984124b413
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 14 20:43:08 2014 +0100
+
+    s/u/o
+
+commit ae5f00f291b7414ba691f13991a99cf109f11444
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 14 20:42:19 2014 +0100
+
+    Extract strip links test to own method.
+
+commit b5555025c0ed68b7feeb13f4a77c79e42ee4356a
+Merge: 538e882 dd61611
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Fri Mar 14 16:19:24 2014 -0300
+
+    Merge branch 'rm-test-fixes'
+
+commit 538e882648563b162c4a3a1d6649c90d2aa94fe9
+Merge: 1516d32 ab5908a
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Mar 14 19:41:04 2014 +0100
+
+    Merge pull request #13 from rafaelfranca/image-xss-improvement
+    
+    Change expected return value for image xss test.
+
+commit ab5908adae1102e778f709ec856dacc0bc2f3358
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 14 19:40:24 2014 +0100
+
+    Change expected return value for image xss test.
+
+commit 1516d32907ababf734096fce9b8e7611b4dc943a
+Merge: 67e1e6b 4e5ab77
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Fri Mar 14 13:29:14 2014 -0500
+
+    Merge pull request #6 from rafaelfranca/custom-style-scrub
+    
+    Passing style attribute option doesn't scrub style attributes
+
+commit 4e5ab77420cecb1a57aa76e337bf3b5c0f927909
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Mar 13 20:50:58 2014 +0100
+
+    Pointed Loofah at own fork.
+
+commit 91ee4775479d142e59c1d87cbf3f90c1818b1dad
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Feb 13 20:35:27 2014 +0100
+
+    Fixed style attributes not being scrubbed.
+
+commit 1d289841060f9c9c4c722fef0bf0166585e63383
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 11:54:08 2013 +0100
+
+    Added failing test.
+
+commit dd61611cc9d739390ddb507fc2e83ed54a629eca
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Thu Mar 13 13:23:16 2014 -0300
+
+    Update the assertion to match the browser behavior
+    
+    Since we are using nokogiri the parser now works in the same way a
+    browser do. So in this test example '<<a>' means:
+    
+    '<' - open tag
+      '<a' - tag name
+    '>' - close tag
+    
+    And the tag '<<a>' is removed from the result string.
+
+commit 67e1e6b541f717738ec2bb14e5cee62263902cc2
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Thu Mar 13 13:11:57 2014 -0300
+
+    Split the failing test cases
+
+commit bb4b67123a0b228ce56944996b13d95ddfe1c600
+Merge: 56bf0be b4603b6
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Feb 10 10:53:38 2014 +0100
+
+    Merge pull request #11 from rafaelfranca/remove-configs
+    
+    Replaced configurations with allowed_tags and allowed_attributes.
+
+commit b4603b65160043276efdebc44bacf7d7486fbb6a
+Author: Timm <kaspth@gmail.com>
+Date:   Sat Feb 8 21:23:12 2014 +0100
+
+    Replaced configurations with allowed_tags and allowed_attributes.
+
+commit 56bf0be148dae366696fd7173894b62fe20a6a55
+Merge: b12c805 02807da
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Thu Jan 30 00:09:49 2014 -0800
+
+    Merge pull request #9 from rafaelfranca/scrub-href-attribute
+    
+    Added href as an attribute to remove in LinkSanitizer.
+
+commit 02807da35737db6801fdc3a5bee51b04d5f192dd
+Author: Timm <kaspth@gmail.com>
+Date:   Sun Nov 3 13:34:09 2013 +0100
+
+    Added href as an attribute to remove in LinkSanitizer.
+
+commit b12c805f3ab9c39012554a9477520b0bd5430996
+Merge: 2aab7af 4a0754b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sun Nov 3 04:28:16 2013 -0800
+
+    Merge pull request #8 from rafaelfranca/sanitizer-documentation
+    
+    Added documentation for sanitizers.
+
+commit 4a0754b253e703d383b39eeb2715ab75e6a774c6
+Author: Timm <kaspth@gmail.com>
+Date:   Sun Nov 3 13:27:18 2013 +0100
+
+    Moved documentation to the right classes and made some slight rewordings.
+
+commit 26ed9e08c183fdb819867d4ad7ca39bb525c491f
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Nov 1 23:40:26 2013 +0100
+
+    Reworked WhiteListSanitizer documentation.
+
+commit 2aab7af728ce2882843bfa29178ca574466557b2
+Merge: da07e23 fae0fdb
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Nov 1 15:28:42 2013 -0700
+
+    Merge pull request #3 from rafaelfranca/better-readme
+    
+    Updated README.md with information about usage, scrubbers, custom scrubbers in a Rails app and links to learn more.
+
+commit fae0fdbd3107708cf3283d915cd0a8454bd7aea3
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Nov 1 23:27:30 2013 +0100
+
+    Break up long line.
+
+commit f5e34faca9fd3f9f08f537ccf0f006f645cba865
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Nov 1 23:26:42 2013 +0100
+
+    Preliminary documentation for sanitizers.
+
+commit 654428928953b4d09e95d09e7a5dc8963dd06b58
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 11:00:20 2013 +0100
+
+    A custom scrubber is passed as an option to sanitize not as a second argument.
+
+commit da07e23e793538ffd300656f1a693bdae3cbe4e1
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:56:14 2013 +0100
+
+    Changed > to . in scrubber documentation.
+
+commit 44900bb4c633634621884331222fc526092ad0ca
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:43:20 2013 +0100
+
+    Added sanitize_css usage.
+
+commit 7bfb1efcb81e6b548aec91ab949b00920a309697
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:35:25 2013 +0100
+
+    Added links to read more about loofah and nokogiri.
+
+commit 586fdc74e5a3cc650312bc7e6091bc44286d259f
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:22:13 2013 +0100
+
+    Removed use of instance variables in the sanitizers examples.
+
+commit 32313a3dd49aea66d15ce717c1e9c811a6ead874
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:20:01 2013 +0100
+
+    Added sanitizers examples.
+
+commit ea988d972f59cff6baaa20eb8842849dd1078b29
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 09:59:33 2013 +0100
+
+    Forgot the strip_links method.
+
+commit 115f4e50f3bdd48bc8883d8f3d88efe13e1496e6
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 09:59:04 2013 +0100
+
+    Added information about using a custom scrubber in a rails app.
+
+commit 25cba204833a3cdf6e92f02e63c3cda59359a9ae
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 09:49:23 2013 +0100
+
+    Spelling fixes. Added some information about which methods Rails use for sanitization.
+
+commit 3b145b4ee87fd42c9968a522732ec6a73b94bd57
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 20:14:57 2013 -0200
+
+    Add some scrubbers explanation
+
+commit 34b08089c267895957ea2cb342d3717319bd440b
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:59:13 2013 -0200
+
+    Add some todo notes
+
+commit a0d4cab83e6eb1c2564768ad56ab7e164ed79d00
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:59:04 2013 -0200
+
+    Fix the gem name at Readme
+
+commit 9e3376ca0467cef9ac9f7365395e10799ed8a7c5
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:58:52 2013 -0200
+
+    Add description to the project
+
+commit ca4c9e0b2892c9e180f9b275c5a14b3493425c13
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 20:17:28 2013 -0200
+
+    Improve the documentation of the scrubbers
+
+commit cea55b198cfd4f1fd828aa3ef623f0ea50e51bd3
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:40:12 2013 -0200
+
+    Use Ruby 1.9 hash syntax
+
+commit fbf1ac02523d45473b32d5b668f584ab06f8fd27
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:23:49 2013 -0200
+
+    Make the method private
+
+commit 6ede2e2d3ce320c88ddde7b2358bd808858351fc
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:19:14 2013 -0200
+
+    Improve the exception message
+
+commit 5e3fa3d73b91b51e89a98d587c81e77af8d44975
+Author: Timm <kaspth@gmail.com>
+Date:   Wed Oct 9 21:30:08 2013 +0200
+
+    Renamed html-sanitizer to rails-html-sanitizer.
+
+commit 5e94cf83f96146bdf5f30906cce0bd2e3223092d
+Author: Timm <kaspth@gmail.com>
+Date:   Wed Oct 9 21:10:06 2013 +0200
+
+    Removed require of minitest/mock. Removed test method using mocks and stubs. Added tests testing the return value of scrub.
+
+commit 36b904fd172fb7aeee30653e77e43e477c5757d6
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Oct 4 20:10:04 2013 +0200
+
+    Removed protocol_separator, protocol_separator= and bad_tags. They called the class method version which had a deprecation warning but they're no longer there either.
+
+commit e9a16f01c23bfc8b5953cef43ce11860ac48c9e4
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Sep 27 22:10:56 2013 +0200
+
+    Removed DomAssertions and added rails-dom-testing as a dependency.
+
+commit 6e7cb4ba685df5c42ccde32c9d52babe2bd9f20e
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 23:21:53 2013 -0300
+
+    Remove unused deprecations
+    
+    These deprecations should be in the Rails side
+
+commit c31782c929c72876ef530f141939228e15d0ab32
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 23:21:08 2013 -0300
+
+    Remove some comments
+
+commit 121fd2d1a67da7525be549a47c09adf48f1ecdc2
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 23:16:40 2013 -0300
+
+    Implement the sanitizers
+    
+    These sanitizers are responsable to sanitize the HTML fragments.
+    
+    They are wrappers arround Loofah scrubbers to implement some default
+    behavior used in Rails application.
+
+commit 209c007fc45e301e94ed1056849912cc1b02acbb
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 22:33:54 2013 -0300
+
+    Add scrubber classes
+    
+    With these classes is possible to sanitize the HTML fragments allowing
+    some tags or attributes using a black list or a white list
+
+commit 94145e1c6c3140b30235d1667a11b51de807f650
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 21:53:23 2013 -0300
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit fce503892181b0893ab65f833b20d784e1db3c2b
+Merge: 8264b72 b28cf58
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 9 23:31:04 2022 +0100
+
+    Merge pull request #138 from rails/flavorjones-prevent-select-style-combination
+    
+    prevent combination of `select` and `style` allowed tags
+
+commit b28cf58e957d876bfbf6e15fd8f6bcaebba44509
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 9 18:21:38 2022 -0400
+
+    update CHANGELOG for v1.4.3
+
+commit c871aa4034d3d80ad67cf33a3462154b0a0fb477
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 9 11:13:33 2022 -0400
+
+    fix: modify safelist option if it contains both `select` and `style`
+    
+    Addresses CVE-2022-32209
+
+commit 8264b72d6d6511ae8395447db70458895d5af449
+Merge: 3b3365c 39f23eb
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 2 13:09:41 2022 +0100
+
+    Merge pull request #132 from seyerian/fix-username-in-changelog
+    
+    Fix typo in username in changelog
+
+commit 3b3365cfcb38b32b20f5190a8b28c265ae088768
+Merge: cb42074 b7c0fea
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Jun 2 12:35:37 2022 +0100
+
+    Merge pull request #131 from rails/flavorjones-clean-up-tests-use-helpers
+    
+    test: clean up tests by using the helpers
+
+commit 39f23ebef24194f4025cb5111b72870e012c0947
+Author: seyerian <seyerian@pm.me>
+Date:   Wed Jun 1 19:23:47 2022 -0500
+
+    Fix typo in username in changelog
+
+commit b7c0fea2a991e066f9521d7970d2494b70457d51
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri May 27 17:56:04 2022 -0400
+
+    test: clean up tests by using the helpers
+
+commit cb4207484acf15bf4962817abc42d7259fffbbd1
+Merge: 593a820 39565bd
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun May 29 16:03:30 2022 +0100
+
+    Merge pull request #128 from seyerian/allow-permit-scrubber-to-prune
+    
+    Add `prune` flag to PermitScrubber
+
+commit 39565bd654d2fc2783b1790f1b398e3b6f3c63d7
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun May 29 11:02:44 2022 -0400
+
+    update CHANGELOG
+    
+    [skip ci]
+
+commit b19975ffcfbda55f4d90fc5f1910770f85bc4de5
+Author: seyerian <seyerian@pm.me>
+Date:   Sat Apr 9 09:54:17 2022 -0500
+
+    Add `prune` flag to PermitScrubber and SafeListSanitizer
+    
+    By default PermitScrubber leaves behind inner content when scrubbing a
+    node. Setting the `prune` flag will remove the node *and* its content.
+    
+    Note that this feature also works with TargetScrubber.
+
+commit 593a820ed036a347e2d8e8d7c7296f2b6d4af1bd
+Merge: dd44073 8316d0e
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed May 4 22:21:35 2022 +0100
+
+    Merge pull request #129 from rails/flavorjones-update-tests-for-libxml_2_9_14
+    
+    test: ensure we pass with libxml 2.9.14
+
+commit 8316d0e770488b03e75e881808f2820b19babb5e
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed May 4 16:35:31 2022 -0400
+
+    test: ensure we pass with libxml 2.9.14
+    
+    see release notes for Nokogiri v1.13.5
+
+commit dd44073a01dbcdf84996fc9b5c42463fafdd608b
+Merge: d1414e8 6a1ae1b
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jan 23 15:19:35 2022 -0500
+
+    Merge pull request #126 from rails/125-nokogiri-system-libraries
+    
+    ci: add coverage for system libxml2
+
+commit 6a1ae1b88053ccc4070c307a757878cfbdca117d
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jan 23 15:13:56 2022 -0500
+
+    test: ensure tests pass when nokogiri uses system libxml2
+    
+    Specifically the patch that affects this behavior is
+    
+      nokogiri/patches/libxml2/0002-Update-entities-to-remove-handling-of-ssi.patch
+    
+    which was introduced to avoid server-side-include vulnerabilities, see
+    
+      https://github.com/sparklemotion/nokogiri/commit/4852e43
+
+commit 470ed3fdaa59c6f515f939a775deceee7c147a30
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jan 23 14:55:20 2022 -0500
+
+    ci: add coverage for system libxml2
+
+commit d1414e84f276dfacc8ac9913a0ab74fdb0907a83
+Merge: 1316d25 2ea0bc5
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Jan 17 13:12:08 2022 -0500
+
+    Merge pull request #123 from rails/flavorjones-update-ci-with-ruby31
+    
+    ci: include coverage of ruby 3.1 and jruby 9.3
+
+commit 2ea0bc51c7228c099cf9c44153885a79643ca098
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Jan 17 12:45:36 2022 -0500
+
+    ci: include coverage of ruby 3.1 and jruby 9.3
+
+commit 1316d25350d1adbbab97f65a5ed7450bb2ae80ac
+Merge: 550ab2f 4433d14
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Dec 16 02:10:41 2021 -0500
+
+    Merge pull request #122 from rails/flavorjones-update-readme-with-entities-note
+    
+    readme: caution users about persisting sanitized strings
+
+commit 4433d14d4b81e44a5f62617abdb5bf6bfb15dedd
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Dec 8 12:31:45 2021 -0500
+
+    readme: caution users about persisting sanitized strings
+
+commit 550ab2f2fc453e326a4b9f94266a406ff52fa7c6
+Merge: 018cf54 7f8e67b
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Oct 29 16:12:25 2021 -0400
+
+    Merge pull request #121 from rails/flavorjones-fix-css-hex-encoding-tests
+    
+    test: finally use the CSS hex encoding originally intended
+
+commit 7f8e67b61331bb196a8fca97573fc1efb1ca80a2
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Oct 29 00:38:54 2021 -0400
+
+    test: finally use the CSS hex encoding originally intended
+    
+    This was mis-fixed in c190b32 which encoded the Ruby strings as
+    unicode to fix the previous bad encoding which dated back to the
+    original Instiki that should have single-quoted the CSS unicode
+    strings.
+
+commit 018cf540737ae10ee1c673ce184408881852c479
+Merge: c86fed1 efbe454
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Sep 8 10:37:00 2021 -0400
+
+    Merge pull request #120 from gogainda/master
+    
+    Add Truffleruby head to CI
+
+commit efbe454b7921c52ec0190264c3ed4feeb10a7976
+Author: Igor Victor <gogainda@yandex.ru>
+Date:   Wed Sep 8 14:44:46 2021 +0200
+
+    Update ci.yml
+
+commit c86fed1dedb5380a4e46df5b4e8ee2904eac369d
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Aug 23 20:15:05 2021 -0400
+
+    version bump to v1.4.2
+
+commit d4943093aae59906bfe3c4c46515040d3b56f5f5
+Merge: db9ccec b1fe437
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Mon Aug 23 17:54:56 2021 -0400
+
+    Merge pull request #118 from rails/flavorjones-tweak-comment-and-pi
+    
+    improve performance (slightly)
+
+commit b1fe437c9e0c59d367b8c49e09e4d42ef8628ace
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Aug 19 23:14:51 2021 -0400
+
+    perf: PermitScrubber#scrub checks node.element? before node.comment?
+    
+    Assuming elements are more common than comments, this is going to be
+    one less method call per node.
+
+commit ab21d78f75edb9fb8f91a668cd99875439522eb5
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Aug 19 23:12:57 2021 -0400
+
+    test: rewrite test coverage for comments and PIs
+    
+    to test behavior and not implementation.
+
+commit db9ccec4d4f6756488c59c89afd3a414777fdea5
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:52:13 2021 -0400
+
+    ci: update default git branch
+
+commit 97099c02569c86734c6d0f466bf066344716193e
+Merge: b41bc7a e73f3e9
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:50:33 2021 -0400
+
+    Merge pull request #119 from rails/flavorjones-port-ci-to-github-actions
+    
+    ci: add github actions workflow
+
+commit e73f3e940f267a9d399e48e7c4cfd6a536b01c1c
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:46:32 2021 -0400
+
+    ci: remove travis and update the CI badge
+
+commit 8d3db9211266fb87ab0a1d0015d91476b925df4f
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Fri Aug 20 15:00:03 2021 -0400
+
+    ci: add github actions workflow
+
+commit b41bc7a9d04190d4237aa263c9a2ff70afbcc5bf
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 16:51:54 2021 -0400
+
+    version bump to v1.4.1
+
+commit 04daa642d56a62e5b9d4d96d7852d7a79a1c2907
+Merge: 2e9ec19 ab16fa4
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 16:50:35 2021 -0400
+
+    Merge pull request #117 from rails/flavorjones-comment-handling2
+    
+    fix: pass comment nodes to the scrubber
+
+commit ab16fa47d7d9d96c13a72882964bcbfb530f1922
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 15:58:06 2021 -0400
+
+    fix: pass comment nodes to the scrubber
+    
+    Some scrubbers want to allow comments through, but in v1.4.0 didn't
+    get the chance because only elements were passed through to
+    `keep_node?`.
+    
+    This change allows comments and elements through, but still omits
+    other non-elements like processing instructions (see #115).
+
+commit 2e9ec19859c03c15c912732e5528ea0e8a7326da
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Aug 18 13:10:27 2021 -0400
+
+    version bump to v1.4.0
+
+commit 3f833f6232fdda2f88909cbc695334d5c1c9d223
+Merge: 3b7551c 2a7d3f2
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Tue Jul 20 10:57:15 2021 -0400
+
+    Merge pull request #116 from rails/115-sanitize-processing-instructions
+    
+    PermitScrubber does not permit Processing Instructions
+
+commit 2a7d3f208601fa069f804c54744b8f33df901773
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jul 18 23:19:14 2021 -0400
+
+    CI: add modern rubies to the matrix
+
+commit c06d465f577818b438c1a475a0b5e1dbcbe5408a
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Sun Jul 18 23:15:14 2021 -0400
+
+    PermitScrubber does not permit Processing Instructions
+    
+    Fixes #115
+
+commit 3b7551c59e77ee95befc99a3f947267b76b8fb52
+Merge: d8bd426 f59ecbc
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Apr 21 23:40:52 2021 -0400
+
+    Merge pull request #113 from flavorjones/flavorjones-fix-css-scrubbing-tests
+    
+    fix css scrubbing tests
+
+commit d8bd4268230e9d74e9e3218ac54dc390a8d95600
+Merge: 1e64885 e1f3af0
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Wed Apr 21 23:34:37 2021 -0400
+
+    Merge pull request #114 from jbampton/fix-spelling
+    
+    chore: fix spelling
+
+commit e1f3af01549e4ff743a7f64ba03f8521d973b447
+Author: John Bampton <jbampton@gmail.com>
+Date:   Wed Apr 14 05:32:24 2021 +1000
+
+    chore: fix spelling
+
+commit f59ecbcfc8300ce040efead7147af03283453b73
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Apr 8 11:53:34 2021 -0400
+
+    test: fix typographical errors in the XSS encoding test
+    
+    See https://github.com/flavorjones/loofah/pull/205 for a short history
+    of this test string.
+    
+    Related to #111
+
+commit c190b3247afe43329e696120a578cee8ac9c3fd4
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Apr 8 11:39:43 2021 -0400
+
+    test: fix encoding in the unicode XSS test
+    
+    See https://github.com/flavorjones/loofah/pull/205 for a short history
+    of this test string.
+    
+    Related to #111
+
+commit becbad07e734cfbc01cda98ef6d1c87a205df6d2
+Author: Mike Dalessio <mike.dalessio@gmail.com>
+Date:   Thu Apr 8 11:39:11 2021 -0400
+
+    test: handle variations in loofah whitespace
+    
+    which changed in Loofah v2.9.0
+    
+    Related to #111
+
+commit 1e64885d30668165c63cccc4e371d1fc2755324a
+Author: Paul Mesnilgrente <web@paul-mesnilgrente.com>
+Date:   Tue Feb 9 18:03:27 2021 +0100
+
+    Add a note for whitelisted tags by default in the TargetScrubber (#110)
+    
+    * add a note for whitelisted tags by default in the TargetScrubber
+    
+    * reword the whitelisted to permitted
+    
+    Co-authored-by: Kasper Timm Hansen <kaspth@gmail.com>
+    
+    * added the permitted tag list to the README
+    
+    Co-authored-by: Kasper Timm Hansen <kaspth@gmail.com>
+
+commit 51dc564c6509201070f72456bb2c13f87bb373d6
+Author: George Claghorn <george@basecamp.com>
+Date:   Sun Oct 6 11:12:06 2019 -0400
+
+    v1.3.0
+
+commit 65b9f880f23abe9c7f2719da58bdf613f5f5c307
+Merge: 43a87f5 845da04
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Oct 5 17:55:02 2019 +0200
+
+    Merge pull request #102 from orien/gem-metadata
+    
+    Add project metadata to the gemspec
+
+commit 845da04cad37885aadc4495c8e7e476de54aa803
+Author: Orien Madgwick <_@orien.io>
+Date:   Sat Oct 5 12:14:39 2019 +1000
+
+    Add project metadata to the gemspec
+    
+    As per https://guides.rubygems.org/specification-reference/#metadata,
+    add metadata to the gemspec file. This'll allow people to more easily
+    access the source code, raise issues and read the changelog. These
+    `bug_tracker_uri`, `changelog_uri`, `documentation_uri`, and
+    `source_code_uri` links will appear on the rubygems page at
+    https://rubygems.org/gems/rails-html-sanitizer and be available via the
+    rubygems API after the next release.
+
+commit 43a87f538af42dd11cd72fddacbba2519d1e5c78
+Author: Josh Goodall <inopinatus@inopinatus.org>
+Date:   Sun Sep 29 20:20:30 2019 +1000
+
+    Match Loofah's API changes.
+    
+    Short term, reduces log noise due to deprecated constants.
+    Long term, necessary just to keep up.
+
+commit b8ea80d5f840a834a808a2171df3ada524b2a010
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Aug 9 00:02:02 2019 +0200
+
+    Prepare 1.2.0
+
+commit 55818711cce9e7d7185a116abe7b0cada7414785
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Thu Aug 8 23:56:28 2019 +0200
+
+    Remove needless white list sanitizer deprecations
+    
+    Keeping support for these methods, without deprecations, makes Rails 5.2
+    just work.
+    
+    Then Rails 6 will depend on 1.2.0 which uses safe_list_sanitizer etc.
+    
+    Sorry for all the needless ruckus and confusion around 1.1.0!
+
+commit 1a02a146058f51bdd24bcd5688d7a73da5acfead
+Merge: 0b64e50 31cf584
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Aug 5 17:51:57 2019 +0200
+
+    Merge pull request #96 from olleolleolle/patch-1
+    
+    CI: Drop unused sudo: false Travis directive
+
+commit 31cf584cd67419723ecb16d8505bcebde1b3c444
+Author: Olle Jonsson <olle.jonsson@gmail.com>
+Date:   Mon Aug 5 17:25:55 2019 +0200
+
+    CI: Drop unused sudo: false Travis directive
+    
+    See https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration for more details
+
+commit 0b64e50126cf1962d60fc0d67d3bca9300a8bb0f
+Merge: df0c946 21da038
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Aug 5 15:22:36 2019 +0200
+
+    Merge pull request #95 from rwojnarowski/patch-1
+    
+    Deprecated warning text, missing space
+
+commit 21da0389eae482818d6991eb1bba025c8b116927
+Author: rwojnarowski <radziu92@gmail.com>
+Date:   Mon Aug 5 13:34:11 2019 +0200
+
+    Deprecated warning text, missing space
+
+commit df0c946aa0c1913e9b8e94be96da59fb57ec9d67
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Aug 5 03:07:55 2019 +0200
+
+    Prepare version 1.1.0
+
+commit bf6adff57c5dad411064c97879b8ada55ee653a6
+Merge: c5912e7 b3c4f7d
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Wed May 22 11:14:28 2019 -0400
+
+    Merge pull request #91 from JuanitoFatas/doc/scrubbers
+    
+    Improve Scrubber documentations
+
+commit c5912e73ff6002fcc298c784230ff59363941741
+Merge: 2191bfe 5d735a7
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Wed May 22 11:13:41 2019 -0400
+
+    Merge pull request #92 from JuanitoFatas/link-sanitizer
+    
+    Remove href from LinkSanitizer tags list
+
+commit 5d735a7693d8bf3d016464e127299a5da549824f
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Fri May 10 15:17:04 2019 +0900
+
+    Improve LinkSanitizer's documentation
+
+commit 2523282e1e498fc39f395433877c94e09f106338
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Fri May 10 15:15:08 2019 +0900
+
+    href is not a HTML element
+    
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+commit b3c4f7d4951c7727c750c0cc5ec1ef98806a9bcf
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Fri May 10 13:40:01 2019 +0900
+
+    Improve Scrubber documentations
+    
+    - Fix code snippet of PermitScrubber
+    - Wraps code references
+
+commit 2191bfe73220070cb9c18d607973399af36fbaf9
+Merge: 5b73a09 41b0b49
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Apr 27 19:32:58 2019 +0200
+
+    Merge pull request #87 from JuanitoFatas/migrate-to-safelist
+    
+    Migrate to SafeListSanitizer
+
+commit 41b0b4972673b7f186bf1fd4426153a6f7f66f51
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Thu Mar 21 10:05:14 2019 +0900
+
+    Migrate to SafeListSanitizer
+    
+    SafeList is easier to understand
+
+commit 5b73a0962efea920525ae5e51e43d2c62e78a352
+Merge: 7d30b71 3ca8a87
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Apr 3 10:11:50 2019 +0200
+
+    Merge pull request #90 from JuanitoFatas/jf.fix-tests
+    
+    Fix build
+
+commit 3ca8a870d78e4e0adde8c5e27a695ca6670f14eb
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Tue Apr 2 13:55:44 2019 +0900
+
+    Update test behavior for Nokogiri > 1.9.1.
+    
+    Skip some tests for Ruby 2.2 because Nokogiri behavior changed.
+
+commit 7d30b71eec215229d3e28d23eac6818a7dc581ae
+Merge: ccb51ce 630d2f7
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sun Mar 31 19:19:02 2019 +0200
+
+    Merge pull request #89 from JuanitoFatas/rubies
+    
+    Update Ruby version matrix on CI
+
+commit ccb51ce89d43678f29cb86cb6e1dcf850b8af97f
+Merge: f82bfd2 89ae177
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sun Mar 31 19:18:52 2019 +0200
+
+    Merge pull request #88 from JuanitoFatas/jf.relax-bundler-dependency
+    
+    Use a inclusive Bundler version
+
+commit 630d2f7806067037c16366106662e69ca7b25ade
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Thu Mar 21 10:20:30 2019 +0900
+
+    Update Ruby version matrix on CI
+    
+    https://github.com/postmodern/ruby-versions/blob/3fc3154ae59668e518d271db58c095332478795c/ruby/stable.txt
+
+commit 89ae177f05f9336fd7af61b01e657404d4d1f60e
+Author: Juanito Fatas <juanito.fatas@shopify.com>
+Date:   Thu Mar 21 10:16:05 2019 +0900
+
+    Use a inclusive Bundler version
+    
+    Bundler 2.0 became the default on CI.
+    
+    This commit enables this gem with wider range of users.
+
+commit f82bfd25c02f806e51b5e2ae62334bba4e908ad8
+Merge: d4d823c cba410f
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Tue Feb 26 10:31:04 2019 +0100
+
+    Merge pull request #86 from tebs/fix-documentation-link
+    
+    Fix Nokogiri link in documentation
+
+commit cba410ff71d2d0bdb03b59a6bca1d6222b3d0b4d
+Author: Tebs <qatrera@gmail.com>
+Date:   Tue Feb 26 08:53:20 2019 +0000
+
+    Fix Nokogiri link in documentation
+
+commit d4d823c617fdd0064956047f7fbf23fff305a69b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Nov 5 17:56:54 2018 +0100
+
+    [ci skip] Please don't send more PRs trying to bump Loofah.
+
+commit fc5fd28cc74ad525243f4fe464e8089c99db7d83
+Merge: 53bf066 e4e6cab
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Tue Mar 27 14:10:35 2018 -0400
+
+    Merge pull request #71 from nicolasleger/patch-1
+    
+    [CI] Test against Ruby 2.5
+
+commit e4e6cabeafa2a032e24f06e251d127d10d2cf9fa
+Author: Nicolas Leger <nicolasleger@users.noreply.github.com>
+Date:   Tue Mar 27 13:02:35 2018 +0200
+
+    [CI] Allow failure with ruby head
+
+commit 4ccc7742d8cbd95e620887d60b802a1d9a83d424
+Author: Nicolas Leger <nicolasleger@users.noreply.github.com>
+Date:   Tue Mar 27 12:43:51 2018 +0200
+
+    [CI] Test against Ruby 2.5
+
+commit 53bf066ac3a163546a9c7c44c30998c21068c42d
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Thu Mar 22 14:53:34 2018 -0400
+
+    Prepare to 1.0.4 release
+
+commit f3ba1a839a35f2ba7f941c15e239a1cb379d56ae
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Wed Mar 21 15:23:56 2018 -0400
+
+    Make sure we address CVE-2018-8048
+    
+    Even that the issue was fixed on loofah we have our own logic to scrub
+    attributes so when the whitelist serializer is used the issue was still
+    present.
+    
+    Fix CVE-2018-3741.
+
+commit 7aea595ed0c9887b09484cd46435d1af165f24ef
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri May 12 14:44:43 2017 +0200
+
+    Remove rbx since it doesn't seem to install.
+    
+    https://travis-ci.org/rails/rails-html-sanitizer/jobs/229025256
+    
+    
+    Don't have time to look into why, but if other's are reading this and want to add rbx back: please do investigate.
+
+commit 9057f426df717e92130630cf80215bbbce745cdc
+Merge: 663bf35 2a2a715
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri May 12 14:42:08 2017 +0200
+
+    Merge pull request #66 from fschwahn/improve-tests
+    
+    Fix / improve tests
+
+commit 2a2a715348522f12e9831b17f54ee286e464724e
+Author: Fabian Schwahn <fabian.schwahn@gmail.com>
+Date:   Fri May 5 09:49:14 2017 +0200
+
+    Fix deprecation warning from Minitest
+
+commit 2e8a7063273015683ccfb7d76ca525382aabd840
+Author: Fabian Schwahn <fabian.schwahn@gmail.com>
+Date:   Fri May 5 09:47:50 2017 +0200
+
+    Make tests pass again with recent nokogiri versions
+
+commit 267b12113a71ad0932f7b5ff6eb1f896554cffd4
+Author: Fabian Schwahn <fabian.schwahn@gmail.com>
+Date:   Fri May 5 09:38:37 2017 +0200
+
+    Rename test to better reflect what is actually tested
+
+commit 663bf35d17cf35d0385861902362333a789cc642
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Fri Feb 10 20:37:04 2017 +0900
+
+    typos
+
+commit 362f72d1b7a3e7375956ad6ff1d78e6a1b29c5fe
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:33:03 2017 +0900
+
+    We're still testing against ruby 1.9 and 2.0 that aren't supported by nokogiri 1.7
+
+commit 1f8b16f133f190bff505a992d43eb677e31054fb
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:31:47 2017 +0900
+
+    activesupport 5 doesn't support ruby < 2.2.2 that are still tested in this repo
+
+commit 79884cdf5ae204775870f29de96ef6e954712592
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:30:09 2017 +0900
+
+    bundle with the newest released bundler
+    
+    to avoid old bundler bug that tries to bundle beta gems
+
+commit 13c29d01251f716104f23378b1176258446e9cb2
+Author: Akira Matsuda <ronnie@dio.jp>
+Date:   Wed Jan 11 17:29:50 2017 +0900
+
+    Test against newer released rubies
+
+commit 57d549defff0de7b2cccfd563a2967fc39f7a0f4
+Author: Neo Elit <neo.999networks@gmail.com>
+Date:   Tue Apr 26 09:36:34 2016 +0530
+
+    [ci skip] Remove faulty overrides in scrubber example.
+    
+    Add initializer to CommentScrubber example replacing the method overrides with setting
+    tags and attributes.
+    
+    Signed-off-by: Kasper Timm Hansen <kaspth@gmail.com>
+
+commit f6d1156a33e6b9813f6c75313b8ca453e158140f
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Apr 25 08:47:27 2016 +0200
+
+    [ci skip] Change override method in PermitScrubber.
+    
+    `allowed_node?` is skipped if there are no `@tags`, so it would never be called for the
+    example comment scrubber.
+    
+    Shift to initialize and assign `tags` so people don't have to reimplement the allowed logic.
+
+commit 6025b501e46051ea22a00fb186277a7697a5ac7d
+Merge: 5c4354d 68fd038
+Author: Rafael França <rafaelmfranca@gmail.com>
+Date:   Tue Jan 26 17:01:47 2016 -0500
+
+    Merge pull request #47 from pvalena/patch-1
+    
+    Fix license filename in gemspec
+
+commit 68fd038b6aa23203aa2114c5661214f8174469b3
+Author: Pavel Valena <pvalena@redhat.com>
+Date:   Tue Jan 26 15:45:27 2016 +0100
+
+    Correct license filename
+    
+    License filename changed, but not in gemspec.
+    Which results to not including the file to gem.
+
+commit 5c4354db7524b1df891df0a3e29877ce9f7575ca
+Author: Aaron Patterson <aaron.patterson@gmail.com>
+Date:   Mon Jan 25 10:28:36 2016 -0800
+
+    bumping version
+
+commit 63903b0eaa6d2a4e1c91bc86008256c4c8335e78
+Author: Aaron Patterson <aaron.patterson@gmail.com>
+Date:   Thu Oct 29 12:06:26 2015 -0700
+
+    convert CDATA nodes to TEXT nodes to avoid XSS issues
+    
+    CDATA nodes will not be html escaped.  Users shouldn't be submitting
+    CDATA nodes in the first place, so we should convert them to text nodes
+    before escaping
+    
+    CVE-2015-7580
+
+commit 49dfc1584c5b8e35a4ffabf8356ba3df025e8d3f
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Mon Aug 10 16:22:15 2015 -0300
+
+    Do not unescape already escaped HTML entities
+    
+    The full sanitizer was using Loofah's #text method that automatically
+    escapes HTML entities. That behavior caused some problems where strings
+    that were not escaped in the older sanitizer started to be escaped. To
+    fix these problems we used the #text's `encode_special_chars` option as
+    `false` that not just skipped the HTML entities escaping but unescaped
+    already escaped entities.
+    
+    This introduced a security bug because an attacker can pass escaped HTML
+    tags that will not be sanitized and will be returned as unescaped HTML
+    tags.
+    
+    To fix it properly we introduced a new scrubber that will remove all
+    tags and keep just the text nodes of these tags without changing how
+    to escape the string.
+    
+    CVE-2015-7579
+
+commit 297161e29a3e11186ce4c02bf7defc088bf544d4
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Wed Nov 25 15:23:22 2015 -0200
+
+    Define a less permissive list of tags and attributes
+    
+    And use it by default.
+    
+    The new sanitizer were being a lot more permissive that we had in Rails
+    until the version 4.2.
+    
+    This was also allowing arbritary data attributes by default what can
+    lead to CSRF and XSS attacks.
+    
+    Now data attributes need to be explicitly allowed.
+    
+    CVE-2015-7578
+
+commit bc771d15989f00525a2f0547e6b0ba007ea06449
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Wed Nov 25 17:05:07 2015 -0200
+
+    Use the image hack name instead of the index
+    
+    It make easier to know what is failing.
+
+commit afa451ad250c24b63ce7d15bfeac0c01ff2bf5c8
+Merge: 9cbceb1 7a09522
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue Sep 1 18:57:41 2015 -0300
+
+    Merge pull request #43 from maclover7/contributing
+    
+    Add CONTRIBUTING.md
+
+commit 7a09522351832235bd2a88387709b4c24d574ed4
+Author: maclover7 <me@jonathanmoss.me>
+Date:   Tue Sep 1 12:28:41 2015 -0400
+
+    Add CONTRIBUTING.md [ci skip]
+
+commit 9cbceb1cb7a69e4a01ffb77c315994d4fba3a5d6
+Merge: 7cbe2d3 4f88fa1
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Jun 17 13:42:53 2015 +0200
+
+    Merge pull request #40 from yui-knk/refactor/permit
+    
+    Refactor TargetScrubber
+
+commit 4f88fa1712e1e6513aef19384ba2aa9fee6808ef
+Author: yui-knk <spiketeika@gmail.com>
+Date:   Wed Jun 17 20:14:36 2015 +0900
+
+    Refactor TargetScrubber
+    
+    TargetScrubber asts as reversal to PermitScrubber.
+    Two methods `allowed_node?` and `scrub_attribute?` is now
+    too much to know about implementaion of PermitScrubber.
+    It should simply reverse a result of parent method.
+
+commit 7cbe2d30af5c81fa2282bd453f7aa62dd943473b
+Merge: 4f0f781 633e029
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Mar 13 07:05:56 2015 +0100
+
+    Merge pull request #36 from JuanitoFatas/fix/gemspec
+    
+    Fix homepage uri in gemspec.
+
+commit 633e029afc19700a39a3aac3706fee9487d1ff8b
+Author: Juanito Fatas <katehuang0320@gmail.com>
+Date:   Fri Mar 13 11:05:42 2015 +0800
+
+    Fix homepage uri in gemspec.
+
+commit 4f0f7810fce6c8aa63de07a40d69d6027a30acaf
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Mar 7 00:36:24 2015 +0100
+
+    Bump version to 1.0.2 and use container builds.
+
+commit 670fd7a9a2667d824a6c1b271989a4fd4ed51cb6
+Merge: 1d0ba0c 2362298
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Mar 7 00:31:42 2015 +0100
+
+    Merge pull request #34 from rails/accept-ascii-8bit-strings
+    
+    Prevent "unknown encoding: ASCII-8BIT" errors
+
+commit 1d0ba0c1822280afc14707c811b8b1de6af80be0
+Merge: 1206877 a454c6a
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Mar 4 23:05:39 2015 +0100
+
+    Merge pull request #35 from rails/pass-options-to-sanitize
+    
+    Pass options to the text method.
+
+commit a454c6af56f30f67e1834db55ec2d5ce2a54f8fa
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Mar 4 22:22:03 2015 +0100
+
+    Pass options to the text method.
+    
+    This lets us avoid encoding special chars twice in Rails.
+
+commit 23622984e12521ecb9866af4208149b7c727db7b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Mar 4 21:56:36 2015 +0100
+
+    Prevent "unknown encoding: ASCII-8BIT" errors
+    
+    Nokogiri would throw these errors when outputting the fragment with #to_s.
+    Instead call the format serializers directly and pass a UTF-8 encoding.
+
+commit 1206877e9560701835f55bb2a671483b370d9ac3
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Feb 9 16:14:55 2015 -0200
+
+    Use the argument in the helper method
+
+commit 7f3e53917065d6ed9ca835117dbc0954e85f2f78
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Oct 29 15:21:54 2014 +0100
+
+    Explain the gem's use is only for Rails apps.
+
+commit 1c710bea787998e5f2d67277e8a9daefa6b91349
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue Oct 28 19:31:35 2014 -0200
+
+    Fix typo
+
+commit 3a1a91b0ff9586d92af587cd4bec38780a5ca633
+Author: Godfrey Chan <godfreykfc@gmail.com>
+Date:   Tue Oct 28 14:21:46 2014 -0700
+
+    This gem is now the default on 4.2 [ci skip]
+
+commit 643009712ca5f82639519c9617606f3fdb744b63
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Thu Sep 25 16:38:51 2014 -0300
+
+    Fix false possitive test
+    
+    This test was passing because the assert_dom_equal was only comparing
+    the top level tag.
+    
+    This bug was fixed at
+    https://github.com/rails/rails-dom-testing/commit/c06500ce4185aed04b40806feff6e123d741f235
+    and released as rails-dom-testing 1.0.3
+
+commit 6b14d6a9e11b58253337df95f2b699665cf8b463
+Author: Godfrey Chan <godfreykfc@gmail.com>
+Date:   Fri Sep 26 01:05:30 2014 +0900
+
+    Reword changelog message [ci skip]
+
+commit c7b10b0ee24d416f5efddf5ef607fa4e34250a81
+Author: Godfrey Chan <godfreykfc@gmail.com>
+Date:   Fri Sep 26 01:01:35 2014 +0900
+
+    Prepare for releasing 1.0.1
+
+commit bc0866df707675cc64400cfc509fd2c952b7bad4
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Sep 10 22:44:04 2014 -0300
+
+    No need to define the sanitizer_vendor since it is the default
+
+commit 91d123d00feed7b3b03ff22593c43cfe476df2c0
+Merge: 64f5108 2dbae3e
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Wed Sep 3 11:22:55 2014 +0200
+
+    Merge pull request #24 from rails/deprecate-options
+    
+    Deprecate old sanitizer options.
+
+commit 2dbae3e43ebaf01c1da10318cccaaba55c2b6d6b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Tue Sep 2 20:39:10 2014 +0200
+
+    Deprecate old sanitizer options.
+
+commit 64f51085a473a3b305a36926d6a15a3f0385349b
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Sep 1 23:27:50 2014 -0300
+
+    Allow failures on jruby
+
+commit 2dbd320bfd07b52b115ccb8d734ef950d926b800
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Sep 1 23:23:32 2014 -0300
+
+    Move default implementation to this gem
+
+commit 371a6fa3dd50a91fd56700485d912201462ff2fd
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Sep 1 22:46:49 2014 -0300
+
+    Define the method in the right place
+
+commit b0895de7aa4d8483841b4d8db0164a5356f8e4b2
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Aug 22 09:35:11 2014 +0200
+
+    Spelling fix in gem summary.
+
+commit 71d89f668ee103b8a8422155ac61fe9f0754946d
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Tue Aug 19 16:13:10 2014 -0300
+
+    Require loofah 2.0
+    
+    And add a fallback for when https://github.com/flavorjones/loofah/pull/70 is merged
+
+commit b22d4d8cc475fe26e88996b04561437f911107d0
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Mon Aug 18 20:45:00 2014 -0300
+
+    Remove the method before redefining
+
+commit 0d2e64b8e148fc2af97a9a0a69d4d1effd592af0
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Sun Aug 17 22:28:59 2014 -0300
+
+    Configure travis
+
+commit 079788de9d83d8c5583f5770020fda0978ef9fce
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Sun Aug 17 22:24:57 2014 -0300
+
+    Prepare for the first release
+
+commit 8c0973bd2576d23cb5b5b52396ed0f73edd2d2f1
+Merge: 48c0f01 9221a65
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Aug 16 20:42:35 2014 +0200
+
+    Merge pull request #23 from rails/partial-release-prep
+    
+    Undefault the gem.
+
+commit 9221a65e42f860de5ae347181cf56dffd8652a18
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sat Aug 16 20:37:05 2014 +0200
+
+    Undefault the gem.
+
+commit 48c0f014c99c90124bd568940060d3fcebb788a6
+Author: Timm <kaspth@gmail.com>
+Date:   Tue May 27 12:56:20 2014 +0200
+
+    Change Sanitizer to class with class methods.
+
+commit edb3b0d4c8ea8f2820e61f371f091214714abc90
+Author: Timm <kaspth@gmail.com>
+Date:   Sat May 24 00:01:31 2014 +0200
+
+    Add Sanitizer module responding to sanitizer_vendor interface.
+
+commit 5a9a91f2f7ed1aa1cc15f9a3d75f35b8734bee02
+Merge: 05dd1b9 30b754e
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue May 20 12:38:18 2014 -0300
+
+    Merge pull request #22 from rafaelfranca/last-test-fixes
+    
+    Update expected test values.
+
+commit 05dd1b9f640e88703ada4a9d1a57afa30a0a0aae
+Merge: e68a255 d38b090
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue May 20 12:37:21 2014 -0300
+
+    Merge pull request #21 from rafaelfranca/doc-the-whitespace
+    
+    Add documentation about whitespace handling.
+
+commit e68a255cf9af97de00fab0c63fecb51f8e90b9d0
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 20:43:56 2014 +0200
+
+    remove_xpaths is private and doesn't need to handle string inputs.
+
+commit 30b754e61aae29a17c2c3de814f34076e45a12bf
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 20:23:57 2014 +0200
+
+    Update expected test values.
+
+commit d38b090313e315505781943f9f4c7482f08307db
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 20:11:07 2014 +0200
+
+    Add documentation about whitespace handling.
+
+commit 7307b0bcb4550d4c93dcadb850f17a69b9b96a83
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 17:28:31 2014 +0200
+
+    Added documentation explaining the class level options.
+
+commit 8ce5eb8bbd0ce806cda8539543dd3b97ba466f6e
+Author: Timm <kaspth@gmail.com>
+Date:   Mon May 19 17:23:30 2014 +0200
+
+    Use the nokogumbo enabled branch.
+
+commit a6bfe8fb92eeac3d92d048e0ed0f7cec5fa4e4b2
+Merge: 6cb789b 3dd3144
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon May 5 20:42:47 2014 +0200
+
+    Merge pull request #20 from rafaelfranca/add-travis
+    
+    Add travis integration.
+
+commit 3dd3144fd6a3118d2655bb83cca2c6e8f5150638
+Author: Timm <kaspth@gmail.com>
+Date:   Tue Apr 29 16:08:51 2014 +0200
+
+    Add travis integration.
+
+commit 6cb789b73fae080a1817e16ed75bf8c7b77ffe71
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Fri Apr 25 23:55:49 2014 -0300
+
+    rails-dom-testing is a development dependecy
+
+commit 76fcb67d770aa2b539319457e898d9ea17115f47
+Merge: fa7f864 fb35879
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Tue Apr 15 18:06:58 2014 -0300
+
+    Merge pull request #18 from rafaelfranca/cdata-change
+    
+    Change expected value for undetermined CDATA section test.
+
+commit fb35879d8185923e3bdeecc236aaaeddbfa719f7
+Author: Timm <kaspth@gmail.com>
+Date:   Sat Apr 12 21:00:25 2014 +0200
+
+    Change expected value for undetermined CDATA section test.
+
+commit fa7f8644e96d0615040e8c9a21d9fa0e7fd157d4
+Merge: 8f5f68f b18edac
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Thu Apr 10 16:44:13 2014 -0300
+
+    Merge pull request #15 from rafaelfranca/change-expected-values
+    
+    Change expectation values for skipped tests.
+
+commit 8f5f68f19eef34818c91fe2fc2b04f434a4be1e7
+Merge: 23264ba 4ac6012
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Mar 21 20:39:12 2014 +0100
+
+    Merge pull request #17 from rafaelfranca/test-dry
+    
+    Test cleanup
+
+commit 4ac6012952c69517cb0aa5d11fd1840fd97a6b77
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 21 20:16:07 2014 +0100
+
+    Move assertions to own methods.
+
+commit 0ac1ad8112cf92b76cb8bacd3182a869ee5e526e
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 21 19:50:37 2014 +0100
+
+    Remove @sanitizer instance variable.
+
+commit 27748671e9da321020c991ceeeb40622a902e006
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 21 19:48:36 2014 +0100
+
+    Extract sanitizer creation and sanitize call to their own methods.
+
+commit b18edac2c930720f07ea8a5bff1251b9a04b7c98
+Author: Timm <kaspth@gmail.com>
+Date:   Wed Mar 19 16:35:19 2014 +0100
+
+    Change expectation values for skipped tests.
+
+commit 23264bab010ab8ce9bb41ada28bc3d61b9d2cae5
+Merge: b555502 f29b8d7
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Sat Mar 15 11:27:02 2014 -0500
+
+    Merge pull request #14 from rafaelfranca/more-test-fixes
+    
+    More test fixes
+
+commit f29b8d732dc3d61d5d0254462e407f984124b413
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 14 20:43:08 2014 +0100
+
+    s/u/o
+
+commit ae5f00f291b7414ba691f13991a99cf109f11444
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 14 20:42:19 2014 +0100
+
+    Extract strip links test to own method.
+
+commit b5555025c0ed68b7feeb13f4a77c79e42ee4356a
+Merge: 538e882 dd61611
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Fri Mar 14 16:19:24 2014 -0300
+
+    Merge branch 'rm-test-fixes'
+
+commit 538e882648563b162c4a3a1d6649c90d2aa94fe9
+Merge: 1516d32 ab5908a
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Mar 14 19:41:04 2014 +0100
+
+    Merge pull request #13 from rafaelfranca/image-xss-improvement
+    
+    Change expected return value for image xss test.
+
+commit ab5908adae1102e778f709ec856dacc0bc2f3358
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Mar 14 19:40:24 2014 +0100
+
+    Change expected return value for image xss test.
+
+commit 1516d32907ababf734096fce9b8e7611b4dc943a
+Merge: 67e1e6b 4e5ab77
+Author: Rafael Mendonça França <rafaelmfranca@gmail.com>
+Date:   Fri Mar 14 13:29:14 2014 -0500
+
+    Merge pull request #6 from rafaelfranca/custom-style-scrub
+    
+    Passing style attribute option doesn't scrub style attributes
+
+commit 4e5ab77420cecb1a57aa76e337bf3b5c0f927909
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Mar 13 20:50:58 2014 +0100
+
+    Pointed Loofah at own fork.
+
+commit 91ee4775479d142e59c1d87cbf3f90c1818b1dad
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Feb 13 20:35:27 2014 +0100
+
+    Fixed style attributes not being scrubbed.
+
+commit 1d289841060f9c9c4c722fef0bf0166585e63383
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 11:54:08 2013 +0100
+
+    Added failing test.
+
+commit dd61611cc9d739390ddb507fc2e83ed54a629eca
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Thu Mar 13 13:23:16 2014 -0300
+
+    Update the assertion to match the browser behavior
+    
+    Since we are using nokogiri the parser now works in the same way a
+    browser do. So in this test example '<<a>' means:
+    
+    '<' - open tag
+      '<a' - tag name
+    '>' - close tag
+    
+    And the tag '<<a>' is removed from the result string.
+
+commit 67e1e6b541f717738ec2bb14e5cee62263902cc2
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Thu Mar 13 13:11:57 2014 -0300
+
+    Split the failing test cases
+
+commit bb4b67123a0b228ce56944996b13d95ddfe1c600
+Merge: 56bf0be b4603b6
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Mon Feb 10 10:53:38 2014 +0100
+
+    Merge pull request #11 from rafaelfranca/remove-configs
+    
+    Replaced configurations with allowed_tags and allowed_attributes.
+
+commit b4603b65160043276efdebc44bacf7d7486fbb6a
+Author: Timm <kaspth@gmail.com>
+Date:   Sat Feb 8 21:23:12 2014 +0100
+
+    Replaced configurations with allowed_tags and allowed_attributes.
+
+commit 56bf0be148dae366696fd7173894b62fe20a6a55
+Merge: b12c805 02807da
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Thu Jan 30 00:09:49 2014 -0800
+
+    Merge pull request #9 from rafaelfranca/scrub-href-attribute
+    
+    Added href as an attribute to remove in LinkSanitizer.
+
+commit 02807da35737db6801fdc3a5bee51b04d5f192dd
+Author: Timm <kaspth@gmail.com>
+Date:   Sun Nov 3 13:34:09 2013 +0100
+
+    Added href as an attribute to remove in LinkSanitizer.
+
+commit b12c805f3ab9c39012554a9477520b0bd5430996
+Merge: 2aab7af 4a0754b
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Sun Nov 3 04:28:16 2013 -0800
+
+    Merge pull request #8 from rafaelfranca/sanitizer-documentation
+    
+    Added documentation for sanitizers.
+
+commit 4a0754b253e703d383b39eeb2715ab75e6a774c6
+Author: Timm <kaspth@gmail.com>
+Date:   Sun Nov 3 13:27:18 2013 +0100
+
+    Moved documentation to the right classes and made some slight rewordings.
+
+commit 26ed9e08c183fdb819867d4ad7ca39bb525c491f
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Nov 1 23:40:26 2013 +0100
+
+    Reworked WhiteListSanitizer documentation.
+
+commit 2aab7af728ce2882843bfa29178ca574466557b2
+Merge: da07e23 fae0fdb
+Author: Kasper Timm Hansen <kaspth@gmail.com>
+Date:   Fri Nov 1 15:28:42 2013 -0700
+
+    Merge pull request #3 from rafaelfranca/better-readme
+    
+    Updated README.md with information about usage, scrubbers, custom scrubbers in a Rails app and links to learn more.
+
+commit fae0fdbd3107708cf3283d915cd0a8454bd7aea3
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Nov 1 23:27:30 2013 +0100
+
+    Break up long line.
+
+commit f5e34faca9fd3f9f08f537ccf0f006f645cba865
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Nov 1 23:26:42 2013 +0100
+
+    Preliminary documentation for sanitizers.
+
+commit 654428928953b4d09e95d09e7a5dc8963dd06b58
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 11:00:20 2013 +0100
+
+    A custom scrubber is passed as an option to sanitize not as a second argument.
+
+commit da07e23e793538ffd300656f1a693bdae3cbe4e1
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:56:14 2013 +0100
+
+    Changed > to . in scrubber documentation.
+
+commit 44900bb4c633634621884331222fc526092ad0ca
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:43:20 2013 +0100
+
+    Added sanitize_css usage.
+
+commit 7bfb1efcb81e6b548aec91ab949b00920a309697
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:35:25 2013 +0100
+
+    Added links to read more about loofah and nokogiri.
+
+commit 586fdc74e5a3cc650312bc7e6091bc44286d259f
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:22:13 2013 +0100
+
+    Removed use of instance variables in the sanitizers examples.
+
+commit 32313a3dd49aea66d15ce717c1e9c811a6ead874
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 10:20:01 2013 +0100
+
+    Added sanitizers examples.
+
+commit ea988d972f59cff6baaa20eb8842849dd1078b29
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 09:59:33 2013 +0100
+
+    Forgot the strip_links method.
+
+commit 115f4e50f3bdd48bc8883d8f3d88efe13e1496e6
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 09:59:04 2013 +0100
+
+    Added information about using a custom scrubber in a rails app.
+
+commit 25cba204833a3cdf6e92f02e63c3cda59359a9ae
+Author: Timm <kaspth@gmail.com>
+Date:   Thu Oct 31 09:49:23 2013 +0100
+
+    Spelling fixes. Added some information about which methods Rails use for sanitization.
+
+commit 3b145b4ee87fd42c9968a522732ec6a73b94bd57
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 20:14:57 2013 -0200
+
+    Add some scrubbers explanation
+
+commit 34b08089c267895957ea2cb342d3717319bd440b
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:59:13 2013 -0200
+
+    Add some todo notes
+
+commit a0d4cab83e6eb1c2564768ad56ab7e164ed79d00
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:59:04 2013 -0200
+
+    Fix the gem name at Readme
+
+commit 9e3376ca0467cef9ac9f7365395e10799ed8a7c5
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:58:52 2013 -0200
+
+    Add description to the project
+
+commit ca4c9e0b2892c9e180f9b275c5a14b3493425c13
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 20:17:28 2013 -0200
+
+    Improve the documentation of the scrubbers
+
+commit cea55b198cfd4f1fd828aa3ef623f0ea50e51bd3
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:40:12 2013 -0200
+
+    Use Ruby 1.9 hash syntax
+
+commit fbf1ac02523d45473b32d5b668f584ab06f8fd27
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:23:49 2013 -0200
+
+    Make the method private
+
+commit 6ede2e2d3ce320c88ddde7b2358bd808858351fc
+Author: Rafael Mendonça França <rafael.franca@plataformatec.com.br>
+Date:   Wed Oct 30 19:19:14 2013 -0200
+
+    Improve the exception message
+
+commit 5e3fa3d73b91b51e89a98d587c81e77af8d44975
+Author: Timm <kaspth@gmail.com>
+Date:   Wed Oct 9 21:30:08 2013 +0200
+
+    Renamed html-sanitizer to rails-html-sanitizer.
+
+commit 5e94cf83f96146bdf5f30906cce0bd2e3223092d
+Author: Timm <kaspth@gmail.com>
+Date:   Wed Oct 9 21:10:06 2013 +0200
+
+    Removed require of minitest/mock. Removed test method using mocks and stubs. Added tests testing the return value of scrub.
+
+commit 36b904fd172fb7aeee30653e77e43e477c5757d6
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Oct 4 20:10:04 2013 +0200
+
+    Removed protocol_separator, protocol_separator= and bad_tags. They called the class method version which had a deprecation warning but they're no longer there either.
+
+commit e9a16f01c23bfc8b5953cef43ce11860ac48c9e4
+Author: Timm <kaspth@gmail.com>
+Date:   Fri Sep 27 22:10:56 2013 +0200
+
+    Removed DomAssertions and added rails-dom-testing as a dependency.
+
+commit 6e7cb4ba685df5c42ccde32c9d52babe2bd9f20e
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 23:21:53 2013 -0300
+
+    Remove unused deprecations
+    
+    These deprecations should be in the Rails side
+
+commit c31782c929c72876ef530f141939228e15d0ab32
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 23:21:08 2013 -0300
+
+    Remove some comments
+
+commit 121fd2d1a67da7525be549a47c09adf48f1ecdc2
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 23:16:40 2013 -0300
+
+    Implement the sanitizers
+    
+    These sanitizers are responsable to sanitize the HTML fragments.
+    
+    They are wrappers arround Loofah scrubbers to implement some default
+    behavior used in Rails application.
+
+commit 209c007fc45e301e94ed1056849912cc1b02acbb
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 22:33:54 2013 -0300
+
+    Add scrubber classes
+    
+    With these classes is possible to sanitize the HTML fragments allowing
+    some tags or attributes using a black list or a white list
+
+commit 94145e1c6c3140b30235d1667a11b51de807f650
+Author: Rafael Mendonça França + Kasper Timm Hansen <rafaelmfranca+kaspth@gmail.com>
+Date:   Tue Sep 24 21:53:23 2013 -0300
+
+    Initial commit

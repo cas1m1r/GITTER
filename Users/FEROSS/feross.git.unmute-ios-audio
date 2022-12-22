@@ -1,0 +1,512 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 8c3c75bd2e5cc0c85485366ae8251f521b66660b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:14:06 2020 -1000
+
+    3.3.0
+
+commit af51f515618ab815f85faa5d2564d4aa2bfc0805
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:13:43 2020 -1000
+
+    add script to generate types
+
+commit 7950d87fe15f86b0a3e560a30554529fe24f53be
+Merge: ea40143 7adce2a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 22:11:33 2020 +0200
+
+    Merge pull request #5 from chrisguttandin/reintroduce-types
+
+commit ea4014315b41258273b84bb02000d2db86858030
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:05:16 2020 -1000
+
+    3.2.0
+
+commit 013eb13f8aacbeebadb940a8e26ce8ad37335452
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:05:00 2020 -1000
+
+    check maxTouchPoints to identify mobile Safari
+    
+    Supercedes #8
+
+commit 7adce2ab6b814379a8893aff2af4135287f961b3
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Sun Jan 26 22:03:30 2020 +0100
+
+    reintroduce types
+
+commit 9e35348af06e976f82f136bcb1d789c2b181ca83
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:55 2020 -0700
+
+    package metadata
+
+commit 3c49f197476d68b8da827c1be09a8e5e9bbbc65c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:54 2020 -0700
+
+    3.1.0
+
+commit 545a30a130e707986195743fd58ebcfd614864f8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:42 2020 -0700
+
+    rename function for better debug logs
+
+commit 491f4ae8bee409a3b8fc6dedadd4cb70954c613e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:22 2020 -0700
+
+    don't access window or navigator until function is called
+    
+    so that node.js doesnt' crash when this package is imported
+
+commit 2ba1387050c97991ac2868a8747aff3c1ccffee4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:28:51 2019 -0800
+
+    add back thanks section
+
+commit 9559991dd3422cadc2e2b79c1b47f08ae9290071
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:25:36 2019 -0800
+
+    3.0.0
+
+commit 8af37c2e486e24aca7e19b52401c6d357da0108b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:25:25 2019 -0800
+
+    remove types
+    
+    Per the typescript team's recommendation, if the source code of this repo is not typescript then types belong on DefinitelyTyped. If this is something you need, please submit types there.
+
+commit 1ab375a220c10f8dce8548f5c30d293e505b7deb
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:23:53 2019 -0800
+
+    Complete rewrite!
+    
+    - Same API
+    - Actually works reliably now (previously, audio would stop after only a few seconds before)
+    - No race conditions anymore (previously, if user interacted multiple times before audio clip finished playing, undefined behavior would occur)
+
+commit c46bf0d6eb8240124568a5a7fa7b9272628cb939
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 10 14:17:47 2019 -0700
+
+    2.3.0
+
+commit 259789c6dbdc45140a461263300f20fef286f78f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 10 14:17:38 2019 -0700
+
+    Update .npmignore
+
+commit c75a3f250455072291b8eaa187727f63e076d627
+Merge: 2f3cdb8 cf49e59
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 10 14:16:59 2019 -0700
+
+    feat: create custom data URI (#4)
+    
+    feat: create custom data URI
+
+commit cf49e592e96092ef86de94b6e097b05b5a2245eb
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Tue Sep 10 22:55:15 2019 +0200
+
+    only execute workaround in Safari
+
+commit 91b3c3177c03a6a9630c7e8c0f088c26ad35be63
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Sep 9 12:49:35 2019 +0200
+
+    create custom data URI
+
+commit 2f3cdb8e92f10c6e77e06923f98061c4ac4d438b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Sep 7 17:00:12 2019 -0700
+
+    2.2.1
+
+commit 7d0e8fd81544afb96fa4fd25c8f2f76e91249d49
+Merge: 561eee8 8dc1ed9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Sep 7 16:59:55 2019 -0700
+
+    add TypeScript type definitons (#3)
+    
+    add TypeScript type definitons
+
+commit 8dc1ed9b314fc30a069c91dd9ff0ac4af8cffb18
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Sat Sep 7 23:38:43 2019 +0200
+
+    add TypeScript type definitons
+
+commit 561eee86f20b09965ed69ebbf1f11458d3574a25
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Aug 23 17:03:26 2019 -0700
+
+    2.2.0
+
+commit d9a8db9904aee5765ef43b5b7e4ec4b3de413d54
+Merge: b94d0c7 c899410
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Aug 23 17:02:52 2019 -0700
+
+    Merge pull request #1 from chrisguttandin/close-audio-context
+    
+    disconnect AudioBufferSourceNode and close AudioContext
+
+commit b94d0c7ca5a1a16c95fb151b93569c1dcfb476d0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Aug 5 16:07:01 2019 -0700
+
+    Update FUNDING.yml
+
+commit c899410d6461eda1cc137d4fb93854faf0c26cad
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Jun 24 03:06:24 2019 +0200
+
+    set audiocontext to null
+
+commit 7b23c9bf44484b65037258e2639d3a6c45909279
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Jun 24 03:04:35 2019 +0200
+
+    fix duration in comment
+
+commit 04dd7a7a6833b203a5c3cc45d6bfe00970c2f359
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Jun 24 03:02:16 2019 +0200
+
+    disconnect source node and close audiocontext
+
+commit f74d998bada06547545b5323fa0284fabf77e729
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 16:27:08 2019 -0700
+
+    2.1.1
+
+commit fd8440f9bb65c8c8665883d3a2883f562e5d8999
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 16:25:46 2019 -0700
+
+    create audiocontext on click to avoid chrome warning
+
+commit acbec1d3ed7714f5c2b8db5b3b94c61bd8cbe010
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:54:08 2019 -0700
+
+    2.1.0
+
+commit 714c64cac52a280c94fdcd2ccf63b7ba982cf672
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:53:49 2019 -0700
+
+    unmute web audio explicitly
+
+commit 1e6df08fefa94ac299c36a67221774b6645caa04
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:25:21 2019 -0700
+
+    description
+
+commit 7205f24ecb35322232fe112d3b10872cbae19830
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:16:57 2019 -0700
+
+    Create FUNDING.yml
+
+commit 325b2c046565c242447b2c7f5092eb1a0f9d9c90
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:14:09 2019 -0700
+
+    2.0.1
+
+commit 4e8f1abcc10ed4e016f8bfc5adfa93ae42f64bff
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:14:02 2019 -0700
+
+    Create .npmignore
+
+commit e90c468a48a3c16a7c75985bee7995b131445a64
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:13:13 2019 -0700
+
+    2.0.0
+
+commit 08b0bdbdcf79d552a398e8a27e8a68b0b74b972d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:12:11 2019 -0700
+
+    1.0.0
+
+commit be699e8dea76eabb471d6ed0bb775df0b93ad5ac
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:10:50 2019 -0700
+
+    initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 8c3c75bd2e5cc0c85485366ae8251f521b66660b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:14:06 2020 -1000
+
+    3.3.0
+
+commit af51f515618ab815f85faa5d2564d4aa2bfc0805
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:13:43 2020 -1000
+
+    add script to generate types
+
+commit 7950d87fe15f86b0a3e560a30554529fe24f53be
+Merge: ea40143 7adce2a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 22:11:33 2020 +0200
+
+    Merge pull request #5 from chrisguttandin/reintroduce-types
+
+commit ea4014315b41258273b84bb02000d2db86858030
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:05:16 2020 -1000
+
+    3.2.0
+
+commit 013eb13f8aacbeebadb940a8e26ce8ad37335452
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 21 10:05:00 2020 -1000
+
+    check maxTouchPoints to identify mobile Safari
+    
+    Supercedes #8
+
+commit 7adce2ab6b814379a8893aff2af4135287f961b3
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Sun Jan 26 22:03:30 2020 +0100
+
+    reintroduce types
+
+commit 9e35348af06e976f82f136bcb1d789c2b181ca83
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:55 2020 -0700
+
+    package metadata
+
+commit 3c49f197476d68b8da827c1be09a8e5e9bbbc65c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:54 2020 -0700
+
+    3.1.0
+
+commit 545a30a130e707986195743fd58ebcfd614864f8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:42 2020 -0700
+
+    rename function for better debug logs
+
+commit 491f4ae8bee409a3b8fc6dedadd4cb70954c613e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 8 15:40:22 2020 -0700
+
+    don't access window or navigator until function is called
+    
+    so that node.js doesnt' crash when this package is imported
+
+commit 2ba1387050c97991ac2868a8747aff3c1ccffee4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:28:51 2019 -0800
+
+    add back thanks section
+
+commit 9559991dd3422cadc2e2b79c1b47f08ae9290071
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:25:36 2019 -0800
+
+    3.0.0
+
+commit 8af37c2e486e24aca7e19b52401c6d357da0108b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:25:25 2019 -0800
+
+    remove types
+    
+    Per the typescript team's recommendation, if the source code of this repo is not typescript then types belong on DefinitelyTyped. If this is something you need, please submit types there.
+
+commit 1ab375a220c10f8dce8548f5c30d293e505b7deb
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Dec 29 17:23:53 2019 -0800
+
+    Complete rewrite!
+    
+    - Same API
+    - Actually works reliably now (previously, audio would stop after only a few seconds before)
+    - No race conditions anymore (previously, if user interacted multiple times before audio clip finished playing, undefined behavior would occur)
+
+commit c46bf0d6eb8240124568a5a7fa7b9272628cb939
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 10 14:17:47 2019 -0700
+
+    2.3.0
+
+commit 259789c6dbdc45140a461263300f20fef286f78f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 10 14:17:38 2019 -0700
+
+    Update .npmignore
+
+commit c75a3f250455072291b8eaa187727f63e076d627
+Merge: 2f3cdb8 cf49e59
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Sep 10 14:16:59 2019 -0700
+
+    feat: create custom data URI (#4)
+    
+    feat: create custom data URI
+
+commit cf49e592e96092ef86de94b6e097b05b5a2245eb
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Tue Sep 10 22:55:15 2019 +0200
+
+    only execute workaround in Safari
+
+commit 91b3c3177c03a6a9630c7e8c0f088c26ad35be63
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Sep 9 12:49:35 2019 +0200
+
+    create custom data URI
+
+commit 2f3cdb8e92f10c6e77e06923f98061c4ac4d438b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Sep 7 17:00:12 2019 -0700
+
+    2.2.1
+
+commit 7d0e8fd81544afb96fa4fd25c8f2f76e91249d49
+Merge: 561eee8 8dc1ed9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Sep 7 16:59:55 2019 -0700
+
+    add TypeScript type definitons (#3)
+    
+    add TypeScript type definitons
+
+commit 8dc1ed9b314fc30a069c91dd9ff0ac4af8cffb18
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Sat Sep 7 23:38:43 2019 +0200
+
+    add TypeScript type definitons
+
+commit 561eee86f20b09965ed69ebbf1f11458d3574a25
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Aug 23 17:03:26 2019 -0700
+
+    2.2.0
+
+commit d9a8db9904aee5765ef43b5b7e4ec4b3de413d54
+Merge: b94d0c7 c899410
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Aug 23 17:02:52 2019 -0700
+
+    Merge pull request #1 from chrisguttandin/close-audio-context
+    
+    disconnect AudioBufferSourceNode and close AudioContext
+
+commit b94d0c7ca5a1a16c95fb151b93569c1dcfb476d0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Aug 5 16:07:01 2019 -0700
+
+    Update FUNDING.yml
+
+commit c899410d6461eda1cc137d4fb93854faf0c26cad
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Jun 24 03:06:24 2019 +0200
+
+    set audiocontext to null
+
+commit 7b23c9bf44484b65037258e2639d3a6c45909279
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Jun 24 03:04:35 2019 +0200
+
+    fix duration in comment
+
+commit 04dd7a7a6833b203a5c3cc45d6bfe00970c2f359
+Author: Christoph Guttandin <chrisguttandin@media-codings.com>
+Date:   Mon Jun 24 03:02:16 2019 +0200
+
+    disconnect source node and close audiocontext
+
+commit f74d998bada06547545b5323fa0284fabf77e729
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 16:27:08 2019 -0700
+
+    2.1.1
+
+commit fd8440f9bb65c8c8665883d3a2883f562e5d8999
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 16:25:46 2019 -0700
+
+    create audiocontext on click to avoid chrome warning
+
+commit acbec1d3ed7714f5c2b8db5b3b94c61bd8cbe010
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:54:08 2019 -0700
+
+    2.1.0
+
+commit 714c64cac52a280c94fdcd2ccf63b7ba982cf672
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:53:49 2019 -0700
+
+    unmute web audio explicitly
+
+commit 1e6df08fefa94ac299c36a67221774b6645caa04
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:25:21 2019 -0700
+
+    description
+
+commit 7205f24ecb35322232fe112d3b10872cbae19830
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:16:57 2019 -0700
+
+    Create FUNDING.yml
+
+commit 325b2c046565c242447b2c7f5092eb1a0f9d9c90
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:14:09 2019 -0700
+
+    2.0.1
+
+commit 4e8f1abcc10ed4e016f8bfc5adfa93ae42f64bff
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:14:02 2019 -0700
+
+    Create .npmignore
+
+commit e90c468a48a3c16a7c75985bee7995b131445a64
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:13:13 2019 -0700
+
+    2.0.0
+
+commit 08b0bdbdcf79d552a398e8a27e8a68b0b74b972d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:12:11 2019 -0700
+
+    1.0.0
+
+commit be699e8dea76eabb471d6ed0bb775df0b93ad5ac
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 22 15:10:50 2019 -0700
+
+    initial commit

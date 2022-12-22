@@ -1,0 +1,2500 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Windows 10 Bloat Remover and Tweaker
+
+This configurable tool provides an interactive command-line interface to aggressively debloat and tweak your Windows 10 installation in an easy way.
+
+![Program screenshot](https://github.com/Fs00/Win10BloatRemover/raw/master/screenshot.png)
+
+Here's what it can do for you:
+
+* **Make system apps removable** by editing an internal system database. Thanks to this, system UWP apps like legacy Edge and Security Center can be uninstalled in Settings app or via PowerShell commands. Take note that system apps can be reinstalled by Windows cumulative updates.  
+* **Remove pre-installed UWP apps:** uninstalls the apps specified by the user either for the current Windows user or for all users (see *Configuration* section below, options `UWPAppsToRemove` and `UWPAppsRemovalMode`). When apps are uninstalled for all users, their corresponding provisioned packages are deleted too (if present), so that they won't get reinstalled for new users or after feature updates. 
+* **Remove Microsoft Edge:** uninstalls the newer Chromium-based Edge and the legacy UWP version of the browser, which are both pre-installed in recent versions of the OS.
+* **Disable OS telemetry:** disables several Windows components that collect diagnostic and usage information such as Compatibility Telemetry, Inventory, Device Census, Customer Experience Improvement Program and others. It also deletes the services which are responsible for data reporting to Microsoft.
+* **Remove system services:** deletes - not just disables - the services specified by the user (see *Configuration* section below, option `ServicesToRemove`) after backing up their Registry keys, so that you can restore them if anything breaks.
+* **Tweak Windows settings for enhanced privacy:** makes Windows more privacy-respectful by turning off certain system features that put your personal data at risk, such as inking/typing personalization, app launch tracking, clipboard/text messages synchronization, voice activation and some more. Take note that the goal here is to provide a mindful balance that leans towards privacy, without sacrificing too much in terms of user experience.
+* **Disable Windows Defender:** disables the antivirus (*not* the firewall) that comes pre-installed on the OS and removes its background services. It also disables SmartScreen protection, as [it sends sensitive data to Microsoft](https://www.bleepingcomputer.com/news/microsoft/windows-10-smartscreen-sends-urls-and-app-names-to-microsoft/). *Only for tech-savvy users!⚠️*
+* **Remove OneDrive** using the uninstaller provided by Microsoft, its folder in Explorer sidebar will also be hidden. Furthermore, its automatic setup will be disabled to prevent the app from being installed for new users.
+* **Remove Windows features:** uninstalls the [Feature-On-Demand (FOD) capabilities](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities) specified by the user (see *Configuration* section below, option `WindowsFeaturesToRemove`).
+* **Disable automatic updates:** prevents automatic download and installing of Windows and Store apps updates through Group Policies. Take note that **automatic Windows Updates can't be disabled on Windows 10 Home.**
+* **Disable Windows Error Reporting (WER)**: thanks to this, Windows will no longer "check for a solution to the problem" when a program crashes.
+* **Disable suggestions, cloud-based content** (including Spotlight and News and Interests) **and feedback requests** through Group Policies
+* **Disable scheduled tasks** specified by the user (see *Configuration* section below, option `ScheduledTasksToDisable`)
+
+Be aware that while most of these operations can be reverted with a system restore point, **some of them cannot** (uninstalling FODs/provisioned app packages), and carry over after major Windows updates and full system restores.
+
+Unless otherwise specified, operations are applied to all users in the system. However, some of them (*Disable suggestions, cloud content and feedback requests*, *Disable Windows Defender antivirus* and *Tweak settings for privacy*) can not be fully applied to other users that have been created *before* those operations have been run, due to how user registry hives work.  
+Therefore, in order to have the maximum effect, it is recommended to **run this tool before creating any other user in the system.**
+
+It is also highly recommended to **re-run the operations every time a Windows feature update is installed** (especially if Windows Upgrade Assistant is used), since all system services and some default settings get restored by the upgrade process.
+
+👉 **Head to [Releases](https://github.com/Fs00/Win10BloatRemover/releases) to download the latest version.**
+
+## Configuration
+Program settings are stored in [JSON format](https://en.wikipedia.org/wiki/JSON) in a file called *config.json*, located in the same folder as the program's executable. If said file is not found (e.g. when launching the tool for the first time), it is created containing the default settings.
+
+If the program isn't able to load the configuration from the file for some reason, the error will be displayed when the application starts up and options will be populated with their default values.
+
+Inside the settings file, you will find the following options:
+
+### `UWPAppsToRemove`
+Configures which pre-installed UWP apps should be uninstalled. Take note that you can't choose to remove single UWP packages but only groups of them, to make configuration less tricky and also because some apps are made of multiple packages (e.g. Xbox) which depend on common services or components that get removed by the program.
+
+**Allowed values:** an array which can contain the following values (each one represents a group of apps - a group can consist in a single app):
+* `"AlarmsAndClock"`
+* `"Bing"` (Weather, News, Finance and Sports)
+* `"Calculator"`
+* `"Camera"`
+* `"CommunicationsApps"` (Mail, Calendar and People)
+* `"Cortana"`
+* `"HelpAndFeedback"` (Feedback Hub, Get Help and Microsoft Tips)
+* `"Maps"`
+* `"Messaging"`
+* `"MixedReality"` (3D Viewer, Print 3D and Mixed Reality Portal)
+* `"Mobile"` (Your Phone and Mobile plans)
+* `"OfficeHub"` (My Office)
+* `"OneNote"`
+* `"Paint3D"`
+* `"Photos"` (after removal, legacy Photo Viewer will be restored for your convenience)
+* `"Skype"`
+* `"SnipAndSketch"`
+* `"SolitaireCollection"`
+* `"SoundRecorder"`
+* `"StickyNotes"`
+* `"Store"`
+* `"Xbox"` (Xbox app, Game Overlay and related services)
+* `"Zune"` (Groove Music and Movies)
+
+**Default value:** an array containing some of the app groups listed above
+
+### `UWPAppsRemovalMode`
+Configures whether to remove UWP apps for all present and future users (which is the default) or just for the current user. Take note that trying to remove system apps only for the current user might not always work.
+
+**Allowed values:** `"AllUsers"` or `"CurrentUser"`  
+**Default value:** `"AllUsers"`
+
+### `ServicesToRemove`
+Configures which system services should be removed by specifying their names.
+Take note that for each name you specify, the program will remove the services *whose name starts with the specified name*. This is made in order to include those services whose name ends with a random code.
+
+**Allowed values:** an array containing an arbitrary number of service names  
+**Default value:** an array containing a set of services that are deemed superfluous or undesirable for expert users:
+* `"dmwappushservice"`
+* `"RetailDemo"`
+* `"TroubleshootingSvc"` (runs automatic troubleshooters periodically)
+
+### `ScheduledTasksToDisable`
+Configures which scheduled tasks should be disabled by specifying their path. You can find the path of each scheduled task in the system with the following PowerShell command: `Get-ScheduledTask | foreach { $_.TaskPath + $_.TaskName }`.
+
+**Allowed values:** an array containing an arbitrary number of scheduled tasks  
+**Default value:** an array containing a set of scheduled tasks that are deemed superfluous or undesirable. [See the full list here](https://github.com/Fs00/Win10BloatRemover/blob/master/src/Configuration.cs#L99).
+
+### `WindowsFeaturesToRemove`
+Configures which Feature-On-Demand (FOD) capabilities should be removed by specifying their names. As with system services, the program will remove all feature capabilities whose name starts with the names you specify (particularly useful since FODs have their version hardcoded in the name).
+You can find the names of all FOD capabilities available for your system (including non-installed ones) with the PowerShell command `Get-WindowsCapability -Online`.
+
+**Allowed values:** an array containing an arbitrary number of FOD capability names  
+**Default value:** an array containing a set of FOD capabilities that are deemed superfluous for most users:
+  - `"App.StepsRecorder"` (Steps Recorder)
+  - `"App.Support.QuickAssist"` (Quick Assist app)
+  - `"App.WirelessDisplay.Connect"` (Connect app, pre-installed only on some devices)
+  - `"Browser.InternetExplorer"` (Internet Explorer 11)
+  - `"Hello.Face"` (Windows Hello face authentication)
+  - `"MathRecognizer"` (Math Input Panel, Control and Recognizer)
+
+## Credits
+This tool was originally based on Federico Dossena's [Windows 10 de-botnet guide](https://github.com/adolfintel/Windows10-Privacy), which is now discontinued.  
+Over time, the program evolved on its own, taking sometimes inspiration from the work made by other open source developers:
+  - [**privacy.sexy** website](https://github.com/undergroundwires/privacy.sexy) by @undergroundwires
+  - [**Debloat Windows 10** scripts](https://github.com/W4RH4WK/Debloat-Windows-10) by @W4RH4WK
+====================== GIT HISTORY: ======================
+852c894 HEAD@{0}: clone: from https://github.com/Fs00/Win10BloatRemover
+commit 852c894556a023b172eb6553da3f55880b0b53a2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 26 15:07:21 2022 +0100
+
+    Update .NET SDK
+
+commit d20fdf2874bddc98b756a0e723119db177ae4fbf
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 29 16:36:13 2022 +0200
+
+    Add --verbose-logging flag to Edge Chromium uninstaller
+    
+    Allows for better troubleshooting by storing a log in user's temp folder
+
+commit 179590e30288c484480e9c9f619da0cbe9fa83ee
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sat Oct 29 16:21:19 2022 +0200
+
+    Rename release artifact generated by GH Actions
+
+commit b34d34d562a1aff92245b96a96f81eb1859aa9fb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 29 14:54:04 2022 +0200
+
+    Fix automatic app updates disabling on W10 Home on 64-bit devices
+
+commit 9278efec9d2d24e7bd0b80abdf867da3b6ad3133
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sat Oct 29 13:32:47 2022 +0200
+
+    Update GH actions to fix deprecation warning
+
+commit cae4965a61b378f79f386f167dfca0e81e6edbe4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 29 13:27:09 2022 +0200
+
+    Fix disabling of automatic app updates on Windows 10 Home
+
+commit d6262e81a4c96a1ff10217b43ac56169d88aa3e4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jul 8 18:07:37 2022 +0200
+
+    Fix a typo
+
+commit 90fb5488098a726464722b2d9b4c83d5bdd5dc32
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jul 8 17:49:04 2022 +0200
+
+    Hide Meet Now icon in ConsumerFeaturesDisabler
+
+commit 8236b1568e2694056f12cf8bf5a62d235dc2eb8b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jul 8 17:40:02 2022 +0200
+
+    Disable automatic apps installation in ConsumerFeaturesDisabler
+
+commit 32c30a3dea9844cc2176a0f2427ea17bcdb6d58b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jul 8 16:43:39 2022 +0200
+
+    Extract cloud features disabling in a dedicated operation
+
+commit bb544f95da7ce52b86e406345801cfc43959c026
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Apr 22 12:47:09 2022 +0200
+
+    Improve the way CompatTelRunner and DeviceCensus are blocked
+    
+    The Debugger value was previously set incorrectly and caused
+    a "File not found" error when launching those two executables
+
+commit 7068c86c669d9d87e3378aacb50b7f2a9bc93563
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Apr 22 11:46:44 2022 +0200
+
+    Remove aggressive disabling of smartscreen.exe
+    
+    Breaks sideloading of Store apps via UI
+
+commit 3a3fef1c3e1d3c7efccbad55afe20a0c1ae71af8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Apr 12 18:08:19 2022 +0200
+
+    Disable Search highlights together with other cloud content
+
+commit 245a4cd5ca7838acc15d74d048dd860f8e736363
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Apr 12 17:54:59 2022 +0200
+
+    Provide a helpful error message when AppX services can't be stopped
+
+commit 6b8f7a2445d5bca2ae45899059a069a2d7fdece4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Apr 11 16:27:53 2022 +0200
+
+    Store StateRepository DB temporary copy in %TEMP%
+    
+    Fixes StateRepository DB replacement failing when the tool is launched from a removable drive
+
+commit dcb1099fef46308e434d70b5aab2f4a5678a4460
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sat Jan 29 19:20:33 2022 +0100
+
+    Sort list of removable UWP apps in Readme
+
+commit 36ffb7072495916385aa1d85ca790d25af9c1d59
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sat Jan 29 19:16:12 2022 +0100
+
+    Clarify that SmartScreen won't be fully disabled for other existing users
+
+commit 01f513112159dd6d46fe276bbef296a845f7163f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 29 12:43:16 2022 +0100
+
+    Update Readme screenshot for version 4.3
+
+commit d894297766b0e152f8eee060b136fb79c18771a5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jan 27 18:34:47 2022 +0100
+
+    Turn method to retrieve Windows ReleaseId into a property
+
+commit 015898d91fb7769a6160bdda858455eac08a0956
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jan 27 18:11:59 2022 +0100
+
+    Prevent smartscreen.exe from running in background
+
+commit e89d43a8eed13f15af8fc42c8b4682e7998b72e9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jan 27 18:11:04 2022 +0100
+
+    Rework the way Explorer is restarted
+    
+    Fixes errors while deleting OneDrive leftovers
+
+commit 2fd5efaee44a5997b9e6c8c362bf80a55668ebde
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Jan 23 19:12:12 2022 +0100
+
+    Tweak newlines in UWP app removal explanation
+
+commit 79be9914bde20e37df484cfb7f2285a8fa884583
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Jan 23 18:53:51 2022 +0100
+
+    Do not disable SmartScreen when uninstalling Store app
+    
+    DefenderDisabler already does that
+
+commit b08ee6ae9d850879e431f4d81dfe6ee0f1d091eb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Jan 23 18:52:40 2022 +0100
+
+    Rework logic for running post-uninstall operations
+    
+    They will be executed even if the app is not installed (since services may still be there), but they won't if an error is raised while uninstalling an app
+
+commit bac7ddd05af203c613681686a3b4bb0636fc9dc9
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sat Jan 22 21:23:11 2022 +0100
+
+    Add more information to Readme
+
+commit f2718fa80ae5c490a8d3d3ddad4ca731047ae6cd
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 22 17:48:36 2022 +0100
+
+    Disable Edge personalization data reporting
+
+commit ac7fe8c89b4e85e196e17cb800da414ae6c188c6
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 22 17:21:49 2022 +0100
+
+    Disable Spotlight in Microsoft Edge too
+
+commit e330e8703cbff64e6142f7abbfa9eb753508d15c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 22 15:39:48 2022 +0100
+
+    Accept confirmation prompts if user writes "yes"
+
+commit 2f25467c87ea8fca675b112ff4440d60a5377d2f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 22 15:20:40 2022 +0100
+
+    Improve explanation for Defender disabling
+
+commit 50c116c346330274c2f8de71545467c4ca491564
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 22 14:45:11 2022 +0100
+
+    Remove unneeded warning when not removing Xbox apps
+
+commit 39eb1e770f1e4c345e5dfda51d806ce4690412dc
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 22 14:31:04 2022 +0100
+
+    Do not uninstall Security Center anymore
+    
+    The app allows to control certain security settings, such as exploit mitigations, which would otherwise be impossible to change.
+
+commit 3c29c8823292e4007c0f4defe375c9badee8894c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 22 14:12:17 2022 +0100
+
+    Fix disabling SmartScreen for Edge Chromium
+
+commit 6b97c3091732ff650866bbcfff3e53534c5d7524
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sat Jan 15 14:28:30 2022 +0100
+
+    Small clarity improvements to Readme
+
+commit f61a5f256037e2776e66aed81d2a4de8424faa4c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 15 14:24:46 2022 +0100
+
+    Improve Edge leftovers removal
+    
+    Removal now includes user data and desktop shortcut
+    and is performed even if UWP Edge is not removed
+
+commit b20fcf191a957e73130e216011168571d69971fa
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 15 12:47:48 2022 +0100
+
+    Explicitly load explorer from system folder too
+
+commit 61af0caf4bde00a5218fecfe1203d37d1c6e59ed
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 15 11:50:44 2022 +0100
+
+    Update license copyright year
+
+commit 4f0a27ad09e904d82982df28ccbb066ed6a6793f
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sat Jan 15 11:46:15 2022 +0100
+
+    Update Readme since Edge Chromium is not "new" anymore
+
+commit be1b9a7d43ac138fe84f249d60f68b062972c9a5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 15 11:25:39 2022 +0100
+
+    Bump version to 4.3
+
+commit b6c87be3be0de39e900f017772d39de49870056c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 15 11:24:09 2022 +0100
+
+    Explicitly load system executables from Windows system folder
+    
+    If we don't specify the full path to the executable, Windows first tries to find it in the current folder
+
+commit d37bcef2cc1bc9633e9de89b9be2294d691873eb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Dec 18 21:51:53 2021 +0100
+
+    Partially revert previous commit
+    
+    Microsoft.MicrosoftEdge.Stable gets removed by Edge Chromium uninstaller
+
+commit 8fe980e097e56da9e25510a41a23ac1a71c881d5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Dec 18 13:29:53 2021 +0100
+
+    Remove new MicrosoftEdge.Stable UWP app
+
+commit 281246f1f250a09a02432d895bd39cdd23fced7e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Dec 18 11:59:44 2021 +0100
+
+    Retrieve StateRepository DB update trigger name dynamically
+    
+    Allows "Make system apps removable" to be cross-compatible with Windows 10 and 11
+
+commit 1845fbfcebbd94571162ef80d4b2675a016a1b4a
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Dec 11 21:05:53 2021 +0100
+
+    Change the way PowerShell modules are imported
+    
+    Prevents issues on systems in which AppX module has been marked as incompatible with PS Core
+
+commit 945f6e7b26bdd15add01b4b50b369c6be0ab3537
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Mon Nov 29 18:09:20 2021 +0100
+
+    Fix typo in issue template
+
+commit dd5888e6e55ff8478f92a8dcac66bc8da16c63fd
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 27 12:23:43 2021 +0100
+
+    Downgrade Microsoft.Data.Sqlite to latest 5.0.x version
+    
+    Version 6.0.0 doesn't work in Debug builds
+
+commit 9d7b326fb9baecfcceb0dab8611a3f392e22f204
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 27 11:36:18 2021 +0100
+
+    Rename SystemUtils in OS
+
+commit 8b0eb4a1a58fd95a8cf06af05b9f9d962d60ea40
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 27 11:28:06 2021 +0100
+
+    Stop dependent services manually
+    
+    Potentially avoids a useless 30-seconds wait when a service
+    cannot be stopped
+
+commit c0c67f17e690ce2e6c87a1f642e6c43a31ff35d5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 21 17:41:44 2021 +0100
+
+    Revamp contributing guidelines
+
+commit be900a16f0823c03a20f06c103efb48e031cfabf
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 20 19:43:43 2021 +0100
+
+    Use GH Actions virtual env with .NET 6 SDK
+
+commit bd77a2ffaef20b7458e96848f411d4089d6cc951
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 20 19:42:03 2021 +0100
+
+    Update PowerShell dependency
+
+commit 1c989f733e3718c57b56d5785305dd7e18f345d4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 20 19:11:38 2021 +0100
+
+    Update SDK and libraries to .NET 6
+
+commit d3a9bf41e7ee3cd12984a9cc621c00d2dc0b06cf
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jul 3 13:32:35 2021 +0200
+
+    Increase PowerShell performance by disabling module autoloading
+    
+    Speeds up especially subsequent invocations
+
+commit afd65a1dfd937ebf1bbdbe87e04428e4bd32eec4
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Fri Jul 2 17:29:06 2021 +0200
+
+    Remove outdated info about Cortana in Readme
+
+commit 9ff156649faf1c40670cab6a457cf99e526635dc
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 1 21:24:25 2021 +0200
+
+    Disable generic cloud content delivery too
+
+commit 09298c5686987f669e0d0ac2212d9b98b8c9443c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 1 21:15:20 2021 +0200
+
+    Truly fix Spotlight disabling on Home and Pro editions
+
+commit df078fa8043f396b369e693b4df59c7f67752fc9
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Thu Jul 1 13:23:12 2021 +0200
+
+    Update outdated link in Readme
+
+commit d190295d004c975c3d88f4487a019cd054ca5c76
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 1 10:17:15 2021 +0200
+
+    Update Microsoft.Data.Sqlite dependency
+
+commit 0799b591d7b1b0481abd22b043b7a876f25248ad
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 1 09:40:01 2021 +0200
+
+    Improve retry logic for stopping AppX services
+
+commit 7a325706083ade62d421cadd459c6f8ecc145897
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jun 30 15:14:47 2021 +0200
+
+    Make sure to display unsupported OS warning on Windows 11
+
+commit 34e64d8b1cd9b0e0d641ecab638539845e3083c0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 29 16:26:08 2021 +0200
+
+    Disable one more PCA-related scheduled task in TelemetryDisabler
+
+commit a8f20459cf43f9e6fd55011d26395d4c1bb97a6e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 29 15:04:20 2021 +0200
+
+    Print hash of published EXE during build workflow
+
+commit bbe61a7fae898427e37913183aa152b0c734bf55
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 29 14:50:59 2021 +0200
+
+    Pin .NET SDK version to latest 5.0.x
+
+commit 5e46f7dda92f49292cc10eb45cdde42b67bc013d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 29 12:55:16 2021 +0200
+
+    Include Readme and License in Release artifact
+
+commit 82449095975b3244ae5d131c307c35d3e968d235
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 29 12:45:43 2021 +0200
+
+    Add GitHub Actions workflow to build release EXE
+
+commit 0f3db5a1af5e797b39f8bba06ce292b0dca696f2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 29 10:58:08 2021 +0200
+
+    Dispose ConsoleTraceListener appropriately
+
+commit e0e685821c8384bc71f392106077c3bdb4820103
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jun 28 15:07:21 2021 +0200
+
+    Add screenshot to Readme
+
+commit afe3c52de17b5b40510e3725625310d74ce65d60
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jun 28 14:30:17 2021 +0200
+
+    Bump version to 4.2
+
+commit 5e4a62b557d24f09b9f7362bcecd0474a5318c48
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jun 28 14:21:29 2021 +0200
+
+    Support all Windows 10 versions starting from 20H2
+    
+    No more separate builds for each Windows 10 version
+
+commit e45778f925d4ce9d44316aaaf36f99a38d02e596
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 26 15:01:41 2021 +0200
+
+    Update Edge removal explanation
+
+commit 751caae572e211160bc6e116ea36bb5770325b20
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 26 14:25:07 2021 +0200
+
+    Override ExitCode ToString method
+
+commit 60482dc632a26ba02be2d873388fd9fed37dcbbc
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 26 10:56:38 2021 +0200
+
+    Throw away tests project
+    
+    They didn't bring any value since I always preferred testing this program
+    manually on different PCs
+
+commit ab63e39ad6a8ae3179d495d70939c450dda230bc
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jun 7 13:34:53 2021 +0200
+
+    Do not generate PDB for Release builds
+
+commit 5c10d04101e888f6041d72bc7700858622c44bc5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jun 7 13:14:17 2021 +0200
+
+    Do not use preview .NET SDKs when installed on the machine
+
+commit c134b2446884a9cd3a081db727c8ec84814b8702
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 5 16:01:21 2021 +0200
+
+    Specify invariant globalization in project file in a more correct way
+
+commit 696678d7433396796e85a708e156fd617022791b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 5 15:55:53 2021 +0200
+
+    Enable default .NET Analyzers
+
+commit aa29b51f5f26ad9ac8176c706cada218e2538eb5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jun 2 16:48:45 2021 +0200
+
+    Wrap menu entries explanations as needed
+
+commit be6941b8699a43b19886b3a93444842c881b9807
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jun 2 16:15:25 2021 +0200
+
+    Disable credentials and app data sync when tweaking settings for privacy
+
+commit fab2078bd1342937cb8bff06014f573c9fd02479
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jun 2 15:48:45 2021 +0200
+
+    Implement system-wide disabling of News and Interests
+
+commit b1e1ec0ea1dbe53d1a9ff3459bf5b3c6049a66e4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 30 21:30:37 2021 +0200
+
+    Rename "Disable tips..." menu entry and related classes
+
+commit d35f544bda2844a8f3e4deb79b69b03c5776b11f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 30 12:33:01 2021 +0200
+
+    Refactor configuration load/write error handling
+
+commit 74f4a9400347694d7e4cae8c4a16dd9638b0a11b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 29 21:02:35 2021 +0200
+
+    Simplify a method name
+
+commit f2c80f39bb6122749e89602d28b0ace32d876b41
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 29 14:13:28 2021 +0200
+
+    Slightly improve configuration load/write error messages
+
+commit 2d80347de94436d360f3b725af7e568ab060b2da
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 29 14:12:53 2021 +0200
+
+    Prevent crashes when configuration file is empty
+
+commit 21b8d52b55513a39634675f84985bf307db3af35
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 29 13:25:16 2021 +0200
+
+    Disable online tips for Settings app
+
+commit dd8a54e1ce1e10c2b79c1188664fae48fcf00c0b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 23 19:21:07 2021 +0200
+
+    Update a couple of dependencies
+
+commit 5fc859d26a6d7d05e4c508e246250db2e5a2c24d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 23 14:20:21 2021 +0200
+
+    Disable programmable taskbar along with tips and Spotlight
+
+commit 2c8e82ad6da17964ff0514b28c961b42c4a411da
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 23 12:17:39 2021 +0200
+
+    Rename a couple of TokenPrivilege methods
+
+commit 736db368b2882b22326715a0766f3ef22b7b2d86
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 16:52:12 2021 +0100
+
+    Update Edge remover behavior and explanation for 20H2
+
+commit 0781011e15e53b69cd3604e26fee2844c51aeca0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 16:16:36 2021 +0100
+
+    Update supported Windows version
+
+commit 7fe1aefa702b54106747ca9a369269ea13976b37
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 16:14:08 2021 +0100
+
+    Update license copyright year once more
+
+commit a2715176b2243a56ed9a164c53a68c7fbdd53d87
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 15:24:08 2021 +0100
+
+    Fix legacy photo viewer restoration
+
+commit fac24505192df099723d44b3ea26419c1f4cceba
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 14:08:39 2021 +0100
+
+    Update license copyright year
+
+commit 3d6a9d9e055b473ac0d348d0ba6e4504380dbf14
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 14:07:04 2021 +0100
+
+    Retry up to 3 times if AppX services can't be stopped
+
+commit 57ef3c7c7c1a143c3224aed86824908fcd37ed3f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 11:57:45 2021 +0100
+
+    Make sure temporary state repository DB copy gets always deleted
+
+commit 26da5e58057dbbc6c0e250bb5aa3c4bbbacd5a75
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 9 11:29:07 2021 +0100
+
+    Update dependencies
+
+commit badeb795641a1a70b1968b0a0b2ae869a1cfd9db
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 2 11:52:26 2021 +0100
+
+    Pluralize 'app' word
+
+commit 68d4c751d22497685bbbba3ff7d93c565ada6e3c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jan 2 11:51:17 2021 +0100
+
+    Restart explorer after uninstalling UWP apps
+    
+    Workaround for stale app entries in Start menu
+
+commit da98a12ce555ccb7f23ca8a67c933cf51ccbd3f3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jan 1 21:10:05 2021 +0100
+
+    Recommend reboot after uninstalling apps only if some post-uninstall operations have been run
+
+commit 41cbb9d4145da84fcc5f60f41a824e23a367faf8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jan 1 20:56:33 2021 +0100
+
+    Rename Original -> Legacy photo viewer
+
+commit d062012e14000fce7161fddd0066f4c64f8ec7bd
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jan 1 20:52:31 2021 +0100
+
+    Do not mention Edge in UWP apps removal explanation
+
+commit e36c7e3de9530c52ba9e13a12e4e9e0f93dd11b4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jan 1 16:54:40 2021 +0100
+
+    Bump version to 4.1
+
+commit aa1c25571f8053617d6e8e5108cd4a6d3c086433
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jan 1 16:45:50 2021 +0100
+
+    Disable Windows Defender scheduled tasks
+
+commit 92b602373e9955121ed4ae62156ee22f2b50f003
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jan 1 16:38:50 2021 +0100
+
+    Disable one more telemetry scheduled task
+
+commit 42d6242d48d9df0e1bbf485e6fb095e6c969caed
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Thu Dec 31 20:11:09 2020 +0100
+
+    Add info about legacy + Chromium Edge removal
+
+commit 810381fee07897c2e1302e5c7a96e562e288bd49
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Dec 31 19:36:00 2020 +0100
+
+    Encapsulate common logic for handling process exit codes
+
+commit d337735155e11547a9c44b287a4e221db7d27ebb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Dec 31 19:15:32 2020 +0100
+
+    Refactor out common code for letting the user choose to abort the operation
+
+commit f6baa55c8b3fcd7b923e698b6d63ac5323017e24
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Dec 31 19:06:41 2020 +0100
+
+    Implement Edge Chromium removal
+
+commit a3822e7ebaae539ba05899ebf0a43e2974ff895d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Dec 30 15:01:24 2020 +0100
+
+    Use the issue template by default
+
+commit 3b4cb6cae5ccdb894d4784a04c54c3ed22e7b2b4
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Wed Dec 30 14:59:09 2020 +0100
+
+    Do not allow creating an issue without a template
+
+commit e838658e1fb3bc07f3afc815e5b896759e4af16b
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Wed Dec 30 14:52:18 2020 +0100
+
+    Add issue template
+
+commit 9059742aaf8551c3fb852721e612793d5f12e606
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Wed Dec 30 14:17:05 2020 +0100
+
+    Remove funding link
+
+commit fed4fac0be2f4ad284d375391e0adf8f99751d98
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Wed Dec 30 14:16:39 2020 +0100
+
+    Add useful information to Readme
+
+commit 59e916212a34eda7ac689881053e484bb7fadf1f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Dec 30 11:22:21 2020 +0100
+
+    Make explanation for system apps removal more accurate and clear
+
+commit 69a2ec40e901e66a61b48acff2980fd59cb5c6c4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Dec 28 19:15:11 2020 +0100
+
+    Allow the program to be run on incompatible OS versions
+
+commit 9d668654e585107eb9a39f9b9f5f3b9a5a2a323b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Dec 13 13:44:37 2020 +0100
+
+    Ask user to reboot if some operations required a reboot
+
+commit a1916b2fd10f268e34466982f03a3515c00b3664
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 29 13:11:03 2020 +0100
+
+    Add accurate reboot recommendation for UWP apps removal
+
+commit 70adc6b9959893551c9fad67a03cfa0287386dd8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 29 12:59:13 2020 +0100
+
+    Change ServiceRemover not to implement IOperation anymore
+
+commit 9b0b98186f7462001d90153bdc84aa434346009c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 21:13:25 2020 +0100
+
+    Update test dependencies
+
+commit 3ab23e275a4ac0edf70a33d524ae3afb47808d84
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 21:11:41 2020 +0100
+
+    Fix services backup folder name using 12hr clock
+
+commit 5f7c4ce0d2a8280e3bb41a94bf256b87c75e0344
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 21:08:08 2020 +0100
+
+    Pass current DateTime to ServicesRemover via constructor parameter
+
+commit c0b3019dd593ee7c2b4a99e27bef9865af035474
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 20:35:46 2020 +0100
+
+    Add accurate reboot recommendation for FeaturesRemover
+
+commit d0e581c78395ae98e4fa9c1c81b6052690b8478e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 19:39:11 2020 +0100
+
+    Add accurate reboot recommendation for error reporting and telemetry disablers
+    
+    Improve ServiceRemover API too
+
+commit 7b38388b5755fb6ac399a3f8d9ad5412eaf23446
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 18:49:46 2020 +0100
+
+    Add accurate reboot recommendation for ServiceRemover
+
+commit f2221b28d393c737650419bd73715023efffbd9c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 18:15:33 2020 +0100
+
+    Add accurate reboot recommendation for Defender disabler
+
+commit 6b7657b893f2b6afa85573ff4cd3a5d903b9d95a
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 28 18:09:35 2020 +0100
+
+    Add IsRebootRecommended property to operations
+
+commit 0142c13abd5faa7df44fe26337d3740c4cf8565d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Nov 16 18:55:09 2020 +0100
+
+    Update Microsoft.Data.Sqlite dependency
+
+commit 9c7b024fb9181034c0afffe28e205dcfa82efe9e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Nov 16 18:50:11 2020 +0100
+
+    Enable aggressive trimming for published executable
+
+commit 2c9b605bba18085ceb769bc3090653af23399d7e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Nov 16 18:36:12 2020 +0100
+
+    Update Microsoft.Windows.Compatibility and depend only on used assemblies
+
+commit d9da401e90312efb73f0f2c0ebd883f95f514201
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 15 15:38:09 2020 +0100
+
+    Embed license text resource directly without RESX file
+
+commit f724fcc62cdbd45f3e8f0f94021f534994d99dfa
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Tue Nov 3 13:38:56 2020 +0100
+
+    Minor adjustments and fixes to Readme
+
+commit 92107d44822b91ee0de8a33043b53d33528310f9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 1 18:18:42 2020 +0100
+
+    Make UWP apps removal explanation more accurate
+
+commit 6ddb33575ac8500f5e130716784a734e7cc0c5de
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 1 13:36:41 2020 +0100
+
+    Do not print anything when there are no post-uninstall operations for an app group
+
+commit 886ee7df896a7607d39edb45030f052d8601b871
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 1 13:28:24 2020 +0100
+
+    Avoid a debug assertion in ServiceRemover
+
+commit 0251c0f4254200313e204c4159fe9596e8fe5977
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 1 13:25:51 2020 +0100
+
+    Make protected service removal success message more accurate
+
+commit db79598f115078d9c385b183dcc81d88b1b52519
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 31 18:51:12 2020 +0100
+
+    Make sure OneDrive Start menu shortcut gets removed
+    
+    This is useful when OneDrive uninstaller fails and user proceeds with leftovers removal
+
+commit 656ea2860f03f646c4b4fd3016e79a1f1063d3f8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 31 15:28:32 2020 +0100
+
+    Minor formatting tweaks
+
+commit 50de84270997dd71ac774a8ff0d1a597c472c8e3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 31 14:03:08 2020 +0100
+
+    Make all usages of OpenSubKey null-safe
+
+commit d7c79bf83f1183defe8e194933a71c7eb3da0d25
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 31 13:27:39 2020 +0100
+
+    Apply registry edits to both current user and default user hive
+
+commit aea3a5b0184c554d8a08b59a231b6b3c72c6aa44
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Oct 31 11:20:57 2020 +0100
+
+    Do not disable Steps Recorder when disabling telemetry
+    
+    This tool isn't nefarious per se and can be useful for bug reporting.
+    Furthermore, it is a fully removable Windows capability since 2004.
+
+commit 4e36c3d6110506f89aeeaa518713503c71c15930
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Sep 12 19:13:08 2020 +0200
+
+    Handle spaces in service names and in backup folder path
+
+commit 157503000e709cccde8b2540911fff836277d908
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Sep 12 16:18:14 2020 +0200
+
+    Disable notifications about Security & Maintenance when disabling Defender
+
+commit a8d8162e7622fc0e5ce2adf92c7d3ab744154f96
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Sep 12 15:56:31 2020 +0200
+
+    Fix policies to disable Spotlight and tailored experiences
+
+commit 94be38f5d3c2e77a3b6c4cb5f51d248cb2c711f3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Sep 11 19:00:02 2020 +0200
+
+    Fix and improve OneDrive removal explanation
+
+commit 9e931b857cbb8c4043c8f618600ffc80b622c424
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Sep 11 18:57:29 2020 +0200
+
+    Update Microsoft.Data.Sqlite dependency
+
+commit 8340b6ebf65adc38326ced79010bef4fa5f11d2d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Sep 5 12:37:54 2020 +0200
+
+    Disable "Get even more out of Windows" screen after upgrades/first login of new users
+    
+    This option was added in Windows 2004
+
+commit ed9409f8c0f5f880d98b78339ff6921703bafa49
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Sep 5 12:31:08 2020 +0200
+
+    Make TipsDisabler work fully on Home and Pro editions too
+
+commit 4787f486d2c14d15e17345fbf8694678ab925351
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Sep 4 22:29:13 2020 +0200
+
+    Fix sensitive app permissions denial not working
+
+commit 0f33b6a377428861cf2cd276a4a100cc8acf6c88
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Sep 4 13:50:57 2020 +0200
+
+    Do not remove LicenseManager service when removing Microsoft Store
+    
+    It breaks APPX packages sideloading
+
+commit 6f02b0656fdf275a02fa3a50a94724fd1e2be06d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Sep 4 08:51:14 2020 +0200
+
+    Always compile for x86 platform
+
+commit df746c9d6434cd11b063d54902939c47ef927785
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Sep 4 08:37:39 2020 +0200
+
+    Fix wrong ProgramFiles folder being retrieved in published EXE
+
+commit a22896f8575b6553c0ba0d50f414e7673f6b5dc6
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Sep 3 18:13:04 2020 +0200
+
+    Improve FeaturesRemover to remove capabilities instead of single FOD packages
+
+commit 9d79675911ab5d127916220c5fa19270e23cc9d9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Aug 30 17:26:25 2020 +0200
+
+    Update dependencies
+
+commit 95696f66f021a35fbd034725bd1aab6d3888e116
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Aug 29 16:18:20 2020 +0200
+
+    Remove unnecessary usings
+
+commit acada57f86314258a68f52a63a7d8aaea3be1bac
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Aug 29 16:12:21 2020 +0200
+
+    Improve wording of GitHub issue menu entry explanation
+
+commit 11a7766a372c8bb71cbf980df258fe4acded2783
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Aug 29 15:50:19 2020 +0200
+
+    Downgrade antimalmare platform before disabling Defender
+    
+    Workaround for DisableAntiSpyware policy being ignored starting from platform version 4.18.2007.8
+
+commit b6408c154b0d81e269ce1db9ab051edadb890307
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Tue Aug 25 20:04:38 2020 +0200
+
+    Make app removal messages clearer
+
+commit 0ed874b40e44f19ccd23f3c0ed12d5bfd7ac53bf
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Tue Aug 25 18:16:52 2020 +0200
+
+    Fully remove install-wim-tweak and related option
+
+commit 62b129d64ae11f37a94067420e236d1e6f10ffb0
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Tue Aug 25 17:47:41 2020 +0200
+
+    Do not remove Defender components using install-wim-tweak anymore
+    
+    Causes Windows cumulative updates to fail with error 0x800f081f
+
+commit b12b758e47d939beec2b67b5eb3d07907d9c815d
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Mon Aug 24 20:50:25 2020 +0200
+
+    Do not prevent execution of Security Center app
+
+commit 18d80603dd328d2ec240e825c52d73e95901ad80
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Mon Aug 24 20:49:54 2020 +0200
+
+    Fix regression in preventing execution of some telemetry components
+
+commit 15cc6ef2b15d874b30579fce8ff08734a39fef97
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 20:57:39 2020 +0200
+
+    Print 'Removing app' message before removing provisioned package
+
+commit 59dd89fde1fa3652bb27320300ade9d9721d4d8e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 20:52:23 2020 +0200
+
+    Update supported Windows version
+
+commit 940eee261e90d72f6cec51a467166b5e37a07323
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 20:45:55 2020 +0200
+
+    Fix removing apps for all users on Windows 2004
+
+commit 4603e79f72671023bd37770101d71de5c2068deb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 20:23:38 2020 +0200
+
+    Implement removal of Cortana app in place of old disabling method
+
+commit d1c5fd2310a1e26836ce2be202a793258628e5d3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 19:09:19 2020 +0200
+
+    Fix wrong information in Edge uninstallation explanation
+
+commit 01d848e8579595b31c55d3222a1098906a83b15b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 16:34:46 2020 +0200
+
+    Do not remove Connect app through install-wim-tweak
+
+commit fd43d83aafbe43cfc2e7778bd4e150d7785cf957
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 16:17:03 2020 +0200
+
+    Add Steps Recorder to default features to remove
+
+commit 26fde1236ab9e9937185384d08c910256a3354c8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 13:52:27 2020 +0200
+
+    Add ability to remove Sound recorder app
+
+commit d0d06b0156996ae131284a0cb007ca8682b6cb7c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 18 11:19:01 2020 +0200
+
+    Revamp Readme and fix wrong information in menu entries
+
+commit 569eb7052f5c5d9676eea36cf81e93545bff473f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jul 25 21:55:34 2020 +0200
+
+    Bump version to 4.0
+    
+    We're almost there!
+
+commit db191981f94b3fa045d67ed0110c419dbea700cb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jul 25 21:51:42 2020 +0200
+
+    Add references to other projects in program info
+
+commit 3f46f4f0630772bee6515c16ca7a747caf44c5ab
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jul 25 19:21:45 2020 +0200
+
+    Implement new feature "Tweak settings for privacy"
+
+commit 64b97bac94255b042455d0d1f19d1150f0c90b50
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jul 24 20:32:13 2020 +0200
+
+    Make reboot notice consistent in CortanaDisabler
+
+commit fef50c562d4e4934532c2c9c1df8891e3df83549
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 23 09:07:07 2020 +0200
+
+    Use .NET API instead of reg command to delete service Registry keys
+
+commit a5a482a73fce3878040a692ee9a302aa942228f4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 23 09:00:09 2020 +0200
+
+    TelemetryDisabler: Do not try to remove protected services that have already been removed
+
+commit fd918b7af258edced7b2f9a406aa7e488f29d2be
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jul 21 08:33:41 2020 +0200
+
+    Disable Microsoft experimentations when disabling telemetry
+
+commit af2723e8b7637d9ce5c7697aa76a2b21522db980
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 20 19:04:26 2020 +0200
+
+    Disable automatic updates for speech model too
+
+commit b7b60440c9bb63c1e9b24b87ae907964cfc61e5e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jul 11 17:47:21 2020 +0200
+
+    Do not disable web search together with Cortana
+
+commit 610d362252d54221b13a0c0caaf4775b33ee7681
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jul 11 11:56:12 2020 +0200
+
+    Refactor deletion of Windows Registry subkey values
+
+commit ac2a3513be751e20f81b97606ba034e8b5a27547
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jul 11 11:22:53 2020 +0200
+
+    Block delivery of the new Edge Chromium after uninstalling Edge
+
+commit d787d0fe21e36ff72ac6539aaf023f2b6c631d80
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Jun 14 15:29:19 2020 +0200
+
+    Fix and refactor Defender disabling via Group Policies
+
+commit ecedea262b6b575a15df3b07e9f71883d88f61e2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Jun 14 14:09:50 2020 +0200
+
+    Remove LicenseManager service when removing Microsoft Store
+
+commit 84a5d592c5e34ed04b8f7f060780b2b7fc18cb6f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 12 20:45:37 2020 +0200
+
+    Add Math Recognizer to default WindowsFeaturesToRemove
+
+commit cae8e3a4ed1d8c0aac4da41026d515da6d691ae9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 12 20:39:10 2020 +0200
+
+    Remove OneSync service by uninstalling the corresponding Windows feature
+
+commit 3f4be8b413dbb896a3c6195afed6661969452a98
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 12 18:09:50 2020 +0200
+
+    Do not perform post-uninstall operations when removing apps for the current user
+    Certain post-uninstall operations would break apps for the other users
+
+commit 5e031450813088783f4c4303c62576e27015d00d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jun 11 18:21:11 2020 +0200
+
+    Slightly improve and refactor ErrorReportingDisabler
+
+commit e9d499ce2ff27bdd43ad18f1fe4c54d53ed6d12f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jun 11 18:20:11 2020 +0200
+
+    Other refactorings to use Registry.SetValue
+
+commit 55e388d623023909e0b88c792cb71ac863c20b1b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jun 10 19:16:55 2020 +0200
+
+    Minor refactorings to UWPAppRemover
+
+commit 2b31dd3ad616bc6896017facfbd928e7a2037d39
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jun 10 18:59:00 2020 +0200
+
+    Use Registry.SetValue when appropriate in OneDriveRemover
+
+commit fc0abf49b29a183558150b8a454376d4d9523d4f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 9 18:41:05 2020 +0200
+
+    Disable CEIP when disabling telemetry
+
+commit 08fe028b3967c8ac58e901cacdda3666db9bf3aa
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 9 18:22:52 2020 +0200
+
+    Use Registry.SetValue when appropriate in TelemetryDisabler
+
+commit 81383fcfec5ffa8f948f5008325412555f10fc42
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 9 18:06:15 2020 +0200
+
+    Disable telemetry-related scheduled tasks in TelemetryDisabler
+
+commit 01e8371e13ac7c9adf993070c2aea8ed8a12cede
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sun Jun 7 16:35:13 2020 +0200
+
+    Disable error reporting scheduled task in ErrorReportingDisabler
+
+commit ae4ab56786c021d9a0f9c3b4a1f6c86f3fb3ca95
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Sun Jun 7 16:07:48 2020 +0200
+
+    Clean up AutoUpdatesDisabler a little bit
+
+commit 33fb08c2072f42bd9efc195776bcaab8f98db5d3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 5 18:10:47 2020 +0200
+
+    Disable KMS client online AVS validation when disabling telemetry
+
+commit 8cc9e1fdcc0a5958b89c0b521c9a79662abe5f82
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jun 4 17:53:16 2020 +0200
+
+    Depend just on System.Management.Automation instead of the entire PowerShell SDK
+    This reduces published EXE's size of ~20MB
+
+commit c0771d7e99d41ad81133d99797370406c1dfb935
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jun 3 20:50:59 2020 +0200
+
+    Downgrade PowerShell to 7.0.0
+    Last version is broken on published EXE
+
+commit 6b4071921d83e7f1646f5cafb970072a9ca8a971
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 2 15:16:59 2020 +0200
+
+    Don't backup state repository database anymore
+    The user is recommended to create a restore point instead
+
+commit 24f67432ed0b904bd243827cd7d330e03a135ed6
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 2 11:14:42 2020 +0200
+
+    Use polymorphism to disable install-wim-tweak execution
+
+commit a463299b2beee4386fba34cd412f215afbdd2987
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jun 2 11:08:11 2020 +0200
+
+    Handle title/notice spacing from ConsoleUserInterface class
+
+commit 56b3d35556c4a6d3a1cfe0a434c921f370db2eb5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 31 16:05:01 2020 +0200
+
+    Write debug messages to the console
+
+commit 80fa159f500e08f276f3fe42b0c766036d8eb4d8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 31 15:49:52 2020 +0200
+
+    Use PrintEmptySpace instead of \n inside Operations
+
+commit 048651e10fd372008dfa5fc038b0e02832223807
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 31 12:39:42 2020 +0200
+
+    Change possible values and behavior of UWPAppsRemovalMode option
+
+commit 004e764a7756bbd8cefeb510ef082761079032d6
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 23 21:14:19 2020 +0200
+
+    Rework UWPAppRemover to use PowerShell in a cleaner way
+
+commit aee198c9a7cff6a8453f477a13f28ddfb5159120
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 23 19:05:01 2020 +0200
+
+    Rework FeaturesRemover to use PowerShell in a cleaner way
+
+commit cc704a8cca5a0aafdee68a95d05e7f1d2199c0f0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 23 14:06:02 2020 +0200
+
+    Disable sneaky PowerShell telemetry
+
+commit f9971488e95dce60ee11db10d4fd88a292a56431
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed May 20 20:24:37 2020 +0200
+
+    Update dependencies
+
+commit 3dd3e3fc4728fa3a0123c57a661e47d0ccce5f81
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed May 20 20:22:47 2020 +0200
+
+    Improve and clean-up PowerShell API usage
+
+commit df4404fac0b43f22998aef0f0f0fce17f153e3f0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue May 5 09:05:45 2020 +0200
+
+    Improve error message in case of wrong input in menu
+
+commit 7bc4c195b583272cc1ac929dea2047fcd19ff8fb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 4 18:04:48 2020 +0200
+
+    Do not disable all UWP apps after removing Store app
+
+commit c517150cacc385ee8149b4766055d879c8ca4470
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Mon May 4 16:22:26 2020 +0200
+
+    Fix Snip and Sketch app removal
+
+commit 7539129d401061b5d26d2b72de66b82a755cb119
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 4 09:07:20 2020 +0200
+
+    Reword menu entries' full names
+
+commit fe696a1a36b3ead6ac3663abc285aabe3a2bed38
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 3 12:40:20 2020 +0200
+
+    Let ServiceRemover fallback automatically to registry key removal
+
+commit 47cb53288960437c161a14e539f06682dc4f15bf
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 3 12:36:19 2020 +0200
+
+    Fix PowerShell error/warning message printing
+
+commit a05cca6af960623d6ed7500ce9bb8c68c88c8044
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 3 11:33:00 2020 +0200
+
+    Update test dependencies
+
+commit 6869cb6451a946bb7986210211cf09d251e75b7d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 3 11:29:55 2020 +0200
+
+    Add tests for WindowsDefenderRemover
+
+commit cc95161212cf49656d34036593888542d2bc4603
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Apr 26 14:15:40 2020 +0200
+
+    Improve menu look and feel
+
+commit 36a357113abb05e261fdf0a62b0307f372972475
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Apr 26 13:09:56 2020 +0200
+
+    Improve behavior of user consent prompt
+
+commit ecc30b34e18fbf5cfeeefeedf61ef6ad8b3b2d6c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Apr 26 12:25:23 2020 +0200
+
+    Rework the way OneDrive setup is blocked for new users
+
+commit aeb2913aafabffcfd755dc670652efc7b8d4b988
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Apr 18 20:57:39 2020 +0200
+
+    Implement system restore point creator for tests
+
+commit 25ed230ac8471270e30b7a6d9e754d15adb9a77f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Apr 16 15:28:40 2020 +0200
+
+    Add acceptance tests for SystemAppsRemovalEnabler and UWPAppRemover
+
+commit fccabb319b8c6d81048bc944e2f3402a957853ec
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Apr 11 20:55:52 2020 +0200
+
+    Add simple acceptance tests for many Operations
+
+commit a969115fd284309ab1a00af2343e8fdd073f6c7d
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Apr 11 19:31:50 2020 +0200
+
+    Refactor some function names
+
+commit eb5ccf91bbffc467e0c9d1fc1eee956f528697c0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Apr 11 19:25:19 2020 +0200
+
+    Run schtasks directly instead of passing through CMD
+
+commit cc10642cf040726d5eb864aa0ec30bdf3a77c879
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Apr 10 17:34:33 2020 +0200
+
+    Print stack trace when an operation fails in debug builds
+
+commit e5bcc0375cadf281190328b44cbd961812a28f11
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Apr 10 17:31:36 2020 +0200
+
+    Reorganize files and add tests project
+
+commit f7129034fa88aef8ad55a7086453963406f9abd0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Apr 10 13:47:34 2020 +0200
+
+    Update PowerShell dependency too
+
+commit e211276b882a8650ac47b0a006233842d63610d1
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Apr 10 13:44:52 2020 +0200
+
+    Fix broken BrowserOpener since .NET Core adoption
+
+commit 2ed996f187ba427b89e19b522b977fc04676759f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Apr 10 13:42:59 2020 +0200
+
+    Vast refactoring to make Operations print UI messages through an interface
+
+commit 16f57ef2b60c7f2ef3ed0f8bab4c41c37fc531e8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Mar 29 18:03:36 2020 +0200
+
+    Fix a potential security issue in InstallWimTweak
+
+commit 126bf80175415ea56db93cfd207864e9761ba56e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Mar 29 12:50:42 2020 +0200
+
+    Update to .NET Core 3.1
+
+commit a1c669c776c4a5632ac09b197cf927b5e4027215
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Mar 28 21:43:38 2020 +0100
+
+    Remove global state and use DI wherever possible
+    Futhermore, extract install-wim-tweak only if used
+
+commit cbb7cb429f9cb40ad8009af41270fddd935e25d1
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Mar 28 16:14:24 2020 +0100
+
+    Do not allow install-wim-tweak by default
+
+commit 9009002e19c84b2d7f0c48c5fbea24846017feb8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Nov 25 20:08:19 2019 +0100
+
+    Update supported Windows release name
+
+commit f30867ce286e44f7a5f7b46a020c60a381086d34
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 23 17:32:08 2019 +0100
+
+    Support Windows version 1909
+
+commit de9829d271385231449ab14194f25313111c3d06
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 23 17:27:15 2019 +0100
+
+    Highlight post-uninstall operations headers
+
+commit ed5822ec7432cd7b84f833039238b83ff118ce69
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 23 16:25:03 2019 +0100
+
+    Merge People and MailAndCalendar UWP app groups
+
+commit 2481c467c84f9f6bd6c637ada1dcc10c354267d5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 23 15:36:01 2019 +0100
+
+    Disable web search together with Cortana and fix firewall rule
+
+commit bb644ea627ac3bf38a8dde7dd253d35612b66e2c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 23 14:47:35 2019 +0100
+
+    Tweak some menu entry explanations
+
+commit 397c785987014170d6774f89040a8c057d8300bc
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 23 14:25:53 2019 +0100
+
+    Improve OneDrive removal process and explanation
+
+commit e7bdd8353edddfcec4633bfa1fff2d45a684b910
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 23 10:34:05 2019 +0100
+
+    Tips disabler: improve explanation and disable one more policy
+
+commit a06f7fced3f99c280a7a553b4786f8dc663d0880
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 22 19:12:48 2019 +0100
+
+    Add Finance and Sports to Bing UWP app group
+
+commit 2a1cc1f3b91627db616d4d8b24f528bbf1cb21e2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Nov 19 20:14:56 2019 +0100
+
+    Remove a scheduled task that doesn't exist anymore
+
+commit 10bf74919e8337e5d5d01a32d5dde216f5a49950
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Nov 19 16:37:21 2019 +0100
+
+    Update dependencies
+
+commit 9c7221c02785c6c142cc7a9213c2fe73b460d569
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Nov 19 16:02:17 2019 +0100
+
+    Lock extracted install-wim-tweak binary while the program is open
+
+commit f3e7c23a85e82a7a4a746365e19e81f10d814e1b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 17 21:10:58 2019 +0100
+
+    Make system apps removal enabler smarter and more robust
+
+commit 24977087e3ebb60b64dbedf9e6c7b086f0dc1983
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 16 12:33:54 2019 +0100
+
+    Make start/stop service functions a bit more robust
+
+commit b2e1023c8946aa4d0a3bcd817b7048fcfe1f2687
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 15 21:55:33 2019 +0100
+
+    Fix regression introduced by commit bcf5dad
+
+commit c26ece84e03e3bf41d59cfb8b551b3e8e0f8b2f2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 15 20:44:48 2019 +0100
+
+    Bump version to 3.2
+
+commit bcf5dadd0ac38417a628117f89c0e0b0b0a660a3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 15 20:43:27 2019 +0100
+
+    Delete temporary state repository DB copy when replacement fails
+
+commit a18b21004f5fc2adcfca0489957f022c97b937a2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 15 19:17:17 2019 +0100
+
+    Attempt to fix state repository DB replacement failing due to file being used
+
+commit 5a58fa613a5b81d2fce7bc0f3bc943a028370f7b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 3 13:24:34 2019 +0100
+
+    Improve and tweak some menu entry explanations
+
+commit 2b20ff9f35f02ddc2d8bc4c3a2b441a7d98589c9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 2 16:24:36 2019 +0100
+
+    Improve Readme
+
+commit 46100b29934a3479652a6ed356c02371bda94b39
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 2 16:19:54 2019 +0100
+
+    Update contribution guidelines and enum styling convention
+
+commit c4fe672b697c8a542e5c87dad5c10bde2e70e3fa
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 2 15:57:39 2019 +0100
+
+    UWPAppRemover: make service removal the last post-uninstall operation
+    Since service backup failure throws an exception, if that happens we don't want to abort other post-uninstall operations
+
+commit 9f6b930d6b3c2073cd6e297810abeaf65722a931
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 2 15:50:46 2019 +0100
+
+    Improve error message when service removal fails
+
+commit ad44c066f44206ceda18f4c9f0a83dd644e65191
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 1 13:07:03 2019 +0100
+
+    Ignore pre-existing state repository copy in working directory
+
+commit e5edddfe12b0e69e1ef59165fe76ff1b7465dbf1
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 1 12:03:23 2019 +0100
+
+    Move all install-wim-tweak related code in a specific class
+
+commit 3e5f1189f5ab58146224a2be318c538c42f99c7e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Oct 31 20:28:20 2019 +0100
+
+    Fix features removal and improve code organization
+
+commit 3bc4b38efadbc946c459a9afa83dcc65a8a85438
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Oct 31 20:09:29 2019 +0100
+
+    Tweak text formatting in UWP apps removal
+
+commit 6c701c9e1bb56553fb1d441935203cce672a2d55
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Oct 31 19:39:46 2019 +0100
+
+    Fix Windows Defender services removal
+
+commit d3de62512a13a63cec1309cf7c4b04320d485289
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Oct 31 19:04:35 2019 +0100
+
+    Fix and increase code reuse for Security Center removal
+
+commit 2a2ab9727e89f6f1f94272c147ef37cf80ef9953
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Oct 31 13:10:21 2019 +0100
+
+    Make Edge removal menu entry functional
+
+commit df3aa57e4fd4075973f7188623cd8e1de84df201
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Oct 31 12:20:54 2019 +0100
+
+    Kill child processes on exit or termination
+
+commit 70bcf9a0d47bd4543d261f3a0c7319ef09697f0f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Oct 30 14:55:31 2019 +0100
+
+    Leverage using declarations in more places
+
+commit 1d45ba45b8c35920564cf04b160b70aa86ae64de
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Oct 30 14:16:36 2019 +0100
+
+    Optimize and improve ServiceRemover logic
+
+commit 1b1c60135c0bb54d2b39e176234e0db738abe655
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Oct 30 13:54:44 2019 +0100
+
+    Fix TokenPrivilege static properties
+
+commit a87688dce3cc18bca64a0bb5852916258b90dbd4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Oct 30 11:42:37 2019 +0100
+
+    Put default settings in C# code and generate JSON file if needed
+
+commit b9eb610e3ecdd236515a058eaf37fceecb275e65
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Oct 30 10:37:15 2019 +0100
+
+    Use C# 8 nullable reference types
+
+commit 7e8ec7487d99ba2c8e76d534547722f81b300898
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Oct 29 18:59:52 2019 +0100
+
+    Make obtaining token privileges easier, safer and cleaner
+
+commit b130a973a5351bfdcfe1e38d4edcb6a5bec36310
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Oct 29 15:32:22 2019 +0100
+
+    Add configuration for standalone publishing
+
+commit 58aee7ceb60ca9220cb94e092f6d8a341550c260
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Oct 29 14:44:51 2019 +0100
+
+    Port app to .NET Core 3.0
+
+commit 7df67f6cc2122ae1bca4abab68c5add9f7e3954f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Oct 28 18:56:46 2019 +0100
+
+    Fix a bug that could occur while stopping AppX services in SystemAppRemovalEnabler
+
+commit 2bed29e48d2c9bcc7f46132d4af367654baed756
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Oct 28 13:11:35 2019 +0100
+
+    Change versioning system
+
+commit 352d066d014b8cf6d277ff998ababbb7f5e6543a
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Aug 7 14:48:58 2019 +0200
+
+    Move all menu-related code in Menu class
+
+commit 8e7cac7723031d38c775c47a12472e7ae7eb6807
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Aug 7 12:08:08 2019 +0200
+
+    Use polymorphism for menu entries
+
+commit 8232dc36f3064fef5aa24a1ea27e5039bc621a14
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 6 21:45:20 2019 +0200
+
+    Make Program and Configuration classes cleaner
+
+commit 77f5113133988d90bbcf7788e8ab926a2c6e780f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Aug 6 21:43:49 2019 +0200
+
+    Minor code tweaks here and there
+
+commit 5e70c51a3bb4411937be7b48af53890c5da20e55
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 21:06:56 2019 +0200
+
+    Make OneDrive uninstallation process more reliable and less buggy
+
+commit 42a6c5b2e9f709b34dee983433a5c66f7c7afbea
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 17:59:24 2019 +0200
+
+    Bump version to 1903.1.1
+
+commit 97aeaca0a4eb2edbdc87d785cb48a8d3ca6e7412
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 17:57:06 2019 +0200
+
+    Add some more Edge and OneDrive residual directories
+
+commit 5b18bec7b5a2bf9a09a9e86247e578b0fdb31431
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 17:23:07 2019 +0200
+
+    Remove some scheduled tasks that can't be disabled programmatically from default config
+
+commit d07c3b906b8b7b1aca10f4ab6fa34c4271a1397c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 17:19:42 2019 +0200
+
+    Minor tweaks here and there
+
+commit cf228aca70bebdeb228deaafe2ead56b24166bea
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 16:44:02 2019 +0200
+
+    Add some more Windows Defender services
+
+commit d469872ffc53e2eaf26f8bc3f3882dc68261861e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 16:38:45 2019 +0200
+
+    Rewrite ServiceRemover without using PowerShell
+
+commit b7320748d9d5bfb770286e2bd34c32ed411ef647
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 22 12:17:55 2019 +0200
+
+    Rename some methods and use .NET API to stop/start services
+
+commit 54a7177723545a360573b7a3b4da87f39c20dd3e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jul 19 21:45:38 2019 +0200
+
+    Remove event handler workaround for PowerShell scripts output
+    It wasn't really needed
+
+commit 5fce0d0ee0a31a18c79de00d840c6146ba363f14
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 4 16:32:01 2019 +0200
+
+    Fix errors when deleting folders marked as read-only
+
+commit 66747e9c9cfd91cbfb0e904fc2cf5cf6f05032da
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 4 16:20:41 2019 +0200
+
+    Properly handle 64 and 32 bit registry views
+
+commit 04c451cc07aa99e10a4ee6f966bbddcecf0958c3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 4 13:32:46 2019 +0200
+
+    Minor UWPAppRemover refactorings
+
+commit e1564b8ddb2279c093d0ec28aa75b3a31732f1d2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Jul 4 13:00:34 2019 +0200
+
+    Improve reliability of service backup script
+
+commit 786c9935a62bc52de78e122e98314b641b578676
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jul 3 21:51:51 2019 +0200
+
+    Add removal of 3D Objects folder
+
+commit 9e85eb46ba5bf29d3f5755cdad9b80ec989c7b16
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jul 3 21:28:17 2019 +0200
+
+    Improve OneDrive removal formatting
+
+commit a85852c851edb173a86d25f5406e916e730c8bd1
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jul 3 21:24:24 2019 +0200
+
+    Improve explanation for system apps removal enabler
+
+commit 0bd5befa129958b7a5bb3f701a3d8bec5201bdac
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jul 3 20:40:52 2019 +0200
+
+    Remove scheduled task that shouldn't have been disabled
+
+commit 8b48caa421d53ece08f56430f0a534e56729efcc
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jul 3 16:16:30 2019 +0200
+
+    Remove install-wim-tweak usages for components that don't exist anymore
+
+commit dc8a3071d75c9654048a9f3f8f85661221c7edea
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Wed Jul 3 15:54:58 2019 +0200
+
+    Update Readme to latest changes
+
+commit 6778d841294f1656c5764ed4e979f8ac69aa1941
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jul 3 14:50:00 2019 +0200
+
+    Add option to prevent use of install-wim-tweak and update explanations
+
+commit 503efd41ec6ea1155d579ddeea84518bc742b435
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Jul 3 12:02:32 2019 +0200
+
+    Remove wrong suggestion for disabling updates on Windows 10 Home
+
+commit 9cd51dfb5be3ecdbdc3e455c46ee2a5c491ea9b8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jul 2 20:43:33 2019 +0200
+
+    Cleanup unexisting scheduled tasks and add some new ones
+
+commit ff5479105c884b74ab7f3f8bb679644d3ab67726
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jul 2 19:55:05 2019 +0200
+
+    Add explanation to OneDrive removal
+
+commit b033eb294e1a862fb8bb3871d8892520aa6be623
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jul 2 19:26:37 2019 +0200
+
+    Fix system app removal enabler not always working and split SystemUtils class
+
+commit 163bb1bec4802977b21172eb1d89eb00286c7627
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Jul 2 18:24:12 2019 +0200
+
+    Improve and fix OneDrive removal system
+
+commit 6eaa4821c19f89bebbbab5c626628ad4146c5e99
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 1 18:07:40 2019 +0200
+
+    Implement restoration of Photo Viewer after removal of Photos app
+
+commit 14c3e0f7470e6c1c830f14b626fe4a328842e9d7
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 1 15:04:26 2019 +0200
+
+    Change license to BSD 3-Clause Clear and include it into the program
+
+commit dbfa304c0fe187e1b546e9477dc2a0df9cbc9fae
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 1 12:24:28 2019 +0200
+
+    Specify that some apps may not have provisioned packages
+
+commit 7033f8f274b0a36587598886044ee8430ffdf4f8
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 1 12:06:21 2019 +0200
+
+    Add ability to remove Edge with UWPAppRemover
+
+commit 8e486b66b48b82e630625fce6cf762bdb5ab65de
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 1 11:36:57 2019 +0200
+
+    Update PowerShell SDK to version 5.1
+
+commit 625b489949fd16652cd8de9f9a3cb25ab293b400
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jul 1 11:12:33 2019 +0200
+
+    Remove old method for uninstalling Edge (not working as intended on 1903)
+
+commit 7dc6d8c939a8df62d0772c0f11e22d26c114b0f5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Jun 30 13:05:55 2019 +0200
+
+    Various Program class refactorings
+
+commit 884bb4c340a9dda564f61fab29e005babbe8ce8a
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Jun 30 12:48:38 2019 +0200
+
+    Fix successful uninstallation of SecHealthUI message being written in case of failure
+
+commit de7630548a0f799f5237ec42e7070e4971da9ec4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 29 17:12:57 2019 +0200
+
+    Implement Security Center app removal
+
+commit aeedeae322960259331f5407525c367b89b332d2
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 29 16:38:03 2019 +0200
+
+    Disable Windows version check in debugging builds
+
+commit faf823900c3b0fc0066169e2fb46910227919e44
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 29 16:23:17 2019 +0200
+
+    Implement system UWP apps removal enabler
+
+commit 5f8dad35093943cc35aeb9c506ca934601922c1a
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 29 14:43:04 2019 +0200
+
+    Update dependencies and change target .NET version
+
+commit 0f00cf95a53120c21e766c5cf60689e2f17df3c3
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 29 12:03:56 2019 +0200
+
+    Improve functions to run processes synchonously more conveniently
+
+commit 6e9dc7795f6513b636f26f40eee5a0eab8ae2549
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Jun 29 10:21:20 2019 +0200
+
+    Don't throw an exception if a feature is not implemented
+
+commit aa289f9f036c879320bbca32f0819be5a229bc7c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 28 22:24:18 2019 +0200
+
+    Add notice to disable tamper protection before removing Defender
+
+commit 80e6784b8f843e1f1f7174f05ddaf9db318f1ee0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 28 18:39:26 2019 +0200
+
+    Uninstall provisioned packages regardless app is installed
+    This allows a user to re-run app removal only to remove provisioned packages a later time
+
+commit 410bcbcf8c689aca4573920cb1449f1e547f0cb7
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 28 18:28:33 2019 +0200
+
+    Add config.json option to keep UWP apps provisioned packages
+
+commit 80d35bc1245743fb875f03cd861484cddcb12902
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 28 17:49:48 2019 +0200
+
+    Add parameter to UWPAppRemover to keep provisioned packages
+
+commit 0ecb6323bbcef52888a663636ee3da65f92b3923
+Merge: 9b597da 508f152
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 28 17:14:38 2019 +0200
+
+    Merge branch 'master' of https://github.com/Fs00/Win10BloatRemover
+
+commit 9b597dae0d7162601940ed2b752ae236d37b6570
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 28 17:14:03 2019 +0200
+
+    Remove Edge backups folder
+
+commit 050bbdf57536049d906dab0f13cfeefc87f744c1
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Jun 28 17:01:43 2019 +0200
+
+    Delete services/tasks that don't exist anymore in 1903
+
+commit 508f152f8e8afc56cfa71934bda6deaa377accfc
+Author: Francesco Saltori <francescosaltori@gmail.com>
+Date:   Thu May 30 09:58:58 2019 +0200
+
+    Add funding link
+
+commit aa5ad322745b2e33ed43e5377eedfd771a0385d4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed May 29 21:07:31 2019 +0200
+
+    Add 1903 specific tasks/services and bump version to 1903.1
+
+commit d6b4d314ff8ecb2e4628e053619cb1b1282faa2b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed May 29 20:33:41 2019 +0200
+
+    Ignore key presses during operations
+    Avoids direct jumps to the menu at the end
+
+commit 2e4fd0a11981be25f6d88e8c042b03695fdd07e4
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue May 28 21:11:07 2019 +0200
+
+    Update Readme including latest features and info
+
+commit 5d24d8fd2f46ffc2d936284a285fa317efb7429f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue May 28 20:46:24 2019 +0200
+
+    Apply minor refactorings
+
+commit 6fcee5f4e75aaa96979cc52b99b9960cfcd2b98c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue May 28 12:30:03 2019 +0200
+
+    Fix protected telemetry services removal
+
+commit 1df5c617fb840421a6ca089ba78b4b9e9e45ff7f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 27 21:06:46 2019 +0200
+
+    Implement removal of "protected" telemetry services
+    Needs further testing
+
+commit 80ff97a3369ce4854f73271624286612f0a07677
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 27 15:40:28 2019 +0200
+
+    Improve Paint & Print 3D context menu entries removal output
+
+commit c0803b57a56f5668a2a819ab9b4950f8ff1b034b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 27 15:34:40 2019 +0200
+
+    Improve robustness of UWP app removal script
+
+commit 5ec47cd96e08b4c3d3b55753fe1113acad140a83
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 27 14:41:21 2019 +0200
+
+    Fix unability to read operation exception message
+
+commit 7ce2bb81f62f4ca7109f4fa01b756bfb60debdd0
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 27 13:33:40 2019 +0200
+
+    Add manifest so that the app will always ask for admin rights
+
+commit e3ae28a0a29f495d8a37e88fa9d53913c00d3feb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon May 27 13:05:21 2019 +0200
+
+    Move some SystemUtils methods to ShellUtils
+    Plus various refactorings
+
+commit 982ea4f1cd6103ed95fff47276a5d6bdfc39a5ae
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun May 26 22:12:59 2019 +0200
+
+    Implement Store removal
+
+commit d17c498b034ca44cc2d330359bc25208fa2e4454
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat May 25 18:56:31 2019 +0200
+
+    Refactor UWP apps post-uninstall operations methods
+
+commit 06fb9ca7f20f42637017fe3f10fcad983e5f8b4c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri May 24 17:32:01 2019 +0200
+
+    Separe Paint 3D and Print 3D post-uninstall operations
+
+commit 6fe11448fc1d64bee542880286a0da61224baacf
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri May 24 17:27:00 2019 +0200
+
+    Add some more scheduled tasks to default config
+
+commit a25fcf9d3230a5c2ad716449a920ace8fcc6456f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri May 24 14:15:25 2019 +0200
+
+    Improve class structure to allow higher code reuse
+
+commit 3310e5fabc34d65f679714d32fe61ef8a91fffc6
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri May 24 13:48:02 2019 +0200
+
+    Update and improve post-uninstall operations for Paint 3D and Maps
+
+commit 40857f9e6c2c0dc96abef5c576d9fb4399709bd9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri May 24 11:48:44 2019 +0200
+
+    Add explanation to WER and telemetry disabling
+
+commit 7cb8efbd1b0e5ea58a4380401e3dbccf55bcf661
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu May 23 19:22:51 2019 +0200
+
+    Block also DeviceCensus in telemetry disabling
+
+commit 9c45daae3ce4bf3972bd900647f8512932ba2c45
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu May 23 19:13:16 2019 +0200
+
+    Fix reg key that couldn't be opened in Defender removal
+
+commit a35df1758abc2ba74ba2aca7c52fb0e0ad9e5021
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu May 23 19:03:52 2019 +0200
+
+    Implement shortcut to issue creation page on GitHub
+
+commit 54a9ea863c761b6e3013ad82cd2b783b962cc31e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu May 23 14:39:34 2019 +0200
+
+    Fix duplicate Utils folder
+
+commit 2c9807c34f837176f175f88f7f45739049fd855c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed May 22 21:14:04 2019 +0200
+
+    Rework application structure completely
+    This allows greater flexibility and eases maintenance of single features.
+    Telemetry disabling has now a specific menu entry and services belonging to a particular feature are removed when disabling that specific feature.
+
+commit 26fb49af2dab3dcac8ba49d13728610baa0874a1
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jan 14 21:04:26 2019 +0100
+
+    Bump version to 1809.1.1
+
+commit 1d1093e2cdc7483549a4b65e83c04d621754b019
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jan 14 20:53:43 2019 +0100
+
+    Tweak formatting here and there
+
+commit 13372dc370df8207b61f0cd63376451ffb8dca3f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Jan 14 20:18:58 2019 +0100
+
+    Add alternate mode to ServiceRemover that uses reg delete
+    Fixes Windows Defender services removal
+
+commit 4ce88f14baf53ce258087e067a97b466a7333841
+Author: Francesco S <francescosaltori@gmail.com>
+Date:   Fri Dec 7 16:30:16 2018 +0100
+
+    Created contributing guidelines
+
+commit cddb5cdc071c4f9d53a979dd7d0d7a8accf76fce
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Dec 6 20:23:03 2018 +0100
+
+    Forgot to add a thing in Readme
+
+commit 48dc81d22419ca3f6308735ef27cbe770c6ac575
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Dec 6 20:18:06 2018 +0100
+
+    Added README
+
+commit 06affd39104c43e89f69c41d8a96452a9803bc3c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Dec 6 19:46:44 2018 +0100
+
+    JSON parsing won't accept anymore missing properties
+
+commit ecf2028b7dbf151e9316b6c9bbd4a69811ce0f7f
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Dec 5 20:37:41 2018 +0100
+
+    Ignore null values when parsing JSON
+
+commit 0320a590839931527a63929caea11dfd1aa3b772
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Dec 5 20:37:17 2018 +0100
+
+    Use ServiceRemover when deleting SecurityHealth services
+
+commit 21bf6238092b435bb19e0f18dc332c38695bf9d9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Dec 5 19:37:29 2018 +0100
+
+    Added missing dependencies check
+    Plus minor cosmetic changes
+
+commit 1384a2ce001b97110cc12ad0d52eb7d36552d0cb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Dec 4 21:00:04 2018 +0100
+
+    Added "protected" services removal recommendation
+
+commit c341872e2bb11d441a1eb9c102ef6dac39167eef
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Dec 4 20:52:02 2018 +0100
+
+    Minor tweaks to menu naming and ordering
+
+commit ed6cac5f30bd2a41ad0b402cfa6b8cb88fbc9dac
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Dec 4 20:48:46 2018 +0100
+
+    First implementation of Configuration loading from JSON
+
+commit 138440ee0939a88fa63f716057a84230906e77b7
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Dec 3 19:11:45 2018 +0100
+
+    Cosmetic changes
+
+commit bc8c7c90dd0c01cf3e36e0eee1d8d1ec02a09862
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Dec 3 18:33:37 2018 +0100
+
+    Fixed a bug in provisioned package removal
+    Also post-uninstall tasks are now executed only if app has been uninstalled
+
+commit 667dfc176eeaa65e16f07feb6e80e5294a7223d7
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Nov 19 19:35:59 2018 +0100
+
+    Move utils in a separate folder, added custom Console.WriteLine overload which allows to specify a color
+
+commit 4c7ac22878ce8450dcb7b67546d67de8c32ed1f9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Nov 19 19:23:04 2018 +0100
+
+    Improved PowerShell output workaround and moved telemetry disabling logic outside ServiceRemover
+
+commit 46962cb9bdbc9a85a1d37d1978e0f4b8584df43c
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 18 14:06:22 2018 +0100
+
+    Fixed and improved auto updates disabling
+
+commit ef643a766f443caa3551f94a2f938650eb2f04e9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sun Nov 18 13:15:18 2018 +0100
+
+    I've given up to remove "protected" services programmatically
+
+commit f4f3111b4826b3a5c137e9648979f1650342bfe9
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Nov 7 20:45:48 2018 +0100
+
+    Rewritten services backup using PowerShell
+
+commit 4158b80c2b8ad05007ec96afc45ede9a77a54ae1
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Nov 7 20:27:22 2018 +0100
+
+    Continued implementation of "locked" services removal
+    Not fully working atm
+
+commit 64b32bcce1fd380ca0c64d949e6c49f3952dd77e
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Nov 6 20:45:08 2018 +0100
+
+    Reworked app removal script and started reimplementation of service removal
+
+commit f95660c02344dc1157abbdc1dcd41e028a489a38
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Mon Nov 5 20:35:25 2018 +0100
+
+    Better reimplementation of UWP apps removal (untested)
+
+commit 8d047e693f32ea1cd946f9ccfa987ad80aec548b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 3 18:10:16 2018 +0100
+
+    First implementation of services removal
+
+commit cfe164f1591c8fca75f20a1c16dc580cba324556
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Sat Nov 3 14:13:49 2018 +0100
+
+    Implemented services backup
+
+commit 8b4383a97b192b76119d49d0c205dd9e67810821
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 2 20:38:13 2018 +0100
+
+    Added a workaround for PowerShell error stream bug
+
+commit 8995b52ccac9458bb764e6edacea6b9cd610f8ef
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 2 19:34:51 2018 +0100
+
+    Added more UWP apps packages
+
+commit 237f6688af23ddf1db98315a5ef0c5b5f1e05b8b
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 2 18:50:38 2018 +0100
+
+    Implemented UWP apps removal
+    Plus various code tweaks
+
+commit 46a013ad2645d24d2a20b72889a26b95480e0e7a
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Fri Nov 2 15:50:59 2018 +0100
+
+    UX improvements, better implementation of Windows features removal
+
+commit 9cb762f3f0b0a87f6c99f605e535ff366b0e5354
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Nov 1 21:15:27 2018 +0100
+
+    Reimplemented IE11 removal using PowerShell
+
+commit ee14b70b05ac99ca7be045e496f469f7f24200f6
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Nov 1 13:49:24 2018 +0100
+
+    First implementation of IE11 removal
+    It'll probably rewritten using PowerShell
+
+commit 42e711c1a211bc356de32c6d6a72d62f695979fb
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Thu Nov 1 09:38:04 2018 +0100
+
+    Implemented WER and tips disabling, added credits
+
+commit 8d4ed2623a3575980afcc92cd35e93ee3bf393d7
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Oct 31 18:04:38 2018 +0100
+
+    Restructured classes, implemented OneDrive removal and Windows version check at startup
+
+commit 2954bbccda4bab58a01a5f1a892013c185e8c4b6
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Wed Oct 31 12:35:17 2018 +0100
+
+    Implemented MS Edge, Defender removal and scheduled tasks disabling
+
+commit ddedcb407d3618378c9bf647927e6bb8eb59ac50
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Oct 30 20:19:24 2018 +0100
+
+    First implementation of Cortana and updates disabling
+
+commit 00e44b7327ccee52ff5fc0b7711fcdc8671f06e5
+Author: Fs00 <francescosaltori@gmail.com>
+Date:   Tue Oct 30 19:16:02 2018 +0100
+
+    Created base program structure
+
+commit 8fb199d7c0c9cac0e56abbb751d66bd4f533be1d
+Author: Francesco S <francescosaltori@gmail.com>
+Date:   Tue Oct 30 17:14:47 2018 +0100
+
+    Initial commit

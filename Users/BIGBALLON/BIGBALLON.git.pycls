@@ -1,0 +1,2584 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit b314d43e918ad8763c5882730ad55a1eef5e8347
+Author: Vaibhav Aggarwal <vaibhava@fb.com>
+Date:   Thu Jan 14 13:13:55 2021 -0800
+
+    Set compatible Manifold client parameters.
+    
+    Summary:
+    1. Pycls has been using "fork" as the process start method and depends on it for efficient starting of new processes. We are passing this to ManifoldClient as well to retain this default.
+    2. Setting Manifold path in the launch script.
+    3. Adding fvcore to requirements.txt.
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25719504
+    
+    fbshipit-source-id: c3109581b1277947edb2663237303883cb217357
+
+commit 10801aa2227dcf1585978065283f3b8c21ac4b28
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update logging to use PathManager
+    
+    Summary: Update logging to use PathManager
+    
+    Reviewed By: vaibhava0, ppwwyyxx, takatosp1
+    
+    Differential Revision: D23869199
+    
+    fbshipit-source-id: 2f705a1c3cfc708f01446f032beb5ef25cfc53e7
+
+commit 87e3c31a660c4593564ad06860513242bacbaa69
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Use PathManager for io
+    
+    Summary: Update io to use manifold instead of gluster
+    
+    Reviewed By: vaibhava0
+    
+    Differential Revision: D23854788
+    
+    fbshipit-source-id: bbe2fef9e50657e521addf85e5fb297f228817ab
+
+commit 6a08c458999114e6ba4fd291b7aa911fb828e3b8
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update checkpoint to use PathManager
+    
+    Summary: Update checkpointing to use PathManager to support manifold
+    
+    Reviewed By: ppwwyyxx, takatosp1
+    
+    Differential Revision: D23855299
+    
+    fbshipit-source-id: 9bb81aaadcb4c107158fa66ecd96c293862c74a4
+
+commit 149fde75bfda8930030c9248a061a8ec0f88967c
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update datasets to use PathManager
+    
+    Summary: Load datasets from manifold instead of gluster. Imagenet is loaded from local package so does not need to be updated
+    
+    Reviewed By: vaibhava0
+    
+    Differential Revision: D24165539
+    
+    fbshipit-source-id: c17ae1e0cf0c6069861de1d9854969ae1af81efc
+
+commit b5063a6d45d0a1d1128b20fd53cb521bc5bbead9
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update setup_env and config to use PathManager
+    
+    Summary: Enables use of PathManager in pycls and updates config to make use of it
+    
+    Reviewed By: vaibhava0
+    
+    Differential Revision: D24163964
+    
+    fbshipit-source-id: b9075e5eb4a167065351d348696bf923e65b1c92
+
+commit ca89a79161e437deca8f39f31ceaef3b05873f30
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Nov 20 14:18:09 2020 -0800
+
+    train enhancements: smooth labels, mixup, mixed precision (#121)
+    
+    Summary:
+    notes:
+    -benchmark.py: properly time w mixed precision and smooth labels
+    -builders.py: default loss is now SoftCrossEntropyLoss
+    -config.py: options for MIXED_PRECISION, LABEL_SMOOTHING, MIXUP_ALPHA
+    -net.py: added smooth_one_hot_labels, mixup, SoftCrossEntropyLoss
+    -trainer.py: uses smooth labels, mixup, mixed precision
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/121
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25126890
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: dd4f67ed5202109b372bbd4ed9f429f08238b719
+
+commit ace492dd97b5d80bd1662de3e322ccf5f0be6371
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Nov 20 10:11:39 2020 -0800
+
+    trainer minor refactor and tweaks (#120)
+    
+    Summary:
+    notes:
+     - checkpoint.py: ability to save best checkpoint in training so far
+     - config.py: removed EVAL_PERIOD and CHECKPOINT_PERIOD options
+     - trainer.py: log torch, cuda, and cudnn versions
+     - trainer.py: resets random seed in python random as well now
+     - trainer.py: reset meters at start of epoch(), iter stats valid at end
+     - trainer.py: always evaluate model and save checkpoint
+     - trainer.py: save best checkpoint during training
+     - trainer.py: refactor helpful to push more functional changes later
+     - *.yaml: removed EVAL_PERIOD=1 from all config files
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/120
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25109775
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 34177d316b6b64dde52dfabbd88e0cf95a41bad2
+
+commit a5e914691c3e03d99b1a12e0e807a3baf8f2dc5d
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed Nov 18 16:32:09 2020 -0800
+
+    refactor transforms.py, added autoaug and randaug (#119)
+    
+    Summary:
+    High-level comments:
+     -fully backward compatible changes (+)
+     -code cleanup and simplifications (+)
+     -adds autoaugment and randaug (+)
+     -for backward comp. still use opencv loader and image resize (+/-)
+     -still provides custom implementations of transforms (+/-)
+    
+    Notes:
+     -augment.py: contains clean implementation of autoaug and randaug
+     -augment.py: also contains visualization utilities for augmentations
+     -cifar.py: no longer depends on transforms.py (simplifies transforms)
+     -cifar.py: has its own very simple inlined transforms in _prepare_im
+     -config.py: exposes options for controlling aug and pca jitter
+     -transforms.py: now all operate on HWC float images in RBG order, yay
+     -transforms.py: a lot of standardization / simplification
+     -transforms.py: adds wrapper for augmentation policies
+     -imagenet.py: simplified, can use autoaugment, can control pca aug
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/119
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25040766
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 3412738742853ab45783e9c18eb5fae4b56e58de
+
+commit 35429e83fad2de09f579d54f93f901efea65af47
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Sat Oct 3 19:22:51 2020 -0700
+
+    updates for pytorch_nightly, use new faster SiLU (#115)
+    
+    Summary:
+    -meters.py: replaced view() w reshape(), was causing issue in nightly
+    -blocks.py: use pytorch's (faster) SiLU if available (part of nightly)
+    -model_timing.json/MODEL_ZOO.md: updated effnet timings with faster SiLU
+    -test_models.py: more buffer for timing tests due to timing variability
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/115
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D24100122
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 0fd46128e38d41b64beb56b4706d5bab303663b5
+
+commit b759863a25429f560e4c2ea5ec9f20cb718a74f4
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed Sep 16 16:30:21 2020 -0700
+
+    fix compatibility issues w latest packages (#114)
+    
+    Summary:
+    (1) Revert to opencv-python==4.2.0.34. For some reason, with newer
+    opencv version we saw a 10x slowdown in the distributed data loading
+    
+    (2) Added hack to distributed.py to address this issue w MKL:
+    https://github.com/pytorch/pytorch/issues/37377
+    
+    Note: better solutions for these bugs are probably needed...
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/114
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23739829
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: a1238e9a0178a6bb702d325ef35ebccec135522d
+
+commit 1a33062717a1272f45368cae673dcf9e00ecc8a0
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon Sep 14 10:18:59 2020 -0700
+
+    miscellaneous core improvements (#111)
+    
+    Summary:
+    -checkpoint.py: added delete_checkpoints()
+    -config.py: tweaks and various new config options
+    -logging.py: minor tweak (allow full precision logging)
+    -meters.py: minor tweaks (output time_epoch to log)
+    -optimizer.py: plot_lr_fun(), lr_fun_lin(), updated lr_fun_exp(), MIN_LR
+    -trainer.py: minor tweaks (option to control VERBOSE output)
+    -models/blocks.py: added option for silu/swish activation function
+    -models/effnet.py: uses cfg.MODEL.ACTIVATION_FUN (can specify)
+    -remove .github/workflows/publish.yaml (will manually push to PyPI)
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/111
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23673018
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: ff9f3a90a34cb67c5f8995a160289e1d250d6c67
+
+commit 85e715edd329f58122a4d844005102beed0b4d73
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed Sep 9 15:55:02 2020 -0700
+
+    model refactor (#110)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/110
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23609955
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 57d0945411ab1813efb98445c8fe227b1ca4ffc8
+
+commit 4cf2524cdaa87064698427ee071061998cead733
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Tue Sep 8 17:50:09 2020 -0700
+
+    Fix packages entry in setup.py (#108)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/108
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23552764
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: e43ccd512d7fa0400e13ccaef7b1a5f394d918d7
+
+commit 3747e12c13812043801f6be0c2b990f39947ea09
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Sep 4 16:40:42 2020 -0700
+
+    automatically generate all MODEL_ZOO.md tables (#107)
+    
+    Summary:
+    -model_zoo_tables.py: generates all MODEL_ZOO tables automatically
+    -MODEL_ZOO.md: updated with latest data
+    -Note that numbers in MODEL_ZOO.md change
+    -Uses data from unit tests recently generated
+    -Added "Reproducibility Notes" to MODEL_ZOO.md
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/107
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23551313
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: febf26840b8574894c75d659ee44e0acc9b8a474
+
+commit 4449e4af19ec9b3400168dd756d305fc8931a32e
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Sep 4 12:25:44 2020 -0700
+
+    error + timing unit tests and refactored model_zoo (#106)
+    
+    Summary:
+    - big refactor of model_zoo.py (uses real configs)
+    - added unit tests for model *errors* for all models in model zoo
+    - added unit tests for model *timings* for all models in model zoo
+    - change to complexity counts: count activations in complexity_maxpool2d
+    - updating complexity unit tests based on new activation counts
+    - minor changes to checkpoint.py and io.py to support update model zoo
+    - added reset_cfg() to config.py for convenience
+    - added standalone model timer to benchmark.py and trainer.py
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/106
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23542543
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 65b6cd1b43c0ecf9155a9a6e8982716b720481ad
+
+commit ed77f8221278d54e9b5b352554e7cef94c417188
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Aug 31 16:42:14 2020 -0700
+
+    Refactor the getting started docs (#99)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/99
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23239086
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4ee60e2df10c193ac2337d330f3b4a991ccfa2db
+
+commit 4b69b68719863cb124f588d61f3a6a152cd6d41f
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Aug 31 16:35:59 2020 -0700
+
+    Support importing pretrained models (#98)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/98
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23239091
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 704ef32c06c10d628dfc058813a389e1eb272f7d
+
+commit c923a4d248da7766fd4e703204c1c7808559b603
+Author: Stanislau Hlebik <stash@fb.com>
+Date:   Fri Jul 17 17:07:23 2020 -0700
+
+    remediation of S205607
+    
+    fbshipit-source-id: 798decc90db4f13770e97cdce3c0df7d5421b2a3
+
+commit c5a6f26959dc9e4e6811cfbe1d4a7ebecb3bb463
+Author: Stanislau Hlebik <stash@fb.com>
+Date:   Fri Jul 17 17:07:23 2020 -0700
+
+    remediation of S205607
+    
+    fbshipit-source-id: 5113fe0c527595e4227ff827253b7414abbdf7ac
+
+commit 82928a6632707d619f71d44e61898bae709ebff3
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Jun 26 18:14:06 2020 -0700
+
+    updated compute_precise_bn_stats() and usage (#93)
+    
+    Summary:
+    -enabled precise BN by default, increased NUM_SAMPLES_PRECISE
+    -enabled precise BN computation on multi GPU (sync stats across GPUs)
+    -tweaked logic to computing var as mean(var(Xi)) for each minibatch Xi
+    -old code computed var as var(X) over the whole population X
+    -for small batches this can make a difference as var(X)!=mean(var(Xi))
+    -see https://en.wikipedia.org/wiki/Bessel%27s_correction
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/93
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D22271316
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: a63892a30115516b014bb28eb808fe8d9be84fae
+
+commit d6a9091ddf2553d6ad4810809e1258d2267823e2
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon Jun 22 14:22:32 2020 -0700
+
+    distributed processing now uses random port (#87)
+    
+    Summary:
+    -this avoids issues where two jobs on same node use same port
+    -the port is selected randomly at start of multiprocessing
+    -the global random seed is not used (since jobs often share same seed)
+    -deprecate PORT cfg option and replaced with PORT_RANGE
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/87
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D22166913
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 026154c39ef9cba6526535db1b3ee19434eaab8b
+
+commit 55a73d8d1038cdec4d2a23d2684abf37d413e558
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Jun 19 21:24:42 2020 -0700
+
+    tweaked reading of logs (get_log_files and sort_log_data) (#84)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/84
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D22148726
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 2af2533934d8a334ddcfe7864d9cd461bd6fc525
+
+commit 964ef50d190f5a91740d271c4a86346466572f80
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Mon Jun 8 13:28:15 2020 -0700
+
+    Fix logging.get_log_files() for no logs scenario (#82)
+    
+    Summary:
+    logging.get_log_files() could throw an exception if no logs are found within log_dir (due to f_n_ps being an empty list and unpacking f_n_ps as a tuple). This is now fixed this by adding a check on the length of f_n_ps.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/82
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21937541
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 488dcb8270d3b242770a3729b3f0eb76427dc34b
+
+commit 061bf1372e314d7d9be651bfb9720178e20fdef1
+Author: Raj Prateek Kosaraju <rajprateekkosaraju@gmail.com>
+Date:   Tue May 26 15:35:41 2020 -0700
+
+    Make logging more generic (#76)
+    
+    Summary:
+    This commit updates logging.py to make it more generic:
+    - dump_json_stats(stats) -> dump_log_data(data, data_type, prec=4): data_type is now a required argument that specifies the type of data being logged. Examples: "train_iter", "train_epoch", etc.
+    - load_json_stats(log_file) -> load_log_data(log_file, data_types_to_skip=()): Loads log data into a dictionary of the form data[data_type][metric][index].
+    - sort_log_data(data): Sort each data[data_type][metric] by epoch or keep only first instance.
+    - Removed parse_json_stats(log, row_type, key) as load_log_data() and sort_log_data() is sufficient to get data for a specific data_type and metric.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/76
+    
+    Test Plan:
+    ```
+    srun -N 1 -p dev --constraint volta16gb  --job-name test_run --gpus 1 --mem 64GB --cpus-per-task 10 -t 1000 python3 tools/train_net.py --cfg configs/archive/imagenet/resnet/R-50-1x64d_step_1gpu.yaml OUT_DIR ./output
+    ```
+    
+    {F238187984}
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21717475
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 21d3164272918c1ddaf8ad3de2a91a7668279d6b
+
+commit 00bf93ee11536b8a7e40ac5057cdc56d356af8f6
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 25 07:56:39 2020 -0700
+
+    Add timing of data loader and new defaults (#75)
+    
+    Summary:
+    data loading can introduce a large overhead, especially when
+    training small models. This commit adds code to time data loading and
+    also changes the default number of CPU workers per GPU to 8, which helps
+    training of small models when CPUs largely outnumber GPUs, as is common.
+    
+    -benchmark.py:
+    --compute_time_eval()/train() moved here form net.py
+    --compute_time_loader() new func to time data loader
+    --compute_time_full() new func to time model+loader for iter+epochs
+    -config.py: DATA_LOADER.NUM_WORKERS set to 8
+    -net.py: moved timing function to benchmark.py
+    -trainer.py: uses benchmark.compute_time_full()
+    -time_net.py: updated block doc and prints
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/75
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D21712741
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 13eb1027f5a6873c9ad68a9f880112e895fdda06
+
+commit dbb9123992866a26564cdd7428db8833abb942ad
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Thu May 21 14:18:36 2020 -0700
+
+    Update test_complexity to use full paths
+    
+    Summary: Updating dev/test_complexity.py to use full paths to configs while searching for them (in `dump_complexity()`) and while loading them (in `test_complexity()`)
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21682999
+    
+    fbshipit-source-id: a7574e4e530c0387960e7378812c25b0c3ba6b5f
+
+commit f75ec59bcafc7f4e0f15d74d6e168feef810cd42
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 20 22:51:35 2020 -0700
+
+    Updating timing code (now always enabled) (#72)
+    
+    Summary:
+    The main change is that precise timing now uses the batch sizes actually used for training and testing. This means precise timing measures the exact setup used in training / testing as opposed to having its own batch size specified. Additionally, The timing code has now been test on
+    multi-gpu (previously it was only enabled in 1 GPU setup). Old config options for precise timing have been removed.
+    
+    -net.py: refactor timing code, test multi-gpu
+    -config.py: removed obsolete config options
+    -trainer.py: using new timing code + necessary tweaks
+    -meters.py, timer.py: minor cleanup just because
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/72
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21668038
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4d1b5a4df6685536e248797b64edb3b15673ac80
+
+commit a492b56f580d43fb4e003eabda4373b25b4bedec
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 18 19:19:08 2020 -0700
+
+    Minor cleanup of pycls/core/ (#71)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/71
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21629799
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4521022e3d642334276e51037568dc0744a37eee
+
+commit 23bcbe082c9f7a5dc4cd34ca959d95cf238acc34
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 18 10:50:39 2020 -0700
+
+    Minor cleanup of pycls/datasets/ (#70)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/70
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D21621807
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 17a6b66ed1fa1afa4601d61400842b2b1046215f
+
+commit 8dc1d86a46164a6206ee1334de10e0b06812f286
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri May 15 17:07:29 2020 -0700
+
+    Add tag back to dump_json_stats() (#69)
+    
+    Summary:
+    Lines are no longer being tagged in dump_json_stats(). We use a tag (currently "json_stats: ") to identify which of the lines in our logs are actually jsons. It's used by load_json_stats() to look for and return json lines -- if there are no tagged lines load_json_stats() will return an empty list.
+    
+    This change modifies dump_json_stats() so that it still tags every json line (similar to what we did previously).
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/69
+    
+    Test Plan:
+    "json_stats: " is now present in logs, load_json_stats() no longer returns empty.
+    
+    {F237461801}
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21603675
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 9eca43c4deb41005c7481012d3e0f72c2ebe478a
+
+commit dc6c98c7029cf39311e4082c2fdcfec7b21450ab
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Thu May 14 22:36:07 2020 -0700
+
+    Added unit test for complexity (#68)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/68
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21586768
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 229bc73fd853ba8f6920dc6ea5b5084054d770fc
+
+commit 8373bf81f214488ef0b6cc384a0cbbdb3d352aff
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 23:47:39 2020 -0700
+
+    Refactoring trainer to better reuse shared code (#67)
+    
+    Summary:
+    -Also added simple tools/time_net.py
+    -Fixed multi-gpu bug introduced in PR60
+    -Removed gpu logic from builders.py
+    -Standardized setup for train/test/time
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/67
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21568338
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 84471452c1a8651b15788759272416ef65848217
+
+commit a2ef10f25265254b3dca7b09e26954fe71ea9c39
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 15:06:29 2020 -0700
+
+    Move training and testing logic into trainer.net (#66)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/66
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21556038
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c1c04562cd1c3abbfc904d425de6e1d8d42eb096
+
+commit 85f4429837ff0e025277e666f229fcc25328e162
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 11:31:05 2020 -0700
+
+    Import renaming after file reorg (#65)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/65
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21550083
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 8e82be132bfca27e27adb3c33e58befae863e26c
+
+commit 97a43b23451788366dddc6591e246f891e3b4662
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 00:17:00 2020 -0700
+
+    Merge pycls/utlils/ and pycls/core/ (#63)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/63
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21540786
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 3ebeb8b164929094b30dc1b15b63e0cb5847e113
+
+commit 399de0a9c244d5a338c368bf4d9ac7ed225aed78
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Tue May 12 19:06:03 2020 -0700
+
+    Cleanup of builders and logger (#62)
+    
+    Summary:
+    -merged losses.py and model_builder.py into builders.py
+    -replaced log_json_stats() with dump_json_stats() for nicer log
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/62
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21537485
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: d73d80ea97415acce93974d2dfe0e96523eacd56
+
+commit ecfb53186b426002020f1a580c3d7d7ad723e283
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Tue May 12 16:57:34 2020 -0700
+
+    Merge distributed/multiprocessing code (#61)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/61
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21533690
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 02fdd2eb29a77f1898276bec5adf45c75ae6dc9b
+
+commit 1d01abc6fd5aebbd8bf04bbda0c8d992e2eb0bd2
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Tue May 12 16:57:34 2020 -0700
+
+    Cleanup of model timing/complexity/builder code (#60)
+    
+    Summary:
+    -remove (essentially useless) loggers from models
+    -move timing code from benchmark.py to net.py
+    -remove obsolete complexity code from metrics.py
+    -move remaining stuff from metrics.py to meters.py
+    -train_net/test_net: switch to using new complexity() code
+    -train_net/test_net: additional cleanup
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/60
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21532372
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 3f86d14e2bd3253b32183f79d1e16fa5fe09ead9
+
+commit 9e05e280704d704c6ab4ae9be2469187af209fc9
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Tue May 12 11:24:22 2020 -0700
+
+    Exclude datasets from being linted (#59)
+    
+    Summary:
+    Updates:
+    - Exclude pycls/datasets/data from being checked by black, flake8 and isort (not having this can cause the linter to take a very long time while it scans the 1000s of files in pycls/datasets/data).
+    - Update requirements.txt to include the requirements for linter.sh: black (v19.3b0), flake8, and isort.
+    - Bring back the actual image for docs/regnetx_nets.png. It somehow became an empty file after the move to docs/.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/59
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21522321
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 91cea10169dc7f807b7f6cb7a0c8c972e7b0f3c8
+
+commit 4543a5a636737495df297a0dda0880e96efc5a6e
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 11 18:48:27 2020 -0700
+
+    Cleanup of optimizer (#58)
+    
+    Summary:
+    -merge utils/lr_policy.py into optimizer
+    -construct_optimizer() refactored
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/58
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D21516282
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: ff95164472c490e495b73ab464e31e28541a7cb2
+
+commit ed5e857c5952a5369697f464bf6c0e48ca332c20
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 11 17:22:37 2020 -0700
+
+    Added load_cfg_fom_args() to config.py (#57)
+    
+    Summary:
+    -Results in simplification of train_net.py and test_net.py
+    -train_net.py merge single_process_train() into train_model()
+    -test_net.py merge single_process_test() into test_model()
+    -Sneak in fix of GETTING_STARTED.md
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/57
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21514346
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c724fe11523b5bfd4c208c56cbfe3be79865f492
+
+commit f4e7315c8d2c27f51b466eb96fe2b8d1b4ac8b42
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 11 14:31:10 2020 -0700
+
+    Cleanup of file locations + housekeeping updates (#56)
+    
+    Summary:
+    Organization of docs/:
+    -move CODE_OF_CONDUCT.md to docs/
+    -move CONTRIBUTING.md to docs/
+    -move regnetx_nets.png to docs/
+    
+    Organization of dev/:
+    -move .flake8 to dev/.flake8
+    -move sort.cfg to dev/.isort.cfg
+    
+    Other:
+    -delete Makefile (1 line command)
+    -typo fixes and path updates in comments/docs
+    -lint clean {config, io}.py
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/56
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21506666
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 931f17a111cff4e16470b66da9875ddb74fa2aca
+
+commit 2b574dae3acabed79949ae3d603d16f4bacf345a
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri May 8 19:29:54 2020 -0700
+
+    Cleanup of config.py and fix invalid defaults (#55)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/55
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21489012
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c652d6c53cb79a18e9fb716c0d0532f9d04c5b8e
+
+commit 8723c6c03c2227017725f1b5cd7deb4e2cdf7001
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri May 8 18:48:33 2020 -0700
+
+    Fast/simple complexity counts (flops/params/acts) (#54)
+    
+    Summary:
+    Two benefit over generic complexity  version in metrics.py:
+    + doesn't require initializing model (1000x speedup)
+    + more general / robust solution
+    The only drawback is:
+    - More lines of code
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/54
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21488608
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c946140121b35f28ff9124dc558a8e78e7e4b41d
+
+commit ae38ff578b39b4367112dd37eef42732b5e96d07
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri May 8 16:44:28 2020 -0700
+
+    Cleanup of pycls/models/*. Mostly formatting, etc., but also some very minor fixes for corner cases. (#53)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/53
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21484114
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 1a57a33b70506f0c9880a9a151197b537141953b
+
+commit cd1cfb185ab5ebef328e2c3a38f68112bbd43712
+Author: ShoufaChen <shoufahappy@gmail.com>
+Date:   Thu Apr 30 10:26:46 2020 -0700
+
+    fix config NUM_GPUS typo (#44)
+    
+    Summary:
+    fix the `NUM_GPUS` typo in `archive/imagenet/anynet/R-50-1x64d_step_2gpu.yaml`.
+    
+    Besides, change the `NUM_WORKERS` from 2 to 4 because I noticed that all other config files use the `NUM_WORKERS: 4`
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/44
+    
+    Reviewed By: ericmintun
+    
+    Differential Revision: D20999523
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: a562e6cc5bf7351a1e4c7ce7db81f23fe847ef5a
+
+commit b3260e709978656a2648c2b5c5fb41815bab8655
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 15 13:32:31 2020 -0700
+
+    Address some nits and config changes
+    
+    Summary: Address some EN and config nits and correct model ID text for a model.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21048714
+    
+    fbshipit-source-id: 35b5639e76903d2cab5163ab08e8a3ad97f9d1e3
+
+commit 4f5b5dafe4f4274f7cba774923b8d1ba81d9904c
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 15 12:24:58 2020 -0700
+
+    Add model weight URLs for dds baselines
+    
+    Summary: Adding all URLs for model weights stored in S3.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21046628
+    
+    fbshipit-source-id: c1e7c033dc5f226f42df633a8b0a969614334c64
+
+commit 4acac2b06945f6b0722f20748e2104bd6a771468
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Wed Apr 15 12:24:58 2020 -0700
+
+    Update the readme and include the model zoo (#46)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/46
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21045168
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4d56092a577df57aa9ea5f63381dd2527e32c72d
+
+commit 44bcfa71ebd7b9cd8e81f4d28ce319e814cbbb73
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Tue Apr 14 14:24:41 2020 -0700
+
+    Add all DDS baselines configs
+    
+    Summary: Make all dds baselines configs compatible with pycls and add them under `pycls/configs/dds_baslines/`
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20989890
+    
+    fbshipit-source-id: 5677287d91f57af44e7518a6dd6ffccd15126e55
+
+commit d884924de6ce53b23ba5e846b800c8d48f7d0b2d
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Tue Apr 14 14:24:41 2020 -0700
+
+    Add custom_weight_decay option for BN
+    
+    Summary: To make it clearer to the users, we are introducing two options: `BN.USE_CUSTOM_WEIGHT_DECAY` and `BN.CUSTOM_WEIGHT_DECAY`. Not setting `BN.USE_CUSTOM_WEIGHT_DECAY` will mean that the WD used for BN params would be the one set in OPTIM.WEIGHT_DECAY.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21009285
+    
+    fbshipit-source-id: a9a76f59a9487ca92cd67b2f93f79adf8d57a14b
+
+commit 49e77948ed87bc257d80e7d6590814e25eee9ba5
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Mon Apr 13 22:24:11 2020 -0700
+
+    Make EN SE ratio config option consistent w/ others
+    
+    Summary:
+    For anynet and regnet, we refer to SE ratio using the SE_R, but for EN, we have it as SE_RATIO. Changing it to keep it consistent with other models.
+    
+    Also addressing a minor nit in regnet.py
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20988753
+    
+    fbshipit-source-id: 2e080445d0b93fc16be19b7e026f76c02ebd73f4
+
+commit e9c1ef4583ef089c182dd7fe9823db063a4909e3
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Apr 13 00:43:59 2020 -0700
+
+    Move dds baseline configs to a separate subdir (#43)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/43
+    
+    Reviewed By: vedanuj
+    
+    Differential Revision: D20985171
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 128db2acebdce0001bcdae0d44d60f988c39ad1d
+
+commit 24a2805f1040787a047ed0339925adf98109e64c
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Sat Apr 11 21:47:55 2020 -0700
+
+    Refactor se in anynet to support regnety (#42)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/42
+    
+    Test Plan:
+    Imported from GitHub, without a `Test Plan:` line.
+    
+    tested locally:
+    
+    ```
+    ~/fbsource/fbcode/buck-out/gen/vision/fair/pycls/tools/test_net.par --cfg configs/imagenet/regnet/RegNetX-200MF_dds_1gpu.yaml NUM_GPUS 1 TRAIN.BATCH_SIZE 64 TEST.BATCH_SIZE 32 TEST.WEIGHTS https://dl.fbaipublicfiles.com/pycls/checkpoints/RegNet-X-E100-F0200-V04.pyth
+    ```
+    
+    Reviewed By: vedanuj
+    
+    Differential Revision: D20983994
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 61536f340c1e5afca3b0eb3c73f44d3a99839b90
+
+commit 708d429e67b1a43dfd7e22cb754ecaaf234ba308
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Sat Apr 11 14:56:35 2020 -0700
+
+    Drop support for num gs parametrization in anynet (#40)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/40
+    
+    Reviewed By: vedanuj
+    
+    Differential Revision: D20983462
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 0019c9fbc179b301b8ca4b2732d5454caf51b902
+
+commit a86c9d5ba07ef41f7111c6e58d2de693b83f66f6
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Sat Apr 11 12:32:00 2020 -0700
+
+    Implement basic regnet model abstraction (#39)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/39
+    
+    Reviewed By: takatosp1
+    
+    Differential Revision: D20980617
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c78228c6bdda5bedf51443689327983dca52fb58
+
+commit ad01b81c516e59e134bfde22ab827aa61744b83c
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri Apr 10 18:01:07 2020 -0700
+
+    Add prec_time to test_net.py and activations count
+    
+    Summary:
+    -  This diff introduces changes to run prec_time computation in test_net as well.
+    - We don't currently have the code to count activations in pycls. This will be useful for users to verify the activations of the upcoming open-sourced models.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20971486
+    
+    fbshipit-source-id: b2319e8fde9e2d862f4fc020bd642b31e498c453
+
+commit 4e470e21ad55aff941f1098666f70ef982626f7a
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri Apr 10 11:31:18 2020 -0700
+
+    Allow local caching of model weights URLs
+    
+    Summary: This diff introduces changes to allow `cfg.TRAIN.WEIGHTS` and `cfg.TEST.WEIGHTS` to specify URLs to our pycls S3 bucket (http://dl.fbaipublicfiles.com/pycls/) which will then be downloaded and cached locally to a path specified in `cfg.DOWNLOAD_CACHE`.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20951593
+    
+    fbshipit-source-id: 4329b88217dadb39ce93714531f02201905efbbe
+
+commit ec188632fab607a41bff1a63c7ac9bd0d949bb52
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri Apr 10 11:31:18 2020 -0700
+
+    Add SE to AnyNet
+    
+    Summary: We are going to open-source RegNet models. RegNet-Y models use SE, so we're adding this into anynet.py to allow these models to be constructed.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20950208
+    
+    fbshipit-source-id: a52946e0d51ddd8c9bacfc268ba5b7871a4e890a
+
+commit 8817629849e1f5b4faf0bab36af448bced9fae49
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 1 14:55:50 2020 -0700
+
+    Run linter and fix remaining lint issues
+    
+    Summary: Run ./dev/linter.sh and manually fix remaining lint issues.
+    
+    Reviewed By: bxiong1202
+    
+    Differential Revision: D20300055
+    
+    fbshipit-source-id: bde142b3215aa144acebe6f3afa4957a451dbfab
+
+commit 3f95211c5244b7876b0d9fd9e10a07f5513eb5d7
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 1 14:55:50 2020 -0700
+
+    Add fvcore linter to pycls
+    
+    Summary: Pycls doesn't have a linter currently. Add fvcore linter to help with linting all upcoming changes.
+    
+    Reviewed By: bxiong1202
+    
+    Differential Revision: D20209115
+    
+    fbshipit-source-id: 163041d67605cc95cddf9ce3961c41a5400460a3
+
+commit b413e36a37780d3b02facf804db3ad60718d269e
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Fix undefined stride arg in cifar stem (#27)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/27
+    
+    Differential Revision: D20465989
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: cc8e303c42df3e794a3bb9cc5da69c8d433d7f80
+
+commit 305d61fdb42f7579d218a355c034c8b5a964af74
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Move docs to a separate subdir (#25)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/25
+    
+    Differential Revision: D20465854
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: ff868c1a2977790a7169036d37f574efd2c913f3
+
+commit 41fe441dc2fba04c85bf7aad92497c11f1719614
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Support using gw parametrization in anynet (#26)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/26
+    
+    Differential Revision: D20465957
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 0ec2c88cb2293a6eea6f874ad1119a5f2dcd700f
+
+commit fcb5823e3801ae01aeaf163e5be64f743e6996f8
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Include the simple stem for imagenet (#24)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/24
+    
+    Differential Revision: D20465802
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 6cef4e1923078afdc8afe2a3077fef8e3dea8ca1
+
+commit 8079cbf3b928ca9bb324cd82773f20adfbb5ce6a
+Author: Eric Mintun <mintun@fb.com>
+Date:   Mon Jan 13 12:51:49 2020 -0800
+
+    Fixed Cifar10 dataset __getitem__ transformations modifying loaded data permanently (#21)
+    
+    Summary:
+    The CIFAR10 dataset class has been performing data augmentation in place, causing each call to ``__getitem__`` in ``pycls.pycls.datasets.cifar10.Cifar10`` to modify the loaded dataset permanently.
+    
+    I believe this was going unnoticed because with the default settings the data loader spawns new processes at least once an epoch and passes a copy of the original, unmodified dataset to each.  The result is that the model trains well despite the bug.  Telling the data loader to only use a single process by setting the config parameter ``DATA_LOADER.NUM_WORKERS=0`` causes the model to fail to train after ~3 epochs.
+    
+    Making a copy of the selected data in ``__getitem__`` fixes the problem. Sequential calls to ``__getitem__`` with the same index now return the same result, and the model trains successfully even with ``DATA_LOADER.NUM_WORKERS=0``.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/21
+    
+    Differential Revision: D19377056
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 934b927b5a48f2e2224acfbcdc53827aef4f8c0c
+
+commit 3cb4ff1a89e99d6a90fed63a09f24f50084df43e
+Author: Raj Prateek Kosaraju <rajprateek@users.noreply.github.com>
+Date:   Thu Jan 9 20:10:48 2020 -0800
+
+    Fix typo in README.md (#22)
+    
+    Summary:
+    pycl -> pycls
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/22
+    
+    Differential Revision: D19341447
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 8a90c588f86e940f63d5b4b6bee2944c6985e0e4
+
+commit 7e3a429529fcbbfb722ba6d3679de0f18d24461f
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Dec 25 00:15:03 2019 -0800
+
+    Re-apply changes from D17340211
+    
+    Summary: Need to re-apply changes for BN since we synced the fbcode version with github updates
+    
+    Differential Revision: D19227302
+    
+    fbshipit-source-id: c9a752c313fc0726f9f6db8c134ef38c80742419
+
+commit 04a445b79af9df433ef5d76baa11e4c40a9348dc
+Author: Eric Mintun <mintun@fb.com>
+Date:   Wed Nov 27 12:24:03 2019 -0800
+
+    Fixes a crash in the ImageNet data preprocessing function _prepare_im in the ImageNet dataset class in
+    pycls/datasets/imagenet.py.  Inputs to the transformation functions horizontal_flip and random_sized_crop in
+    pycls/datasets/transforms.py were mislabelled and have been corrected.  The horizontal_flip function was being
+    passed an additional parameter order='HWC' which it didn't support.  This functionality was restored to
+    horizontal_flip so that it can now process inputs in either channel-height-width (its original default) or
+    height-width-channel order.  This is preferable to instead moving the horizontal_flip call in _prepare_im to
+    after the conversion to CHW order for the following reason.  The horizontal_flip function causes the output numpy
+    array to be non-contiguous, and torch doesn't current support converting it to a torch tensor.  The transpose
+    call to switch to CHW order makes the numpy array contiguous again.  An explicit numpy.ascontiguousarray could
+    instead be used after horizontal_flip, but this seems like it could be slower.
+    
+    Visual inspection of the ImageNet data preprocessing suggests it is properly preprocessing images.  Tested that
+    the R-50 Cifar10 baseline trains to the expected accuracy as before, and that the R-50, 1gpu ImageNet baseline
+    can complete a full epoch of training and evaluation, whereas before it would crash in the first iteration.
+
+commit da01ecb3e83d67dcff8bbfd72559b692225ac2e1
+Author: Renat Alimbekov <alimbekovr@hotmail.com>
+Date:   Wed Oct 30 10:49:16 2019 +0600
+
+    edit link to Datasets
+    
+    edit link to Datasets
+
+commit 996cb1d98a4479733359a23f0b5de9124310e3ea
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Fri Oct 25 12:01:52 2019 -0700
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit b314d43e918ad8763c5882730ad55a1eef5e8347
+Author: Vaibhav Aggarwal <vaibhava@fb.com>
+Date:   Thu Jan 14 13:13:55 2021 -0800
+
+    Set compatible Manifold client parameters.
+    
+    Summary:
+    1. Pycls has been using "fork" as the process start method and depends on it for efficient starting of new processes. We are passing this to ManifoldClient as well to retain this default.
+    2. Setting Manifold path in the launch script.
+    3. Adding fvcore to requirements.txt.
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25719504
+    
+    fbshipit-source-id: c3109581b1277947edb2663237303883cb217357
+
+commit 10801aa2227dcf1585978065283f3b8c21ac4b28
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update logging to use PathManager
+    
+    Summary: Update logging to use PathManager
+    
+    Reviewed By: vaibhava0, ppwwyyxx, takatosp1
+    
+    Differential Revision: D23869199
+    
+    fbshipit-source-id: 2f705a1c3cfc708f01446f032beb5ef25cfc53e7
+
+commit 87e3c31a660c4593564ad06860513242bacbaa69
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Use PathManager for io
+    
+    Summary: Update io to use manifold instead of gluster
+    
+    Reviewed By: vaibhava0
+    
+    Differential Revision: D23854788
+    
+    fbshipit-source-id: bbe2fef9e50657e521addf85e5fb297f228817ab
+
+commit 6a08c458999114e6ba4fd291b7aa911fb828e3b8
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update checkpoint to use PathManager
+    
+    Summary: Update checkpointing to use PathManager to support manifold
+    
+    Reviewed By: ppwwyyxx, takatosp1
+    
+    Differential Revision: D23855299
+    
+    fbshipit-source-id: 9bb81aaadcb4c107158fa66ecd96c293862c74a4
+
+commit 149fde75bfda8930030c9248a061a8ec0f88967c
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update datasets to use PathManager
+    
+    Summary: Load datasets from manifold instead of gluster. Imagenet is loaded from local package so does not need to be updated
+    
+    Reviewed By: vaibhava0
+    
+    Differential Revision: D24165539
+    
+    fbshipit-source-id: c17ae1e0cf0c6069861de1d9854969ae1af81efc
+
+commit b5063a6d45d0a1d1128b20fd53cb521bc5bbead9
+Author: Dave Schnizlein <dschnizlein@fb.com>
+Date:   Wed Jan 13 10:53:04 2021 -0800
+
+    Update setup_env and config to use PathManager
+    
+    Summary: Enables use of PathManager in pycls and updates config to make use of it
+    
+    Reviewed By: vaibhava0
+    
+    Differential Revision: D24163964
+    
+    fbshipit-source-id: b9075e5eb4a167065351d348696bf923e65b1c92
+
+commit ca89a79161e437deca8f39f31ceaef3b05873f30
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Nov 20 14:18:09 2020 -0800
+
+    train enhancements: smooth labels, mixup, mixed precision (#121)
+    
+    Summary:
+    notes:
+    -benchmark.py: properly time w mixed precision and smooth labels
+    -builders.py: default loss is now SoftCrossEntropyLoss
+    -config.py: options for MIXED_PRECISION, LABEL_SMOOTHING, MIXUP_ALPHA
+    -net.py: added smooth_one_hot_labels, mixup, SoftCrossEntropyLoss
+    -trainer.py: uses smooth labels, mixup, mixed precision
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/121
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25126890
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: dd4f67ed5202109b372bbd4ed9f429f08238b719
+
+commit ace492dd97b5d80bd1662de3e322ccf5f0be6371
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Nov 20 10:11:39 2020 -0800
+
+    trainer minor refactor and tweaks (#120)
+    
+    Summary:
+    notes:
+     - checkpoint.py: ability to save best checkpoint in training so far
+     - config.py: removed EVAL_PERIOD and CHECKPOINT_PERIOD options
+     - trainer.py: log torch, cuda, and cudnn versions
+     - trainer.py: resets random seed in python random as well now
+     - trainer.py: reset meters at start of epoch(), iter stats valid at end
+     - trainer.py: always evaluate model and save checkpoint
+     - trainer.py: save best checkpoint during training
+     - trainer.py: refactor helpful to push more functional changes later
+     - *.yaml: removed EVAL_PERIOD=1 from all config files
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/120
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25109775
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 34177d316b6b64dde52dfabbd88e0cf95a41bad2
+
+commit a5e914691c3e03d99b1a12e0e807a3baf8f2dc5d
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed Nov 18 16:32:09 2020 -0800
+
+    refactor transforms.py, added autoaug and randaug (#119)
+    
+    Summary:
+    High-level comments:
+     -fully backward compatible changes (+)
+     -code cleanup and simplifications (+)
+     -adds autoaugment and randaug (+)
+     -for backward comp. still use opencv loader and image resize (+/-)
+     -still provides custom implementations of transforms (+/-)
+    
+    Notes:
+     -augment.py: contains clean implementation of autoaug and randaug
+     -augment.py: also contains visualization utilities for augmentations
+     -cifar.py: no longer depends on transforms.py (simplifies transforms)
+     -cifar.py: has its own very simple inlined transforms in _prepare_im
+     -config.py: exposes options for controlling aug and pca jitter
+     -transforms.py: now all operate on HWC float images in RBG order, yay
+     -transforms.py: a lot of standardization / simplification
+     -transforms.py: adds wrapper for augmentation policies
+     -imagenet.py: simplified, can use autoaugment, can control pca aug
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/119
+    
+    Reviewed By: theschnitz
+    
+    Differential Revision: D25040766
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 3412738742853ab45783e9c18eb5fae4b56e58de
+
+commit 35429e83fad2de09f579d54f93f901efea65af47
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Sat Oct 3 19:22:51 2020 -0700
+
+    updates for pytorch_nightly, use new faster SiLU (#115)
+    
+    Summary:
+    -meters.py: replaced view() w reshape(), was causing issue in nightly
+    -blocks.py: use pytorch's (faster) SiLU if available (part of nightly)
+    -model_timing.json/MODEL_ZOO.md: updated effnet timings with faster SiLU
+    -test_models.py: more buffer for timing tests due to timing variability
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/115
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D24100122
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 0fd46128e38d41b64beb56b4706d5bab303663b5
+
+commit b759863a25429f560e4c2ea5ec9f20cb718a74f4
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed Sep 16 16:30:21 2020 -0700
+
+    fix compatibility issues w latest packages (#114)
+    
+    Summary:
+    (1) Revert to opencv-python==4.2.0.34. For some reason, with newer
+    opencv version we saw a 10x slowdown in the distributed data loading
+    
+    (2) Added hack to distributed.py to address this issue w MKL:
+    https://github.com/pytorch/pytorch/issues/37377
+    
+    Note: better solutions for these bugs are probably needed...
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/114
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23739829
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: a1238e9a0178a6bb702d325ef35ebccec135522d
+
+commit 1a33062717a1272f45368cae673dcf9e00ecc8a0
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon Sep 14 10:18:59 2020 -0700
+
+    miscellaneous core improvements (#111)
+    
+    Summary:
+    -checkpoint.py: added delete_checkpoints()
+    -config.py: tweaks and various new config options
+    -logging.py: minor tweak (allow full precision logging)
+    -meters.py: minor tweaks (output time_epoch to log)
+    -optimizer.py: plot_lr_fun(), lr_fun_lin(), updated lr_fun_exp(), MIN_LR
+    -trainer.py: minor tweaks (option to control VERBOSE output)
+    -models/blocks.py: added option for silu/swish activation function
+    -models/effnet.py: uses cfg.MODEL.ACTIVATION_FUN (can specify)
+    -remove .github/workflows/publish.yaml (will manually push to PyPI)
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/111
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23673018
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: ff9f3a90a34cb67c5f8995a160289e1d250d6c67
+
+commit 85e715edd329f58122a4d844005102beed0b4d73
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed Sep 9 15:55:02 2020 -0700
+
+    model refactor (#110)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/110
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23609955
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 57d0945411ab1813efb98445c8fe227b1ca4ffc8
+
+commit 4cf2524cdaa87064698427ee071061998cead733
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Tue Sep 8 17:50:09 2020 -0700
+
+    Fix packages entry in setup.py (#108)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/108
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23552764
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: e43ccd512d7fa0400e13ccaef7b1a5f394d918d7
+
+commit 3747e12c13812043801f6be0c2b990f39947ea09
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Sep 4 16:40:42 2020 -0700
+
+    automatically generate all MODEL_ZOO.md tables (#107)
+    
+    Summary:
+    -model_zoo_tables.py: generates all MODEL_ZOO tables automatically
+    -MODEL_ZOO.md: updated with latest data
+    -Note that numbers in MODEL_ZOO.md change
+    -Uses data from unit tests recently generated
+    -Added "Reproducibility Notes" to MODEL_ZOO.md
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/107
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D23551313
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: febf26840b8574894c75d659ee44e0acc9b8a474
+
+commit 4449e4af19ec9b3400168dd756d305fc8931a32e
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Sep 4 12:25:44 2020 -0700
+
+    error + timing unit tests and refactored model_zoo (#106)
+    
+    Summary:
+    - big refactor of model_zoo.py (uses real configs)
+    - added unit tests for model *errors* for all models in model zoo
+    - added unit tests for model *timings* for all models in model zoo
+    - change to complexity counts: count activations in complexity_maxpool2d
+    - updating complexity unit tests based on new activation counts
+    - minor changes to checkpoint.py and io.py to support update model zoo
+    - added reset_cfg() to config.py for convenience
+    - added standalone model timer to benchmark.py and trainer.py
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/106
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23542543
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 65b6cd1b43c0ecf9155a9a6e8982716b720481ad
+
+commit ed77f8221278d54e9b5b352554e7cef94c417188
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Aug 31 16:42:14 2020 -0700
+
+    Refactor the getting started docs (#99)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/99
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23239086
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4ee60e2df10c193ac2337d330f3b4a991ccfa2db
+
+commit 4b69b68719863cb124f588d61f3a6a152cd6d41f
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Aug 31 16:35:59 2020 -0700
+
+    Support importing pretrained models (#98)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/98
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D23239091
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 704ef32c06c10d628dfc058813a389e1eb272f7d
+
+commit c923a4d248da7766fd4e703204c1c7808559b603
+Author: Stanislau Hlebik <stash@fb.com>
+Date:   Fri Jul 17 17:07:23 2020 -0700
+
+    remediation of S205607
+    
+    fbshipit-source-id: 798decc90db4f13770e97cdce3c0df7d5421b2a3
+
+commit c5a6f26959dc9e4e6811cfbe1d4a7ebecb3bb463
+Author: Stanislau Hlebik <stash@fb.com>
+Date:   Fri Jul 17 17:07:23 2020 -0700
+
+    remediation of S205607
+    
+    fbshipit-source-id: 5113fe0c527595e4227ff827253b7414abbdf7ac
+
+commit 82928a6632707d619f71d44e61898bae709ebff3
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Jun 26 18:14:06 2020 -0700
+
+    updated compute_precise_bn_stats() and usage (#93)
+    
+    Summary:
+    -enabled precise BN by default, increased NUM_SAMPLES_PRECISE
+    -enabled precise BN computation on multi GPU (sync stats across GPUs)
+    -tweaked logic to computing var as mean(var(Xi)) for each minibatch Xi
+    -old code computed var as var(X) over the whole population X
+    -for small batches this can make a difference as var(X)!=mean(var(Xi))
+    -see https://en.wikipedia.org/wiki/Bessel%27s_correction
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/93
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D22271316
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: a63892a30115516b014bb28eb808fe8d9be84fae
+
+commit d6a9091ddf2553d6ad4810809e1258d2267823e2
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon Jun 22 14:22:32 2020 -0700
+
+    distributed processing now uses random port (#87)
+    
+    Summary:
+    -this avoids issues where two jobs on same node use same port
+    -the port is selected randomly at start of multiprocessing
+    -the global random seed is not used (since jobs often share same seed)
+    -deprecate PORT cfg option and replaced with PORT_RANGE
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/87
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D22166913
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 026154c39ef9cba6526535db1b3ee19434eaab8b
+
+commit 55a73d8d1038cdec4d2a23d2684abf37d413e558
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri Jun 19 21:24:42 2020 -0700
+
+    tweaked reading of logs (get_log_files and sort_log_data) (#84)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/84
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D22148726
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 2af2533934d8a334ddcfe7864d9cd461bd6fc525
+
+commit 964ef50d190f5a91740d271c4a86346466572f80
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Mon Jun 8 13:28:15 2020 -0700
+
+    Fix logging.get_log_files() for no logs scenario (#82)
+    
+    Summary:
+    logging.get_log_files() could throw an exception if no logs are found within log_dir (due to f_n_ps being an empty list and unpacking f_n_ps as a tuple). This is now fixed this by adding a check on the length of f_n_ps.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/82
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21937541
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 488dcb8270d3b242770a3729b3f0eb76427dc34b
+
+commit 061bf1372e314d7d9be651bfb9720178e20fdef1
+Author: Raj Prateek Kosaraju <rajprateekkosaraju@gmail.com>
+Date:   Tue May 26 15:35:41 2020 -0700
+
+    Make logging more generic (#76)
+    
+    Summary:
+    This commit updates logging.py to make it more generic:
+    - dump_json_stats(stats) -> dump_log_data(data, data_type, prec=4): data_type is now a required argument that specifies the type of data being logged. Examples: "train_iter", "train_epoch", etc.
+    - load_json_stats(log_file) -> load_log_data(log_file, data_types_to_skip=()): Loads log data into a dictionary of the form data[data_type][metric][index].
+    - sort_log_data(data): Sort each data[data_type][metric] by epoch or keep only first instance.
+    - Removed parse_json_stats(log, row_type, key) as load_log_data() and sort_log_data() is sufficient to get data for a specific data_type and metric.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/76
+    
+    Test Plan:
+    ```
+    srun -N 1 -p dev --constraint volta16gb  --job-name test_run --gpus 1 --mem 64GB --cpus-per-task 10 -t 1000 python3 tools/train_net.py --cfg configs/archive/imagenet/resnet/R-50-1x64d_step_1gpu.yaml OUT_DIR ./output
+    ```
+    
+    {F238187984}
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21717475
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 21d3164272918c1ddaf8ad3de2a91a7668279d6b
+
+commit 00bf93ee11536b8a7e40ac5057cdc56d356af8f6
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 25 07:56:39 2020 -0700
+
+    Add timing of data loader and new defaults (#75)
+    
+    Summary:
+    data loading can introduce a large overhead, especially when
+    training small models. This commit adds code to time data loading and
+    also changes the default number of CPU workers per GPU to 8, which helps
+    training of small models when CPUs largely outnumber GPUs, as is common.
+    
+    -benchmark.py:
+    --compute_time_eval()/train() moved here form net.py
+    --compute_time_loader() new func to time data loader
+    --compute_time_full() new func to time model+loader for iter+epochs
+    -config.py: DATA_LOADER.NUM_WORKERS set to 8
+    -net.py: moved timing function to benchmark.py
+    -trainer.py: uses benchmark.compute_time_full()
+    -time_net.py: updated block doc and prints
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/75
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D21712741
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 13eb1027f5a6873c9ad68a9f880112e895fdda06
+
+commit dbb9123992866a26564cdd7428db8833abb942ad
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Thu May 21 14:18:36 2020 -0700
+
+    Update test_complexity to use full paths
+    
+    Summary: Updating dev/test_complexity.py to use full paths to configs while searching for them (in `dump_complexity()`) and while loading them (in `test_complexity()`)
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21682999
+    
+    fbshipit-source-id: a7574e4e530c0387960e7378812c25b0c3ba6b5f
+
+commit f75ec59bcafc7f4e0f15d74d6e168feef810cd42
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 20 22:51:35 2020 -0700
+
+    Updating timing code (now always enabled) (#72)
+    
+    Summary:
+    The main change is that precise timing now uses the batch sizes actually used for training and testing. This means precise timing measures the exact setup used in training / testing as opposed to having its own batch size specified. Additionally, The timing code has now been test on
+    multi-gpu (previously it was only enabled in 1 GPU setup). Old config options for precise timing have been removed.
+    
+    -net.py: refactor timing code, test multi-gpu
+    -config.py: removed obsolete config options
+    -trainer.py: using new timing code + necessary tweaks
+    -meters.py, timer.py: minor cleanup just because
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/72
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21668038
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4d1b5a4df6685536e248797b64edb3b15673ac80
+
+commit a492b56f580d43fb4e003eabda4373b25b4bedec
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 18 19:19:08 2020 -0700
+
+    Minor cleanup of pycls/core/ (#71)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/71
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21629799
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4521022e3d642334276e51037568dc0744a37eee
+
+commit 23bcbe082c9f7a5dc4cd34ca959d95cf238acc34
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 18 10:50:39 2020 -0700
+
+    Minor cleanup of pycls/datasets/ (#70)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/70
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D21621807
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: 17a6b66ed1fa1afa4601d61400842b2b1046215f
+
+commit 8dc1d86a46164a6206ee1334de10e0b06812f286
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri May 15 17:07:29 2020 -0700
+
+    Add tag back to dump_json_stats() (#69)
+    
+    Summary:
+    Lines are no longer being tagged in dump_json_stats(). We use a tag (currently "json_stats: ") to identify which of the lines in our logs are actually jsons. It's used by load_json_stats() to look for and return json lines -- if there are no tagged lines load_json_stats() will return an empty list.
+    
+    This change modifies dump_json_stats() so that it still tags every json line (similar to what we did previously).
+    
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/69
+    
+    Test Plan:
+    "json_stats: " is now present in logs, load_json_stats() no longer returns empty.
+    
+    {F237461801}
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21603675
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 9eca43c4deb41005c7481012d3e0f72c2ebe478a
+
+commit dc6c98c7029cf39311e4082c2fdcfec7b21450ab
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Thu May 14 22:36:07 2020 -0700
+
+    Added unit test for complexity (#68)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/68
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21586768
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 229bc73fd853ba8f6920dc6ea5b5084054d770fc
+
+commit 8373bf81f214488ef0b6cc384a0cbbdb3d352aff
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 23:47:39 2020 -0700
+
+    Refactoring trainer to better reuse shared code (#67)
+    
+    Summary:
+    -Also added simple tools/time_net.py
+    -Fixed multi-gpu bug introduced in PR60
+    -Removed gpu logic from builders.py
+    -Standardized setup for train/test/time
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/67
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21568338
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 84471452c1a8651b15788759272416ef65848217
+
+commit a2ef10f25265254b3dca7b09e26954fe71ea9c39
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 15:06:29 2020 -0700
+
+    Move training and testing logic into trainer.net (#66)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/66
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21556038
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c1c04562cd1c3abbfc904d425de6e1d8d42eb096
+
+commit 85f4429837ff0e025277e666f229fcc25328e162
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 11:31:05 2020 -0700
+
+    Import renaming after file reorg (#65)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/65
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21550083
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 8e82be132bfca27e27adb3c33e58befae863e26c
+
+commit 97a43b23451788366dddc6591e246f891e3b4662
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Wed May 13 00:17:00 2020 -0700
+
+    Merge pycls/utlils/ and pycls/core/ (#63)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/63
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21540786
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 3ebeb8b164929094b30dc1b15b63e0cb5847e113
+
+commit 399de0a9c244d5a338c368bf4d9ac7ed225aed78
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Tue May 12 19:06:03 2020 -0700
+
+    Cleanup of builders and logger (#62)
+    
+    Summary:
+    -merged losses.py and model_builder.py into builders.py
+    -replaced log_json_stats() with dump_json_stats() for nicer log
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/62
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21537485
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: d73d80ea97415acce93974d2dfe0e96523eacd56
+
+commit ecfb53186b426002020f1a580c3d7d7ad723e283
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Tue May 12 16:57:34 2020 -0700
+
+    Merge distributed/multiprocessing code (#61)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/61
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21533690
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 02fdd2eb29a77f1898276bec5adf45c75ae6dc9b
+
+commit 1d01abc6fd5aebbd8bf04bbda0c8d992e2eb0bd2
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Tue May 12 16:57:34 2020 -0700
+
+    Cleanup of model timing/complexity/builder code (#60)
+    
+    Summary:
+    -remove (essentially useless) loggers from models
+    -move timing code from benchmark.py to net.py
+    -remove obsolete complexity code from metrics.py
+    -move remaining stuff from metrics.py to meters.py
+    -train_net/test_net: switch to using new complexity() code
+    -train_net/test_net: additional cleanup
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/60
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21532372
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 3f86d14e2bd3253b32183f79d1e16fa5fe09ead9
+
+commit 9e05e280704d704c6ab4ae9be2469187af209fc9
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Tue May 12 11:24:22 2020 -0700
+
+    Exclude datasets from being linted (#59)
+    
+    Summary:
+    Updates:
+    - Exclude pycls/datasets/data from being checked by black, flake8 and isort (not having this can cause the linter to take a very long time while it scans the 1000s of files in pycls/datasets/data).
+    - Update requirements.txt to include the requirements for linter.sh: black (v19.3b0), flake8, and isort.
+    - Bring back the actual image for docs/regnetx_nets.png. It somehow became an empty file after the move to docs/.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/59
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21522321
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 91cea10169dc7f807b7f6cb7a0c8c972e7b0f3c8
+
+commit 4543a5a636737495df297a0dda0880e96efc5a6e
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 11 18:48:27 2020 -0700
+
+    Cleanup of optimizer (#58)
+    
+    Summary:
+    -merge utils/lr_policy.py into optimizer
+    -construct_optimizer() refactored
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/58
+    
+    Reviewed By: rajprateek
+    
+    Differential Revision: D21516282
+    
+    Pulled By: pdollar
+    
+    fbshipit-source-id: ff95164472c490e495b73ab464e31e28541a7cb2
+
+commit ed5e857c5952a5369697f464bf6c0e48ca332c20
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 11 17:22:37 2020 -0700
+
+    Added load_cfg_fom_args() to config.py (#57)
+    
+    Summary:
+    -Results in simplification of train_net.py and test_net.py
+    -train_net.py merge single_process_train() into train_model()
+    -test_net.py merge single_process_test() into test_model()
+    -Sneak in fix of GETTING_STARTED.md
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/57
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21514346
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c724fe11523b5bfd4c208c56cbfe3be79865f492
+
+commit f4e7315c8d2c27f51b466eb96fe2b8d1b4ac8b42
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Mon May 11 14:31:10 2020 -0700
+
+    Cleanup of file locations + housekeeping updates (#56)
+    
+    Summary:
+    Organization of docs/:
+    -move CODE_OF_CONDUCT.md to docs/
+    -move CONTRIBUTING.md to docs/
+    -move regnetx_nets.png to docs/
+    
+    Organization of dev/:
+    -move .flake8 to dev/.flake8
+    -move sort.cfg to dev/.isort.cfg
+    
+    Other:
+    -delete Makefile (1 line command)
+    -typo fixes and path updates in comments/docs
+    -lint clean {config, io}.py
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/56
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21506666
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 931f17a111cff4e16470b66da9875ddb74fa2aca
+
+commit 2b574dae3acabed79949ae3d603d16f4bacf345a
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri May 8 19:29:54 2020 -0700
+
+    Cleanup of config.py and fix invalid defaults (#55)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/55
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21489012
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c652d6c53cb79a18e9fb716c0d0532f9d04c5b8e
+
+commit 8723c6c03c2227017725f1b5cd7deb4e2cdf7001
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri May 8 18:48:33 2020 -0700
+
+    Fast/simple complexity counts (flops/params/acts) (#54)
+    
+    Summary:
+    Two benefit over generic complexity  version in metrics.py:
+    + doesn't require initializing model (1000x speedup)
+    + more general / robust solution
+    The only drawback is:
+    - More lines of code
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/54
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21488608
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c946140121b35f28ff9124dc558a8e78e7e4b41d
+
+commit ae38ff578b39b4367112dd37eef42732b5e96d07
+Author: Piotr Dollar <pdollar@gmail.com>
+Date:   Fri May 8 16:44:28 2020 -0700
+
+    Cleanup of pycls/models/*. Mostly formatting, etc., but also some very minor fixes for corner cases. (#53)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/53
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21484114
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 1a57a33b70506f0c9880a9a151197b537141953b
+
+commit cd1cfb185ab5ebef328e2c3a38f68112bbd43712
+Author: ShoufaChen <shoufahappy@gmail.com>
+Date:   Thu Apr 30 10:26:46 2020 -0700
+
+    fix config NUM_GPUS typo (#44)
+    
+    Summary:
+    fix the `NUM_GPUS` typo in `archive/imagenet/anynet/R-50-1x64d_step_2gpu.yaml`.
+    
+    Besides, change the `NUM_WORKERS` from 2 to 4 because I noticed that all other config files use the `NUM_WORKERS: 4`
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/44
+    
+    Reviewed By: ericmintun
+    
+    Differential Revision: D20999523
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: a562e6cc5bf7351a1e4c7ce7db81f23fe847ef5a
+
+commit b3260e709978656a2648c2b5c5fb41815bab8655
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 15 13:32:31 2020 -0700
+
+    Address some nits and config changes
+    
+    Summary: Address some EN and config nits and correct model ID text for a model.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21048714
+    
+    fbshipit-source-id: 35b5639e76903d2cab5163ab08e8a3ad97f9d1e3
+
+commit 4f5b5dafe4f4274f7cba774923b8d1ba81d9904c
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 15 12:24:58 2020 -0700
+
+    Add model weight URLs for dds baselines
+    
+    Summary: Adding all URLs for model weights stored in S3.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21046628
+    
+    fbshipit-source-id: c1e7c033dc5f226f42df633a8b0a969614334c64
+
+commit 4acac2b06945f6b0722f20748e2104bd6a771468
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Wed Apr 15 12:24:58 2020 -0700
+
+    Update the readme and include the model zoo (#46)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/46
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21045168
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 4d56092a577df57aa9ea5f63381dd2527e32c72d
+
+commit 44bcfa71ebd7b9cd8e81f4d28ce319e814cbbb73
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Tue Apr 14 14:24:41 2020 -0700
+
+    Add all DDS baselines configs
+    
+    Summary: Make all dds baselines configs compatible with pycls and add them under `pycls/configs/dds_baslines/`
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20989890
+    
+    fbshipit-source-id: 5677287d91f57af44e7518a6dd6ffccd15126e55
+
+commit d884924de6ce53b23ba5e846b800c8d48f7d0b2d
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Tue Apr 14 14:24:41 2020 -0700
+
+    Add custom_weight_decay option for BN
+    
+    Summary: To make it clearer to the users, we are introducing two options: `BN.USE_CUSTOM_WEIGHT_DECAY` and `BN.CUSTOM_WEIGHT_DECAY`. Not setting `BN.USE_CUSTOM_WEIGHT_DECAY` will mean that the WD used for BN params would be the one set in OPTIM.WEIGHT_DECAY.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D21009285
+    
+    fbshipit-source-id: a9a76f59a9487ca92cd67b2f93f79adf8d57a14b
+
+commit 49e77948ed87bc257d80e7d6590814e25eee9ba5
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Mon Apr 13 22:24:11 2020 -0700
+
+    Make EN SE ratio config option consistent w/ others
+    
+    Summary:
+    For anynet and regnet, we refer to SE ratio using the SE_R, but for EN, we have it as SE_RATIO. Changing it to keep it consistent with other models.
+    
+    Also addressing a minor nit in regnet.py
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20988753
+    
+    fbshipit-source-id: 2e080445d0b93fc16be19b7e026f76c02ebd73f4
+
+commit e9c1ef4583ef089c182dd7fe9823db063a4909e3
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Apr 13 00:43:59 2020 -0700
+
+    Move dds baseline configs to a separate subdir (#43)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/43
+    
+    Reviewed By: vedanuj
+    
+    Differential Revision: D20985171
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 128db2acebdce0001bcdae0d44d60f988c39ad1d
+
+commit 24a2805f1040787a047ed0339925adf98109e64c
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Sat Apr 11 21:47:55 2020 -0700
+
+    Refactor se in anynet to support regnety (#42)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/42
+    
+    Test Plan:
+    Imported from GitHub, without a `Test Plan:` line.
+    
+    tested locally:
+    
+    ```
+    ~/fbsource/fbcode/buck-out/gen/vision/fair/pycls/tools/test_net.par --cfg configs/imagenet/regnet/RegNetX-200MF_dds_1gpu.yaml NUM_GPUS 1 TRAIN.BATCH_SIZE 64 TEST.BATCH_SIZE 32 TEST.WEIGHTS https://dl.fbaipublicfiles.com/pycls/checkpoints/RegNet-X-E100-F0200-V04.pyth
+    ```
+    
+    Reviewed By: vedanuj
+    
+    Differential Revision: D20983994
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 61536f340c1e5afca3b0eb3c73f44d3a99839b90
+
+commit 708d429e67b1a43dfd7e22cb754ecaaf234ba308
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Sat Apr 11 14:56:35 2020 -0700
+
+    Drop support for num gs parametrization in anynet (#40)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/40
+    
+    Reviewed By: vedanuj
+    
+    Differential Revision: D20983462
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 0019c9fbc179b301b8ca4b2732d5454caf51b902
+
+commit a86c9d5ba07ef41f7111c6e58d2de693b83f66f6
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Sat Apr 11 12:32:00 2020 -0700
+
+    Implement basic regnet model abstraction (#39)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/39
+    
+    Reviewed By: takatosp1
+    
+    Differential Revision: D20980617
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: c78228c6bdda5bedf51443689327983dca52fb58
+
+commit ad01b81c516e59e134bfde22ab827aa61744b83c
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri Apr 10 18:01:07 2020 -0700
+
+    Add prec_time to test_net.py and activations count
+    
+    Summary:
+    -  This diff introduces changes to run prec_time computation in test_net as well.
+    - We don't currently have the code to count activations in pycls. This will be useful for users to verify the activations of the upcoming open-sourced models.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20971486
+    
+    fbshipit-source-id: b2319e8fde9e2d862f4fc020bd642b31e498c453
+
+commit 4e470e21ad55aff941f1098666f70ef982626f7a
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri Apr 10 11:31:18 2020 -0700
+
+    Allow local caching of model weights URLs
+    
+    Summary: This diff introduces changes to allow `cfg.TRAIN.WEIGHTS` and `cfg.TEST.WEIGHTS` to specify URLs to our pycls S3 bucket (http://dl.fbaipublicfiles.com/pycls/) which will then be downloaded and cached locally to a path specified in `cfg.DOWNLOAD_CACHE`.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20951593
+    
+    fbshipit-source-id: 4329b88217dadb39ce93714531f02201905efbbe
+
+commit ec188632fab607a41bff1a63c7ac9bd0d949bb52
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Fri Apr 10 11:31:18 2020 -0700
+
+    Add SE to AnyNet
+    
+    Summary: We are going to open-source RegNet models. RegNet-Y models use SE, so we're adding this into anynet.py to allow these models to be constructed.
+    
+    Reviewed By: pdollar
+    
+    Differential Revision: D20950208
+    
+    fbshipit-source-id: a52946e0d51ddd8c9bacfc268ba5b7871a4e890a
+
+commit 8817629849e1f5b4faf0bab36af448bced9fae49
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 1 14:55:50 2020 -0700
+
+    Run linter and fix remaining lint issues
+    
+    Summary: Run ./dev/linter.sh and manually fix remaining lint issues.
+    
+    Reviewed By: bxiong1202
+    
+    Differential Revision: D20300055
+    
+    fbshipit-source-id: bde142b3215aa144acebe6f3afa4957a451dbfab
+
+commit 3f95211c5244b7876b0d9fd9e10a07f5513eb5d7
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Apr 1 14:55:50 2020 -0700
+
+    Add fvcore linter to pycls
+    
+    Summary: Pycls doesn't have a linter currently. Add fvcore linter to help with linting all upcoming changes.
+    
+    Reviewed By: bxiong1202
+    
+    Differential Revision: D20209115
+    
+    fbshipit-source-id: 163041d67605cc95cddf9ce3961c41a5400460a3
+
+commit b413e36a37780d3b02facf804db3ad60718d269e
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Fix undefined stride arg in cifar stem (#27)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/27
+    
+    Differential Revision: D20465989
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: cc8e303c42df3e794a3bb9cc5da69c8d433d7f80
+
+commit 305d61fdb42f7579d218a355c034c8b5a964af74
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Move docs to a separate subdir (#25)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/25
+    
+    Differential Revision: D20465854
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: ff868c1a2977790a7169036d37f574efd2c913f3
+
+commit 41fe441dc2fba04c85bf7aad92497c11f1719614
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Support using gw parametrization in anynet (#26)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/26
+    
+    Differential Revision: D20465957
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 0ec2c88cb2293a6eea6f874ad1119a5f2dcd700f
+
+commit fcb5823e3801ae01aeaf163e5be64f743e6996f8
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Mon Mar 16 13:58:33 2020 -0700
+
+    Include the simple stem for imagenet (#24)
+    
+    Summary: Pull Request resolved: https://github.com/facebookresearch/pycls/pull/24
+    
+    Differential Revision: D20465802
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 6cef4e1923078afdc8afe2a3077fef8e3dea8ca1
+
+commit 8079cbf3b928ca9bb324cd82773f20adfbb5ce6a
+Author: Eric Mintun <mintun@fb.com>
+Date:   Mon Jan 13 12:51:49 2020 -0800
+
+    Fixed Cifar10 dataset __getitem__ transformations modifying loaded data permanently (#21)
+    
+    Summary:
+    The CIFAR10 dataset class has been performing data augmentation in place, causing each call to ``__getitem__`` in ``pycls.pycls.datasets.cifar10.Cifar10`` to modify the loaded dataset permanently.
+    
+    I believe this was going unnoticed because with the default settings the data loader spawns new processes at least once an epoch and passes a copy of the original, unmodified dataset to each.  The result is that the model trains well despite the bug.  Telling the data loader to only use a single process by setting the config parameter ``DATA_LOADER.NUM_WORKERS=0`` causes the model to fail to train after ~3 epochs.
+    
+    Making a copy of the selected data in ``__getitem__`` fixes the problem. Sequential calls to ``__getitem__`` with the same index now return the same result, and the model trains successfully even with ``DATA_LOADER.NUM_WORKERS=0``.
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/21
+    
+    Differential Revision: D19377056
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 934b927b5a48f2e2224acfbcdc53827aef4f8c0c
+
+commit 3cb4ff1a89e99d6a90fed63a09f24f50084df43e
+Author: Raj Prateek Kosaraju <rajprateek@users.noreply.github.com>
+Date:   Thu Jan 9 20:10:48 2020 -0800
+
+    Fix typo in README.md (#22)
+    
+    Summary:
+    pycl -> pycls
+    Pull Request resolved: https://github.com/facebookresearch/pycls/pull/22
+    
+    Differential Revision: D19341447
+    
+    Pulled By: rajprateek
+    
+    fbshipit-source-id: 8a90c588f86e940f63d5b4b6bee2944c6985e0e4
+
+commit 7e3a429529fcbbfb722ba6d3679de0f18d24461f
+Author: Raj Prateek Kosaraju <kosaraju@fb.com>
+Date:   Wed Dec 25 00:15:03 2019 -0800
+
+    Re-apply changes from D17340211
+    
+    Summary: Need to re-apply changes for BN since we synced the fbcode version with github updates
+    
+    Differential Revision: D19227302
+    
+    fbshipit-source-id: c9a752c313fc0726f9f6db8c134ef38c80742419
+
+commit 04a445b79af9df433ef5d76baa11e4c40a9348dc
+Author: Eric Mintun <mintun@fb.com>
+Date:   Wed Nov 27 12:24:03 2019 -0800
+
+    Fixes a crash in the ImageNet data preprocessing function _prepare_im in the ImageNet dataset class in
+    pycls/datasets/imagenet.py.  Inputs to the transformation functions horizontal_flip and random_sized_crop in
+    pycls/datasets/transforms.py were mislabelled and have been corrected.  The horizontal_flip function was being
+    passed an additional parameter order='HWC' which it didn't support.  This functionality was restored to
+    horizontal_flip so that it can now process inputs in either channel-height-width (its original default) or
+    height-width-channel order.  This is preferable to instead moving the horizontal_flip call in _prepare_im to
+    after the conversion to CHW order for the following reason.  The horizontal_flip function causes the output numpy
+    array to be non-contiguous, and torch doesn't current support converting it to a torch tensor.  The transpose
+    call to switch to CHW order makes the numpy array contiguous again.  An explicit numpy.ascontiguousarray could
+    instead be used after horizontal_flip, but this seems like it could be slower.
+    
+    Visual inspection of the ImageNet data preprocessing suggests it is properly preprocessing images.  Tested that
+    the R-50 Cifar10 baseline trains to the expected accuracy as before, and that the R-50, 1gpu ImageNet baseline
+    can complete a full epoch of training and evaluation, whereas before it would crash in the first iteration.
+
+commit da01ecb3e83d67dcff8bbfd72559b692225ac2e1
+Author: Renat Alimbekov <alimbekovr@hotmail.com>
+Date:   Wed Oct 30 10:49:16 2019 +0600
+
+    edit link to Datasets
+    
+    edit link to Datasets
+
+commit 996cb1d98a4479733359a23f0b5de9124310e3ea
+Author: Ilija Radosavovic <ilija.radosavovic@gmail.com>
+Date:   Fri Oct 25 12:01:52 2019 -0700
+
+    Initial commit

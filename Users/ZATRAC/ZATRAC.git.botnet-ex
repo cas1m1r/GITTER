@@ -1,0 +1,127 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+## Server
+The server is written with the library **<sys/socket.h>** therefore is not compatible with Windows OS.
+It uses file descriptors to distinguish each client with the **<sys/time.h>** library.
+
+#### Current features
+- [x] Managing multiple clients
+- [x] Echoing sent messages from clients
+- [x] Awareness of client disconnects
+- [x] Sending commands to specific clients
+- [x] Master account authentication
+- [x] Retrieving a list of clients connected
+
+Features for the server are not final.
+
+
+## Client
+The client tailored for the server specifically has not yet been developed however you can use a **raw** socket or **telnet** to communicate with the server.
+#### Current features
+- [x] Retrieving basic information about client
+- [x] Execution of commands specified by server
+- [ ] Compatability for Windows OS with C#
+
+Features for the client not final.
+
+## Configuration
+
+Enter your **server ip** into the client.c file.  
+`line:35  serv_addr.sin_addr.s_addr = inet_addr("<server_ip_here>");`
+
+Enter your desired authentication **password** into cnc.c.  
+`line:23  char password[] = "<password_here>\r\n";`
+
+Connect to your server via [PuTTY](https://www.putty.org/) and login with the before mentioned password.
+
+### Commands: 
+ - list                          
+ *[lists connected clients]*
+ - send *id_of_socket:command*  
+ *[send a command to a client]*
+ - help                          
+ *[shows available commands]*
+
+## Screenshots
+![demo](/demo.PNG)
+====================== GIT HISTORY: ======================
+f3c1883 HEAD@{0}: clone: from https://github.com/Zatrac/botnet-ex
+commit f3c18831662b20e9d43316da88a6870a5a5b9eef
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Dec 2 02:46:25 2018 +0000
+
+    Info optimization
+
+commit 6ad42a5f9f299cd822758678cd9e63a5832d6a2e
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Dec 2 02:41:51 2018 +0000
+
+    Added screenshot
+
+commit e02049315b4b253babc5a9dd256a9c862cd71013
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Dec 2 02:40:23 2018 +0000
+
+    Added screenshot
+
+commit e8b3430933decd54fd00c9d9d902dedc63276cad
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Dec 2 02:30:59 2018 +0000
+
+    Functionality updates
+
+commit 76119b807aebe7f74da766fe830f1a3d2ada750c
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Mon Nov 12 18:40:59 2018 +0000
+
+    Cleaning & seperation
+
+commit 1361a5944c575714c10cd33aee95a4969a55dbe9
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Mon Nov 12 18:17:00 2018 +0000
+
+    Cleaning & seperation
+
+commit b12698e9fc00ceb391e50db845483d0dff69b960
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Mon Oct 22 01:38:15 2018 +0000
+
+    Authentication and commands
+
+commit d50846812e94b01532f6bdf7e512b46f2d2ec233
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Mon Oct 15 23:09:30 2018 +0000
+
+    Removed halting issue & sanitizing
+
+commit 55d9dde10d0b2131d9922acffc5c8f89dd8b7a73
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Mon Oct 15 00:55:07 2018 +0000
+
+    Updated README.md
+
+commit e534824b041ffe8c585315ba6e2f0f584f037951
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Oct 14 18:27:49 2018 +0000
+
+    Create LICENSE.md
+
+commit d014690198681e189308667c9d2b283b54cadf0d
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Oct 14 18:16:25 2018 +0000
+
+    Create README.md
+    
+    README added for clarification.
+
+commit acb2bbf3461d1ae0fa19dcf39da13ae4e784ab3d
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Oct 14 18:00:45 2018 +0000
+
+    Delete C workspace
+
+commit 85bc7cdb7d6bdf101120e1713fc18bd9453ee09b
+Author: Zatrac <eliasf_96@hotmail.com>
+Date:   Sun Oct 14 17:51:41 2018 +0000
+
+    Server and additional classes

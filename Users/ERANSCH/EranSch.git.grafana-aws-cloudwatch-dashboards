@@ -1,0 +1,1400 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit d3566265077dbf76663c41d9cd69bccb0d321c29
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Dec 10 00:01:03 2019 +0100
+
+    AWS API Gateway update
+
+commit 0d439ee2f851ddde007c0cafa5af550bb394a22b
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 9 19:35:24 2019 +0100
+
+    AWS CodeBuild dashboard, fix #64
+
+commit b08bbd9e123a3def500b0413b7d510dc5924ffcc
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 9 19:02:14 2019 +0100
+
+    AWS Route 53 dashboard, fix #57
+
+commit 5ffefaec117931cfcb3626673b7e7b305d4878da
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 9 17:40:02 2019 +0100
+
+    Application load balancer dashboard update, fix #62
+
+commit 515dacf7e3d281d1bf2b2ed62041a265b0bea717
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 5 22:03:44 2019 +0100
+
+    AWS Step Functions dashboard
+
+commit 0e501cb5a2656e48fc2bdee64123310e4c078d5e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Oct 17 22:00:37 2019 +0200
+
+    AWS Redshift
+
+commit 95126f5c7613fad8b38526ab5aa50d45c0f52d37
+Merge: f1a9c1c 8e42d9d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Sep 26 19:00:26 2019 +0200
+
+    Merge branch 'master' of github.com:monitoringartist/grafana-aws-cloudwatch-dashboards
+
+commit f1a9c1c8632030a6b9154f6660c9612a2f6d459f
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Sep 26 18:52:54 2019 +0200
+
+    AWS Lambda update
+
+commit 8e42d9dec7fb3e4752a86ed87ddf5f7c65f45689
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Sep 20 23:57:49 2019 +0200
+
+    Update README.md
+
+commit f88e781ae9985cfdf2bbe506e3654df89682b3cf
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Sep 20 23:30:16 2019 +0200
+
+    AWS Cloudwatch Browser update
+
+commit 9244f70ec6348ee1490ff61bf540a98406553850
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Sep 20 22:50:18 2019 +0200
+
+    AWS Billing screenshots update
+
+commit bb2a3baa1fa65037f18dba8d04d941bfcc0401c6
+Author: Jon Seymour <jon.seymour@gmail.com>
+Date:   Wed May 22 19:08:40 2019 +1000
+
+    Undo ECS dashboard change (#61)
+    
+    * Revert "removed ServiceName dimension from CPUUtilization & MemoryUtilization as default (#10)"
+    
+    This reverts commit 211c44db8b5288ace8f24e0390214fc502537f7a in order to rollback an unintended consequence
+    of PR #10. In particular, after that change, the dashboards no longer display per service ECS metrics.
+    
+    * Create panels for CPU and memory queries not qualified by ServiceName
+    
+    metrics. The previous commit reverted that change to restore the per-service functionality
+    and introduces two new panels to support the issue #9 that #10 was meant
+    to address.
+    
+    Signed-off-by: Jon Seymour <jon@wildducktheories.com>
+
+commit 33c62a5e004521546f92f598121d0e52edcb7c84
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 20:20:53 2019 +0200
+
+    AWS Billing dashboard update
+
+commit 31a2c623bd13fd87a8717fb4188e1550bca947d4
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 20:05:31 2019 +0200
+
+    S3 dashboard update
+
+commit ae2bc58240ac1214d21742c7f12edbe2e6c5a1d9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 17:17:13 2019 +0200
+
+    AWS Billing dashboard update
+
+commit da0be2a0e13bed6e95289a95d035bb3bc4fb25f8
+Merge: 7625a4c 9b7ccdb
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 17:16:20 2019 +0200
+
+    Merge branch 'master' of github.com:monitoringartist/grafana-aws-cloudwatch-dashboards
+
+commit 7625a4c9b14150f6577e3a1d29a4108452df3ddf
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 17:15:56 2019 +0200
+
+    AWS Billing dashboard update
+
+commit 9b7ccdbd29dc17a806b70281366ba5257369c793
+Author: jong82 <jong82@gmail.com>
+Date:   Wed Feb 20 18:16:07 2019 -0500
+
+    Add Redshift to Billing dashboard (#55)
+    
+    * Add Redshift to Billing dashboard
+    
+    * update refID
+
+commit 73d0602ac585f8e7b96bb5e42d8621c2758acc8a
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Sep 23 11:32:57 2018 +0100
+
+    AWS Redshift
+
+commit 81214b7713026d941b342ec0880b77159d510a72
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Aug 23 23:23:22 2018 +0100
+
+    Update README.md
+
+commit 80cac38078de2d9caae0329bb050165b46a42fbc
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 22 20:00:07 2018 +0100
+
+    Update README.md
+
+commit 08684d4b3a79a98a8260dbfb66a001fda52e764b
+Author: Francisco Guimarães <francisco.cpg@gmail.com>
+Date:   Mon Aug 13 10:33:14 2018 -0300
+
+    aws-api-gateway: Improve $stage variable query (#39)
+    
+    Improves the $stage query by listing only existing stages in the selected $apiname
+
+commit 3bb1192d58260cf24cd6290ea3c44cd9ba8e4205
+Author: Felix Breidenstein <mail@felixbreidenstein.de>
+Date:   Fri Aug 3 10:48:35 2018 +0200
+
+    README.md: Removed unwanted linebreak (#38)
+
+commit c1b38090700ba5421cfeffb424708adaecd3a99b
+Author: Dai Utsui <utsui@gmo-media.jp>
+Date:   Wed Jul 11 15:40:40 2018 +0900
+
+    No refID on AmazonApiGateway (#37)
+
+commit b4ae0f0a847e1e6f8ce748b090a59e44eb69ea80
+Author: Dai Utsui <utsui@gmo-media.jp>
+Date:   Wed Jul 11 00:41:39 2018 +0900
+
+    Add CloudFront row to AWS Billing dashboard (#36)
+    
+    Thank you Dai.
+
+commit 44e5e7b3f0890422ee5f1915e59dae2e9107ccd7
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jun 17 09:36:06 2018 +0100
+
+    Dashboards update
+
+commit 02807491a53b709df30b673f242e0caea5af8095
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jun 17 09:17:48 2018 +0100
+
+    Dashboards update
+
+commit ddb32cf194c8678374d7960d4cc4b2fe093849b9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Jun 16 07:49:27 2018 +0100
+
+    AWS Events update
+
+commit a69dbd75972ede1113e41926b082347116d21ce0
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 14:33:34 2018 +0100
+
+    AWS SQS update
+
+commit 9c7c61a95e05f72ef4d797875605bd53ab20f1e4
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 01:04:09 2018 +0100
+
+    Screenshot update
+
+commit 3d626ffb55c7568c23f84969c65125ae50460808
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 00:38:45 2018 +0100
+
+    AWS Logs update
+
+commit 5f5c12271c7d336e08f14adfde8455f91d592b1d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 00:25:29 2018 +0100
+
+    AWS SNS update
+
+commit b9259241b665fec42830f252b1a73344ad17ef8e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 24 18:43:17 2018 +0100
+
+    Grafana 5 EC2 Dashboard with Name tag variable
+
+commit 3a2050f9cf4c1868148e3369938bcda158029603
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 24 17:35:56 2018 +0100
+
+    New services in Billing Dashboard + Grafana 5 format
+
+commit 93c3cdc9a2168ef142632bd1839aebc9b73e6603
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri May 18 08:57:38 2018 +0100
+
+    Update README.md
+
+commit 3f5b2d017f980965ba1627f7757fa90b7b6c0848
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Feb 26 00:20:43 2018 +0100
+
+    AWS Api Gateway/Lambda update
+
+commit 419068e900f7168cf598ea32e208c06b2275a8f9
+Author: andrew80k <andrew80k@gmail.com>
+Date:   Thu Feb 15 11:44:08 2018 -0500
+
+    fix aws-billing.json file for duplicate refId for EC2 and RDS (#28)
+    
+    Thx
+
+commit 7a3fb7f5c15fc10de204ea2318887abf7670fa93
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Feb 15 17:39:08 2018 +0100
+
+    refIds update - fix #27
+
+commit c3a507b88b0c2f87e694dbfe0b10cd1de8ac3275
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Feb 2 13:40:41 2018 +0100
+
+    Example IAM role
+
+commit 036ff27f51779aa81842dda8a1cd5b9746a20600
+Author: jho2dot0 <jho2dot0@users.noreply.github.com>
+Date:   Wed Nov 22 00:53:10 2017 -0500
+
+    Adjusted $vpnid to correct query error. (#25)
+
+commit 1f7c5f9a5885075ea2822b1a0b49d1cdb86d189f
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 6 01:00:11 2017 +0200
+
+    README update
+
+commit d6161e74802673bde405f716ded377310ddab88d
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Mon Sep 25 10:52:45 2017 +0100
+
+    Create CODE_OF_CONDUCT.md
+
+commit c41ee65bbab1a02d91159035d81f09365f832d3e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Sep 14 23:25:45 2017 +0300
+
+    Fix #21
+
+commit df66f4cad7b3eb252ed76328686a9e4891aae0ad
+Author: Pedro Gomes <pedrogomesyoo@gmail.com>
+Date:   Wed Sep 6 12:30:07 2017 +0200
+
+    Add RDS row to AWS Billing dashboard (#18)
+
+commit 9c97ab176a6559ec27a28f8d41fefa4ccf702ecf
+Author: Andreas Kohn <andreas.kohn@gmail.com>
+Date:   Wed Aug 30 18:59:08 2017 +0200
+
+    Use the us-east-1 region for accessing CloudFront metrics (#15)
+    
+    Fixes #4
+
+commit 4ecd084023fefcb148937a8be3f914df793ef664
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 17:51:20 2017 +0100
+
+    grafana.net -> grafana.com
+
+commit 3635d96c7b2b38577555342d93ceb6f2a7dcb215
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 17:45:18 2017 +0100
+
+    AWS VPN
+
+commit 71fc54f9a0eaeb2076cdc84a367d940df559576d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 15:33:57 2017 +0100
+
+    README update
+
+commit a1191bb85d2d311522036d32b06ab013b182dad9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 12:27:02 2017 +0100
+
+    README update
+
+commit 4a875c26cf180f334e40f342e69509eff211993a
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 12:25:54 2017 +0100
+
+    README update
+
+commit bcfbb0aec1a65540a25dfac274f3732113bda6e8
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 12:25:16 2017 +0100
+
+    README update
+
+commit 211c44db8b5288ace8f24e0390214fc502537f7a
+Author: AnthonyWC <anthony.wan.cheng@gmail.com>
+Date:   Sat Mar 4 17:35:27 2017 -0500
+
+    removed ServiceName dimension from CPUUtilization & MemoryUtilization as default (#10)
+
+commit ee7e50d0c71ea6e607ac71444fc13db617cbf57c
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Sat Feb 18 15:10:44 2017 +0000
+
+    Update README.md
+
+commit feb754ab4cdc28673d980335d671d8ceb2b65495
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Feb 17 19:02:57 2017 +0000
+
+    Dashboards update
+
+commit 0d918a898364910c309982d54f0516f20c23ef8e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Feb 16 21:45:39 2017 +0000
+
+    AWS SES dashboard
+
+commit 974fe47586b0916e53dcbe78fd0e1eea6e5606a0
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Feb 16 21:09:24 2017 +0000
+
+    AWS API Gateway dashboard
+
+commit dccb5a607d13713d34cebe89a6da6110ee787ab4
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Thu Feb 16 11:14:50 2017 +0000
+
+    Update aws-cloudwatch-browser.json
+
+commit e8734930805f39cf55081d6fdce8184292eead77
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Feb 3 19:31:16 2017 +0000
+
+    SQS screenshot
+
+commit 05d3e979c066c136d06523a947ebfb5fd2b4a8f1
+Author: StephenGoodall <stephen.goodall@sci-ware.com>
+Date:   Wed Jan 18 16:28:19 2017 +0000
+
+    Update aws-autoscaling.json (#7)
+    
+    Doesn't seem to show the ASG names when using CloudFront as the dimension
+
+commit 020a9e2592f15bca669d36a8ed72bdb6279a3843
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Thu Dec 15 15:24:34 2016 +0100
+
+    Update README.md
+
+commit d0596159958a2c058f029db9311908a72dc140c4
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Nov 30 22:57:38 2016 +0000
+
+    New S3 request metrics added
+
+commit 43fe517e7f2195b62441b60880dd4f405fd8304a
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 28 23:00:11 2016 +0000
+
+    AWS ElastiCache Redis
+
+commit 3d9b47377df0fc0d9ec5949946dc4ec88391d59d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 26 11:39:05 2016 +0000
+
+    AWS Billing update
+
+commit b0e04cdf31a3a051546701821902664e3c805129
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Nov 24 22:13:24 2016 +0000
+
+    AWS EFS update
+
+commit f2e6e821198ad6e839ef91c93add559f7b071326
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Nov 23 21:18:09 2016 +0000
+
+    AWS EFS/Lambda update
+
+commit a87eaa2213ff55d040c149e6270764b556fa342f
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 21 20:34:24 2016 +0000
+
+    AWS Lambda update
+
+commit 71a6da40f8db3cf289fdc0f86cc55d4ef84e2710
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 21 20:28:50 2016 +0000
+
+    AWS Billing update
+
+commit a7871fcf60776c58aac896dc10bbc69cf2d3eefc
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 15 08:14:26 2016 +0000
+
+    Lambda update
+
+commit aa60f7a24577a58d9fd6843e43bc53241e325019
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 14 19:57:12 2016 +0000
+
+    Lambda, ELB classic update
+
+commit a4558545f933fa1fa881b7234b8ac2d022d3d41b
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Nov 2 08:30:49 2016 +0000
+
+    Doc
+
+commit bfb4a01507d8ca95560b25fc6cdbe3a259868fe7
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 1 20:28:47 2016 +0000
+
+    App ELB
+
+commit b1147a1eade9f24d779c22a8f5142a8d4c70b8ac
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 1 20:21:50 2016 +0000
+
+    App ELB
+
+commit 761906432d9386aa054609e9efbb24a404ff57b5
+Author: Dominik Hahn <dominikhahn@users.noreply.github.com>
+Date:   Tue Nov 1 21:18:48 2016 +0100
+
+    Fix dimensions (#2)
+    
+    * Fix dimensions
+    
+    * Remove HostCount / BackendConnectionErrors
+    
+    Only supported on Classic LB
+
+commit ef00c62681ca6ca76651599f9c9ec42b4fad6a67
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 21:00:16 2016 +0100
+
+    AWS S3 update
+
+commit 5bc68198c285c9c2de0dfe5da5f82717ed57bc24
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:50:05 2016 +0100
+
+    AWS Logs
+
+commit 1ba59ee16f9ddec313ee5c8b78bda8822b3d80a6
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:25:46 2016 +0100
+
+    AWS Lambda update
+
+commit b47577700a72cafabcb16130c8daa4a755c3dc32
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:06:06 2016 +0100
+
+    AWS Lambda update
+
+commit f7584560b0690ed1611da2583f1c9c753ac35af9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:05:00 2016 +0100
+
+    AWS Lambda update
+
+commit 1d8544dc13f1c91c39e7d0aae00c71362b05c6de
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:28:48 2016 +0100
+
+    README update
+
+commit 9b605b0d8bb843c4ef7150d4f16eee011bbd3ac1
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:20:08 2016 +0100
+
+    README update
+
+commit c33721700e9c1f6b659e7b2629373a8fe4a34cc2
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:18:04 2016 +0100
+
+    README update
+
+commit 1321f8c9032a4c42b14c4e8b97433516461ceb27
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:15:13 2016 +0100
+
+    AWS browser note
+
+commit df949889f07dc39e6b26cac5aa687217a4f51472
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:14:44 2016 +0100
+
+    AWS RDS
+
+commit ebf08b68ecc3575f4c01ef06d3fa692678350c55
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 19 20:30:39 2016 +0100
+
+    App ELB fixed namespace
+
+commit 2abf91a107bb684ad1b9426aed7710c91d39f814
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 19 20:23:10 2016 +0100
+
+    App ELB fixed namespace
+
+commit c9292009d67a8cacda9dbf0bef20f0a75748b668
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 19 20:19:21 2016 +0100
+
+    App ELB fixed namespace
+
+commit d3620a659d4da1118160716a172cc4ffab57f1b6
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Oct 17 22:21:33 2016 +0100
+
+    AWS Auto Scaling
+
+commit d3c3e1464c3e9ed9538a0eff78d9e7a71aa57962
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Oct 17 21:56:47 2016 +0100
+
+    AWS CloudFront
+
+commit 53e78650586bacbbaabb01ca0db3bb4bad539603
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 23:46:02 2016 +0100
+
+    AWS Events
+
+commit c95688718d0049a28988315c3819587ded61e5db
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 08:40:32 2016 +0100
+
+    AWS EFS
+
+commit 0aba9e8c398d579e45a5821660a825ebc27c3208
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 07:15:55 2016 +0100
+
+    AWS ELB
+
+commit 05febcad619473036a20a55cbb1c9d11d19e0605
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 01:19:22 2016 +0100
+
+    AWS ELB
+
+commit 599e199ce59b1fb58cb74d5493a52178c9785a53
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 12 00:00:18 2016 +0100
+
+    AWS EBS
+
+commit 8e240eea86c3bed5669f415bf34475caf4a29f9e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 11 23:35:48 2016 +0100
+
+    AWS EC2
+
+commit 502f86321c5d0ea2ad0ac4d0eb9f46fd984f6775
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Oct 10 23:21:53 2016 +0100
+
+    AWS EMR
+
+commit bd0067cf5a62cf3bbfbeff009ef57e1e1c5f2c37
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 8 08:19:00 2016 +0100
+
+    Cloudwatch Browser
+
+commit 83bfea48fdb00f908a8b84ebd2c3717470178842
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 8 00:07:02 2016 +0100
+
+    AWS Lambda
+
+commit d44c0b092d1026aa4a03216d59df7c6ab1aeed35
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 8 00:06:39 2016 +0100
+
+    AWS Lambda
+
+commit 3b705da53943fc874da41a058229e3dd9bd35c3c
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 7 23:41:20 2016 +0100
+
+    Cloudwatch Browser
+
+commit 537e75ac30c17e58b3bfcf02b93a73d05f1c8d5c
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 7 22:41:12 2016 +0100
+
+    SQS and SNS
+
+commit fa9aff7d65a749aa49ac3e4cebcc53b501ae5340
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Oct 6 23:14:27 2016 +0100
+
+    AWS S3 dashboard
+
+commit 19bf2e08317fb9d6b35a6dfd51eb3bf680f77c2e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Oct 6 22:34:45 2016 +0100
+
+    AWS S3 dashboard
+
+commit 4e6f21d086654306faceea9bea33b73ac8d431a7
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 4 20:39:18 2016 +0100
+
+    AWS ECS general dashboard
+
+commit 85248540c5d3fc539b9715db8a4302e376bf5296
+Merge: 30fca65 0a6a7e7
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Tue Oct 4 20:29:56 2016 +0100
+
+    Merge pull request #1 from paschdan/add-cluster-dimension
+    
+    adds cluster dimension to ecs service dashboard
+
+commit 0a6a7e7a646b957d422b3a53682e7ae7bc418e32
+Author: paschdan <paschdan@gmail.com>
+Date:   Mon Oct 3 18:13:24 2016 +0200
+
+    adds cluster dimension to ecs service dashboard
+
+commit 30fca655ee4458373b69fad038255bc971a42cb6
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jul 17 07:16:13 2016 +0100
+
+    Grafana 3.1.0 update + documentation links
+
+commit cc8202d6d1aaa1660fae19a58fa9fd0b2d42e2f8
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jul 10 00:09:26 2016 +0100
+
+    ECS templates
+
+commit 2b08ff802361071485aaea75cd6f62765e5dfd7d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Jul 9 23:50:33 2016 +0100
+
+    Dashboard update revision 3
+
+commit 240c27289e852f8e842255928a1e05a2812f76a9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Jul 9 16:01:51 2016 +0100
+
+    Init
+
+commit 98bd810ba8ae0bcc1f776be991ead28122a4dcaa
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Sat Jul 9 15:09:04 2016 +0100
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit d3566265077dbf76663c41d9cd69bccb0d321c29
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Dec 10 00:01:03 2019 +0100
+
+    AWS API Gateway update
+
+commit 0d439ee2f851ddde007c0cafa5af550bb394a22b
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 9 19:35:24 2019 +0100
+
+    AWS CodeBuild dashboard, fix #64
+
+commit b08bbd9e123a3def500b0413b7d510dc5924ffcc
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 9 19:02:14 2019 +0100
+
+    AWS Route 53 dashboard, fix #57
+
+commit 5ffefaec117931cfcb3626673b7e7b305d4878da
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 9 17:40:02 2019 +0100
+
+    Application load balancer dashboard update, fix #62
+
+commit 515dacf7e3d281d1bf2b2ed62041a265b0bea717
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 5 22:03:44 2019 +0100
+
+    AWS Step Functions dashboard
+
+commit 0e501cb5a2656e48fc2bdee64123310e4c078d5e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Oct 17 22:00:37 2019 +0200
+
+    AWS Redshift
+
+commit 95126f5c7613fad8b38526ab5aa50d45c0f52d37
+Merge: f1a9c1c 8e42d9d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Sep 26 19:00:26 2019 +0200
+
+    Merge branch 'master' of github.com:monitoringartist/grafana-aws-cloudwatch-dashboards
+
+commit f1a9c1c8632030a6b9154f6660c9612a2f6d459f
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Sep 26 18:52:54 2019 +0200
+
+    AWS Lambda update
+
+commit 8e42d9dec7fb3e4752a86ed87ddf5f7c65f45689
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Sep 20 23:57:49 2019 +0200
+
+    Update README.md
+
+commit f88e781ae9985cfdf2bbe506e3654df89682b3cf
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Sep 20 23:30:16 2019 +0200
+
+    AWS Cloudwatch Browser update
+
+commit 9244f70ec6348ee1490ff61bf540a98406553850
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Sep 20 22:50:18 2019 +0200
+
+    AWS Billing screenshots update
+
+commit bb2a3baa1fa65037f18dba8d04d941bfcc0401c6
+Author: Jon Seymour <jon.seymour@gmail.com>
+Date:   Wed May 22 19:08:40 2019 +1000
+
+    Undo ECS dashboard change (#61)
+    
+    * Revert "removed ServiceName dimension from CPUUtilization & MemoryUtilization as default (#10)"
+    
+    This reverts commit 211c44db8b5288ace8f24e0390214fc502537f7a in order to rollback an unintended consequence
+    of PR #10. In particular, after that change, the dashboards no longer display per service ECS metrics.
+    
+    * Create panels for CPU and memory queries not qualified by ServiceName
+    
+    metrics. The previous commit reverted that change to restore the per-service functionality
+    and introduces two new panels to support the issue #9 that #10 was meant
+    to address.
+    
+    Signed-off-by: Jon Seymour <jon@wildducktheories.com>
+
+commit 33c62a5e004521546f92f598121d0e52edcb7c84
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 20:20:53 2019 +0200
+
+    AWS Billing dashboard update
+
+commit 31a2c623bd13fd87a8717fb4188e1550bca947d4
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 20:05:31 2019 +0200
+
+    S3 dashboard update
+
+commit ae2bc58240ac1214d21742c7f12edbe2e6c5a1d9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 17:17:13 2019 +0200
+
+    AWS Billing dashboard update
+
+commit da0be2a0e13bed6e95289a95d035bb3bc4fb25f8
+Merge: 7625a4c 9b7ccdb
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 17:16:20 2019 +0200
+
+    Merge branch 'master' of github.com:monitoringartist/grafana-aws-cloudwatch-dashboards
+
+commit 7625a4c9b14150f6577e3a1d29a4108452df3ddf
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 9 17:15:56 2019 +0200
+
+    AWS Billing dashboard update
+
+commit 9b7ccdbd29dc17a806b70281366ba5257369c793
+Author: jong82 <jong82@gmail.com>
+Date:   Wed Feb 20 18:16:07 2019 -0500
+
+    Add Redshift to Billing dashboard (#55)
+    
+    * Add Redshift to Billing dashboard
+    
+    * update refID
+
+commit 73d0602ac585f8e7b96bb5e42d8621c2758acc8a
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Sep 23 11:32:57 2018 +0100
+
+    AWS Redshift
+
+commit 81214b7713026d941b342ec0880b77159d510a72
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Aug 23 23:23:22 2018 +0100
+
+    Update README.md
+
+commit 80cac38078de2d9caae0329bb050165b46a42fbc
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 22 20:00:07 2018 +0100
+
+    Update README.md
+
+commit 08684d4b3a79a98a8260dbfb66a001fda52e764b
+Author: Francisco Guimarães <francisco.cpg@gmail.com>
+Date:   Mon Aug 13 10:33:14 2018 -0300
+
+    aws-api-gateway: Improve $stage variable query (#39)
+    
+    Improves the $stage query by listing only existing stages in the selected $apiname
+
+commit 3bb1192d58260cf24cd6290ea3c44cd9ba8e4205
+Author: Felix Breidenstein <mail@felixbreidenstein.de>
+Date:   Fri Aug 3 10:48:35 2018 +0200
+
+    README.md: Removed unwanted linebreak (#38)
+
+commit c1b38090700ba5421cfeffb424708adaecd3a99b
+Author: Dai Utsui <utsui@gmo-media.jp>
+Date:   Wed Jul 11 15:40:40 2018 +0900
+
+    No refID on AmazonApiGateway (#37)
+
+commit b4ae0f0a847e1e6f8ce748b090a59e44eb69ea80
+Author: Dai Utsui <utsui@gmo-media.jp>
+Date:   Wed Jul 11 00:41:39 2018 +0900
+
+    Add CloudFront row to AWS Billing dashboard (#36)
+    
+    Thank you Dai.
+
+commit 44e5e7b3f0890422ee5f1915e59dae2e9107ccd7
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jun 17 09:36:06 2018 +0100
+
+    Dashboards update
+
+commit 02807491a53b709df30b673f242e0caea5af8095
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jun 17 09:17:48 2018 +0100
+
+    Dashboards update
+
+commit ddb32cf194c8678374d7960d4cc4b2fe093849b9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Jun 16 07:49:27 2018 +0100
+
+    AWS Events update
+
+commit a69dbd75972ede1113e41926b082347116d21ce0
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 14:33:34 2018 +0100
+
+    AWS SQS update
+
+commit 9c7c61a95e05f72ef4d797875605bd53ab20f1e4
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 01:04:09 2018 +0100
+
+    Screenshot update
+
+commit 3d626ffb55c7568c23f84969c65125ae50460808
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 00:38:45 2018 +0100
+
+    AWS Logs update
+
+commit 5f5c12271c7d336e08f14adfde8455f91d592b1d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Jun 15 00:25:29 2018 +0100
+
+    AWS SNS update
+
+commit b9259241b665fec42830f252b1a73344ad17ef8e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 24 18:43:17 2018 +0100
+
+    Grafana 5 EC2 Dashboard with Name tag variable
+
+commit 3a2050f9cf4c1868148e3369938bcda158029603
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu May 24 17:35:56 2018 +0100
+
+    New services in Billing Dashboard + Grafana 5 format
+
+commit 93c3cdc9a2168ef142632bd1839aebc9b73e6603
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri May 18 08:57:38 2018 +0100
+
+    Update README.md
+
+commit 3f5b2d017f980965ba1627f7757fa90b7b6c0848
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Feb 26 00:20:43 2018 +0100
+
+    AWS Api Gateway/Lambda update
+
+commit 419068e900f7168cf598ea32e208c06b2275a8f9
+Author: andrew80k <andrew80k@gmail.com>
+Date:   Thu Feb 15 11:44:08 2018 -0500
+
+    fix aws-billing.json file for duplicate refId for EC2 and RDS (#28)
+    
+    Thx
+
+commit 7a3fb7f5c15fc10de204ea2318887abf7670fa93
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Feb 15 17:39:08 2018 +0100
+
+    refIds update - fix #27
+
+commit c3a507b88b0c2f87e694dbfe0b10cd1de8ac3275
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Feb 2 13:40:41 2018 +0100
+
+    Example IAM role
+
+commit 036ff27f51779aa81842dda8a1cd5b9746a20600
+Author: jho2dot0 <jho2dot0@users.noreply.github.com>
+Date:   Wed Nov 22 00:53:10 2017 -0500
+
+    Adjusted $vpnid to correct query error. (#25)
+
+commit 1f7c5f9a5885075ea2822b1a0b49d1cdb86d189f
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 6 01:00:11 2017 +0200
+
+    README update
+
+commit d6161e74802673bde405f716ded377310ddab88d
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Mon Sep 25 10:52:45 2017 +0100
+
+    Create CODE_OF_CONDUCT.md
+
+commit c41ee65bbab1a02d91159035d81f09365f832d3e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Sep 14 23:25:45 2017 +0300
+
+    Fix #21
+
+commit df66f4cad7b3eb252ed76328686a9e4891aae0ad
+Author: Pedro Gomes <pedrogomesyoo@gmail.com>
+Date:   Wed Sep 6 12:30:07 2017 +0200
+
+    Add RDS row to AWS Billing dashboard (#18)
+
+commit 9c97ab176a6559ec27a28f8d41fefa4ccf702ecf
+Author: Andreas Kohn <andreas.kohn@gmail.com>
+Date:   Wed Aug 30 18:59:08 2017 +0200
+
+    Use the us-east-1 region for accessing CloudFront metrics (#15)
+    
+    Fixes #4
+
+commit 4ecd084023fefcb148937a8be3f914df793ef664
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 17:51:20 2017 +0100
+
+    grafana.net -> grafana.com
+
+commit 3635d96c7b2b38577555342d93ceb6f2a7dcb215
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 17:45:18 2017 +0100
+
+    AWS VPN
+
+commit 71fc54f9a0eaeb2076cdc84a367d940df559576d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 15:33:57 2017 +0100
+
+    README update
+
+commit a1191bb85d2d311522036d32b06ab013b182dad9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 12:27:02 2017 +0100
+
+    README update
+
+commit 4a875c26cf180f334e40f342e69509eff211993a
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 12:25:54 2017 +0100
+
+    README update
+
+commit bcfbb0aec1a65540a25dfac274f3732113bda6e8
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Aug 16 12:25:16 2017 +0100
+
+    README update
+
+commit 211c44db8b5288ace8f24e0390214fc502537f7a
+Author: AnthonyWC <anthony.wan.cheng@gmail.com>
+Date:   Sat Mar 4 17:35:27 2017 -0500
+
+    removed ServiceName dimension from CPUUtilization & MemoryUtilization as default (#10)
+
+commit ee7e50d0c71ea6e607ac71444fc13db617cbf57c
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Sat Feb 18 15:10:44 2017 +0000
+
+    Update README.md
+
+commit feb754ab4cdc28673d980335d671d8ceb2b65495
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Feb 17 19:02:57 2017 +0000
+
+    Dashboards update
+
+commit 0d918a898364910c309982d54f0516f20c23ef8e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Feb 16 21:45:39 2017 +0000
+
+    AWS SES dashboard
+
+commit 974fe47586b0916e53dcbe78fd0e1eea6e5606a0
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Feb 16 21:09:24 2017 +0000
+
+    AWS API Gateway dashboard
+
+commit dccb5a607d13713d34cebe89a6da6110ee787ab4
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Thu Feb 16 11:14:50 2017 +0000
+
+    Update aws-cloudwatch-browser.json
+
+commit e8734930805f39cf55081d6fdce8184292eead77
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Feb 3 19:31:16 2017 +0000
+
+    SQS screenshot
+
+commit 05d3e979c066c136d06523a947ebfb5fd2b4a8f1
+Author: StephenGoodall <stephen.goodall@sci-ware.com>
+Date:   Wed Jan 18 16:28:19 2017 +0000
+
+    Update aws-autoscaling.json (#7)
+    
+    Doesn't seem to show the ASG names when using CloudFront as the dimension
+
+commit 020a9e2592f15bca669d36a8ed72bdb6279a3843
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Thu Dec 15 15:24:34 2016 +0100
+
+    Update README.md
+
+commit d0596159958a2c058f029db9311908a72dc140c4
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Nov 30 22:57:38 2016 +0000
+
+    New S3 request metrics added
+
+commit 43fe517e7f2195b62441b60880dd4f405fd8304a
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 28 23:00:11 2016 +0000
+
+    AWS ElastiCache Redis
+
+commit 3d9b47377df0fc0d9ec5949946dc4ec88391d59d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Nov 26 11:39:05 2016 +0000
+
+    AWS Billing update
+
+commit b0e04cdf31a3a051546701821902664e3c805129
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Nov 24 22:13:24 2016 +0000
+
+    AWS EFS update
+
+commit f2e6e821198ad6e839ef91c93add559f7b071326
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Nov 23 21:18:09 2016 +0000
+
+    AWS EFS/Lambda update
+
+commit a87eaa2213ff55d040c149e6270764b556fa342f
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 21 20:34:24 2016 +0000
+
+    AWS Lambda update
+
+commit 71a6da40f8db3cf289fdc0f86cc55d4ef84e2710
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 21 20:28:50 2016 +0000
+
+    AWS Billing update
+
+commit a7871fcf60776c58aac896dc10bbc69cf2d3eefc
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 15 08:14:26 2016 +0000
+
+    Lambda update
+
+commit aa60f7a24577a58d9fd6843e43bc53241e325019
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Nov 14 19:57:12 2016 +0000
+
+    Lambda, ELB classic update
+
+commit a4558545f933fa1fa881b7234b8ac2d022d3d41b
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Nov 2 08:30:49 2016 +0000
+
+    Doc
+
+commit bfb4a01507d8ca95560b25fc6cdbe3a259868fe7
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 1 20:28:47 2016 +0000
+
+    App ELB
+
+commit b1147a1eade9f24d779c22a8f5142a8d4c70b8ac
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Nov 1 20:21:50 2016 +0000
+
+    App ELB
+
+commit 761906432d9386aa054609e9efbb24a404ff57b5
+Author: Dominik Hahn <dominikhahn@users.noreply.github.com>
+Date:   Tue Nov 1 21:18:48 2016 +0100
+
+    Fix dimensions (#2)
+    
+    * Fix dimensions
+    
+    * Remove HostCount / BackendConnectionErrors
+    
+    Only supported on Classic LB
+
+commit ef00c62681ca6ca76651599f9c9ec42b4fad6a67
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 21:00:16 2016 +0100
+
+    AWS S3 update
+
+commit 5bc68198c285c9c2de0dfe5da5f82717ed57bc24
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:50:05 2016 +0100
+
+    AWS Logs
+
+commit 1ba59ee16f9ddec313ee5c8b78bda8822b3d80a6
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:25:46 2016 +0100
+
+    AWS Lambda update
+
+commit b47577700a72cafabcb16130c8daa4a755c3dc32
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:06:06 2016 +0100
+
+    AWS Lambda update
+
+commit f7584560b0690ed1611da2583f1c9c753ac35af9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 25 20:05:00 2016 +0100
+
+    AWS Lambda update
+
+commit 1d8544dc13f1c91c39e7d0aae00c71362b05c6de
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:28:48 2016 +0100
+
+    README update
+
+commit 9b605b0d8bb843c4ef7150d4f16eee011bbd3ac1
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:20:08 2016 +0100
+
+    README update
+
+commit c33721700e9c1f6b659e7b2629373a8fe4a34cc2
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:18:04 2016 +0100
+
+    README update
+
+commit 1321f8c9032a4c42b14c4e8b97433516461ceb27
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:15:13 2016 +0100
+
+    AWS browser note
+
+commit df949889f07dc39e6b26cac5aa687217a4f51472
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 21 20:14:44 2016 +0100
+
+    AWS RDS
+
+commit ebf08b68ecc3575f4c01ef06d3fa692678350c55
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 19 20:30:39 2016 +0100
+
+    App ELB fixed namespace
+
+commit 2abf91a107bb684ad1b9426aed7710c91d39f814
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 19 20:23:10 2016 +0100
+
+    App ELB fixed namespace
+
+commit c9292009d67a8cacda9dbf0bef20f0a75748b668
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 19 20:19:21 2016 +0100
+
+    App ELB fixed namespace
+
+commit d3620a659d4da1118160716a172cc4ffab57f1b6
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Oct 17 22:21:33 2016 +0100
+
+    AWS Auto Scaling
+
+commit d3c3e1464c3e9ed9538a0eff78d9e7a71aa57962
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Oct 17 21:56:47 2016 +0100
+
+    AWS CloudFront
+
+commit 53e78650586bacbbaabb01ca0db3bb4bad539603
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 23:46:02 2016 +0100
+
+    AWS Events
+
+commit c95688718d0049a28988315c3819587ded61e5db
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 08:40:32 2016 +0100
+
+    AWS EFS
+
+commit 0aba9e8c398d579e45a5821660a825ebc27c3208
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 07:15:55 2016 +0100
+
+    AWS ELB
+
+commit 05febcad619473036a20a55cbb1c9d11d19e0605
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 15 01:19:22 2016 +0100
+
+    AWS ELB
+
+commit 599e199ce59b1fb58cb74d5493a52178c9785a53
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Wed Oct 12 00:00:18 2016 +0100
+
+    AWS EBS
+
+commit 8e240eea86c3bed5669f415bf34475caf4a29f9e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 11 23:35:48 2016 +0100
+
+    AWS EC2
+
+commit 502f86321c5d0ea2ad0ac4d0eb9f46fd984f6775
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Mon Oct 10 23:21:53 2016 +0100
+
+    AWS EMR
+
+commit bd0067cf5a62cf3bbfbeff009ef57e1e1c5f2c37
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 8 08:19:00 2016 +0100
+
+    Cloudwatch Browser
+
+commit 83bfea48fdb00f908a8b84ebd2c3717470178842
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 8 00:07:02 2016 +0100
+
+    AWS Lambda
+
+commit d44c0b092d1026aa4a03216d59df7c6ab1aeed35
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Oct 8 00:06:39 2016 +0100
+
+    AWS Lambda
+
+commit 3b705da53943fc874da41a058229e3dd9bd35c3c
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 7 23:41:20 2016 +0100
+
+    Cloudwatch Browser
+
+commit 537e75ac30c17e58b3bfcf02b93a73d05f1c8d5c
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Fri Oct 7 22:41:12 2016 +0100
+
+    SQS and SNS
+
+commit fa9aff7d65a749aa49ac3e4cebcc53b501ae5340
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Oct 6 23:14:27 2016 +0100
+
+    AWS S3 dashboard
+
+commit 19bf2e08317fb9d6b35a6dfd51eb3bf680f77c2e
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Thu Oct 6 22:34:45 2016 +0100
+
+    AWS S3 dashboard
+
+commit 4e6f21d086654306faceea9bea33b73ac8d431a7
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Tue Oct 4 20:39:18 2016 +0100
+
+    AWS ECS general dashboard
+
+commit 85248540c5d3fc539b9715db8a4302e376bf5296
+Merge: 30fca65 0a6a7e7
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Tue Oct 4 20:29:56 2016 +0100
+
+    Merge pull request #1 from paschdan/add-cluster-dimension
+    
+    adds cluster dimension to ecs service dashboard
+
+commit 0a6a7e7a646b957d422b3a53682e7ae7bc418e32
+Author: paschdan <paschdan@gmail.com>
+Date:   Mon Oct 3 18:13:24 2016 +0200
+
+    adds cluster dimension to ecs service dashboard
+
+commit 30fca655ee4458373b69fad038255bc971a42cb6
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jul 17 07:16:13 2016 +0100
+
+    Grafana 3.1.0 update + documentation links
+
+commit cc8202d6d1aaa1660fae19a58fa9fd0b2d42e2f8
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sun Jul 10 00:09:26 2016 +0100
+
+    ECS templates
+
+commit 2b08ff802361071485aaea75cd6f62765e5dfd7d
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Jul 9 23:50:33 2016 +0100
+
+    Dashboard update revision 3
+
+commit 240c27289e852f8e842255928a1e05a2812f76a9
+Author: Jan Garaj <jan.garaj@gmail.com>
+Date:   Sat Jul 9 16:01:51 2016 +0100
+
+    Init
+
+commit 98bd810ba8ae0bcc1f776be991ead28122a4dcaa
+Author: Jan Garaj <info@monitoringartist.com>
+Date:   Sat Jul 9 15:09:04 2016 +0100
+
+    Initial commit

@@ -1,0 +1,455 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# JSBot v2
+A javascript based botnet/C&amp;C to remotely manage/control browsers for post-exploitation.
+
+
+Instalation Instructions
+------------------------
+1. Upload the files to your domain you plan to use to host the panel
+2. Run and go through the steps in ``install.php`` (Note, no need to create an SQL database or anything of the like as this is powered by PHD)
+![Image description](Docs/install.PNG)
+
+3. After that, delete the ``install.php`` file, and log into your panel.
+![Image description](Docs/install_done.PNG)
+![Image description](Docs/login.PNG)
+<b>NOTE: Unless you have this hosted on a domain with valid and active HTTPS then injection into HTTPS pages will not work.</b>
+
+There will be a link to the js server file you can include in a web page if you want to monitor visitors, and there will also be a link in the panel to download an automatically created universal browser plugin which you can load into Chrome, Firefox, or Edge to control.
+
+Also note that this utilizes long polling for communication between server and panel, so commands can take as long as 30 seconds to become active once sent.
+
+DISCLAIMER
+----------
+Be responsible, because I take no responsibility for the misuse of this software.
+
+
+SOME SCREENSHOTS OF THE PANEL IN ACTION
+---------------------------------------
+- Main Screen
+![Image description](Docs/main.PNG)
+
+- Terminal Interface
+![Image description](Docs/Terminal.PNG)
+
+- Keylog management
+![Image description](Docs/manage_keylogs.PNG)
+
+- Screenshot Management
+![Image description](Docs/screenshot_manager.PNG)
+====================== GIT HISTORY: ======================
+1bf8650 HEAD@{0}: clone: from https://github.com/derp-all-day/JSBot
+commit 1bf865036e804b51b3ab99a88fa229c9a564f8b9
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Thu Feb 3 22:55:12 2022 -0600
+
+    Update listener.php
+
+commit 33cc2aaa4f5d1e09705da7b52f6d09dcbd4b99c3
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Thu Nov 12 02:21:48 2020 -0600
+
+    Update listener.php
+
+commit 891813b42f9fe7338c6fb6f2df2df82304c63fcd
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Wed Jan 22 08:19:36 2020 -0600
+
+    Update manifest.json
+
+commit f2a1e0bfa9c1e266cad89dd44340a9f30ada42d3
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Wed Jan 22 08:18:50 2020 -0600
+
+    Update background.js
+
+commit 647ce5ef9a20dddd487c78625160465305debae3
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 21 20:37:06 2020 -0600
+
+    Update background.js
+
+commit 2147f1d5cfc970fa355a22836ac2a1f98defb296
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 21 08:59:37 2020 -0600
+
+    Update manifest.json
+
+commit f589a721981105136e21106e87523a9a8c83d5a8
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 20 18:46:00 2020 -0600
+
+    Update README.md
+
+commit d2bbe8bf9c4ffe5eeb78a503b40e2e7cb04424ac
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 20 18:44:15 2020 -0600
+
+    Update README.md
+
+commit 900c2f35f0bc6ea1840bc53a801793ef91be1897
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 20 18:41:08 2020 -0600
+
+    Add files via upload
+
+commit fa9791a19fb82a1c2c064a81c24701b1a22ebeae
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 20 18:19:19 2020 -0600
+
+    v2.1
+
+commit ad11daa23333d21b3060c4cfb74c526ab84dea83
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 20 18:18:12 2020 -0600
+
+    v2.1
+    
+    updates to extension for bypassing csp
+
+commit aee6b5772cfcd72897cd6713faf0f2cfea2787e1
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 20 18:06:27 2020 -0600
+
+    Update README.md
+
+commit 150550197fb70a6b6f3b50594422c290824407e5
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 20 18:04:03 2020 -0600
+
+    JSBot v2
+    
+    UPDATES
+    ----------
+    Console:
+    -looks a lot prettier now
+    -more streamlined and real-time-like
+    -Can fetch internal IP/check if any internal IP is up (type 'help' in console for docs)
+
+commit 11e5c12c218cbb0614e4954e3b9430c7d0c1937d
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Wed Jan 15 14:33:49 2020 -0600
+
+    Update slaves.php
+
+commit 2a2f19808c2f0491ba515ece6500bef28f1f22da
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:27:49 2020 -0600
+
+    Create index.php
+
+commit 6e5cef5d69110e2c8f703af02b5271ca54b9ab5e
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:27:18 2020 -0600
+
+    Update index.php
+
+commit ab07fcfc88c513df1e5de69e5c273928b939582c
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:26:51 2020 -0600
+
+    Update index.php
+
+commit 3997ac4be3f753a9d1712dfd67576095f137a38f
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:24:24 2020 -0600
+
+    Create index.php
+
+commit fd7963779505b2147c978ce7ad4728fa5fb47d11
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:22:31 2020 -0600
+
+    Create index.php
+
+commit c428ad7866198fca80c28a9cd1cc5bd40e10ad3e
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:22:07 2020 -0600
+
+    Delete '); ?>
+
+commit 4bb75172d7037636cba8ce408c849ec49df37105
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:21:30 2020 -0600
+
+    Create '); ?>
+
+commit 93af1c3bb7b1c8ed9739d62b599b750ad64bddd0
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:18:33 2020 -0600
+
+    Create index.php
+
+commit 7b7dfb4638c0d8184d882625ef0b335825eaa795
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:18:02 2020 -0600
+
+    Create index.php
+
+commit 729a8864320a2ac00b0b326debf4ea9e445120d4
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:17:36 2020 -0600
+
+    Update index.php
+
+commit 4340d307ea7126fb918907e9050e1463bdccfb0d
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:17:16 2020 -0600
+
+    Update index.php
+
+commit 750a2d19533f11008b7cb910766280ca9e5d9532
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:16:45 2020 -0600
+
+    Update scview.php
+
+commit bd8943a9ea0a61d12130e89d2540fad6dd676b4f
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:16:22 2020 -0600
+
+    Update logview.php
+
+commit e955fc95a6774a1bb2270cf31ffc19bb8934f87b
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:16:00 2020 -0600
+
+    Update index.php
+
+commit 0d51126dfea0783b6cf52a8fe716155bcf7bbb16
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:11:46 2020 -0600
+
+    Update index.php
+
+commit 4cf418fb23b8b132294824b612b5b55e01c18a77
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 20:09:43 2020 -0600
+
+    Update console.php
+
+commit 051699727fdda7b8a55daf8d09bea5fdd110fb65
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 07:56:37 2020 -0600
+
+    Update listener.php
+
+commit 17fa8338c95fb2a9bb8ebab6e6d1cb51faa9202f
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 07:41:56 2020 -0600
+
+    Update README.md
+
+commit 7db9afa9744e76e381f79461f3eb6d5c60a6c1b3
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Tue Jan 14 07:41:07 2020 -0600
+
+    Update listener.php
+    
+    Updated to now listen for any url/hash changes through ajax and report them accordingly.
+
+commit bdfaf5d7f2792f611dc08c05928b0dccd936ef04
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 22:43:06 2020 -0600
+
+    Update ajax.js
+
+commit 7e72c04a258e3d4cca8ccab131eeff0bec9e20f2
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 22:31:13 2020 -0600
+
+    Update install.php
+
+commit e241c0bb315cc53407d87611b2bcc197f42d3ae5
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 22:06:54 2020 -0600
+
+    Update listener.php
+
+commit dbbd751ae8f016879dda6ba42fa9bd2d7fc30999
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 21:34:40 2020 -0600
+
+    Update login.php
+
+commit fa3f50c120fb460b7a1d040dc3bd768c864879fc
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 21:31:07 2020 -0600
+
+    Update listener.php
+
+commit 720dc78a3e280b82647dd956f24b83d86a8dd046
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 20:50:13 2020 -0600
+
+    Update listener.php
+    
+    It will now send the logs as is on any form submit when keylogger is active.
+
+commit a6457c77f292a5e224fcbbfa3ea013bcef43c01b
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 20:22:38 2020 -0600
+
+    Update screenshot.php
+
+commit e6cf60f64f8baea0b53d6a8cc8e1fcb235de8938
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 20:13:20 2020 -0600
+
+    Update screenshot.php
+
+commit 0a9917ec5050cee8bdc6e1b03e4405e80c13745c
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 16:44:39 2020 -0600
+
+    Update README.md
+
+commit fe97cba1f50c3cd91fe55b54b211478f076940d2
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 15:26:57 2020 -0600
+
+    Update README.md
+
+commit 3501e5fb9e3b7732fd639d08311bae60a3a43606
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 12:54:18 2020 -0600
+
+    Update listener.php
+
+commit 5626ffd50b75f34533052e46c1666adc5ced3782
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 12:48:08 2020 -0600
+
+    Update index.php
+
+commit 2ea8c72454de8d73b3d88dac92e38c5acbcd49fd
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 12:21:40 2020 -0600
+
+    Update index.php
+
+commit e4ae19db84fa96c261bc74d1e79493312d0f6d2b
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Mon Jan 13 00:38:08 2020 -0600
+
+    Update install.php
+
+commit cc7dbf84314d81b0df93ab9cf53332c30192f5f6
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 22:08:50 2020 -0600
+
+    Update install.php
+
+commit 9c633c89d7d753e3d56b80885838a8423dd69c00
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 22:06:14 2020 -0600
+
+    Update install.php
+
+commit e486918d218a403822be4de70954e85fec437021
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 21:59:10 2020 -0600
+
+    Update README.md
+
+commit dca7889da6c43cc6d933b3178bbaafc6b7172866
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 04:16:36 2020 -0600
+
+    Update README.md
+
+commit d6fb42cc323413b89f9a6e91659111961445edc4
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 04:14:05 2020 -0600
+
+    Update README.md
+
+commit 33596274cece248233a94d659973274d1ab0a630
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:52:44 2020 -0600
+
+    Update README.md
+
+commit 4f75be5be393731f64b690e8a2aacd0c2fb5da6a
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:50:42 2020 -0600
+
+    Update README.md
+
+commit 3d4fdb8c1ce32f2165a3a22abd854194fc127581
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:48:29 2020 -0600
+
+    Create index.php
+
+commit 81128199b525cb1523ad7fd8f5a6c9e4d1193dab
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:47:38 2020 -0600
+
+    Create index.php
+
+commit 9f5820e86c108a4ce0baa28688e46a43f320ad0c
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:46:17 2020 -0600
+
+    Create index.php
+
+commit 96c1c6e80b84a608fd690be41bf7bbdbf865e36c
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:45:40 2020 -0600
+
+    Add files via upload
+
+commit 6fa1d1dc674feb8e1fcd9fdea0f08b0c56e6ecd8
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:43:09 2020 -0600
+
+    Delete server.js
+
+commit a328f18090bd186dbc9d51c549986dcf635ca454
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:42:46 2020 -0600
+
+    Create .htaccess
+
+commit 9041705bc8330af0777daf787612ce84e860572e
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:41:33 2020 -0600
+
+    Create .htaccess
+
+commit 18adfb424ccb2daa049f72cfdcfba41017901d06
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:40:55 2020 -0600
+
+    Add files via upload
+
+commit e10ea76a2e883a3c057862bec3ee6b08472be842
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:34:09 2020 -0600
+
+    Add files via upload
+
+commit c0e431d464575f2aa8c6bba721e62fedc4d40015
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:24:51 2020 -0600
+
+    Update README.md
+
+commit 941b08d9c3b29af4ced83b9968256f4d3c6ab956
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:24:27 2020 -0600
+
+    Update README.md
+
+commit b7a77c7aa2533f6a2766d0ee7bb709ab564377b7
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:23:36 2020 -0600
+
+    Update README.md
+
+commit a87635804efe093bc7f89c0fba935671ac3bfedc
+Author: Andrew <andrew.blalock.ops@gmail.com>
+Date:   Sun Jan 12 03:17:49 2020 -0600
+
+    Initial commit

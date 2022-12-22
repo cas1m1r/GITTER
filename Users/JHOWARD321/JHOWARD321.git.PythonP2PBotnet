@@ -1,0 +1,698 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# P2P Botnet
+
+This project is a proof of concept P2P botnet written in Python. It was a final project for CS460 at the University of Illinois at Urbana-Champaign for the Spring 2016 semester. 
+
+## This code is out of date and unsupported. It's available as is. No support will be provided.
+
+The main idea behind the project was to design a botnet architecture that was not only resistant to targeted takedown attempts, but also protects the identity of the botnet owner. This was accomplished by using a Kademlia DHT. Upon joining the network, bots query a specific hash in the DHT, post their unique ID, and then wait for an acknowledgement from a commander. A commander will constantly check the login location for new bots, and send out ACKs when new bots join the network. Commands are sent via specific query locations that are unique to each bot. Since every bot has a unique command location, its easy to send commands to individual clients while still being easy to send global commands to all clients. The commander never has direct contact with a bot, all communication is performed through DHT queries. This protects the commander from being compromised by a rogue client. This is just a proof of concept, but more features such as digitally signed commands could easily be added for additional security. 
+
+##Dependencies
+
+This P2P botnet requires Python 2.7 and the following Python libraries:
+* [Kademlia] - a Python implementation of the [Kademlia distributed hash table]
+* [Twisted] - an event-driven asynchronous network engine written in Python
+* [Python Xlib](https://github.com/python-xlib/python-xlib) - Python X library which is used by the keylogging module
+
+*Optional dependencies for non-tested modules:*
+* [Mechanize](http://wwwsearch.sourceforge.net/mechanize/) - a programmatic web browsing library used by the clickfraud module
+* [Requests](http://docs.python-requests.org/en/master/user/install/) - a simple HTTP library used by upload module
+
+On an Ubuntu machine all of the requirements can be installed by running the following commands:
+```
+$ sudo apt-get install python-pip python-twisted-core python-xlib
+$ pip install kademlia
+$ pip install mechanize
+$ pip install requests
+```
+Windows and MacOS have not been tested.
+
+In addition to the requirements to run the project, the botnet also needs three different machines that can communicate over a network. This can be done in virtual machines or physical machines, but each machine must be able to communicate with the other machines and must have the above dependencies installed.
+
+##Usage
+
+The botnet consists of three primary components:
+* botnet.py - client node that communicates with other nodes and waits for commands from a commander
+* commander.py - command module to send commands to enslaved nodes in the botnet
+* server.tac - a kademlia server for clients to bootstrap into the network
+
+To use the botnet, perform the following commands on 3 separate machines.
+* Step 1: Start Bootstrap Server
+```
+twistd -noy server.tac
+```
+* Step 2: Start Command Module
+```
+python commander.py [bootstrap ip][bootstrap port][commander port]
+```
+*Note: default bootstrap port is 8468, this can be changed in server.tac*
+
+* Step 3: Start Botnet Client
+```
+python botnet.py [bootstrap ip][bootstrap port][botnet port]
+```
+At this point you should have 3 different windows open. From the commander window, you have the option to type in commands for the various modules that are included.
+
+
+*Server Window:*
+
+![pic1](Screenshots/serverexample.png)
+
+*Command Window:*
+
+![pic2](Screenshots/commanderkeylog1.png)
+
+*Botnet Window:*
+
+![pic3](Screenshots/botnetkeylog1.png)
+
+In addition to the above components, there are several example modules that can be executed by the botnet. I wrote the keylogging module, so I will use it as an example.
+
+Typing the command *KEYLOG* into the commander window will initiate keylogging on all client bots.
+
+*Example of keylogging*
+
+![pic4](Screenshots/keylogexample.png)
+
+
+##Possible Improvements
+
+There are a number of ways that this botnet could be improved. This was my first time learning the Twisted framework, so some of the code structure could be improved, primarily the botnet.py code. In addition I would add more security features including digitally signed commands, and more unpredictable check in hash locations. This project was a quick and dirty proof of concept that was quickly hacked together. Another improvement I would have made would be to improve the module section for botnet commands. Right now the botnet is sending cleartext commands in the DHT but these should really be encrypted, signed, and possibly serializable objects. The commands were thrown in after the basic networking architecture was implemented, and the example modules were developed separately so that we had to hack together a quick and dirty solution to get them to play together. Not all the modules have been extensively tested and could use improvement. 
+
+##Authors
+* [James Howard](https://github.com/jhoward321) - *Botnet implementation and keylogging module* - jhoward321@gmail.com
+* [Dhyaanesh Mullagur](https://github.com/dionesh) - *Bitcoin mining module* - mdhyanu@gmail.com
+* [James Zhen](https://github.com/jzhen4) - *DDOS, clickfraud, upload, download modules* - jzhen4@illinois.edu
+
+##License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+[Kademlia]:https://github.com/bmuller/kademlia
+[Twisted]:https://twistedmatrix.com/trac/
+[Kademlia distributed hash table]:https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf
+====================== GIT HISTORY: ======================
+47d97d7 HEAD@{0}: clone: from https://github.com/jhoward321/PythonP2PBotnet
+commit 47d97d7e3e2f10305e720ba160a8c3e3416936a7
+Author: James Howard <jhoward321@users.noreply.github.com>
+Date:   Sun Apr 29 23:28:45 2018 -0500
+
+    Update README.md
+
+commit c54d148f63b258ad666c087d480c95163b7ba1f8
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 19 14:39:24 2016 -0400
+
+    cleaned up some code
+
+commit cf734e3f66f2b44a9585c252f9caa6fa8d0362b5
+Author: Jake <jhoward321@gmail.com>
+Date:   Sat Aug 6 17:24:32 2016 -0400
+
+    cleaned up some comments
+
+commit 875b257e6fa7e5be9288f333f94d81895586b3d4
+Author: Jake <jhoward321@gmail.com>
+Date:   Sat Aug 6 17:00:26 2016 -0400
+
+    added some screenshots
+
+commit 3a97ceb2b4d05cf0e0262b9caebc8f6d766ad882
+Author: Jake <jhoward321@gmail.com>
+Date:   Sat Aug 6 16:49:40 2016 -0400
+
+    took some screenshots
+
+commit 0bbf52761b45ffe5b922b00051c36b1ab8282b32
+Author: Jake <jhoward321@gmail.com>
+Date:   Sat Aug 6 16:23:48 2016 -0400
+
+    fixed a few dependency things
+
+commit 8f6860de34e8ef6615b7613c30e050a939480ab0
+Author: Jake <jhoward321@gmail.com>
+Date:   Sat Aug 6 16:08:24 2016 -0400
+
+    fixed incorrect variable name in commander
+
+commit f5a8cbd608814f5e9cefd8cda48d34a54660e4cf
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 23:51:57 2016 -0400
+
+    readme improvements
+
+commit c4aed52e67a6c3802ed58dc7fe3a5412b30f3d0b
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 23:51:20 2016 -0400
+
+    readme improvements
+
+commit 4cbca6111c5afeb16a483addb6a91f1feb9281e0
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 23:49:06 2016 -0400
+
+    readme improvements
+
+commit 2fd4191437755f118f3ddd35e0ed50942fbbf814
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 23:45:49 2016 -0400
+
+    added additional dependencies
+
+commit 4cfd213f1e19b921cc5b7f74d26732c37d807391
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 19:40:18 2016 -0400
+
+    added additional dependencies
+
+commit 22a8cd3655e8c3f03dbffac1401bf2a2517a82ae
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 18:46:01 2016 -0400
+
+    readme
+
+commit c72f82bdcb5bb99b634c115e3a394d780d3e2ad6
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 18:45:22 2016 -0400
+
+    readme
+
+commit b3a324310e94b65da756e2a19667a95c24142bb6
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 18:44:21 2016 -0400
+
+    readme
+
+commit 2c1059310788fe0eb794e29a799400741e1be3e0
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 18:42:28 2016 -0400
+
+    fix screenshot
+
+commit 6bb874c1c9b58bf9d8607f7fb37051f54c7c9b66
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 18:40:42 2016 -0400
+
+    testing screenshots in readme
+
+commit 60a4b21331d91d0ca3b38d69741cbe6b2502b2e4
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:39:36 2016 -0400
+
+    fixed indent error in commander.py
+
+commit 03910afdc161f71766c56c17a82cfa032d5e7f53
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:29:59 2016 -0400
+
+    Readme improvements
+
+commit 61b820499cd0d6b9f6477561965d0c9ba3974c43
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:20:24 2016 -0400
+
+    Readme improvements
+
+commit 77df817b98f78fe039d8e73693f6566ce91bdb8d
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:18:09 2016 -0400
+
+    Readme improvements
+
+commit 9193bb6da7cd4bf20c78b4b35cc0a9ed814827c9
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:15:21 2016 -0400
+
+    Readme improvements
+
+commit 809607d445f7d9c3a133e281e56a30e6e10479be
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:15:00 2016 -0400
+
+    Readme improvements
+
+commit 49de5a8624369efe6a4b42ca57e31697b08221ab
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:12:41 2016 -0400
+
+    Readme improvements
+
+commit 238adccfe7036ef494f14c2feac1a6d24efac2b1
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 15:03:07 2016 -0400
+
+    Readme improvements
+
+commit d7c79242db88ef583a58a07a54e2a0082f5b2015
+Author: James Howard <jhoward321@users.noreply.github.com>
+Date:   Fri Aug 5 14:55:26 2016 -0400
+
+    Create LICENSE
+
+commit f7cfdc0fb778d39987ff4b43c21477defaf5a731
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 14:52:18 2016 -0400
+
+    working on readme and license
+
+commit 075e543717b240d73e3e10e77aa64eb87af19ebe
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 14:51:37 2016 -0400
+
+    working on readme and license
+
+commit 4875bf2afb5c02723468a2bd2d99e2f7c389b3bc
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 14:13:09 2016 -0400
+
+    removed keys which werent used anyways
+
+commit 965cbc3b9057aac8cc4840048d36f76970f47f7a
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 13:34:04 2016 -0400
+
+    Readme improvements
+
+commit 3f6731abc5c5877260c403d321bbf0fc795a6478
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 13:26:27 2016 -0400
+
+    Readme improvements
+
+commit c1e62ca53bf070a06c3d1cafaf5fe0e0439bfa10
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 01:35:33 2016 -0400
+
+    Readme tweaks
+
+commit 92f14fa1948035033cb1e0fba28837a98f044c61
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 01:33:48 2016 -0400
+
+    improved README
+
+commit ca690523e78023c8373aad3c0333d19c1637b271
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 01:32:02 2016 -0400
+
+    improved README
+
+commit 7e5442ba30609cc3a7103dd1f025b695480ac1fc
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 01:29:06 2016 -0400
+
+    improved README
+
+commit 60f77e261f3861f73e3221a7e7608448b6f3a175
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 01:17:53 2016 -0400
+
+    improved README
+
+commit b43b6f976f54f748dc604dc468462580b9cb9258
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 01:08:33 2016 -0400
+
+    improved README
+
+commit f9a07a8b6949f108e436700ea164c92665f9aa5f
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 01:05:53 2016 -0400
+
+    improved README
+
+commit 34227675752c385a976604b9f82a0a5413e07644
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 00:48:15 2016 -0400
+
+    improved README
+
+commit 63fe9aeb21d83fa1cc9d4f0c86403f5c26ebe828
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 00:47:55 2016 -0400
+
+    improved README
+
+commit fd4d89101080a9e06927f535f551a5de953ffc4f
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 00:47:17 2016 -0400
+
+    improved README
+
+commit be0f893f77edf83c3145bccc011835598118df79
+Author: Jake <jhoward321@gmail.com>
+Date:   Fri Aug 5 00:40:12 2016 -0400
+
+    improved README
+
+commit 403345aeb6294bbf48169cbb6618b91dc162a9f8
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu Aug 4 21:22:59 2016 -0400
+
+    improved README
+
+commit 849743289bbdfea17f5a54eb93a9fa927c0f6c10
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu Aug 4 21:22:32 2016 -0400
+
+    improved README
+
+commit f47ee480925165f1caca1bf8bbf4106ecc50ca0a
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu Aug 4 21:06:25 2016 -0400
+
+    improved README
+
+commit 0e38899afe7ab10f5c70d3987ad8c8593c951e94
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu Aug 4 19:21:54 2016 -0400
+
+    cleaned up some comments and improved README
+
+commit d74f56a60132cb8ddc20c77bfa3d0960b07f1c52
+Author: dionesh <mdhyanu@gmail.com>
+Date:   Thu May 5 21:00:19 2016 -0500
+
+    Update botnet.py
+
+commit 47a8032ca218de34c0576a0500b49e3ab05069c7
+Author: dionesh <mdhyanu@gmail.com>
+Date:   Thu May 5 20:56:25 2016 -0500
+
+    Update commander.py
+
+commit f7124d2f89c9434e73c05f8144b5423f84ad5375
+Author: dionesh <mdhyanu@gmail.com>
+Date:   Thu May 5 20:52:50 2016 -0500
+
+    Update commander.py
+
+commit 69557b4c4e46b820ed4552c51f187e4c9ba3fc27
+Author: dionesh <mdhyanu@gmail.com>
+Date:   Thu May 5 20:47:17 2016 -0500
+
+    Added files via upload
+
+commit 93a913274fe0a7cfaa27d43e6bb91e778785427b
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu May 5 18:56:03 2016 -0500
+
+    added a counter for commands
+
+commit 27e446c6ee9829ed6b9e1ff00e9bf0fa0e34d908
+Merge: 96bc54f bde689a
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Thu May 5 16:31:30 2016 -0500
+
+    Merge pull request #9 from jzhen4/master
+    
+    fix spac/tab issue
+
+commit bde689a17e87bb90fa8fe55639a57b821069c3e5
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 16:30:35 2016 -0500
+
+    fix spac/tab issue
+
+commit 96bc54f1082490fe110c459efcb130ff6f587f31
+Merge: 25d9187 290096d
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Thu May 5 15:51:45 2016 -0500
+
+    Merge pull request #8 from jzhen4/master
+    
+    Added multithreading to handle concurrent requests
+
+commit 290096dd943d8d69c3eb1966039963e5e3e151a0
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 15:51:07 2016 -0500
+
+    Added multithreading to handle concurrent requests
+
+commit 25d9187753c97bee1196ed04b4e7a938f5281f57
+Merge: 3487783 d2de166
+Author: James Howard <jhoward321@users.noreply.github.com>
+Date:   Thu May 5 15:45:24 2016 -0500
+
+    Merge pull request #7 from jzhen4/master
+    
+    Add UPLOAD/DOWNLOAD to botnet/commander
+
+commit d2de16629581b7775880524fc0cee15a00fb5877
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 15:40:21 2016 -0500
+
+    fix syntax error
+
+commit 425b9fbf8ebf7e48de435a276637b16452ad0d2f
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 15:38:25 2016 -0500
+
+    Update botnet/commander to include UPLOAD/DOWNLOAD commands
+
+commit 34877832cbfe9a436c8a22427f0b3255293f7e30
+Merge: ab6a088 1d18523
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Thu May 5 15:23:57 2016 -0500
+
+    Merge pull request #6 from jzhen4/master
+    
+    Update README.md
+
+commit 1d185231697d32f82020f46dd33cf2e1c8ac6bf4
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 15:23:35 2016 -0500
+
+    Update README.md
+
+commit ab6a088d8893a96d37c0cb0f5a014a22d9c338a7
+Merge: 34517fc 922dfcd
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Thu May 5 15:17:49 2016 -0500
+
+    Merge pull request #5 from jzhen4/master
+    
+    Upload/Download/Fileserver
+
+commit 922dfcd330295ef893e1d084575b844505ec33ed
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 15:14:06 2016 -0500
+
+    Add comments
+
+commit 908411f7d2eee5ed37a1ef0fab8e68fc03d4e928
+Merge: a1cdcfd 8a730f9
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 15:07:54 2016 -0500
+
+    Merge branch 'master' of https://github.com/jzhen4/CS460_Botnet
+
+commit a1cdcfd5eff3802add9903df079dd90529bca037
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Thu May 5 15:07:23 2016 -0500
+
+    upload/download and fileserver
+
+commit 34517fc6e6804dfed69b2005730df2fdcf9e4de0
+Merge: fe5eae0 c17f3e3
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu May 5 01:32:28 2016 -0500
+
+    Merge branch 'master' of https://github.com/jhoward321/CS460_Botnet
+
+commit fe5eae04d0639f9cd0ad7098ccb4e55a73b12425
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu May 5 01:30:40 2016 -0500
+
+    my scripts are working, not sure if DDOS one is. Don't have any other scripts to check'
+
+commit c17f3e3b15dbc17dc55f2d51aa2b3ce117d83285
+Merge: aea2fa6 8a730f9
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Wed May 4 22:38:02 2016 -0500
+
+    Merge pull request #4 from jzhen4/master
+    
+    remove semicolon errors
+
+commit 8a730f9b9697fedb73125ba0dbdc687b192b1be5
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Wed May 4 22:37:41 2016 -0500
+
+    remove semicolon
+
+commit e5b46676f80ecf5c18fafe2277f692709cff831e
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Wed May 4 22:37:25 2016 -0500
+
+    remove semicolon
+
+commit aea2fa660e9d6d3ba4ad705f77f77648eb6452f4
+Merge: b6cf7e4 824c9fe
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Wed May 4 22:16:58 2016 -0500
+
+    Merge pull request #3 from jzhen4/master
+    
+    upload/download
+
+commit 824c9fe8e03bae3856a9fef96a2b136bd608c83b
+Author: VM-elementaryOS <vm-elementaryos@vmelementaryos-virtual-machine.(none)>
+Date:   Wed May 4 22:15:05 2016 -0500
+
+    upload/download
+
+commit b6cf7e49deb7d9d1c4858c02bdd517cdf6223167
+Merge: 439c8ad 7fe2e9f
+Author: Jake <jhoward321@gmail.com>
+Date:   Wed May 4 20:17:35 2016 -0500
+
+    Merge branch 'master' of https://github.com/jhoward321/CS460_Botnet
+
+commit 439c8ad3225d2769b8978efacaf99337eb39b392
+Author: Jake <jhoward321@gmail.com>
+Date:   Wed May 4 20:16:00 2016 -0500
+
+    made a few stability fixes
+
+commit 7fe2e9f031c9d13759cd3aee130617adc4470ab0
+Merge: afd7a37 f861e0d
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Wed May 4 20:13:00 2016 -0500
+
+    Merge pull request #2 from jzhen4/master
+    
+    ddos bug fix + subprocess function
+
+commit f861e0db0350c77b3f549058c56ba43e17bfd4de
+Author: VM-elementaryOS <vm-elementaryos@vmelementaryos-virtual-machine.(none)>
+Date:   Wed May 4 20:11:05 2016 -0500
+
+    ddos function for subprocess
+
+commit 7cd67db6f37f1b25086a516c8b5d8c1c829473ca
+Author: VM-elementaryOS <vm-elementaryos@vmelementaryos-virtual-machine.(none)>
+Date:   Wed May 4 19:48:55 2016 -0500
+
+    fix ddos bug
+
+commit afd7a37e9e30cb8276614f441b64f41ad553a953
+Author: Jake <jhoward321@gmail.com>
+Date:   Wed May 4 09:15:06 2016 -0500
+
+    have commands working, need to implement the rest of them and clean up subprocess issues
+
+commit 2040c1a078a57c00e0967595a251d798775022e7
+Author: Jake <jhoward321@gmail.com>
+Date:   Tue May 3 17:38:29 2016 -0500
+
+    fixed some infinite recursion issues with the commander
+
+commit 26759f15bfb25cd1e2ce0b0602488963022eb51a
+Merge: dd8fd82 dc4ca61
+Author: jzhen4 <jzhen4@illinois.edu>
+Date:   Tue May 3 03:09:18 2016 -0500
+
+    Merge pull request #1 from jzhen4/master
+    
+    confirm merge -- ddos script (not tested)
+
+commit dc4ca6197c3f1f98d7cfd5df97016cfc92bf7686
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Tue May 3 03:07:43 2016 -0500
+
+    updated README.md
+
+commit c21f652b53685eae453e1bee61fc30f982893059
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Tue May 3 03:01:39 2016 -0500
+
+    revert bugged merge conflict
+
+commit 11ef77abced564b2c93a17de279c7d1ed3019bd9
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Tue May 3 02:58:54 2016 -0500
+
+    Revert "merge upstream"
+    
+    This reverts commit f652e1b8eeb8f7713fad70c9370893b956b5949c.
+
+commit 105279382de68aa762c4ea0d9c2e6f317ada4348
+Author: James Zhen <jimmyzhen4@gmail.com>
+Date:   Tue May 3 02:58:43 2016 -0500
+
+    Revert "fix merge conflict"
+    
+    This reverts commit f428b6ad4c9190703c6af65f7c1cb47a6be321e4.
+
+commit f428b6ad4c9190703c6af65f7c1cb47a6be321e4
+Author: VM-elementaryOS <vm-elementaryos@vmelementaryos-virtual-machine.(none)>
+Date:   Tue May 3 02:34:20 2016 -0500
+
+    fix merge conflict
+
+commit f652e1b8eeb8f7713fad70c9370893b956b5949c
+Author: VM-elementaryOS <vm-elementaryos@vmelementaryos-virtual-machine.(none)>
+Date:   Tue May 3 02:32:43 2016 -0500
+
+    merge upstream
+
+commit ecc90576b6d6874107910cf1513b2cc26dd45de6
+Merge: bae8b60 dd8fd82
+Author: VM-elementaryOS <vm-elementaryos@vmelementaryos-virtual-machine.(none)>
+Date:   Tue May 3 02:30:37 2016 -0500
+
+    Merge remote-tracking branch 'upstream/master'
+    
+    Conflicts:
+            README.md
+
+commit bae8b601da70f33c602818327d2073c35f1364c9
+Author: VM-elementaryOS <vm-elementaryos@vmelementaryos-virtual-machine.(none)>
+Date:   Tue May 3 02:17:07 2016 -0500
+
+    ddos script
+
+commit dd8fd82cf87a8ee51d38517e996a5e0423835710
+Author: Jake <jhoward321@gmail.com>
+Date:   Tue May 3 01:21:34 2016 -0500
+
+    have nodes talking
+
+commit 422a6da8ea7780ca9bcb6041de121af51a54ed9d
+Author: James Howard <jhoward321@users.noreply.github.com>
+Date:   Thu Apr 28 00:37:10 2016 -0500
+
+    Update README.md
+
+commit 7ed39d73f19eef38aab828fc949d779d71978d66
+Author: Jake <jhoward321@gmail.com>
+Date:   Thu Apr 28 00:27:26 2016 -0500
+
+    added kademlia examples
+
+commit 7e762c5bb05f0a381ac0000de9e97d63d9b6b81b
+Author: Jake <jhoward321@gmail.com>
+Date:   Wed Apr 27 23:41:15 2016 -0500
+
+    making progress on networking and keylogging
+
+commit 1f3ed0a48b4856b5036eeca8cb347ae1fdddb5a3
+Merge: 78385cf eec731e
+Author: Jake <jhoward321@gmail.com>
+Date:   Mon Apr 25 18:59:37 2016 -0500
+
+    Merge branch 'master' of https://github.com/jhoward321/CS460_Botnet
+
+commit 78385cfce883d199d472633402dd508adbff9068
+Author: Jake <jhoward321@gmail.com>
+Date:   Mon Apr 25 18:58:21 2016 -0500
+
+    added documents
+
+commit eec731e90c1f206872cba8c3883d2f181f3177f3
+Author: James Howard <jhoward321@users.noreply.github.com>
+Date:   Mon Apr 25 18:51:28 2016 -0500
+
+    Initial commit

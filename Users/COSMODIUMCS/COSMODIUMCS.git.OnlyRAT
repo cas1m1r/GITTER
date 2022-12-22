@@ -1,0 +1,2098 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# OnlyRAT
+> Blue Cosmo | 01/07/2022
+---
+
+```
+                                                                     _;,
+                                                 ,,=-,--,,__     _,-;:;;},,,_    
+            _,oo,         Ll                 _,##&&&&$$&&$$$&-=;%%^%&;v:&& @ `=,_   
+          ,oO" `0}        Ll              ,%#####&#>&&$$$$&$$$&,&'$$#`"%%;,,,*%^<}  
+      _,--O;_,  0_        Ll            ,%%%%%&%-#&###$$"$$$$$*;&&$,#;%^*%$$^{,%;'
+   ,cC'oO`'CC  ,OnnNNNNn, Ll  YY,      ,%#&%%$$$$%%%%%##&&^$%^%&&&$$'&#,-%%--"'
+  ,CCCO"   `C ,0`Nn`  `Nn Ll   YY,    ,;;##&,$$$$$$$;,%%%&&%%%&&&&&&$$%%'
+  {CC{       ,0' NN    NN Ll    Yy  yY';#&,#,$$$$$%%%%%%%%&%%%&&&&&&%%`
+  CCC(     _o0   NN    NN Ll     YyyY ,;&##&###%%$$%&&%%%%#^%^&&&&&%{`
+ ,OCC{    ,0C    NN    NN Ll      YY   ;#&&#####&%;%&&,%%%%#%=%%%&^%%               
+,O`'"Cc_.o0cC    NN    NN Ll y,   YY   ;&&&^##&&&$%&&&%%%"`     `%%%%               
+o0    _o0"` '`   NN    NN Ll  Yy,yYY  '^%%&VGh%%%%%&&"^%_,,       "%%%,_      _,.,_  
+0o,_,oo0"        NN    NN Ll   `YyY`    ``'"lIG9ubHkg,,""''`        ""%%>_,;VyIG5lZ;,   
+"00O"`                                          ``'``""UkFUIHlvdSdsbCBldm;"       `"WQ=,     
+```
+
+## Update: 3.2
+- Hides OnlyRAT user from login, stat menu, and more
+- Fixed update bug
+- ZSH support
+- VPS custom port support
+
+## [!!] DISCLAIMER
+TLDR:
+Please use securily and ethically :D
+
+Feel free to use this RAT on any computer that you own or have permissions to test malicious code on. It's perfectly legal. But do not install this RAT on targets you don't have permission to test malware on. Not only is it illegal, but by doing so you are putting that computer at risk. Since the RAT needs to be able to remotely connect, it is enabling a persistence that other hackers on the network may target or even bruteforce. 
+
+The purpose of this RAT is to teach members of the security community the basics of malware development, so do not use with malintent. Malware development is an essential skill that is often overlooked within the security world. By learning malware development, security researchers can both better understand how hackers think and develop malicious code, as well as learning to develop their own for security purposes. By making a single RAT that can hold all of the teachings in one form factor, it is much easier to connect the lessons.
+
+## Overview:
+OnlyRAT [Only Remote Access Tool] is the *only RAT* you'll ever need. This tool is an SSH [Secure SHell] RAT that is completely network oriented, making it virtually fileless. It is capable of remotely connecting to the target computer, remote file uploads and downloads, as well as code execution **all** through network commands and communicaiton.
+
+It's advanced network capabilities make it difficult for standard antivirus and firewalls to detect. The RAT has a multitude of ways of how it can be installed on to a target pc, including batch file installation and the use of [Hak5](https://hak5.org) gear. Depending on how OnlyRAT is installed, you can have formated as a *from github* or *from vps* install.
+
+*From GitHub* will install OnlyRAT from GitHub's raw data, allowing no user configuration. But the **connection can only be local** since there is no VPS to route traffic and forward ports from.
+
+*From VPS* will install OnlyRAT utilizing a Virtual Private Server (VPS) or any computer accessible on the internet to route traffic to and from the target. Meaning with this installer, you can **access your target from anywhere**.
+
+## Resources:
+- [YouTube Video](https://www.youtube.com/watch?v=jMmLx3Cwy2I)
+- [YouTube Channel](https://youtube.com/cosmodiumcs)
+- [Website](https://cosmodiumcs.com)
+- [Article](https://www.cosmodiumcs.com/post/ssh-network-attacks-in-onlyrat)
+
+## Requirements:
+**Attacker PC:**
+- Security Linux [Debian Based]
+    - Kali Linux
+    - Parrot OS
+- Linux Terminal
+- Python3
+- SSH Tools
+    - openssh-client
+    - ssh-keygen
+    - ssh-copy-id
+
+**Target PC:**
+- Windows 10 Home
+
+## Installation:
+**Target Installation:**
+- The [installers](https://github.com/CosmodiumCS/OnlyRAT/tree/main/installers) folder contains all the ways we can install the RAT on to our target
+
+**Attacker Installation:**
+1. Install OnlyRAT by cloning this repository
+```bash
+git clone https://github.com/CosmodiumCS/OnlyRAT.git
+```
+2. Install dependencies for OnlyRAT
+    - **YES**, the onlyRAT directory **is** supposed to disappear
+    - restart terminal once installation is complete
+```bash
+cd OnlyRAT
+bash install.sh
+```
+
+## Configuration File:
+The configuration file `username.rat` is a file we obtain through our OnlyRAT [installers](https://github.com/CosmodiumCS/OnlyRAT/tree/main/installers). It saves information that OnlyRAT needs in order to connect back to our target computer. Having configuration files allows hackers to have a database of all the comprimised pc's they have access to.
+
+If VPS install was used, download configuration by running:
+```bash
+onlyrat -d
+# or
+onlyrat --dfig
+```
+
+## Running OnlyRAT:
+1. Run `onlyrat` in your terminal for help
+```bash
+onlyrat
+#or
+onlyrat -h
+# or
+onlyrat --help
+```
+2. Append configuraiton file to specify target
+```bash
+onlyrat bluecosmo.rat
+```
+3. For additional information, run:
+```bash
+onlyrat -m
+# or
+onlyrat --man
+#or
+onlyrat --manual
+```
+
+## How It Works:
+OnlyRAT is a very simple yet complex peice of network oriented malware. To learn how it works and to possibly build up your malware skillset, I highly reccomend checking out [this](https://www.cosmodiumcs.com/post/ssh-network-attacks-in-onlyrat) article that I wrote about OnlyRAT.
+
+## Connection Types:
+OnlyRAT is capable of connecting to the target both locally and remotely [VPS Install required for remote connections]. OnlyRAT makes this change easy via the following...
+
+**Switch to Local Connection:**
+To switch to a local connection, run:
+```bash
+onlyrat <username>.rat
+set connection local
+```
+
+**Switch to Remote Connection:**
+To switch to a remote connection, run:
+```bash
+onlyrat <username>.rat
+set connection remote
+```
+
+## Updating OnlyRAT:
+The CosmodiumCS Team will continuously push out updates to OnlyRAT. To prevent users from continuously having to reinstall OnlyRAT themselves. We have autmated the update process.
+
+1. To check current version, run:
+```bash
+onlyrat -v
+# or
+onlyrat --version
+```
+2. To update, run:
+```bash
+onlyrat -u
+# or
+onlyrat --update
+```
+    - this will automatically check for the latest version and run update
+
+## Uninstall OnlyRAT:
+To uninstall OnlyRAT from your **atacker computer**, run:
+```bash
+onlyrat -r
+# or
+onlyrat --remove
+# or
+onlyrat --uninstall
+```
+
+## OnlyRAT Killswitch:
+To uninstall OnlyRAT from your **target computer**, run:
+```bash
+onlyrat <username>.rat
+killswitch
+```
+
+## Payloads:
+```
+[+] Command and Control:
+    [orconsole] -------------- Remote Console
+    [fix orconsole] ---------- Fix Remote Console
+    [upload] ----------------- Uplowebhooks.logart Target PC
+    [set connection local] --- Sets Connection to Local
+    [set connection remote] -- Sets Connection to Remote
+    [restart] ---------------- Restart Target PC
+    [shutdown] --------------- Shutdown Target PC
+    [killswitch] ------------- Removes OnlyRAT From Target
+
+[+] Options:
+    [help] ------------------- Help Menu
+    [man] -------------------- Onlyrat Manual
+    [config] ----------------- Display RAT File
+    [version] ---------------- Version Number
+    [update] ----------------- Update OnlyRAT
+    [uninstall] -------------- Uninstall OnlyRAT
+    [quit] ------------------- Quit
+```
+
+## Credits:
+- Shoutout to Oreo for making the ascii art for the repo :)
+- be sure to check his work out [here](https://github.com/OreoByte/art-pool-current)
+====================== GIT HISTORY: ======================
+56d1988 HEAD@{0}: clone: from https://github.com/CosmodiumCS/OnlyRAT
+commit 56d1988a98df1107b6785e8d01224e12fd0670f5
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Wed Dec 21 02:49:48 2022 -0500
+
+    possible-pwsh-fix
+
+commit 0b36946c74ef10f0c6c13f84b2ccd9e422c4a7a3
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Wed Dec 21 02:38:16 2022 -0500
+
+    fixing-g1
+
+commit d0bea6bd41658d3d2cdfa9a905969df972f70c72
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Tue Dec 20 16:53:06 2022 -0500
+
+    attempting-jakboy-pwsh-function
+
+commit 04b9d9f3c6f67e1edef6f36028f1f95a6dc3d921
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Tue Dec 20 15:29:27 2022 -0500
+
+    fixes
+
+commit db57ba90310fec6658aa306ae8981bafd13a9f0c
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Tue Dec 20 15:28:58 2022 -0500
+
+    fixes
+
+commit 8fce1749f0b5c4d29cf947bbcf36ee9cf6860252
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Nov 26 13:25:51 2022 -0500
+
+    attempt-102939467
+
+commit aa8d10575f858c7402af8649e3a291be56df74de
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Nov 26 13:25:02 2022 -0500
+
+    ok-its-actually-fixed-this-time
+
+commit 8633215b3d6fa24582e4246dbd83438eb21149d2
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Nov 26 13:09:31 2022 -0500
+
+    vps-fix
+
+commit 22f90b783118ed628c64986c95065f0ec1c35fa1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 18:52:32 2022 -0700
+
+    vps-custom-port-support
+
+commit ea960921db75f511b94797933c8527d32a72062c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 12:04:21 2022 -0700
+
+    vps-install-port-support
+
+commit 609828cc3a454e6287d3b080ab54ff2968576454
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 09:03:04 2022 -0700
+
+    3.1-update-cleaned
+
+commit f4db4877600ce1ac2532f8fc435104c5a313538a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:51:10 2022 -0700
+
+    3.1-update
+
+commit 51fc76ad693428d1e01e9360ebf0e442c249a4bc
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:46:50 2022 -0700
+
+    3.1-update
+
+commit 3158f2bdfff079e381956841e8073d02a789b224
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:39:26 2022 -0700
+
+    3.1-update
+
+commit ba589e268bfac0195f9bde2cd2b6072a01e0db15
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:22:03 2022 -0700
+
+    hides-onlyrat-user
+
+commit 2d68035ffb393e2c59d9a7230e6be728933272e7
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 01:33:54 2022 -0600
+
+    registry-fix
+
+commit 0db1f27bbdd367de26081684ec5a0bbad9979c52
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Nov 3 14:39:09 2022 -0600
+
+    added-video-tutorial
+
+commit 673cddc9638244cc52bd43eab023301379aeabcf
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Nov 2 08:00:09 2022 -0600
+
+    linked-oreos-ascii-works
+
+commit 3bb460f0959f7147a371102d00360ee3f3f19518
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 23:06:16 2022 -0600
+
+    credit-to-oreo
+
+commit 4513d89ca78313ce30674ce06403d81dd38b406a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 23:03:53 2022 -0600
+
+    zsh-support
+
+commit e42b0fb35d041b65c4026c09ca9f7617ae1e1b65
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 20:08:29 2022 -0600
+
+    added-article
+
+commit f003d87633ade4128649e93ee5801549cde47e70
+Merge: bc32a49 5cd9a44
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 20:07:15 2022 -0600
+
+    Merge branch 'main' of https://github.com/cosmodiumcs//OnlyRAT
+
+commit bc32a49b8d7dc2340bcb102f941f3a4b4b155500
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 20:06:37 2022 -0600
+
+    added-article
+
+commit 5cd9a44c1970bc603811267bd613b8261d28b4b3
+Author: Blue Cosmo <73325248+PrettyBoyCosmo@users.noreply.github.com>
+Date:   Fri Oct 21 15:24:36 2022 -0400
+
+    Update README.md
+
+commit 14f975f3049025e736cab7e7a8ae54c06ecee274
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Oct 21 10:37:35 2022 -0600
+
+    cleaned
+
+commit e5fbcd806c8c8549c20f84b0134a139a276d7732
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 22:35:45 2022 -0600
+
+    fixed-broken-urls
+
+commit 7c16718585403619ec95265c38db06394eeea44c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 22:33:58 2022 -0600
+
+    fixed-bugs
+
+commit a335e4bbdb71a5bfab0d6a3ebd13bc91547314e1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 22:29:52 2022 -0600
+
+    attempt-1029394
+
+commit 5c6034d4e9fb7f1ae0844ffb5f76f52fcbd21799
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:45:02 2022 -0600
+
+    please-work-lmao
+
+commit 2ebd1a189335f1453f560e48e0602d71f54b105e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:44:01 2022 -0600
+
+    tweaked-webhook-9
+
+commit 6b5d925b50ba26060450ed8c3ae4718dc37dfc3e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:42:46 2022 -0600
+
+    tweaked-webhook-8
+
+commit 1fd2bf0cd1ebff8349f643a12d65a3ec17038fd5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:39:59 2022 -0600
+
+    tweaked-webhook-7
+
+commit 46842cb48a96ac5b58187f94b7edc09448f47123
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:38:37 2022 -0600
+
+    tweaked-webhook-6
+
+commit 5611704cf8cc98bc7be267e8980a4dcd3a46e65b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:37:48 2022 -0600
+
+    tweaked-webhook-5
+
+commit c60294c86e4f045a5498ca22cce83e5d26c25a89
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:37:08 2022 -0600
+
+    tweaked-webhook-4
+
+commit 0d6995a0e491b1b0744bc07a88ae4d61cd8d533d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:11:23 2022 -0600
+
+    tweaked-webhook-3
+
+commit 0762a1c2a9ba402fa51c282c7d5c67851633fbe3
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:08:56 2022 -0600
+
+    tweaked-webhook-2
+
+commit 752ea17821acca3024867df628ea0e674d6a6032
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:07:48 2022 -0600
+
+    tweaked-webhook-1
+
+commit 5ce01e93b059894b89f52b45227ed4a6a5aedab7
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:05:15 2022 -0600
+
+    tweaked-webhook
+
+commit ef673f93e92373cb779252c40ab7bec60cecdd24
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:00:07 2022 -0600
+
+    alternative-webhook
+
+commit 9122f20dc40fc5290725f7b1ae20fc1f0205d97b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 15:54:47 2022 -0600
+
+    tweaked-installers
+
+commit 63851af3f5e7f2f0a4498684313fcff59c62f43c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 15:53:26 2022 -0600
+
+    fixing-local-connections
+
+commit 6736803771da5bbb1ba91f4be77e3df256ad029f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Sep 11 13:00:19 2022 -0600
+
+    fixed-onlyduck
+
+commit e5e631e8d9d927830f4aa52bb1f4e72f7daf6543
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Sep 11 12:28:54 2022 -0600
+
+    tweaks
+
+commit 21775aa930daab0ab45259d79474466c208b0818
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Sep 1 13:15:38 2022 -0600
+
+    3.0-beta
+
+commit d3f631bb2d0349fcdacc69953ec75dd9f949180d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Jun 22 00:18:33 2022 -0400
+
+    added-webhook-reading
+
+commit deb7ed6b99788cacc420461fc0e72072a470d258
+Author: Blue Cosmo <cosmodiumcs@gmail.com>
+Date:   Mon May 30 00:07:50 2022 -0400
+
+    new-ascii
+
+commit da86f396ba7b76f0fab1bde8af7661c2c7ffb842
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Apr 27 02:42:31 2022 -0400
+
+    roadmap
+
+commit 54f21adb6b6076ff85c46b636130744f4914eb3e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Apr 26 00:22:36 2022 -0400
+
+    ip-tweak
+
+commit 5f14a0a601d886ad28e00c73f6ec096410f24f8f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Apr 19 22:02:06 2022 -0400
+
+    hak5-installers
+
+commit 89684088f26c60fa5f1f026a2143f387477e99dc
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:46:56 2022 -0400
+
+    documentation
+
+commit c05b3b31816aecdb3d66899918ccb2c34530f973
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:45:23 2022 -0400
+
+    documentation
+
+commit 768d980d09f4bb1e34192624d1d48c28ab7bb12f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:44:52 2022 -0400
+
+    documentation
+
+commit 6e8da55d6cb4583de9ee5a1100ffa08dbb65552e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:44:25 2022 -0400
+
+    documentation
+
+commit 938d086bd4396d9269feee0f14fc2963325230dd
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:42:53 2022 -0400
+
+    test
+
+commit 448d910a50a69114dbd1bd345e9aefb7138454e4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:41:40 2022 -0400
+
+    documentation
+
+commit 5c5a1f4ff127dcc2543c013a1f4cb5a7599cef37
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:40:16 2022 -0400
+
+    documentation
+
+commit 02f84103e11480a99d7f542d46873104a29a6831
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:38:13 2022 -0400
+
+    documentation-fix
+
+commit cf4aa23eca036e5ee2c37294d5b8dbaa47e793ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:37:01 2022 -0400
+
+    documentation
+
+commit 41ece806773ddd7bb0393f42ed9f770f3b78b3f8
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 00:29:20 2022 -0400
+
+    working-killswitch
+
+commit a3e6d9e95ffa7c2eb553a6b139178914526181d0
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:48:00 2022 -0400
+
+    test12
+
+commit e1957aca0f5c6ca80210329189ed5112894dc6de
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:41:01 2022 -0400
+
+    test11
+
+commit 7a382e5c0b2a27e17c00f7f2ed8acfd56abb23e4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:32:14 2022 -0400
+
+    test10
+
+commit 800d82d539b0a72017587457c1a522685cf2af0e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:10:58 2022 -0400
+
+    test9
+
+commit 1b988aa2ea937278cc1885a1a55cc923702c3a20
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:49:41 2022 -0400
+
+    test8
+
+commit 9210dbe13ecb50da29b684cd612151b6f96abb9f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:43:37 2022 -0400
+
+    test7
+
+commit 2df669c8930defc1dee9e07b862b5e8c3d1164ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:41:51 2022 -0400
+
+    test6
+
+commit bdeb3947f3a7c2c7174de89ca0c988d16b43f4ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:21:57 2022 -0400
+
+    test5
+
+commit 11b114be7650dbbf6e282059edb3ebf759984442
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:37:06 2022 -0400
+
+    test4
+
+commit 6d11f5d5bce8f8ee1b16eb2c2d7395c60897d06e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:26:45 2022 -0400
+
+    test3
+
+commit 46c6b29b399ee2e31553f407d720939ed2627753
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:19:11 2022 -0400
+
+    test2
+
+commit b1caccfa694b72b93096744560aeba1d9f5a3c04
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:02:31 2022 -0400
+
+    test
+
+commit 9b364dba79ce7ed190b7f26cd08d3ef437de8392
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 18:59:20 2022 -0400
+
+    killswitch
+
+commit 780490f0fe243b34784f794118a26b7de83706ee
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Mar 29 00:17:51 2022 -0400
+
+    version21
+
+commit 661de1a2668417e59378dbc722e374d0b7b421ec
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 20:51:31 2022 -0400
+
+    discord-webhooks
+
+commit 244d2cf6e9fd33658fc364846ebe93d14591989c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 20:46:21 2022 -0400
+
+    test8
+
+commit 3650aec5358927d90ea8186cd61bc40e95e99de5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 20:39:23 2022 -0400
+
+    test7
+
+commit 4a6d6bcd480e06d8414165fe6786f9c36de0f6ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 19:38:48 2022 -0400
+
+    test6
+
+commit 2d2a50415a31e65afea60231d5c227b57cdf5aac
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 19:00:26 2022 -0400
+
+    test5
+
+commit a6ff0776db21a72db2aad41c26548321706f6292
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 18:12:32 2022 -0400
+
+    test4
+
+commit a50d987e280b0545b331000df000890dab18f8a3
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 18:09:15 2022 -0400
+
+    test3
+
+commit 0b76b53e94ac44bc0b84bcd10ae00675b2620312
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 18:04:00 2022 -0400
+
+    test2
+
+commit 168014d1b5d4f05499d3d1c8fb22ba6b631a07bf
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 17:59:53 2022 -0400
+
+    test1
+
+commit c92f2edd7c20e20755dc99614f0fc247fac17c12
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 17:42:50 2022 -0400
+
+    discord-webhook-test
+
+commit 3f47d3eec91d145954e7078518353aa8fec1e2c1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Feb 20 23:30:55 2022 -0500
+
+    fixed-bug
+
+commit 1e9867cb566684b593f41256807ff35f667447c5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 12 17:41:21 2022 -0500
+
+    version 2
+
+commit c8477957e5f1f775dfb44f96c04e54df5ee35094
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 23:17:14 2022 -0500
+
+    manual
+
+commit e78f140de694437442338d4808d5ff8578ed1e8b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 11:05:37 2022 -0500
+
+    modules
+
+commit b27e4146ad90ad7eee37628bdd165f4f9de7220a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:36:43 2022 -0500
+
+    cleaned
+
+commit d41b4bf1ce3a02f6433395ed3950d4805fddbe90
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:35:29 2022 -0500
+
+    cleaned
+
+commit 369e80af4d15e04fa681fe812f6d1b9b3b6d960d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:33:06 2022 -0500
+
+    cleaned
+
+commit 29952dc17be663782949863be29a4b3b86cd77a6
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:26:23 2022 -0500
+
+    fix
+
+commit 44df2999928f07888f78b19b6221bfd9d557e385
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:25:39 2022 -0500
+
+    new-version
+
+commit 76189f90f73ef15769a9cf88bc714346ce29d73f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 23:12:56 2022 -0500
+
+    webcam-added
+
+commit 8b963c17ff8fd0a1afca906911e7f19426226c38
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 23:07:28 2022 -0500
+
+    test12
+
+commit be9946fee08c90d4cec6e7310ff50a878549d635
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 23:04:46 2022 -0500
+
+    test11
+
+commit efcf39dfe6aa39fd3d410bb372f802e04ddc6802
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:56:05 2022 -0500
+
+    test10
+
+commit 69955c928c6d8d60fce5512ee1b862025356a358
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:50:55 2022 -0500
+
+    test9
+
+commit 9e6932d97f70b592ba5bfc0cd6d730b506d1abc1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:42:38 2022 -0500
+
+    test8
+
+commit 9ed4c62022641a4def677cdd18622754eba1c02c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:36:08 2022 -0500
+
+    test7
+
+commit 14b07eb0a1a2a20ba6890656215095468382b591
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:28:35 2022 -0500
+
+    test6
+
+commit 3a7b21e3f963fe0e83fa85b9b4269b7a6cdca98c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:25:04 2022 -0500
+
+    test5
+
+commit 562842a3b54d4479322ef00e44fe6cc8c9d77b5c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:22:57 2022 -0500
+
+    test4
+
+commit 26b4f6cd70afdf2e3aa32ae8a18e6a34e50557f2
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:19:43 2022 -0500
+
+    test3
+
+commit ae66d7b41fa5865a629824e8c6b8cc21e0dc819f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:04:45 2022 -0500
+
+    test2
+
+commit e9d9a6d1cb825c322ff0f5df25c0cadda3c28d12
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 21:49:33 2022 -0500
+
+    testy
+
+commit 79f4e48dd2b901724ab7617e82b14b3b5303089b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 21:12:01 2022 -0500
+
+    webcam-confirm
+
+commit 967f1cd5c762756cacc28571a663ab55ee0a3701
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 20:53:23 2022 -0500
+
+    stable
+
+commit 6354d1036c736f00998e06c5b06bd0868d81aa6f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 00:56:10 2022 -0500
+
+    cleaned
+
+commit 9d03a331213100e9e39c5528365d4af3e18f80f4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 00:34:24 2022 -0500
+
+    wc
+
+commit 7770045b409a3ed738b3c1fc8fd0abb2a8493840
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 00:11:51 2022 -0500
+
+    cleaned
+
+commit 5eba98028d9d6c9e7ac277ead4cb0acf0558879b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 19:36:30 2022 -0500
+
+    exfil
+
+commit a093f0621fb81934526e69a951f2a33bb38c1725
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 05:26:41 2022 -0500
+
+    obfuscated
+
+commit 915f25925380a9fc73e21fe2b1613c6306234313
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 05:05:57 2022 -0500
+
+    screenshots-work
+
+commit 1e1cbfab9c9c2a07a33d75dc526a437f82aa2117
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 04:44:25 2022 -0500
+
+    screenshots
+
+commit 28a4c8786bbd20ac7b5b3487bf3b3f50254f7979
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 03:32:28 2022 -0500
+
+    work
+
+commit b58fabc1bfec1efd56e073c2675d21b321bb4231
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 03:22:35 2022 -0500
+
+    screenshot5
+
+commit 3576e5236cd057699cf4ca867356236507a445c8
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:28:24 2022 -0500
+
+    screenshot5
+
+commit 15b4dba6f1d5ea913e0ac4bfb6b717d1fbbd6e34
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:23:29 2022 -0500
+
+    screenshot4
+
+commit fb3e19a4580b67c0d02b2bdfddf0823048c3a9fb
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:21:12 2022 -0500
+
+    screenshot3
+
+commit 1a56143dac0d629f5dc50457b9ac785ecc598aa5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:15:26 2022 -0500
+
+    screenshot1
+
+commit c294f7aee7a4b209907a3abe011407ae1acdcb41
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 01:21:29 2022 -0500
+
+    keylogger-fix
+
+commit dda5ccf3a0d0b9cf2ed8350be8eb357ef39f1b74
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 01:18:50 2022 -0500
+
+    keylogger
+
+commit 8a79b01a17ee1448192d1930bdc76c42e0c67512
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 00:23:33 2022 -0500
+
+    keylogger-fix
+
+commit 05a7690deaa4ee39fff9d94b88d0f80d2a62a272
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 00:21:57 2022 -0500
+
+    keylogger
+
+commit ce5e5d367bb40e0bf37556414437fab0671d2b2d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 00:05:57 2022 -0500
+
+    keylogger-test
+
+commit a3ccda27d8fa277cdd75ea5fd6f1bd66eb02e62c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Feb 8 00:38:42 2022 -0500
+
+    keylogger-beta
+
+commit 82c3806aa1b5a946fc1a714bd2618ce215127df4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Feb 8 00:24:31 2022 -0500
+
+    keylogger-test
+
+commit dbe61d3cadbdde97df2ad5806534790453e2bd78
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 23:20:20 2022 -0500
+
+    test3
+
+commit b71429637ae3fb5f520a59251ad6095128dad49f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 23:19:11 2022 -0500
+
+    test2
+
+commit f5e675d0e9d6541b3bf4f47b59f577b6f36c9b7a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 23:08:06 2022 -0500
+
+    test1
+
+commit cec54c8426297ef3ef13f9db6ee5d6155603222f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 21:02:51 2022 -0500
+
+    stuff
+
+commit 7d5753f24fcfe39a35b6c6ae12f788e1d67167bd
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 09:29:56 2022 -0500
+
+    ui
+
+commit 3b662de3f921244d4abf1ad6d107ba9137a8d173
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 09:03:58 2022 -0500
+
+    new-version
+
+commit 25af3ed4d0a35854542bb4766c2ff38946c2acf5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Feb 6 22:43:15 2022 -0500
+
+    bugfix
+
+commit ebb566a7e203954d591e3bec3d5fcabbc6460ac5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 15:01:03 2022 -0500
+
+    beta
+
+commit 49f814e24fe5cece30a475d45a060f057207322b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 14:58:56 2022 -0500
+
+    test
+
+commit 0ea7beca3fd58f08f346a2bc54b10c343d7eec2c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 14:56:27 2022 -0500
+
+    beta
+
+commit 3a4a529d6c185c2afe95b9f58b94d9cf1f57556f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 04:37:37 2022 -0500
+
+    it-works
+
+commit 7e55029853948eb6c26d0c71782facb47d6e9e06
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 04:03:28 2022 -0500
+
+    works
+
+commit 4461b3cc7fbab0aba5b6fe081b4fd44edcda003b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 03:52:06 2022 -0500
+
+    fucking hell
+
+commit 7fcc0b3ddbd87445f4b09ac4a6ef117a027f8973
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 03:50:11 2022 -0500
+
+    attempt1
+======================: FILES :======================
+======================: README CONTENT :======================
+# OnlyRAT
+> Blue Cosmo | 01/07/2022
+---
+
+```
+                                                                     _;,
+                                                 ,,=-,--,,__     _,-;:;;},,,_    
+            _,oo,         Ll                 _,##&&&&$$&&$$$&-=;%%^%&;v:&& @ `=,_   
+          ,oO" `0}        Ll              ,%#####&#>&&$$$$&$$$&,&'$$#`"%%;,,,*%^<}  
+      _,--O;_,  0_        Ll            ,%%%%%&%-#&###$$"$$$$$*;&&$,#;%^*%$$^{,%;'
+   ,cC'oO`'CC  ,OnnNNNNn, Ll  YY,      ,%#&%%$$$$%%%%%##&&^$%^%&&&$$'&#,-%%--"'
+  ,CCCO"   `C ,0`Nn`  `Nn Ll   YY,    ,;;##&,$$$$$$$;,%%%&&%%%&&&&&&$$%%'
+  {CC{       ,0' NN    NN Ll    Yy  yY';#&,#,$$$$$%%%%%%%%&%%%&&&&&&%%`
+  CCC(     _o0   NN    NN Ll     YyyY ,;&##&###%%$$%&&%%%%#^%^&&&&&%{`
+ ,OCC{    ,0C    NN    NN Ll      YY   ;#&&#####&%;%&&,%%%%#%=%%%&^%%               
+,O`'"Cc_.o0cC    NN    NN Ll y,   YY   ;&&&^##&&&$%&&&%%%"`     `%%%%               
+o0    _o0"` '`   NN    NN Ll  Yy,yYY  '^%%&VGh%%%%%&&"^%_,,       "%%%,_      _,.,_  
+0o,_,oo0"        NN    NN Ll   `YyY`    ``'"lIG9ubHkg,,""''`        ""%%>_,;VyIG5lZ;,   
+"00O"`                                          ``'``""UkFUIHlvdSdsbCBldm;"       `"WQ=,     
+```
+
+## Update: 3.2
+- Hides OnlyRAT user from login, stat menu, and more
+- Fixed update bug
+- ZSH support
+- VPS custom port support
+
+## [!!] DISCLAIMER
+TLDR:
+Please use securily and ethically :D
+
+Feel free to use this RAT on any computer that you own or have permissions to test malicious code on. It's perfectly legal. But do not install this RAT on targets you don't have permission to test malware on. Not only is it illegal, but by doing so you are putting that computer at risk. Since the RAT needs to be able to remotely connect, it is enabling a persistence that other hackers on the network may target or even bruteforce. 
+
+The purpose of this RAT is to teach members of the security community the basics of malware development, so do not use with malintent. Malware development is an essential skill that is often overlooked within the security world. By learning malware development, security researchers can both better understand how hackers think and develop malicious code, as well as learning to develop their own for security purposes. By making a single RAT that can hold all of the teachings in one form factor, it is much easier to connect the lessons.
+
+## Overview:
+OnlyRAT [Only Remote Access Tool] is the *only RAT* you'll ever need. This tool is an SSH [Secure SHell] RAT that is completely network oriented, making it virtually fileless. It is capable of remotely connecting to the target computer, remote file uploads and downloads, as well as code execution **all** through network commands and communicaiton.
+
+It's advanced network capabilities make it difficult for standard antivirus and firewalls to detect. The RAT has a multitude of ways of how it can be installed on to a target pc, including batch file installation and the use of [Hak5](https://hak5.org) gear. Depending on how OnlyRAT is installed, you can have formated as a *from github* or *from vps* install.
+
+*From GitHub* will install OnlyRAT from GitHub's raw data, allowing no user configuration. But the **connection can only be local** since there is no VPS to route traffic and forward ports from.
+
+*From VPS* will install OnlyRAT utilizing a Virtual Private Server (VPS) or any computer accessible on the internet to route traffic to and from the target. Meaning with this installer, you can **access your target from anywhere**.
+
+## Resources:
+- [YouTube Video](https://www.youtube.com/watch?v=jMmLx3Cwy2I)
+- [YouTube Channel](https://youtube.com/cosmodiumcs)
+- [Website](https://cosmodiumcs.com)
+- [Article](https://www.cosmodiumcs.com/post/ssh-network-attacks-in-onlyrat)
+
+## Requirements:
+**Attacker PC:**
+- Security Linux [Debian Based]
+    - Kali Linux
+    - Parrot OS
+- Linux Terminal
+- Python3
+- SSH Tools
+    - openssh-client
+    - ssh-keygen
+    - ssh-copy-id
+
+**Target PC:**
+- Windows 10 Home
+
+## Installation:
+**Target Installation:**
+- The [installers](https://github.com/CosmodiumCS/OnlyRAT/tree/main/installers) folder contains all the ways we can install the RAT on to our target
+
+**Attacker Installation:**
+1. Install OnlyRAT by cloning this repository
+```bash
+git clone https://github.com/CosmodiumCS/OnlyRAT.git
+```
+2. Install dependencies for OnlyRAT
+    - **YES**, the onlyRAT directory **is** supposed to disappear
+    - restart terminal once installation is complete
+```bash
+cd OnlyRAT
+bash install.sh
+```
+
+## Configuration File:
+The configuration file `username.rat` is a file we obtain through our OnlyRAT [installers](https://github.com/CosmodiumCS/OnlyRAT/tree/main/installers). It saves information that OnlyRAT needs in order to connect back to our target computer. Having configuration files allows hackers to have a database of all the comprimised pc's they have access to.
+
+If VPS install was used, download configuration by running:
+```bash
+onlyrat -d
+# or
+onlyrat --dfig
+```
+
+## Running OnlyRAT:
+1. Run `onlyrat` in your terminal for help
+```bash
+onlyrat
+#or
+onlyrat -h
+# or
+onlyrat --help
+```
+2. Append configuraiton file to specify target
+```bash
+onlyrat bluecosmo.rat
+```
+3. For additional information, run:
+```bash
+onlyrat -m
+# or
+onlyrat --man
+#or
+onlyrat --manual
+```
+
+## How It Works:
+OnlyRAT is a very simple yet complex peice of network oriented malware. To learn how it works and to possibly build up your malware skillset, I highly reccomend checking out [this](https://www.cosmodiumcs.com/post/ssh-network-attacks-in-onlyrat) article that I wrote about OnlyRAT.
+
+## Connection Types:
+OnlyRAT is capable of connecting to the target both locally and remotely [VPS Install required for remote connections]. OnlyRAT makes this change easy via the following...
+
+**Switch to Local Connection:**
+To switch to a local connection, run:
+```bash
+onlyrat <username>.rat
+set connection local
+```
+
+**Switch to Remote Connection:**
+To switch to a remote connection, run:
+```bash
+onlyrat <username>.rat
+set connection remote
+```
+
+## Updating OnlyRAT:
+The CosmodiumCS Team will continuously push out updates to OnlyRAT. To prevent users from continuously having to reinstall OnlyRAT themselves. We have autmated the update process.
+
+1. To check current version, run:
+```bash
+onlyrat -v
+# or
+onlyrat --version
+```
+2. To update, run:
+```bash
+onlyrat -u
+# or
+onlyrat --update
+```
+    - this will automatically check for the latest version and run update
+
+## Uninstall OnlyRAT:
+To uninstall OnlyRAT from your **atacker computer**, run:
+```bash
+onlyrat -r
+# or
+onlyrat --remove
+# or
+onlyrat --uninstall
+```
+
+## OnlyRAT Killswitch:
+To uninstall OnlyRAT from your **target computer**, run:
+```bash
+onlyrat <username>.rat
+killswitch
+```
+
+## Payloads:
+```
+[+] Command and Control:
+    [orconsole] -------------- Remote Console
+    [fix orconsole] ---------- Fix Remote Console
+    [upload] ----------------- Uplowebhooks.logart Target PC
+    [set connection local] --- Sets Connection to Local
+    [set connection remote] -- Sets Connection to Remote
+    [restart] ---------------- Restart Target PC
+    [shutdown] --------------- Shutdown Target PC
+    [killswitch] ------------- Removes OnlyRAT From Target
+
+[+] Options:
+    [help] ------------------- Help Menu
+    [man] -------------------- Onlyrat Manual
+    [config] ----------------- Display RAT File
+    [version] ---------------- Version Number
+    [update] ----------------- Update OnlyRAT
+    [uninstall] -------------- Uninstall OnlyRAT
+    [quit] ------------------- Quit
+```
+
+## Credits:
+- Shoutout to Oreo for making the ascii art for the repo :)
+- be sure to check his work out [here](https://github.com/OreoByte/art-pool-current)
+====================== GIT HISTORY: ======================
+56d1988 HEAD@{0}: clone: from https://github.com/CosmodiumCS/OnlyRAT
+commit 56d1988a98df1107b6785e8d01224e12fd0670f5
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Wed Dec 21 02:49:48 2022 -0500
+
+    possible-pwsh-fix
+
+commit 0b36946c74ef10f0c6c13f84b2ccd9e422c4a7a3
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Wed Dec 21 02:38:16 2022 -0500
+
+    fixing-g1
+
+commit d0bea6bd41658d3d2cdfa9a905969df972f70c72
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Tue Dec 20 16:53:06 2022 -0500
+
+    attempting-jakboy-pwsh-function
+
+commit 04b9d9f3c6f67e1edef6f36028f1f95a6dc3d921
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Tue Dec 20 15:29:27 2022 -0500
+
+    fixes
+
+commit db57ba90310fec6658aa306ae8981bafd13a9f0c
+Author: PrettyBoyCosmo <cosmodiumcs@gmail.com>
+Date:   Tue Dec 20 15:28:58 2022 -0500
+
+    fixes
+
+commit 8fce1749f0b5c4d29cf947bbcf36ee9cf6860252
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Nov 26 13:25:51 2022 -0500
+
+    attempt-102939467
+
+commit aa8d10575f858c7402af8649e3a291be56df74de
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Nov 26 13:25:02 2022 -0500
+
+    ok-its-actually-fixed-this-time
+
+commit 8633215b3d6fa24582e4246dbd83438eb21149d2
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Nov 26 13:09:31 2022 -0500
+
+    vps-fix
+
+commit 22f90b783118ed628c64986c95065f0ec1c35fa1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 18:52:32 2022 -0700
+
+    vps-custom-port-support
+
+commit ea960921db75f511b94797933c8527d32a72062c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 12:04:21 2022 -0700
+
+    vps-install-port-support
+
+commit 609828cc3a454e6287d3b080ab54ff2968576454
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 09:03:04 2022 -0700
+
+    3.1-update-cleaned
+
+commit f4db4877600ce1ac2532f8fc435104c5a313538a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:51:10 2022 -0700
+
+    3.1-update
+
+commit 51fc76ad693428d1e01e9360ebf0e442c249a4bc
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:46:50 2022 -0700
+
+    3.1-update
+
+commit 3158f2bdfff079e381956841e8073d02a789b224
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:39:26 2022 -0700
+
+    3.1-update
+
+commit ba589e268bfac0195f9bde2cd2b6072a01e0db15
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 08:22:03 2022 -0700
+
+    hides-onlyrat-user
+
+commit 2d68035ffb393e2c59d9a7230e6be728933272e7
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Nov 6 01:33:54 2022 -0600
+
+    registry-fix
+
+commit 0db1f27bbdd367de26081684ec5a0bbad9979c52
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Nov 3 14:39:09 2022 -0600
+
+    added-video-tutorial
+
+commit 673cddc9638244cc52bd43eab023301379aeabcf
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Nov 2 08:00:09 2022 -0600
+
+    linked-oreos-ascii-works
+
+commit 3bb460f0959f7147a371102d00360ee3f3f19518
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 23:06:16 2022 -0600
+
+    credit-to-oreo
+
+commit 4513d89ca78313ce30674ce06403d81dd38b406a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 23:03:53 2022 -0600
+
+    zsh-support
+
+commit e42b0fb35d041b65c4026c09ca9f7617ae1e1b65
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 20:08:29 2022 -0600
+
+    added-article
+
+commit f003d87633ade4128649e93ee5801549cde47e70
+Merge: bc32a49 5cd9a44
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 20:07:15 2022 -0600
+
+    Merge branch 'main' of https://github.com/cosmodiumcs//OnlyRAT
+
+commit bc32a49b8d7dc2340bcb102f941f3a4b4b155500
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Nov 1 20:06:37 2022 -0600
+
+    added-article
+
+commit 5cd9a44c1970bc603811267bd613b8261d28b4b3
+Author: Blue Cosmo <73325248+PrettyBoyCosmo@users.noreply.github.com>
+Date:   Fri Oct 21 15:24:36 2022 -0400
+
+    Update README.md
+
+commit 14f975f3049025e736cab7e7a8ae54c06ecee274
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Oct 21 10:37:35 2022 -0600
+
+    cleaned
+
+commit e5fbcd806c8c8549c20f84b0134a139a276d7732
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 22:35:45 2022 -0600
+
+    fixed-broken-urls
+
+commit 7c16718585403619ec95265c38db06394eeea44c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 22:33:58 2022 -0600
+
+    fixed-bugs
+
+commit a335e4bbdb71a5bfab0d6a3ebd13bc91547314e1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 22:29:52 2022 -0600
+
+    attempt-1029394
+
+commit 5c6034d4e9fb7f1ae0844ffb5f76f52fcbd21799
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:45:02 2022 -0600
+
+    please-work-lmao
+
+commit 2ebd1a189335f1453f560e48e0602d71f54b105e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:44:01 2022 -0600
+
+    tweaked-webhook-9
+
+commit 6b5d925b50ba26060450ed8c3ae4718dc37dfc3e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:42:46 2022 -0600
+
+    tweaked-webhook-8
+
+commit 1fd2bf0cd1ebff8349f643a12d65a3ec17038fd5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:39:59 2022 -0600
+
+    tweaked-webhook-7
+
+commit 46842cb48a96ac5b58187f94b7edc09448f47123
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:38:37 2022 -0600
+
+    tweaked-webhook-6
+
+commit 5611704cf8cc98bc7be267e8980a4dcd3a46e65b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:37:48 2022 -0600
+
+    tweaked-webhook-5
+
+commit c60294c86e4f045a5498ca22cce83e5d26c25a89
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:37:08 2022 -0600
+
+    tweaked-webhook-4
+
+commit 0d6995a0e491b1b0744bc07a88ae4d61cd8d533d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:11:23 2022 -0600
+
+    tweaked-webhook-3
+
+commit 0762a1c2a9ba402fa51c282c7d5c67851633fbe3
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:08:56 2022 -0600
+
+    tweaked-webhook-2
+
+commit 752ea17821acca3024867df628ea0e674d6a6032
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:07:48 2022 -0600
+
+    tweaked-webhook-1
+
+commit 5ce01e93b059894b89f52b45227ed4a6a5aedab7
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:05:15 2022 -0600
+
+    tweaked-webhook
+
+commit ef673f93e92373cb779252c40ab7bec60cecdd24
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 16:00:07 2022 -0600
+
+    alternative-webhook
+
+commit 9122f20dc40fc5290725f7b1ae20fc1f0205d97b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 15:54:47 2022 -0600
+
+    tweaked-installers
+
+commit 63851af3f5e7f2f0a4498684313fcff59c62f43c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Oct 20 15:53:26 2022 -0600
+
+    fixing-local-connections
+
+commit 6736803771da5bbb1ba91f4be77e3df256ad029f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Sep 11 13:00:19 2022 -0600
+
+    fixed-onlyduck
+
+commit e5e631e8d9d927830f4aa52bb1f4e72f7daf6543
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Sep 11 12:28:54 2022 -0600
+
+    tweaks
+
+commit 21775aa930daab0ab45259d79474466c208b0818
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Sep 1 13:15:38 2022 -0600
+
+    3.0-beta
+
+commit d3f631bb2d0349fcdacc69953ec75dd9f949180d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Jun 22 00:18:33 2022 -0400
+
+    added-webhook-reading
+
+commit deb7ed6b99788cacc420461fc0e72072a470d258
+Author: Blue Cosmo <cosmodiumcs@gmail.com>
+Date:   Mon May 30 00:07:50 2022 -0400
+
+    new-ascii
+
+commit da86f396ba7b76f0fab1bde8af7661c2c7ffb842
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Apr 27 02:42:31 2022 -0400
+
+    roadmap
+
+commit 54f21adb6b6076ff85c46b636130744f4914eb3e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Apr 26 00:22:36 2022 -0400
+
+    ip-tweak
+
+commit 5f14a0a601d886ad28e00c73f6ec096410f24f8f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Apr 19 22:02:06 2022 -0400
+
+    hak5-installers
+
+commit 89684088f26c60fa5f1f026a2143f387477e99dc
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:46:56 2022 -0400
+
+    documentation
+
+commit c05b3b31816aecdb3d66899918ccb2c34530f973
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:45:23 2022 -0400
+
+    documentation
+
+commit 768d980d09f4bb1e34192624d1d48c28ab7bb12f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:44:52 2022 -0400
+
+    documentation
+
+commit 6e8da55d6cb4583de9ee5a1100ffa08dbb65552e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:44:25 2022 -0400
+
+    documentation
+
+commit 938d086bd4396d9269feee0f14fc2963325230dd
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:42:53 2022 -0400
+
+    test
+
+commit 448d910a50a69114dbd1bd345e9aefb7138454e4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:41:40 2022 -0400
+
+    documentation
+
+commit 5c5a1f4ff127dcc2543c013a1f4cb5a7599cef37
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:40:16 2022 -0400
+
+    documentation
+
+commit 02f84103e11480a99d7f542d46873104a29a6831
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:38:13 2022 -0400
+
+    documentation-fix
+
+commit cf4aa23eca036e5ee2c37294d5b8dbaa47e793ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 05:37:01 2022 -0400
+
+    documentation
+
+commit 41ece806773ddd7bb0393f42ed9f770f3b78b3f8
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Apr 17 00:29:20 2022 -0400
+
+    working-killswitch
+
+commit a3e6d9e95ffa7c2eb553a6b139178914526181d0
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:48:00 2022 -0400
+
+    test12
+
+commit e1957aca0f5c6ca80210329189ed5112894dc6de
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:41:01 2022 -0400
+
+    test11
+
+commit 7a382e5c0b2a27e17c00f7f2ed8acfd56abb23e4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:32:14 2022 -0400
+
+    test10
+
+commit 800d82d539b0a72017587457c1a522685cf2af0e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 22:10:58 2022 -0400
+
+    test9
+
+commit 1b988aa2ea937278cc1885a1a55cc923702c3a20
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:49:41 2022 -0400
+
+    test8
+
+commit 9210dbe13ecb50da29b684cd612151b6f96abb9f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:43:37 2022 -0400
+
+    test7
+
+commit 2df669c8930defc1dee9e07b862b5e8c3d1164ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:41:51 2022 -0400
+
+    test6
+
+commit bdeb3947f3a7c2c7174de89ca0c988d16b43f4ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 20:21:57 2022 -0400
+
+    test5
+
+commit 11b114be7650dbbf6e282059edb3ebf759984442
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:37:06 2022 -0400
+
+    test4
+
+commit 6d11f5d5bce8f8ee1b16eb2c2d7395c60897d06e
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:26:45 2022 -0400
+
+    test3
+
+commit 46c6b29b399ee2e31553f407d720939ed2627753
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:19:11 2022 -0400
+
+    test2
+
+commit b1caccfa694b72b93096744560aeba1d9f5a3c04
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 19:02:31 2022 -0400
+
+    test
+
+commit 9b364dba79ce7ed190b7f26cd08d3ef437de8392
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Apr 16 18:59:20 2022 -0400
+
+    killswitch
+
+commit 780490f0fe243b34784f794118a26b7de83706ee
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Mar 29 00:17:51 2022 -0400
+
+    version21
+
+commit 661de1a2668417e59378dbc722e374d0b7b421ec
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 20:51:31 2022 -0400
+
+    discord-webhooks
+
+commit 244d2cf6e9fd33658fc364846ebe93d14591989c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 20:46:21 2022 -0400
+
+    test8
+
+commit 3650aec5358927d90ea8186cd61bc40e95e99de5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 20:39:23 2022 -0400
+
+    test7
+
+commit 4a6d6bcd480e06d8414165fe6786f9c36de0f6ab
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 19:38:48 2022 -0400
+
+    test6
+
+commit 2d2a50415a31e65afea60231d5c227b57cdf5aac
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 19:00:26 2022 -0400
+
+    test5
+
+commit a6ff0776db21a72db2aad41c26548321706f6292
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 18:12:32 2022 -0400
+
+    test4
+
+commit a50d987e280b0545b331000df000890dab18f8a3
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 18:09:15 2022 -0400
+
+    test3
+
+commit 0b76b53e94ac44bc0b84bcd10ae00675b2620312
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 18:04:00 2022 -0400
+
+    test2
+
+commit 168014d1b5d4f05499d3d1c8fb22ba6b631a07bf
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 17:59:53 2022 -0400
+
+    test1
+
+commit c92f2edd7c20e20755dc99614f0fc247fac17c12
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Mar 28 17:42:50 2022 -0400
+
+    discord-webhook-test
+
+commit 3f47d3eec91d145954e7078518353aa8fec1e2c1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Feb 20 23:30:55 2022 -0500
+
+    fixed-bug
+
+commit 1e9867cb566684b593f41256807ff35f667447c5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 12 17:41:21 2022 -0500
+
+    version 2
+
+commit c8477957e5f1f775dfb44f96c04e54df5ee35094
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 23:17:14 2022 -0500
+
+    manual
+
+commit e78f140de694437442338d4808d5ff8578ed1e8b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 11:05:37 2022 -0500
+
+    modules
+
+commit b27e4146ad90ad7eee37628bdd165f4f9de7220a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:36:43 2022 -0500
+
+    cleaned
+
+commit d41b4bf1ce3a02f6433395ed3950d4805fddbe90
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:35:29 2022 -0500
+
+    cleaned
+
+commit 369e80af4d15e04fa681fe812f6d1b9b3b6d960d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:33:06 2022 -0500
+
+    cleaned
+
+commit 29952dc17be663782949863be29a4b3b86cd77a6
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:26:23 2022 -0500
+
+    fix
+
+commit 44df2999928f07888f78b19b6221bfd9d557e385
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Fri Feb 11 00:25:39 2022 -0500
+
+    new-version
+
+commit 76189f90f73ef15769a9cf88bc714346ce29d73f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 23:12:56 2022 -0500
+
+    webcam-added
+
+commit 8b963c17ff8fd0a1afca906911e7f19426226c38
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 23:07:28 2022 -0500
+
+    test12
+
+commit be9946fee08c90d4cec6e7310ff50a878549d635
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 23:04:46 2022 -0500
+
+    test11
+
+commit efcf39dfe6aa39fd3d410bb372f802e04ddc6802
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:56:05 2022 -0500
+
+    test10
+
+commit 69955c928c6d8d60fce5512ee1b862025356a358
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:50:55 2022 -0500
+
+    test9
+
+commit 9e6932d97f70b592ba5bfc0cd6d730b506d1abc1
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:42:38 2022 -0500
+
+    test8
+
+commit 9ed4c62022641a4def677cdd18622754eba1c02c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:36:08 2022 -0500
+
+    test7
+
+commit 14b07eb0a1a2a20ba6890656215095468382b591
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:28:35 2022 -0500
+
+    test6
+
+commit 3a7b21e3f963fe0e83fa85b9b4269b7a6cdca98c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:25:04 2022 -0500
+
+    test5
+
+commit 562842a3b54d4479322ef00e44fe6cc8c9d77b5c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:22:57 2022 -0500
+
+    test4
+
+commit 26b4f6cd70afdf2e3aa32ae8a18e6a34e50557f2
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:19:43 2022 -0500
+
+    test3
+
+commit ae66d7b41fa5865a629824e8c6b8cc21e0dc819f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 22:04:45 2022 -0500
+
+    test2
+
+commit e9d9a6d1cb825c322ff0f5df25c0cadda3c28d12
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 21:49:33 2022 -0500
+
+    testy
+
+commit 79f4e48dd2b901724ab7617e82b14b3b5303089b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 21:12:01 2022 -0500
+
+    webcam-confirm
+
+commit 967f1cd5c762756cacc28571a663ab55ee0a3701
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 20:53:23 2022 -0500
+
+    stable
+
+commit 6354d1036c736f00998e06c5b06bd0868d81aa6f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 00:56:10 2022 -0500
+
+    cleaned
+
+commit 9d03a331213100e9e39c5528365d4af3e18f80f4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 00:34:24 2022 -0500
+
+    wc
+
+commit 7770045b409a3ed738b3c1fc8fd0abb2a8493840
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Thu Feb 10 00:11:51 2022 -0500
+
+    cleaned
+
+commit 5eba98028d9d6c9e7ac277ead4cb0acf0558879b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 19:36:30 2022 -0500
+
+    exfil
+
+commit a093f0621fb81934526e69a951f2a33bb38c1725
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 05:26:41 2022 -0500
+
+    obfuscated
+
+commit 915f25925380a9fc73e21fe2b1613c6306234313
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 05:05:57 2022 -0500
+
+    screenshots-work
+
+commit 1e1cbfab9c9c2a07a33d75dc526a437f82aa2117
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 04:44:25 2022 -0500
+
+    screenshots
+
+commit 28a4c8786bbd20ac7b5b3487bf3b3f50254f7979
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 03:32:28 2022 -0500
+
+    work
+
+commit b58fabc1bfec1efd56e073c2675d21b321bb4231
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 03:22:35 2022 -0500
+
+    screenshot5
+
+commit 3576e5236cd057699cf4ca867356236507a445c8
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:28:24 2022 -0500
+
+    screenshot5
+
+commit 15b4dba6f1d5ea913e0ac4bfb6b717d1fbbd6e34
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:23:29 2022 -0500
+
+    screenshot4
+
+commit fb3e19a4580b67c0d02b2bdfddf0823048c3a9fb
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:21:12 2022 -0500
+
+    screenshot3
+
+commit 1a56143dac0d629f5dc50457b9ac785ecc598aa5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 02:15:26 2022 -0500
+
+    screenshot1
+
+commit c294f7aee7a4b209907a3abe011407ae1acdcb41
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 01:21:29 2022 -0500
+
+    keylogger-fix
+
+commit dda5ccf3a0d0b9cf2ed8350be8eb357ef39f1b74
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 01:18:50 2022 -0500
+
+    keylogger
+
+commit 8a79b01a17ee1448192d1930bdc76c42e0c67512
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 00:23:33 2022 -0500
+
+    keylogger-fix
+
+commit 05a7690deaa4ee39fff9d94b88d0f80d2a62a272
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 00:21:57 2022 -0500
+
+    keylogger
+
+commit ce5e5d367bb40e0bf37556414437fab0671d2b2d
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Wed Feb 9 00:05:57 2022 -0500
+
+    keylogger-test
+
+commit a3ccda27d8fa277cdd75ea5fd6f1bd66eb02e62c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Feb 8 00:38:42 2022 -0500
+
+    keylogger-beta
+
+commit 82c3806aa1b5a946fc1a714bd2618ce215127df4
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Tue Feb 8 00:24:31 2022 -0500
+
+    keylogger-test
+
+commit dbe61d3cadbdde97df2ad5806534790453e2bd78
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 23:20:20 2022 -0500
+
+    test3
+
+commit b71429637ae3fb5f520a59251ad6095128dad49f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 23:19:11 2022 -0500
+
+    test2
+
+commit f5e675d0e9d6541b3bf4f47b59f577b6f36c9b7a
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 23:08:06 2022 -0500
+
+    test1
+
+commit cec54c8426297ef3ef13f9db6ee5d6155603222f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 21:02:51 2022 -0500
+
+    stuff
+
+commit 7d5753f24fcfe39a35b6c6ae12f788e1d67167bd
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 09:29:56 2022 -0500
+
+    ui
+
+commit 3b662de3f921244d4abf1ad6d107ba9137a8d173
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Mon Feb 7 09:03:58 2022 -0500
+
+    new-version
+
+commit 25af3ed4d0a35854542bb4766c2ff38946c2acf5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sun Feb 6 22:43:15 2022 -0500
+
+    bugfix
+
+commit ebb566a7e203954d591e3bec3d5fcabbc6460ac5
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 15:01:03 2022 -0500
+
+    beta
+
+commit 49f814e24fe5cece30a475d45a060f057207322b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 14:58:56 2022 -0500
+
+    test
+
+commit 0ea7beca3fd58f08f346a2bc54b10c343d7eec2c
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 14:56:27 2022 -0500
+
+    beta
+
+commit 3a4a529d6c185c2afe95b9f58b94d9cf1f57556f
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 04:37:37 2022 -0500
+
+    it-works
+
+commit 7e55029853948eb6c26d0c71782facb47d6e9e06
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 04:03:28 2022 -0500
+
+    works
+
+commit 4461b3cc7fbab0aba5b6fe081b4fd44edcda003b
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 03:52:06 2022 -0500
+
+    fucking hell
+
+commit 7fcc0b3ddbd87445f4b09ac4a6ef117a027f8973
+Author: Blue Cosmo <bluecosmo@localhost.localdomain>
+Date:   Sat Feb 5 03:50:11 2022 -0500
+
+    attempt1

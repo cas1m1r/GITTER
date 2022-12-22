@@ -1,0 +1,3992 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit f7a15f4e050863a88761b5bfaea2c9739f0f5507
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:17:54 2021 -0800
+
+    build
+
+commit bc874a6c0c96a070fd2d0f6afe1895e4a690e609
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:17:51 2021 -0800
+
+    9.1.0
+
+commit 9b689e6fec92798dd3ff1fff4a1a5551e1d6dd47
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:12:56 2021 -0800
+
+    Revert "use destroy() method inherited from readable-stream"
+    
+    This reverts commit 086275d2d88a91de1674f30e81bc68e40fbc3799.
+
+commit d9a4b1465eda6edc336370b1c6921ec2b6d75355
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:11:34 2021 -0800
+
+    standard
+
+commit e843431b57b870bd8457eaa0728bb1d171b2dfe5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:04:32 2021 -0800
+
+    browserify@17
+
+commit d504ec60a794c8d043aadcf9e80ed79d0a4378f9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:04:16 2021 -0800
+
+    deps
+
+commit 086275d2d88a91de1674f30e81bc68e40fbc3799
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:03:48 2021 -0800
+
+    use destroy() method inherited from readable-stream
+
+commit 45592ac854509e5033d6a3eaa5f2d3ed7f997815
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:03:26 2021 -0800
+
+    don't log event object
+
+commit 9c31d9dabf56c2bde941d045a093177821b826cd
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 28 18:45:07 2020 -1000
+
+    standard
+
+commit fac351bcc02d5153a7a27fed68883dad4062dd9c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jun 23 12:03:17 2020 -0700
+
+    readme: add virus.cafe
+
+commit a132f44b2565f4437f352a328ece50253a8e0f35
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:39:34 2020 -0700
+
+    package metadata
+
+commit 4c6464750837ba9fbe9e0c05307e0f396a7a552d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:39:34 2020 -0700
+
+    build
+
+commit 83444dc0387da814a3ef06c862afafff4e2f0a1f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:39:31 2020 -0700
+
+    9.0.0
+
+commit ed7153e4311c09929f3ed905c2df8b6a3b497789
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:32:39 2020 -0700
+
+    BREAKING: drop old Edge, drop Node 10 (server only), remove upgradeReq support
+    
+    BREAKING: Drop old Edge
+    - Non Chromium versions of Edge are no longer supported
+    
+    BREAKING: Drop Node 10 server support
+    - If you use require('simple-websocket/server') then we require Node 12 minmum for ES class property syntax. If you need earlier Node support, then continue relying on the last major version.
+    
+    BREAKING: Remove upgradeReq support
+    - upgradeReq was removed from ws in an earlier version. See https://github.com/websockets/ws/pull/1099 for how to re-add it back if it's needed
+    
+    Server: Pass options through to SimpleWebSocket constructor
+    - For example, a server can be initialized with server = new Server({ port, encoding: 'utf8' }) to make each connection stream use utf8 encoding
+
+commit 19c0be94cfa7bf2d042d6369e4c85b8ad5a59eb6
+Merge: 7328a41 782f0bb
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 11:24:15 2020 -0700
+
+    Merge pull request #60 from feross/greenkeeper/airtap-3.0.0
+
+commit 7328a415248d681c529b26c83ecffa652e14111d
+Merge: 67eeaaf 2f21e43
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 11:23:47 2020 -0700
+
+    Merge pull request #62 from feross/greenkeeper/tape-5.0.0
+
+commit 67eeaafc3dc4c243da8f63606a6c8167c74e9a5e
+Merge: 3a12e52 5292b1d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 11:23:07 2020 -0700
+
+    Merge pull request #63 from LinusU/object-shorthand
+
+commit 5292b1d143d04db3c1305fb0e63010ffddca93c2
+Author: Linus Unnebäck <linus@folkdatorn.se>
+Date:   Sun Apr 26 14:59:46 2020 +0100
+
+    Use object shorthand for properties
+
+commit 2f21e436cc544a98ef90f38d507659e0172226b4
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Apr 24 22:08:41 2020 +0000
+
+    chore(package): update tape to version 5.0.0
+
+commit 782f0bbe23f830616206a8fe157053068c237ab4
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Jan 17 10:49:46 2020 +0000
+
+    chore(package): update airtap to version 3.0.0
+
+commit 3a12e52a6acc767c513d51d737fba722fbefe618
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Nov 12 16:11:20 2019 -0800
+
+    build
+
+commit 153d2e591e420150cadd3d9377ce405b2adcbb56
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Nov 12 16:11:16 2019 -0800
+
+    8.1.1
+
+commit d130ed7d115ada8b46239e37909e31a8772df483
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Nov 12 16:03:21 2019 -0800
+
+    fix build
+
+commit f58c3f090e9c91f3b11d7652f35bdf5b7b04d260
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:51:07 2019 -0800
+
+    build
+
+commit fd94c381f89e5904ac5be72ef8aa35235d63acc0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:51:03 2019 -0800
+
+    8.1.0
+
+commit bb1a95971be8afb42bff72a5ebded0b87d6941e7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:47:31 2019 -0800
+
+    use tinyify
+
+commit 688a8ada605df2ea1f08e54f989ce2d2e801cddd
+Merge: f24452d fd693aa
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:48:27 2019 -0800
+
+    Merge pull request #59 from feross/queue-microtask
+    
+    Use queueMicrotask instead of setTimeout(fn, 0)
+
+commit fd693aa59fde071e8f5da16b5725388f46740418
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Sep 7 14:26:59 2019 -0700
+
+    Use queueMicrotask instead of setTimeout(fn, 0)
+    
+    Modern browsers throttle timers severely, so setTimeout(…, 0) usually takes at least 4ms to run. Furthermore, the throttling gets even worse if the page is backgrounded.
+    
+    queueMicrotask has none of these problems. But it's not available in Node 10 or earlier, and very old browsers. [`queue-microtask`](https://github.com/feross/queue-microtask) provides a no dependency, 6 line fallback for these environments.
+    
+    Eventually, we can remove the package when we don't support Node 10 anymore.
+
+commit f24452d710335832133d3589d555e4240bc5a64a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Aug 18 12:56:12 2019 -0700
+
+    build
+
+commit 1e452276f56d8758854e74d5ccba4c9d5bd2cb4e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Aug 18 12:56:09 2019 -0700
+
+    8.0.1
+
+commit 626b297e80c2a8baad18ec6614cafdedf4649572
+Merge: ed2d9cc 1e4d8d4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Aug 18 12:51:35 2019 -0700
+
+    Merge pull request #56 from guanzo/master
+    
+    Checks if opts.socket is already connected in constructor.
+
+commit 1e4d8d476faa5ed889751bfce41803dfa36b8867
+Merge: a5dd0d7 c7e09d9
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Mon Aug 5 13:44:23 2019 -0700
+
+    Merge upstream
+
+commit a5dd0d7c5a0819141ac2cb541a6fab85ced81d84
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Mon Jul 22 11:52:48 2019 -0700
+
+    Destroy socket in test "check connected on init"
+
+commit a8d2cf5a93252deac0a7ec03a2ddb82746165fda
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Sun Jul 21 16:56:46 2019 -0700
+
+    Checks if opts.socket is already connected in constructor.
+
+commit ed2d9cc02f75c46ae67a8f892c6fada11f94a290
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:38:13 2019 -0700
+
+    build
+
+commit 1dd976797db13eab88931d285b568d5e3b8b2401
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:38:10 2019 -0700
+
+    8.0.0
+
+commit d7dc07767f38382e034942433ec423331745a24c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:33:36 2019 -0700
+
+    babel-minify is a dev dep
+
+commit e344a432f4412276f6cfba8047fb3aeb1f4a0953
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:32:57 2019 -0700
+
+    BREAKING: refactor to use ES class
+    
+    It is now required to use this with the `new` keyword:
+    
+    const socket = new Socket()
+
+commit 1a530e7fa3e1add6ac8cf6f26a1ab0fef3f13e97
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:14:33 2019 -0700
+
+    uglify-js -> babel-minify
+
+commit fd7d7a7e581dc17987ef0ed6b44d05edc6fc21b7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 17:51:00 2019 -0700
+
+    7.3.0
+
+commit a8715bf496d0a449ad01d7304f8ad68396653e67
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 17:48:17 2019 -0700
+
+    Update .npmignore
+
+commit c7e09d93feb2b7f4377b028cf1ce82b917d2dde6
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Mon Jul 22 11:52:48 2019 -0700
+
+    Destroy socket in test "check connected on init"
+
+commit 5584a1a2587dc8ff1b02ea552cac8d0057102e49
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Sun Jul 21 16:56:46 2019 -0700
+
+    Checks if opts.socket is already connected in constructor.
+
+commit d7849067149110cdcbec4e9cf913bb4eef6637b0
+Merge: 908290d 2aa1f80
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jul 12 11:39:55 2019 -0700
+
+    Merge pull request #55 from feross/greenkeeper/airtap-2.0.3
+    
+    chore(package): update airtap to version 2.0.3
+
+commit 2aa1f80da1089c7ae42a51b12da9706f48a3f1d2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jul 12 11:24:58 2019 -0700
+
+    Update package.json
+
+commit c7b962fb0ace70a73b7de8a6d4a020c08d26cea7
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Jul 12 10:04:48 2019 +0000
+
+    chore(package): update airtap to version 2.0.3
+    
+    Closes #52
+
+commit 908290dbae89302494a70bf8437d544378581e21
+Merge: 0ff391d 21cb095
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Jun 19 11:52:49 2019 -0500
+
+    Merge pull request #53 from feross/greenkeeper/ws-7.0.0
+    
+    Update ws to the latest version 🚀
+
+commit 21cb095b441a83c5a04111da70d7b34bd37f1423
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Tue Apr 30 16:14:33 2019 +0000
+
+    fix(package): update ws to version 7.0.0
+
+commit 0ff391d6e184a7d2267027c46aac3cee1ede1d3b
+Merge: c07a3e7 6600fe2
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Dec 26 09:38:57 2018 -0500
+
+    Merge pull request #47 from samuelmaddock/metastream
+    
+    Add Metastream to projects list
+
+commit c07a3e758d3d8d5d4060cf757ede5a63968f4d7b
+Merge: 78d96d1 45df608
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Dec 26 09:38:42 2018 -0500
+
+    Merge pull request #51 from feross/greenkeeper/readable-stream-3.1.1
+    
+    Update readable-stream to the latest version 🚀
+
+commit 78d96d1ce896a3e2228d2ea1a9f2930e463ade0d
+Merge: 71eaac5 092109f
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Dec 26 09:38:02 2018 -0500
+
+    Merge pull request #50 from feross/greenkeeper/debug-4.1.1
+    
+    Update debug to the latest version 🚀
+
+commit 45df608dab82a19305a6d42830fc2d6fb43e62d9
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sun Dec 23 14:45:15 2018 +0000
+
+    fix(package): update readable-stream to version 3.1.1
+
+commit 092109f07a2fb7bcac425c35c9efc3f3057ee21d
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sat Dec 22 16:47:02 2018 +0000
+
+    fix(package): update debug to version 4.1.1
+
+commit 6600fe25bbf14903ba32036e87abe420375d3663
+Author: Samuel Maddock <samuel.maddock@gmail.com>
+Date:   Sat Nov 17 23:08:37 2018 -0500
+
+    Add Metastream to projects list
+
+commit 71eaac57585dc3f7da75fbb51f26a72b08b3fb28
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 23:27:17 2018 -0700
+
+    build
+
+commit cae39e905622889e187e3bfdd03c358a312321dc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 23:19:57 2018 -0700
+
+    7.2.0
+
+commit b3fed92a013cbc8119408670893a4c830d05b997
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 23:00:52 2018 -0700
+
+    remove safe-buffer
+
+commit 4807d7d5e5a6b19b087495823fdc9d73efc69b00
+Merge: 8133ac1 0159edc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 22:59:08 2018 -0700
+
+    Merge pull request #43 from feross/greenkeeper/airtap-0.1.0
+    
+    chore(package): update airtap to version 0.1.0
+
+commit 8133ac14aea563f4b3edea443e6387f0089fa3df
+Merge: 615a4e1 f0e5aec
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 22:13:54 2018 -0700
+
+    Merge pull request #42 from feross/greenkeeper/ws-6.0.0
+    
+    Update ws to the latest version 🚀
+
+commit f0e5aece20ee2c4342141fa6fd686043d31f8c96
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sat Jul 21 13:49:00 2018 +0000
+
+    fix(package): update ws to version 6.0.0
+
+commit 0159edcddeedb4d02b3667bd8e2ec08b3ebd3a3c
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sat Jul 7 09:32:42 2018 +0000
+
+    chore(package): update airtap to version 0.1.0
+    
+    Closes #41
+
+commit 615a4e13db2f6866ee5cf37f0465c6369d19d290
+Merge: b501942 f2c2f83
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 9 16:17:53 2018 -0700
+
+    Merge pull request #40 from feross/greenkeeper/airtap-0.0.7
+    
+    chore(package): update airtap to version 0.0.7
+
+commit f2c2f83675738a249879e7123745d011488178fa
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri May 25 11:34:50 2018 +0000
+
+    chore(package): update airtap to version 0.0.7
+    
+    Closes #39
+
+commit b5019428c0b9478d317aff64c1258e3a52cb2f79
+Merge: b75b3b6 5b1fbad
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 8 20:04:11 2018 -0700
+
+    Merge pull request #38 from feross/greenkeeper/airtap-0.0.5
+    
+    Update airtap to the latest version 🚀
+
+commit 5b1fbadacc78eb595913b75c8703cbb5bb517610
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sun May 6 11:39:21 2018 +0000
+
+    chore(package): update airtap to version 0.0.5
+
+commit b75b3b62a33008715a9db5bbb4b77dadf6fa24d6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 23 16:15:00 2018 -0700
+
+    Fix tests locally and on airtap
+    
+    Fix https://github.com/feross/simple-websocket/issues/30
+
+commit 2b70a74cf2d54e5c1a8ab2aa86c239c947e93b44
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 8 11:56:59 2018 -0800
+
+    build
+
+commit 18e4f128283f5b303d5daee4bad246a00d04da18
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 8 11:56:40 2018 -0800
+
+    7.1.0
+
+commit e50dd8b256ad13b281303bdfd07eac211b778f81
+Merge: f27854f 52e5875
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 8 11:56:16 2018 -0800
+
+    Merge pull request #32 from feross/greenkeeper/ws-5.0.0
+    
+    Update ws to the latest version 🚀
+
+commit 52e5875b27e840d952f0a613d2c2f440494545cc
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Tue Mar 6 14:36:15 2018 +0000
+
+    fix(package): update ws to version 5.0.0
+
+commit f27854fe726b44b92ab3c392a954280bc53c5ad0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 17:19:12 2018 -0800
+
+    add debug logs
+
+commit 955eb954dd6fd520ec553800019c960789f7beef
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 17:19:05 2018 -0800
+
+    add server.address() method
+
+commit b10762636c95a3407c72a86d7589c428f58878c4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 15:41:14 2018 -0800
+
+    fix tests
+
+commit bd2d167be775d8d39a36299fe717c2fb76e3d218
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 15:19:32 2018 -0800
+
+    Fix tests in Node.js
+
+commit 95f6e651201262d9b1c63f3c9282c3b7e1e51a92
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 14:42:29 2018 -0800
+
+    test: remove dependence on echo.websocket.org
+
+commit 36e843231709e49e76af9a4352885469aa7aa090
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:59:53 2018 -0800
+
+    build
+
+commit ad06e95754766db979249d54daa9d7a9f1c69ff5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:59:46 2018 -0800
+
+    7.0.2
+
+commit ba8ae29a2b35a43a52f8c12a2e62a2a2b71a561e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:59:39 2018 -0800
+
+    fix incorrect destroy call
+
+commit 86b90a9e09ceaaa5feb58ae1f546c57687bdd466
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:25:30 2018 -0800
+
+    airtap: add microsoftedge
+
+commit da9bb1228365cb8147e984fbdbfa6357258c3de0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:25:26 2018 -0800
+
+    zuul -> airtap
+
+commit f9635c022d63227b9e8ec9d314521e14bdc5b709
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 19 15:06:09 2018 -0800
+
+    readme typo
+
+commit 55dd16b741b2f6247164079618557106793779e3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:42:44 2018 -0800
+
+    build
+
+commit 72aa83a8c6da657c38488ca60d0d21b62e52c4f3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:42:35 2018 -0800
+
+    7.0.1
+
+commit 934bfcd54c7742c223aba72c4be90aadabfe9ff1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:34:40 2018 -0800
+
+    typo
+
+commit 7d6860e59fb2c2ba21e190dfdfd0deab66ad9c46
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:29:32 2018 -0800
+
+    Revert "Remove unnecessary nextTick in constructor"
+    
+    This reverts commit 1c6056812fce1535d98f7ceae27b43a3dae5cf23.
+
+commit af07f884e7e9ed02c6754288ab0b2c1067b71ac4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:29:24 2018 -0800
+
+    Emit 'error' synchronously
+    
+    Emitting the error asyncronously makes it impossible for users to handle 'close' and 'error' together easily.
+    
+    If I want to know about 'close', plus whether there's an error, then it's good that 'error' fires first.
+    
+    Basically, I know that if I get an 'error' event, the socket is closed and there was an error.
+    
+    If I get a 'close' event (and haven't got an 'error' yet), then I know the socket is closed and there was not an error.
+    
+    But what am I supposed to do if 'error' is emitted on the next tick?
+    
+    Then when I get a 'close' event, I don't know if there's been an error or not. And I can't do any cleanup or respond to the 'close' yet since there could be an 'error' coming on the next tick.
+    
+    Am I missing something here?
+
+commit b7e020683d958deb363dbf065f0d62af6805f345
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:43:55 2018 -0800
+
+    build
+
+commit f4780025d270fb42ba7a5ac70b3371bd1daac347
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:43:24 2018 -0800
+
+    7.0.0
+
+commit 24efee5ffaba819ee4f6f1831192a77d88b60a2a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:25:02 2018 -0800
+
+    Convert Edge DOMException object to Error object
+
+commit 1c6056812fce1535d98f7ceae27b43a3dae5cf23
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:02:17 2018 -0800
+
+    Remove unnecessary nextTick in constructor
+    
+    This was added so that 'error' would be emitted on the next tick, but now the destroy() implementation ensures that, so no need to nextTick in the constructor.
+
+commit 98371f1b2cd3ac1066ca8cdd92b1e82fa8dd616c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:01:35 2018 -0800
+
+    Sauce Labs: test iOS
+
+commit 8522c0afa487c4b5f5f849b21d0c1f305e3e5e13
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:01:24 2018 -0800
+
+    BREAKING: Change .destroy(onclose) to .destroy(err)
+    
+    Node.js 8 standardized the destroy() stream interface, so let's use that interface.
+    
+    To update your code, change this:
+    
+    socket.destroy(callback)
+    
+    To this instead:
+    
+    socket.on('close', callback)
+    socket.destroy()
+
+commit 7f15d3b39c558d8b4a97459eedbcde07af50c05e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 20:10:41 2018 -0800
+
+    readme
+
+commit 54f1437fa307b67d51f8f63503c5943b088cc57b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 20:10:34 2018 -0800
+
+    browserify@16
+
+commit ebfa27bd7dfc3f82d013ee7adfc30d9fdade5005
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Jan 29 09:50:21 2018 +0800
+
+    build
+
+commit cc663d7b21dd0861167a3863188869af80c55f69
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:53:17 2018 +0800
+
+    6.0.0
+
+commit e20395b04a407f1bbedafb7c18aebd5d23ae7e3b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:49:32 2018 +0800
+
+    BREAKING: ws@4
+    
+    See changelog here: https://github.com/websockets/ws/releases/tag/4.0.0
+
+commit cfe6ba2206943e862b10bc0ec49bdfb910042250
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:41:05 2018 +0800
+
+    browserify 15
+
+commit 1005038bc48aee0c01a1cfe33f7bf05ce65db142
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:40:59 2018 +0800
+
+    travis lts
+
+commit 3f1ddfa52a17c7cfa349245cd06ca4fe701c4c49
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 23 18:46:49 2018 +0800
+
+    build
+
+commit f5bdead9245840128647c671115551179f2cabdf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 23 18:46:06 2018 +0800
+
+    5.1.1
+
+commit cd1ae8464aee075dc7e3257dfddacce01577051b
+Merge: 5228449 2d02514
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 23 05:29:07 2018 -0500
+
+    Merge pull request #26 from jhiesey/master
+    
+    Swallow errors after _destroy() instead of letting them crash the process
+
+commit 2d02514a4b7695b6d301f0d43c2f6577a10cd6de
+Author: John Hiesey <jhiesey@cs.stanford.edu>
+Date:   Tue Jan 23 01:54:04 2018 -0800
+
+    Swallow errors after _destroy() instead of letting them crash the process
+
+commit 5228449eb8ae3d3f737a2c7e97a6d763d72b2f3d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:20:27 2017 -0800
+
+    build
+
+commit ac11ba7fe81d985b580801eed2c77e3b245823ae
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:20:16 2017 -0800
+
+    5.1.0
+
+commit bbf9e1f7ddb73d654f3b4cb3e85bd108d88879ba
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:18:20 2017 -0800
+
+    uglify-js@3
+
+commit 0278c5fa2f9fd949a99c1279be381d1e7c247d14
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:17:57 2017 -0800
+
+    debug@3
+
+commit f07727677f93ad94a1cf51a45e655b6b775bfcbb
+Merge: 8f1cf61 e4d67e0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:14:56 2017 -0800
+
+    Merge pull request #25 from bsclifton/master
+    
+    Update ws dependency >= 3.3.1 per https://nodesecurity.io/advisories/550
+
+commit e4d67e07bf56766e26ddc63da01890eb839034d1
+Author: Brian Clifton <brian@clifton.me>
+Date:   Wed Nov 8 21:30:23 2017 -0700
+
+    Update ws dependency >= 3.3.1 per https://nodesecurity.io/advisories/550
+
+commit 8f1cf612c055d41e5616281d206671bd6d37cb6f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:58:52 2017 -0700
+
+    build
+
+commit 5810fa699e7c03faab7cf706e6290012eed6c008
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:45:27 2017 -0700
+
+    5.0.2
+
+commit bb636ba3dd75f12abfc238b9a489e678a0b5d03a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:43:16 2017 -0700
+
+    Replace _onError with _destroy
+
+commit 118ce7cae6b0e25e4f0e4de025a0e0ae9eead02c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:43:03 2017 -0700
+
+    Fix potential stall
+    
+    Keeping it parallel with
+    https://github.com/feross/simple-peer/commit/5219786ed545855838421b792b6
+    125743c64e719
+
+commit 114495b62196c37933230363bc2f2f130a0f35d4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 30 13:48:01 2017 -0700
+
+    build
+
+commit a7bfc4f3150286a7aca4b9a5f10605809d0142bc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 30 13:47:51 2017 -0700
+
+    5.0.1
+
+commit 48758233a602ebc5f4861a080afe6eb79683ae8d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 30 13:47:01 2017 -0700
+
+    use safe-buffer
+
+commit 13de78de846c32ddb562d5bb6a83f0cb08b8697c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 21 16:08:26 2017 -0700
+
+    standard
+
+commit 7a482600fdbab6c867fa22e61875ad325aeb0c56
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 9 09:18:02 2017 -0800
+
+    zuul: disable failing microsoft edge test
+    
+    Tests actually pass in Edge (verified locally) but they stall on Sauce
+    Labs. Disabling.
+
+commit ff28b3207abe8321830bd19f693a97f53ea8081a
+Merge: 14cc04b e7b481e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 2 00:22:22 2017 -0800
+
+    Merge pull request #20 from feross/standard
+    
+    standard
+
+commit e7b481e742c23e70dbf428c21f336a8fd3673183
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 2 00:09:21 2017 -0800
+
+    standard
+
+commit 14cc04b86802b1bd44ecb3700df315e29ef1433d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Feb 16 00:36:28 2017 -0800
+
+    build
+
+commit 0edf1cceba91a5d0340b03cde49b02441f4cb683
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Feb 16 00:36:19 2017 -0800
+
+    5.0.0
+
+commit 23d4487244af069abce9a85b0e6ae4f9662796a2
+Merge: b9c19d7 53d1569
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Feb 16 00:00:48 2017 -0800
+
+    Merge pull request #18 from feross/f/server
+    
+    Add server implementation
+
+commit 53d15696a0b9bcf9423af980f90960a1061e9c63
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:57:39 2017 -0800
+
+    Add server implementation!
+
+commit cb529748a04dd6cef542635a5bd420db3ad63066
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:57:28 2017 -0800
+
+    add failing server test
+
+commit 424c7aca0fe55bad34f671ba83111102f5dd731b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:56:34 2017 -0800
+
+    zuul: replace ie with edge
+
+commit 24a70f14b445f974881c84139f08f41c7c9de89e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:12:34 2017 -0800
+
+    BREAKING: accept a single argument, opts
+    
+    `opts` can be a string url, as a shorthand.
+    
+    or `opts` can be be an options object with a `url` or `socket` property.
+    
+    This is breaking. Code that used to be:
+    
+    socket = new Socket(url, { objectMode: true })
+    
+    Must be changed to:
+    
+    socket = new Socket({ url: url, objectMode: true })
+
+commit b9c50163c607c110ce129b62a20f7974f29a5335
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 17:13:01 2017 -0800
+
+    add _onFinish method; self -> this where possible
+
+commit 28f36b628f192beb514f8073994cd2d54cb5f88e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 16:25:03 2017 -0800
+
+    Drop IE11 support
+
+commit b9c19d768a8e8078533a07c3bcbcacab995f8a43
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 13 11:47:26 2017 -0800
+
+    4.3.1
+
+commit f12df24bc0e73699f42c652383da4668ca844b18
+Merge: 6d9fd9f bfcf335
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 13 20:45:25 2017 +0100
+
+    Merge pull request #17 from DiegoRBaquero/patch-1
+    
+    Add randombytes dependency
+
+commit bfcf3358cc4362d2a1596455923170f8e395cc5b
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Mon Feb 13 04:29:14 2017 -0500
+
+    Add randombytes dep
+    
+    Was missing. Fixes #16.
+
+commit 6d9fd9fb416da63fe82d577bb3fcfe170e4ed3a4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:32:55 2017 -0800
+
+    build
+
+commit 54d128eb0e88ff41b65ac05c63eb192aefef312a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:24:58 2017 -0800
+
+    4.3.0
+
+commit ae9b9421ce3705579f6a3db8566a75a357cb324d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:21:58 2017 -0800
+
+    add perf tests
+
+commit a03234b039eddeb54c1f4321086760b8d2b60684
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:21:19 2017 -0800
+
+    ws@2
+
+commit c3685dd380056ada90ea7fac9499780f5af7a145
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Feb 7 23:00:56 2017 -0800
+
+    add lots more tests
+    
+    copied from simple-peer
+
+commit 880cdefad3375b08408321f712b937fc19cf9ff6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Feb 7 21:52:18 2017 -0800
+
+    include id with debug logs, remove send/onmessage logs
+
+commit a5c909a5e4ee51aa2c5d55983aa87b917949246c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 24 21:01:13 2017 -0800
+
+    browserify@14
+
+commit 9a37c07d7d5dd379a2a7d2f45494b001350b9ccb
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 03:30:55 2017 -0800
+
+    build
+
+commit 7bd625a6417ae99df0fe6be469eeb5eef9b87f97
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 02:19:48 2017 -0800
+
+    4.2.0
+
+commit 5eb92c04c39d71dfacb8cb98519ce78251469512
+Merge: 6c361b7 56f7ad8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 02:18:02 2017 -0800
+
+    Merge pull request #14 from feross/event-order
+    
+    Emit 'error' before 'close'
+
+commit 56f7ad8afdab3b00139159c9d112d8b00770d81c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 01:59:56 2017 -0800
+
+    Emit 'error' before 'close'
+    
+    The industry streams leader, @mafintosh, says this is the way to do it.
+
+commit 6c361b7186d608285f4f4cb7885e138f9ef88989
+Merge: 140b111 23df857
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Sep 4 21:26:04 2016 +0800
+
+    Merge pull request #13 from yciabaud/electron-ws
+    
+    Use ws module when available to benefit from options in electron
+
+commit 23df857f2af1080e907a1dba83d40202f06c8ed0
+Author: Yoann Ciabaud <yoann@sonora.io>
+Date:   Sat Aug 27 09:04:16 2016 +0200
+
+    Use ws module when available to benefit from options in electron
+
+commit 140b111be37c0933c0863a5af560bb4d2e5b8ffe
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 25 18:12:45 2016 -0700
+
+    standard
+
+commit ee68e51ce800e7610cc1ca4060fbac603cc72a56
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jun 5 00:16:41 2016 -0700
+
+    build
+
+commit df7cfa5b950f4e17f5de89da92ceb729c8c4e9b8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jun 5 00:16:29 2016 -0700
+
+    4.1.0
+
+commit 010ec110d8bba4604680c51ce741ba9a1bd2c9c2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jun 5 00:14:55 2016 -0700
+
+    Fix Chrome 51 WebSocket error
+    
+    Chrome doesn't like the extra null argument and fails with the error:
+    
+    Sent non-empty 'Sec-WebSocket-Protocol' header but no response was
+    received
+
+commit eb10b3eaeab54a6c67b488ad087f636cc1dc0bee
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 4 23:22:01 2016 -0700
+
+    Support WebSocket in Workers
+
+commit 951db07faa3967a8db6b60bd871bacaf6ce05133
+Merge: 2dbf0ab fcabf15
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 4 23:16:57 2016 -0700
+
+    Merge pull request #11 from yciabaud/ws-opts
+    
+    Pass opts to ws constructor to allow customization
+
+commit fcabf152358147000f98eaea5b0dfc74103a3382
+Author: Yoann Ciabaud <yoann@sonora.io>
+Date:   Sat Jun 4 15:30:15 2016 +0200
+
+    Pass opts to ws constructor to allow customization
+
+commit 2dbf0ab806088ec2f6e736bea1132380167b745f
+Merge: c6c6d54 8d7f128
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon May 2 17:13:15 2016 +0200
+
+    Merge pull request #9 from feross/greenkeeper-standard-7.0.0
+    
+    Update standard to version 7.0.0 🚀
+
+commit 8d7f12813418d7a471120f0702e8018cad7ccd83
+Author: greenkeeperio-bot <support@greenkeeper.io>
+Date:   Mon May 2 16:21:25 2016 +0200
+
+    chore(package): update standard to version 7.0.0
+    
+    https://greenkeeper.io/
+
+commit c6c6d542143500130d99baa9410dff8731af9f65
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Mar 28 23:51:52 2016 -0700
+
+    build
+
+commit cbc5dda6b0b089e2d0b0ca4c61e8f616ca87eee1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Mar 28 23:42:38 2016 -0700
+
+    4.0.3
+
+commit 1ae74b6ab1891be85ce45993e87ebf97e8f0a157
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Mar 28 23:40:53 2016 -0700
+
+    Perf: Remove all Function.bind
+    
+    For https://github.com/feross/webtorrent-desktop/issues/256
+
+commit fd49cb7becf597e36e4085e2e4bd3fdbee37cf02
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 15 20:50:04 2016 -0700
+
+    build
+
+commit e9f5786d6200a4627e6959a1f2adcf148c8810a8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 15 20:49:14 2016 -0700
+
+    4.0.2
+
+commit da95c06a59f401c7ac5fa54b7e278ce69ac32978
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 15 20:46:23 2016 -0700
+
+    try-catch websocket security errors
+    
+    When opening a ws:// websocket on a https:// site, a SecurityError is
+    thrown. Catch this.
+
+commit 63447259e307400609b72df4316fb99c1326e3be
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:56:29 2016 -0800
+
+    build
+
+commit f47111663885ea2f78cdf6b7a8f8b79aa2de85df
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:55:33 2016 -0800
+
+    4.0.1
+
+commit 9133554a378fc3734b6c95325e719b0fe529fdd6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:51:43 2016 -0800
+
+    use readable-stream
+
+commit 893572fc54237590e822524feafebc5c6bf1770f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:51:22 2016 -0800
+
+    zuul: remove flaky ios tests
+
+commit f660a7b76f2687aa47e8d7b940b20049e36ce05e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 16:06:43 2016 -0800
+
+    build
+
+commit b21c30b6e9b1b134c24c6795e0c9063ddab90ad6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 16:06:37 2016 -0800
+
+    4.0.0
+
+commit eb171d65774ff7be965119427fc9215b174690af
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 16:04:08 2016 -0800
+
+    sauce labs bug: Microsoft Edge can't do websockets
+
+commit fbb6449d4999b5f83b15b6b69ad668427b114e8f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:24:28 2016 -0800
+
+    readme
+
+commit 0527d9a0c0288bd4b4afb3d17c0d37c225bfd2a4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:23:13 2016 -0800
+
+    remove unused is-typedarray dep
+
+commit 556f92f9b534ccb8460c0d752b933b6d348ad51f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:21:36 2016 -0800
+
+    sauce labs: test ie and edge browsers
+
+commit 5d4538f75f1c0249784b0b50b1c39cc04768ab4a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:21:27 2016 -0800
+
+    travis: just use one node version
+
+commit 803716d3b2499d45f6144709a5e5527ea13a7b64
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:20:18 2016 -0800
+
+    BREAKING: remove automatic JSON handling
+    
+    Users must now call JSON.stringify() before sending, and call
+    JSON.parse() on the receiving side.
+
+commit 6b53f21fbcf363d399eb5afa0b2671739af0c6f8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:18:57 2016 -0800
+
+    travis: test supported node versions
+
+commit 66946b4490bb0538c608c7b3cd0a772132aed30a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 10 19:33:52 2016 -0800
+
+    README: add note about JSON strings (fix #6)
+
+commit eb677d10df6618c9a09807654464cb0027639f72
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:56:32 2016 -0800
+
+    build
+
+commit df8cf887e948b6c0b34c243da048e926c5c2573f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:56:30 2016 -0800
+
+    fixpack
+
+commit 896359ab19a0bae2156a4e822063beb79ddbea7a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:56:24 2016 -0800
+
+    package.json
+
+commit e5e378e8e3dbece57a810568159c66e7d2d53a68
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:40:17 2016 -0800
+
+    3.0.0
+
+commit 0c55fded1913b59a69fa9e9a46c9dde8ecc1c1cc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:35:48 2016 -0800
+
+    browserify@13
+
+commit fa4341cf5bf815d05df81e267bbd5eca28097e14
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:35:17 2016 -0800
+
+    standard@6
+
+commit b2bd85d443ed0d3bc918f5db99240af4e468def2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:34:37 2016 -0800
+
+    BREAKING: simplewebsocket.min.js is new bundle name
+
+commit a1c8e9efcbdbfbaec4aaa962386d23bd8f39f756
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:35:26 2016 +0100
+
+    build
+
+commit f8804c9de1ecdc32a5c7c3975a3d51670b9e4bc9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:35:19 2016 +0100
+
+    2.5.3
+
+commit 7b0241499178a96c2544e31045648635bb9f27f6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:34:53 2016 +0100
+
+    remove typedarray-to-buffer
+    
+    not necessary anymore, now that buffer constructor takes arraybuffers
+
+commit 3f266c309e717d2cffdea8047c4c1e4938169cb1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:04:15 2016 +0100
+
+    build
+
+commit f662b87e597c5d31f721ecab49432f870a3decc5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:47:09 2016 +0100
+
+    2.5.2
+
+commit e0519cf48f591a028be24ed2eeab3a0e3a161140
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:44:27 2016 +0100
+
+    ws@1
+
+commit 39007715df08c77d9652ebfdde7da936570f0e5b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:35:38 2016 +0100
+
+    browserify@12
+
+commit 25954f83b6d2001fbb37a4d33f667491957c85d1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:32:40 2016 +0100
+
+    badges
+
+commit dacdee3cac1a4c3df03db1d8f0917422c381157c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 6 23:01:48 2015 -0700
+
+    2.5.1
+
+commit 0b81c0553b4b502a07f5d754d73b8063f0dd31ab
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 6 22:58:58 2015 -0700
+
+    update docs
+
+commit 278f6f1bffaada4d4efa56a236a7cde52a8b1724
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 30 20:25:52 2015 -0700
+
+    build
+
+commit 43ce83b3064832de31c0cc6fca91cd12009b7914
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 30 20:25:36 2015 -0700
+
+    2.5.0
+
+commit ff2e13adc2d5ed3c8ff9b23c61ec55994cd25db2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 30 20:22:35 2015 -0700
+
+    Add `Socket.WEBSOCKET_SUPPORT`
+
+commit 616894a1b0961b0d54d04adf46ae1a770923353a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:18:22 2015 -0700
+
+    build
+
+commit 205ed7fdef76b83d73cc730e7251452241d756c6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:18:12 2015 -0700
+
+    2.4.0
+
+commit 8d751d566691e3f96026762b443c51dfe0eaf3aa
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:09:11 2015 -0700
+
+    browserify@11
+
+commit d58c9dad9bde0f58f2847516b2de62aa91da038b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:04:35 2015 -0700
+
+    ws@0.8 - and make it optional (for browser usage)
+
+commit 8abbefc863695ef076af934a7b2ee5ecbad45834
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:03:29 2015 -0700
+
+    standard@5
+
+commit 2f05f74447deee9efb82c1d6500fe22f3fbe0d52
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 18:23:17 2015 -0700
+
+    readme
+
+commit 9b440b3f020ed69cae3d63d3fa74e0962526ac1b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 18:20:04 2015 -0700
+
+    readme
+
+commit 8455ab8cb78fb8ad02abe2ec49d5d43fade1d082
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 03:56:29 2015 -0700
+
+    build
+
+commit b238cfdaed5e9365b4276e8e9239c0a30fb4edf1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 03:54:50 2015 -0700
+
+    2.3.4
+
+commit 3ff3010b8743844d5279daf954c5663b515ed323
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 03:52:53 2015 -0700
+
+    emit 'close' event correctly
+    
+    we were not emitting 'close' when the underlying WebSocket's 'close'
+    event fired
+
+commit 3f049c6df74871fbf81539761cd3793eaeb165e9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 16 18:44:59 2015 -0700
+
+    build
+
+commit f2a932a6748437d5575b23165ee460a3618fc953
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 16 18:39:40 2015 -0700
+
+    2.3.3
+
+commit c0d2a7e8b36d63c4c265d91e7152d900006582b2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 16 18:37:23 2015 -0700
+
+    only emit 'close' after socket is actually closed
+
+commit 3297b2a07d4c5a182be7bbb3728c029b4998203f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 16:35:06 2015 -0700
+
+    build
+
+commit b8621aabd56241d080516c42e40528463a9d893f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 15:56:28 2015 -0700
+
+    2.3.2
+
+commit b928150c487434c9cb6b668ffce1f28c7692d26d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 15:52:51 2015 -0700
+
+    standard@4
+
+commit b853acb2cc408b56b3efc669560edb2e82f6b281
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 15:52:44 2015 -0700
+
+    Prevent "Uncaught NetworkError: Failed to execute 'send' on 'WebSocket'"
+    
+    "Uncaught NetworkError: Failed to execute 'send' on 'RTCDataChannel':
+    Could not send data"
+    
+    Copied from simple-peer:
+    https://github.com/feross/simple-peer/commit/b82356fe4313948fc69b73e8b9c
+    27ba4357eb1c2
+
+commit a55f68968ac98de5eb412e7025b121425703448f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 27 18:06:49 2015 -0700
+
+    build
+
+commit 4131fe2868b33b413cdd3d04cc6f3a5886420c8c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 27 18:05:54 2015 -0700
+
+    2.3.1
+
+commit fc8e9850c8d650cffdf3f8d27c1587aedd2af526
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 27 18:03:46 2015 -0700
+
+    is-typedarray@1
+
+commit d9b2d35c4ac96f05538f93976a167e1d4181341b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 13:34:02 2015 -0700
+
+    build
+
+commit 76135bf2678ba16783e12f77ea26ee04bdfd8fba
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 13:32:00 2015 -0700
+
+    2.3.0
+
+commit 700073a9c37d3334351f49dc1448d5478233ada7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 08:52:45 2015 -0700
+
+    debug
+
+commit d0e2fb3b4e7d711613b52e1cfa127ad171541ef6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 08:50:08 2015 -0700
+
+    use opts.highWaterMark to determine max bufferedAmount
+
+commit 4ea7634ddb9e891c9dd3d133632b47386d1f097f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 08:49:42 2015 -0700
+
+    use 1MB high water mark
+
+commit 3b9421381a80db2c0fa1ad452abe861406b29194
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:46:16 2015 -0700
+
+    build
+
+commit 68ba4f41160c0a6622b2bba960c6645a30a736c2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:45:05 2015 -0700
+
+    2.2.0
+
+commit 864163b18e634a3300a2392598044f7a2ca91daa
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:42:53 2015 -0700
+
+    allow 1MB in memory before backpressure
+    
+    See:
+    https://github.com/feross/simple-peer/commit/7d32c111d4388ede0ad56169ade
+    3bb75a9f68b3f
+
+commit f088c17c6a9e18ccdb02afa7fae4fe5e194060c8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:40:36 2015 -0700
+
+    destroy: set stream state before destroying ws
+
+commit 30a8ecd8522947db2ead2ab0d4916ab8cbd1edcc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 12 19:22:38 2015 -0700
+
+    build
+
+commit bcfa38ae63433f404882fd17bf23978dd9299da8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 12 19:22:16 2015 -0700
+
+    2.1.4
+
+commit add9e1e2f480245b7b80dbed658862fff839bc77
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 12 19:19:15 2015 -0700
+
+    fix regression: socket.send() should stringify objects
+
+commit 0fed3b4b4efb9e9f8281f97dff6f8e8edd798d08
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:29:22 2015 -0700
+
+    build
+
+commit 30101485f600eca37fe51ccbd11d8c4bbc22b1f3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:12:27 2015 -0700
+
+    2.1.3
+
+commit 60a773ab70328db5258ba89e2379ec8378684fde
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:09:47 2015 -0700
+
+    better debug log
+
+commit 7fd47c5d6a38f0b56a4e93be8aecf08489e530dd
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:06:30 2015 -0700
+
+    better debug log
+
+commit 8ea0bd99d02ecfa069685f7739d39f7ccbc34abf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:59:53 2015 -0700
+
+    build
+
+commit e60c689250bfb28250203929d52d950d414826c1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:52:50 2015 -0700
+
+    2.1.2
+
+commit 56907c9e156b26b5d221e66f7c884f0cd1031c80
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:50:03 2015 -0700
+
+    remove console.log
+
+commit 5159324cbec1ecf293ba48c4b62d0026563e3e9c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:44:30 2015 -0700
+
+    build
+
+commit 8cae46040bbf3e971867072bf595fcd4e8610424
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:41:11 2015 -0700
+
+    2.1.1
+
+commit 2783885639292d34aabc52975d7039cf506ad3b0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:37:28 2015 -0700
+
+    browserify@10
+
+commit 24f4b8ca6fad60402e11e4b673558bc2f399f66d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:37:04 2015 -0700
+
+    zuul@3
+
+commit 2b777bb0c6bb3bd78458a439c4f032f3d73f2f2d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:33:21 2015 -0700
+
+    build
+
+commit 553e3fb296d254cb8ac3df12b28ccccdf017f467
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:32:51 2015 -0700
+
+    2.1.0
+
+commit babb392afa238f3bcb0772cf448ddf56af0b405e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:30:51 2015 -0700
+
+    add backpressure support
+    
+    Fixes https://github.com/feross/simple-websocket/issues/4
+    
+    No backpressure in node. The `ws` module has a buggy `bufferedAmount`
+    property.
+    See: https://github.com/websockets/ws/issues/492
+
+commit e04f776830fc21af4004953bd8f4e5c115bca69c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 24 14:55:06 2015 -0700
+
+    build
+
+commit 7cf7bbf2a9a76a00e173f4d84644f78bc576208f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 24 14:54:16 2015 -0700
+
+    2.0.1
+
+commit 9bbbd8e00dde9ab2b335653d5a235e4725327e33
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 24 14:50:01 2015 -0700
+
+    'error' event should emit Error object
+
+commit 269c31ec747e3fb3374a636141fc8cbd5aa0a5e4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:58:28 2015 +1200
+
+    build
+
+commit f98ba81bafd48c8b0b603f70731e177cde4d1c8d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:55:04 2015 +1200
+
+    2.0.0
+
+commit 4b6d5d044910d019d0a72935f8f2d621f7758813
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:50:47 2015 +1200
+
+    BREAKING: Make API like net.Socket
+    
+    The philosophy behind these changes is that a `simple-websocket` object
+    should be as similar to a `net.Socket` as possible so applications can
+    easily swap a WebSocket in for a TCP socket with minimal work.
+    
+    Breaking changes:
+    
+    - Renamed ‘message’ event to ‘data’
+    - Renamed ‘ready’ event to ‘connect’
+    - Renamed `socket.ready` to `socket.connected`
+    
+    New features:
+    - `Socket` instances are now duplex streams that read/write to the
+    websocket server.
+    - `socket.send` or `socket.write` before “connect” event will buffer
+    data
+    - Socket objects now close on “finish” event and are now
+    allowHalfOpen=false
+    
+    Fixes #3.
+
+commit 6f972d7b42a8ae4dded0617bb09801acb7b3477b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:37:19 2015 +1200
+
+    tests to expect net.Socket style api
+
+commit 26fbdfc43e67d321bd87845bae781fb45b93bf0a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 10:55:22 2015 +1200
+
+    add failing stream tests
+    
+    For #4.
+
+commit f02ecd6c2ce66242400affa7af86c01b62c7d2bd
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 10:54:52 2015 +1200
+
+    tape@4
+
+commit e459e15d9a0b4fac2519b5fd4d59747225568418
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Apr 9 00:17:00 2015 +1200
+
+    bundle
+
+commit e341c293fdfe840f04d2a6b0d2c2dce203fb2be0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Apr 9 00:16:45 2015 +1200
+
+    1.3.0
+
+commit 2ef566267cd303fc38f90dfed03568744b36fe16
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Apr 9 00:13:36 2015 +1200
+
+    drop ie10 test
+    
+    IE10 gets the Object implementation of `buffer` because it has buggy
+    typed array support, and we don't support binary websockets in browsers
+    that don't get the typed array implementation
+
+commit 695e85aee0c5888a8c94dd26685f77024cf35cf7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Apr 8 23:48:20 2015 +1200
+
+    tests: add Buffer and ArrayBuffer echo tests
+
+commit d16ce7f1179e8b4e6f50209b85a6b5518e29ebaf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Apr 8 23:46:15 2015 +1200
+
+    support binary data
+    
+    Fixes #1
+
+commit e3772caf404f211bf419e61f363f7f445bf9383b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Apr 8 23:26:52 2015 +1200
+
+    add failing test for binary data
+    
+    For #1.
+
+commit a8938d77d9addfcd09891879eb5e903d836a357c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:58:31 2015 +1200
+
+    bundle
+
+commit aaf9a7ccef33fa0e65c804f8d7f66cb7815de164
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:57:59 2015 +1200
+
+    1.2.0
+
+commit a0790bb1db79202646752f843bd92265b00b2f9a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:55:51 2015 +1200
+
+    test: remove opera 12 test
+
+commit e4d339cb2a9eb91b2d0d5609139e8f70afb42f1a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:55:38 2015 +1200
+
+    test: ie11 is being flaky, so only test ie10
+
+commit bd47140e907c17fd75ea6fef0a71b66f471314ad
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:43:45 2015 +1200
+
+    Add node.js support
+
+commit 410ee9197b5cbfc11b56c310bcba588b3335c68f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:40:34 2015 +1200
+
+    only test latest browsers
+
+commit 925f95cf34015ff9c2b97b369f03dd8d3e8aa870
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:39:26 2015 +1200
+
+    style: ignore simplewebsocket.bundle.js
+
+commit 04798d6bef5c51155888528f4e87d06762868f90
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:33:52 2015 +1200
+
+    JavaScript Standard Style
+    
+    https://npmjs.com/package/standard
+
+commit 3c8be5889dc236f70f084a9f5aa09a43a4bf0d73
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 23:19:29 2015 +1300
+
+    build
+
+commit be5944d16da3489fda427b817b05b29c12d9b865
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 18:20:00 2015 +1300
+
+    1.1.1
+
+commit 864006964b8dd965741ebcdbdc384f7a8fe6573d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 18:12:35 2015 +1300
+
+    browserify@9
+
+commit e99ef5d60a573bb71cc2330b61e2c7922a0af566
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 18:12:29 2015 +1300
+
+    zuul@2
+
+commit f9e22003584beb35abc984bd31f75d7acd384425
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 17:27:17 2015 +1300
+
+    build
+
+commit f2de1a4014006f28168f851f33f5c405021653f7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 17:27:06 2015 +1300
+
+    1.1.0
+
+commit 70cd986c818dceed2ca85f73f9121a419bbeb995
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 17:26:14 2015 +1300
+
+    add `ready` param
+
+commit e6ed58b4ac7ba989c6c0fb963361fc940a3bfbfe
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jan 3 20:08:54 2015 -0800
+
+    test more browsers
+
+commit 992df1100050113c40a0ad0e83068dbb10821138
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jan 3 20:08:48 2015 -0800
+
+    add test-local script
+
+commit d1d13ee6c2ce1479d90f3a565923dba1cbb9cdf0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jan 2 17:26:51 2015 -0800
+
+    remove prepublish script
+
+commit de381dcdbeebe1d304c5c35cee07645a276f2d85
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:43:31 2014 -0800
+
+    1.0.4
+
+commit 040679e866590171ae673b22744f80172f3e1d7d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:31:38 2014 -0800
+
+    build
+
+commit 4a8a8c286e0b653e2d7222e9048f38c3d1f701bc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:30:37 2014 -0800
+
+    tape@3
+
+commit f8bfe0b0b0ba20e38a18443e91dcbac4a3ef1986
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:30:32 2014 -0800
+
+    browserify@7
+
+commit 51d45e1318b48a60175c2c8fa0d125110976d2f2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 21:00:31 2014 -0700
+
+    1.0.3
+
+commit bc4258e5f488dec554d0e5a08012add0e7382fe2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:59:50 2014 -0700
+
+    bundle
+
+commit 250b2171e7ab1aff17822874b59b0e6873b3f517
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:58:27 2014 -0700
+
+    fix error
+
+commit 7fd922b0df39ad9982534cad136331cef2cb97dc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:19:53 2014 -0700
+
+    1.0.2
+
+commit 34a8c31ad3da786cad266c5bc6cb2e892d89ba3b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:04:11 2014 -0700
+
+    bundle
+
+commit a8e9467c5423eef0b079aa047965bd1e5ab80c3a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 19:58:48 2014 -0700
+
+    don't catch errors in 'message' event handler
+
+commit ab4013f42f53d210e134fcc0080269ea727085e4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:40:55 2014 -0700
+
+    readme
+
+commit 5b3e1955c0812a43730604d6eb66dfdfe4cb466b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:31:24 2014 -0700
+
+    1.0.1
+
+commit e1b1413c3965e02789653999868abdaa09ebfbdf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:30:51 2014 -0700
+
+    fix sauce badge
+
+commit acf8089c6219a471baf4cedd252c745ef523993a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:29:48 2014 -0700
+
+    hide uglify warnings
+
+commit f818aad0562056a0e717c4f1b46dd883206f5f02
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:26:27 2014 -0700
+
+    1.0.0
+
+commit 878e69d86b902bde3cb1362d11d91667b9ef720e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:25:49 2014 -0700
+
+    readme
+
+commit 517fc49a452bf188bb0a3ef3e34e0592275fd96b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:22:42 2014 -0700
+
+    remove gittip
+
+commit c6acea7ceec498be02646041288db50644090aa0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:21:42 2014 -0700
+
+    bundle
+
+commit 3bd305e2905f2a7d1bb4eb3e4438d1bd8e0b9dae
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:21:33 2014 -0700
+
+    use correct protocol over https
+
+commit 51ae72237e57c98e06bb0c809746468e213dcec6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:18:44 2014 -0700
+
+    reset version
+
+commit 29e4d225a2ad5309049498bf824660ad5be5fce5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:18:26 2014 -0700
+
+    initial commit
+
+commit 6ac1f20eee6839582049b3ab419ac2a2dcb00be1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:14:40 2014 -0700
+
+    readme
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit f7a15f4e050863a88761b5bfaea2c9739f0f5507
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:17:54 2021 -0800
+
+    build
+
+commit bc874a6c0c96a070fd2d0f6afe1895e4a690e609
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:17:51 2021 -0800
+
+    9.1.0
+
+commit 9b689e6fec92798dd3ff1fff4a1a5551e1d6dd47
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:12:56 2021 -0800
+
+    Revert "use destroy() method inherited from readable-stream"
+    
+    This reverts commit 086275d2d88a91de1674f30e81bc68e40fbc3799.
+
+commit d9a4b1465eda6edc336370b1c6921ec2b6d75355
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:11:34 2021 -0800
+
+    standard
+
+commit e843431b57b870bd8457eaa0728bb1d171b2dfe5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:04:32 2021 -0800
+
+    browserify@17
+
+commit d504ec60a794c8d043aadcf9e80ed79d0a4378f9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:04:16 2021 -0800
+
+    deps
+
+commit 086275d2d88a91de1674f30e81bc68e40fbc3799
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:03:48 2021 -0800
+
+    use destroy() method inherited from readable-stream
+
+commit 45592ac854509e5033d6a3eaa5f2d3ed7f997815
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 5 16:03:26 2021 -0800
+
+    don't log event object
+
+commit 9c31d9dabf56c2bde941d045a093177821b826cd
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Oct 28 18:45:07 2020 -1000
+
+    standard
+
+commit fac351bcc02d5153a7a27fed68883dad4062dd9c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jun 23 12:03:17 2020 -0700
+
+    readme: add virus.cafe
+
+commit a132f44b2565f4437f352a328ece50253a8e0f35
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:39:34 2020 -0700
+
+    package metadata
+
+commit 4c6464750837ba9fbe9e0c05307e0f396a7a552d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:39:34 2020 -0700
+
+    build
+
+commit 83444dc0387da814a3ef06c862afafff4e2f0a1f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:39:31 2020 -0700
+
+    9.0.0
+
+commit ed7153e4311c09929f3ed905c2df8b6a3b497789
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 12:32:39 2020 -0700
+
+    BREAKING: drop old Edge, drop Node 10 (server only), remove upgradeReq support
+    
+    BREAKING: Drop old Edge
+    - Non Chromium versions of Edge are no longer supported
+    
+    BREAKING: Drop Node 10 server support
+    - If you use require('simple-websocket/server') then we require Node 12 minmum for ES class property syntax. If you need earlier Node support, then continue relying on the last major version.
+    
+    BREAKING: Remove upgradeReq support
+    - upgradeReq was removed from ws in an earlier version. See https://github.com/websockets/ws/pull/1099 for how to re-add it back if it's needed
+    
+    Server: Pass options through to SimpleWebSocket constructor
+    - For example, a server can be initialized with server = new Server({ port, encoding: 'utf8' }) to make each connection stream use utf8 encoding
+
+commit 19c0be94cfa7bf2d042d6369e4c85b8ad5a59eb6
+Merge: 7328a41 782f0bb
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 11:24:15 2020 -0700
+
+    Merge pull request #60 from feross/greenkeeper/airtap-3.0.0
+
+commit 7328a415248d681c529b26c83ecffa652e14111d
+Merge: 67eeaaf 2f21e43
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 11:23:47 2020 -0700
+
+    Merge pull request #62 from feross/greenkeeper/tape-5.0.0
+
+commit 67eeaafc3dc4c243da8f63606a6c8167c74e9a5e
+Merge: 3a12e52 5292b1d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun May 17 11:23:07 2020 -0700
+
+    Merge pull request #63 from LinusU/object-shorthand
+
+commit 5292b1d143d04db3c1305fb0e63010ffddca93c2
+Author: Linus Unnebäck <linus@folkdatorn.se>
+Date:   Sun Apr 26 14:59:46 2020 +0100
+
+    Use object shorthand for properties
+
+commit 2f21e436cc544a98ef90f38d507659e0172226b4
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Apr 24 22:08:41 2020 +0000
+
+    chore(package): update tape to version 5.0.0
+
+commit 782f0bbe23f830616206a8fe157053068c237ab4
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Jan 17 10:49:46 2020 +0000
+
+    chore(package): update airtap to version 3.0.0
+
+commit 3a12e52a6acc767c513d51d737fba722fbefe618
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Nov 12 16:11:20 2019 -0800
+
+    build
+
+commit 153d2e591e420150cadd3d9377ce405b2adcbb56
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Nov 12 16:11:16 2019 -0800
+
+    8.1.1
+
+commit d130ed7d115ada8b46239e37909e31a8772df483
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Nov 12 16:03:21 2019 -0800
+
+    fix build
+
+commit f58c3f090e9c91f3b11d7652f35bdf5b7b04d260
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:51:07 2019 -0800
+
+    build
+
+commit fd94c381f89e5904ac5be72ef8aa35235d63acc0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:51:03 2019 -0800
+
+    8.1.0
+
+commit bb1a95971be8afb42bff72a5ebded0b87d6941e7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:47:31 2019 -0800
+
+    use tinyify
+
+commit 688a8ada605df2ea1f08e54f989ce2d2e801cddd
+Merge: f24452d fd693aa
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 6 09:48:27 2019 -0800
+
+    Merge pull request #59 from feross/queue-microtask
+    
+    Use queueMicrotask instead of setTimeout(fn, 0)
+
+commit fd693aa59fde071e8f5da16b5725388f46740418
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Sep 7 14:26:59 2019 -0700
+
+    Use queueMicrotask instead of setTimeout(fn, 0)
+    
+    Modern browsers throttle timers severely, so setTimeout(…, 0) usually takes at least 4ms to run. Furthermore, the throttling gets even worse if the page is backgrounded.
+    
+    queueMicrotask has none of these problems. But it's not available in Node 10 or earlier, and very old browsers. [`queue-microtask`](https://github.com/feross/queue-microtask) provides a no dependency, 6 line fallback for these environments.
+    
+    Eventually, we can remove the package when we don't support Node 10 anymore.
+
+commit f24452d710335832133d3589d555e4240bc5a64a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Aug 18 12:56:12 2019 -0700
+
+    build
+
+commit 1e452276f56d8758854e74d5ccba4c9d5bd2cb4e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Aug 18 12:56:09 2019 -0700
+
+    8.0.1
+
+commit 626b297e80c2a8baad18ec6614cafdedf4649572
+Merge: ed2d9cc 1e4d8d4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Aug 18 12:51:35 2019 -0700
+
+    Merge pull request #56 from guanzo/master
+    
+    Checks if opts.socket is already connected in constructor.
+
+commit 1e4d8d476faa5ed889751bfce41803dfa36b8867
+Merge: a5dd0d7 c7e09d9
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Mon Aug 5 13:44:23 2019 -0700
+
+    Merge upstream
+
+commit a5dd0d7c5a0819141ac2cb541a6fab85ced81d84
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Mon Jul 22 11:52:48 2019 -0700
+
+    Destroy socket in test "check connected on init"
+
+commit a8d2cf5a93252deac0a7ec03a2ddb82746165fda
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Sun Jul 21 16:56:46 2019 -0700
+
+    Checks if opts.socket is already connected in constructor.
+
+commit ed2d9cc02f75c46ae67a8f892c6fada11f94a290
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:38:13 2019 -0700
+
+    build
+
+commit 1dd976797db13eab88931d285b568d5e3b8b2401
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:38:10 2019 -0700
+
+    8.0.0
+
+commit d7dc07767f38382e034942433ec423331745a24c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:33:36 2019 -0700
+
+    babel-minify is a dev dep
+
+commit e344a432f4412276f6cfba8047fb3aeb1f4a0953
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:32:57 2019 -0700
+
+    BREAKING: refactor to use ES class
+    
+    It is now required to use this with the `new` keyword:
+    
+    const socket = new Socket()
+
+commit 1a530e7fa3e1add6ac8cf6f26a1ab0fef3f13e97
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 18:14:33 2019 -0700
+
+    uglify-js -> babel-minify
+
+commit fd7d7a7e581dc17987ef0ed6b44d05edc6fc21b7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 17:51:00 2019 -0700
+
+    7.3.0
+
+commit a8715bf496d0a449ad01d7304f8ad68396653e67
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 1 17:48:17 2019 -0700
+
+    Update .npmignore
+
+commit c7e09d93feb2b7f4377b028cf1ce82b917d2dde6
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Mon Jul 22 11:52:48 2019 -0700
+
+    Destroy socket in test "check connected on init"
+
+commit 5584a1a2587dc8ff1b02ea552cac8d0057102e49
+Author: Eric Guan <guanzo91@gmail.com>
+Date:   Sun Jul 21 16:56:46 2019 -0700
+
+    Checks if opts.socket is already connected in constructor.
+
+commit d7849067149110cdcbec4e9cf913bb4eef6637b0
+Merge: 908290d 2aa1f80
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jul 12 11:39:55 2019 -0700
+
+    Merge pull request #55 from feross/greenkeeper/airtap-2.0.3
+    
+    chore(package): update airtap to version 2.0.3
+
+commit 2aa1f80da1089c7ae42a51b12da9706f48a3f1d2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jul 12 11:24:58 2019 -0700
+
+    Update package.json
+
+commit c7b962fb0ace70a73b7de8a6d4a020c08d26cea7
+Author: greenkeeper[bot] <23040076+greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri Jul 12 10:04:48 2019 +0000
+
+    chore(package): update airtap to version 2.0.3
+    
+    Closes #52
+
+commit 908290dbae89302494a70bf8437d544378581e21
+Merge: 0ff391d 21cb095
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Jun 19 11:52:49 2019 -0500
+
+    Merge pull request #53 from feross/greenkeeper/ws-7.0.0
+    
+    Update ws to the latest version 🚀
+
+commit 21cb095b441a83c5a04111da70d7b34bd37f1423
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Tue Apr 30 16:14:33 2019 +0000
+
+    fix(package): update ws to version 7.0.0
+
+commit 0ff391d6e184a7d2267027c46aac3cee1ede1d3b
+Merge: c07a3e7 6600fe2
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Dec 26 09:38:57 2018 -0500
+
+    Merge pull request #47 from samuelmaddock/metastream
+    
+    Add Metastream to projects list
+
+commit c07a3e758d3d8d5d4060cf757ede5a63968f4d7b
+Merge: 78d96d1 45df608
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Dec 26 09:38:42 2018 -0500
+
+    Merge pull request #51 from feross/greenkeeper/readable-stream-3.1.1
+    
+    Update readable-stream to the latest version 🚀
+
+commit 78d96d1ce896a3e2228d2ea1a9f2930e463ade0d
+Merge: 71eaac5 092109f
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Wed Dec 26 09:38:02 2018 -0500
+
+    Merge pull request #50 from feross/greenkeeper/debug-4.1.1
+    
+    Update debug to the latest version 🚀
+
+commit 45df608dab82a19305a6d42830fc2d6fb43e62d9
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sun Dec 23 14:45:15 2018 +0000
+
+    fix(package): update readable-stream to version 3.1.1
+
+commit 092109f07a2fb7bcac425c35c9efc3f3057ee21d
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sat Dec 22 16:47:02 2018 +0000
+
+    fix(package): update debug to version 4.1.1
+
+commit 6600fe25bbf14903ba32036e87abe420375d3663
+Author: Samuel Maddock <samuel.maddock@gmail.com>
+Date:   Sat Nov 17 23:08:37 2018 -0500
+
+    Add Metastream to projects list
+
+commit 71eaac57585dc3f7da75fbb51f26a72b08b3fb28
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 23:27:17 2018 -0700
+
+    build
+
+commit cae39e905622889e187e3bfdd03c358a312321dc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 23:19:57 2018 -0700
+
+    7.2.0
+
+commit b3fed92a013cbc8119408670893a4c830d05b997
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 23:00:52 2018 -0700
+
+    remove safe-buffer
+
+commit 4807d7d5e5a6b19b087495823fdc9d73efc69b00
+Merge: 8133ac1 0159edc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 22:59:08 2018 -0700
+
+    Merge pull request #43 from feross/greenkeeper/airtap-0.1.0
+    
+    chore(package): update airtap to version 0.1.0
+
+commit 8133ac14aea563f4b3edea443e6387f0089fa3df
+Merge: 615a4e1 f0e5aec
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 26 22:13:54 2018 -0700
+
+    Merge pull request #42 from feross/greenkeeper/ws-6.0.0
+    
+    Update ws to the latest version 🚀
+
+commit f0e5aece20ee2c4342141fa6fd686043d31f8c96
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sat Jul 21 13:49:00 2018 +0000
+
+    fix(package): update ws to version 6.0.0
+
+commit 0159edcddeedb4d02b3667bd8e2ec08b3ebd3a3c
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sat Jul 7 09:32:42 2018 +0000
+
+    chore(package): update airtap to version 0.1.0
+    
+    Closes #41
+
+commit 615a4e13db2f6866ee5cf37f0465c6369d19d290
+Merge: b501942 f2c2f83
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 9 16:17:53 2018 -0700
+
+    Merge pull request #40 from feross/greenkeeper/airtap-0.0.7
+    
+    chore(package): update airtap to version 0.0.7
+
+commit f2c2f83675738a249879e7123745d011488178fa
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Fri May 25 11:34:50 2018 +0000
+
+    chore(package): update airtap to version 0.0.7
+    
+    Closes #39
+
+commit b5019428c0b9478d317aff64c1258e3a52cb2f79
+Merge: b75b3b6 5b1fbad
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 8 20:04:11 2018 -0700
+
+    Merge pull request #38 from feross/greenkeeper/airtap-0.0.5
+    
+    Update airtap to the latest version 🚀
+
+commit 5b1fbadacc78eb595913b75c8703cbb5bb517610
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Sun May 6 11:39:21 2018 +0000
+
+    chore(package): update airtap to version 0.0.5
+
+commit b75b3b62a33008715a9db5bbb4b77dadf6fa24d6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 23 16:15:00 2018 -0700
+
+    Fix tests locally and on airtap
+    
+    Fix https://github.com/feross/simple-websocket/issues/30
+
+commit 2b70a74cf2d54e5c1a8ab2aa86c239c947e93b44
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 8 11:56:59 2018 -0800
+
+    build
+
+commit 18e4f128283f5b303d5daee4bad246a00d04da18
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 8 11:56:40 2018 -0800
+
+    7.1.0
+
+commit e50dd8b256ad13b281303bdfd07eac211b778f81
+Merge: f27854f 52e5875
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 8 11:56:16 2018 -0800
+
+    Merge pull request #32 from feross/greenkeeper/ws-5.0.0
+    
+    Update ws to the latest version 🚀
+
+commit 52e5875b27e840d952f0a613d2c2f440494545cc
+Author: greenkeeper[bot] <greenkeeper[bot]@users.noreply.github.com>
+Date:   Tue Mar 6 14:36:15 2018 +0000
+
+    fix(package): update ws to version 5.0.0
+
+commit f27854fe726b44b92ab3c392a954280bc53c5ad0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 17:19:12 2018 -0800
+
+    add debug logs
+
+commit 955eb954dd6fd520ec553800019c960789f7beef
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 17:19:05 2018 -0800
+
+    add server.address() method
+
+commit b10762636c95a3407c72a86d7589c428f58878c4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 15:41:14 2018 -0800
+
+    fix tests
+
+commit bd2d167be775d8d39a36299fe717c2fb76e3d218
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 15:19:32 2018 -0800
+
+    Fix tests in Node.js
+
+commit 95f6e651201262d9b1c63f3c9282c3b7e1e51a92
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 14:42:29 2018 -0800
+
+    test: remove dependence on echo.websocket.org
+
+commit 36e843231709e49e76af9a4352885469aa7aa090
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:59:53 2018 -0800
+
+    build
+
+commit ad06e95754766db979249d54daa9d7a9f1c69ff5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:59:46 2018 -0800
+
+    7.0.2
+
+commit ba8ae29a2b35a43a52f8c12a2e62a2a2b71a561e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:59:39 2018 -0800
+
+    fix incorrect destroy call
+
+commit 86b90a9e09ceaaa5feb58ae1f546c57687bdd466
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:25:30 2018 -0800
+
+    airtap: add microsoftedge
+
+commit da9bb1228365cb8147e984fbdbfa6357258c3de0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Mar 3 13:25:26 2018 -0800
+
+    zuul -> airtap
+
+commit f9635c022d63227b9e8ec9d314521e14bdc5b709
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 19 15:06:09 2018 -0800
+
+    readme typo
+
+commit 55dd16b741b2f6247164079618557106793779e3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:42:44 2018 -0800
+
+    build
+
+commit 72aa83a8c6da657c38488ca60d0d21b62e52c4f3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:42:35 2018 -0800
+
+    7.0.1
+
+commit 934bfcd54c7742c223aba72c4be90aadabfe9ff1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:34:40 2018 -0800
+
+    typo
+
+commit 7d6860e59fb2c2ba21e190dfdfd0deab66ad9c46
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:29:32 2018 -0800
+
+    Revert "Remove unnecessary nextTick in constructor"
+    
+    This reverts commit 1c6056812fce1535d98f7ceae27b43a3dae5cf23.
+
+commit af07f884e7e9ed02c6754288ab0b2c1067b71ac4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 22:29:24 2018 -0800
+
+    Emit 'error' synchronously
+    
+    Emitting the error asyncronously makes it impossible for users to handle 'close' and 'error' together easily.
+    
+    If I want to know about 'close', plus whether there's an error, then it's good that 'error' fires first.
+    
+    Basically, I know that if I get an 'error' event, the socket is closed and there was an error.
+    
+    If I get a 'close' event (and haven't got an 'error' yet), then I know the socket is closed and there was not an error.
+    
+    But what am I supposed to do if 'error' is emitted on the next tick?
+    
+    Then when I get a 'close' event, I don't know if there's been an error or not. And I can't do any cleanup or respond to the 'close' yet since there could be an 'error' coming on the next tick.
+    
+    Am I missing something here?
+
+commit b7e020683d958deb363dbf065f0d62af6805f345
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:43:55 2018 -0800
+
+    build
+
+commit f4780025d270fb42ba7a5ac70b3371bd1daac347
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:43:24 2018 -0800
+
+    7.0.0
+
+commit 24efee5ffaba819ee4f6f1831192a77d88b60a2a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:25:02 2018 -0800
+
+    Convert Edge DOMException object to Error object
+
+commit 1c6056812fce1535d98f7ceae27b43a3dae5cf23
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:02:17 2018 -0800
+
+    Remove unnecessary nextTick in constructor
+    
+    This was added so that 'error' would be emitted on the next tick, but now the destroy() implementation ensures that, so no need to nextTick in the constructor.
+
+commit 98371f1b2cd3ac1066ca8cdd92b1e82fa8dd616c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:01:35 2018 -0800
+
+    Sauce Labs: test iOS
+
+commit 8522c0afa487c4b5f5f849b21d0c1f305e3e5e13
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 21:01:24 2018 -0800
+
+    BREAKING: Change .destroy(onclose) to .destroy(err)
+    
+    Node.js 8 standardized the destroy() stream interface, so let's use that interface.
+    
+    To update your code, change this:
+    
+    socket.destroy(callback)
+    
+    To this instead:
+    
+    socket.on('close', callback)
+    socket.destroy()
+
+commit 7f15d3b39c558d8b4a97459eedbcde07af50c05e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 20:10:41 2018 -0800
+
+    readme
+
+commit 54f1437fa307b67d51f8f63503c5943b088cc57b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Feb 16 20:10:34 2018 -0800
+
+    browserify@16
+
+commit ebfa27bd7dfc3f82d013ee7adfc30d9fdade5005
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Jan 29 09:50:21 2018 +0800
+
+    build
+
+commit cc663d7b21dd0861167a3863188869af80c55f69
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:53:17 2018 +0800
+
+    6.0.0
+
+commit e20395b04a407f1bbedafb7c18aebd5d23ae7e3b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:49:32 2018 +0800
+
+    BREAKING: ws@4
+    
+    See changelog here: https://github.com/websockets/ws/releases/tag/4.0.0
+
+commit cfe6ba2206943e862b10bc0ec49bdfb910042250
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:41:05 2018 +0800
+
+    browserify 15
+
+commit 1005038bc48aee0c01a1cfe33f7bf05ce65db142
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 28 21:40:59 2018 +0800
+
+    travis lts
+
+commit 3f1ddfa52a17c7cfa349245cd06ca4fe701c4c49
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 23 18:46:49 2018 +0800
+
+    build
+
+commit f5bdead9245840128647c671115551179f2cabdf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 23 18:46:06 2018 +0800
+
+    5.1.1
+
+commit cd1ae8464aee075dc7e3257dfddacce01577051b
+Merge: 5228449 2d02514
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 23 05:29:07 2018 -0500
+
+    Merge pull request #26 from jhiesey/master
+    
+    Swallow errors after _destroy() instead of letting them crash the process
+
+commit 2d02514a4b7695b6d301f0d43c2f6577a10cd6de
+Author: John Hiesey <jhiesey@cs.stanford.edu>
+Date:   Tue Jan 23 01:54:04 2018 -0800
+
+    Swallow errors after _destroy() instead of letting them crash the process
+
+commit 5228449eb8ae3d3f737a2c7e97a6d763d72b2f3d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:20:27 2017 -0800
+
+    build
+
+commit ac11ba7fe81d985b580801eed2c77e3b245823ae
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:20:16 2017 -0800
+
+    5.1.0
+
+commit bbf9e1f7ddb73d654f3b4cb3e85bd108d88879ba
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:18:20 2017 -0800
+
+    uglify-js@3
+
+commit 0278c5fa2f9fd949a99c1279be381d1e7c247d14
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:17:57 2017 -0800
+
+    debug@3
+
+commit f07727677f93ad94a1cf51a45e655b6b775bfcbb
+Merge: 8f1cf61 e4d67e0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Nov 8 23:14:56 2017 -0800
+
+    Merge pull request #25 from bsclifton/master
+    
+    Update ws dependency >= 3.3.1 per https://nodesecurity.io/advisories/550
+
+commit e4d67e07bf56766e26ddc63da01890eb839034d1
+Author: Brian Clifton <brian@clifton.me>
+Date:   Wed Nov 8 21:30:23 2017 -0700
+
+    Update ws dependency >= 3.3.1 per https://nodesecurity.io/advisories/550
+
+commit 8f1cf612c055d41e5616281d206671bd6d37cb6f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:58:52 2017 -0700
+
+    build
+
+commit 5810fa699e7c03faab7cf706e6290012eed6c008
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:45:27 2017 -0700
+
+    5.0.2
+
+commit bb636ba3dd75f12abfc238b9a489e678a0b5d03a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:43:16 2017 -0700
+
+    Replace _onError with _destroy
+
+commit 118ce7cae6b0e25e4f0e4de025a0e0ae9eead02c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 7 16:43:03 2017 -0700
+
+    Fix potential stall
+    
+    Keeping it parallel with
+    https://github.com/feross/simple-peer/commit/5219786ed545855838421b792b6
+    125743c64e719
+
+commit 114495b62196c37933230363bc2f2f130a0f35d4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 30 13:48:01 2017 -0700
+
+    build
+
+commit a7bfc4f3150286a7aca4b9a5f10605809d0142bc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 30 13:47:51 2017 -0700
+
+    5.0.1
+
+commit 48758233a602ebc5f4861a080afe6eb79683ae8d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 30 13:47:01 2017 -0700
+
+    use safe-buffer
+
+commit 13de78de846c32ddb562d5bb6a83f0cb08b8697c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 21 16:08:26 2017 -0700
+
+    standard
+
+commit 7a482600fdbab6c867fa22e61875ad325aeb0c56
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 9 09:18:02 2017 -0800
+
+    zuul: disable failing microsoft edge test
+    
+    Tests actually pass in Edge (verified locally) but they stall on Sauce
+    Labs. Disabling.
+
+commit ff28b3207abe8321830bd19f693a97f53ea8081a
+Merge: 14cc04b e7b481e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 2 00:22:22 2017 -0800
+
+    Merge pull request #20 from feross/standard
+    
+    standard
+
+commit e7b481e742c23e70dbf428c21f336a8fd3673183
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Mar 2 00:09:21 2017 -0800
+
+    standard
+
+commit 14cc04b86802b1bd44ecb3700df315e29ef1433d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Feb 16 00:36:28 2017 -0800
+
+    build
+
+commit 0edf1cceba91a5d0340b03cde49b02441f4cb683
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Feb 16 00:36:19 2017 -0800
+
+    5.0.0
+
+commit 23d4487244af069abce9a85b0e6ae4f9662796a2
+Merge: b9c19d7 53d1569
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Feb 16 00:00:48 2017 -0800
+
+    Merge pull request #18 from feross/f/server
+    
+    Add server implementation
+
+commit 53d15696a0b9bcf9423af980f90960a1061e9c63
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:57:39 2017 -0800
+
+    Add server implementation!
+
+commit cb529748a04dd6cef542635a5bd420db3ad63066
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:57:28 2017 -0800
+
+    add failing server test
+
+commit 424c7aca0fe55bad34f671ba83111102f5dd731b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:56:34 2017 -0800
+
+    zuul: replace ie with edge
+
+commit 24a70f14b445f974881c84139f08f41c7c9de89e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 22:12:34 2017 -0800
+
+    BREAKING: accept a single argument, opts
+    
+    `opts` can be a string url, as a shorthand.
+    
+    or `opts` can be be an options object with a `url` or `socket` property.
+    
+    This is breaking. Code that used to be:
+    
+    socket = new Socket(url, { objectMode: true })
+    
+    Must be changed to:
+    
+    socket = new Socket({ url: url, objectMode: true })
+
+commit b9c50163c607c110ce129b62a20f7974f29a5335
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 17:13:01 2017 -0800
+
+    add _onFinish method; self -> this where possible
+
+commit 28f36b628f192beb514f8073994cd2d54cb5f88e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 15 16:25:03 2017 -0800
+
+    Drop IE11 support
+
+commit b9c19d768a8e8078533a07c3bcbcacab995f8a43
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 13 11:47:26 2017 -0800
+
+    4.3.1
+
+commit f12df24bc0e73699f42c652383da4668ca844b18
+Merge: 6d9fd9f bfcf335
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 13 20:45:25 2017 +0100
+
+    Merge pull request #17 from DiegoRBaquero/patch-1
+    
+    Add randombytes dependency
+
+commit bfcf3358cc4362d2a1596455923170f8e395cc5b
+Author: Diego Rodríguez Baquero <diegorbaquero@gmail.com>
+Date:   Mon Feb 13 04:29:14 2017 -0500
+
+    Add randombytes dep
+    
+    Was missing. Fixes #16.
+
+commit 6d9fd9fb416da63fe82d577bb3fcfe170e4ed3a4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:32:55 2017 -0800
+
+    build
+
+commit 54d128eb0e88ff41b65ac05c63eb192aefef312a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:24:58 2017 -0800
+
+    4.3.0
+
+commit ae9b9421ce3705579f6a3db8566a75a357cb324d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:21:58 2017 -0800
+
+    add perf tests
+
+commit a03234b039eddeb54c1f4321086760b8d2b60684
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 8 00:21:19 2017 -0800
+
+    ws@2
+
+commit c3685dd380056ada90ea7fac9499780f5af7a145
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Feb 7 23:00:56 2017 -0800
+
+    add lots more tests
+    
+    copied from simple-peer
+
+commit 880cdefad3375b08408321f712b937fc19cf9ff6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Feb 7 21:52:18 2017 -0800
+
+    include id with debug logs, remove send/onmessage logs
+
+commit a5c909a5e4ee51aa2c5d55983aa87b917949246c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Jan 24 21:01:13 2017 -0800
+
+    browserify@14
+
+commit 9a37c07d7d5dd379a2a7d2f45494b001350b9ccb
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 03:30:55 2017 -0800
+
+    build
+
+commit 7bd625a6417ae99df0fe6be469eeb5eef9b87f97
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 02:19:48 2017 -0800
+
+    4.2.0
+
+commit 5eb92c04c39d71dfacb8cb98519ce78251469512
+Merge: 6c361b7 56f7ad8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 02:18:02 2017 -0800
+
+    Merge pull request #14 from feross/event-order
+    
+    Emit 'error' before 'close'
+
+commit 56f7ad8afdab3b00139159c9d112d8b00770d81c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jan 19 01:59:56 2017 -0800
+
+    Emit 'error' before 'close'
+    
+    The industry streams leader, @mafintosh, says this is the way to do it.
+
+commit 6c361b7186d608285f4f4cb7885e138f9ef88989
+Merge: 140b111 23df857
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Sep 4 21:26:04 2016 +0800
+
+    Merge pull request #13 from yciabaud/electron-ws
+    
+    Use ws module when available to benefit from options in electron
+
+commit 23df857f2af1080e907a1dba83d40202f06c8ed0
+Author: Yoann Ciabaud <yoann@sonora.io>
+Date:   Sat Aug 27 09:04:16 2016 +0200
+
+    Use ws module when available to benefit from options in electron
+
+commit 140b111be37c0933c0863a5af560bb4d2e5b8ffe
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Aug 25 18:12:45 2016 -0700
+
+    standard
+
+commit ee68e51ce800e7610cc1ca4060fbac603cc72a56
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jun 5 00:16:41 2016 -0700
+
+    build
+
+commit df7cfa5b950f4e17f5de89da92ceb729c8c4e9b8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jun 5 00:16:29 2016 -0700
+
+    4.1.0
+
+commit 010ec110d8bba4604680c51ce741ba9a1bd2c9c2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jun 5 00:14:55 2016 -0700
+
+    Fix Chrome 51 WebSocket error
+    
+    Chrome doesn't like the extra null argument and fails with the error:
+    
+    Sent non-empty 'Sec-WebSocket-Protocol' header but no response was
+    received
+
+commit eb10b3eaeab54a6c67b488ad087f636cc1dc0bee
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 4 23:22:01 2016 -0700
+
+    Support WebSocket in Workers
+
+commit 951db07faa3967a8db6b60bd871bacaf6ce05133
+Merge: 2dbf0ab fcabf15
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jun 4 23:16:57 2016 -0700
+
+    Merge pull request #11 from yciabaud/ws-opts
+    
+    Pass opts to ws constructor to allow customization
+
+commit fcabf152358147000f98eaea5b0dfc74103a3382
+Author: Yoann Ciabaud <yoann@sonora.io>
+Date:   Sat Jun 4 15:30:15 2016 +0200
+
+    Pass opts to ws constructor to allow customization
+
+commit 2dbf0ab806088ec2f6e736bea1132380167b745f
+Merge: c6c6d54 8d7f128
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon May 2 17:13:15 2016 +0200
+
+    Merge pull request #9 from feross/greenkeeper-standard-7.0.0
+    
+    Update standard to version 7.0.0 🚀
+
+commit 8d7f12813418d7a471120f0702e8018cad7ccd83
+Author: greenkeeperio-bot <support@greenkeeper.io>
+Date:   Mon May 2 16:21:25 2016 +0200
+
+    chore(package): update standard to version 7.0.0
+    
+    https://greenkeeper.io/
+
+commit c6c6d542143500130d99baa9410dff8731af9f65
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Mar 28 23:51:52 2016 -0700
+
+    build
+
+commit cbc5dda6b0b089e2d0b0ca4c61e8f616ca87eee1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Mar 28 23:42:38 2016 -0700
+
+    4.0.3
+
+commit 1ae74b6ab1891be85ce45993e87ebf97e8f0a157
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Mar 28 23:40:53 2016 -0700
+
+    Perf: Remove all Function.bind
+    
+    For https://github.com/feross/webtorrent-desktop/issues/256
+
+commit fd49cb7becf597e36e4085e2e4bd3fdbee37cf02
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 15 20:50:04 2016 -0700
+
+    build
+
+commit e9f5786d6200a4627e6959a1f2adcf148c8810a8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 15 20:49:14 2016 -0700
+
+    4.0.2
+
+commit da95c06a59f401c7ac5fa54b7e278ce69ac32978
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Mar 15 20:46:23 2016 -0700
+
+    try-catch websocket security errors
+    
+    When opening a ws:// websocket on a https:// site, a SecurityError is
+    thrown. Catch this.
+
+commit 63447259e307400609b72df4316fb99c1326e3be
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:56:29 2016 -0800
+
+    build
+
+commit f47111663885ea2f78cdf6b7a8f8b79aa2de85df
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:55:33 2016 -0800
+
+    4.0.1
+
+commit 9133554a378fc3734b6c95325e719b0fe529fdd6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:51:43 2016 -0800
+
+    use readable-stream
+
+commit 893572fc54237590e822524feafebc5c6bf1770f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Feb 27 22:51:22 2016 -0800
+
+    zuul: remove flaky ios tests
+
+commit f660a7b76f2687aa47e8d7b940b20049e36ce05e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 16:06:43 2016 -0800
+
+    build
+
+commit b21c30b6e9b1b134c24c6795e0c9063ddab90ad6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 16:06:37 2016 -0800
+
+    4.0.0
+
+commit eb171d65774ff7be965119427fc9215b174690af
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 16:04:08 2016 -0800
+
+    sauce labs bug: Microsoft Edge can't do websockets
+
+commit fbb6449d4999b5f83b15b6b69ad668427b114e8f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:24:28 2016 -0800
+
+    readme
+
+commit 0527d9a0c0288bd4b4afb3d17c0d37c225bfd2a4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:23:13 2016 -0800
+
+    remove unused is-typedarray dep
+
+commit 556f92f9b534ccb8460c0d752b933b6d348ad51f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:21:36 2016 -0800
+
+    sauce labs: test ie and edge browsers
+
+commit 5d4538f75f1c0249784b0b50b1c39cc04768ab4a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:21:27 2016 -0800
+
+    travis: just use one node version
+
+commit 803716d3b2499d45f6144709a5e5527ea13a7b64
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:20:18 2016 -0800
+
+    BREAKING: remove automatic JSON handling
+    
+    Users must now call JSON.stringify() before sending, and call
+    JSON.parse() on the receiving side.
+
+commit 6b53f21fbcf363d399eb5afa0b2671739af0c6f8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Feb 15 15:18:57 2016 -0800
+
+    travis: test supported node versions
+
+commit 66946b4490bb0538c608c7b3cd0a772132aed30a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Feb 10 19:33:52 2016 -0800
+
+    README: add note about JSON strings (fix #6)
+
+commit eb677d10df6618c9a09807654464cb0027639f72
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:56:32 2016 -0800
+
+    build
+
+commit df8cf887e948b6c0b34c243da048e926c5c2573f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:56:30 2016 -0800
+
+    fixpack
+
+commit 896359ab19a0bae2156a4e822063beb79ddbea7a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:56:24 2016 -0800
+
+    package.json
+
+commit e5e378e8e3dbece57a810568159c66e7d2d53a68
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:40:17 2016 -0800
+
+    3.0.0
+
+commit 0c55fded1913b59a69fa9e9a46c9dde8ecc1c1cc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:35:48 2016 -0800
+
+    browserify@13
+
+commit fa4341cf5bf815d05df81e267bbd5eca28097e14
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:35:17 2016 -0800
+
+    standard@6
+
+commit b2bd85d443ed0d3bc918f5db99240af4e468def2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Feb 7 16:34:37 2016 -0800
+
+    BREAKING: simplewebsocket.min.js is new bundle name
+
+commit a1c8e9efcbdbfbaec4aaa962386d23bd8f39f756
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:35:26 2016 +0100
+
+    build
+
+commit f8804c9de1ecdc32a5c7c3975a3d51670b9e4bc9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:35:19 2016 +0100
+
+    2.5.3
+
+commit 7b0241499178a96c2544e31045648635bb9f27f6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:34:53 2016 +0100
+
+    remove typedarray-to-buffer
+    
+    not necessary anymore, now that buffer constructor takes arraybuffers
+
+commit 3f266c309e717d2cffdea8047c4c1e4938169cb1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 22:04:15 2016 +0100
+
+    build
+
+commit f662b87e597c5d31f721ecab49432f870a3decc5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:47:09 2016 +0100
+
+    2.5.2
+
+commit e0519cf48f591a028be24ed2eeab3a0e3a161140
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:44:27 2016 +0100
+
+    ws@1
+
+commit 39007715df08c77d9652ebfdde7da936570f0e5b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:35:38 2016 +0100
+
+    browserify@12
+
+commit 25954f83b6d2001fbb37a4d33f667491957c85d1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sun Jan 3 21:32:40 2016 +0100
+
+    badges
+
+commit dacdee3cac1a4c3df03db1d8f0917422c381157c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 6 23:01:48 2015 -0700
+
+    2.5.1
+
+commit 0b81c0553b4b502a07f5d754d73b8063f0dd31ab
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue Oct 6 22:58:58 2015 -0700
+
+    update docs
+
+commit 278f6f1bffaada4d4efa56a236a7cde52a8b1724
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 30 20:25:52 2015 -0700
+
+    build
+
+commit 43ce83b3064832de31c0cc6fca91cd12009b7914
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 30 20:25:36 2015 -0700
+
+    2.5.0
+
+commit ff2e13adc2d5ed3c8ff9b23c61ec55994cd25db2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 30 20:22:35 2015 -0700
+
+    Add `Socket.WEBSOCKET_SUPPORT`
+
+commit 616894a1b0961b0d54d04adf46ae1a770923353a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:18:22 2015 -0700
+
+    build
+
+commit 205ed7fdef76b83d73cc730e7251452241d756c6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:18:12 2015 -0700
+
+    2.4.0
+
+commit 8d751d566691e3f96026762b443c51dfe0eaf3aa
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:09:11 2015 -0700
+
+    browserify@11
+
+commit d58c9dad9bde0f58f2847516b2de62aa91da038b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:04:35 2015 -0700
+
+    ws@0.8 - and make it optional (for browser usage)
+
+commit 8abbefc863695ef076af934a7b2ee5ecbad45834
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Sep 16 00:03:29 2015 -0700
+
+    standard@5
+
+commit 2f05f74447deee9efb82c1d6500fe22f3fbe0d52
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 18:23:17 2015 -0700
+
+    readme
+
+commit 9b440b3f020ed69cae3d63d3fa74e0962526ac1b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 18:20:04 2015 -0700
+
+    readme
+
+commit 8455ab8cb78fb8ad02abe2ec49d5d43fade1d082
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 03:56:29 2015 -0700
+
+    build
+
+commit b238cfdaed5e9365b4276e8e9239c0a30fb4edf1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 03:54:50 2015 -0700
+
+    2.3.4
+
+commit 3ff3010b8743844d5279daf954c5663b515ed323
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 29 03:52:53 2015 -0700
+
+    emit 'close' event correctly
+    
+    we were not emitting 'close' when the underlying WebSocket's 'close'
+    event fired
+
+commit 3f049c6df74871fbf81539761cd3793eaeb165e9
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 16 18:44:59 2015 -0700
+
+    build
+
+commit f2a932a6748437d5575b23165ee460a3618fc953
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 16 18:39:40 2015 -0700
+
+    2.3.3
+
+commit c0d2a7e8b36d63c4c265d91e7152d900006582b2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Jul 16 18:37:23 2015 -0700
+
+    only emit 'close' after socket is actually closed
+
+commit 3297b2a07d4c5a182be7bbb3728c029b4998203f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 16:35:06 2015 -0700
+
+    build
+
+commit b8621aabd56241d080516c42e40528463a9d893f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 15:56:28 2015 -0700
+
+    2.3.2
+
+commit b928150c487434c9cb6b668ffce1f28c7692d26d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 15:52:51 2015 -0700
+
+    standard@4
+
+commit b853acb2cc408b56b3efc669560edb2e82f6b281
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Jul 1 15:52:44 2015 -0700
+
+    Prevent "Uncaught NetworkError: Failed to execute 'send' on 'WebSocket'"
+    
+    "Uncaught NetworkError: Failed to execute 'send' on 'RTCDataChannel':
+    Could not send data"
+    
+    Copied from simple-peer:
+    https://github.com/feross/simple-peer/commit/b82356fe4313948fc69b73e8b9c
+    27ba4357eb1c2
+
+commit a55f68968ac98de5eb412e7025b121425703448f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 27 18:06:49 2015 -0700
+
+    build
+
+commit 4131fe2868b33b413cdd3d04cc6f3a5886420c8c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 27 18:05:54 2015 -0700
+
+    2.3.1
+
+commit fc8e9850c8d650cffdf3f8d27c1587aedd2af526
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 27 18:03:46 2015 -0700
+
+    is-typedarray@1
+
+commit d9b2d35c4ac96f05538f93976a167e1d4181341b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 13:34:02 2015 -0700
+
+    build
+
+commit 76135bf2678ba16783e12f77ea26ee04bdfd8fba
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 13:32:00 2015 -0700
+
+    2.3.0
+
+commit 700073a9c37d3334351f49dc1448d5478233ada7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 08:52:45 2015 -0700
+
+    debug
+
+commit d0e2fb3b4e7d711613b52e1cfa127ad171541ef6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 08:50:08 2015 -0700
+
+    use opts.highWaterMark to determine max bufferedAmount
+
+commit 4ea7634ddb9e891c9dd3d133632b47386d1f097f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed May 20 08:49:42 2015 -0700
+
+    use 1MB high water mark
+
+commit 3b9421381a80db2c0fa1ad452abe861406b29194
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:46:16 2015 -0700
+
+    build
+
+commit 68ba4f41160c0a6622b2bba960c6645a30a736c2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:45:05 2015 -0700
+
+    2.2.0
+
+commit 864163b18e634a3300a2392598044f7a2ca91daa
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:42:53 2015 -0700
+
+    allow 1MB in memory before backpressure
+    
+    See:
+    https://github.com/feross/simple-peer/commit/7d32c111d4388ede0ad56169ade
+    3bb75a9f68b3f
+
+commit f088c17c6a9e18ccdb02afa7fae4fe5e194060c8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 19 04:40:36 2015 -0700
+
+    destroy: set stream state before destroying ws
+
+commit 30a8ecd8522947db2ead2ab0d4916ab8cbd1edcc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 12 19:22:38 2015 -0700
+
+    build
+
+commit bcfa38ae63433f404882fd17bf23978dd9299da8
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 12 19:22:16 2015 -0700
+
+    2.1.4
+
+commit add9e1e2f480245b7b80dbed658862fff839bc77
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 12 19:19:15 2015 -0700
+
+    fix regression: socket.send() should stringify objects
+
+commit 0fed3b4b4efb9e9f8281f97dff6f8e8edd798d08
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:29:22 2015 -0700
+
+    build
+
+commit 30101485f600eca37fe51ccbd11d8c4bbc22b1f3
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:12:27 2015 -0700
+
+    2.1.3
+
+commit 60a773ab70328db5258ba89e2379ec8378684fde
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:09:47 2015 -0700
+
+    better debug log
+
+commit 7fd47c5d6a38f0b56a4e93be8aecf08489e530dd
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 23:06:30 2015 -0700
+
+    better debug log
+
+commit 8ea0bd99d02ecfa069685f7739d39f7ccbc34abf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:59:53 2015 -0700
+
+    build
+
+commit e60c689250bfb28250203929d52d950d414826c1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:52:50 2015 -0700
+
+    2.1.2
+
+commit 56907c9e156b26b5d221e66f7c884f0cd1031c80
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:50:03 2015 -0700
+
+    remove console.log
+
+commit 5159324cbec1ecf293ba48c4b62d0026563e3e9c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:44:30 2015 -0700
+
+    build
+
+commit 8cae46040bbf3e971867072bf595fcd4e8610424
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:41:11 2015 -0700
+
+    2.1.1
+
+commit 2783885639292d34aabc52975d7039cf506ad3b0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:37:28 2015 -0700
+
+    browserify@10
+
+commit 24f4b8ca6fad60402e11e4b673558bc2f399f66d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:37:04 2015 -0700
+
+    zuul@3
+
+commit 2b777bb0c6bb3bd78458a439c4f032f3d73f2f2d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:33:21 2015 -0700
+
+    build
+
+commit 553e3fb296d254cb8ac3df12b28ccccdf017f467
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:32:51 2015 -0700
+
+    2.1.0
+
+commit babb392afa238f3bcb0772cf448ddf56af0b405e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Tue May 5 22:30:51 2015 -0700
+
+    add backpressure support
+    
+    Fixes https://github.com/feross/simple-websocket/issues/4
+    
+    No backpressure in node. The `ws` module has a buggy `bufferedAmount`
+    property.
+    See: https://github.com/websockets/ws/issues/492
+
+commit e04f776830fc21af4004953bd8f4e5c115bca69c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 24 14:55:06 2015 -0700
+
+    build
+
+commit 7cf7bbf2a9a76a00e173f4d84644f78bc576208f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 24 14:54:16 2015 -0700
+
+    2.0.1
+
+commit 9bbbd8e00dde9ab2b335653d5a235e4725327e33
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Apr 24 14:50:01 2015 -0700
+
+    'error' event should emit Error object
+
+commit 269c31ec747e3fb3374a636141fc8cbd5aa0a5e4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:58:28 2015 +1200
+
+    build
+
+commit f98ba81bafd48c8b0b603f70731e177cde4d1c8d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:55:04 2015 +1200
+
+    2.0.0
+
+commit 4b6d5d044910d019d0a72935f8f2d621f7758813
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:50:47 2015 +1200
+
+    BREAKING: Make API like net.Socket
+    
+    The philosophy behind these changes is that a `simple-websocket` object
+    should be as similar to a `net.Socket` as possible so applications can
+    easily swap a WebSocket in for a TCP socket with minimal work.
+    
+    Breaking changes:
+    
+    - Renamed ‘message’ event to ‘data’
+    - Renamed ‘ready’ event to ‘connect’
+    - Renamed `socket.ready` to `socket.connected`
+    
+    New features:
+    - `Socket` instances are now duplex streams that read/write to the
+    websocket server.
+    - `socket.send` or `socket.write` before “connect” event will buffer
+    data
+    - Socket objects now close on “finish” event and are now
+    allowHalfOpen=false
+    
+    Fixes #3.
+
+commit 6f972d7b42a8ae4dded0617bb09801acb7b3477b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 11:37:19 2015 +1200
+
+    tests to expect net.Socket style api
+
+commit 26fbdfc43e67d321bd87845bae781fb45b93bf0a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 10:55:22 2015 +1200
+
+    add failing stream tests
+    
+    For #4.
+
+commit f02ecd6c2ce66242400affa7af86c01b62c7d2bd
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Apr 11 10:54:52 2015 +1200
+
+    tape@4
+
+commit e459e15d9a0b4fac2519b5fd4d59747225568418
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Apr 9 00:17:00 2015 +1200
+
+    bundle
+
+commit e341c293fdfe840f04d2a6b0d2c2dce203fb2be0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Apr 9 00:16:45 2015 +1200
+
+    1.3.0
+
+commit 2ef566267cd303fc38f90dfed03568744b36fe16
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Thu Apr 9 00:13:36 2015 +1200
+
+    drop ie10 test
+    
+    IE10 gets the Object implementation of `buffer` because it has buggy
+    typed array support, and we don't support binary websockets in browsers
+    that don't get the typed array implementation
+
+commit 695e85aee0c5888a8c94dd26685f77024cf35cf7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Apr 8 23:48:20 2015 +1200
+
+    tests: add Buffer and ArrayBuffer echo tests
+
+commit d16ce7f1179e8b4e6f50209b85a6b5518e29ebaf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Apr 8 23:46:15 2015 +1200
+
+    support binary data
+    
+    Fixes #1
+
+commit e3772caf404f211bf419e61f363f7f445bf9383b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Wed Apr 8 23:26:52 2015 +1200
+
+    add failing test for binary data
+    
+    For #1.
+
+commit a8938d77d9addfcd09891879eb5e903d836a357c
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:58:31 2015 +1200
+
+    bundle
+
+commit aaf9a7ccef33fa0e65c804f8d7f66cb7815de164
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:57:59 2015 +1200
+
+    1.2.0
+
+commit a0790bb1db79202646752f843bd92265b00b2f9a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:55:51 2015 +1200
+
+    test: remove opera 12 test
+
+commit e4d339cb2a9eb91b2d0d5609139e8f70afb42f1a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:55:38 2015 +1200
+
+    test: ie11 is being flaky, so only test ie10
+
+commit bd47140e907c17fd75ea6fef0a71b66f471314ad
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:43:45 2015 +1200
+
+    Add node.js support
+
+commit 410ee9197b5cbfc11b56c310bcba588b3335c68f
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:40:34 2015 +1200
+
+    only test latest browsers
+
+commit 925f95cf34015ff9c2b97b369f03dd8d3e8aa870
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:39:26 2015 +1200
+
+    style: ignore simplewebsocket.bundle.js
+
+commit 04798d6bef5c51155888528f4e87d06762868f90
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Apr 6 12:33:52 2015 +1200
+
+    JavaScript Standard Style
+    
+    https://npmjs.com/package/standard
+
+commit 3c8be5889dc236f70f084a9f5aa09a43a4bf0d73
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 23:19:29 2015 +1300
+
+    build
+
+commit be5944d16da3489fda427b817b05b29c12d9b865
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 18:20:00 2015 +1300
+
+    1.1.1
+
+commit 864006964b8dd965741ebcdbdc384f7a8fe6573d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 18:12:35 2015 +1300
+
+    browserify@9
+
+commit e99ef5d60a573bb71cc2330b61e2c7922a0af566
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 18:12:29 2015 +1300
+
+    zuul@2
+
+commit f9e22003584beb35abc984bd31f75d7acd384425
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 17:27:17 2015 +1300
+
+    build
+
+commit f2de1a4014006f28168f851f33f5c405021653f7
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 17:27:06 2015 +1300
+
+    1.1.0
+
+commit 70cd986c818dceed2ca85f73f9121a419bbeb995
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Mar 27 17:26:14 2015 +1300
+
+    add `ready` param
+
+commit e6ed58b4ac7ba989c6c0fb963361fc940a3bfbfe
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jan 3 20:08:54 2015 -0800
+
+    test more browsers
+
+commit 992df1100050113c40a0ad0e83068dbb10821138
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Jan 3 20:08:48 2015 -0800
+
+    add test-local script
+
+commit d1d13ee6c2ce1479d90f3a565923dba1cbb9cdf0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Fri Jan 2 17:26:51 2015 -0800
+
+    remove prepublish script
+
+commit de381dcdbeebe1d304c5c35cee07645a276f2d85
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:43:31 2014 -0800
+
+    1.0.4
+
+commit 040679e866590171ae673b22744f80172f3e1d7d
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:31:38 2014 -0800
+
+    build
+
+commit 4a8a8c286e0b653e2d7222e9048f38c3d1f701bc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:30:37 2014 -0800
+
+    tape@3
+
+commit f8bfe0b0b0ba20e38a18443e91dcbac4a3ef1986
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Mon Dec 22 02:30:32 2014 -0800
+
+    browserify@7
+
+commit 51d45e1318b48a60175c2c8fa0d125110976d2f2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 21:00:31 2014 -0700
+
+    1.0.3
+
+commit bc4258e5f488dec554d0e5a08012add0e7382fe2
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:59:50 2014 -0700
+
+    bundle
+
+commit 250b2171e7ab1aff17822874b59b0e6873b3f517
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:58:27 2014 -0700
+
+    fix error
+
+commit 7fd922b0df39ad9982534cad136331cef2cb97dc
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:19:53 2014 -0700
+
+    1.0.2
+
+commit 34a8c31ad3da786cad266c5bc6cb2e892d89ba3b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 20:04:11 2014 -0700
+
+    bundle
+
+commit a8e9467c5423eef0b079aa047965bd1e5ab80c3a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 19:58:48 2014 -0700
+
+    don't catch errors in 'message' event handler
+
+commit ab4013f42f53d210e134fcc0080269ea727085e4
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:40:55 2014 -0700
+
+    readme
+
+commit 5b3e1955c0812a43730604d6eb66dfdfe4cb466b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:31:24 2014 -0700
+
+    1.0.1
+
+commit e1b1413c3965e02789653999868abdaa09ebfbdf
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:30:51 2014 -0700
+
+    fix sauce badge
+
+commit acf8089c6219a471baf4cedd252c745ef523993a
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:29:48 2014 -0700
+
+    hide uglify warnings
+
+commit f818aad0562056a0e717c4f1b46dd883206f5f02
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:26:27 2014 -0700
+
+    1.0.0
+
+commit 878e69d86b902bde3cb1362d11d91667b9ef720e
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:25:49 2014 -0700
+
+    readme
+
+commit 517fc49a452bf188bb0a3ef3e34e0592275fd96b
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:22:42 2014 -0700
+
+    remove gittip
+
+commit c6acea7ceec498be02646041288db50644090aa0
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:21:42 2014 -0700
+
+    bundle
+
+commit 3bd305e2905f2a7d1bb4eb3e4438d1bd8e0b9dae
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:21:33 2014 -0700
+
+    use correct protocol over https
+
+commit 51ae72237e57c98e06bb0c809746468e213dcec6
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:18:44 2014 -0700
+
+    reset version
+
+commit 29e4d225a2ad5309049498bf824660ad5be5fce5
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:18:26 2014 -0700
+
+    initial commit
+
+commit 6ac1f20eee6839582049b3ab419ac2a2dcb00be1
+Author: Feross Aboukhadijeh <feross@feross.org>
+Date:   Sat Aug 9 18:14:40 2014 -0700
+
+    readme

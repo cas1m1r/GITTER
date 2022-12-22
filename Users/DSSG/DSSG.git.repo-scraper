@@ -1,0 +1,693 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+#repo_scraper
+
+Check your projects for possible password (or other sensitive data) leaks.
+
+The library exposes two commands:
+* `check-dir` - Performs checks on a folder and subdirectories
+* `check-repo` - Performs a check in a git repository
+
+Both scripts work almost the same from the user point of view, enter `check-dir --help` or `check-repo --help` for more details.
+
+##Example
+
+Check your dummy-project:
+```bash
+check-dir dummy-project
+```
+
+Output:
+```bash
+Checking folder dummy-project...
+
+dummy-project/python_file_with_password.py
+ALERT - MATCH ["password = 'qwerty'"]
+
+dummy-project/dangerous_file.json
+ALERT - MATCH ['"password": "super-secret-password"']
+```
+
+##How does it work?
+
+Briefly speaking, `check-dir` lists all files below a folder and applies regular expressions to look for passwords/IPs. Given that a blind search would never end (for example, if the repo constans a 50MB csv file), some filters are applied before the regular expressions are matched:
+
+* **File size** - If file is bigger than 1MB, ignore it but print a warning
+* **Extension** - If extension is not allowed, ignore file but print a warning. (See [NOTES](NOTES.md) to know why extension is used instead of mimetype)
+* **Base64** - If file contains Base64 data, remove it. Many plain-text formats (such as Jupyter notebooks embed data in Base64 format. Applying regex to such files is never going to end)
+
+`check-repo` works in a slightly different way, one obvious way to check git history is to checkout each commit and apply `check-dir`. That approach would be really slow since the script would be checking the same files many times. Instead, `check-repo` checks out the first commit, runs `check-dir` there and then, moves up one commit at a time and uses `git diff` to get only the difference between each consecutive pair of commits.
+
+As in `check-dir`, the script applies some filters before applying regular expressions to prevent getting stuck on big files, note that in this case we are not dealing with files, but with the `git diff` output, and that prevents us to check for file size directly:
+
+* **Number of lines** - 
+* **Number of characters** - 
+* **Extension** - If extension is not allowed, ignore file but print a warning. (See [NOTES](NOTES.md) to know why extension is used instead of mimetype)
+* **Base64** - Remove Base64 code.
+
+The project has some limitations see [NOTES](NOTES.md) file for information regarding the design of the project and how that limits what the library is able to detect.
+
+##Installation
+
+```bash
+    pip install git+git://github.com/dssg/repo-scraper.git -r requirements.txt
+```
+
+##Dependencies
+
+* glob2
+* nose (optional, for running tests)
+
+##Tested with
+* Python 2.7.10
+* Git 2.6.0
+
+##Usage
+
+```bash
+    cd path/to/your/project
+    check-dir
+```
+
+See help for more options available:
+
+```bash
+    check-dir --help
+```
+
+###Using a IGNORE file with check-dir
+
+Just as with git, you can specify a file to make the program ignore some files/folders. This is specially useful when you have folder with many log files that you are sure do not have sensitive data. The library assumes one glob rule per line.
+
+Adding a IGNORE file will make execution faster, since many regular expressions are matched against all files that have certain characteristics.
+
+**Important**: Even though the format is very similar, you cannot use the same rules as in your [.gitignore](https://git-scm.com/docs/gitignore) file. For more details, see [this](https://en.wikipedia.org/wiki/Glob_(programming)).
+
+##What's done
+
+* Passwords (using regex). See [`test_password_check.py`](tests/test_password_check.py)
+* IPs
+* URLs on amazonaws.com (it's simple to add more domains if needed)
+
+##What's missing
+
+* URLs
+* Check other branches apart from master
+
+#TODO
+* Come up with a cool name
+====================== GIT HISTORY: ======================
+3fbc466 HEAD@{0}: clone: from https://github.com/dssg/repo-scraper
+commit 3fbc4668f244ddb0c9c814324fb3794ca192104e
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Dec 10 14:32:56 2015 -0600
+
+    more tests and adds yaml as default extension
+
+commit 9a79c5a66802427ad0094e45059c20b087107ece
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Dec 1 10:26:21 2015 -0600
+
+    fixes bug when matches is None
+
+commit 96737f4b9d7851a3953a4eddb3e285d529c0bbe9
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 27 13:15:27 2015 -0600
+
+    git was not recognizing change in name
+
+commit 26e86b8792125c9899c7e59d40a2f89c17824715
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 27 13:06:45 2015 -0600
+
+    fixes change in var name
+
+commit c66af778d245c484b9fd7dff52e2ac15c9d4014a
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 27 13:04:09 2015 -0600
+
+    improves password regex
+
+commit db8de204be3cb1850efbb43fba18351b0d3a460b
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 27 12:51:11 2015 -0600
+
+    improves output format
+
+commit 8217ceab9f1f312efc9b918063e8d26ea89538fc
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 27 12:39:11 2015 -0600
+
+    fixes bug that removed duplicated matches in different positions
+
+commit 8f125fc1b7bcdccf493788c23e73a3112a379640
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 27 11:37:07 2015 -0600
+
+    fixes bug when stripping leading + char
+
+commit 5055ae67bb034fbd96fff3601db561faced9d1fa
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 25 15:22:34 2015 -0600
+
+    adds fn to create matchers based on domains, renames check-folder to check-dir
+
+commit c9c4ce19abfee5883bd786a21f842c1ab8b18431
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 25 14:24:50 2015 -0600
+
+    removes + sign when parsing git diff
+
+commit 450be540c9707a3c7e37233c8b5ec5b033c2f3da
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 25 14:12:05 2015 -0600
+
+    removes some check-folder output
+
+commit b03c16d564da101eb8093d940d4e183c5cc48bd3
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 25 14:09:40 2015 -0600
+
+    adds better defaults
+
+commit be4ea7ebcefd0295eb81c2217882dabbddc0deff
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 25 13:58:47 2015 -0600
+
+    filesystem adds parameter to ignore git folder
+
+commit 555509dd1f868e300191f09d560e9b43e07fdb35
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 25 13:38:49 2015 -0600
+
+    updates setup py
+
+commit 4ff2ab5bfb9975fb01f7ac4e8556164ca3237d8d
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 25 13:36:59 2015 -0600
+
+    removes some old comments
+
+commit dd25fbe256c0eb368640853e2f7e88428fee550c
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 15:47:54 2015 -0600
+
+    adds -p parameter to check-folder
+
+commit 2d4b05e094bad7d9d2e28f1c8c7dac87e9c47c80
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 15:43:57 2015 -0600
+
+    some refactoring
+
+commit a7821af3e721982bf980b8cf44d5042e670ec8cf
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 15:35:39 2015 -0600
+
+    converts git to a class to handle -p parameter better
+
+commit 3b762851793ceb751ddc1c3532ca2bf9f53ac29d
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 15:18:03 2015 -0600
+
+    adds optional git repo location parameter
+
+commit 4be990d09932215bd6690ae93d7a910f6b62a59e
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 14:55:42 2015 -0600
+
+    replaces hardcoded strings with git diff constants
+
+commit 6862ddc49ac82e850a0e1ef9f729dda1347edaeb
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 14:50:08 2015 -0600
+
+    creates constants module
+
+commit 2cde48a43f900f33db3495a7ec175f15a0fd9113
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 13:33:16 2015 -0600
+
+    refactoring not done
+
+commit 7e186940155ea289b2ab7b26277254ca6bf7d2b2
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 12:46:37 2015 -0600
+
+    adds white list ips on ip matcher
+
+commit b947037c65acccca85da6a1f34322933fa8f0497
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 12:31:52 2015 -0600
+
+    human readable constants and removes reference to hardcoded string
+
+commit 8b99bc64dc267f083974f226ef138333a02a1b2d
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 12:26:41 2015 -0600
+
+    adds color to output and moves result constants to constants file
+
+commit 50c162ad22334106c74832d1dceb6dd73987b30c
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 11:53:18 2015 -0600
+
+    fixes self missing
+
+commit f4f3614e33c18287a2fb1b02ffabddbd5a4ac280
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 11:52:28 2015 -0600
+
+    adds multi matcher to diffchecker
+
+commit 149a87831eac939e23986e7c21f486c8c3dd19c9
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 11:50:38 2015 -0600
+
+    adds force parameter
+
+commit b908b0cf44fc3d64649fa1793e86c4b9f5e3c64a
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Tue Nov 24 11:45:51 2015 -0600
+
+    adds function to apply more than one matcher
+
+commit cc921232fd60dce63b880c692c0b43075de4f2a7
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 14:45:24 2015 -0600
+
+    adds force parameter
+
+commit 29cf2346dad1aed046f5fb33fc4454dbe0ad55ff
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 14:36:59 2015 -0600
+
+    improves output selection
+
+commit 2990f9d6ef5f58f36f53b95228596e23765d10e8
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 14:24:34 2015 -0600
+
+    adds confirmation prompt
+
+commit 4c8388e64c1e26759a30564dd734107f880438c5
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 14:09:21 2015 -0600
+
+    supports uppercase file extensions
+
+commit 54cca7cd1d819f8d43ea51ffacb748c61861854d
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 14:02:07 2015 -0600
+
+    updates notes
+
+commit 3abe22fbfc88fa8b2966f44943edca5be8c12bef
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 13:36:24 2015 -0600
+
+    updates readme
+
+commit 2203cc2409b1604a1b06d574f72345108b717b29
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 13:28:06 2015 -0600
+
+    updates readme
+
+commit 28704e424232ba736484b7824198e1f38b79d336
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 13:15:43 2015 -0600
+
+    updates readme
+
+commit 03704e0cb92d7fd1b3247d5a5b1c6af8554273fe
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 13:05:34 2015 -0600
+
+    updates readme and reqs
+
+commit 8cbda7f70441d4fbccb02b93950c18e81c18943c
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 12:51:17 2015 -0600
+
+    updates readme
+
+commit c50ff9488e4527753be49fd0a2ff44841305841f
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 12:48:13 2015 -0600
+
+    removes libmagic as dependency
+
+commit f5d7e729eb9bb8895b2d1770a971dcdd6c729ee7
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 12:31:30 2015 -0600
+
+    adds white listing as parameter in cli commands
+
+commit c4d646cbb2af4cc115406fa0b06233af9882525f
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 11:45:36 2015 -0600
+
+    adds parameter to white list extensions
+
+commit e4550a6991b57cb502af3141d664cb2a0db89712
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 10:52:38 2015 -0600
+
+    fixes typo
+
+commit 8c100f2e1cadf275168ca560a335f96f8c34368f
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 10:49:30 2015 -0600
+
+    script raises exception if repo doesnt exist
+
+commit 1b2358e87f5c4113ed12fba522d93c60626bf552
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 10:23:46 2015 -0600
+
+    typo and remove base64 print
+
+commit 5b59933679b88f2d6918697d9c7e4d404db30fc5
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 23 10:06:23 2015 -0600
+
+    git script now checks first commit
+
+commit ad7f0f6a9dda43d3b7b8e40377ea7fd151ea1396
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 16:23:27 2015 -0600
+
+    renames script
+
+commit fa0689e51ec3b0ae631301631595a1bf03f3bad4
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 16:16:28 2015 -0600
+
+    wait until each subprocess is done
+
+commit 1af1536917ebd19da7e3208a0bbf4d770af7c3dd
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 15:53:30 2015 -0600
+
+    removes stdout from git cmds
+
+commit 6051ce7ab1709690db263cc027f68ab7a80b55fe
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 15:10:25 2015 -0600
+
+    adds check-repo script to bin
+
+commit b1b9e5c5634d1a639dd0d3f403a433c24e3c7e37
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 15:03:53 2015 -0600
+
+    updates regex so they catch pws on jupyter nbs
+
+commit 5b4e41999067d6d928c438dab7b15e065407c97b
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 14:21:30 2015 -0600
+
+    fixes parsing bug when filenames had unusual chars
+
+commit 20da4191c980b12fcacd022457646cc3dd6ce4be
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 13:49:46 2015 -0600
+
+    changes to improve output
+
+commit 30de8591c58e26f145d39135dda2905cf4634c27
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 13:35:23 2015 -0600
+
+    fixes regex
+
+commit 1a5e20e4848c2e0255f2393e648774d35a1df46a
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 13:31:06 2015 -0600
+
+    improves regex for including path
+
+commit 40140af7782c60774bc40245afe32f40fd572d93
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 13:25:50 2015 -0600
+
+    ups typo
+
+commit 0c81985c0a1bd540ef74ccd8d0cadd8072e9efa3
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 13:24:35 2015 -0600
+
+    removes base64 print
+
+commit 85988f8693c538b5b2f06c790aedfbbfa614bf3d
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 13:14:06 2015 -0600
+
+    adds extensions white list when checking repo
+
+commit 8852a70510bb9a2d8a85d1c98767915fa9f8ed71
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 10:51:48 2015 -0600
+
+    some additions
+
+commit fe0797f17677f0c21e622eb05c5f425d122b4097
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 20 10:13:59 2015 -0600
+
+    cleans gitchecker
+
+commit 1a6a4cf640e912eb3616769e88623aecce488e67
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 19 14:47:26 2015 -0600
+
+    git checker now handles big files
+
+commit 46c022e9810735933853a8b486be4f11cb86cebc
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 19 12:09:56 2015 -0600
+
+    moves base64 matcher
+
+commit 7c2a3d324660f56529906b6687c9fe7f87a62970
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 19 11:51:05 2015 -0600
+
+    adds filename parsing
+
+commit 510641d3420bb9229893725ddfdfaa52977d4c68
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 19 11:28:57 2015 -0600
+
+    adds todo so i dont forget
+
+commit 6f34be2c21bc4fc5a8f7fedfdbf62d03d525abf1
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 19 11:25:36 2015 -0600
+
+    adds new class
+
+commit f861947f04acce5c007ac083c9122189b491ffc1
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 19 10:54:49 2015 -0600
+
+    first version to check git history working
+
+commit 4ea11b58018fb8381dbf65e6d68d146fba8d8291
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 18 16:20:00 2015 -0600
+
+    some additions
+
+commit 8786aeb2ce100eab41f6ae2649b87ff5027defbd
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Wed Nov 18 15:30:21 2015 -0600
+
+    attempt to read git history
+
+commit 743817ccd53e369b4a613aabf043a2bbeb05daa3
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 16:08:53 2015 -0600
+
+    more on git
+
+commit 6172c9c03d4798742d1ace1a45aae096acb4bda8
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 15:33:32 2015 -0600
+
+    first try to check git history
+
+commit b75cdf6c5b459f287027c9afb400c5060dec28b0
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 13:09:47 2015 -0600
+
+    updates readme
+
+commit 49496289417b9d06826631c3db733c124c26a195
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 13:04:10 2015 -0600
+
+    renamig
+
+commit cd8f9c8625ec6bd0e61b830bb6274c055a0ce2e1
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 13:02:16 2015 -0600
+
+    updates readme
+
+commit 54b617f9b7ab9b1ef6045d3994d9eb38f2afe9ad
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 13:00:31 2015 -0600
+
+    updates readme and requirements
+
+commit e7d3eeee7e2a1d8323ec247f124cf2858b1257f8
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 12:52:36 2015 -0600
+
+    adds readme file
+
+commit 7eb4a39ee1b706a5dba2fbda97eabb36073585b3
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 12:39:40 2015 -0600
+
+    improves output format
+
+commit 3fe55a8ce93ab6440408438ff39ef005a73f876d
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 11:58:39 2015 -0600
+
+    adds better support for cli arguments
+
+commit 2a6885f8c4df13c4dc41ab9c077d6f2872326a03
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 11:06:12 2015 -0600
+
+    adds new class to provide a single entry point to the project
+
+commit 732c0296f56ba3581880c63ace648578fdc19097
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Mon Nov 16 10:28:52 2015 -0600
+
+    some refactoring
+
+commit 063bcc7e4926768ba6e780e08ed6ab2c16ff201e
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 15:52:15 2015 -0600
+
+    tests passing
+
+commit 4f3a3c8cd5c14f66935e76dacb5d382c072e1540
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 15:48:55 2015 -0600
+
+    adds output control
+
+commit 6e27a1e4e49386be39eda4501ab136987678f489
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 15:47:08 2015 -0600
+
+    fixes error
+
+commit 28ea4c3fe5878c4458245474bfb5f80ca6fc0bd3
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 15:45:25 2015 -0600
+
+    adds result type
+
+commit 8eb4d1590cb982bda64066cc73768c7622890f76
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 15:36:37 2015 -0600
+
+    bin only prints matches
+
+commit 02604561972d67ba7ea35d808e858ab68d66dee0
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 15:33:24 2015 -0600
+
+    adds Result class
+
+commit 01e933d06ee3dee4613b31f93cc08e05bb300d15
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 15:15:49 2015 -0600
+
+    better support for ignoring base64 strings
+
+commit eb4c794337976d29dee96813b3c34b911ac25452
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 14:36:09 2015 -0600
+
+    removes base64 images in notebooks
+
+commit c06957026dec3c1eb0411fe1d93ee85b6faec0d3
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 13:36:10 2015 -0600
+
+    adds ignore file option[
+
+commit a63d8c057bcda7d96f08896cdc1736efba7a7d7e
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Fri Nov 13 11:53:59 2015 -0600
+
+    makes this faster and uses libmagic to find mimetype
+
+commit 5e511c8e94dcf4ea1858d3f253b399e4f782076e
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 15:59:25 2015 -0600
+
+    general improvements
+
+commit 86184a7bd6769ad06fd657749de1c0920584d216
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 14:58:45 2015 -0600
+
+    improves detection in json files-
+
+commit e6f90decf5bc0101d776f55af0173e41016f0a73
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 14:06:39 2015 -0600
+
+    tests for sqlalchemy-like engines
+
+commit c6e421f7612c74e2b34c332dc886b9a27d1320e1
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 14:01:43 2015 -0600
+
+    more tests
+
+commit a4b94011a528c0c4caea6a5b8c0aff214011abf2
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 13:58:30 2015 -0600
+
+    tests now check for matches
+
+commit 9328bd715b26740616db8ffdee45d8098629e26b
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 12:38:46 2015 -0600
+
+    adds filter to ignore .git folder
+
+commit b0a2e34359ac471d2c696a20852426f780e0067c
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 12:12:44 2015 -0600
+
+    adds basic cli entry point
+
+commit 780721482034687acbf6c3525c4b1b0d28743613
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 11:54:54 2015 -0600
+
+    fixes problem when capturing regex groups
+
+commit c7afc32b0c41d74e4e340f9623e26efcfc49a324
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 11:22:24 2015 -0600
+
+    basic project structure and usage
+
+commit 792ac87571338783b92327c6dbc8fffed5564b10
+Author: Eduardo Blancas Reyes <edu.blancas@gmail.com>
+Date:   Thu Nov 12 10:06:09 2015 -0600
+
+    first commit

@@ -1,0 +1,209 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center" ><img class="aligncenter" src="https://raw.githubusercontent.com/bmshifat/TecSpy/main/assets/webpublic/favicon.png" alt="" width="116" height="113" /></p>
+<p align="center" > A cloud-based Android Monitoring Tool, powered by NodeJS</p>
+
+<h2>Features</h2>
+<ul>
+ 	<li>GPS Logging</li>
+ 	<li>Microphone Recording</li>
+ 	<li>View Contacts</li>
+ 	<li>SMS Logs</li>
+ 	<li>Call Logs</li>
+ 	<li>View Installed Apps</li>
+ 	<li>View Stub Permissions</li>
+ 	<li>Live Clipboard Logging</li>
+ 	<li>Live Notification Logging (WhatsApp, Facebook, Instagram, Gmail, and more ....)</li>
+ 	<li>View WiFi Networks (logs previously seen)</li>
+ 	<li>File Explorer &amp; Downloader</li>
+ 	<li>Command Queuing</li>
+ 	<li>Device Admin</li>
+</ul>
+<h2>Prerequisites</h2>
+<ul>
+ 	<li>NodeJs</li>
+ 	<li>A Server with Static IP Address</li>
+</ul>
+<h2>Installation</h2>
+In the extracted folder, run these commands
+<ul>
+ 	<li style="list-style-type: none;">
+<ul>
+ 	<li><code>npm install</code> &lt;- install dependencies</li>
+ 	<li><code>npm start</code> &lt;-- start the script</li>
+ 	<li>In your browser navigate to your Server Static IP Address<code> Ex.: http://127.0.0.1</code></li>
+</ul>
+</li>
+</ul>
+<h2>Or to Run It on Background</h2>
+<ul>
+ 	<li><code>npm install</code> &lt;- install dependencies</li>
+ 	<li><code>pm2 start index.js</code> &lt;-- start the script</li>
+ 	<li><code>pm2 startup</code> &lt;- to run TecSpy on startup</li>
+ 	<li>In your browser navigate to your Server Static IP Address<code> Ex.: http://127.0.0.1</code></li>
+</ul>
+<h3>Set a Username &amp; Password</h3>
+<ol>
+ 	<li>Open <code>maindb.json</code> in a text editor</li>
+ 	<li>under <code>admin</code>
+<ul>
+ 	<li>set the <code>username</code> as plain text</li>
+ 	<li>set the <code>password</code> as a LOWERCASE MD5 hash</li>
+</ul>
+</li>
+ 	<li>save the file</li>
+ 	<li>Now <code>restart the app</code></li>
+</ul>
+</ol>
+&nbsp;
+<h2>Credits</h2>
+Credits for the original code base this repository is based on at<b> <a href="https://github.com/D3VL/L3MON">L3MON</a></b>
+
+====================== GIT HISTORY: ======================
+9149556 HEAD@{0}: clone: from https://github.com/bmshifat/TecSpy
+commit 9149556ab1197a09e048cb07ebca976a9af97d11
+Merge: 0a8a068 9935710
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Sun Jun 27 04:49:19 2021 +0100
+
+    Merge pull request #10 from bmshifat/snyk-upgrade-850599dc5955c40e2caceeafc99cb33a
+    
+    [Snyk] Upgrade node-fetch from 2.6.0 to 2.6.1
+
+commit 0a8a068e9e0ca91f8980715a12419101e49858eb
+Merge: b9baa91 48d1cb6
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Sun Jun 27 04:49:00 2021 +0100
+
+    Merge pull request #6 from bmshifat/snyk-upgrade-f06dd2a45f963932729751e1236598b4
+    
+    [Snyk] Upgrade ejs from 2.6.2 to 2.7.4
+
+commit 9935710db8ae1d514538ab5cc5e2ad70dacd9840
+Author: snyk-bot <snyk-bot@snyk.io>
+Date:   Sun Jun 27 00:37:56 2021 +0000
+
+    fix: upgrade node-fetch from 2.6.0 to 2.6.1
+    
+    Snyk has created this PR to upgrade node-fetch from 2.6.0 to 2.6.1.
+    
+    See this package in npm:
+    https://www.npmjs.com/package/node-fetch
+    
+    See this project in Snyk:
+    https://app.snyk.io/org/shifat8m/project/2d606d62-3af0-4b44-963e-ce70c7e52ae4?utm_source=github&utm_medium=upgrade-pr
+
+commit 48d1cb6161302e35479b268c0cf8135b2537f188
+Author: snyk-bot <snyk-bot@snyk.io>
+Date:   Sun Jun 27 00:37:40 2021 +0000
+
+    fix: upgrade ejs from 2.6.2 to 2.7.4
+    
+    Snyk has created this PR to upgrade ejs from 2.6.2 to 2.7.4.
+    
+    See this package in npm:
+    https://www.npmjs.com/package/ejs
+    
+    See this project in Snyk:
+    https://app.snyk.io/org/shifat8m/project/2d606d62-3af0-4b44-963e-ce70c7e52ae4?utm_source=github&utm_medium=upgrade-pr
+
+commit b9baa91759ca7b55564f1d56f1ceac1cbd45bfd4
+Merge: 1a096ee 560f974
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Sun May 30 20:20:47 2021 +0600
+
+    Merge pull request #4 from bmshifat/add-license-1
+    
+    Create LICENSE
+
+commit 560f974d6771d4cfb0f81ea42adb85c4e7e7dd05
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Sun May 30 20:15:43 2021 +0600
+
+    Create LICENSE
+
+commit 1a096eec0cb51415d72c3ef83cd6e0af66593285
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Fri May 7 17:59:42 2021 +0600
+
+    Add files via upload
+
+commit 5c574d6733717f50e5951f9a9e21f7c3f1561063
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Fri Apr 2 23:33:35 2021 +0600
+
+    Update README.md
+
+commit 0775119ddbcae78409e67ad4e515407a15643ba8
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Fri Apr 2 23:31:24 2021 +0600
+
+    Update README.md
+
+commit 6a786901fc3c86a249062cbfdd6236b9c6a17865
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:59:54 2021 +0600
+
+    Delete azure.yml
+
+commit 9f1275841485c579f4bbb73f198bf003c2e8af72
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:59:41 2021 +0600
+
+    Delete jekyll.yml
+
+commit 02a1952dd12ef145bce215d901ba41000f31cae7
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:59:31 2021 +0600
+
+    Create azure.yml
+
+commit f2cb094cfdf6957c9022c33c88d03f7bac7aba39
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:58:38 2021 +0600
+
+    Create jekyll.yml
+
+commit 104d8d2dce2923cda04407739096a2bc58898716
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:25:36 2021 +0600
+
+    Update README.md
+
+commit 31814c1495c159d706bdd7fed2d83bd636c60770
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:24:51 2021 +0600
+
+    Update README.md
+
+commit c38340c4bccffb9fe219a4f6fc21a421bd150679
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:21:05 2021 +0600
+
+    Delete 28a7658aae8169cd.json
+
+commit d89d1e5cd866e30bb5583e044ac68e7693526173
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:20:37 2021 +0600
+
+    Update maindb.json
+
+commit 41f01d1591d4cb00bdeea3eb54511d4fd0d91085
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Tue Feb 16 23:16:36 2021 +0600
+
+    Create README.md
+
+commit e5a9da379767c9de0aa6b301f7888decbea4244b
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Thu Feb 11 12:45:00 2021 +0600
+
+    sdsa
+    
+    ssd
+
+commit ef7d59874f0de974700d9af825225cadf6a3d813
+Author: BM Shifat <43984284+bmshifat@users.noreply.github.com>
+Date:   Thu Feb 11 12:36:25 2021 +0600
+
+    Initial commit

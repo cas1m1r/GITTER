@@ -1,0 +1,268 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit f88564ff5a34931df51567d0820f306d0c1b7ca8
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 21:30:37 2020 -0500
+
+    Removed duplicate code
+
+commit 1685f965b62baaa6bf4c0c1d86f72b49551a6234
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 21:28:32 2020 -0500
+
+    Fixed bugs resulting from transition to modules
+    
+    Duplicate initialization of some values in LEGO_FULL(), and wasn't properly calling LEGO_FULL(). It seemed to work because the constants were also defined earlier. This should be resolved now.
+
+commit 95c22dbf7550f237fbf06433597ec502d240a072
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 14:17:43 2020 -0500
+
+    Support using ridges on narrow pieces
+
+commit 1ebd6f4aec1d2e2783e2a65ce4bc9308876dd284
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 11:03:48 2020 -0500
+
+    Add support for adjusting the depth of interior ridge
+
+commit c789a6791c59f00f81073a15ea5025619c84d1db
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 10:19:57 2020 -0500
+
+    Fix for issues 3, 4, and 6
+
+commit 5c8db1bebee53d4b3d00c82904204602c2afd84c
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Mon Mar 16 17:30:00 2020 -0500
+
+    Fix mistake with cross supports for 1xN bricks
+
+commit 3a753abd7c16189d6cdfdfe24458667e752bf0ff
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Mon Mar 16 17:23:04 2020 -0500
+
+    Issue 11
+    
+    A significant refactor to use more modules. This makes it possible to include the script as part of larger works. For example, you can use it to place studs along the top of another model.
+
+commit b2814439f89e76a127ab8ba8bffa16712565eece
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Jul 18 14:03:19 2019 -0500
+
+    Update README.md
+
+commit 0644033902dbfaefd1e0e5b8b8a0947906940cc5
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Mar 7 14:27:48 2019 -0600
+
+    Update README.md
+
+commit 465d6e14620d7c7a69a14871cc068e740ceb5ff3
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 16:15:59 2019 -0600
+
+    Add leading zeros to floats with abs() < 1 (fix for issue #1)
+
+commit 6540c3c4e156b32456c1e78701f9635c5ca50c26
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 15:32:49 2019 -0600
+
+    Set $fn for 1xN support posts to be divisible by 4.
+
+commit ad5972143e29fea1fd64c676378962ac284d3091
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 11:24:07 2019 -0600
+
+    Add important reminder about ridges and plates
+    
+    I'm done for a while, but I don't want to forget this when I come back:
+    
+    Test prints of plates are too loose compared to bricks. Real lego does not use ridges for plates, but I might need to.
+
+commit 5d3850a17aabf54dfaaec7ee44baf09a7f7cbf5c
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 11:12:24 2019 -0600
+
+    Fix for support post width with small nozzles
+    
+    Since I ask people to lie and use a small nozzle width if they want models to exactly match lego bricks, it's not okay to have things depend *only* on the nozzle width. I did a review and found the support posts on 2xN bricks failed that check. This is now fixed.
+
+commit e7015d09dbf62727264ad537e8312d65c6ccd6e0
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 10:48:11 2019 -0600
+
+    Post adjustment + comments and short-hand subs
+    
+    Added adjustment for post size on 2xN bricks. Also re-read all the comments after a couple weeks and made sure things were clear. In the process found a few places where I should have used the short-hands for certain items.
+
+commit 66cd0f82aa8c8a3e4f103f6899d1ece08796d5f0
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 09:43:28 2019 -0600
+
+    Make inner support post radius depend on outer radius and nozzle size
+
+commit 14cb4369669bb3bd48e89cc1b2e8431236578e84
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 09:39:46 2019 -0600
+
+    Default gapping adjustments
+
+commit 49080193ce30d5e535aa60c64d88e67f721f20bd
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 5 16:10:39 2019 -0600
+
+    Update create_brick.scad
+
+commit d1d8a0abfdbade9b0755f8202de76e844a590af3
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 5 08:47:51 2019 -0600
+
+    Create README.md
+
+commit 2e8b3c718372d65c5f2eeb17c2bfc91a483bae6b
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Feb 21 15:25:20 2019 -0600
+
+    Improve descriptions for ThingiVerse Customizer
+
+commit 8944eac79bea03da4853d252796c124008a98bb3
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Feb 21 14:58:44 2019 -0600
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit f88564ff5a34931df51567d0820f306d0c1b7ca8
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 21:30:37 2020 -0500
+
+    Removed duplicate code
+
+commit 1685f965b62baaa6bf4c0c1d86f72b49551a6234
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 21:28:32 2020 -0500
+
+    Fixed bugs resulting from transition to modules
+    
+    Duplicate initialization of some values in LEGO_FULL(), and wasn't properly calling LEGO_FULL(). It seemed to work because the constants were also defined earlier. This should be resolved now.
+
+commit 95c22dbf7550f237fbf06433597ec502d240a072
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 14:17:43 2020 -0500
+
+    Support using ridges on narrow pieces
+
+commit 1ebd6f4aec1d2e2783e2a65ce4bc9308876dd284
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 11:03:48 2020 -0500
+
+    Add support for adjusting the depth of interior ridge
+
+commit c789a6791c59f00f81073a15ea5025619c84d1db
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 17 10:19:57 2020 -0500
+
+    Fix for issues 3, 4, and 6
+
+commit 5c8db1bebee53d4b3d00c82904204602c2afd84c
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Mon Mar 16 17:30:00 2020 -0500
+
+    Fix mistake with cross supports for 1xN bricks
+
+commit 3a753abd7c16189d6cdfdfe24458667e752bf0ff
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Mon Mar 16 17:23:04 2020 -0500
+
+    Issue 11
+    
+    A significant refactor to use more modules. This makes it possible to include the script as part of larger works. For example, you can use it to place studs along the top of another model.
+
+commit b2814439f89e76a127ab8ba8bffa16712565eece
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Jul 18 14:03:19 2019 -0500
+
+    Update README.md
+
+commit 0644033902dbfaefd1e0e5b8b8a0947906940cc5
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Mar 7 14:27:48 2019 -0600
+
+    Update README.md
+
+commit 465d6e14620d7c7a69a14871cc068e740ceb5ff3
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 16:15:59 2019 -0600
+
+    Add leading zeros to floats with abs() < 1 (fix for issue #1)
+
+commit 6540c3c4e156b32456c1e78701f9635c5ca50c26
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 15:32:49 2019 -0600
+
+    Set $fn for 1xN support posts to be divisible by 4.
+
+commit ad5972143e29fea1fd64c676378962ac284d3091
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 11:24:07 2019 -0600
+
+    Add important reminder about ridges and plates
+    
+    I'm done for a while, but I don't want to forget this when I come back:
+    
+    Test prints of plates are too loose compared to bricks. Real lego does not use ridges for plates, but I might need to.
+
+commit 5d3850a17aabf54dfaaec7ee44baf09a7f7cbf5c
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 11:12:24 2019 -0600
+
+    Fix for support post width with small nozzles
+    
+    Since I ask people to lie and use a small nozzle width if they want models to exactly match lego bricks, it's not okay to have things depend *only* on the nozzle width. I did a review and found the support posts on 2xN bricks failed that check. This is now fixed.
+
+commit e7015d09dbf62727264ad537e8312d65c6ccd6e0
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 10:48:11 2019 -0600
+
+    Post adjustment + comments and short-hand subs
+    
+    Added adjustment for post size on 2xN bricks. Also re-read all the comments after a couple weeks and made sure things were clear. In the process found a few places where I should have used the short-hands for certain items.
+
+commit 66cd0f82aa8c8a3e4f103f6899d1ece08796d5f0
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 09:43:28 2019 -0600
+
+    Make inner support post radius depend on outer radius and nozzle size
+
+commit 14cb4369669bb3bd48e89cc1b2e8431236578e84
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Wed Mar 6 09:39:46 2019 -0600
+
+    Default gapping adjustments
+
+commit 49080193ce30d5e535aa60c64d88e67f721f20bd
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 5 16:10:39 2019 -0600
+
+    Update create_brick.scad
+
+commit d1d8a0abfdbade9b0755f8202de76e844a590af3
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Tue Mar 5 08:47:51 2019 -0600
+
+    Create README.md
+
+commit 2e8b3c718372d65c5f2eeb17c2bfc91a483bae6b
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Feb 21 15:25:20 2019 -0600
+
+    Improve descriptions for ThingiVerse Customizer
+
+commit 8944eac79bea03da4853d252796c124008a98bb3
+Author: jcoehoorn <jcoehoorn@gmail.com>
+Date:   Thu Feb 21 14:58:44 2019 -0600
+
+    Initial commit

@@ -1,0 +1,724 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Botnet
+### A multiplayer programming simulation game
+![Replay screenshot](screenshot.png)
+
+## Introduction
+Botnet is a simulation game where each player writes a script to control autonomous units called "bots". Players have no control over the game directly, and must program their bots to play the game for them.
+
+## Bot Scripts
+Bots can be programmed in any language that can compile to [WebAssembly](https://webassembly.org).
+
+Currently, the only SDK provided is for the [Rust](https://www.rust-lang.org) language. Depend on the [botnet_api](botnet_api) crate and compile a cdylib for the `wasm32-unknown-unknown` target.
+
+Fork the [example bot](example_bot) to get started.
+
+## Usage
+Currently, the server is hardcoded to run several instances of the example bot.
+
+To run the server with logs enabled, first compile the example bot:
+
+`cargo build --release --target wasm32-unknown-unknown --manifest-path=example_bot/Cargo.toml`
+
+and then compile and run the server:
+
+`RUST_LOG=botnet cargo run --manifest-path=botnet/Cargo.toml`
+
+To view the replay, run [BotnetReplayViewer](botnet_replay_viewer):
+
+`cargo run --release --manifest-path=botnet_replay_viewer/Cargo.toml example.rplay`
+====================== GIT HISTORY: ======================
+fd82299 HEAD@{0}: clone: from https://github.com/JMS55/botnet
+commit fd82299927992fcea0f1f7d366c2efb75e086b5d
+Merge: 21d9000 caa3e9f
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Sep 20 13:43:12 2022 -0400
+
+    Merge pull request #9 from JMS55/dependabot/cargo/botnet/wasmtime-1.0.0
+    
+    Bump wasmtime from 0.40.1 to 1.0.0 in /botnet
+
+commit caa3e9fea49fd046fdb361057624e721bf351efe
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Tue Sep 20 17:42:58 2022 +0000
+
+    Bump wasmtime from 0.40.1 to 1.0.0 in /botnet
+    
+    Bumps [wasmtime](https://github.com/bytecodealliance/wasmtime) from 0.40.1 to 1.0.0.
+    - [Release notes](https://github.com/bytecodealliance/wasmtime/releases)
+    - [Changelog](https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-some-possible-changes.md)
+    - [Commits](https://github.com/bytecodealliance/wasmtime/compare/v0.40.1...v1.0.0)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: wasmtime
+      dependency-type: direct:production
+      update-type: version-update:semver-major
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 21d9000c375829d8d0159985b8af2bdf039d1955
+Merge: c6c2e9f 63d3d9b
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Sep 20 12:56:17 2022 -0400
+
+    Merge pull request #8 from JMS55/dependabot/cargo/botnet/env_logger-0.9.1
+    
+    Bump env_logger from 0.9.0 to 0.9.1 in /botnet
+
+commit 63d3d9b16b9b4f894dcd0b06b7d24ed1a2c0f4be
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Sep 19 14:59:30 2022 +0000
+
+    Bump env_logger from 0.9.0 to 0.9.1 in /botnet
+    
+    Bumps [env_logger](https://github.com/env-logger-rs/env_logger) from 0.9.0 to 0.9.1.
+    - [Release notes](https://github.com/env-logger-rs/env_logger/releases)
+    - [Changelog](https://github.com/env-logger-rs/env_logger/blob/main/CHANGELOG.md)
+    - [Commits](https://github.com/env-logger-rs/env_logger/commits)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: env_logger
+      dependency-type: direct:production
+      update-type: version-update:semver-patch
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit c6c2e9fd7a605b2b9c6b82790da70732be8f0dd0
+Merge: 0c1ad66 e733b13
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Sep 12 11:55:58 2022 -0400
+
+    Merge pull request #7 from JMS55/dependabot/cargo/botnet/wasmtime-0.40.1
+    
+    Bump wasmtime from 0.40.0 to 0.40.1 in /botnet
+
+commit 0c1ad669858dc2cc36a11b3692b9ca92bfbe4297
+Merge: 8e064d3 1976fcf
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Sep 12 11:55:49 2022 -0400
+
+    Merge pull request #6 from JMS55/dependabot/cargo/botnet_replay_viewer/macroquad-0.3.24
+    
+    Bump macroquad from 0.3.23 to 0.3.24 in /botnet_replay_viewer
+
+commit e733b1330795f8b89d6caf4129de045ee2db8053
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Sep 12 14:34:13 2022 +0000
+
+    Bump wasmtime from 0.40.0 to 0.40.1 in /botnet
+    
+    Bumps [wasmtime](https://github.com/bytecodealliance/wasmtime) from 0.40.0 to 0.40.1.
+    - [Release notes](https://github.com/bytecodealliance/wasmtime/releases)
+    - [Changelog](https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-some-possible-changes.md)
+    - [Commits](https://github.com/bytecodealliance/wasmtime/compare/v0.40.0...v0.40.1)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: wasmtime
+      dependency-type: direct:production
+      update-type: version-update:semver-patch
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 1976fcf83b5fb61b092fcb18f3b671b721bf0652
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Sep 12 14:34:13 2022 +0000
+
+    Bump macroquad from 0.3.23 to 0.3.24 in /botnet_replay_viewer
+    
+    Bumps [macroquad](https://github.com/not-fl3/macroquad) from 0.3.23 to 0.3.24.
+    - [Release notes](https://github.com/not-fl3/macroquad/releases)
+    - [Commits](https://github.com/not-fl3/macroquad/commits/v0.3.24)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: macroquad
+      dependency-type: direct:production
+      update-type: version-update:semver-patch
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 8e064d3cf0a1c45c1f1a7673d75a551684fa8f11
+Merge: fb271fb 22d1e3b
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Aug 29 10:35:28 2022 -0400
+
+    Merge pull request #5 from JMS55/dependabot/cargo/botnet/wasmtime-0.40.0
+    
+    Bump wasmtime from 0.39.1 to 0.40.0 in /botnet
+
+commit 22d1e3be7bf5a33b624b446e19a0eb3a178be23e
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Aug 29 14:29:15 2022 +0000
+
+    Bump wasmtime from 0.39.1 to 0.40.0 in /botnet
+    
+    Bumps [wasmtime](https://github.com/bytecodealliance/wasmtime) from 0.39.1 to 0.40.0.
+    - [Release notes](https://github.com/bytecodealliance/wasmtime/releases)
+    - [Changelog](https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-some-possible-changes.md)
+    - [Commits](https://github.com/bytecodealliance/wasmtime/compare/v0.39.1...v0.40.0)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: wasmtime
+      dependency-type: direct:production
+      update-type: version-update:semver-minor
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit fb271fbf533124e5fe362a9cb60192526491a28c
+Merge: 7e6bc15 c8f2252
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jul 25 09:54:12 2022 -0700
+
+    Merge pull request #4 from JMS55/dependabot/cargo/botnet/wasmtime-0.39.1
+    
+    Bump wasmtime from 0.38.1 to 0.39.1 in /botnet
+
+commit 7e6bc15b35496e0fb961c6778e0b2f0a82563daf
+Merge: 1aeedde 74c00bb
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jul 25 09:54:04 2022 -0700
+
+    Merge pull request #3 from JMS55/dependabot/cargo/botnet/crossbeam-channel-0.5.6
+    
+    Bump crossbeam-channel from 0.5.5 to 0.5.6 in /botnet
+
+commit c8f2252f798d90de3ad493f80e798fd74ab196b9
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Jul 25 14:22:45 2022 +0000
+
+    Bump wasmtime from 0.38.1 to 0.39.1 in /botnet
+    
+    Bumps [wasmtime](https://github.com/bytecodealliance/wasmtime) from 0.38.1 to 0.39.1.
+    - [Release notes](https://github.com/bytecodealliance/wasmtime/releases)
+    - [Changelog](https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-some-possible-changes.md)
+    - [Commits](https://github.com/bytecodealliance/wasmtime/compare/v0.38.1...v0.39.1)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: wasmtime
+      dependency-type: direct:production
+      update-type: version-update:semver-minor
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 74c00bb32ac70d5d5acaf957a28e657c01484496
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Jul 25 14:22:39 2022 +0000
+
+    Bump crossbeam-channel from 0.5.5 to 0.5.6 in /botnet
+    
+    Bumps [crossbeam-channel](https://github.com/crossbeam-rs/crossbeam) from 0.5.5 to 0.5.6.
+    - [Release notes](https://github.com/crossbeam-rs/crossbeam/releases)
+    - [Changelog](https://github.com/crossbeam-rs/crossbeam/blob/master/CHANGELOG.md)
+    - [Commits](https://github.com/crossbeam-rs/crossbeam/compare/crossbeam-channel-0.5.5...crossbeam-channel-0.5.6)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: crossbeam-channel
+      dependency-type: direct:production
+      update-type: version-update:semver-patch
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 1aeedde87273b17b919d2caf14028629d47401f5
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 21 10:04:12 2022 -0700
+
+    Add entity tooltips
+
+commit 9eb863dd173a84f7582c2142b98d77bfe8cb8a6a
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 21 10:02:02 2022 -0700
+
+    Add abillity to pause the replay
+
+commit fd220e89be8045109f005963cca232bca0041913
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 21 10:01:45 2022 -0700
+
+    Reorganize assets
+
+commit 7b80fdf80c0f80d5106f0b8979fd41dd735e7ea7
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jul 19 19:27:07 2022 -0700
+
+    Move energy consts into config
+
+commit bf181de73749f2d70198bc98eb30e190e0ac0b62
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jul 19 19:17:41 2022 -0700
+
+    Remove Arc from next_entity_id
+
+commit f3f6f8549278763d9a08ebbcc139975a6639394e
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jul 19 19:10:29 2022 -0700
+
+    Add build_entity action
+
+commit c3758b2fd126fc1286db1f1b57edb920873dda5e
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jul 18 13:58:21 2022 -0700
+
+    Fix example bot build instructions
+
+commit 8ec78ecb740e6932c42672edd02065cf3daf987e
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 14 13:42:53 2022 -0700
+
+    Add bot script runtime to logs
+
+commit 725fd21dce2fc210221a1574e0ddee474bf4513b
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 14 13:29:59 2022 -0700
+
+    Better color scheme
+
+commit 9ae1a9130682ae5b9023cbd9d1499a523eb4a16d
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 14 13:12:50 2022 -0700
+
+    Change bot action log to trace
+
+commit 28e13fc3ed5cb2a69fb840496a5e9be66c8e4e04
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 14 11:23:10 2022 -0700
+
+    Add deposit/withdraw resource api, animations
+
+commit 35d68c983764f726c853a3d3058352fabadb1bb2
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 14 10:16:29 2022 -0700
+
+    Add Eq to ActionError
+
+commit ece32c071a20d804ddab3e3adc9af91245024ad0
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 13 23:06:56 2022 -0700
+
+    Fix readme typo
+
+commit ee240f9c48d05b963cc2631f304a8ee8f2d3d99d
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 13 22:43:49 2022 -0700
+
+    Fix example bot
+
+commit 021c7b754bdc415b1636b7cbcbab29a78b824244
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 13 22:42:57 2022 -0700
+
+    Pathfinding custom goal function fixes
+
+commit e364448994ad4c93258c0ab39c04e55d822cd730
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 13 22:42:18 2022 -0700
+
+    Add antennas and multiple resource types
+
+commit 041f613229dba46537d1607f53a75660c2eecd4c
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 13 22:37:11 2022 -0700
+
+    Change bot script failure log to warn
+
+commit 91422be669a849d5a595eb516910f8baf7382add
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 13 21:20:27 2022 -0700
+
+    Add BOTNET_API_VERSION to said crate
+
+commit 3bb396b2a9e87006e3ac6d85e5904c40529b36f2
+Merge: 7879b0f 047c11c
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jul 12 15:54:29 2022 -0700
+
+    Merge commit '047c11c0f55291a1aab0451b1d4df056105bcd47'
+
+commit 047c11c0f55291a1aab0451b1d4df056105bcd47
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jul 12 15:53:59 2022 -0700
+
+    Finish keyframed animation system
+
+commit 3adb4ede4a858bc7a0f60c5151457491070d501f
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jul 12 15:53:59 2022 -0700
+
+    Restructure keyframing system
+
+commit 7cf3ca3e07d1ae76edc32933023cde0e2264383a
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jul 12 15:53:59 2022 -0700
+
+    WIP: Keyframed animation system
+
+commit 7879b0f2b4a6794e5850259b6e36da906fdbf82b
+Merge: e8845f0 5b181b9
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jul 11 13:32:04 2022 -0700
+
+    Merge pull request #1 from JMS55/dependabot/cargo/botnet_replay_viewer/macroquad-0.3.23
+    
+    Bump macroquad from 0.3.20 to 0.3.23 in /botnet_replay_viewer
+
+commit 5b181b9f3fabc736948ee3ff4b6bd0ff96d8cef4
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Jul 11 14:57:58 2022 +0000
+
+    Bump macroquad from 0.3.20 to 0.3.23 in /botnet_replay_viewer
+    
+    Bumps [macroquad](https://github.com/not-fl3/macroquad) from 0.3.20 to 0.3.23.
+    - [Release notes](https://github.com/not-fl3/macroquad/releases)
+    - [Commits](https://github.com/not-fl3/macroquad/commits)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: macroquad
+      dependency-type: direct:production
+      update-type: version-update:semver-patch
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit e8845f0f747719fdf4d62f46a48d39dba42afdac
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sun Jul 10 11:30:57 2022 -0700
+
+    Misc changes
+
+commit e5f38142b77eacaa378fa30359082eb124afe9f0
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sat Jul 9 11:10:46 2022 -0700
+
+    Misc fixes
+
+commit 58fceb45e5aa154e14510975d6281c8d336ea719
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Thu Jul 7 11:27:54 2022 -0700
+
+    Major rewrite of botnet to store generic entities
+
+commit 660e4be79bca1d307406e31689e6b691cd18586f
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 6 22:11:20 2022 -0700
+
+    Add initial animations to the replay viewer
+
+commit 23640a00254c7b955ad87204af3a340fe23a0922
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 6 22:10:44 2022 -0700
+
+    Shrink bay size, randomly generate more bots
+
+commit 570beec25f27cb630e76d499120dce323c547845
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jul 6 22:10:20 2022 -0700
+
+    Botnet reorganizing
+
+commit 34b6e1e3e146e563abbeb3cf8d247b93292e102b
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jul 4 14:21:14 2022 -0700
+
+    Initial replay viewer
+
+commit 8c5f163c19b048db6b6e862cc032ce5aa9a95aed
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jul 4 13:34:12 2022 -0700
+
+    Create dependabot.yml
+
+commit ee9326cb814019f74b95f08bda2a648b3733218b
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sat Jul 2 19:24:39 2022 -0700
+
+    Halve bay size
+
+commit 326d8dbca5088a5268fb0f7870ba8f6ac85d5c15
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sat Jul 2 10:15:24 2022 -0700
+
+    Move botnet_api_derive up one folder
+
+commit 67ba48312271fee26ed6489053c9f1a5fce47b59
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 29 20:09:42 2022 -0700
+
+    Reorganize some stuff
+
+commit 609aab1039fa7c9ebd2dfca7f705cc3cd3f148fd
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 29 16:41:20 2022 -0700
+
+    Switch to relaxed ordering for WasmEngine
+
+commit 1d8f4f6a8068cc4fd96769bc905d446fedd7faf8
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 29 14:41:10 2022 -0700
+
+    Add readme
+
+commit 229cdcdb36b9b9ccdf3f51b4d2a3aae4ccf94de7
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 29 14:14:34 2022 -0700
+
+    Add more documentation
+
+commit 3b73c3388f3e39cd0536b5540256a0d77e84b9b0
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 29 13:16:20 2022 -0700
+
+    Cleanup; revert determinism
+
+commit 766a68dff33a1c32772f01453a41e8d3949d35f0
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jun 28 16:30:53 2022 -0700
+
+    Move log_debug to a seperate file
+
+commit 125eb7f396728255a49e9ca702a608e91ca41c83
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jun 28 15:38:10 2022 -0700
+
+    Restructure project
+
+commit 00f4fabe37a0b165be185ba5a0890dad1c69438b
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jun 28 14:45:27 2022 -0700
+
+    Add example bot
+
+commit 1e27bc9cde08fb9da170a083da0f91724f924975
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jun 28 11:58:42 2022 -0700
+
+    Ensure server is deterministic
+
+commit 85af2034aff8dedc40199625352af827234ba0f0
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 20:40:30 2022 -0700
+
+    Tighten bot memory limits
+
+commit 90c24f6c27df84d079135ec72ae962f32b5f254e
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 20:27:25 2022 -0700
+
+    Switch to microseconds for epoch
+
+commit 664bf0112c4e1c4afde7f370584b423a7b71aec9
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 20:16:48 2022 -0700
+
+    Ensure malicious bot __memalloc can't run forever
+
+commit 15136f120c4eacc04a9bf59c9c0316feee3275f9
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 14:41:39 2022 -0700
+
+    Add manual drop for network memory mutex slightly earlier
+
+commit 52e6f11af5d9c203c407d8c0849d8d360af1d12a
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 14:36:06 2022 -0700
+
+    Update wasmtime
+
+commit eb1301e5c043a56b64e02404d89de9d0bd0560c4
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 14:24:45 2022 -0700
+
+    Stop epoch increment thread when dropping Game
+
+commit c752812b34e408ef56f719f4c769de532969d153
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 14:18:28 2022 -0700
+
+    Remove thread join that won't actually ever complete
+
+commit 4130f010f5204014c55636579678bf77dbeacd8d
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 14:04:35 2022 -0700
+
+    Re-enable time limit
+
+commit 893ad506ee13b8e57fc17d19c731724973624e1f
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 14:04:07 2022 -0700
+
+    Limit bot time to 2ms
+
+commit 15fdf0b99e8775189c9d60cb390885d3e8b3f96c
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 13:57:16 2022 -0700
+
+    Fix forgetting to put the epoch increment in a loop
+
+commit c337af3dc847a058048761b3448d11ff59288ae0
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 13:52:11 2022 -0700
+
+    Set epoch deadline right before calling the bot tick
+
+commit da5197ea13c2bdff9b4200ca7e164c63a7c4e24f
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 13:33:14 2022 -0700
+
+    Fix wasm epoch interrupts
+
+commit 231d45f205bfb8a63c9862968e23911b5c3c5235
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 12:17:34 2022 -0700
+
+    Meter bot script runtime
+
+commit 6a9455106ea812673bacd5ffff4fe9385f135062
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 27 12:14:37 2022 -0700
+
+    Randomly gemerate silicon in bay
+
+commit a9c383620264680edbd874c79064b0b3ef822c94
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sun Jun 26 22:28:36 2022 -0700
+
+    Fix log_debug linker export
+
+commit 3efdc2b7310be5ac872aa66f73087e1139b2585b
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sun Jun 26 22:21:23 2022 -0700
+
+    Add automatic network memory serialization
+
+commit aebda983e391c53974b3e13841cb64c8ef2f60bc
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sun Jun 26 21:51:16 2022 -0700
+
+    Implement pathfinding
+
+commit da25e213310dd2950b9dd268e6a304e4df5291e7
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sun Jun 26 21:06:50 2022 -0700
+
+    Add debug logging api
+
+commit 27ff2d4811553576abd4e0452692868dc05e4406
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sat Jun 25 10:49:25 2022 -0700
+
+    Add logging
+
+commit b8834d512fc037c5c3c1ddbaa97d73836bffe5ff
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sat Jun 25 10:37:34 2022 -0700
+
+    Fix movement not setting new bot position
+
+commit c5aaa90836e01e46d6f20da2f269f1d7a7c10deb
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sat Jun 25 10:04:14 2022 -0700
+
+    Add harvest resource api
+
+commit c5b2fe22148081b0b011e5ad1939fddefe034823
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Fri Jun 24 18:28:40 2022 -0700
+
+    Recharge bot energy each tick
+
+commit 69a320c5890b5a470a3f9d1c31ea8529402eae82
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Fri Jun 24 18:15:31 2022 -0700
+
+    Fix move towards action
+
+commit c97db27415b9e96e04b25558471f9c262a43f293
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Fri Jun 24 18:05:06 2022 -0700
+
+    Get refactor to compile
+
+commit 657ddef94975b4d1548803f72cdf5ef4f0088b32
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Fri Jun 24 15:14:14 2022 -0700
+
+    WIP: Refactor and energy system
+
+commit 1fcd2d2eee4a8e59070e0b6499dc902256d932d9
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 22 22:23:24 2022 -0700
+
+    Increase bay size
+
+commit d1cc48031af2980b873c54dd743ff0eb3ccc49c0
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 22 17:10:08 2022 -0700
+
+    Fix rkyv deserialization
+
+commit 6516b8e00a3599ef50d1329114ef4e26a922e0db
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 22 16:20:09 2022 -0700
+
+    Move BotAction to api crate
+
+commit d95f9d65bab82819c1d1f2e65ca2c2045206768c
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 22 16:16:56 2022 -0700
+
+    Small cleanup
+
+commit 8006a8c09a48726d6840afa3d74ff3cd5b87c0a9
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Wed Jun 22 16:03:45 2022 -0700
+
+    Move bot API impls into another module
+
+commit 281c2bcdf47cd1601c176a2ad62d66708bc32158
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jun 21 20:53:49 2022 -0700
+
+    Fix skip player_id for bot archive
+
+commit 0c69197cd01c4b64398f92900bed358f6e558d13
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jun 21 20:35:05 2022 -0700
+
+    Improve the API around bots a bit
+
+commit 71dbfff9249fe7c9d5db38f593786d17ce515d73
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Tue Jun 21 18:18:25 2022 -0700
+
+    WIP: Restructure how bot actions work
+
+commit a8ddef229139812a8adcd87281e9372ae0cd6834
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Mon Jun 20 11:56:35 2022 -0700
+
+    Remove leftover Bot::script_slot
+
+commit 65c26bcf593b8752746ffe7c1675b7e5454ed525
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sun Jun 19 20:06:36 2022 -0700
+
+    Remove script slots
+
+commit 20cb521bdac0c690c092e8d32abf56803c7978fe
+Author: JMS55 <47158642+JMS55@users.noreply.github.com>
+Date:   Sun Jun 19 19:28:31 2022 -0700
+
+    Initial commit

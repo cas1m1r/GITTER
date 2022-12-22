@@ -1,0 +1,1353 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<h1 align="center">Modulo Botnet</h1>
+<h6 align="center"><i>Simple POC Botnet done by Group 1</i></h6>
+
+<p align="center">
+ <img src="https://img.shields.io/badge/last%20updated-July%202020-3d62d1">
+ <img src="https://img.shields.io/pypi/pyversions/Django">
+ <img src="https://travis-ci.org/mazx4960/modulo-botnet.svg?branch=master">
+ <img src="https://github.com/notclement/botnet-enumeration-network/workflows/Django%20CI/badge.svg">
+</p>
+
+## Table of contents
+
+* [Warning](#warning)
+* [Important directories](#important-directories)
+* [Usage](#usage)
+* [Features](#features)
+* [Supported Plugins](#supported-plugins)
+* [Future expansions](#future-expansions)
+
+## Warning
+This project is only meant for educational purposes and should not be used for malicious activities! Use at your own risk!
+
+## Important Directories
+* apps => server_django/apps (api, authentication, webui)
+* modules => server_django/apps/api/modules
+
+## Usage
+<b>C2 Server</b>
+<br><i>The default username is admin. The default password is password</i>
+```commandline
+cd server_django
+python manage.py migrate # to initialise and migrate database
+python manage.py createsuperuser <username> # to create a new superuser (optional)
+python manage.py runserver
+```
+
+<b>Agent</b>
+```commandline
+to be completed
+```
+
+## Features
+<b>C2 Server (webui)</b>
+- [x] Login
+- [x] Dashboard
+    - [x] List of known compromised machines
+- [x] Sessions
+    - [x] Select target agent(s)
+    - [x] Send Instruction
+    - [x] Wait and receive output (if necessary)
+    - [x] Viewing other sessions
+- [x] Executing commands on individual agents
+- [x] Style sheets
+- [ ] Support for nmap reports
+- [ ] Build a network tree that showcases compromised machines
+
+<b>C2 Server (api)</b>
+- [x] Job Balancing
+- [x] Testing Connectivity with all known Agents
+- [x] Sending Instructions
+- [x] Receiving Output of Instructions (tagging must be done to identify the 'session' or specific instruction sent, the computer it came from)
+- [x] Modules hosting for agents
+- [ ] Gathering a location heatmap of all the agents and target (https://ipinfo.io/<ip>)
+
+<b>Agent</b>
+- [x] Callback to server (every 5 seconds)
+- [x] Dropper (downloads file from C2)
+- [x] Execution of files
+- [x] Persistency
+- [ ] Self-Removal
+
+## Supported Modules
+- [x] nmap
+```commandline
+load module nmap
+nmap -sS 192.168.1.1 1-65535
+```
+- [x] dns_tunnelling
+```commandline
+# on the agent side
+sudo dns2tcpc -f dns2tcpc.conf <server_ip>
+
+# on the server side
+sudo dns2tcpd -f dns2tcpd.conf
+```
+====================== GIT HISTORY: ======================
+5a97e1a HEAD@{0}: clone: from https://github.com/mazx4960/modulo-botnet
+commit 5a97e1ae146a489c6b80ab0221f460fa53cf9e24
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Oct 8 19:43:53 2021 +0000
+
+    Update dependency certifi to v2021.10.8
+
+commit 81fbdf1d19287aadc6ea952f22da8a2848512814
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat Oct 2 04:02:09 2021 +0000
+
+    Update dependency pytz to v2021.3
+
+commit c84b3d511f87c18531de9f1ed1ee3c9dbc6e9c25
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Sep 22 20:07:52 2021 +0000
+
+    Update dependency Django to v3.1.13 [SECURITY]
+
+commit b4bf25bd4e7acb6072e2acbb19d2eadade7911ca
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Sep 22 18:17:55 2021 +0000
+
+    Update dependency urllib3 to v1.26.7
+
+commit 003efb44fdd9dcd2fb7913c7d7b293004e05e855
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Sep 10 07:52:07 2021 +0000
+
+    Update dependency sqlparse to v0.4.2
+
+commit 48a6009c18b8b447b5fce94f93e28aa7cfb4f33b
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Jul 13 15:47:44 2021 +0000
+
+    Update dependency requests to v2.26.0
+
+commit 6baf061cae2bcbb2e0e2cf7112d34dbd2b2ef270
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Jul 1 18:01:30 2021 +0000
+
+    Update dependency asgiref to v3.4.1
+
+commit a95597e48c7b10e5dd8cd4931aeddebbeb230ef2
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sun Jun 27 21:09:21 2021 +0000
+
+    Update dependency asgiref to v3.4.0
+
+commit d0ef9e09bd573b0970a0dc12d501ef5d3fc9a22a
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Jun 25 13:43:01 2021 +0000
+
+    Update dependency urllib3 to v1.26.6
+
+commit 06e7e6e9c30271490467dc4a77f6df2a91bd939e
+Merge: 868af8a b0e53bc
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jun 16 14:28:59 2021 +0800
+
+    Merge pull request #51 from mazx4960/dependabot/pip/django-3.1.12
+    
+    Bump django from 3.1.10 to 3.1.12
+
+commit 868af8ab744292a3d5c8c39a3d1ab4c54180af3c
+Merge: 0893ce3 2a1f96d
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jun 16 14:28:22 2021 +0800
+
+    Merge pull request #35 from mazx4960/renovate/pytz-2021.x
+    
+    Update dependency pytz to v2021
+
+commit b0e53bc54177191e05b9d0df7a614b57e23229bd
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Jun 16 06:28:19 2021 +0000
+
+    Bump django from 3.1.10 to 3.1.12
+    
+    Bumps [django](https://github.com/django/django) from 3.1.10 to 3.1.12.
+    - [Release notes](https://github.com/django/django/releases)
+    - [Commits](https://github.com/django/django/compare/3.1.10...3.1.12)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: django
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 0893ce38f3f354123c0abac4c3df29253f7da109
+Merge: c9813b1 966620d
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jun 16 14:27:52 2021 +0800
+
+    Merge pull request #48 from mazx4960/renovate/certifi-2021.x
+    
+    Update dependency certifi to v2021
+
+commit c9813b18d35dce274c029e96fdd290aa811a85d4
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Jun 9 18:41:23 2021 +0000
+
+    Update dependency Django to v3.1.10 [SECURITY]
+
+commit 7f6dd87344b834604ab6d03feaf4f072ded750ad
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Jun 4 23:32:47 2021 +0000
+
+    Update dependency Django to v3.1.9 [SECURITY]
+
+commit 966620d10abf41904d9fa12c7ef9a624fb4e6f1d
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sun May 30 17:44:52 2021 +0000
+
+    Update dependency certifi to v2021
+
+commit f32cd780a3f62714f4cfac1a66409fa33b31f813
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed May 26 17:27:21 2021 +0000
+
+    Update dependency urllib3 to v1.26.5
+
+commit bb54bacd6aaf49cf4e6fd0f94d1bfa81978702c7
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed May 5 16:21:32 2021 +0000
+
+    Update dependency six to v1.16.0
+
+commit 0936e62aef06ae2a1ee9845faecd8747603108ea
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Apr 6 18:53:49 2021 +0000
+
+    Update dependency asgiref to v3.3.4
+
+commit dd9238d0e28a863c3ecf43a901b07ae737dcb8dc
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Apr 6 16:27:59 2021 +0000
+
+    Update dependency asgiref to v3.3.3
+
+commit 11a81a0b2efdfef7fc5f55a7ed76344c6af59940
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Apr 6 07:48:40 2021 +0000
+
+    Update dependency Django to v3.1.8
+
+commit 5ded94e2a34ec0eaa497a63fd54af9b610e6099f
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Apr 5 20:20:30 2021 +0000
+
+    Update dependency asgiref to v3.3.2
+
+commit 588154b71be3624a8efb278db7fe367f051ed697
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Mar 26 10:45:13 2021 +0000
+
+    Update dependency djangorestframework to v3.12.4
+
+commit 98690a529cf4e1731588de28f1198bd68731aeed
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Mar 25 15:23:40 2021 +0000
+
+    Update dependency djangorestframework to v3.12.3
+
+commit fc8178cf82849cad218a1b780673da969cf915ff
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Mar 15 17:09:43 2021 +0000
+
+    Update dependency urllib3 to v1.26.4
+
+commit d2271917fe065c87bc66d003e29a3bc74a10a67c
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Feb 19 09:58:40 2021 +0000
+
+    Update dependency Django to v3.1.7
+
+commit 491e2ec2073fd96532d927ec16f22af908d99091
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Feb 1 10:37:41 2021 +0000
+
+    Update dependency Django to v3.1.6
+
+commit 2a1f96d577a73e87629f5df6eaa3dbb880b6ec10
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Feb 1 08:23:10 2021 +0000
+
+    Update dependency pytz to v2021
+
+commit 488958a9e8b138b637b480bd76a3e379e814a099
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Jan 26 19:48:03 2021 +0000
+
+    Update dependency urllib3 to v1.26.3
+
+commit 9e6cf95bc9cd00b0f6fb586d7d5523cd845a8b33
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Jan 4 08:29:37 2021 +0000
+
+    Update dependency Django to v3.1.5
+
+commit af9f0f2dd96238f8e968cf03146f5a70ca7142a2
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Dec 24 21:24:48 2020 +0000
+
+    Update dependency pytz to v2020.5
+
+commit 537e3d0db91cbfbc609d923479990e53ee838553
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Dec 16 21:20:31 2020 +0000
+
+    Update dependency requests to v2.25.1
+
+commit 262d51e06616160147ded94069e116c505b92ec3
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sat Dec 5 20:34:46 2020 +0000
+
+    Update dependency certifi to v2020.12.5
+
+commit 0233c07c5064d6d469308477d8cd444db14063b9
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Dec 1 06:33:15 2020 +0000
+
+    Update dependency Django to v3.1.4
+
+commit 0df662cf8c87e5f6c2b32514566702d4e5a26189
+Merge: d54f107 d43d2da
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Mon Nov 16 08:40:07 2020 +0800
+
+    Merge pull request #19 from mazx4960/renovate/actions-setup-python-2.x
+    
+    Update actions/setup-python action to v2
+
+commit d54f107d51bfe8435b1e6b47c220ce5423eb6f82
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Nov 12 22:41:13 2020 +0000
+
+    Update dependency urllib3 to v1.26.2
+
+commit 06bcb91bc80062c59eaa78f61a839bf392b0bd47
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Nov 11 20:49:17 2020 +0000
+
+    Update dependency urllib3 to v1.26.1
+
+commit 200b0c68fc64ebd12c44a9af81ca65509075f292
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Nov 11 20:49:04 2020 +0000
+
+    Update dependency requests to v2.25.0
+
+commit f1605ab0689084790acad8848036cae1c31cd338
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Nov 10 20:56:40 2020 +0000
+
+    Update dependency urllib3 to v1.26.0
+
+commit d29e306a65237a319b5cf75d33bb6e2bf3297b92
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Nov 9 17:25:04 2020 +0000
+
+    Update dependency asgiref to v3.3.1
+
+commit 3cc88de00e12df760a50a510bbb08838c3389f36
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Sun Nov 8 21:49:25 2020 +0000
+
+    Update dependency certifi to v2020.11.8
+
+commit 3bad184b756d1986fcfc2941c01d52b419405636
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Nov 5 22:53:21 2020 +0000
+
+    Update dependency djangorestframework to v3.12.2
+
+commit d43d2dacb58c35bbdb13584cd8fca1f3326d3d8a
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Nov 3 21:58:48 2020 +0000
+
+    Update actions/setup-python action to v2
+
+commit d10ce1d763e4ab30549e7fbc8bb3d80ab623a79f
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Nov 2 08:18:12 2020 +0000
+
+    Update dependency Django to v3.1.3
+
+commit ce3f8db2d8c29caab66722ea49738922937ad75f
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Nov 2 05:41:49 2020 +0000
+
+    Update dependency pytz to v2020.4
+
+commit 46cdf736352c155a06e94c8507b42b8435ff5a44
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Oct 19 15:39:54 2020 +0000
+
+    Update dependency urllib3 to v1.25.11
+
+commit 3a71ab9864887001d894dac4f7dbd688d8513543
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Oct 9 16:51:34 2020 +0000
+
+    Update dependency asgiref to v3.3.0
+
+commit c7fc53b7d2e6dc7e6f6197a442fbc98798a78a33
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Oct 8 06:25:05 2020 +0000
+
+    Update dependency sqlparse to v0.4.1
+
+commit ba41e1d3d9cb9a7fd3b1ce71e12eb2afbe52c8c8
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Oct 7 08:21:33 2020 +0000
+
+    Update dependency sqlparse to v0.4.0
+
+commit d484acd1f06d76162e0770eed162c1750be81ce1
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Thu Oct 1 05:53:15 2020 +0000
+
+    Update dependency Django to v3.1.2
+
+commit 54a3cc9fe3252e74390509d31089fef81590c261
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Sep 28 15:57:48 2020 +0000
+
+    Update dependency djangorestframework to v3.12.1
+
+commit db2dd1eed4e266091c5f45ecf00d4e5edf58dc35
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Sep 28 10:30:15 2020 +0000
+
+    Update dependency djangorestframework to v3.12.0
+
+commit c0705c35e01387494c5ade6dca29468e28573e23
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Sep 1 10:08:39 2020 +0000
+
+    Update dependency Django to v3.1.1
+
+commit ec22dd431f1b78bb9879973198ccd17b769cf993
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Aug 21 22:07:56 2020 +0800
+
+    Update README.md
+
+commit db64351fb8dddb4b4a154facd450f07ab822981d
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Aug 19 22:19:28 2020 +0800
+
+    Update README.md
+
+commit 07d2e14440d8c4eee48691336f8786d5e80829f6
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Aug 5 10:11:13 2020 +0000
+
+    Update dependency djangorestframework to v3.11.1
+
+commit 040d3fc9baab87bf3581ebe52104184e7b1551c7
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Tue Aug 4 08:48:43 2020 +0000
+
+    Update dependency Django to v3.1
+
+commit e4af0c0c0964ad0a02441005e48dae507ee88d79
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Mon Aug 3 08:18:16 2020 +0000
+
+    Update dependency Django to v3.0.9
+
+commit 8b5d162376c997b62bfb1d40038b5435e85f8510
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Wed Jul 22 15:52:27 2020 +0000
+
+    Update dependency urllib3 to v1.25.10
+
+commit b38a5629abbc45f0479ccc23b523bb94894641eb
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 11:56:31 2020 +0800
+
+    Update README.md
+
+commit 89a11fdcce5d82f0c9fdc7ffa5a05f018963d3a6
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 11:52:49 2020 +0800
+
+    Update .travis.yml
+
+commit b2709d4e2a77a8b91d66ee5a70355b85fecc6150
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 11:51:55 2020 +0800
+
+    Create .travis.yml
+
+commit 746596131cce0aca24828c10e2e38ae1246f3b46
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 09:44:39 2020 +0800
+
+    Update README.md
+
+commit a7a45fe26e80830e7bd764eccb947aba4d2c84ca
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 09:34:16 2020 +0800
+
+    Removed unnecessary files
+
+commit 0ed34fb148f826c748caafbced7406d3fac149e8
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Jul 10 01:32:00 2020 +0000
+
+    Update dependency Django to v3.0.8
+
+commit 8f259a55511cd2ba503e1c4a022e652470ba5e3a
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 09:31:12 2020 +0800
+
+    Update renovate.json
+
+commit c7cb86b138aaf1ecbdb0c8b7275beef8b9e73a3b
+Merge: 74d0c86 ae82a07
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 09:30:27 2020 +0800
+
+    Merge pull request #2 from mazx4960/renovate/configure
+    
+    Configure Renovate
+
+commit ae82a0768c69a28b0fdbd9a64293fbfaaa5684ab
+Author: Renovate Bot <bot@renovateapp.com>
+Date:   Fri Jul 10 01:28:27 2020 +0000
+
+    Add renovate.json
+
+commit 74d0c8603161e591202a47b81b984b145b5622bf
+Merge: c96e3e4 ae6e37d
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 09:22:48 2020 +0800
+
+    Merge pull request #1 from mazx4960/add-license-2
+    
+    Create LICENSE
+
+commit ae6e37d9b5495dc22bd391f9bcf284bd66be0ba5
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 09:22:28 2020 +0800
+
+    Create LICENSE
+
+commit c96e3e4c653babc375dabebd2482735312c8ebfc
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 10 09:17:59 2020 +0800
+
+    Delete LICENSE
+
+commit 5c832072958470d32510ab3954cba2321faa6cb2
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 23:33:18 2020 +0800
+
+    Delete index.html
+
+commit 1635b759af3f3421487d599cbb8ee3caef5df0fa
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 23:33:05 2020 +0800
+
+    Delete old_dashboard.html
+
+commit e9ca30091fc467cc5f2b79119b36fd5081db5f62
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Wed Jul 8 23:15:39 2020 +0800
+
+    Finalised UI
+    
+    Final UI (no bg img, better colors)
+
+commit bfbcd1c562ccdf0e7e34dc54cd31e7f5fd7ca59d
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 22:39:44 2020 +0800
+
+    fixed tests
+
+commit f208baf4d18eb88ed0d5e54ce8aab607fedb567c
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 22:36:46 2020 +0800
+
+    cleared pickles
+
+commit 9dc35d387647990c85ef993e65233ae15525a03c
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 21:09:06 2020 +0800
+
+    Fixed tests errors
+
+commit d376bf5e859b17698cdb5256358e7d1cd25e7908
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 21:00:28 2020 +0800
+
+    Implemented dns tunneling function
+
+commit 7334d1f89df0e65771ea6530b399dea357dc5779
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 19:38:52 2020 +0800
+
+    Minor updates
+
+commit 462028e5c724273a2799e339333aa3b26a8719b4
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 8 10:52:25 2020 +0800
+
+    Minor changes
+
+commit 653c31e78d981d7008439daebf25722fc9409898
+Merge: 8df7148 a17fc1d
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 22:48:19 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit 8df7148b9f38a446dc64a595f8ca56418a12b874
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 22:48:04 2020 +0800
+
+    Added hosting functionality for payloads
+
+commit a17fc1dc62c9dfa82c7da391bfa36dde640506e5
+Author: Clem <clement_392@hotmail.com>
+Date:   Tue Jul 7 21:55:09 2020 +0800
+
+    Agent can now run port scans
+
+commit f3fa5db900acf72e7958fadd6542e5b7c5382afd
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Tue Jul 7 21:35:17 2020 +0800
+
+    Webui FINISHED
+    
+    <<<<<<PK LOOOOOO>>>>>>
+    Front end done :)
+
+commit 7b6ad9fb14bdb4caad915d474d34b51c41998672
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 21:16:27 2020 +0800
+
+    Fixed destroy session
+
+commit aa3fc9b44315f06f9d04e04915aad8415674b57a
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 20:21:57 2020 +0800
+
+    Fixed modules hosting error
+
+commit 6a4af69e5b0e9307ba5fd67ebf6b29c272e241c8
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 20:06:54 2020 +0800
+
+    Undo changes
+
+commit fe09dca9f6c68eea474eae8203f7374b37949676
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 20:03:16 2020 +0800
+
+    Improved nmap load balancing
+
+commit b059c347caa3506afc1484ec0f59a0e3325a1146
+Author: Clem <clement_392@hotmail.com>
+Date:   Tue Jul 7 19:50:30 2020 +0800
+
+    Working on Agent.py module func
+
+commit e52c748e4ec60e4bcf5a4afe89598f975109693a
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 18:38:13 2020 +0800
+
+    Reset db file
+
+commit f30c4a4f595c6908f1cf8bfbc0e94005221299ba
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 18:26:18 2020 +0800
+
+    Fixed loading of modules
+
+commit 0f05040844ff048a192be996519a60cf441cf999
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 18:25:53 2020 +0800
+
+    Fixed loading of modules
+
+commit 4c05e675bfa2c52d8580323febb6435783f54a3c
+Author: Clem <clement_392@hotmail.com>
+Date:   Tue Jul 7 17:55:38 2020 +0800
+
+    Updated agent.py
+    
+    Run agent_dropper.exe as Admin to get started
+
+commit 413bf9e04dcb3e8462f668eefe2537af4b84e7c7
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 14:10:27 2020 +0800
+
+    Minor tweaks
+
+commit 9bef2f2545ca0702dce61b41c2b7d6323fca4814
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 14:05:01 2020 +0800
+
+    Minor tweaks
+
+commit a940a481ddf41d005f5a9462736eed4fa4ae6362
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 13:52:30 2020 +0800
+
+    Bug fix
+
+commit 9802c194e1edb6ba674e4c47f7060ada52f46b2f
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 13:40:45 2020 +0800
+
+    minor tweaks
+
+commit f417928bb634f7fc98a911c47054a28f67f36cb7
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 11:36:48 2020 +0800
+
+    Fixed test cases
+
+commit ce2db77bf5f505313be8c0ca5125f5a5709af64f
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 11:29:19 2020 +0800
+
+    Fixed test cases
+
+commit 03012564b27eb1c198b73e7984d1c4ac31d7a7bc
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 11:23:44 2020 +0800
+
+    Fixed pipeline bugs
+
+commit 7935efe4992049d03c3938c945c8a5ee27fbc272
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 11:20:29 2020 +0800
+
+    Fixed pipeline bugs
+
+commit 485d865a2e9e81369ee78154ac8323e3b1529ac3
+Merge: e3b3f67 6f9bb6d
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 10:21:07 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit e3b3f6747895be559794f0b519cea92d22a837c6
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jul 7 10:21:04 2020 +0800
+
+    fixing pipeline
+
+commit 6f9bb6d5e9a15d052e0157f2833c271abfedd189
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Mon Jul 6 22:01:04 2020 +0800
+
+    Added views for sessions
+    
+    Session Views can be improved..i think :)
+
+commit 7ddc824ff4a3f06cc09a3bdbaa368c92d5149b50
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 20:37:21 2020 +0800
+
+    fixed pipeline bug
+
+commit ed4738d20edad200e495b628bde7e1ba22eaf42d
+Merge: a89e266 e6c7537
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Mon Jul 6 20:26:59 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit a89e266bf8ab55d1b29fd2b745d4f6cb3e228348
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Mon Jul 6 20:26:53 2020 +0800
+
+    For desmond to ammend push_command
+    
+    What title says
+
+commit e6c7537502fdd7e77407ad92660a0cb134352f05
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 18:34:09 2020 +0800
+
+    just to be sure
+
+commit fd7500356896e6797546465b359303af6cedd9e3
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 16:52:43 2020 +0800
+
+    Fixed test code
+
+commit 227ceea2ab0461688ab072f0dee9c8cf14f9c61c
+Merge: ccf3b70 ebb3c93
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 16:50:12 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit ccf3b7040559cb2c29ed1b904159a59f957a26ad
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 16:49:55 2020 +0800
+
+    Refactored agent's output algorithm
+
+commit ebb3c93cfb9a57e9ece9a558026551497bcafd0f
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 15:06:55 2020 +0800
+
+    Update README.md
+
+commit 4fee5d148223ed3e8a2f43355114806a2e9999dc
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 15:06:22 2020 +0800
+
+    Update README.md
+
+commit b2066a7470c2c228a2db69cbf36fa925cfac9088
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 12:42:14 2020 +0800
+
+    Update README.md
+
+commit 83c99a23ad58fbef6b03e616ac292e3c0576e19c
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 11:00:54 2020 +0800
+
+    Update README.md
+
+commit 2d1091e29d45eb2e9e6da8df5f4debf1be95e307
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jul 6 10:57:18 2020 +0800
+
+    Refactored template files
+
+commit 465c5d966e583e7f46ad94343ea66d509a27a8bb
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Mon Jul 6 09:53:50 2020 +0800
+
+    Updated working Prototype
+    
+    Changed UID for agents to 'identifier' on creating sessions through 'dashboard.html'
+
+commit 0acb6fb135f13f83f8880bb484c6eb12e54a8d4e
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Sun Jul 5 19:23:55 2020 +0800
+
+    Live update of Session data dump completed
+    
+    Things to add:
+    1) Ensure user chose at least 1 agent
+    2) Tell user the selected agents in session page
+    3) Incorporate function (Pipeline()?) to so dynamic session id assignment
+    4) Link up 'send instruction' with desmond api to disseminate command / add to command queue
+
+commit 74b10385a25bb5827216172c7623ba733722a328
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 17:14:24 2020 +0800
+
+    fixed agent push get command
+
+commit ad900654b05a446ad569f556c8520d06066d98f2
+Author: Clem <clement_392@hotmail.com>
+Date:   Fri Jul 3 16:58:54 2020 +0800
+
+    Agent test response
+
+commit dd11cdc7cf6f2f7a6a3900301c13faa3b81974f0
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 15:31:48 2020 +0800
+
+    Update README.md
+
+commit ce71bef554ea940c57d50e4bd6bca85e060d1682
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 15:28:57 2020 +0800
+
+    debugged modules_download function
+
+commit 5492fc691f037bfefce5c2d0157987b6711c099a
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 15:16:54 2020 +0800
+
+    removed debugging stuff
+
+commit addd58703e9be69f8378b7098e8cb06c7258371c
+Merge: ebab2bc a7a54b2
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 15:16:35 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit ebab2bc9cae0d7eacdbd24a76772b86a0fb1ec2e
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 15:16:13 2020 +0800
+
+    implemented the modules hosting function
+
+commit a7a54b2a66ae72780f22d09e9b56becd8435ede6
+Author: Clem <clement_392@hotmail.com>
+Date:   Fri Jul 3 15:12:42 2020 +0800
+
+    update agent and gitignore
+
+commit 5739fef1dd90adc05f215431e1c024933cda7994
+Merge: d433aae 72c9c4d
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 14:34:46 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit d433aae03acf418ae53c855a97cc930f78516739
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 14:34:15 2020 +0800
+
+    Added tests for api
+
+commit 72c9c4d7f0005bd823b48a57e58befbef07a2a59
+Author: Clem <clement_392@hotmail.com>
+Date:   Fri Jul 3 13:30:53 2020 +0800
+
+    update gitignore and egent
+
+commit 2f55ba52698434c7f20680e51e78cfd6e0c38df6
+Merge: 51b21ff 842feb9
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 13:21:48 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit 51b21ff72d77c5a4d23366b331b950f4cadf6847
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 13:21:32 2020 +0800
+
+    fixed api datetime test error
+
+commit 842feb92ce27078a899adbcd25deaa4a8936cafc
+Author: Clem <clement_392@hotmail.com>
+Date:   Fri Jul 3 13:17:04 2020 +0800
+
+    Update agents and dropper
+
+commit 665d0637e04fe8ca55e9115a307056b62de6b834
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 13:15:14 2020 +0800
+
+    Fixed api calls
+
+commit c1309bfbf2e3e72446f8d2271e1512f3f7303850
+Merge: af92553 14c98f4
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 11:50:47 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit af925533ac10da9c142187284817b78146b8bb6b
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 11:50:25 2020 +0800
+
+    minor changes
+
+commit 14c98f4264716322f81ae44121d82d73899d10c6
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 11:39:11 2020 +0800
+
+    Update README.md
+
+commit 86a46e41d32fa126798e7549c235a8e96da50a82
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 11:33:27 2020 +0800
+
+    Oops small test error
+
+commit 0255586ae0c5f76a0f4aeac2f1546fca20854c48
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jul 3 11:31:26 2020 +0800
+
+    Finalised API portion
+
+commit 1f5b8d074377c368bb67d2aa35555286efd6d5b5
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Thu Jul 2 01:00:56 2020 +0800
+
+    Added css to login screen and dashboard
+    
+    <Note>
+    Main login URL has been changed to 'localhost:8000/accounts/tlogin'
+    
+    Will add more features tmrw:
+    1) List selection of agents after displaying them from models dynamically
+    2) Create layout (forms, etc...) for session page
+
+commit 153adca71e5e1b8b7c0fafeb814e4d783c56fa38
+Merge: 0186d20 3a4359e
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 1 16:15:03 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit 0186d201f9578d9c3d090a931ab806da43180d1d
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 1 16:14:41 2020 +0800
+
+    Added test view
+
+commit 3a4359e8e1164d2f990acd8e4afd6246efb374ba
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jul 1 15:55:56 2020 +0800
+
+    Update README.md
+
+commit 46ed58419d184b3d35734b14f33466059dff256f
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jul 1 15:55:19 2020 +0800
+
+    Update README.md
+
+commit f8258992f3157fc0497218440ff34213cf5e3492
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jul 1 15:43:11 2020 +0800
+
+    Update django.yml
+
+commit 256fe904db1eb24e0ff57710b4612b1833749b50
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jul 1 15:40:52 2020 +0800
+
+    Refactored code
+
+commit 9daea97a20b6b9bbcd1eb25f052dbcff795a1f12
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Tue Jun 30 23:06:33 2020 +0800
+
+    Completed CSS
+    
+    Finished integration of CSS, to be improved:
+    
+    - Modularity of using CSS / static files in general
+    - Integration of core features into new CSS-ed webpages
+    - Developing (1) Agent selection dashboard, (2) Session creation page
+
+commit 51936e50522b5ddb30ccea8818004ae2a5395d61
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Tue Jun 30 20:11:35 2020 +0800
+
+    Modified logout function
+    
+    Made sure that GET/POST requests to accounts/logout will log out the user AND redirect them to accounts/login
+
+commit 3af3fd63cf708f6d93edc194ee98c153f95a4b91
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Tue Jun 30 19:55:29 2020 +0800
+
+    Removed Secret Key for security purposes
+    
+    Refer to telegram to add Secret Key into settings.py of the project
+
+commit 1ebe6c28e0c5e92a1f9b76e68eebb1848007ef80
+Author: xiuqiho <xiuqiho@gmail.com>
+Date:   Tue Jun 30 19:20:22 2020 +0800
+
+    Added login feature
+    
+    Added 'C2' Folder. Completed backbone login function, no CSS.
+    Included owen's enuemration scripts and desmond's code as much as I could from the server_django folder.
+    
+    <Links that you should know>
+    - localhost:8000/admin/ = admin portal (credentials 'c4x' 'P@ssw0rd123!', )
+    - localhost:8000/accounts/login = Mandatory login page (in order to use the C2 UI)
+    - localhost:8000/webui/ = homepage (greetings etc, no showing of agents)
+    - localhost:8000/webui/dashboard = show known agents from database (I manually added them through admin portal)
+    
+    <Note>
+    Did not implement create user page as there is no need for us to have more than one user.
+
+commit 32ee5a86425c98e4ab32ac43294388ac662837c1
+Author: Clem <clement_392@hotmail.com>
+Date:   Sun Jun 28 16:24:02 2020 +0800
+
+    Updated checklist
+
+commit ee45e7ac3629df711f8892f8edeee7db62735fdf
+Author: Clem <clement_392@hotmail.com>
+Date:   Sun Jun 28 16:11:23 2020 +0800
+
+    added persistency
+
+commit a000bad9a3f40ac6ce67101eafdf21d50922b21e
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Sun Jun 28 11:15:45 2020 +0800
+
+    Updated README
+
+commit 7f9d15a6d1252458444b6ba063f2ec896de7cb32
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Sun Jun 28 11:11:59 2020 +0800
+
+    restructured code
+
+commit 955deec5202189722c4d9b99c3c9f6c525512e89
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:44:56 2020 +0800
+
+    Updated README"
+
+commit 10132519607338ea45cada2a3aad032a1455d962
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:41:32 2020 +0800
+
+    Updated README"
+
+commit 20167725d80ce8f52a613c2815a9a75fc84fd5e7
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:40:22 2020 +0800
+
+    Updated README"
+
+commit cf1b50e430ac80210c028cdf35b50d4c5a465c59
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:32:30 2020 +0800
+
+    Improved readme
+
+commit 91017ba9bdc6f60754aa294bce1f61e446c9d958
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:30:58 2020 +0800
+
+    updated readme
+
+commit 240cab2c004a64e07029676f6940f637f2d96367
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:26:26 2020 +0800
+
+    updated readme
+
+commit b367b77c254b123369dfb57e7bee31ea20546df2
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:23:41 2020 +0800
+
+    fixed readme
+
+commit 69f08ecf3f30079967adc0f827052b8604fc4090
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:23:00 2020 +0800
+
+    Improved readme
+
+commit 9638165441162298737065d7d380e6c0b241fbf2
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:21:28 2020 +0800
+
+    implemented get commands feature
+
+commit 3e01e892ec8ee2179686133aac42afd323867ce7
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 22:20:30 2020 +0800
+
+    Improved readme
+
+commit f8d9a26b3ca9ef793d3050043f7cca882f499a68
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Fri Jun 26 21:58:17 2020 +0800
+
+    implemented get commands feature
+
+commit c31c04fd40ca951b38b2a7b5a5127fc7882a17ec
+Merge: f344972 a3c53a6
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Thu Jun 25 21:33:39 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit f344972f750e101e0282958c4344e96da0f4f9ba
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Thu Jun 25 21:32:56 2020 +0800
+
+    Implemented nmap load balancing and pipeline
+
+commit a3c53a648a6022c8ff1731b19a37e8440faf35f2
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Thu Jun 25 17:04:38 2020 +0800
+
+    Update django.yml
+
+commit 50f972ce4bbdcd5237f4395182b9f317bcf45682
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Thu Jun 25 17:02:14 2020 +0800
+
+    Restructured code
+
+commit b8465373f8e4745dabcd89c2115c5aafb91cb6b1
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Thu Jun 25 14:58:42 2020 +0800
+
+    update
+
+commit 2a4c3dd588ecc94e1292fe9ef4356ee2a7b8e506
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Thu Jun 25 14:57:05 2020 +0800
+
+    Update django.yml
+
+commit d18c69e8c423a6d3d0b8f64eab7b6a6650b4bf36
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Thu Jun 25 14:56:03 2020 +0800
+
+    Update django.yml
+
+commit f0d4b4ae40dd758ccadac5efa23b082a467fbf0a
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Wed Jun 24 15:00:54 2020 +0800
+
+    added requirements
+
+commit b39e6c4c3570f74182be33d3bc0a73b7139c201d
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Wed Jun 24 14:58:44 2020 +0800
+
+    Create django.yml
+
+commit f3bb100ccae928f64b43e42c08716a077f77962e
+Author: owensoh <owinsoh@gmail.com>
+Date:   Wed Jun 24 10:35:58 2020 +0800
+
+    Add files via upload
+
+commit ad511bce27e91b6aea16d813b4dbcfec8e8bdbda
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jun 23 23:11:32 2020 +0800
+
+    added pipeline base code
+
+commit 808c2e8589e0c0491015a7219fcda4e9ece044b5
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Tue Jun 23 09:14:59 2020 +0800
+
+    configured new workspace
+
+commit f80c78e8757fb02b64c288c88f60393da92c9f6f
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 22:33:54 2020 +0800
+
+    updated urls for api
+
+commit b4f15635ee97b4b59ad938ea167f9a51b43ba272
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 22:05:29 2020 +0800
+
+    added tests for models
+
+commit d54d0901b6f8a32f21f62e807a0c716f15f08896
+Merge: 1c64c6f 46252f8
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 21:13:24 2020 +0800
+
+    fix merging
+
+commit 1c64c6f03749c76e9d3c5aa9a50e5cd444e21bf6
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 21:09:53 2020 +0800
+
+    created models
+
+commit 82208b3f50e2d090f6f80dd2e3f274390e1e3be1
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 21:06:32 2020 +0800
+
+    created models
+
+commit 46252f816f549c0b1a7b928120ba9e6e50c4293b
+Author: Clem <clement_392@hotmail.com>
+Date:   Mon Jun 22 20:11:39 2020 +0800
+
+    changed exe to txt
+
+commit a131b12f118cf6b1749d7e0a5b39608874437e1c
+Author: Clem <clement_392@hotmail.com>
+Date:   Mon Jun 22 19:51:07 2020 +0800
+
+    added resources folder with payload
+    
+    to get the url for the code
+
+commit 01f91869f0b163e9795ae7580c1b7b3375dd303d
+Author: Clement <clement_392@hotmail.com>
+Date:   Mon Jun 22 19:42:23 2020 +0800
+
+    Update agent.py
+
+commit 80840569a06f53825c1da5db0080fd390000fded
+Merge: b84545c db1b4f4
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 14:08:02 2020 +0800
+
+    Merge branch 'master' of https://github.com/notclement/botnet-enumeration-network
+
+commit b84545cc6cb4de84fe2353f18706b910e55e28fb
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 14:07:32 2020 +0800
+
+    added templates and static directories
+
+commit db1b4f403e141b5bcc49236986e5318e44be011a
+Merge: 0fbe1dc 715dfe7
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 13:47:31 2020 +0800
+
+    Merge pull request #1 from notclement/add-license-1
+    
+    Create LICENSE
+
+commit 715dfe7c5596cfd96a8c75cab7449a8ef63bd114
+Author: mazx4960 <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 13:47:19 2020 +0800
+
+    Create LICENSE
+
+commit 0fbe1dc7147a6dca6a6d488ba101922feb03c39a
+Author: Desmond <desmondtan4561@gmail.com>
+Date:   Mon Jun 22 13:42:25 2020 +0800
+
+    Fixed django configurations and added api support
+
+commit 1dc8e920c99719aefbde7356999e8b32076b73ee
+Author: Desmond Tan <max@Desmonds-MBP.mazx.local>
+Date:   Sun Jun 14 17:19:59 2020 +0800
+
+    added readme for server side
+
+commit a2927ea281938c4b007a016bafb1bf0879bc2167
+Author: Desmond Tan <max@Desmonds-MBP.mazx.local>
+Date:   Sun Jun 14 17:04:54 2020 +0800
+
+    added venv for mac
+
+commit 9a1301e0cda1dc781a537fbf0ffbf050bc253e53
+Author: Desmond Tan <max@Desmonds-MBP.mazx.local>
+Date:   Sun Jun 14 16:58:59 2020 +0800
+
+    added django directory
+
+commit 5125642d4fb945f6594f80d43ff3978532ab900b
+Author: Desmond Tan <max@Desmonds-MBP.mazx.local>
+Date:   Sun Jun 14 16:48:57 2020 +0800
+
+    added requirements.txt
+
+commit 8ee2e7cb5a321704adee69ced043920540d9405d
+Author: Desmond Tan <max@Desmonds-MBP.mazx.local>
+Date:   Sun Jun 14 16:48:04 2020 +0800
+
+    added mac virtualenv
+
+commit 74423bebb98a9d01fa62f073b89e6191cfb19296
+Author: Desmond Tan <max@Desmonds-MBP.mazx.local>
+Date:   Sun Jun 14 16:24:15 2020 +0800
+
+    reorganised code

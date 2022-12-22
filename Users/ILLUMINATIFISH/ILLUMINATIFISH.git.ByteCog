@@ -1,0 +1,617 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/45714340/112740316-e7543a80-8f73-11eb-87db-74d42f311712.png">
+</p>
+	
+<p align="center">
+  <h4 align="center">A way to analyse how malware and/or goodware samples vary from each other using <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon Entropy</a>, <a href="https://en.wikipedia.org/wiki/Hausdorff_distance">Hausdorff Distance</a> and <a href="https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Jaro-Winkler Distance</a></h4>
+</p>  
+
+<p align="center">
+  <img alt="Python version" src="https://img.shields.io/badge/Python-v3.5+-orange">  <img alt="Project version" src="https://img.shields.io/badge/Current%20Version-v0.4-orange">
+    <img alt="Codacy Grade" src="https://app.codacy.com/project/badge/Grade/5f79074e24434bac804b840819b01ff0">  <img src="https://img.shields.io/github/languages/code-size/IlluminatiFish/ByteCog">  <img src="https://img.shields.io/github/license/IlluminatiFish/ByteCog">  <img src="https://img.shields.io/github/last-commit/IlluminatiFish/ByteCog">
+</p>
+<br>
+<p align="center">
+  <strong>
+	<a href="https://github.com/IlluminatiFish/ByteCog/blob/main/README.md#usage">Usage</a>
+		•
+	<a href="https://github.com/IlluminatiFish/ByteCog/blob/main/README.md#installation">Download</a>
+  </strong>
+  
+</p>
+
+# Introduction
+
+ByteCog is a python script that aims to help security researchers and others a like to classify malicious software compared to other samples, depending on what the unknown file(s) is/are being tested against. This script can be extended to use a machine learning model to classify malware if you wanted to do so. ByteCog uses multiple methods of analyzing and classifying samples given to it, such as using <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon Entropy</a> to give a visual aspect for the researchers to look at while analyzing the code and finding possible readable code/text in a sample. ByteCog also uses <a href="https://en.wikipedia.org/wiki/Hausdorff_distance">Hausdorff Distance</a> to calculate a 'raw similarity' value based on the difference in the entropy graphs of both samples, and finally ByteCog uses <a href="https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Jaro-Winkler Distance</a> to calculate the 'true similarity' since the <a href="https://en.wikipedia.org/wiki/Hausdorff_distance">Hausdorff Distance</a> will in most cases return a very high value if the sample is mostly the same entropy wise, so the <a href="https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Jaro-Winkler Distance</a> is used to 'adjust' the simliarity value for this case of a sample.
+
+# Requirements
+
+- A python installation above 3.5+, which you can download from the official python website <a href="http://www.python.org/download/">here</a>.
+
+# Installation 
+Clone this repository to your local machine by following these instructions layed out <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository">here</a>
+
+Then proceed to download the dependencies file by running the following line in your console window
+```
+pip install -r requirements.txt
+```
+
+# Usage
+```
+======================================================
+|      ____          __         ______               |
+|     / __ ) __  __ / /_ ___   / ____/____   ____    |
+|    / __  |/ / / // __// _ \ / /    / __ \ / __ \   |
+|   / /_/ // /_/ // /_ /  __// /___ / /_/ // /_/ /   |
+|  /_____/ \__, / \__/ \___/ \____/ \____/ \__, /    |
+|         /____/                          /____/     |
+|                                                    |
+|                    Version: 0.4                    |
+|               Author: IlluminatiFish               |
+======================================================
+
+usage: bytecog.py [-h] -k KNOWN -u UNKNOWN -i IDENTIFIER -v VISUAL
+
+Determine whether an unknown provided sample is similar to a known sample
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -k KNOWN, --known KNOWN
+                        The file path to the known sample
+  -u UNKNOWN, --unknown UNKNOWN
+                        The file path to the unknown sample
+  -i IDENTIFIER, --identifier IDENTIFIER
+                        The antivirus identifier of the known file
+  -v VISUAL, --visual VISUAL
+                        If you want to show a visual representation of the file entropy
+ ```
+
+# Features & Use Cases
+
+- Calculates sample similarity
+- Generates chunked entropy graph
+- Able to *possibly* detect malicious and benign software samples
+
+# Screenshots
+
+Chunked Entropy Graph
+<br>
+![chunk_entropy_graph](https://user-images.githubusercontent.com/45714340/112214987-bdb7ae00-8c17-11eb-98c0-bebcda6fc1ba.png)
+
+Output of ByteCog
+<br>
+![bytecog_output](https://user-images.githubusercontent.com/45714340/112215120-e475e480-8c17-11eb-908d-a2e4c205521c.png)
+
+ByteCog Log File
+<br>
+![bytecog log file](https://user-images.githubusercontent.com/45714340/112740204-f686b880-8f72-11eb-9bb2-84023dbcdfb7.PNG)
+
+
+# License
+ByteCog - A way to analyse how malware and/or goodware samples vary from each other using <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Shannon Entropy</a>, <a href="https://en.wikipedia.org/wiki/Hausdorff_distance">Hausdorff Distance</a> and <a href="https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Jaro-Winkler Distance</a> Copyright (c) 2021-2022 IlluminatiFish
+
+This program is free software; you can redistribute it and/or modify the code base under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but without ANY warranty; without even the implied warranty of merchantability or fitness for a particular purpose. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/
+
+# Acknowledgements 
+- Using a modified version of <a href="https://github.com/venkat-abhi">@venkat-abhi</a>'s Shannon Entropy calculator to work with my project script, you can find the original one <a href="https://github.com/venkat-abhi/Entropy-Calculator/blob/master/shanon-calc.py">here</a>.
+
+- Using the fastest method to get maximum key from a dictionary using this snippet <a href="https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary">here</a>.
+
+
+# References
+[Entropy Wiki](https://en.wikipedia.org/wiki/Entropy_(information_theory))
+<br>
+[Jaro-Winkler Distance Wiki](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)
+<br>
+[Hausdorff Distance Wiki](https://en.wikipedia.org/wiki/Hausdorff_distance)
+<br>
+[Shannon Calculator](https://github.com/venkat-abhi/Entropy-Calculator/blob/master/shanon-calc.py)
+<br>
+[Referenced Article #1](https://www.talentcookie.com/2016/02/05/file-entropy-in-malware-analysis/)
+<br>
+[Referenced Paper #1](https://arxiv.org/ftp/arxiv/papers/1903/1903.10208.pdf)
+<br>
+[Referenced Paper #2](https://www.researchgate.net/publication/3437909_Using_Entropy_Analysis_to_Find_Encrypted_and_Packed_Malware)
+<br>
+[Referenced Paper #3](https://www.researchgate.net/publication/334686946_Machine_Learning_Based_File_Entropy_Analysis_for_Ransomware_Detection_in_Backup_Systems)
+
+====================== GIT HISTORY: ======================
+79ce447 HEAD@{0}: clone: from https://github.com/IlluminatiFish/ByteCog
+commit 79ce44797cff275b1319227d40b9212012a1e233
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sat Jan 22 20:35:56 2022 +0000
+
+    Update README.md
+
+commit 6f005b3a8545217a50908b7e414d012c527fe638
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Wed Jun 16 09:18:51 2021 +0100
+
+    Update README.md
+    
+    pip cmd update
+
+commit cd4412356d51b32a46e91e352fa81dc15bb98418
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 23:43:00 2021 +0100
+
+    Update README.md
+    
+    Wrong codacy badge
+
+commit ac85d35f189a4835469c88615bb9ea917ff4a624
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 03:30:52 2021 +0100
+
+    Update README.md
+    
+    installation command update
+
+commit 5cf946385b3f4ec1cde328714fd447c566f7fc75
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 03:20:38 2021 +0100
+
+    v0.3 removal
+
+commit 49c711eabd7795e60bba3aab03b68e4298d59c2c
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 03:20:29 2021 +0100
+
+    v0.3 removal
+
+commit 681a52cbae4c4d7c4a0cae7607eafe5baf389b8a
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 03:20:20 2021 +0100
+
+    v0.3 removal
+
+commit 173316416c9129f52294c4727741383a6a928ff4
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 03:20:08 2021 +0100
+
+    v0.3 removal
+
+commit 8620ab839473c0546687ed9ba6aee2656c447c82
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 03:18:27 2021 +0100
+
+    v0.4 update
+    
+    requirements update
+
+commit b11cee26022d98b2bc51daa4a681dc62b7e02592
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Jun 6 03:09:59 2021 +0100
+
+    v0.4 update
+    
+    - added color coding to cli output
+    - added title to plot figure
+    - changed similarity calculation slightly
+    - added check to see if similarity formula returns a negative if so similarity is set to 0
+
+commit 496d0e2e8c9edf43ca1c4c5cf374ec0e05577f70
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sat May 29 03:57:31 2021 +0100
+
+    Update README.md
+
+commit 6bf54ac0adfb932b9279b5b93af4bdbe0d194c7a
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sat May 29 03:01:35 2021 +0100
+
+    Update README.md
+
+commit 3449852f4bba7095cd39f7ceefe4591ef294884e
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sat May 29 03:01:15 2021 +0100
+
+    Update README.md
+
+commit cc39e17920ffbbe04b47b6cc1aee4c525790346f
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:24:35 2021 +0100
+
+    Update TODO.md
+
+commit c3a25714cde2b59fd7aecde21bc78fd2a2fc4941
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:23:58 2021 +0100
+
+    Update README.md
+    
+    Changed badges back since capital letters apparently dont work for them lol
+
+commit d70bc9ddefb6f0d2e8b1fe5249ad37afbd73c01f
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:23:24 2021 +0100
+
+    Update README.md
+    
+    Updated badges
+
+commit 86e965c822f694f395195828cfcf0b31df11b398
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:22:24 2021 +0100
+
+    Update README.md
+    
+    Updated acknowledgements section
+
+commit 84b82705624a5ac63cffb0b18a6bf05b5502723f
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:17:07 2021 +0100
+
+    Update bytecog.py
+    
+    Updated bytecog banner version displayed
+
+commit 290868f5c79d0d77f473d05ffb1e681bf61d91c0
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:16:33 2021 +0100
+
+    Update README.md
+    
+    Updated help snippet
+
+commit 30a90d74ec0bd3fa4b94ebc23c13b35504298b87
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:16:10 2021 +0100
+
+    Update README.md
+    
+    Reverted back to old v0.1 logo
+
+commit ca857ed421a0e76118137e15feb748c5e565419a
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:14:37 2021 +0100
+
+    Add files via upload
+    
+    Added log utility module for logging
+
+commit 05982a7086733275837ec7a25fa2b3f465c2bb15
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:14:14 2021 +0100
+
+    Util misplaced
+    
+    Oops, this was uploaded in the wrong place
+
+commit d306d2281adf5f60600409d0d29fa07557884aea
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:14:04 2021 +0100
+
+    Util misplaced
+    
+    Oops, this was uploaded in the wrong place
+
+commit 1cec98bfadf5627e94aa375644ceae92227979c2
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:13:50 2021 +0100
+
+    Util misplaced
+    
+    Oops, this was uploaded in the wrong place
+
+commit 4f9e93a0a08584c9ef92ec710904cf93b71858aa
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:13:40 2021 +0100
+
+    Util misplaced
+    
+    Oops, this was uploaded in the wrong place
+
+commit 23ce79c403621ad728a64a00048ac08c0f936b10
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:12:17 2021 +0100
+
+    Add files via upload
+    
+    Added execution time calculation to inform users
+    Added log file generation
+
+commit bc459b23ab77ba823050901aa537672fead10351
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:10:57 2021 +0100
+
+    Update README.md
+
+commit 942e0c028dbcef017feb794585be27aa8c1cd950
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 28 03:10:21 2021 +0100
+
+    Update README.md
+    
+    Added log file screenshot
+
+commit 35ee0935c55298947d6331c3333ce4ad7ff69534
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Thu Mar 25 23:33:18 2021 +0000
+
+    Update README.md
+    
+    Updated logo design
+    Badge color update
+
+commit 57ceca6537923a27a8aaed22e97e7325315457d9
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Wed Mar 24 21:06:50 2021 +0000
+
+    Update TODO.md
+
+commit 5b20ec0edf44654cfb5f1fe1b209d32a2af860e6
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Wed Mar 24 21:06:39 2021 +0000
+
+    Update TODO.md
+
+commit a3eb375d6fb07654cd582dd9a6af726f31bfd9cf
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Wed Mar 24 21:06:21 2021 +0000
+
+    Create TODO.md
+    
+    Created TODO list
+
+commit 6e199a466c97bfa85e9dc697e7f9f1480a19f998
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Wed Mar 24 20:59:49 2021 +0000
+
+    Update README.md
+    
+    Fixed typos & spelling errors in README
+
+commit dd32a9629765568ee114ce79aae53250b5b65637
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Wed Mar 24 20:11:59 2021 +0000
+
+    Update README.md
+
+commit 3dd28cf3ba3b00a6c90dd6bcd4260d3ccee412fc
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 23:06:12 2021 +0000
+
+    Update bytecog.py
+    
+    Added try-except block to catch any unicode decoding errors that may arise when python tries to decode random hex values found in samples, instead using a fallback method which is not really ideal that casts the bytes object to a string and calculates the Jaro-Winkler distance from the casted string objects.
+
+commit ba6483af8e042b31e1723d5291035341dc69fe34
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:49:50 2021 +0000
+
+    Update string_utils.py
+    
+    Codacy Quality updates
+
+commit 9ff991d01176fd14cbfd2393acdb5999dabdad7f
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:47:31 2021 +0000
+
+    Update README.md
+    
+    Reverted to old html code for the README design
+
+commit 03c5a59bc6651fff5dbd821dadc065d8b0d7b577
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:45:05 2021 +0000
+
+    Update README.md
+    
+    Moved the start of the README into one paragraph center tag
+
+commit 5739a27c5d1805ffd7e1328cd0d99abad01ef11c
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:42:02 2021 +0000
+
+    Update README.md
+
+commit 95949a62d7e26f2c1f88740d61c986f534b0cd20
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:41:48 2021 +0000
+
+    Update README.md
+
+commit b09dcfd85c6ba98380296c5d9ee117d0577770f1
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:41:12 2021 +0000
+
+    Update README.md
+    
+    Quick break tag added
+
+commit 60ed51eb8538c20c56e3fe659c98c1c7fbce17aa
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:40:43 2021 +0000
+
+    Update README.md
+    
+    Updated start of README in center alignment
+
+commit 87a9be62e1f7f722fbf8d056b5848a2c0f8c4f9a
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:39:03 2021 +0000
+
+    Update bytecog.py
+    
+    Removed trailing whitespace in comment on line 166, to follow Codacy quality check
+
+commit 4e866fe91af51115d8fcbb81bce537de192b76fa
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:38:15 2021 +0000
+
+    Update string_utils.py
+    
+    Fixing docustrings for Codacy quality check
+
+commit e355b206e5029381165d8f1fcfdc592cf9b4306b
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:34:20 2021 +0000
+
+    Update string_utils.py
+    
+    Updated docustring to fix Cdoacy Issues
+
+commit da51335f788fb5c81c5a29f75234955d0c6c041c
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:30:57 2021 +0000
+
+    Update README.md
+    
+    ByteCog logo change
+
+commit 373eec260910fbf25469b4231b0909df3da7852f
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:02:53 2021 +0000
+
+    Update README.md
+
+commit 9fdc5812287e008f044e2a3ef6fbfb9af506ff82
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:00:46 2021 +0000
+
+    Update README.md
+
+commit 14cf9658880db1a32dcb1456991d382cfdfbe15f
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 22:00:02 2021 +0000
+
+    Update README.md
+
+commit 1846f3bde7389efb5ddd890bc5357798210f525a
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 21:59:32 2021 +0000
+
+    Update README.md
+    
+    Anchor tag update in intro section
+
+commit c6d5c73d89591787bd660286199a88955a4b96da
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 21:58:41 2021 +0000
+
+    Update README.md
+    
+    Anchor tag updates in intro section
+
+commit 7a7ab14c0814a32723931c51d1d91aeea386f338
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 21:57:31 2021 +0000
+
+    Delete utils.py
+    
+    Moved and split up into seperate utils modules
+
+commit d4dbb415004a022ae65092d16856f6c28720146e
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 21:56:56 2021 +0000
+
+    Add files via upload
+    
+    Added updated 0.2 files in batch upload
+
+commit f90797e43c7139756f1447f805af869e3b9ee66c
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 21:54:49 2021 +0000
+
+    Update README.md
+    
+    Massive updates to the README:
+    - Added License notice
+    - Added Features section
+    - Added Usage section
+    - Added Installation section
+    - Added Requirements section
+    - Added Introduction section
+    - Added default repo badges
+    - Added short slogan sort of
+
+commit 9bc76f11aa768c99d31e2bf8bfdd10ef640a6ac9
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 20:48:28 2021 +0000
+
+    Update README.md
+    
+    Updated of README
+
+commit 8155459370cf6c7a19d13531eafc0a490965f41e
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 20:47:51 2021 +0000
+
+    Update README.md
+    
+    Update of README
+
+commit 2b58e45d0c553e1cda84d467f28fd43cb16491aa
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Tue Mar 23 13:40:38 2021 +0000
+
+    Update README.md
+    
+    Added logo
+
+commit 4851e980603f7a53a452925fa00f8052a9670ed5
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 19:23:14 2021 +0000
+
+    Create LICENSE
+    
+    Update to GPLv3
+
+commit 3690140c9e928f45572812b6065770189cb2742e
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 19:20:36 2021 +0000
+
+    Create LICENSE
+    
+    Update
+
+commit 79d51b42677a40ef43c1afdd1661099a3d13bff9
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 01:49:38 2021 +0000
+
+    Update README.md
+
+commit dd41eccf44efe2ab24ad614872041383a61ff302
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 00:52:53 2021 +0000
+
+    Update README.md
+    
+    Added project references
+
+commit 0c4f11a8c2d45b9e926751a95c386cbab24b4d80
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 00:34:30 2021 +0000
+
+    Update README.md
+    
+    Updated README
+
+commit 871c3b223c0cb1ae5ed493eefdd37d3734b52530
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 00:33:36 2021 +0000
+
+    Create utils.py
+    
+    Initial commit
+
+commit 7881a808cc5a275b8224fd218b8cd5482757920b
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 00:30:56 2021 +0000
+
+    Create bytecog.py
+    
+    Initial commit
+
+commit ce1e162ece8096cf79231a1f9c5696a69fbb62d2
+Author: IlluminatiFish <45714340+IlluminatiFish@users.noreply.github.com>
+Date:   Sun Mar 21 00:23:58 2021 +0000
+
+    Initial commit

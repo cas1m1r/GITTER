@@ -1,0 +1,423 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Brutus 🗡️ 
+
+Brutus is a **Botnet**, written entirely in **Python** targeting **Windows machines**.
+
+It gives the attacker control over the victim's machine and enables him to:
+
+- **Stream images over the victim's webcam**
+- **Stream audio over the victim's microphone**
+- **Take screenshots of the victim's desktop**
+- **Run batch commands & receive the output of those**
+- **Automatically create a backdoor after execution**
+- **Get the victim's location through the IPv4 address**
+
+The **Command Line Interface / CLI** of Brutus had to be developed **manually**   
+because in Python the **"input()" - function** disables the script from  
+**printing output** to the **regular CLI** when awaiting user input.
+
+The **PYQT Framework** is used for the creation of the GUI.   
+**Asynchronous TCP-Socket connections** are used to transfer data.  
+
+It's efficient and enables the script to receive output from infected devices  
+and send input/commands to those devices **at the same time**.
+
+Connected users are given an individual **ID-Number**  
+over which they can be adressed in the CLI.
+
+<br></br>
+## Commands
+
+- **Initiate the webcam feed**
+```shell  
+> ID@webcam feed 
+```
+_Shortcut_
+```shell
+> ID@wf 
+``` 
+_Can be ended via_
+```shell
+esc
+```
+
+<br></br>
+- **Initiate the audio feed**
+```shell  
+> ID@mic feed 
+```
+_Shortcut_
+```shell
+> ID@mf
+``` 
+_Can be ended via_
+```shell
+esc
+```
+
+<br></br>
+- **Clear the CLI**
+```shell
+> clear
+```
+
+<br></br>
+- **Display connected devices & their ID, IPv4, location**
+```shell
+> show clients
+```
+_Shortcut_
+```shell
+> sc
+```
+
+
+<br></br>
+- **Send bash command**
+```shell
+> ID@command
+```
+
+<br></br>
+- **Get current IPv4**
+```shell
+> get_ip
+```
+
+<br></br>
+- **Print text to the Command Line**
+```shell
+> echo ...
+```
+
+<br></br>
+- **Take Screenshot of the victim's screen**
+```shell
+> ID@take screenshot
+```
+
+<br></br>
+- **Take Snapshot of the victim's webcam**
+```shell
+> ID@take snapshot 
+```
+
+<br></br>
+- **Show popup message on victim's machine**
+```shell
+> ID@popup 'window title' 'message' 
+```
+
+<br></br>
+- **Close the CLI**
+```shell
+> exit
+```
+<br></br>
+
+
+
+**New Commands will be added in the near future**
+
+**Open to Support, Commits and Suggestions!**
+
+
+
+====================== GIT HISTORY: ======================
+649b2fb HEAD@{0}: clone: from https://github.com/Bialomazur/Brutus
+commit 649b2fb75b944435f167249609dfe43abb9bc78a
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Tue Feb 2 10:49:33 2021 +0100
+
+    Delete snapshot.png
+
+commit eba66359abdd3ff1e6271309f55649bb2d8275ba
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Tue Nov 10 00:51:57 2020 +0100
+
+    Updated commands
+
+commit 25770121cae26039e2bdf7241d49e9fc9fab9fde
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Tue Nov 10 00:51:17 2020 +0100
+
+    Update README.md
+
+commit fc2e0c28bc3683f6495ea980083190769b11f7ab
+Merge: 9421014 d7884c7
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Tue Nov 10 00:49:35 2020 +0100
+
+    Merge branch 'master' of https://www.github.com/Bialomazur/Brutus
+
+commit 9421014cf88e6d84ca3adf73ac830504553129b4
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Tue Nov 10 00:49:05 2020 +0100
+
+    added command to create popup messages on victim's machine
+
+commit d7884c7671343234abb4a6745a293cc18f3bacb9
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Thu Nov 5 13:40:19 2020 +0100
+
+    Add info to configure.md
+
+commit 3cb1f17de9b681bed36eb84473517b722e249f6e
+Merge: 7e2fe71 a48d87a
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Mon Oct 26 00:23:00 2020 +0100
+
+    Merge pull request #2 from RMPR/master
+    
+    Fix a typo in the README
+
+commit a48d87a1aee6411a3c8e92f01afdf03e0094864b
+Author: RMPR <akoudanilo@gmail.com>
+Date:   Fri Oct 23 12:49:16 2020 +0100
+
+    Fix a typo in the README
+
+commit 7e2fe7102b44d439071b80d830b2c79f0fce39f9
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Tue Oct 20 22:01:29 2020 +0200
+
+    Update Configuration.md
+
+commit f5ef3e9ea2cfff0f58cf9a1f0ae091dee31201e0
+Merge: ce37a92 93aa1a4
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Tue Oct 20 22:00:27 2020 +0200
+
+    Merge pull request #1 from Bialomazur/add-license-1
+    
+    Added MIT License
+
+commit 93aa1a40fe52acd9d1df66c2584bc85c338bb60b
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Tue Oct 20 21:59:42 2020 +0200
+
+    Added MIT License
+
+commit ce37a92ca08234b0a0e60d8a276de8c7daf23292
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Sun Oct 18 15:23:42 2020 +0200
+
+    Update Configuration.md
+
+commit 410e5c8034ef8adc1ffc95935b01abedc7a934cb
+Author: Kamil <bialomazurkamil@gmail.com>
+Date:   Sat Oct 17 00:24:46 2020 +0200
+
+    Update README.md
+
+commit 464f4f16adb47b908bfb60680342f2dbe00c48db
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Sat Oct 17 00:23:36 2020 +0200
+
+    Changed Brutus Icon + Command to take snapshot added
+
+commit d9fb6c61d8b7676cec8c18905efc90610aa92b47
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Fri Oct 16 23:23:31 2020 +0200
+
+    Screenshot removed on victim side after beeing sent
+
+commit 0a56beb9aed30c9737a12b73d58265d321bb4605
+Merge: e3aa8ed 1beee99
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Fri Oct 16 23:05:36 2020 +0200
+
+    Screenshots are now saved in individual folders based on the victim's ID
+
+commit e3aa8ed6b828b16172ba4d190114ac3213b01a14
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Fri Oct 16 23:03:30 2020 +0200
+
+    Screenshots are now saved to individual folders
+
+commit 1beee99eca7f583c7d6c6d3eb077b9cb6cdda322
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Fri Oct 16 11:02:18 2020 +0200
+
+    minor adjustments
+
+commit 68b320ca3ce0de3d99f8ed9ea60a978f9e7b6ffb
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Fri Oct 16 10:54:02 2020 +0200
+
+    Added comments
+
+commit 39018903a3209568a8ce973973cef6ecc6c8b357
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Wed Oct 14 20:22:14 2020 +0200
+
+    Update Configuration.md
+
+commit 54ef495da78de273ae73b9ece14e86bedf5cacbf
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Wed Oct 14 20:22:02 2020 +0200
+
+    Update Configuration.md
+
+commit 725593b8f584bf60bb58feddaadc0b741890b91b
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Wed Oct 14 01:11:17 2020 +0200
+
+    Update CONTRIBUTING.md
+
+commit bb1578477c62332df0ba153cd19e370bec1d16c2
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Wed Oct 14 01:03:31 2020 +0200
+
+    Created 'locator.py' swapped from API to scraping IP-location data.
+
+commit 9e9a1be7315e7a342e7f9422c1c552032ec07f6a
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Wed Oct 14 01:02:36 2020 +0200
+
+    Created 'locator.py' swapped from API to scraping IP-location data.
+
+commit 787bf8c0f2cf198868e919bd6260d30c1c53142f
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 15:28:31 2020 +0200
+
+    Update README.md
+
+commit c17b18ffc68b56d0e82c0d6f7a1ec84d4e9aa147
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 14:22:22 2020 +0200
+
+    Create CONTRIBUTING.md
+
+commit 70b8075eeacb00554b17a6a214bf74b335d4a436
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 14:12:11 2020 +0200
+
+    Update Configuration.md
+
+commit ccdf53289a4fe2fa016f3fe37726d3c25be45dca
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 14:10:38 2020 +0200
+
+    Adjusted names of scripts
+
+commit 817bf48b1a95b7ea81caeb8b30842a3edf987f8b
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 13:41:10 2020 +0200
+
+    Modified requirements.txt
+
+commit ec07688f2656b02a64f975520f01e7a2493bf262
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 12:52:14 2020 +0200
+
+    Added Configuration.md file
+
+commit 0df4d7b7ff13a74e5ed463e9d140df40c96d1221
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 12:49:27 2020 +0200
+
+    Added requirements.txt & configured folder structure
+
+commit adfb69afda9670e5a63646dc5f1ee643c5dfcb74
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Tue Oct 13 10:54:40 2020 +0200
+
+    Added Configuration.md file
+
+commit e618b9179aad1540afb21e261392d33b749c2a54
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:33:26 2020 +0200
+
+    Update README.md
+
+commit 00f63c38ba94a0e28bd48ecdea4441462299b6c1
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:31:24 2020 +0200
+
+    Update README.md
+
+commit a1a090bcf9d03b7aa662dc3f4d00c90cea5b1ee4
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:30:35 2020 +0200
+
+    Update README.md
+
+commit 0e22620a9f50e3d6df7e6fc5c88c08031ce5a9c5
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:30:17 2020 +0200
+
+    Update README.md
+
+commit 3df52a09a57ff150e73dad0b2eb94cd823273460
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:29:23 2020 +0200
+
+    Update README.md
+
+commit 12b102d7409885c363dba55887f3f9c269333808
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:28:16 2020 +0200
+
+    Update README.md
+
+commit 58957b15c4de40d8e74c1af4ccc7b716de4b3c0f
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:27:33 2020 +0200
+
+    Update README.md
+
+commit 420b0474c18f3aa5b3b30eb60c03b3571b375b75
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:27:05 2020 +0200
+
+    Update README.md
+
+commit 9c0f3daba6bdec9894ef4a86f40e04bf99951da5
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:26:05 2020 +0200
+
+    Update README.md
+
+commit 8978d337932587768b56e020c7ae2e19718e9b17
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:24:20 2020 +0200
+
+    Update README.md
+
+commit ec7c9c572fa238161f256e59730c43c8471be8a1
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:23:04 2020 +0200
+
+    Update README.md
+
+commit 529838083f0194985048ea7fad4b7a3f86772d68
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sat Oct 10 01:22:03 2020 +0200
+
+    Update README.md
+
+commit a6156fb8307e678d2a6718a29afbdb1f8b9a9be0
+Author: Kamil <59415771+Bialomazur@users.noreply.github.com>
+Date:   Sun Sep 20 13:08:42 2020 +0200
+
+    Create README.md
+
+commit 5eedc6f193ed483b9a1b824e0bf3673516847d98
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Sat Aug 8 14:03:15 2020 +0200
+
+    added ip as command
+
+commit 05eb927fc24c60500731d4d042d8a0b0a8b2c338
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Sat Aug 8 13:51:25 2020 +0200
+
+    removed some files
+
+commit 7496eb8de86e45812f3a2801f1d9c95878cb1528
+Author: Bialomazur <bialomazurkamil@gmail.com>
+Date:   Sat Aug 8 13:48:00 2020 +0200
+
+    Version Beta update

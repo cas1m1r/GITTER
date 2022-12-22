@@ -1,0 +1,1316 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# AKILT
+
+[![Join the chat at https://gitter.im/_AKILT/community](https://badges.gitter.im/_AKILT/community.svg)](https://gitter.im/_AKILT/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+![Code Grade](https://api.codiga.io/project/34798/status/svg)
+![top language](https://img.shields.io/github/languages/top/Xart3mis/AKILT)
+![Lines of code](https://img.shields.io/tokei/lines/github/Xart3mis/AKILT)
+
+#### AKILT _(pronounced ay kilt)_ is an [undetectable](https://www.virustotal.com/gui/file/42673f19cf40d15b1f38235b5bb952c36647c42c64b209c353cd7978a1ddb555/detection) windows \*botnet _??_\* written in golang with a cross-platform C&C Server
+
+**AKILT** aims to help security enthusiasts and malware analysts better understand how botnets work by providing an open source example of an advanced botnet.
+
+### Setup
+#### You can download one of the prebuilt binaries to test it.
+#### Or build from source by following these steps:
+###### Install the dependencies:
+  - a gcc compiler [(download TDM-GCC from here)](https://jmeubank.github.io/tdm-gcc/download/)  
+  - make (download [make](https://community.chocolatey.org/packages/make) using [chocolatey](https://chocolatey.org/install))
+  - Go [(download the golang installer from here)](https://go.dev/dl/)
+  
+  
+###### After installing the dependencies above. Run these commands.
+```bash
+git clone github.com/Xart3mis/AKILT
+```  
+
+```bash
+cd AKILT
+```  
+
+```bash
+make
+```  
+
+**NOTE: Compiling the client only works on windows 64-bit**  
+###### If you'd like to compile the client or server seperately. Run the following commands.:
+```bash
+make clean
+```  
+
+instead of running `make` directly run `make client` or `make server`  
+
+
+##### the compiled binaries will appear in `Client/bin/` and `Server/bin/`
+### Server
+
+![help](https://github.com/Xart3mis/AKILT/blob/master/help.gif)
+
+## Features
+
+**[X]** Capture Client Screen  
+**[X]** Display Dialog on Client PC  
+**[X]** Take Picture from Client webcam  
+**[X]** DDOS (Slowloris, httpflood, Udpflood)  
+**[X]** Remote Command Execution  
+**[X]** Display text on client screen  
+**[WIP]** Download files to client  
+**[WIP]** Upload files from client  
+**[WIP]** Play Audio on client pc  
+**[X]** Keylogger  
+**[WIP]** Spreading mechanism _i am yet to figure it out_  
+**[WIP]** Persistence  
+**[WIP]** [Bot and C2 builder](https://github.com/Xart3mis/akiltbuilder/)  
+**[WIP]** Reverse Shell  
+**[WIP]** Hardcoded login system  
+**[WIP]** Get System Information  
+**[WIP]** Retrieve user password hashes  
+
+###### feel free to contribute. _please do_
+====================== GIT HISTORY: ======================
+d008207 HEAD@{0}: clone: from https://github.com/Xart3mis/AKILT
+commit d00820780d62b06d8998713e489ac96d83be4982
+Merge: 8cf9a25 bab95ff
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Nov 4 15:18:48 2022 +0200
+
+    Merge pull request #15 from Xart3mis/Xart3mis-patch-1
+    
+    Update README.md
+
+commit bab95ff5292c9349ae693bd4744994448be43720
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Nov 4 15:17:01 2022 +0200
+
+    Update README.md
+
+commit 8cf9a25e22a153640485a7862e12fae47ce70f5f
+Merge: fb4d68c 6fa17fc
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Nov 4 15:15:15 2022 +0200
+
+    Merge pull request #14 from Xart3mis/Xart3mis-patch-1
+    
+    Update README.md
+
+commit 6fa17fc5584734d381ee8da777a28ff31f6cad88
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Nov 4 15:14:12 2022 +0200
+
+    Update README.md
+
+commit fb4d68cf62186a456bd6a30e62cd7d3de5d38c5b
+Merge: 02a2ad3 f7304ce
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Nov 1 03:37:42 2022 +0200
+
+    Merge pull request #13 from Xart3mis/Update-README.md
+    
+    Update README.md
+
+commit f7304cedabb603fde27bd88a498c34cbce23f392
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Nov 1 03:37:30 2022 +0200
+
+    Update README.md
+
+commit 02a2ad34f34cef29bcb8813cff109ca20f9f3495
+Merge: 3593af1 e2d8188
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Nov 1 03:24:20 2022 +0200
+
+    Merge pull request #12 from Xart3mis/Update-README.md
+    
+    Update README.md
+
+commit e2d8188118f5aba2c0b220974ce996a8b9d50f72
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Nov 1 03:24:06 2022 +0200
+
+    Update README.md
+
+commit 3593af1410eb6a349630ee7fd185b3bb01a18723
+Merge: bf815e8 bd69e7a
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Nov 1 03:16:14 2022 +0200
+
+    Merge pull request #10 from Xart3mis/Xart3mis-patch-1
+    
+    Create codacy.yml
+
+commit bd69e7ad3009ce2d3ab9c7c17527e18f84177f14
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Nov 1 03:14:01 2022 +0200
+
+    Create codacy.yml
+
+commit bf815e8f2b353e0a53e5bc517e3155161aa6ba15
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Sun Oct 30 17:19:23 2022 +0200
+
+    Update README.md
+
+commit c33be0aa1d9b7e1f50d39c1265bbb2277c678114
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Oct 28 00:51:33 2022 +0200
+
+    Update README.md
+
+commit d80a662a9f975f582940d51dab0d2d98fef07937
+Merge: 8d5a630 2612f89
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Oct 26 02:49:31 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit 8d5a6306b75b5e31e7c26235b6fb560f06fcd333
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Oct 26 02:49:26 2022 +0200
+
+    shit for showing when client connects/disconnects
+
+commit 2612f890ad69b65a68e2e1819e94e1e980f188c5
+Author: Xart3mis <yassodiab12345@gmail.com>
+Date:   Wed Oct 26 00:48:02 2022 +0000
+
+    remove client from client list when it is unregistered
+
+commit d966afcda29842f35918d3e47a05d64478501c56
+Merge: 17b20de 243f72e
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 26 02:12:36 2022 +0200
+
+    Merge pull request #9 from Xart3mis/5-show-when-a-client-connects-disconnects
+    
+    5 show when a client connects disconnects
+
+commit 243f72e10193c80cbd6fe5151e643b293b60118c
+Author: Xart3mis <yassodiab12345@gmail.com>
+Date:   Wed Oct 26 00:09:13 2022 +0000
+
+    show when a client connects or disconnects
+
+commit 17b20de3baa50c034637b0b078186f34bab11f68
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 26 01:56:35 2022 +0200
+
+    Delete LICENSE.md
+
+commit 9f2cf7758e09ed467615ee9591b6d504924635b3
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 26 01:56:05 2022 +0200
+
+    Update LICENSE.md
+
+commit 32af4c2f96536814af7531cabcf9028db56f572a
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 26 01:24:18 2022 +0200
+
+    Update README.md
+
+commit c8dcf89f3d7ec66558a0e50340e32e54191c8c1a
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 26 01:20:40 2022 +0200
+
+    Update README.md
+
+commit a09b342dc4370465f996516f0f6503113d4a6d17
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 26 01:16:23 2022 +0200
+
+    Update README.md
+
+commit 352720955fcb2cb6301e33d1fbd9b26ad6a208e7
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 23:43:55 2022 +0200
+
+    update help.gif
+
+commit c78a28ef0970bdf23a0c24dca22ed6eea36064f1
+Merge: 10cdc8e 9687e09
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 17:11:42 2022 +0200
+
+    Merge branch '5-show-when-a-client-connects-disconnects' of https://github.com/Xart3mis/AKILT into 5-show-when-a-client-connects-disconnects
+
+commit 10cdc8e3099f7d55b2d8cccc6f954aff32b2688e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 17:11:31 2022 +0200
+
+    update AKILTC dependency
+
+commit 9687e09ab5834267eaf6bbc166998c2694d6beb5
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 16:56:15 2022 +0200
+
+    update AKILTC dependency
+
+commit b5475322e7d9e08bc8660d50882e5f4e445a5545
+Merge: db6f041 5dd669e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 16:36:33 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit db6f0415376e406719238b463ed86ced424af451
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 16:36:10 2022 +0200
+
+    update AKILTC dependency
+
+commit 5dd669e7afcad5cc753ac3e7dc439a182dc9d299
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Oct 25 13:56:46 2022 +0200
+
+    Create README.md
+
+commit dec9d5722dc2bbab1b5ef4fbe6bdabd4f33d51d1
+Author: Xart3mis <yassodiab12345@gmail.com>
+Date:   Mon Oct 24 22:43:41 2022 +0000
+
+    add settimeout function and add add a timeout to dialog and exec commands
+
+commit 9d679a891112a264049327b7e7521926f1786738
+Merge: 7c8d694 e778f1a
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 00:43:12 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit 7c8d694025670d639a4d96e5e02049c220b4484c
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 25 00:43:09 2022 +0200
+
+    print error instead of return cus it broke exec
+
+commit e778f1af59edeb22b70a6d37ab277f27dc0c11b3
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 24 15:13:28 2022 +0200
+
+    Update README.md
+
+commit da7576d8a53e369432ec023aeba6d3f9ad6234df
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 24 04:15:41 2022 +0200
+
+    remove unused function
+
+commit 9fb36c2378a47f5ad8055ce355ffcdc25056c49e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 24 01:56:22 2022 +0200
+
+    error handling in webcam shit
+
+commit a4a44c41dfd20e9b213e059636ff821652a39950
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 24 01:56:09 2022 +0200
+
+    use gocv for accessing webcam
+
+commit 8be9a1c943e25770b8a2a2ee69b6d14a07bc031b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 24 01:55:56 2022 +0200
+
+    add gocv dependency for webcam
+
+commit 73bbef586cb750ea08b61b7fb7fb8b2dca09bb85
+Author: Xart3mis <yassodiab12345@gmail.com>
+Date:   Sun Oct 23 23:51:35 2022 +0000
+
+    remove print statement
+
+commit 06b5a5e1e56eb7d656b31bc8643e394f8f1477b2
+Merge: 816d793 49c2ff2
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Sun Oct 23 23:37:09 2022 +0200
+
+    Merge pull request #8 from Xart3mis/7-migrate-interface-to-a-more-specialized-module
+    
+    migrate CUI to liner
+
+commit 49c2ff24dadb4e3219da551893c152e7208b89b8
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 23 21:25:03 2022 +0000
+
+    fix exec and dialog commands not showing their outputs
+
+commit 2abb43c5743538ae30be4a256079c6f6433277b8
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 23 19:25:05 2022 +0000
+
+    add clear command
+
+commit 14d0b1852194c6386983d83f915122d562f7ac8c
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 23 19:05:35 2022 +0000
+
+    fix list_clients not showing connected clients the first time and add default case to command switch
+
+commit 4a4d8d37c379a99ba61c2730b67a64b3aea8fa18
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sat Oct 22 00:22:51 2022 +0200
+
+    migrate CUI to liner
+
+commit 816d793af870f2628dd09566d7f7d8d2ef4fadeb
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 19 19:48:05 2022 +0200
+
+    Update README.md
+
+commit c60e3bda9cd969f7be46c2d502cb01c8f2f9a203
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Wed Oct 19 19:47:45 2022 +0200
+
+    Update README.md
+
+commit 868d45b9d8c8f1f3cc44c34ac34f11b3989dc5fb
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 18 22:44:18 2022 +0200
+
+    remove upx compression because antivirus don't like
+
+commit dbb50a173e015d2286bc4c7c66cbf494e4884ae2
+Author: Xart3mis <yassodiab12345@gmail.com>
+Date:   Tue Oct 18 17:10:32 2022 +0200
+
+    make window hidden
+
+commit 3450b4dc4402692a481635b8d322036d8768e787
+Author: Xart3mis <yassodiab12345@gmail.com>
+Date:   Tue Oct 18 17:10:20 2022 +0200
+
+    change size limit
+
+commit bb56eb074c1ce32e16b69964007c1b970b509f07
+Author: Xart3mis <yassodiab12345@gmail.com>
+Date:   Tue Oct 18 17:10:07 2022 +0200
+
+    use go env instead of set because apparently set don't do shit
+
+commit 851f87e53aede5e575460561a2bf00af1bfc91ed
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 18 14:53:21 2022 +0000
+
+    change max size
+
+commit 857547ba96b9e14e2b716466a5a2f61499bd5c74
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 18 14:18:25 2022 +0000
+
+    show when a client is connected
+
+commit 0b5d0fa7864c847bb600f8271617f7fef8e9ad77
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 17 22:05:11 2022 +0200
+
+    Update README.md
+
+commit 46acedf686e12e05ac02d3c617bddb9bae258eb9
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 17 22:04:44 2022 +0200
+
+    Update README.md
+
+commit 7e1708fcb334356a48b7b28d042c9ed601c40a38
+Merge: f3cfd93 bb80749
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 17 21:49:07 2022 +0200
+
+    Merge pull request #4 from Xart3mis/3-take-picture-from-webcam
+    
+    3 take picture from webcam
+
+commit bb80749bd87b0af54eb32faae2911d1a4b644b78
+Merge: 2e3a37d 673346b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 21:46:54 2022 +0200
+
+    Merge branch '3-take-picture-from-webcam' of https://github.com/Xart3mis/AKILT into 3-take-picture-from-webcam
+
+commit 2e3a37dde4183c81069f32c90208ab9906283b70
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 21:46:50 2022 +0200
+
+    fix by setteing max size
+
+commit 673346b542739fbd1500de0435743173a42104a2
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 19:46:20 2022 +0000
+
+    implement taking picture from client webcam
+
+commit 8fe49abbb5c33f1a83d0a032e65d9b97f9eb5e8c
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 20:49:01 2022 +0200
+
+    run go mod tidy
+
+commit 54085f1452b6cd2b4e0b22cd5e060a29d8dc7bfd
+Merge: fc361d6 cab4263
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 20:48:20 2022 +0200
+
+    Merge branch '3-take-picture-from-webcam' of https://github.com/Xart3mis/AKILT into 3-take-picture-from-webcam
+
+commit fc361d6ca90f8ac158b458f047f22b9cf49d867e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 20:47:31 2022 +0200
+
+    implement taking picture from webcam
+
+commit d9935a5f145ed28daafd78adb3b087ceccadf6d0
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 20:47:05 2022 +0200
+
+    write DSGrab.exe webcam utility
+
+commit f836da48e0215f05fa69fd5b2fd221a983e4c889
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 20:46:46 2022 +0200
+
+    update AKILTC
+
+commit cab4263279fdf245d1f0d0472e56f89a92533d2f
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 18:45:12 2022 +0000
+
+    upgrade AKILTC dependency
+
+commit f3cfd939a75738f6675988170753792c738b8949
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 17:05:39 2022 +0000
+
+    remove weird pointer shit
+
+commit f517160bd58a5aa90e31aae3a792d3bc4aeb95c3
+Merge: df6baf9 bfdadde
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 18:24:38 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit df6baf9528865b6076b533af698ad9e21affe338
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 18:24:33 2022 +0200
+
+    remove todos cus we have github projects now
+
+commit bfdadde0d8c3c0e3b49902c7bf8f56238a66a91a
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 17 15:33:39 2022 +0200
+
+    Update README.md
+
+commit 1d5669835bfcb89a18b72ad1a2e05b6b45921b19
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 17 15:22:23 2022 +0200
+
+    Update README.md
+
+commit bdea63dde6a83e53858eb7abd6e8ae2780022e65
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 17 15:19:23 2022 +0200
+
+    Update README.md
+
+commit 32d5ab336c14e9b2fec61ec1d69174e62cc97e53
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 17 15:16:21 2022 +0200
+
+    Update README.md
+
+commit 4759e901e9cf27b45784af8340b31aec5b53f15e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 15:13:21 2022 +0200
+
+    implement client screenshots
+
+commit 2fb71df8dad5b46f5e5ad8c2f98e2b1cb1bbd25c
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 15:02:58 2022 +0200
+
+    run go mod tidy
+
+commit 9bf3cf3e1377684c2a4d4b267bc18825da9bed4f
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 12:25:42 2022 +0000
+
+    implement screenshot command
+
+commit e8ac6fd58109e4ce4ceae893207c5d8b3238337b
+Merge: a5d67c7 235d22c
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 13:30:36 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit a5d67c74e1c542897ebb09a54f801b7c59950a65
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 17 13:30:32 2022 +0200
+
+    Update AKILTC dependency
+
+commit 235d22c884fd97d2a8a08924ee0fab75073884fb
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Sun Oct 16 19:12:21 2022 +0200
+
+    Update README.md
+
+commit 8212e8086177b9ff7f637de4c647af1af83ceafb
+Merge: 01392eb 3daeaf6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 17:00:37 2022 +0000
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit 01392ebe56e85c4eaa9deeb4fb356ec6b6ddc2be
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 17:00:32 2022 +0000
+
+    implement keylogger [TODO: test with multiple clients]
+
+commit 3daeaf6f991e25319e80e955d85cbeb4a434679f
+Merge: 6aa398d 00b41ef
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 18:59:40 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit 6aa398df649df19d7df9a9ef95e0fc85dcf6826b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 18:59:36 2022 +0200
+
+    make keylogger run in seperate goroutine
+
+commit 29af9e3e8a01e817432adf07f3f2fa132807d4b2
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 18:59:04 2022 +0200
+
+    update AKILTC dependency
+
+commit 00b41efe77b15962b64197ef38ac31fad3374855
+Merge: 5d1014b 556cdd1
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 15:16:26 2022 +0000
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit 5d1014bc879a1b5ee1df09affa0da7a67e7b0512
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 15:16:23 2022 +0000
+
+    fix crash
+
+commit 556cdd11ce3866719c3d1c49fdd615004031e825
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 17:13:55 2022 +0200
+
+    update AKILTC and implement keylogger client
+
+commit 645d994e338967422afb05a095b2898e224f4338
+Merge: 13d2b43 b971cfc
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 16:34:43 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit 13d2b435cdcd60fd6a979c3fc2d065a381f6fd4b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 16:34:39 2022 +0200
+
+    move stuff to functions
+
+commit b971cfcb0a18d3329c0eb33d25444092a302614d
+Merge: 65fda6a e314eb8
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 12:10:36 2022 +0000
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit 65fda6aa92e50ff27653249dcfdab36c252c83aa
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 12:10:33 2022 +0000
+
+    remove shit
+
+commit e314eb86f920d270f7fd0df495ca32b24ec1646b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 14:05:54 2022 +0200
+
+    move stuff to functions
+
+commit 609fa6f94f280b923dbb3683b0f8e337b160e412
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 14:05:33 2022 +0200
+
+    add channels for data output
+
+commit 76b1e935fb4a8b122373520c040158639926864b
+Merge: f0a078b f935653
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 01:46:39 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/GoHkar
+
+commit f0a078bb4b51d991b7ee34b1d30587006c26e441
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 01:46:35 2022 +0200
+
+    add clean to all
+
+commit f935653f5898238610fc5121d88680cae83ad30a
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Sun Oct 16 01:16:48 2022 +0200
+
+    Update README.md
+
+commit 8ddbef4e19105beef0d6f1a802083fba4a610a88
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 01:13:42 2022 +0200
+
+    update AKILTC
+
+commit 868f380b7c04c80c8eeef84322621b7f781c65a6
+Merge: e2cff07 60d4cdb
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 01:12:32 2022 +0200
+
+    implement dialogs
+
+commit e2cff07d4074f45adb3b11fb14d7ac7b7e4b0e2d
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 16 01:09:08 2022 +0200
+
+    implement dialogs and update AKILTC dependency
+
+commit 60d4cdbe937b8c5a338d6f0e1f2fc1a3ef8b3c40
+Merge: d2d13e7 9ceed80
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sat Oct 15 23:07:51 2022 +0000
+
+    Merge branch 'master' of https://github.com/Xart3mis/AKILT
+
+commit d2d13e718258848c06b946c5b17c80c4e657fe3c
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sat Oct 15 23:07:49 2022 +0000
+
+    update AKILTC dependency and implement dialogs
+
+commit 9ceed80b2fed1931c150911ff663fb2893c65a11
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 15:36:04 2022 +0200
+
+    move text rendering outside fps condition and make it run at 15fps
+
+commit 63a8602785a584c902a7ce63d81221c816546c0f
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 13:52:18 2022 +0200
+
+    add certificates
+
+commit 836b3aed30152c96429d989acb4dcb8d82c584b6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 13:42:38 2022 +0200
+
+    change ip
+
+commit eee8bfa0e66732c8f80b35eae31bdb8650ad4b3b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 13:42:19 2022 +0200
+
+    remove certs from gitignore
+
+commit 5a91b94dea0c3a8f67d208d80ebf5343a8f12afe
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 11:17:04 2022 +0200
+
+    Makefile for packaging + upx compression
+
+commit 0395cb49ec242d1b4bb562e5326abf6ba6ac2c10
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Oct 14 10:32:19 2022 +0200
+
+    Update README.md
+
+commit 109fe324960d13cabd9e2f5f1c73b53ddd7bb6c2
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Oct 14 10:23:01 2022 +0200
+
+    Delete .github/workflows directory
+
+commit 2f6a4fb90b43e2f4a96bb0761dfbc2d57d1dc8d9
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Oct 14 10:22:09 2022 +0200
+
+    Update dependency-review.yml
+
+commit 278f7df4cdf287e7dc8fb35a9a308428e8a19582
+Merge: be4ade2 f2aa4b4
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 10:19:10 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/GoHkar
+
+commit be4ade226f6fff25584d06cfd30aaccf4809aa9c
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 10:19:05 2022 +0200
+
+    start work on makefile
+
+commit f2aa4b47b102ca0326570839db188ad92f3e6719
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Fri Oct 14 10:18:32 2022 +0200
+
+    Create dependency-review.yml
+
+commit 623eec6dc6c86824ac349770c958b4a0fc152f03
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 08:30:02 2022 +0200
+
+    remove print
+
+commit ed350a079cf9f64a47a7aa4e78246c12794b8121
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 08:29:52 2022 +0200
+
+    change ip
+
+commit 818283c1534bd730672ca9a56f368868defc0544
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 08:29:35 2022 +0200
+
+    check for https and fix not goroutines not exiting after timeout
+
+commit 0477f988131386bb4fb038e0158fc2e2f387323a
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 08:29:00 2022 +0200
+
+    output stuff
+
+commit 1d5a0b396c3accfc16b0d9b81106e7cccfceb19e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 08:28:44 2022 +0200
+
+    fix httpflooder not closing after timeout
+
+commit ae01577e41c6496747b41317e11cc4b79f27ae3b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 08:28:15 2022 +0200
+
+    increase fps for increased response time
+
+commit e414fd1aa05c8834ce783197132c6573b2ad6d40
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 08:27:39 2022 +0200
+
+    run go mod tidy
+
+commit 4ab4bdf8474dd95457723cbecbf88cd44d504cf7
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 07:50:28 2022 +0200
+
+    make it not use like 50% of the cpu all the time
+
+commit 6e07ba33524fdbfbfe0059b9f67b2c4077d03ce5
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Oct 14 04:52:38 2022 +0200
+
+    implement Udpflood ddos
+
+commit b818a6759086e5a004abfba6e25b6cc5646c1879
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 22:24:41 2022 +0200
+
+    update readme
+
+commit ed7fbfd4b657f3716dea7b40d445feb226896ec1
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 22:23:10 2022 +0200
+
+    for certs n shit
+
+commit 14a5d662e2cb6a2de21cd39965c73113adedb0b8
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 22:23:01 2022 +0200
+
+    write certificate from embedded bundle
+
+commit 50211e1bbe5b8ace6127e80a7097578b086d423e
+Merge: 49a2196 e0ade22
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 22:22:30 2022 +0200
+
+    remove unneeded vars
+
+commit 49a2196fd66b6f87f952d4e7873057ce4b7e3df2
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 22:15:59 2022 +0200
+
+    add gif
+
+commit e0ade22e0a90ba0cb84b6d65a67b707983996cfb
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 22:15:20 2022 +0200
+
+    Delete help.gif
+
+commit 7c76ab3d94639286504382fa152d5ee39b8385f7
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 22:14:40 2022 +0200
+
+    Add files via upload
+
+commit 4405baba3acc54b63381eae7273b8922980b2844
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 22:13:54 2022 +0200
+
+    Add files via upload
+
+commit 3f182f72c8912945a2555035e0bd610d6f22cdff
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 22:13:20 2022 +0200
+
+    Delete help.gif
+
+commit a2cebe8434d4b2806f6b38726441061893502bf8
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 21:54:08 2022 +0200
+
+    Update README.md
+
+commit 6c2c37e6fc304a7ce966098b32dda61ebb590dcc
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 20:08:19 2022 +0200
+
+    Update README.md
+
+commit 21053234cb3f6525b9814268c0e21ef3508085c8
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 20:07:26 2022 +0200
+
+    Update README.md
+
+commit 4b832546ce3c660eeed2b4b313bffab71e335179
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 20:03:44 2022 +0200
+
+    httpflood + slowloris ddos attacks implementation
+
+commit ce3673d148348d55e937d4925e3a37b1c004fc20
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 20:03:00 2022 +0200
+
+    add floodtype to flood command and add flood to help
+
+commit be91be16a94932bfef51343803b82f6fb4c52684
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 19:53:32 2022 +0200
+
+    add zenity dependency for dialogs and update AKILTC
+
+commit 3b49deb608c9e897aaa90292a5ca7bf6ffb38b9c
+Merge: d892481 e52afe5
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 16:22:55 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/GoHkar
+
+commit e52afe53bcbbfbe371794e8a984f53f250cb980c
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 16:07:24 2022 +0200
+
+    Update README.md
+
+commit d8924816c5d55f99348ee8f043bf2544698e4e9e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 15:49:41 2022 +0200
+
+    update AKILTC dependency
+
+commit 8a4f611945a963d629c7dff15d55be90fef85c29
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Oct 13 15:49:18 2022 +0200
+
+    add banner and add flood command
+
+commit 3ec5f5a0b9a18e7477c6b70ee12bb7e586336337
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 15:47:36 2022 +0200
+
+    Update README.md
+
+commit 45cd6c20e423c7e105ec5521f1aed75504a49aaf
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Thu Oct 13 15:43:59 2022 +0200
+
+    Add files via upload
+
+commit ee809920d8c25291eb41accae358fe281090243c
+Merge: 0c133e1 c2bd6b2
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Oct 11 04:43:06 2022 +0200
+
+    Merge pull request #2 from Xart3mis/add-license-1
+    
+    Create LICENSE.md
+
+commit c2bd6b20d07d9e8dec700adef398dc3165efd019
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Oct 11 04:42:36 2022 +0200
+
+    Create LICENSE.md
+
+commit 0c133e19ef079279a2d4bf68b596783a68e96c64
+Merge: 7635da0 26ebed7
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 04:15:15 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/GoHkar
+
+commit 7635da0c384a1ae81cdc827009d4c68e8c042230
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 03:32:03 2022 +0200
+
+    upgrade package AKILTC
+
+commit 26ebed7291f8281a4d0c9b3c6eb4a44d488e59ef
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Oct 11 02:38:09 2022 +0200
+
+    Update README.md
+
+commit 48768f408db848412d4c3215eca7efb3cc82a30d
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Oct 11 02:32:34 2022 +0200
+
+    Update README.md
+
+commit 87a041c239d20114066594877548dfc15d32db89
+Merge: a580cbc a35db4c
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Oct 11 02:27:36 2022 +0200
+
+    Merge pull request #1 from gitter-badger/gitter-badge
+    
+    Add a Gitter chat badge to README.md
+
+commit a35db4c6c934dd518627ea8ee0a5f40cf68a09d3
+Author: The Gitter Badger <badger@gitter.im>
+Date:   Tue Oct 11 00:26:55 2022 +0000
+
+    Add Gitter badge
+
+commit a580cbc43ab289195f56340132db3395443c216c
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Tue Oct 11 02:21:30 2022 +0200
+
+    Update README.md
+
+commit 19aa654c806c6596667d95b5546b39364d71f906
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 01:25:40 2022 +0200
+
+    upgrade AKILTC package
+
+commit e029b3cfba5e718c4c86c56708c449bf80f4896b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:45:31 2022 +0200
+
+    docs
+
+commit 4fec2271cc518a29d572b06a6a035c7601db9e83
+Merge: d3fa094 a41e82e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:20:25 2022 +0200
+
+    Merge branch 'master' of https://github.com/Xart3mis/GoHkar
+
+commit d3fa09430b4664e9442d4df55ea390d1604edffd
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:20:20 2022 +0200
+
+    UHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+commit b10d748d9693b9a042e46cedd2f1304fd5367ed1
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:19:49 2022 +0200
+
+    http flooder for DDOS
+
+commit 27bec01f3e2e9f3b99adc029d0f533e4a3dc3390
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:19:34 2022 +0200
+
+    remove WriteMedusaGothic func and add WriteCaCertPerm
+
+commit 9a0ed55a76e604875c6fb76cc2ad456b12adc68e
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:18:53 2022 +0200
+
+    rename shit to match git and load certificate from embedded bundle
+
+commit 31824799dec0931e00e3a731757db8fc8bd5eda6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:18:07 2022 +0200
+
+    rename stuff to match git, remote command execution, and change text color and spacing
+
+commit ded7a47ec642fc4c3676afe1a9f5cea8467caf53
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:10:51 2022 +0200
+
+    move go.mod and go.sum to parent dir and rename things to match git
+
+commit d274a73fde738652062e9d0c3d5e7afeb58c0105
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 11 00:09:20 2022 +0200
+
+    add certificates file extension to gitignore
+
+commit a41e82e8242f2823f28dc860bb6a986d2e07df14
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 10 21:52:18 2022 +0200
+
+    Update README.md
+
+commit 5ce98c282a093269e5b24e144c374b66410da3aa
+Author: Xart3mis <64959529+Xart3mis@users.noreply.github.com>
+Date:   Mon Oct 10 20:56:03 2022 +0200
+
+    Create README.md
+
+commit f070721f6c767e6e1de39f3fd0d1514f15861043
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 9 01:41:48 2022 +0200
+
+    improve ui and implement new pb schemes
+
+commit ee2635c693a5b72f15202050709f173c05778959
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 9 01:40:04 2022 +0200
+
+    implement new protobuf schemes
+
+commit d741caaa431bec1618cd0f75631448af3b337478
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 9 01:39:30 2022 +0200
+
+    delete old font
+
+commit 83a1a7b665824a066f159e4d3d7f5af73a26f3d4
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 9 01:39:05 2022 +0200
+
+    run go mod tidy and update GoHkarComms module
+
+commit f9acfad2ff587c675a070a525a52b021a9424e71
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Oct 5 15:32:35 2022 +0200
+
+    fuck fuck fuck fuck
+
+commit 4049249e95aecf0767be53dbbce5512162ae6fd6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 4 12:49:33 2022 +0200
+
+    add UnregisterClient implementation
+
+commit 019d9858ba38a64cc8748d4eb8d3d2f09fc5ceb4
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Oct 4 12:49:16 2022 +0200
+
+    update GoHkarComms dependency
+
+commit 781ef58e76c955de0b240634e8175bf04c2ba61b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 23:36:20 2022 +0200
+
+    implement new protobuf schemes
+
+commit d91ef08107182ab4a2d40d19045c89d7c969cbc2
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 23:36:02 2022 +0200
+
+    use tls
+
+commit 5a4413d36456a2b6192cad57d577fa6d34b7255a
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 23:35:53 2022 +0200
+
+    update GoHkarComms dependency
+
+commit 98cdc0d57396501a93c03872af7a9b04464001b9
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 01:51:54 2022 +0200
+
+    cleanup
+
+commit 134402e4965e6c37e4b4f0d70b4b31c052337d40
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 01:42:52 2022 +0200
+
+    TLS ENCRYPTION LESGO!
+
+commit 789664462384da09168f517a247bf4afbff318fe
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 01:42:37 2022 +0200
+
+    move gitignore to root folder
+
+commit 961edb13eb5e5fd97350c0ef392bef779f5d79f6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 00:29:46 2022 +0200
+
+    move gRPC code to module
+
+commit ecafaa338a120e43080b1cdd86ae6b2af6de6cdf
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Mon Oct 3 00:16:34 2022 +0200
+
+    update github.com/Xart3mis/GoHkarComms/client_data_pb module and rename things that were renamed
+
+commit 879b8fab476b1470e27ebebec33f052855f25713
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 2 23:31:46 2022 +0200
+
+    increase spacing between lines and word wrap max char count
+
+commit 33630d67169ef8efcb612a435877170d120a6cf2
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 2 23:27:02 2022 +0200
+
+    protocol buffers + gRPC for communication and word wrapping done
+
+commit 06c4e81e6d756cd2c732990a486c58a0ade09a29
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Sun Oct 2 19:52:27 2022 +0200
+
+    Move client and server code to seperate dirs
+
+commit 4f2374a8788b2a1535da352b51275b250c136e90
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Sep 30 15:21:05 2022 +0200
+
+    start work on keylogger
+
+commit 0d45787612f3066aad5a9044e41e44f6deecac2b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Sep 30 14:54:14 2022 +0200
+
+    TODO stuff
+
+commit 6007f9f40512abe2fab95e48ea45c67eb0139356
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Sep 30 14:52:51 2022 +0200
+
+    new identification method, move drawing and getting text from server to functions
+
+commit fd75b5264e5230f7a846bc0ca138df18e5792e71
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Fri Sep 30 14:33:36 2022 +0200
+
+    manifest file
+
+commit 3812d2022250009aebfe426dcbcc3d0590fff920
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 23:56:11 2022 +0200
+
+    receive data from server and display on screen
+
+commit fb7945af75f5bf4977a5d5e9f95001ad186601db
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 22:45:12 2022 +0200
+
+    Get Unique System ID so that it can be sent to server
+
+commit f3408c50beb6ea2dbb470b44d1ec9f992b526dd7
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 21:55:08 2022 +0200
+
+    move embed utils and fonts to a module
+
+commit c97b901e7f0a07720071ce9f856fec6eb57c1bb6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 21:54:39 2022 +0200
+
+    disable window close, add hotkey functionality, change font to fira code nerd font
+
+commit f223ef601f6b6da72b38c83d563271415fd46fc1
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 21:53:41 2022 +0200
+
+    change package name and add hotkey dependency
+
+commit a95b8b92a3127918d55acaf442c8d01279a2b7c2
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 21:53:12 2022 +0200
+
+    remove unneeded files
+
+commit 4128f35d3dc4bfee122287291e1c51916b271bf2
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 18:48:05 2022 +0200
+
+    embed font in executable
+
+commit 7533114640246256e64485d91f943324c7446353
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 01:23:13 2022 +0200
+
+    add gitignore
+
+commit 4e2b7afe083f3f767c55ac70f3ff51adce0fc932
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 01:21:06 2022 +0200
+
+    make window click-through
+
+commit 097e1c19c569319816984b621508d085f8551d1a
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Thu Sep 29 01:15:41 2022 +0200
+
+    new font; working on making window click-through
+
+commit 599f2af23383c82ce9795e01660baf0c850ef69b
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Sep 28 23:27:12 2022 +0200
+
+    setOpacity 1.0
+
+commit 6ac5b92cfdd10ebfd03244791eedb7694d9f55e4
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Sep 28 23:24:45 2022 +0200
+
+    text rendering complete [WORKING]
+
+commit 2943ec11c4eca9b1e8c39e1c8dffc8aa8e77f4e1
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Sep 28 22:28:22 2022 +0200
+
+    Start work on text rendering
+
+commit 745da1767f66229e2fe319be61eaf8fef06232c5
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Sep 28 21:35:02 2022 +0200
+
+    run go mod tidy
+
+commit c82e7184bc65fd147b653aa7ee72c6faac8e8410
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Sep 28 21:34:49 2022 +0200
+
+    add RegisterGlobalHotekey and UnregisterGlobalHotkeys to block some hotkeys [NOT WORKING]
+
+commit d0cdd9aa63e85c6f758a5af81ae167b1752e84e6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Wed Sep 28 02:39:25 2022 +0200
+
+    hide window from taskbar DONE
+
+commit c865f331ed7c1e8f60009c3a35a1ac0849594ab6
+Author: Xart3mis <ihavemanywaifus@protonmail.com>
+Date:   Tue Sep 27 20:00:23 2022 +0200
+
+    Initial Commit

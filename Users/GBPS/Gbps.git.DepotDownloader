@@ -1,0 +1,3998 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit eecb0605328dc882333ecfc37fd35399beadcb58
+Author: Michael <gbps@ctf.re>
+Date:   Wed Mar 25 14:56:43 2020 -0400
+
+    Normalize forward slashes in filelists on Win
+
+commit 751538019bf56c11942f702accc319b9e6f0336d
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Feb 22 13:20:45 2020 -0700
+
+    TryWaitForLoginKey should always attempt to wait a short period of time for login key updates if configured
+
+commit def0729fce3249339ff7a9e29ef6adeac2aaee1d
+Author: Pavel Djundik <xPaw@users.noreply.github.com>
+Date:   Sat Feb 22 13:19:01 2020 +0200
+
+    Set LoginID
+
+commit 8dd7c4c1b58a3436799bec1617035d330aa2901c
+Author: Pavel Djundik <xPaw@users.noreply.github.com>
+Date:   Sat Feb 22 13:30:49 2020 +0200
+
+    Fix crashing on duplicate license
+
+commit 90dfd03b5e5f66a349384b5b4867fe2ea856cb0f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Feb 7 00:13:37 2020 -0700
+
+    Corrected FileMode when saving AccountSettingsStore
+
+commit 0d427acbb9031aee1f17062354a753ba41059ef8
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 6 23:26:30 2020 -0700
+
+    Added RollForward setting
+
+commit 436519d4454dd1170734470ee081d3e7559edd09
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 6 21:51:18 2020 -0700
+
+    Split DepotDownloader configuration file into account settings stored in IsolatedStorage, and depot installation data stored in the .DepotDownloader config directory alongside cached manifests
+
+commit 2c46ee32ea07d51fc9e3509d3d3ebc06de0da63a
+Author: Margen67 <Margen67@users.noreply.github.com>
+Date:   Sun Nov 24 13:37:19 2019 -0800
+
+    Update travis dist to bionic
+
+commit bc25bba261c7f917cff3a519e5af7a455f0b0862
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Nov 3 19:10:15 2019 -0700
+
+    Only show the checksum mismatch when the manifest actually exists
+
+commit 2e30364d8fbf02adf5d7dc09f6a21f0fa0311d49
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Nov 3 17:23:26 2019 -0700
+
+    Include and validate checksums with locally cached manifests
+
+commit 0b598b43a71ac27da516d87eecd4541c8ca0ca68
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Nov 3 16:50:52 2019 -0700
+
+    Ensure failed download task throws OperationCanceledException so that the return code is reported correctly when it is the last task
+
+commit 779a4697ab60e0d615b0f0ec0575f422e06809e8
+Merge: 5f3e4334 3e7a902e
+Author: Yaakov <yaakov-h@users.noreply.github.com>
+Date:   Thu Oct 31 07:53:19 2019 +1100
+
+    Merge pull request #65 from SteamRE/dependabot/nuget/protobuf-net-2.4.4
+    
+    Bump protobuf-net from 2.4.1 to 2.4.4
+
+commit 3e7a902eb47ede082ad7c10c109f085870723282
+Author: dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>
+Date:   Wed Oct 30 14:06:28 2019 +0000
+
+    Bump protobuf-net from 2.4.1 to 2.4.4
+    
+    Bumps [protobuf-net](https://github.com/mgravell/protobuf-net) from 2.4.1 to 2.4.4.
+    - [Release notes](https://github.com/mgravell/protobuf-net/releases)
+    - [Changelog](https://github.com/protobuf-net/protobuf-net/blob/master/docs/releasenotes.md)
+    - [Commits](https://github.com/mgravell/protobuf-net/commits)
+    
+    Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+commit 5f3e4334ba0b0f0e313341d2f15e2511d9c8a635
+Author: dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>
+Date:   Wed Oct 16 13:51:41 2019 -0600
+
+    Bump protobuf-net from 2.1.0 to 2.4.1 (#63)
+    
+    Bumps [protobuf-net](https://github.com/mgravell/protobuf-net) from 2.1.0 to 2.4.1.
+    - [Release notes](https://github.com/mgravell/protobuf-net/releases)
+    - [Changelog](https://github.com/protobuf-net/protobuf-net/blob/master/docs/releasenotes.md)
+    - [Commits](https://github.com/mgravell/protobuf-net/commits/2.4.1)
+    
+    Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+commit da88425eb64985b7246a499235d577c5d4397454
+Merge: f6fa6fe9 f1ff09bf
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 16 13:50:23 2019 -0600
+
+    Merge pull request #62 from eroen/master
+    
+    Be more friendly to scripts
+
+commit f6fa6fe9c6fa572c3dc8a2727220e93538bcb570
+Merge: ffcde1b0 ee82031a
+Author: Yaakov <yaakov-h@users.noreply.github.com>
+Date:   Wed Oct 16 22:09:35 2019 +1100
+
+    Merge pull request #64 from SteamRE/no-legacy-nuget
+    
+    Remove legacy NuGet packages.config
+
+commit ee82031a406c812d55ef0a283ba9379407a5ba72
+Author: Yaakov <git@yaakov.online>
+Date:   Wed Oct 16 22:01:40 2019 +1100
+
+    We shouldn't need this anymore.
+
+commit f1ff09bf209926cf47c499f28690de307e955c84
+Author: Eroen <eroen@occam.eroen.eu>
+Date:   Sun Sep 29 14:14:48 2019 +0200
+
+    Exit with error code on errors
+    
+    When run by a script, the script needs to know if the requested operation was
+    succesful.
+    
+    This patch makes sure error codes are returned for a number of unhandled error
+    conditions.
+
+commit ee53edc935e0a75a88972feb6b8490755cfa2224
+Author: Eroen <eroen@occam.eroen.eu>
+Date:   Thu Sep 26 16:39:37 2019 +0200
+
+    Allow reading passwords from redirected input
+    
+    This is beneficial for scripts that don't want to expose the password in the
+    command line arguments.
+
+commit ffcde1b04e91a424f69e0c01d8c7ff1180b5ff91
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 26 20:37:45 2019 -0600
+
+    Updated to SteamKit 2.2.0
+
+commit c6975323d2915a451119260ded45032a47e4fa47
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 26 19:13:12 2019 -0600
+
+    Use new ContentServerDirectoryService to fetch content servers for CDNClientPool
+
+commit 87a238b0ec0746a45e4926e95592c0a7eaef59fb
+Merge: f5d519c4 73286dd0
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Jun 15 12:15:02 2019 -0600
+
+    Merge pull request #53 from xPaw/patch-2
+    
+    Do not display full license list
+
+commit 73286dd0720653dfaa4e7352c8650c4b30d36928
+Author: Pavel Djundik <xPaw@users.noreply.github.com>
+Date:   Fri Jun 14 15:44:34 2019 +0300
+
+    Do not display full license list
+
+commit f5d519c466bca3fac5088ad61448e35339dd2eef
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Apr 27 14:41:50 2019 -0600
+
+    Added GPLv2 license
+
+commit e7b89df7432b971b13620e5ed5b428d1b08782d1
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Apr 27 14:36:56 2019 -0600
+
+    Skip platform check when an explicit depot id is provided
+
+commit 2177746a508a5528382917b64c7c90da51016011
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Apr 2 16:38:34 2019 -0400
+
+    Update README usage info to match usage print output.
+
+commit e0afef00e484d6faf010cc451d8e8e6709422d00
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Mar 25 10:36:28 2019 -0600
+
+    Report and exit on unsuccessful pubfile lookup
+
+commit fdb5d0d40832ba80df8d0ceb76878267b8d440bb
+Merge: 7a757101 3ad09660
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Mar 25 10:33:42 2019 -0600
+
+    Merge pull request #45 from SteamRE/ugc-cmd-cleanup
+    
+     Add new -ugc option, removing -force-depot. (#41)
+
+commit 3ad0966070c3be88d3d22800524dda3984bb778a
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Mar 24 08:55:50 2019 -0400
+
+    Move GetPubfileDetails to saner spot in file.
+
+commit f957ef5da9fed84269b3016bfb9a946e45e9879e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 17:17:10 2019 -0400
+
+    Add -pubfile support, dynamically getting appId + ugcId.
+
+commit 18a57dd1dd6b108d4f73668b598470725869fb0e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 12:08:41 2019 -0400
+
+    Update SK from 2.0.0 to 2.1.0 BECAUSE WE CAN.
+
+commit a2ffdd30f501fa6e8a1e53e4ea244a5417aa313f
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 12:02:21 2019 -0400
+
+    Misc cleanup to avoid unnecessary conversions.
+
+commit 72f633eadef37c54890868d45e1779c7955bd0d1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 12:02:05 2019 -0400
+
+    Add new -ugc option, removing -force-depot. (#41)
+    
+    Also improve and clean up command line usage output, as well as add
+    automatic lookup of correct workshop depot id for UGC, instead of requiring
+    it on command line (usually assuming app id).
+
+commit 7a757101bf652b7b766e6c814b1da33bb32536a8
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue May 1 22:57:52 2018 -0600
+
+    Added shutdown token to CDN connection pool monitor
+
+commit 5425ef756dce79455a6e93ad95a17ff044c1add0
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Apr 30 22:21:13 2018 -0600
+
+    2.3.0 Release on .NET Core 2.0
+
+commit 0889da4316afa563c0c1faaef68948ea108e44ec
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 31 09:32:42 2018 -0400
+
+    Don't allow empty password to be entered when using non-anon account.
+    
+    Fixes getting wall of exception text when accidentally entering or pasting
+    in an empty string.
+
+commit 6552734faf021ae37b7602e7c4896f5a7c23b98b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Dec 19 15:16:15 2017 -0700
+
+    Target SteamKit 2.0.0
+
+commit 65036ffa8dad7ca40f701e8714f98413809d29bd
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Dec 1 00:40:08 2017 -0700
+
+    Cancel work if CDNClientPool is exhausted and can't find more servers
+
+commit 184ea54020b7b6dc2466dc3384b120eafe76fdc1
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Dec 1 00:09:19 2017 -0700
+
+    Don't retrieve AppTickets as they aren't needed anymore
+
+commit 6105a99e72c1917fb325cd7f0c95f45e10a0d350
+Author: Yaakov <git@yaakov.online>
+Date:   Sat Sep 9 23:57:02 2017 +0300
+
+    Check for cancellation after semaphore completion
+    
+    It doesn’t look like anything actually calls Cancel() on this CancellationTokenSource, but if something ever does we’d want this to work properly.
+
+commit 1e3ca8f0169aa1493147222cb008796ecfd92ffa
+Author: Yaakov <git@yaakov.online>
+Date:   Sat Sep 9 23:55:44 2017 +0300
+
+    Missed something fairly important
+    
+    It kind of helps to actually use the semaphore.
+    
+    Missed this when reapplying changes after whitespace.
+
+commit 1ec611cb344c57e6b296b905a3c9190401f4c0d1
+Author: Yaakov <git@yaakov.online>
+Date:   Fri Sep 8 12:48:03 2017 +0300
+
+    Update Travis for .NET Core SDK 2.0
+
+commit fb3e693755a9975f91bf93946ed07722076e8174
+Author: Yaakov <git@yaakov.online>
+Date:   Fri Sep 8 12:47:47 2017 +0300
+
+    Update to SK2 Alpha8 and .NET Core 2.0
+
+commit 0da80d96011586f8e07b2530f84eff581f1b663e
+Merge: 52f12030 42b832e4
+Author: Netshroud <netshroud@gmail.com>
+Date:   Fri Sep 8 12:22:59 2017 +0300
+
+    Merge remote-tracking branch 'origin/master' into dotnet-core
+    
+    # Conflicts:
+    #       DepotDownloader/ContentDownloader.cs
+    #       DepotDownloader/Program.cs
+
+commit 42b832e46599eac4c8613bb354528486f06b4f08
+Author: Sunner <sunnerlp@gmail.com>
+Date:   Sat Sep 2 19:20:27 2017 +0200
+
+    Added operating system switch (#24)
+    
+    * Added operating system switch
+    
+    * Fix typo and throw error if both -os and -all-platforms are specified
+
+commit 8daaf0daa2d19ef9242ee44ed8036d15033deef4
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 22:55:32 2017 -0600
+
+    Don't error out if a user supplies a password without -remember-me but a matching login key was found
+
+commit de775d5c4b507eea13066faf64a9211e946c03f9
+Author: Netshroud <netshroud@gmail.com>
+Date:   Fri Jul 28 14:30:31 2017 +1000
+
+    Save a lookup in login key dictionary
+
+commit 58b5b6185ea326a274d25ede0c66de047af90996
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 22:20:00 2017 -0600
+
+    Touched formatting and line endings. Tweaked login key handling.
+
+commit dceed3a9a126231e3848dfe8723ebd05ced5ea06
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 15:03:21 2017 -0600
+
+    Don't forget about anonymous users
+
+commit 17d5f7357d7b896e9198d53a9f1f68e671c561ed
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 14:55:03 2017 -0600
+
+    Initialize LoginKeys dictionary
+
+commit 974eb1d3698c576d09e58d744e86486375632ae2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 26 18:35:02 2017 -0400
+
+    Add -remember-password to README.
+
+commit 6e5eb77738b5546b281ef0c8ceea9c8411efa15c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 26 18:34:02 2017 -0400
+
+    Add -remember-password to usage info.
+
+commit 6e4a764bb902988eed7065f092d3bb07b311038c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 26 18:30:29 2017 -0400
+
+    Add support for remembering password (loginkey).
+
+commit 52f12030c1ececbd4fb6f4dd878e367135222d02
+Author: Netshroud <netshroud@gmail.com>
+Date:   Tue Mar 28 19:32:27 2017 +1100
+
+    Change SteamKit2 filesystem project reference to NuGet package reference
+
+commit 3fb5da1098a08f40efdf7bfa71663dff445e2d14
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Mar 27 17:52:10 2017 +1100
+
+    Add .NET RIDs for "dotnet publish"
+
+commit 7575cd0757193cbfe093c1f90c204643617ddec3
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Mar 27 17:51:49 2017 +1100
+
+    Update CI for .NET Core
+
+commit 359a8d017dffd45a69b5be409ef631e0a7c43836
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Mar 27 17:50:28 2017 +1100
+
+    Restore Environment.OSVersion and P/Invoke for getting OS type on .NET Framework
+
+commit 8eb3f711b946119278eaeeb414ac4dc156830874
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Mar 26 17:44:30 2017 +1100
+
+    thanks @xpaw
+
+commit b17e343d0e06a28c7a10c6a52a5b690737b48fe6
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Mar 26 12:26:39 2017 +1100
+
+    Fix bug where DD would exit prematurely
+
+commit ab9ca2a7dade6a442bf4979e4a1f6f3ed573f0c0
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Mar 26 12:26:29 2017 +1100
+
+    Cleanup
+
+commit c0b6d0ce3c29fd107caed21de7b35749d5cc8dbf
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Mar 25 23:44:25 2017 +1100
+
+    Convert to .NET Core.
+    
+    Works on macOS, haven't tried Windows / .NET Framework yet.
+
+commit 35aa666ea5ff0859afcbcd6fccedb7491bd625dd
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Feb 27 20:45:37 2017 -0700
+
+    Always process Disconnect callback before pausing for input. This prevents the Disconnect callback from being processed after the Connect
+
+commit 63569977ec83d83c6de53feccb172ac850047a61
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Feb 23 07:32:47 2017 -0500
+
+    Bump version number.
+
+commit 8277f10f35e326ac21ba03e56584e150f1f2aea7
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Feb 23 06:49:12 2017 -0500
+
+    Update to SteamKit v1.8.1.
+
+commit 8659e77adc394c3e6e5ba27e719615216134dc08
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Feb 21 20:40:50 2017 -0500
+
+    Cleanup.
+
+commit ab86a7d6ac8a53b2e9ab771c6949578c1139fa3e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Feb 21 20:37:07 2017 -0500
+
+    If account doesn't own app, attempt to obtain FreeOnDemand license for it.
+
+commit 01d87d6102f7297d9a6fdf4c3f2de37f582d1f4b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Feb 20 20:02:12 2017 -0500
+
+    Output branch being used.
+
+commit 891ebd13a2646eb5807624f2d07f6b7ae84d2791
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Feb 20 08:09:03 2017 -0500
+
+    Fix crash when downloading from passworded branches.
+
+commit 3d1764889f6e10eccaa356d8cd1137a59e7eb417
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Feb 20 07:45:01 2017 -0500
+
+    Fix unused var warning.
+
+commit 251b4010eebe76c123bd027c75a81f0cf0a38d81
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 9 16:25:42 2017 -0700
+
+    Use ConcurrentDictionary and flatten keys for CDNAuthTokens
+
+commit 7f5ca9265996351a697ed1c06d0b7b9921c0548a
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 9 10:37:01 2017 -0700
+
+    Report when we aren't able to retrieve a CDN auth token
+
+commit 6278fc2b94a6c3853c552a13d4d5a105ca8d07f0
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Jan 21 22:40:30 2017 -0700
+
+    Added CheckAppBetaPassword to retrieve encryption keys for encrypted_gid_2 depots
+
+commit 97b8716c86e23850d88c3b538b3947da67b55c7c
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Jan 8 14:27:56 2017 -0700
+
+    Pass appId all the way through for correctness
+
+commit 9a9cf7b57a1750d5880444a5cd7907b0c05b0efe
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Nov 7 18:58:13 2016 -0500
+
+    Fix downloads for shared depots that provide their own manifests.
+    
+    Before, we could only do shared depots that referred to their parent app,
+    when parent app access was also available.
+
+commit a591632888f9d478750bddc704c23daea31bb00d
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Jul 10 09:50:34 2016 -0400
+
+    Bump version.
+
+commit b599768bd8108d64419914a6d65484cc7520f6d1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Jul 10 09:47:06 2016 -0400
+
+    Update SteamKit 1.6.4 -> 1.8.0. Change .NET target 4.0 -> 4.5.
+
+commit 65b6d97fa26c0a7b0158a90824f63099916cee0e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Jul 10 09:41:11 2016 -0400
+
+    If an included depot doesn't have the requested branch, fall back to "public".
+    
+    (Mirrors Steam behavior)
+
+commit 06a7d099ba57aab9f9dfb5bd8514f5a99658e54e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Jul 5 19:31:16 2016 -0600
+
+    Style fixes for CDNClientPool
+
+commit 9b778c374e1b9b549547d0cd12b9ac364f58cddc
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Jul 2 23:00:55 2016 -0600
+
+    Abort main flow if we can't connect after STEAM3_TIMEOUT seconds
+
+commit bdfd56b4825b4fc7c506aace78586bbf6e219552
+Merge: b93473aa 3b3f6e27
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Jun 24 13:21:36 2016 -0600
+
+    Merge branch 'cdn-pool'
+
+commit 3b3f6e272e99ccd1b9644ed2e189f068e6eea5e9
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Jun 24 13:20:56 2016 -0600
+
+    Switched to plain console logging
+
+commit b93473aa3b574eb5d8cf5c39cf6d8d4c783802a6
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Jun 23 08:01:42 2016 -0400
+
+    Increase default MaxServers.
+
+commit 0869f85b939c5af6e755046e528c34a6e44f09ab
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 22 19:46:20 2016 -0600
+
+    Added CDN client pooling
+
+commit 8914bc5c67d1576f0d4390ab76d74a94e140a6ee
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Jun 7 21:42:32 2016 -0400
+
+    Fix issues when downloading content in shared depots when shared depot is owned
+    but app it is from is not.
+
+commit daa6e0f9ef54cc2f5d6bb1ff9733bcb79dc90b04
+Merge: 72c32a61 1ce2a097
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Oct 4 16:14:13 2015 -0600
+
+    Merge pull request #8 from xPaw/2fa
+    
+    Add 2FA support
+
+commit 1ce2a097df55842aee9c8753754d4b34339dc952
+Author: Pavel Djundik <github@xpaw.me>
+Date:   Mon Oct 5 01:12:43 2015 +0300
+
+    Add 2FA support
+
+commit 72c32a618e8ea4fafbecdababa8616f86b04e52e
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Aug 9 14:50:35 2015 +1000
+
+    Remove old nuget restore props and binaries
+
+commit 1a8a892a671d8d036bb3ae111e7c2e9a7838be48
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Aug 9 14:47:33 2015 +1000
+
+    Use csharp Travis container config
+
+commit c0b4dd03ee0617832990de0befd4bd7b87014dd4
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Aug 9 14:41:19 2015 +1000
+
+    Update to SteamKit 1.6.4
+
+commit ed44169956e11ec8d615f0574f6ac489499a758a
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Jun 20 19:18:00 2015 +1000
+
+    Bump SteamKit dependency to 1.6.3
+
+commit 5cf8c66f06cd712137e36d54dcd9b5360cce5f88
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Jun 12 20:52:15 2015 -0600
+
+    Longer integer for chunk math. Int32 overflow when calculating file diff
+
+commit 52d45da1419e34076d6d56a5aaee3f2b6a045339
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed May 6 09:39:46 2015 -0600
+
+    Check for access to other app when depotfromapp is specified, otherwise continue with existing depot information
+
+commit 0b722996b520044a18c8188ddf1135eb792a8468
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Dec 29 20:06:40 2014 +1100
+
+    Add -force-depot command line parameter to force attempted download of a particular depot in an app.
+    
+    This allows UGC depots to be downloaded, as they are not listed in the PICS configuration.
+
+commit 6ae2c37c2a1128e7b032d1758f255dba9157433f
+Merge: 7a3779f4 63ab1b02
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Nov 30 10:41:00 2014 +1100
+
+    Merge branch 'master' of https://github.com/SteamRE/DepotDownloader
+
+commit 7a3779f4e8320e070b2325e5c75e30fdedef3cc8
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Nov 30 10:40:42 2014 +1100
+
+    Update to SteamKit2 1.6.1 NuGet package
+
+commit 63ab1b02322fcda552680d504c9df6c2ac4cd350
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Nov 29 14:06:24 2014 -0700
+
+    Flush pending Disconnected callback in anticipation of blocking the main thread
+
+commit 6f8fa5a37617951be547d732064a7ddfd7838839
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Nov 29 23:55:30 2014 +1100
+
+    Remove unused random variable
+
+commit 155196ec7ffbef61b0f0164bc1ef0e7369e21b78
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Nov 18 14:31:45 2014 -0700
+
+    Added a missing parameter
+
+commit eaef1160c330ea60c33346b4cf6f1e7ec30532cf
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Nov 18 14:29:14 2014 -0700
+
+    Added retry logic to steam requests and made downloader "retry forever" where appropriate.
+
+commit b12c22454bc9623df2a6c22dc847d42f26c21735
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Nov 7 19:37:17 2014 -0700
+
+    Added persistent content server penalty
+
+commit 663d17834a488da8608b65206d16d276c40ccdb1
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 29 17:11:33 2014 -0600
+
+    Parallelize CollectCDNClientsForDepot to ensure minimum amount of servers until exhausting the list
+    Switched cdnClients to a BlockingQueue to prevent bad cdn clients being dropped from starving other threads
+
+commit eba7234f91d10b1b2f40382dc9af313875a2a09c
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 22 09:52:30 2014 -0600
+
+    Perform checksums when copying chunks when an old manifest is present. Fixes -verify-all.
+
+commit a0d7163bf7e544dbfc4a84fc7847f86d502f4ec1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Oct 22 09:06:18 2014 -0400
+
+    Handle all incoming appinfo and packageinfo, rather than first callback of each.
+
+commit cb2937c971669d8c7b97cb1c92a999e0de445925
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Oct 22 08:15:32 2014 -0400
+
+    Fix crash when account doesn't own app.
+
+commit 410408cb71a6ca10c9e6ad7cdb919a5e404b5b11
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Oct 22 07:58:13 2014 -0400
+
+    Add support for shared depots (depotfromapp).
+
+commit 40fd3c94d6a5f1910af8c6ce43f80a23e1c8a993
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Oct 21 16:02:31 2014 -0600
+
+    Don't download the same chunk forever
+
+commit 077a3a1610bae9ebbd36d525a1d93df5e1316801
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Oct 21 15:00:30 2014 -0400
+
+    Fix error message about no servers for chunk.
+
+commit 289af06733d73603372b327553571bbcd66c55c3
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 15 19:50:19 2014 -0600
+
+    Discard CDNClients instead of looping forever
+
+commit 3b02d4d7542208cf5edb48c416f4b466c580e2a6
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Oct 11 22:04:24 2014 -0600
+
+    SteamKit 1.6.0
+
+commit cc9e57636135481176a425db34228f547e4e004b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Oct 11 04:45:10 2014 -0600
+
+    Upgraded Steam3Session to latest SteamKit. Added error handling to CollectCDNClientsForDepot
+
+commit 330902c09164fa8bc5ccd64b8fd379c6475519ac
+Merge: 81a90577 5f9aa57f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Oct 11 04:12:45 2014 -0600
+
+    Merge branch 'cdn-client'
+
+commit 81a9057779b4a0e4e9d4dbe74577df0d2986278b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Jul 21 11:01:36 2014 -0600
+
+    Don't attempt cm0 servers
+
+commit a0a1db448a5bf13896b898120eb8bec44d7a2164
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Jul 21 10:47:29 2014 -0600
+
+    Allow reconnection logic to run for initial connection. Also bail out of AccountHasAccess without a steamid
+
+commit 5f9aa57f912a1c97c3c8683d073bfb722348a376
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Mar 16 22:20:18 2014 -0600
+
+    CDN content server support and thread safety fixes for CDNClient initialization
+
+commit fdba42da77ca32b9737fd9ca7c2b6311fe72774e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Mar 16 20:40:10 2014 -0600
+
+    Revert 'Added support for CDN content servers'
+
+commit c1c4ef591070f687fe70e731084bed6a884d11d7
+Merge: 90eb0a52 ff2f8131
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Mar 16 19:27:04 2014 -0400
+
+    Merge branch 'master' of github.com:SteamRE/DepotDownloader
+
+commit 90eb0a52c19c9b0bd17fa07878eb6d058193643b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Mar 16 19:22:33 2014 -0400
+
+    Remove gross hack needed for creating ChunkData objects before SteamKit 1.5.1.
+
+commit ff2f8131a48324efb50bea168274c868a3af4745
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Mar 16 01:01:35 2014 -0600
+
+    Added support for CDN content servers
+
+commit d9b6efaf8428f500f3d0bbbd650610b8304fd7f3
+Merge: c7892209 46659854
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 15 22:34:46 2014 -0400
+
+    Merge branch 'master' of github.com:SteamRE/DepotDownloader
+
+commit 46659854cd1d4c63e42cda63546d44d3a0fefcf2
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Mar 6 20:23:00 2014 -0700
+
+    Updated ContentDownloader.CollectCDNClientsForDepot to reflect modified FetchServerList
+
+commit c7892209732f0642ad13ba16624d165b054c7b58
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:35:10 2014 -0500
+
+    Handle -user and -pass as -username and -password respectively if the latter are not present.
+
+commit b656218e8a63a90a624d090e108df5e2cc0adfc7
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:34:41 2014 -0500
+
+    Specify that anonymous account will be used when no credentials are given.
+
+commit e3bc606112d39715d16e20034bcf6ceee88abc2f
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:27:47 2014 -0500
+
+    Don't create folders for excluded files.
+
+commit 27ec24cd8fd90fa69afa273825f541b6475c9ce2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:27:02 2014 -0500
+
+    Remove special depotfromapp handling; no longer necessary.
+
+commit 9778112f1fda2e9e075a82b6d07e0b500a532335
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 10:21:37 2014 -0500
+
+    Fix crash when a CDN server connection times out.
+
+commit 0b21b4734cf5307e96c945a36b34ae5af2f6c0fe
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jan 22 11:45:16 2014 -0500
+
+    Improve error message when specified depot is not available for current platform.
+
+commit 933f0b28cfe10c3f3132fd56195efbef17109308
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Nov 19 14:21:40 2013 -0500
+
+    Bumped version number.
+
+commit d9cec26e00e7153f2c5ac046f22f1d0e0c3f9535
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Nov 13 22:36:17 2013 -0500
+
+    Big speed improvements for some cases:
+    - Store all manifests separately, including excluded file, rather than only list of last-downloaded.
+    - Don't redownload manifests we have.
+    - Don't connect to content servers if no manifest to download and no chunks needed.
+    - Don't connect to content servers until needing chunks if already having manifest.
+
+commit d59f3524c898dedb9ff9671ec4d842be91675f38
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Nov 13 12:30:35 2013 -0500
+
+    Add support for "depotfromapp".
+
+commit 47a240c2ac45d1ae65651e207eb0743de9962692
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Nov 12 08:56:48 2013 -0500
+
+    Fix file verification always occurring.
+
+commit 59e58adc5fbe9e4ad402494b1187462f2b1efcf4
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 14:15:59 2013 -0500
+
+    Set AssemblyInfo.
+
+commit a7ebaa3ddbe903d4d9156760a3111c5464480588
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 10:36:21 2013 -0500
+
+    Expose max server and connection counts. Sync usage printout between program & readme.
+
+commit de37262e9d3e7fcd63cf349890326f67774e9c34
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 10:19:18 2013 -0500
+
+    More cleanup:
+    - Don't calculate matching chunks if file hash matches (now that related SK2 bug is fixed).
+    - When file doesn't already exist, set length immediately after creation.
+    - Remove redundant file existance check before copying existing file to staging.
+    - Normalize more var names.
+    - Print account name for which password is asked.
+
+commit 2d82c9dd5e4872de12bc506a28e9cf3b49f0b136
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 10:15:40 2013 -0500
+
+    Fix potential collision when creating directories. Remove staging files from unclean exit.
+
+commit 6f6eb5f48a8a8345ab254dc09c4e27e8a67dbdee
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 09:33:00 2013 -0500
+
+    Fix protobuf-net reference.
+
+commit 07c77ae2bea8d453c3f504408622359008cee799
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:08:57 2013 -0500
+
+    Update SteamKit nuget package to 1.5.0.
+
+commit 7c9e2c2264dce7e687ee9eda1e03f050f1d262d2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:08:01 2013 -0500
+
+    Connect to eight servers instead of six as very often first few will not be usable.
+
+commit bf92eb63e5c4e8fc6772875919af86bc3e7f924b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:06:52 2013 -0500
+
+    Ignore "depotfromapp" depots for now.
+
+commit e45a4e03b34bfa05184e7933353cb9e98e7bc93c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:06:22 2013 -0500
+
+    Misc cleanup.
+
+commit a65804781aa7d9807a72f2add7e2a430b3a1200e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Oct 24 13:15:15 2013 -0400
+
+    Revert "Use console instance when possible. (now caches user sentry data and steam id to config.vdf)."
+    
+    This reverts commit e96e8bae516a95f346269d545ec0719236f50766.
+
+commit 7ac650d4ec366e2df430a0a1c37ff5158ae12af8
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Oct 24 13:14:11 2013 -0400
+
+    Update protobuf-net to 2.0.0.668 to match SteamKit2 update.
+
+commit bb1724746bd9837d43629dd1d50f3d1eb5d56887
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Oct 24 13:13:00 2013 -0400
+
+    Hack in support for multiple servers and retry logic with concurrent downloading.
+
+commit 5bbb826a3f28d0f0e9c39110b724822bc2e86394
+Author: Asher Baker <asherkin@gmail.com>
+Date:   Tue Oct 8 19:08:55 2013 +0100
+
+    Update README.md
+
+commit 197f16b83869d4b8d6f56ce315326232c1ed3698
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Oct 8 13:39:32 2013 -0400
+
+    Create README.md
+
+commit 798e66d055cc24ad82a74abb4c9cfd306b9abad9
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Oct 8 13:21:05 2013 -0400
+
+    Fix downloading depots for an app that share an app id with another app.
+
+commit e96e8bae516a95f346269d545ec0719236f50766
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Sep 18 22:28:16 2013 -0400
+
+    Use console instance when possible. (now caches user sentry data and steam id to config.vdf).
+
+commit 709ef3f3983d076fd3fddb435f9c42001c8b68c8
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 18:45:48 2013 -0400
+
+    Remove no-long-used AppInfoOverridesCDR var.
+
+commit 1959262d4b3166901f35655cbbec16c186000a78
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 18:44:13 2013 -0400
+
+    Try other servers if failing to get manifest from one.
+
+commit 2e5ebc885184e4d476deb6e570e1f66437b8bb07
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 16:01:30 2013 -0400
+
+    Save manifests to optimize needed chunks check. Add -validate option. Concurrent donwloads.
+
+commit 43ecfcffc72bb106dc8f8d43724f741bc66994c6
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 15:59:15 2013 -0400
+
+    Removed unused function.
+
+commit 581ed16fa6816b056a317c9983eb438f83851da2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 15:58:50 2013 -0400
+
+    Fixed exception when not using -dir and build id unknown.
+
+commit cfc95d3f57d8a007fd7af6768a8bcee361dfc641
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Sep 10 10:31:32 2013 -0400
+
+    Allow downloading of specified manifest.
+
+commit 987b51e82d45a713b03bed73711f4c318b4d47cf
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Sep 10 10:10:48 2013 -0400
+
+    Simplify arg handling.
+
+commit 36c961bc010b830dd2e2d0cda8f98462802e8149
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 18:23:51 2013 -0400
+
+    Removed old Steam2 beta option.
+
+commit c63ddbd23865561b5f010048dec251637554667b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 15:25:04 2013 -0400
+
+    Use uints for app and depot Ids to require less casts for SteamKit.
+
+commit b8a65a6b132d75a51c62e7ee4d1fc87b6e32a1c5
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 15:17:35 2013 -0400
+
+    Adjustments to work with SteamKit CDNClient refactor.
+
+commit aba445afa393f5d15a59248679f7df6479d4aef2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 13:53:48 2013 -0400
+
+    Fix regressions causing exception in oslist check and permission error where depot id is app id.
+
+commit 6a81bebd1ac39e3292a8f95d576b6abd7f78709a
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 14:57:19 2013 -0400
+
+    Removed non-existent test.sh call from ci config.
+
+commit 5c75a9d5b38ce1f3ccd81866eee3dc8c5700079c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 14:54:27 2013 -0400
+
+    Hopefully last ci fix.
+
+commit fa59c818da7cbd6542d523486e0717c3df890e5f
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 09:01:25 2013 -0400
+
+    Added missing Microsoft.Build dll for nuget.
+
+commit 76753c74c693bdb224bd6e17e6593a36c5e42def
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 08:55:48 2013 -0400
+
+    Fixed casing of nuget files.
+
+commit 15ea73f20328bf4e0bcf12d02b0a34b7a27cb9d3
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 08:46:06 2013 -0400
+
+    Flagged build scripts as executable.
+
+commit f65d3c887531594584da1375cfc741dc2e728eaf
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 08:41:53 2013 -0400
+
+    Attempting to setup CI.
+
+commit d073b9ef34c08f829fbccd12c908cc207dbdb4c2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 17:59:41 2013 -0400
+
+    Fixed Steam3 content always downloading depots for all platforms.
+
+commit c0e55988eaefa254a399fd3eafedb4c38015bba1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 17:58:15 2013 -0400
+
+    Added .gitignore.
+
+commit 300d2d90b6c671a4cbc6761499b3b4be36764033
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:57:29 2013 -0400
+
+    Converted sln to VS2012. Remove SteamKit and readded via Nuget. Updated protobuf-net Nuget req.
+
+commit adfea2f0cf24f4088a155c46ab2746f3a424caa7
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:53:21 2013 -0400
+
+    Moved EncodeHexString to Util class.
+
+commit 4b381f4b1658edb74695da103d7b3ec40b8f5ab6
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:52:08 2013 -0400
+
+    Removed more Steam2 crud.
+
+commit f04f4fe17856fb4e2302fbcaee51e5a46902b355
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:51:05 2013 -0400
+
+    Added editor config to keep indentation normalized.
+
+commit 064fbaea32ba33f167cbf8f24cfb47346f1409ac
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:50:12 2013 -0400
+
+    Display total size of downloaded data.
+
+commit 9c2499f8660b4612d2f5c3aecdfc031b658faf34
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:47:50 2013 -0400
+
+    Removed unused constants.
+
+commit 45bbbda746eacf09ee3cc9a616125546f511e855
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:46:55 2013 -0400
+
+    Don't request Steam2 ticket.
+
+commit aacc40ff5e1515897bd3c3f204962d4b6e2016a4
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:45:44 2013 -0400
+
+    Removed removed files from project file.
+
+commit 1a89871744682935f4e41fa72ba067117e023fff
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 17 14:05:15 2013 -0400
+
+    DepotDownloader: Removed Steam2 functionality.
+
+commit d531a7decc23a5db503c3347320646dceb506daf
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Mar 13 12:26:30 2013 -0400
+
+    DepotDownloader: Remove dead code since we're always signing into Steam3.
+
+commit 251d1dbd5adf81f1f0b96dabf0250b5520e6e4ca
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Wed Mar 13 12:24:54 2013 -0400
+
+    DepotDownloader: Close file handles when done with files for S3 downloads.
+
+commit 08c63cc2db2365ec2416bc485cd40b216bb55e80
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Feb 20 17:44:41 2013 -0600
+
+    DepotDownloader: Allow -manifest to download human readable manifest for Steam3 depots.
+
+commit 46ce5de87532981727de97d6e6bde0f4dc99fda2
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Feb 20 17:37:13 2013 -0600
+
+    DepotDownloader: Include depot number in human readable manifest filename in case -dir is specified.
+
+commit 066c52888632d26e41c409d8127abef61952e91d
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Feb 19 21:23:44 2013 -0700
+
+    DepotDownloader: Anon users possibly have this sub
+
+commit 1a281f3182bd4c0308cd3956200b9fd5adbe6fe6
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Feb 19 20:36:31 2013 -0700
+
+    DepotDownloader: More steam3 support
+
+commit 028e9ce8c829fffe96ceb24b221ae40c15f96302
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Feb 19 19:58:23 2013 -0700
+
+    Added PICS token support. Cleaned up reconnect logic.
+    
+    --HG--
+    extra : rebase_source : 7fac8df8fba76a3dd084341154822ae3745eb879
+
+commit f2c5f109d36ddb99f56d6bbe499dc75715dda85f
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Tue Feb 19 20:28:51 2013 -0600
+
+    DepotDownloader: Update for latest SteamKit changes.
+
+commit 140f7705cfd750d05b615d269942bb67825ec284
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Feb 19 07:45:41 2013 -0500
+
+    DepotDownloader: don't use dedicatedserverfolder for Steam3 downloads.
+
+commit c03aa33b77e8a4141132f432cddd2fb491abf734
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Feb 18 22:18:55 2013 -0700
+
+    Updated bootstrap CM list. Added reconnect logic to DepotDownloader
+    
+    --HG--
+    extra : rebase_source : 14c7deb7212eebeb3c3157664ada2c589d4d0a84
+
+commit 066177e9445da41abe4b3f8ac255503fedbbdc29
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Jan 27 14:22:28 2013 -0600
+
+    DepotDownloader: Correct build issue.
+
+commit 89028f6fbde36e215fa85ffa376d16de8db0f144
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Jan 27 14:22:13 2013 -0600
+
+    DepotDownloader: Update protobuf-net dependency.
+
+commit fc27452b67dcfabc55a08e3d90ff00e1335b99a5
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jan 23 18:17:39 2013 -0700
+
+    DepotDownloader: Better command line parameter name
+
+commit e98d7ce2a8d4854607b64a6b6c1ec9aa7f09e916
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jan 23 18:16:05 2013 -0700
+
+    DepotDownloader: Added beta password support
+    
+    --HG--
+    extra : rebase_source : ff1c354116dea838104716e3a998d8ca3a4c0f42
+
+commit 90f72f15557ac4912009b74b52fc387a62a04286
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jan 23 16:35:44 2013 -0700
+
+    DepotDownloader: added some error handling
+    
+    --HG--
+    extra : rebase_source : f849aa26ef59c3eb260b0727ab0f9e7d36700fab
+
+commit 4bc736fcf29d6a387e2080442f16d2f8541d09cc
+Merge: a4bbd1ad ad4fd3bf
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Dec 29 23:42:21 2012 +1100
+
+    Merge
+
+commit ad4fd3bfaccf526a33352dbc10be7d6e427ceb35
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Dec 29 23:28:06 2012 +1100
+
+    DepotDownloader: Fixed NullReferenceException, fixed not reloading CDR if cdr.proto is deleted
+    
+    --HG--
+    extra : amend_source : b4a997ff2524895120eaf1f53aa240685846f85a
+
+commit a4bbd1ad795dd592f180e38d038c6507046d5e47
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Dec 26 19:41:20 2012 -0700
+
+    DepotDownloader: Added support for branches. Uses buildid instead of changenumber.
+    
+    --HG--
+    extra : rebase_source : 7ba4ede5fdb1b951828b7cb7bf23dfbd712cea80
+
+commit 9fbabcfa5d597d94966471926cdfe857da7c0f9e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Dec 24 17:11:27 2012 -0700
+
+    DepotDownloader: always sign into Steam3. Probably safe.
+    
+    --HG--
+    extra : rebase_source : 48240a80e6c95a9681f8735bdfeaa00d2104a8d3
+
+commit 6a5a329ddf7742464260ea690e5eb10f7a03149e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Dec 13 19:47:46 2012 -0700
+
+    DepotDownloader: Added anonymous download support
+
+commit eb64860ae89f216760110485d1d0f97de7f54b18
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Dec 13 01:16:49 2012 -0700
+
+    DepotDownloader: Switched to PICS. Started anonymous download support.
+
+commit 2532f887688e652249d7669cc6e3dea818e00c69
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Dec 12 00:01:25 2012 -0700
+
+    DepotDownloader: Can't compile without this
+
+commit 7c7ee18c2cd5f14ead5d7bca86c65ab434cd5dea
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Dec 11 20:40:43 2012 -0700
+
+    DepotDownloader: Repaired references
+
+commit 93cb82cb5ceb687495445f18365b94865124884f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Dec 11 20:29:59 2012 -0700
+
+    DepotDownloader: Cache server lists and CDR
+
+commit fe936ed48b272ba5c27946859eee9be8dd1d286c
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Fri Nov 30 13:00:10 2012 -0500
+
+    DepotDownloader: Fixed Steam3 needed chunks check for existing files being reversed.
+
+commit a162f8cb466201472c5e69eb066db7d362c651c8
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Fri Nov 30 12:07:15 2012 -0500
+
+    DepotDownloader: Cleaned up and fixed some console output for Steam2 downloads.
+
+commit 2d8d51f10bee439503db1dfc43ceadfbb3aca84a
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 15:00:14 2012 -0500
+
+    DepotDownloader: Fixed regression in downloading some Steam3 apps.
+
+commit 7676ff1cefe48bf9909626cde1997a06dc03f546
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 13:56:26 2012 -0500
+
+    DepotDownloader: switch to DownloadFileToStream for grabbing Steam2 content to reduce memory usage.
+
+commit 5cab5b857e4757bedd70379fdd6eeec85566bf27
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 12:30:33 2012 -0500
+
+    DepotDownloader: Adjust Steam3 app detection to account for Steam2 apps with Steam3 depots lacking manifests.
+
+commit a26a105519fb2aa7da70fcb02b89b29a051b536b
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 12:30:33 2012 -0500
+
+    DepotDownloader: Suppress CellID 0 warning if using auth (as CellID will be automatically retrieved).
+
+commit 37b31d032d48bec72db8dfaff401eb22fc626994
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 12:30:19 2012 -0500
+
+    DepotDownloader: Changes to support connection reuse when downloading Steam2 content.
+
+commit f1e2385e3842902674786cd802ad1417a775ae56
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Thu Nov 15 21:34:43 2012 -0500
+
+    DepotDownloader: Added support for Steam3 checksums and delta downloads.
+
+commit 1566774a6e721bc941355e8e877cc5bbb1cda470
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Thu Nov 15 13:05:57 2012 -0500
+
+    DepotDownloader: Fixed hang when using both -game and -listdepots with credentials.
+
+commit a93ac77b998d15ee195c0754eccf48810bfbac4d
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 12:23:14 2012 -0500
+
+    DepotDownloader: Fixed compile error in last commit.
+
+commit d11b77403ce671d4b47fa68a24b0be5787ef85f3
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:43:20 2012 -0500
+
+    DepotDownloader: Set Steam2 connection timeout to 5s.
+
+commit 9fb844fdae9d62c460f1c18763052e187cd9aefc
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:40:23 2012 -0500
+
+    DepotDownloader: Removed Steam2 auth server lookup and caching.
+
+commit a8e714ea12a52230db7e3344b8ac1729ca8cdcd9
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:38:56 2012 -0500
+
+    DepotDownloader: Removed reliance on Classless.Hasher.
+
+commit 5262ec9667a55803bc8d20244a6650b071304640
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:33:28 2012 -0500
+
+    Updated DepotDownloader project for SteamKit project changes. Nuget for protobuf-net.
+
+commit 7aa43a518497813c6a605f86eab43c6845b81f5c
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Nov 10 13:05:46 2012 -0700
+
+    AppInfo changes for Depot section
+
+commit c6da5d057e7d84a3e27794a44721d254cfa47603
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Oct 29 20:50:58 2012 -0600
+
+    DepotDownloader: Retry different CDN servers when we encounter an error
+    
+    --HG--
+    extra : rebase_source : 35a93f8bdd98c03f8cd99423e6c4f95ed713d0d2
+
+commit 31781b5b855f0e932b58eeae105b753d8219dbb9
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Aug 17 12:47:54 2012 -0600
+
+    Skip CDR check for Steam3: we display the change number
+
+commit 4ef5af2fcb9e6d5ae539303dc6ced53bdc367058
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Aug 17 12:22:12 2012 -0600
+
+    Don't need to parse depot id after tryparse
+
+commit 5249592b35000b5468783093b8c1f182bb5c9a3f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jul 11 22:17:31 2012 -0600
+
+    Added Bloblib comments
+    
+    --HG--
+    extra : rebase_source : 04ccef87df8b3d4e2d8b3cf0b017d8f4869d6926
+
+commit 80f0dcf56c170ff41955544586a3e192114a2f78
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Jun 11 01:05:40 2012 -0600
+
+    Blob Refactor
+    
+    --HG--
+    extra : rebase_source : 98e0b6385cc654ff137fa216c4b403be5d36fa26
+
+commit 5602f4f79e87c1d465c599d4fe24d04373710416
+Author: psychonic <nshastings@gmail.com>
+Date:   Sat Jul 7 11:55:54 2012 -0400
+
+    DepotDownloader: fixed crash on some Steam3 apps when not supplying depot id.
+
+commit fe867a4fcfc4206bd69c2debe75eef3f34ef5123
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 27 11:49:47 2012 -0600
+
+    DepotDownloader: prettified license list code
+
+commit afc197fbc99018702415089d6ee69b77b328a80b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 27 11:33:33 2012 -0600
+
+    DepotDownloader: more Steam3 error handling
+
+commit 43ca82f869e44a6e580ff4b0ab544babb33cf79b
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 20:51:28 2012 -0400
+
+    Backed out changeset: 26ba29eb818f
+
+commit 8a98c812c2c3179a3b884596de0572f9c421098d
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 18:44:39 2012 -0400
+
+    Ditch P/Invoke for detecting OSX as it's a detected platform since .NET 3.5.
+
+commit acdd8bdebc9fc117304bec769c7436659519a2af
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:58:01 2012 -0500
+
+    Add support for specifying single depot (+app) for steam3 content.
+
+commit 040c3926df8bf5c0051b9a1832f4ab79ce7232f9
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:54:45 2012 -0500
+
+    Fix crash instead of graceful exit on ServiceUnavailable.
+
+commit e33cf18265f7d2daafc9561b134e13a1d367593f
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:49:43 2012 -0500
+
+    Print found licenses.
+
+commit 0f2edd0a942687036e5988eff8bd7aa627d09dcd
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:45:41 2012 -0500
+
+    Fix error downloading some depots to current directory (-dir .)
+
+commit 25c47e2fbb1b7b4252877fdd013c1272580ce2db
+Author: psychonic <nshastings@gmail.com>
+Date:   Mon Jun 4 16:20:44 2012 -0400
+
+    Missed two lines in last commit.
+
+commit cdd9c640d6578d1260aa90049433b66b7bc94ce2
+Author: psychonic <nshastings@gmail.com>
+Date:   Mon Jun 4 16:18:15 2012 -0400
+
+    Fixed DepotDownloader compile errors from JobID changes.
+
+commit 0374a529b9686fe9c754a72ea65a6aaa3e5bdafe
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Sat Apr 14 17:49:21 2012 -0600
+
+    Added support for Steam3 license list in AccountHasAccess.
+    Ignore contenttype when depots are present.
+
+commit 6c545644e0bc7c7876054a200b259610a8b8ccce
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Sun Apr 1 17:11:33 2012 -0600
+
+    Added EDepotFileFlag, don't assume size=0 is a directory
+
+commit aa0778dc4ea437cd902738eed9de1f6d185cd398
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Mar 4 15:03:01 2012 -0600
+
+    Fixed small compilation issue.
+
+commit b2cb33aa920689d899b3e08fbc50270f7c7e1388
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Feb 26 12:13:45 2012 -0600
+
+    Updated depotdownloader to pass in the appid when requesting a depot key.
+
+commit d638dc7ec25577c388f85ddfee3b0f974a020251
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Fri Feb 24 17:12:21 2012 -0600
+
+    Changed SteamUser.LoggedOffCallback to expose the Steam2Ticket directly, instead of the data.
+    Added various bits of XML documentation.
+
+commit 90b9051de383fc8c4fc2500d4e6ef04cacaa0c8a
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Tue Feb 14 03:43:20 2012 -0600
+
+    DepotDownloader: Cache Sentry File and send SentryFileHash with logondetails so we don't have to do SteamGuard auth every time
+
+commit d7a8d9fe0a9416cbaa23877fc31461286925e69a
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Tue Feb 14 03:17:05 2012 -0600
+
+    DepotDownloader: Updated Steam3Session jobs to use new job callbacks
+
+commit a28d1c279b16a0765b897c113ce4405878308d47
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Thu Feb 9 18:31:32 2012 -0600
+
+    DepotDownloader: Split Steam2 Download into to parts--building list of files to download, then reconnecting to storage server to download. This should combat issues with the storage session timing out.
+
+commit ca6e22e92b1fb1c454c9fa14dda3e191b0749c0f
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Tue Feb 7 03:11:03 2012 -0600
+
+    DepotDownloader: Forgot to close file handle in checksum validation.
+
+commit 948e581d16040164236e3a36698eb5b5d2390515
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Mon Feb 6 19:13:35 2012 -0600
+
+    DepotDownloader: Skip downloading checksums if we're only going to download the manifest and quit
+
+commit 89cdae3ef3b2c5084e40392bf728e36b4d2b8a56
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Mon Feb 6 19:06:09 2012 -0600
+
+    DepotDownloader: Unlink existing file if the size/checksum don't match (for compatibility with file links)
+
+commit 24640978b6da2073e255f9ee52b2686a0c6bb55f
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Mon Feb 6 01:10:38 2012 -0600
+
+    Replaced Classless.Hasher's Adler32 with a simple, valve-compatible implementation. Added Steam2 file checksum verification to DepotDownloader, so existing files on disk can be used instead of downloading new copies.
+
+commit 512e13cc88451f63012b24b9fe32b88120799e15
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Feb 1 15:22:25 2012 -0600
+
+    Small fixup for printed usage.
+
+commit 7e02724c05c1682650b1b4dc19b0221cff30a0e7
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Feb 1 15:20:01 2012 -0600
+
+    Added -listdepots.
+    Reworked -manifest to be an optional parameter that dumps manifests when -game, -app, or -depot is supplied.
+    Closes #18.
+
+commit 5bc21f183a1626709b12db81976c36322f39b354
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Wed Feb 1 05:23:37 2012 -0700
+
+    Refactored DepotDownloader to use CallbackManager
+
+commit 6c00c19300badb5ad619001710bf522e685d387a
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sat Jan 28 20:36:09 2012 -0600
+
+    Fixed issue receiving app info.
+
+commit a17713e1537c779b24164525d039c1eaf1fae647
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Fri Jan 27 16:36:03 2012 -0600
+
+    Fixed DepotDownloader for the latest SteamKit2 version.
+
+commit eb483d207fc5a8f9cbc01e68c6e6cd2ae173ffd9
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Jan 11 01:22:08 2012 -0600
+
+    Updated DepotDownloader to .NET 4.0 and fixed compilation.
+    Fixed IPAddress byte order issue.
+
+commit 8c227bcfa004bdc3c4c3741b1acae453c807401f
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Dec 28 04:31:38 2011 -0600
+
+    Fixed some enums that were incorrectly named, and added MsgClientPackageInfoRequest and MsgClientPackageInfoResponse.
+
+commit 76ff0b3591e69cf928544c6c12a3bef052acab26
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Wed Dec 21 18:14:11 2011 -0700
+
+    Copy and paste job. It took 11 people to pull this off.
+
+commit 7fc994657e6f9085abc4dcacabb05f2a268ab23c
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Wed Dec 21 17:51:57 2011 -0700
+
+    Pretend to do something
+
+commit 811d37c7056ae8b42e612495be115cc463e3d5ab
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Sun Dec 18 19:14:29 2011 -0700
+
+    DepotDownloader: detect proper ContentType
+
+commit 24ecfcbb43a52a62936aa249b389fc501890fd47
+Author: Azu@Azu-PC <Azu@Azu-PC>
+Date:   Sat Dec 17 22:32:40 2011 -0700
+
+    Added retry to Steam3 FetchServerList
+    
+    --HG--
+    extra : rebase_source : 053cb4ea8409980314fcd40a52f5af8faf85a9c7
+
+commit 72dbb508640e27b2e0c6724049462900643a65ef
+Merge: 76258df7 bae6d890
+Author: Azu@Azu-PC <Azu@Azu-PC>
+Date:   Sat Dec 17 21:29:51 2011 -0700
+
+    Merge
+
+commit bae6d8907c9a7214f504aa5f8e8115c25f87f4ea
+Author: Azu@Azu-PC <Azu@Azu-PC>
+Date:   Sat Dec 17 21:29:14 2011 -0700
+
+    DepotDownloader fixes
+    Updated Classless.Hasher
+
+commit 76258df7b724f312090bb6c947c834e8e62e1320
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 15 22:11:42 2011 -0700
+
+    Retry all the connections
+
+commit 2295319fd2af6e401d818e983fa720596fa95532
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 15 15:54:11 2011 -0700
+
+    Added Steam3 suggested CellID
+    
+    --HG--
+    extra : rebase_source : c5294bda22ef8b9c0bcafcb91fa65ddb31dfe4a5
+
+commit 680355e02212e7e1b3bd64b9e3704e4ec984521d
+Author: psychonic <nshastings@gmail.com>
+Date:   Sat Dec 10 01:21:03 2011 -0500
+
+    Added -filelist support for Steam3 downloading.
+
+commit 866e7ff778cea55751eee87aec2e3c44e43952f1
+Author: psychonic <nshastings@gmail.com>
+Date:   Sat Dec 10 01:18:24 2011 -0500
+
+    Fixed DD crash when specifying -dir without -game.
+
+commit d6850b8f3323231764141ca230fac10819b496fc
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 21:42:21 2011 -0700
+
+    Large refactor to support steam3 appinfo
+
+commit 9a92d8b203a89c35553695ee1d251d5d5f867852
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 02:38:29 2011 -0700
+
+    Refactor: EServerType to ESteam2ServerType
+    Added Steam3 CS server selection
+
+commit 1024dde88df389788542b9b9ed243263cac6350f
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 01:21:14 2011 -0700
+
+    Slight refactor to support steam3 depots in an app
+
+commit f258ac890375fe6f933cf641b7884dd79950062d
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 00:29:02 2011 -0700
+
+    Downloads files.
+
+commit c7593aefbd18e47db005548fc2af8cd0fe57f1e3
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 8 22:37:59 2011 -0700
+
+    Added depot encryption key support.
+
+commit e7129f0a1f22119ab65f00535a6554f76b386d39
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 8 20:59:10 2011 -0700
+
+    Parse Steam3 manifests into DepotManifest
+
+commit 0ab391a27236cdea9654308448e9c9e8d7405f48
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 8 19:58:08 2011 -0700
+
+    Refactored Keyvalue to use strings. Removed System.Web dependency.
+
+commit b1810c0eb0ad0a0760b7e5a791e2e4f06d81a852
+Author: psychonic <nshastings@gmail.com>
+Date:   Thu Dec 8 20:24:38 2011 -0500
+
+    Don't keep retrying single, dead server. Try all for cell!
+
+commit 25132937d9e8c140511f52230ff264a3b096d554
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Dec 6 13:40:18 2011 -0500
+
+    Added kv LoadFromString for CDNClient.
+
+commit 997cbc3e7fe35cce0781aae4cea1efa4c38695b7
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 2 14:50:12 2011 -0700
+
+    Completed CDNClient auth header, downloads depot manifest.
+
+commit 32b2e6b75475246156df3bf6bcaa4071c70eaec9
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 2 00:29:46 2011 -0700
+
+    Initial support for Steam3 HTTP CDN. Incomplete.
+
+commit d18e9c465edfb20d9a0457fe4c51907cc187b256
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Thu Dec 1 20:13:44 2011 -0600
+
+    Finally fixed up authed downloads and made depotdownloader1 support them again. Suck it HLDSUT.
+
+commit 3dbc75a34362f47c43f12762865a3e0c3d4001b2
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Thu Dec 1 15:56:17 2011 -0600
+
+    Initial commit of fixes for steam2 authenticated downloads, but there's still some issue with a change in the steam2 ticket that needs to be investigated.
+
+commit 8ffff1cb7bc4d0301e2c86c05b0492de8d40cbee
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Jul 26 21:30:22 2011 -0500
+
+    Added -dumpcdr param to do quick XML dump of CDR.
+
+commit 127dadd3630d45c72d585494e6c93a7d836c5688
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Jul 26 21:28:04 2011 -0500
+
+    Use latest version if no version specified.
+
+commit 44ff453193ec45cad13075bd91343b2e96d5538f
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jul 26 21:27:32 2011 -0500
+
+    Ask for account password if -password is omitted from command line.
+
+commit 9d586b5e9505fdf2d44aa243b3416ff9222312f4
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jul 7 22:27:57 2011 -0500
+
+    Added -beta parameter to download beta versions of depots if available.
+
+commit af190db942d0136b53e35c27f9f06152ca5e7eb5
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jul 7 22:27:56 2011 -0500
+
+    Fixed compiler warning by adding back forgotten error message for opening a storage session.
+
+commit cd0014aab574b4bb4341bdb57213948dd41ca428
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jul 4 16:30:12 2011 -0500
+
+    If the content server client fails to open a storage session, keep retrying.
+    
+    This behavior matches hldsupdatetool.
+
+commit 5d4590e6cfbdaa99f839ac37112feed96042699a
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jul 4 16:26:45 2011 -0500
+
+    Check if the user has access to a depot before attempting to download it.
+
+commit bfe267e194404f415d14780ed6f55329adacc6d8
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Fri Jul 1 02:00:49 2011 -0500
+
+    Actually download working server installs for GoldSrc/HL1 games.
+
+commit f9cac0700696cd1741b96be934fe8a27d9bef718
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Fri Jul 1 01:59:44 2011 -0500
+
+    Added -list switch to print list of game servers that can be downloaded using -game.
+
+commit 2a24b41d60a729bdccb7bfdd25b928d8e17149c8
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:41 2011 -0500
+
+    Properly detect Mac OS X in DepotDownloader.
+    
+    OSVersion.Platform just returns Unix on Mono.
+
+commit 8aa8798459398e44f16bc69815e49c88378c3980
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:40 2011 -0500
+
+    Added -app switch to download all depots associated with an app id.
+
+commit ed4bd4a1d341fb357097dde6556ece30e8a2f193
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:39 2011 -0500
+
+    Added -all-platforms switch to download all platform-specific depots when -game is used.
+
+commit a86eac90de994b6e94856bbcb7d0381656d8488c
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:30 2011 -0500
+
+    Fixed excluding files from exclude.lst on non-Windows platforms.
+
+commit e5fa0ca62fc0d059e11b2d5896b2a7437603d307
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Jun 29 01:45:28 2011 -0500
+
+    Added -no-exclude parameter that downloads files in exclude.lst anyways.
+
+commit f11dd05096900a2502023ce4c05d11b9195dd763
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Jun 29 01:45:22 2011 -0500
+
+    Exclude files listed in reslists/*/exclude.lst when using the -game parameter.
+    
+    This functionality matches hldsupdatetool.
+
+commit 16e33b20858a44a3a258ea2aec71a69838fac88b
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jun 28 17:30:48 2011 -0500
+
+    Converted download paths to lower case. (For Linux server installs)
+
+commit 668d8697827ebcf87d5053fa559f995adef4eba5
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jun 28 17:30:03 2011 -0500
+
+    Fixed download of depots when dedicatedserverfolder field didn't exist.
+
+commit f31925b5b5308ce29c7e696e247c4f6aab12c459
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jun 28 15:13:45 2011 -0500
+
+    Fixed DepotDownloader building.
+
+commit af0612cfde89d6e17325eeb223b5bd6dc08db7d6
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Mon Jun 27 19:43:22 2011 -0600
+
+    CS selection by Load
+    
+    --HG--
+    extra : rebase_source : 2bc1207748459d1493fd5e9d3329144d59b7b4c2
+
+commit c4e3360dc492968537193600d380e7fc359c350d
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 02:40:00 2011 -0500
+
+    DepotDownloader: No longer downloads depots meant for other platforms when the -game option is used.
+
+commit 3cbe8539a65eefddfae95f985c2e1ab7dd13c771
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 01:28:15 2011 -0500
+
+    Place server installs into directory specified by "dedicatedserverfolder" if available.
+
+commit 0fc89f465abf5a8e462891f1ae85619b7a1c0c95
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 01:28:04 2011 -0500
+
+    Added -dir option to DepotDownloader for specifying an alternate install directory.
+
+commit 1c181a351bf1a4dbd36c8c750efd746963aaeac2
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 01:27:57 2011 -0500
+
+    Allow downloading of encrypted content.
+
+commit 96236acb0e799088c2380ffc509e7555d9785e3a
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Sun Jun 26 21:27:46 2011 -0500
+
+    Allow downloading of restricted content with DepotDownloader whether or not Steam Guard is enabled.
+
+commit 50fe7b32fd8737c4595018aac30089ce79d588a7
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Sun Jun 26 21:45:01 2011 -0500
+
+    Fixed DepotDownloader compile.
+
+commit 6783118d3e0a69f67b56bfe953b793a10b532044
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Jun 22 16:15:55 2011 -0500
+
+    Fixing DepotDownloader for the latest SteamKit change.
+
+commit 84afed2be577ee4008653ecbbfe4dd6912cd8629
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Mon Jun 20 04:26:36 2011 -0500
+
+    Upgraded DepotDownloader project to 2010, and made it support the new BlobLib.
+
+commit 387a79a94bb79bd81183b9bc4a79eb183b62f3b6
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Jun 19 16:19:55 2011 -0500
+
+    Updated DepotDownloader. It _should_ work now.
+    The information contained within this revision comment is provided on an "as is" basis without any warranties, expressed or otherwise implied.
+
+commit e90a6663a1b3a0b9326109d0465c8cf69c73cbad
+Author: Asher Baker <asherkin@limetech.org>
+Date:   Sun Jun 19 19:16:16 2011 +0100
+
+    Derp, no wonder that didn't work.
+
+commit 43632c4095d7650709f80291e179f7eeae1198a8
+Author: Asher Baker <asherkin@limetech.org>
+Date:   Fri Jun 3 00:00:21 2011 +0700
+
+    Added (bad and incomplete) support for specifying a game name instead of a depot id.
+
+commit 3a8fbb363c9ac5771c991c368d7508db285b0a51
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Apr 20 08:33:08 2011 +0000
+
+    Fixed DepotDownloader to make use of the latest ContentServerClient changes.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40238
+
+commit 391dbd9b8a5bd012f5be07977a8e970f08f1728a
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Mon Mar 28 06:08:56 2011 +0000
+
+    Added support for dumping a human readable list of files in a depot with -manifest <depotid>.
+    Added -filelist to specify exactly what files to download from a depot. Additionally works with regular expressions.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40222
+
+commit de9ea3a6c8908fbf03ef9bf3dec3776f34342ea7
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Mar 23 04:29:04 2011 +0000
+
+    Cut some code and determined the issue behind authenticated downloads not working. It's fixed now.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40218
+
+commit 14f2b6e39da2df3a9eb41a54dfd2509fc7626159
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sat Mar 19 10:09:53 2011 +0000
+
+    Don't download files that have already been downloaded.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40214
+
+commit bb5c54441499d4cd4bd66904be41887a39037d71
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sat Mar 19 09:16:59 2011 +0000
+
+    Added DepotDownloader POC project. Move over hldsupdatetool, there's a new kid on the block.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40212
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit eecb0605328dc882333ecfc37fd35399beadcb58
+Author: Michael <gbps@ctf.re>
+Date:   Wed Mar 25 14:56:43 2020 -0400
+
+    Normalize forward slashes in filelists on Win
+
+commit 751538019bf56c11942f702accc319b9e6f0336d
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Feb 22 13:20:45 2020 -0700
+
+    TryWaitForLoginKey should always attempt to wait a short period of time for login key updates if configured
+
+commit def0729fce3249339ff7a9e29ef6adeac2aaee1d
+Author: Pavel Djundik <xPaw@users.noreply.github.com>
+Date:   Sat Feb 22 13:19:01 2020 +0200
+
+    Set LoginID
+
+commit 8dd7c4c1b58a3436799bec1617035d330aa2901c
+Author: Pavel Djundik <xPaw@users.noreply.github.com>
+Date:   Sat Feb 22 13:30:49 2020 +0200
+
+    Fix crashing on duplicate license
+
+commit 90dfd03b5e5f66a349384b5b4867fe2ea856cb0f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Feb 7 00:13:37 2020 -0700
+
+    Corrected FileMode when saving AccountSettingsStore
+
+commit 0d427acbb9031aee1f17062354a753ba41059ef8
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 6 23:26:30 2020 -0700
+
+    Added RollForward setting
+
+commit 436519d4454dd1170734470ee081d3e7559edd09
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 6 21:51:18 2020 -0700
+
+    Split DepotDownloader configuration file into account settings stored in IsolatedStorage, and depot installation data stored in the .DepotDownloader config directory alongside cached manifests
+
+commit 2c46ee32ea07d51fc9e3509d3d3ebc06de0da63a
+Author: Margen67 <Margen67@users.noreply.github.com>
+Date:   Sun Nov 24 13:37:19 2019 -0800
+
+    Update travis dist to bionic
+
+commit bc25bba261c7f917cff3a519e5af7a455f0b0862
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Nov 3 19:10:15 2019 -0700
+
+    Only show the checksum mismatch when the manifest actually exists
+
+commit 2e30364d8fbf02adf5d7dc09f6a21f0fa0311d49
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Nov 3 17:23:26 2019 -0700
+
+    Include and validate checksums with locally cached manifests
+
+commit 0b598b43a71ac27da516d87eecd4541c8ca0ca68
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Nov 3 16:50:52 2019 -0700
+
+    Ensure failed download task throws OperationCanceledException so that the return code is reported correctly when it is the last task
+
+commit 779a4697ab60e0d615b0f0ec0575f422e06809e8
+Merge: 5f3e4334 3e7a902e
+Author: Yaakov <yaakov-h@users.noreply.github.com>
+Date:   Thu Oct 31 07:53:19 2019 +1100
+
+    Merge pull request #65 from SteamRE/dependabot/nuget/protobuf-net-2.4.4
+    
+    Bump protobuf-net from 2.4.1 to 2.4.4
+
+commit 3e7a902eb47ede082ad7c10c109f085870723282
+Author: dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>
+Date:   Wed Oct 30 14:06:28 2019 +0000
+
+    Bump protobuf-net from 2.4.1 to 2.4.4
+    
+    Bumps [protobuf-net](https://github.com/mgravell/protobuf-net) from 2.4.1 to 2.4.4.
+    - [Release notes](https://github.com/mgravell/protobuf-net/releases)
+    - [Changelog](https://github.com/protobuf-net/protobuf-net/blob/master/docs/releasenotes.md)
+    - [Commits](https://github.com/mgravell/protobuf-net/commits)
+    
+    Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+commit 5f3e4334ba0b0f0e313341d2f15e2511d9c8a635
+Author: dependabot-preview[bot] <27856297+dependabot-preview[bot]@users.noreply.github.com>
+Date:   Wed Oct 16 13:51:41 2019 -0600
+
+    Bump protobuf-net from 2.1.0 to 2.4.1 (#63)
+    
+    Bumps [protobuf-net](https://github.com/mgravell/protobuf-net) from 2.1.0 to 2.4.1.
+    - [Release notes](https://github.com/mgravell/protobuf-net/releases)
+    - [Changelog](https://github.com/protobuf-net/protobuf-net/blob/master/docs/releasenotes.md)
+    - [Commits](https://github.com/mgravell/protobuf-net/commits/2.4.1)
+    
+    Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+commit da88425eb64985b7246a499235d577c5d4397454
+Merge: f6fa6fe9 f1ff09bf
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 16 13:50:23 2019 -0600
+
+    Merge pull request #62 from eroen/master
+    
+    Be more friendly to scripts
+
+commit f6fa6fe9c6fa572c3dc8a2727220e93538bcb570
+Merge: ffcde1b0 ee82031a
+Author: Yaakov <yaakov-h@users.noreply.github.com>
+Date:   Wed Oct 16 22:09:35 2019 +1100
+
+    Merge pull request #64 from SteamRE/no-legacy-nuget
+    
+    Remove legacy NuGet packages.config
+
+commit ee82031a406c812d55ef0a283ba9379407a5ba72
+Author: Yaakov <git@yaakov.online>
+Date:   Wed Oct 16 22:01:40 2019 +1100
+
+    We shouldn't need this anymore.
+
+commit f1ff09bf209926cf47c499f28690de307e955c84
+Author: Eroen <eroen@occam.eroen.eu>
+Date:   Sun Sep 29 14:14:48 2019 +0200
+
+    Exit with error code on errors
+    
+    When run by a script, the script needs to know if the requested operation was
+    succesful.
+    
+    This patch makes sure error codes are returned for a number of unhandled error
+    conditions.
+
+commit ee53edc935e0a75a88972feb6b8490755cfa2224
+Author: Eroen <eroen@occam.eroen.eu>
+Date:   Thu Sep 26 16:39:37 2019 +0200
+
+    Allow reading passwords from redirected input
+    
+    This is beneficial for scripts that don't want to expose the password in the
+    command line arguments.
+
+commit ffcde1b04e91a424f69e0c01d8c7ff1180b5ff91
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 26 20:37:45 2019 -0600
+
+    Updated to SteamKit 2.2.0
+
+commit c6975323d2915a451119260ded45032a47e4fa47
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 26 19:13:12 2019 -0600
+
+    Use new ContentServerDirectoryService to fetch content servers for CDNClientPool
+
+commit 87a238b0ec0746a45e4926e95592c0a7eaef59fb
+Merge: f5d519c4 73286dd0
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Jun 15 12:15:02 2019 -0600
+
+    Merge pull request #53 from xPaw/patch-2
+    
+    Do not display full license list
+
+commit 73286dd0720653dfaa4e7352c8650c4b30d36928
+Author: Pavel Djundik <xPaw@users.noreply.github.com>
+Date:   Fri Jun 14 15:44:34 2019 +0300
+
+    Do not display full license list
+
+commit f5d519c466bca3fac5088ad61448e35339dd2eef
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Apr 27 14:41:50 2019 -0600
+
+    Added GPLv2 license
+
+commit e7b89df7432b971b13620e5ed5b428d1b08782d1
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Apr 27 14:36:56 2019 -0600
+
+    Skip platform check when an explicit depot id is provided
+
+commit 2177746a508a5528382917b64c7c90da51016011
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Apr 2 16:38:34 2019 -0400
+
+    Update README usage info to match usage print output.
+
+commit e0afef00e484d6faf010cc451d8e8e6709422d00
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Mar 25 10:36:28 2019 -0600
+
+    Report and exit on unsuccessful pubfile lookup
+
+commit fdb5d0d40832ba80df8d0ceb76878267b8d440bb
+Merge: 7a757101 3ad09660
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Mar 25 10:33:42 2019 -0600
+
+    Merge pull request #45 from SteamRE/ugc-cmd-cleanup
+    
+     Add new -ugc option, removing -force-depot. (#41)
+
+commit 3ad0966070c3be88d3d22800524dda3984bb778a
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Mar 24 08:55:50 2019 -0400
+
+    Move GetPubfileDetails to saner spot in file.
+
+commit f957ef5da9fed84269b3016bfb9a946e45e9879e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 17:17:10 2019 -0400
+
+    Add -pubfile support, dynamically getting appId + ugcId.
+
+commit 18a57dd1dd6b108d4f73668b598470725869fb0e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 12:08:41 2019 -0400
+
+    Update SK from 2.0.0 to 2.1.0 BECAUSE WE CAN.
+
+commit a2ffdd30f501fa6e8a1e53e4ea244a5417aa313f
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 12:02:21 2019 -0400
+
+    Misc cleanup to avoid unnecessary conversions.
+
+commit 72f633eadef37c54890868d45e1779c7955bd0d1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 23 12:02:05 2019 -0400
+
+    Add new -ugc option, removing -force-depot. (#41)
+    
+    Also improve and clean up command line usage output, as well as add
+    automatic lookup of correct workshop depot id for UGC, instead of requiring
+    it on command line (usually assuming app id).
+
+commit 7a757101bf652b7b766e6c814b1da33bb32536a8
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue May 1 22:57:52 2018 -0600
+
+    Added shutdown token to CDN connection pool monitor
+
+commit 5425ef756dce79455a6e93ad95a17ff044c1add0
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Apr 30 22:21:13 2018 -0600
+
+    2.3.0 Release on .NET Core 2.0
+
+commit 0889da4316afa563c0c1faaef68948ea108e44ec
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 31 09:32:42 2018 -0400
+
+    Don't allow empty password to be entered when using non-anon account.
+    
+    Fixes getting wall of exception text when accidentally entering or pasting
+    in an empty string.
+
+commit 6552734faf021ae37b7602e7c4896f5a7c23b98b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Dec 19 15:16:15 2017 -0700
+
+    Target SteamKit 2.0.0
+
+commit 65036ffa8dad7ca40f701e8714f98413809d29bd
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Dec 1 00:40:08 2017 -0700
+
+    Cancel work if CDNClientPool is exhausted and can't find more servers
+
+commit 184ea54020b7b6dc2466dc3384b120eafe76fdc1
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Dec 1 00:09:19 2017 -0700
+
+    Don't retrieve AppTickets as they aren't needed anymore
+
+commit 6105a99e72c1917fb325cd7f0c95f45e10a0d350
+Author: Yaakov <git@yaakov.online>
+Date:   Sat Sep 9 23:57:02 2017 +0300
+
+    Check for cancellation after semaphore completion
+    
+    It doesn’t look like anything actually calls Cancel() on this CancellationTokenSource, but if something ever does we’d want this to work properly.
+
+commit 1e3ca8f0169aa1493147222cb008796ecfd92ffa
+Author: Yaakov <git@yaakov.online>
+Date:   Sat Sep 9 23:55:44 2017 +0300
+
+    Missed something fairly important
+    
+    It kind of helps to actually use the semaphore.
+    
+    Missed this when reapplying changes after whitespace.
+
+commit 1ec611cb344c57e6b296b905a3c9190401f4c0d1
+Author: Yaakov <git@yaakov.online>
+Date:   Fri Sep 8 12:48:03 2017 +0300
+
+    Update Travis for .NET Core SDK 2.0
+
+commit fb3e693755a9975f91bf93946ed07722076e8174
+Author: Yaakov <git@yaakov.online>
+Date:   Fri Sep 8 12:47:47 2017 +0300
+
+    Update to SK2 Alpha8 and .NET Core 2.0
+
+commit 0da80d96011586f8e07b2530f84eff581f1b663e
+Merge: 52f12030 42b832e4
+Author: Netshroud <netshroud@gmail.com>
+Date:   Fri Sep 8 12:22:59 2017 +0300
+
+    Merge remote-tracking branch 'origin/master' into dotnet-core
+    
+    # Conflicts:
+    #       DepotDownloader/ContentDownloader.cs
+    #       DepotDownloader/Program.cs
+
+commit 42b832e46599eac4c8613bb354528486f06b4f08
+Author: Sunner <sunnerlp@gmail.com>
+Date:   Sat Sep 2 19:20:27 2017 +0200
+
+    Added operating system switch (#24)
+    
+    * Added operating system switch
+    
+    * Fix typo and throw error if both -os and -all-platforms are specified
+
+commit 8daaf0daa2d19ef9242ee44ed8036d15033deef4
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 22:55:32 2017 -0600
+
+    Don't error out if a user supplies a password without -remember-me but a matching login key was found
+
+commit de775d5c4b507eea13066faf64a9211e946c03f9
+Author: Netshroud <netshroud@gmail.com>
+Date:   Fri Jul 28 14:30:31 2017 +1000
+
+    Save a lookup in login key dictionary
+
+commit 58b5b6185ea326a274d25ede0c66de047af90996
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 22:20:00 2017 -0600
+
+    Touched formatting and line endings. Tweaked login key handling.
+
+commit dceed3a9a126231e3848dfe8723ebd05ced5ea06
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 15:03:21 2017 -0600
+
+    Don't forget about anonymous users
+
+commit 17d5f7357d7b896e9198d53a9f1f68e671c561ed
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Jul 27 14:55:03 2017 -0600
+
+    Initialize LoginKeys dictionary
+
+commit 974eb1d3698c576d09e58d744e86486375632ae2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 26 18:35:02 2017 -0400
+
+    Add -remember-password to README.
+
+commit 6e5eb77738b5546b281ef0c8ceea9c8411efa15c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 26 18:34:02 2017 -0400
+
+    Add -remember-password to usage info.
+
+commit 6e4a764bb902988eed7065f092d3bb07b311038c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 26 18:30:29 2017 -0400
+
+    Add support for remembering password (loginkey).
+
+commit 52f12030c1ececbd4fb6f4dd878e367135222d02
+Author: Netshroud <netshroud@gmail.com>
+Date:   Tue Mar 28 19:32:27 2017 +1100
+
+    Change SteamKit2 filesystem project reference to NuGet package reference
+
+commit 3fb5da1098a08f40efdf7bfa71663dff445e2d14
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Mar 27 17:52:10 2017 +1100
+
+    Add .NET RIDs for "dotnet publish"
+
+commit 7575cd0757193cbfe093c1f90c204643617ddec3
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Mar 27 17:51:49 2017 +1100
+
+    Update CI for .NET Core
+
+commit 359a8d017dffd45a69b5be409ef631e0a7c43836
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Mar 27 17:50:28 2017 +1100
+
+    Restore Environment.OSVersion and P/Invoke for getting OS type on .NET Framework
+
+commit 8eb3f711b946119278eaeeb414ac4dc156830874
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Mar 26 17:44:30 2017 +1100
+
+    thanks @xpaw
+
+commit b17e343d0e06a28c7a10c6a52a5b690737b48fe6
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Mar 26 12:26:39 2017 +1100
+
+    Fix bug where DD would exit prematurely
+
+commit ab9ca2a7dade6a442bf4979e4a1f6f3ed573f0c0
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Mar 26 12:26:29 2017 +1100
+
+    Cleanup
+
+commit c0b6d0ce3c29fd107caed21de7b35749d5cc8dbf
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Mar 25 23:44:25 2017 +1100
+
+    Convert to .NET Core.
+    
+    Works on macOS, haven't tried Windows / .NET Framework yet.
+
+commit 35aa666ea5ff0859afcbcd6fccedb7491bd625dd
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Feb 27 20:45:37 2017 -0700
+
+    Always process Disconnect callback before pausing for input. This prevents the Disconnect callback from being processed after the Connect
+
+commit 63569977ec83d83c6de53feccb172ac850047a61
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Feb 23 07:32:47 2017 -0500
+
+    Bump version number.
+
+commit 8277f10f35e326ac21ba03e56584e150f1f2aea7
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Feb 23 06:49:12 2017 -0500
+
+    Update to SteamKit v1.8.1.
+
+commit 8659e77adc394c3e6e5ba27e719615216134dc08
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Feb 21 20:40:50 2017 -0500
+
+    Cleanup.
+
+commit ab86a7d6ac8a53b2e9ab771c6949578c1139fa3e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Feb 21 20:37:07 2017 -0500
+
+    If account doesn't own app, attempt to obtain FreeOnDemand license for it.
+
+commit 01d87d6102f7297d9a6fdf4c3f2de37f582d1f4b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Feb 20 20:02:12 2017 -0500
+
+    Output branch being used.
+
+commit 891ebd13a2646eb5807624f2d07f6b7ae84d2791
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Feb 20 08:09:03 2017 -0500
+
+    Fix crash when downloading from passworded branches.
+
+commit 3d1764889f6e10eccaa356d8cd1137a59e7eb417
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Feb 20 07:45:01 2017 -0500
+
+    Fix unused var warning.
+
+commit 251b4010eebe76c123bd027c75a81f0cf0a38d81
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 9 16:25:42 2017 -0700
+
+    Use ConcurrentDictionary and flatten keys for CDNAuthTokens
+
+commit 7f5ca9265996351a697ed1c06d0b7b9921c0548a
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Feb 9 10:37:01 2017 -0700
+
+    Report when we aren't able to retrieve a CDN auth token
+
+commit 6278fc2b94a6c3853c552a13d4d5a105ca8d07f0
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Jan 21 22:40:30 2017 -0700
+
+    Added CheckAppBetaPassword to retrieve encryption keys for encrypted_gid_2 depots
+
+commit 97b8716c86e23850d88c3b538b3947da67b55c7c
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Jan 8 14:27:56 2017 -0700
+
+    Pass appId all the way through for correctness
+
+commit 9a9cf7b57a1750d5880444a5cd7907b0c05b0efe
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Nov 7 18:58:13 2016 -0500
+
+    Fix downloads for shared depots that provide their own manifests.
+    
+    Before, we could only do shared depots that referred to their parent app,
+    when parent app access was also available.
+
+commit a591632888f9d478750bddc704c23daea31bb00d
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Jul 10 09:50:34 2016 -0400
+
+    Bump version.
+
+commit b599768bd8108d64419914a6d65484cc7520f6d1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Jul 10 09:47:06 2016 -0400
+
+    Update SteamKit 1.6.4 -> 1.8.0. Change .NET target 4.0 -> 4.5.
+
+commit 65b6d97fa26c0a7b0158a90824f63099916cee0e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Jul 10 09:41:11 2016 -0400
+
+    If an included depot doesn't have the requested branch, fall back to "public".
+    
+    (Mirrors Steam behavior)
+
+commit 06a7d099ba57aab9f9dfb5bd8514f5a99658e54e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Jul 5 19:31:16 2016 -0600
+
+    Style fixes for CDNClientPool
+
+commit 9b778c374e1b9b549547d0cd12b9ac364f58cddc
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Jul 2 23:00:55 2016 -0600
+
+    Abort main flow if we can't connect after STEAM3_TIMEOUT seconds
+
+commit bdfd56b4825b4fc7c506aace78586bbf6e219552
+Merge: b93473aa 3b3f6e27
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Jun 24 13:21:36 2016 -0600
+
+    Merge branch 'cdn-pool'
+
+commit 3b3f6e272e99ccd1b9644ed2e189f068e6eea5e9
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Jun 24 13:20:56 2016 -0600
+
+    Switched to plain console logging
+
+commit b93473aa3b574eb5d8cf5c39cf6d8d4c783802a6
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Jun 23 08:01:42 2016 -0400
+
+    Increase default MaxServers.
+
+commit 0869f85b939c5af6e755046e528c34a6e44f09ab
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 22 19:46:20 2016 -0600
+
+    Added CDN client pooling
+
+commit 8914bc5c67d1576f0d4390ab76d74a94e140a6ee
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Jun 7 21:42:32 2016 -0400
+
+    Fix issues when downloading content in shared depots when shared depot is owned
+    but app it is from is not.
+
+commit daa6e0f9ef54cc2f5d6bb1ff9733bcb79dc90b04
+Merge: 72c32a61 1ce2a097
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Oct 4 16:14:13 2015 -0600
+
+    Merge pull request #8 from xPaw/2fa
+    
+    Add 2FA support
+
+commit 1ce2a097df55842aee9c8753754d4b34339dc952
+Author: Pavel Djundik <github@xpaw.me>
+Date:   Mon Oct 5 01:12:43 2015 +0300
+
+    Add 2FA support
+
+commit 72c32a618e8ea4fafbecdababa8616f86b04e52e
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Aug 9 14:50:35 2015 +1000
+
+    Remove old nuget restore props and binaries
+
+commit 1a8a892a671d8d036bb3ae111e7c2e9a7838be48
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Aug 9 14:47:33 2015 +1000
+
+    Use csharp Travis container config
+
+commit c0b4dd03ee0617832990de0befd4bd7b87014dd4
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Aug 9 14:41:19 2015 +1000
+
+    Update to SteamKit 1.6.4
+
+commit ed44169956e11ec8d615f0574f6ac489499a758a
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Jun 20 19:18:00 2015 +1000
+
+    Bump SteamKit dependency to 1.6.3
+
+commit 5cf8c66f06cd712137e36d54dcd9b5360cce5f88
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Jun 12 20:52:15 2015 -0600
+
+    Longer integer for chunk math. Int32 overflow when calculating file diff
+
+commit 52d45da1419e34076d6d56a5aaee3f2b6a045339
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed May 6 09:39:46 2015 -0600
+
+    Check for access to other app when depotfromapp is specified, otherwise continue with existing depot information
+
+commit 0b722996b520044a18c8188ddf1135eb792a8468
+Author: Netshroud <netshroud@gmail.com>
+Date:   Mon Dec 29 20:06:40 2014 +1100
+
+    Add -force-depot command line parameter to force attempted download of a particular depot in an app.
+    
+    This allows UGC depots to be downloaded, as they are not listed in the PICS configuration.
+
+commit 6ae2c37c2a1128e7b032d1758f255dba9157433f
+Merge: 7a3779f4 63ab1b02
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Nov 30 10:41:00 2014 +1100
+
+    Merge branch 'master' of https://github.com/SteamRE/DepotDownloader
+
+commit 7a3779f4e8320e070b2325e5c75e30fdedef3cc8
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sun Nov 30 10:40:42 2014 +1100
+
+    Update to SteamKit2 1.6.1 NuGet package
+
+commit 63ab1b02322fcda552680d504c9df6c2ac4cd350
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Nov 29 14:06:24 2014 -0700
+
+    Flush pending Disconnected callback in anticipation of blocking the main thread
+
+commit 6f8fa5a37617951be547d732064a7ddfd7838839
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Nov 29 23:55:30 2014 +1100
+
+    Remove unused random variable
+
+commit 155196ec7ffbef61b0f0164bc1ef0e7369e21b78
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Nov 18 14:31:45 2014 -0700
+
+    Added a missing parameter
+
+commit eaef1160c330ea60c33346b4cf6f1e7ec30532cf
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Nov 18 14:29:14 2014 -0700
+
+    Added retry logic to steam requests and made downloader "retry forever" where appropriate.
+
+commit b12c22454bc9623df2a6c22dc847d42f26c21735
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Nov 7 19:37:17 2014 -0700
+
+    Added persistent content server penalty
+
+commit 663d17834a488da8608b65206d16d276c40ccdb1
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 29 17:11:33 2014 -0600
+
+    Parallelize CollectCDNClientsForDepot to ensure minimum amount of servers until exhausting the list
+    Switched cdnClients to a BlockingQueue to prevent bad cdn clients being dropped from starving other threads
+
+commit eba7234f91d10b1b2f40382dc9af313875a2a09c
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 22 09:52:30 2014 -0600
+
+    Perform checksums when copying chunks when an old manifest is present. Fixes -verify-all.
+
+commit a0d7163bf7e544dbfc4a84fc7847f86d502f4ec1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Oct 22 09:06:18 2014 -0400
+
+    Handle all incoming appinfo and packageinfo, rather than first callback of each.
+
+commit cb2937c971669d8c7b97cb1c92a999e0de445925
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Oct 22 08:15:32 2014 -0400
+
+    Fix crash when account doesn't own app.
+
+commit 410408cb71a6ca10c9e6ad7cdb919a5e404b5b11
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Oct 22 07:58:13 2014 -0400
+
+    Add support for shared depots (depotfromapp).
+
+commit 40fd3c94d6a5f1910af8c6ce43f80a23e1c8a993
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Oct 21 16:02:31 2014 -0600
+
+    Don't download the same chunk forever
+
+commit 077a3a1610bae9ebbd36d525a1d93df5e1316801
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Oct 21 15:00:30 2014 -0400
+
+    Fix error message about no servers for chunk.
+
+commit 289af06733d73603372b327553571bbcd66c55c3
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Oct 15 19:50:19 2014 -0600
+
+    Discard CDNClients instead of looping forever
+
+commit 3b02d4d7542208cf5edb48c416f4b466c580e2a6
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Oct 11 22:04:24 2014 -0600
+
+    SteamKit 1.6.0
+
+commit cc9e57636135481176a425db34228f547e4e004b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Oct 11 04:45:10 2014 -0600
+
+    Upgraded Steam3Session to latest SteamKit. Added error handling to CollectCDNClientsForDepot
+
+commit 330902c09164fa8bc5ccd64b8fd379c6475519ac
+Merge: 81a90577 5f9aa57f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Oct 11 04:12:45 2014 -0600
+
+    Merge branch 'cdn-client'
+
+commit 81a9057779b4a0e4e9d4dbe74577df0d2986278b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Jul 21 11:01:36 2014 -0600
+
+    Don't attempt cm0 servers
+
+commit a0a1db448a5bf13896b898120eb8bec44d7a2164
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Jul 21 10:47:29 2014 -0600
+
+    Allow reconnection logic to run for initial connection. Also bail out of AccountHasAccess without a steamid
+
+commit 5f9aa57f912a1c97c3c8683d073bfb722348a376
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Mar 16 22:20:18 2014 -0600
+
+    CDN content server support and thread safety fixes for CDNClient initialization
+
+commit fdba42da77ca32b9737fd9ca7c2b6311fe72774e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Mar 16 20:40:10 2014 -0600
+
+    Revert 'Added support for CDN content servers'
+
+commit c1c4ef591070f687fe70e731084bed6a884d11d7
+Merge: 90eb0a52 ff2f8131
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Mar 16 19:27:04 2014 -0400
+
+    Merge branch 'master' of github.com:SteamRE/DepotDownloader
+
+commit 90eb0a52c19c9b0bd17fa07878eb6d058193643b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Mar 16 19:22:33 2014 -0400
+
+    Remove gross hack needed for creating ChunkData objects before SteamKit 1.5.1.
+
+commit ff2f8131a48324efb50bea168274c868a3af4745
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sun Mar 16 01:01:35 2014 -0600
+
+    Added support for CDN content servers
+
+commit d9b6efaf8428f500f3d0bbbd650610b8304fd7f3
+Merge: c7892209 46659854
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Mar 15 22:34:46 2014 -0400
+
+    Merge branch 'master' of github.com:SteamRE/DepotDownloader
+
+commit 46659854cd1d4c63e42cda63546d44d3a0fefcf2
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Mar 6 20:23:00 2014 -0700
+
+    Updated ContentDownloader.CollectCDNClientsForDepot to reflect modified FetchServerList
+
+commit c7892209732f0642ad13ba16624d165b054c7b58
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:35:10 2014 -0500
+
+    Handle -user and -pass as -username and -password respectively if the latter are not present.
+
+commit b656218e8a63a90a624d090e108df5e2cc0adfc7
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:34:41 2014 -0500
+
+    Specify that anonymous account will be used when no credentials are given.
+
+commit e3bc606112d39715d16e20034bcf6ceee88abc2f
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:27:47 2014 -0500
+
+    Don't create folders for excluded files.
+
+commit 27ec24cd8fd90fa69afa273825f541b6475c9ce2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 11:27:02 2014 -0500
+
+    Remove special depotfromapp handling; no longer necessary.
+
+commit 9778112f1fda2e9e075a82b6d07e0b500a532335
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Jan 24 10:21:37 2014 -0500
+
+    Fix crash when a CDN server connection times out.
+
+commit 0b21b4734cf5307e96c945a36b34ae5af2f6c0fe
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jan 22 11:45:16 2014 -0500
+
+    Improve error message when specified depot is not available for current platform.
+
+commit 933f0b28cfe10c3f3132fd56195efbef17109308
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Nov 19 14:21:40 2013 -0500
+
+    Bumped version number.
+
+commit d9cec26e00e7153f2c5ac046f22f1d0e0c3f9535
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Nov 13 22:36:17 2013 -0500
+
+    Big speed improvements for some cases:
+    - Store all manifests separately, including excluded file, rather than only list of last-downloaded.
+    - Don't redownload manifests we have.
+    - Don't connect to content servers if no manifest to download and no chunks needed.
+    - Don't connect to content servers until needing chunks if already having manifest.
+
+commit d59f3524c898dedb9ff9671ec4d842be91675f38
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Nov 13 12:30:35 2013 -0500
+
+    Add support for "depotfromapp".
+
+commit 47a240c2ac45d1ae65651e207eb0743de9962692
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Nov 12 08:56:48 2013 -0500
+
+    Fix file verification always occurring.
+
+commit 59e58adc5fbe9e4ad402494b1187462f2b1efcf4
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 14:15:59 2013 -0500
+
+    Set AssemblyInfo.
+
+commit a7ebaa3ddbe903d4d9156760a3111c5464480588
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 10:36:21 2013 -0500
+
+    Expose max server and connection counts. Sync usage printout between program & readme.
+
+commit de37262e9d3e7fcd63cf349890326f67774e9c34
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 10:19:18 2013 -0500
+
+    More cleanup:
+    - Don't calculate matching chunks if file hash matches (now that related SK2 bug is fixed).
+    - When file doesn't already exist, set length immediately after creation.
+    - Remove redundant file existance check before copying existing file to staging.
+    - Normalize more var names.
+    - Print account name for which password is asked.
+
+commit 2d82c9dd5e4872de12bc506a28e9cf3b49f0b136
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 10:15:40 2013 -0500
+
+    Fix potential collision when creating directories. Remove staging files from unclean exit.
+
+commit 6f6eb5f48a8a8345ab254dc09c4e27e8a67dbdee
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 09:33:00 2013 -0500
+
+    Fix protobuf-net reference.
+
+commit 07c77ae2bea8d453c3f504408622359008cee799
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:08:57 2013 -0500
+
+    Update SteamKit nuget package to 1.5.0.
+
+commit 7c9e2c2264dce7e687ee9eda1e03f050f1d262d2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:08:01 2013 -0500
+
+    Connect to eight servers instead of six as very often first few will not be usable.
+
+commit bf92eb63e5c4e8fc6772875919af86bc3e7f924b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:06:52 2013 -0500
+
+    Ignore "depotfromapp" depots for now.
+
+commit e45a4e03b34bfa05184e7933353cb9e98e7bc93c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Nov 8 08:06:22 2013 -0500
+
+    Misc cleanup.
+
+commit a65804781aa7d9807a72f2add7e2a430b3a1200e
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Oct 24 13:15:15 2013 -0400
+
+    Revert "Use console instance when possible. (now caches user sentry data and steam id to config.vdf)."
+    
+    This reverts commit e96e8bae516a95f346269d545ec0719236f50766.
+
+commit 7ac650d4ec366e2df430a0a1c37ff5158ae12af8
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Oct 24 13:14:11 2013 -0400
+
+    Update protobuf-net to 2.0.0.668 to match SteamKit2 update.
+
+commit bb1724746bd9837d43629dd1d50f3d1eb5d56887
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Thu Oct 24 13:13:00 2013 -0400
+
+    Hack in support for multiple servers and retry logic with concurrent downloading.
+
+commit 5bbb826a3f28d0f0e9c39110b724822bc2e86394
+Author: Asher Baker <asherkin@gmail.com>
+Date:   Tue Oct 8 19:08:55 2013 +0100
+
+    Update README.md
+
+commit 197f16b83869d4b8d6f56ce315326232c1ed3698
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Oct 8 13:39:32 2013 -0400
+
+    Create README.md
+
+commit 798e66d055cc24ad82a74abb4c9cfd306b9abad9
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Oct 8 13:21:05 2013 -0400
+
+    Fix downloading depots for an app that share an app id with another app.
+
+commit e96e8bae516a95f346269d545ec0719236f50766
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Sep 18 22:28:16 2013 -0400
+
+    Use console instance when possible. (now caches user sentry data and steam id to config.vdf).
+
+commit 709ef3f3983d076fd3fddb435f9c42001c8b68c8
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 18:45:48 2013 -0400
+
+    Remove no-long-used AppInfoOverridesCDR var.
+
+commit 1959262d4b3166901f35655cbbec16c186000a78
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 18:44:13 2013 -0400
+
+    Try other servers if failing to get manifest from one.
+
+commit 2e5ebc885184e4d476deb6e570e1f66437b8bb07
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 16:01:30 2013 -0400
+
+    Save manifests to optimize needed chunks check. Add -validate option. Concurrent donwloads.
+
+commit 43ecfcffc72bb106dc8f8d43724f741bc66994c6
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 15:59:15 2013 -0400
+
+    Removed unused function.
+
+commit 581ed16fa6816b056a317c9983eb438f83851da2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Mon Sep 16 15:58:50 2013 -0400
+
+    Fixed exception when not using -dir and build id unknown.
+
+commit cfc95d3f57d8a007fd7af6768a8bcee361dfc641
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Sep 10 10:31:32 2013 -0400
+
+    Allow downloading of specified manifest.
+
+commit 987b51e82d45a713b03bed73711f4c318b4d47cf
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Tue Sep 10 10:10:48 2013 -0400
+
+    Simplify arg handling.
+
+commit 36c961bc010b830dd2e2d0cda8f98462802e8149
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 18:23:51 2013 -0400
+
+    Removed old Steam2 beta option.
+
+commit c63ddbd23865561b5f010048dec251637554667b
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 15:25:04 2013 -0400
+
+    Use uints for app and depot Ids to require less casts for SteamKit.
+
+commit b8a65a6b132d75a51c62e7ee4d1fc87b6e32a1c5
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 15:17:35 2013 -0400
+
+    Adjustments to work with SteamKit CDNClient refactor.
+
+commit aba445afa393f5d15a59248679f7df6479d4aef2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sun Sep 8 13:53:48 2013 -0400
+
+    Fix regressions causing exception in oslist check and permission error where depot id is app id.
+
+commit 6a81bebd1ac39e3292a8f95d576b6abd7f78709a
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 14:57:19 2013 -0400
+
+    Removed non-existent test.sh call from ci config.
+
+commit 5c75a9d5b38ce1f3ccd81866eee3dc8c5700079c
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 14:54:27 2013 -0400
+
+    Hopefully last ci fix.
+
+commit fa59c818da7cbd6542d523486e0717c3df890e5f
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 09:01:25 2013 -0400
+
+    Added missing Microsoft.Build dll for nuget.
+
+commit 76753c74c693bdb224bd6e17e6593a36c5e42def
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 08:55:48 2013 -0400
+
+    Fixed casing of nuget files.
+
+commit 15ea73f20328bf4e0bcf12d02b0a34b7a27cb9d3
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 08:46:06 2013 -0400
+
+    Flagged build scripts as executable.
+
+commit f65d3c887531594584da1375cfc741dc2e728eaf
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Sat Aug 3 08:41:53 2013 -0400
+
+    Attempting to setup CI.
+
+commit d073b9ef34c08f829fbccd12c908cc207dbdb4c2
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 17:59:41 2013 -0400
+
+    Fixed Steam3 content always downloading depots for all platforms.
+
+commit c0e55988eaefa254a399fd3eafedb4c38015bba1
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 17:58:15 2013 -0400
+
+    Added .gitignore.
+
+commit 300d2d90b6c671a4cbc6761499b3b4be36764033
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:57:29 2013 -0400
+
+    Converted sln to VS2012. Remove SteamKit and readded via Nuget. Updated protobuf-net Nuget req.
+
+commit adfea2f0cf24f4088a155c46ab2746f3a424caa7
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:53:21 2013 -0400
+
+    Moved EncodeHexString to Util class.
+
+commit 4b381f4b1658edb74695da103d7b3ec40b8f5ab6
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:52:08 2013 -0400
+
+    Removed more Steam2 crud.
+
+commit f04f4fe17856fb4e2302fbcaee51e5a46902b355
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:51:05 2013 -0400
+
+    Added editor config to keep indentation normalized.
+
+commit 064fbaea32ba33f167cbf8f24cfb47346f1409ac
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:50:12 2013 -0400
+
+    Display total size of downloaded data.
+
+commit 9c2499f8660b4612d2f5c3aecdfc031b658faf34
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:47:50 2013 -0400
+
+    Removed unused constants.
+
+commit 45bbbda746eacf09ee3cc9a616125546f511e855
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:46:55 2013 -0400
+
+    Don't request Steam2 ticket.
+
+commit aacc40ff5e1515897bd3c3f204962d4b6e2016a4
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Fri Aug 2 16:45:44 2013 -0400
+
+    Removed removed files from project file.
+
+commit 1a89871744682935f4e41fa72ba067117e023fff
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Jul 17 14:05:15 2013 -0400
+
+    DepotDownloader: Removed Steam2 functionality.
+
+commit d531a7decc23a5db503c3347320646dceb506daf
+Author: Nicholas Hastings <nshastings@gmail.com>
+Date:   Wed Mar 13 12:26:30 2013 -0400
+
+    DepotDownloader: Remove dead code since we're always signing into Steam3.
+
+commit 251d1dbd5adf81f1f0b96dabf0250b5520e6e4ca
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Wed Mar 13 12:24:54 2013 -0400
+
+    DepotDownloader: Close file handles when done with files for S3 downloads.
+
+commit 08c63cc2db2365ec2416bc485cd40b216bb55e80
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Feb 20 17:44:41 2013 -0600
+
+    DepotDownloader: Allow -manifest to download human readable manifest for Steam3 depots.
+
+commit 46ce5de87532981727de97d6e6bde0f4dc99fda2
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Feb 20 17:37:13 2013 -0600
+
+    DepotDownloader: Include depot number in human readable manifest filename in case -dir is specified.
+
+commit 066c52888632d26e41c409d8127abef61952e91d
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Feb 19 21:23:44 2013 -0700
+
+    DepotDownloader: Anon users possibly have this sub
+
+commit 1a281f3182bd4c0308cd3956200b9fd5adbe6fe6
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Feb 19 20:36:31 2013 -0700
+
+    DepotDownloader: More steam3 support
+
+commit 028e9ce8c829fffe96ceb24b221ae40c15f96302
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Feb 19 19:58:23 2013 -0700
+
+    Added PICS token support. Cleaned up reconnect logic.
+    
+    --HG--
+    extra : rebase_source : 7fac8df8fba76a3dd084341154822ae3745eb879
+
+commit f2c5f109d36ddb99f56d6bbe499dc75715dda85f
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Tue Feb 19 20:28:51 2013 -0600
+
+    DepotDownloader: Update for latest SteamKit changes.
+
+commit 140f7705cfd750d05b615d269942bb67825ec284
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Feb 19 07:45:41 2013 -0500
+
+    DepotDownloader: don't use dedicatedserverfolder for Steam3 downloads.
+
+commit c03aa33b77e8a4141132f432cddd2fb491abf734
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Feb 18 22:18:55 2013 -0700
+
+    Updated bootstrap CM list. Added reconnect logic to DepotDownloader
+    
+    --HG--
+    extra : rebase_source : 14c7deb7212eebeb3c3157664ada2c589d4d0a84
+
+commit 066177e9445da41abe4b3f8ac255503fedbbdc29
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Jan 27 14:22:28 2013 -0600
+
+    DepotDownloader: Correct build issue.
+
+commit 89028f6fbde36e215fa85ffa376d16de8db0f144
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Jan 27 14:22:13 2013 -0600
+
+    DepotDownloader: Update protobuf-net dependency.
+
+commit fc27452b67dcfabc55a08e3d90ff00e1335b99a5
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jan 23 18:17:39 2013 -0700
+
+    DepotDownloader: Better command line parameter name
+
+commit e98d7ce2a8d4854607b64a6b6c1ec9aa7f09e916
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jan 23 18:16:05 2013 -0700
+
+    DepotDownloader: Added beta password support
+    
+    --HG--
+    extra : rebase_source : ff1c354116dea838104716e3a998d8ca3a4c0f42
+
+commit 90f72f15557ac4912009b74b52fc387a62a04286
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jan 23 16:35:44 2013 -0700
+
+    DepotDownloader: added some error handling
+    
+    --HG--
+    extra : rebase_source : f849aa26ef59c3eb260b0727ab0f9e7d36700fab
+
+commit 4bc736fcf29d6a387e2080442f16d2f8541d09cc
+Merge: a4bbd1ad ad4fd3bf
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Dec 29 23:42:21 2012 +1100
+
+    Merge
+
+commit ad4fd3bfaccf526a33352dbc10be7d6e427ceb35
+Author: Netshroud <netshroud@gmail.com>
+Date:   Sat Dec 29 23:28:06 2012 +1100
+
+    DepotDownloader: Fixed NullReferenceException, fixed not reloading CDR if cdr.proto is deleted
+    
+    --HG--
+    extra : amend_source : b4a997ff2524895120eaf1f53aa240685846f85a
+
+commit a4bbd1ad795dd592f180e38d038c6507046d5e47
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Dec 26 19:41:20 2012 -0700
+
+    DepotDownloader: Added support for branches. Uses buildid instead of changenumber.
+    
+    --HG--
+    extra : rebase_source : 7ba4ede5fdb1b951828b7cb7bf23dfbd712cea80
+
+commit 9fbabcfa5d597d94966471926cdfe857da7c0f9e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Dec 24 17:11:27 2012 -0700
+
+    DepotDownloader: always sign into Steam3. Probably safe.
+    
+    --HG--
+    extra : rebase_source : 48240a80e6c95a9681f8735bdfeaa00d2104a8d3
+
+commit 6a5a329ddf7742464260ea690e5eb10f7a03149e
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Dec 13 19:47:46 2012 -0700
+
+    DepotDownloader: Added anonymous download support
+
+commit eb64860ae89f216760110485d1d0f97de7f54b18
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Thu Dec 13 01:16:49 2012 -0700
+
+    DepotDownloader: Switched to PICS. Started anonymous download support.
+
+commit 2532f887688e652249d7669cc6e3dea818e00c69
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Dec 12 00:01:25 2012 -0700
+
+    DepotDownloader: Can't compile without this
+
+commit 7c7ee18c2cd5f14ead5d7bca86c65ab434cd5dea
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Dec 11 20:40:43 2012 -0700
+
+    DepotDownloader: Repaired references
+
+commit 93cb82cb5ceb687495445f18365b94865124884f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Tue Dec 11 20:29:59 2012 -0700
+
+    DepotDownloader: Cache server lists and CDR
+
+commit fe936ed48b272ba5c27946859eee9be8dd1d286c
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Fri Nov 30 13:00:10 2012 -0500
+
+    DepotDownloader: Fixed Steam3 needed chunks check for existing files being reversed.
+
+commit a162f8cb466201472c5e69eb066db7d362c651c8
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Fri Nov 30 12:07:15 2012 -0500
+
+    DepotDownloader: Cleaned up and fixed some console output for Steam2 downloads.
+
+commit 2d8d51f10bee439503db1dfc43ceadfbb3aca84a
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 15:00:14 2012 -0500
+
+    DepotDownloader: Fixed regression in downloading some Steam3 apps.
+
+commit 7676ff1cefe48bf9909626cde1997a06dc03f546
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 13:56:26 2012 -0500
+
+    DepotDownloader: switch to DownloadFileToStream for grabbing Steam2 content to reduce memory usage.
+
+commit 5cab5b857e4757bedd70379fdd6eeec85566bf27
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 12:30:33 2012 -0500
+
+    DepotDownloader: Adjust Steam3 app detection to account for Steam2 apps with Steam3 depots lacking manifests.
+
+commit a26a105519fb2aa7da70fcb02b89b29a051b536b
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 12:30:33 2012 -0500
+
+    DepotDownloader: Suppress CellID 0 warning if using auth (as CellID will be automatically retrieved).
+
+commit 37b31d032d48bec72db8dfaff401eb22fc626994
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Nov 27 12:30:19 2012 -0500
+
+    DepotDownloader: Changes to support connection reuse when downloading Steam2 content.
+
+commit f1e2385e3842902674786cd802ad1417a775ae56
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Thu Nov 15 21:34:43 2012 -0500
+
+    DepotDownloader: Added support for Steam3 checksums and delta downloads.
+
+commit 1566774a6e721bc941355e8e877cc5bbb1cda470
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Thu Nov 15 13:05:57 2012 -0500
+
+    DepotDownloader: Fixed hang when using both -game and -listdepots with credentials.
+
+commit a93ac77b998d15ee195c0754eccf48810bfbac4d
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 12:23:14 2012 -0500
+
+    DepotDownloader: Fixed compile error in last commit.
+
+commit d11b77403ce671d4b47fa68a24b0be5787ef85f3
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:43:20 2012 -0500
+
+    DepotDownloader: Set Steam2 connection timeout to 5s.
+
+commit 9fb844fdae9d62c460f1c18763052e187cd9aefc
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:40:23 2012 -0500
+
+    DepotDownloader: Removed Steam2 auth server lookup and caching.
+
+commit a8e714ea12a52230db7e3344b8ac1729ca8cdcd9
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:38:56 2012 -0500
+
+    DepotDownloader: Removed reliance on Classless.Hasher.
+
+commit 5262ec9667a55803bc8d20244a6650b071304640
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Mon Nov 12 10:33:28 2012 -0500
+
+    Updated DepotDownloader project for SteamKit project changes. Nuget for protobuf-net.
+
+commit 7aa43a518497813c6a605f86eab43c6845b81f5c
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Sat Nov 10 13:05:46 2012 -0700
+
+    AppInfo changes for Depot section
+
+commit c6da5d057e7d84a3e27794a44721d254cfa47603
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Oct 29 20:50:58 2012 -0600
+
+    DepotDownloader: Retry different CDN servers when we encounter an error
+    
+    --HG--
+    extra : rebase_source : 35a93f8bdd98c03f8cd99423e6c4f95ed713d0d2
+
+commit 31781b5b855f0e932b58eeae105b753d8219dbb9
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Aug 17 12:47:54 2012 -0600
+
+    Skip CDR check for Steam3: we display the change number
+
+commit 4ef5af2fcb9e6d5ae539303dc6ced53bdc367058
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Fri Aug 17 12:22:12 2012 -0600
+
+    Don't need to parse depot id after tryparse
+
+commit 5249592b35000b5468783093b8c1f182bb5c9a3f
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jul 11 22:17:31 2012 -0600
+
+    Added Bloblib comments
+    
+    --HG--
+    extra : rebase_source : 04ccef87df8b3d4e2d8b3cf0b017d8f4869d6926
+
+commit 80f0dcf56c170ff41955544586a3e192114a2f78
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Mon Jun 11 01:05:40 2012 -0600
+
+    Blob Refactor
+    
+    --HG--
+    extra : rebase_source : 98e0b6385cc654ff137fa216c4b403be5d36fa26
+
+commit 5602f4f79e87c1d465c599d4fe24d04373710416
+Author: psychonic <nshastings@gmail.com>
+Date:   Sat Jul 7 11:55:54 2012 -0400
+
+    DepotDownloader: fixed crash on some Steam3 apps when not supplying depot id.
+
+commit fe867a4fcfc4206bd69c2debe75eef3f34ef5123
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 27 11:49:47 2012 -0600
+
+    DepotDownloader: prettified license list code
+
+commit afc197fbc99018702415089d6ee69b77b328a80b
+Author: Ryan Kistner <azuisleet@gmail.com>
+Date:   Wed Jun 27 11:33:33 2012 -0600
+
+    DepotDownloader: more Steam3 error handling
+
+commit 43ca82f869e44a6e580ff4b0ab544babb33cf79b
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 20:51:28 2012 -0400
+
+    Backed out changeset: 26ba29eb818f
+
+commit 8a98c812c2c3179a3b884596de0572f9c421098d
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 18:44:39 2012 -0400
+
+    Ditch P/Invoke for detecting OSX as it's a detected platform since .NET 3.5.
+
+commit acdd8bdebc9fc117304bec769c7436659519a2af
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:58:01 2012 -0500
+
+    Add support for specifying single depot (+app) for steam3 content.
+
+commit 040c3926df8bf5c0051b9a1832f4ab79ce7232f9
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:54:45 2012 -0500
+
+    Fix crash instead of graceful exit on ServiceUnavailable.
+
+commit e33cf18265f7d2daafc9561b134e13a1d367593f
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:49:43 2012 -0500
+
+    Print found licenses.
+
+commit 0f2edd0a942687036e5988eff8bd7aa627d09dcd
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Jun 5 16:45:41 2012 -0500
+
+    Fix error downloading some depots to current directory (-dir .)
+
+commit 25c47e2fbb1b7b4252877fdd013c1272580ce2db
+Author: psychonic <nshastings@gmail.com>
+Date:   Mon Jun 4 16:20:44 2012 -0400
+
+    Missed two lines in last commit.
+
+commit cdd9c640d6578d1260aa90049433b66b7bc94ce2
+Author: psychonic <nshastings@gmail.com>
+Date:   Mon Jun 4 16:18:15 2012 -0400
+
+    Fixed DepotDownloader compile errors from JobID changes.
+
+commit 0374a529b9686fe9c754a72ea65a6aaa3e5bdafe
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Sat Apr 14 17:49:21 2012 -0600
+
+    Added support for Steam3 license list in AccountHasAccess.
+    Ignore contenttype when depots are present.
+
+commit 6c545644e0bc7c7876054a200b259610a8b8ccce
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Sun Apr 1 17:11:33 2012 -0600
+
+    Added EDepotFileFlag, don't assume size=0 is a directory
+
+commit aa0778dc4ea437cd902738eed9de1f6d185cd398
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Mar 4 15:03:01 2012 -0600
+
+    Fixed small compilation issue.
+
+commit b2cb33aa920689d899b3e08fbc50270f7c7e1388
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Feb 26 12:13:45 2012 -0600
+
+    Updated depotdownloader to pass in the appid when requesting a depot key.
+
+commit d638dc7ec25577c388f85ddfee3b0f974a020251
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Fri Feb 24 17:12:21 2012 -0600
+
+    Changed SteamUser.LoggedOffCallback to expose the Steam2Ticket directly, instead of the data.
+    Added various bits of XML documentation.
+
+commit 90b9051de383fc8c4fc2500d4e6ef04cacaa0c8a
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Tue Feb 14 03:43:20 2012 -0600
+
+    DepotDownloader: Cache Sentry File and send SentryFileHash with logondetails so we don't have to do SteamGuard auth every time
+
+commit d7a8d9fe0a9416cbaa23877fc31461286925e69a
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Tue Feb 14 03:17:05 2012 -0600
+
+    DepotDownloader: Updated Steam3Session jobs to use new job callbacks
+
+commit a28d1c279b16a0765b897c113ce4405878308d47
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Thu Feb 9 18:31:32 2012 -0600
+
+    DepotDownloader: Split Steam2 Download into to parts--building list of files to download, then reconnecting to storage server to download. This should combat issues with the storage session timing out.
+
+commit ca6e22e92b1fb1c454c9fa14dda3e191b0749c0f
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Tue Feb 7 03:11:03 2012 -0600
+
+    DepotDownloader: Forgot to close file handle in checksum validation.
+
+commit 948e581d16040164236e3a36698eb5b5d2390515
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Mon Feb 6 19:13:35 2012 -0600
+
+    DepotDownloader: Skip downloading checksums if we're only going to download the manifest and quit
+
+commit 89cdae3ef3b2c5084e40392bf728e36b4d2b8a56
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Mon Feb 6 19:06:09 2012 -0600
+
+    DepotDownloader: Unlink existing file if the size/checksum don't match (for compatibility with file links)
+
+commit 24640978b6da2073e255f9ee52b2686a0c6bb55f
+Author: Michael Busby <mibusby@gmail.com>
+Date:   Mon Feb 6 01:10:38 2012 -0600
+
+    Replaced Classless.Hasher's Adler32 with a simple, valve-compatible implementation. Added Steam2 file checksum verification to DepotDownloader, so existing files on disk can be used instead of downloading new copies.
+
+commit 512e13cc88451f63012b24b9fe32b88120799e15
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Feb 1 15:22:25 2012 -0600
+
+    Small fixup for printed usage.
+
+commit 7e02724c05c1682650b1b4dc19b0221cff30a0e7
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Feb 1 15:20:01 2012 -0600
+
+    Added -listdepots.
+    Reworked -manifest to be an optional parameter that dumps manifests when -game, -app, or -depot is supplied.
+    Closes #18.
+
+commit 5bc21f183a1626709b12db81976c36322f39b354
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Wed Feb 1 05:23:37 2012 -0700
+
+    Refactored DepotDownloader to use CallbackManager
+
+commit 6c00c19300badb5ad619001710bf522e685d387a
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sat Jan 28 20:36:09 2012 -0600
+
+    Fixed issue receiving app info.
+
+commit a17713e1537c779b24164525d039c1eaf1fae647
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Fri Jan 27 16:36:03 2012 -0600
+
+    Fixed DepotDownloader for the latest SteamKit2 version.
+
+commit eb483d207fc5a8f9cbc01e68c6e6cd2ae173ffd9
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Jan 11 01:22:08 2012 -0600
+
+    Updated DepotDownloader to .NET 4.0 and fixed compilation.
+    Fixed IPAddress byte order issue.
+
+commit 8c227bcfa004bdc3c4c3741b1acae453c807401f
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Dec 28 04:31:38 2011 -0600
+
+    Fixed some enums that were incorrectly named, and added MsgClientPackageInfoRequest and MsgClientPackageInfoResponse.
+
+commit 76ff0b3591e69cf928544c6c12a3bef052acab26
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Wed Dec 21 18:14:11 2011 -0700
+
+    Copy and paste job. It took 11 people to pull this off.
+
+commit 7fc994657e6f9085abc4dcacabb05f2a268ab23c
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Wed Dec 21 17:51:57 2011 -0700
+
+    Pretend to do something
+
+commit 811d37c7056ae8b42e612495be115cc463e3d5ab
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Sun Dec 18 19:14:29 2011 -0700
+
+    DepotDownloader: detect proper ContentType
+
+commit 24ecfcbb43a52a62936aa249b389fc501890fd47
+Author: Azu@Azu-PC <Azu@Azu-PC>
+Date:   Sat Dec 17 22:32:40 2011 -0700
+
+    Added retry to Steam3 FetchServerList
+    
+    --HG--
+    extra : rebase_source : 053cb4ea8409980314fcd40a52f5af8faf85a9c7
+
+commit 72dbb508640e27b2e0c6724049462900643a65ef
+Merge: 76258df7 bae6d890
+Author: Azu@Azu-PC <Azu@Azu-PC>
+Date:   Sat Dec 17 21:29:51 2011 -0700
+
+    Merge
+
+commit bae6d8907c9a7214f504aa5f8e8115c25f87f4ea
+Author: Azu@Azu-PC <Azu@Azu-PC>
+Date:   Sat Dec 17 21:29:14 2011 -0700
+
+    DepotDownloader fixes
+    Updated Classless.Hasher
+
+commit 76258df7b724f312090bb6c947c834e8e62e1320
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 15 22:11:42 2011 -0700
+
+    Retry all the connections
+
+commit 2295319fd2af6e401d818e983fa720596fa95532
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 15 15:54:11 2011 -0700
+
+    Added Steam3 suggested CellID
+    
+    --HG--
+    extra : rebase_source : c5294bda22ef8b9c0bcafcb91fa65ddb31dfe4a5
+
+commit 680355e02212e7e1b3bd64b9e3704e4ec984521d
+Author: psychonic <nshastings@gmail.com>
+Date:   Sat Dec 10 01:21:03 2011 -0500
+
+    Added -filelist support for Steam3 downloading.
+
+commit 866e7ff778cea55751eee87aec2e3c44e43952f1
+Author: psychonic <nshastings@gmail.com>
+Date:   Sat Dec 10 01:18:24 2011 -0500
+
+    Fixed DD crash when specifying -dir without -game.
+
+commit d6850b8f3323231764141ca230fac10819b496fc
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 21:42:21 2011 -0700
+
+    Large refactor to support steam3 appinfo
+
+commit 9a92d8b203a89c35553695ee1d251d5d5f867852
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 02:38:29 2011 -0700
+
+    Refactor: EServerType to ESteam2ServerType
+    Added Steam3 CS server selection
+
+commit 1024dde88df389788542b9b9ed243263cac6350f
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 01:21:14 2011 -0700
+
+    Slight refactor to support steam3 depots in an app
+
+commit f258ac890375fe6f933cf641b7884dd79950062d
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 9 00:29:02 2011 -0700
+
+    Downloads files.
+
+commit c7593aefbd18e47db005548fc2af8cd0fe57f1e3
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 8 22:37:59 2011 -0700
+
+    Added depot encryption key support.
+
+commit e7129f0a1f22119ab65f00535a6554f76b386d39
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 8 20:59:10 2011 -0700
+
+    Parse Steam3 manifests into DepotManifest
+
+commit 0ab391a27236cdea9654308448e9c9e8d7405f48
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Thu Dec 8 19:58:08 2011 -0700
+
+    Refactored Keyvalue to use strings. Removed System.Web dependency.
+
+commit b1810c0eb0ad0a0760b7e5a791e2e4f06d81a852
+Author: psychonic <nshastings@gmail.com>
+Date:   Thu Dec 8 20:24:38 2011 -0500
+
+    Don't keep retrying single, dead server. Try all for cell!
+
+commit 25132937d9e8c140511f52230ff264a3b096d554
+Author: psychonic <nshastings@gmail.com>
+Date:   Tue Dec 6 13:40:18 2011 -0500
+
+    Added kv LoadFromString for CDNClient.
+
+commit 997cbc3e7fe35cce0781aae4cea1efa4c38695b7
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 2 14:50:12 2011 -0700
+
+    Completed CDNClient auth header, downloads depot manifest.
+
+commit 32b2e6b75475246156df3bf6bcaa4071c70eaec9
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Fri Dec 2 00:29:46 2011 -0700
+
+    Initial support for Steam3 HTTP CDN. Incomplete.
+
+commit d18e9c465edfb20d9a0457fe4c51907cc187b256
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Thu Dec 1 20:13:44 2011 -0600
+
+    Finally fixed up authed downloads and made depotdownloader1 support them again. Suck it HLDSUT.
+
+commit 3dbc75a34362f47c43f12762865a3e0c3d4001b2
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Thu Dec 1 15:56:17 2011 -0600
+
+    Initial commit of fixes for steam2 authenticated downloads, but there's still some issue with a change in the steam2 ticket that needs to be investigated.
+
+commit 8ffff1cb7bc4d0301e2c86c05b0492de8d40cbee
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Jul 26 21:30:22 2011 -0500
+
+    Added -dumpcdr param to do quick XML dump of CDR.
+
+commit 127dadd3630d45c72d585494e6c93a7d836c5688
+Author: Nicholas Hastings <skamonkey@gmail.com>
+Date:   Tue Jul 26 21:28:04 2011 -0500
+
+    Use latest version if no version specified.
+
+commit 44ff453193ec45cad13075bd91343b2e96d5538f
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jul 26 21:27:32 2011 -0500
+
+    Ask for account password if -password is omitted from command line.
+
+commit 9d586b5e9505fdf2d44aa243b3416ff9222312f4
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jul 7 22:27:57 2011 -0500
+
+    Added -beta parameter to download beta versions of depots if available.
+
+commit af190db942d0136b53e35c27f9f06152ca5e7eb5
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jul 7 22:27:56 2011 -0500
+
+    Fixed compiler warning by adding back forgotten error message for opening a storage session.
+
+commit cd0014aab574b4bb4341bdb57213948dd41ca428
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jul 4 16:30:12 2011 -0500
+
+    If the content server client fails to open a storage session, keep retrying.
+    
+    This behavior matches hldsupdatetool.
+
+commit 5d4590e6cfbdaa99f839ac37112feed96042699a
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jul 4 16:26:45 2011 -0500
+
+    Check if the user has access to a depot before attempting to download it.
+
+commit bfe267e194404f415d14780ed6f55329adacc6d8
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Fri Jul 1 02:00:49 2011 -0500
+
+    Actually download working server installs for GoldSrc/HL1 games.
+
+commit f9cac0700696cd1741b96be934fe8a27d9bef718
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Fri Jul 1 01:59:44 2011 -0500
+
+    Added -list switch to print list of game servers that can be downloaded using -game.
+
+commit 2a24b41d60a729bdccb7bfdd25b928d8e17149c8
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:41 2011 -0500
+
+    Properly detect Mac OS X in DepotDownloader.
+    
+    OSVersion.Platform just returns Unix on Mono.
+
+commit 8aa8798459398e44f16bc69815e49c88378c3980
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:40 2011 -0500
+
+    Added -app switch to download all depots associated with an app id.
+
+commit ed4bd4a1d341fb357097dde6556ece30e8a2f193
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:39 2011 -0500
+
+    Added -all-platforms switch to download all platform-specific depots when -game is used.
+
+commit a86eac90de994b6e94856bbcb7d0381656d8488c
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Thu Jun 30 01:18:30 2011 -0500
+
+    Fixed excluding files from exclude.lst on non-Windows platforms.
+
+commit e5fa0ca62fc0d059e11b2d5896b2a7437603d307
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Jun 29 01:45:28 2011 -0500
+
+    Added -no-exclude parameter that downloads files in exclude.lst anyways.
+
+commit f11dd05096900a2502023ce4c05d11b9195dd763
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Wed Jun 29 01:45:22 2011 -0500
+
+    Exclude files listed in reslists/*/exclude.lst when using the -game parameter.
+    
+    This functionality matches hldsupdatetool.
+
+commit 16e33b20858a44a3a258ea2aec71a69838fac88b
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jun 28 17:30:48 2011 -0500
+
+    Converted download paths to lower case. (For Linux server installs)
+
+commit 668d8697827ebcf87d5053fa559f995adef4eba5
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jun 28 17:30:03 2011 -0500
+
+    Fixed download of depots when dedicatedserverfolder field didn't exist.
+
+commit f31925b5b5308ce29c7e696e247c4f6aab12c459
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Tue Jun 28 15:13:45 2011 -0500
+
+    Fixed DepotDownloader building.
+
+commit af0612cfde89d6e17325eeb223b5bd6dc08db7d6
+Author: azuisleet <azuisleet@gmail.com>
+Date:   Mon Jun 27 19:43:22 2011 -0600
+
+    CS selection by Load
+    
+    --HG--
+    extra : rebase_source : 2bc1207748459d1493fd5e9d3329144d59b7b4c2
+
+commit c4e3360dc492968537193600d380e7fc359c350d
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 02:40:00 2011 -0500
+
+    DepotDownloader: No longer downloads depots meant for other platforms when the -game option is used.
+
+commit 3cbe8539a65eefddfae95f985c2e1ab7dd13c771
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 01:28:15 2011 -0500
+
+    Place server installs into directory specified by "dedicatedserverfolder" if available.
+
+commit 0fc89f465abf5a8e462891f1ae85619b7a1c0c95
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 01:28:04 2011 -0500
+
+    Added -dir option to DepotDownloader for specifying an alternate install directory.
+
+commit 1c181a351bf1a4dbd36c8c750efd746963aaeac2
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Mon Jun 27 01:27:57 2011 -0500
+
+    Allow downloading of encrypted content.
+
+commit 96236acb0e799088c2380ffc509e7555d9785e3a
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Sun Jun 26 21:27:46 2011 -0500
+
+    Allow downloading of restricted content with DepotDownloader whether or not Steam Guard is enabled.
+
+commit 50fe7b32fd8737c4595018aac30089ce79d588a7
+Author: Scott Ehlert <ds@alliedmods.net>
+Date:   Sun Jun 26 21:45:01 2011 -0500
+
+    Fixed DepotDownloader compile.
+
+commit 6783118d3e0a69f67b56bfe953b793a10b532044
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Jun 22 16:15:55 2011 -0500
+
+    Fixing DepotDownloader for the latest SteamKit change.
+
+commit 84afed2be577ee4008653ecbbfe4dd6912cd8629
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Mon Jun 20 04:26:36 2011 -0500
+
+    Upgraded DepotDownloader project to 2010, and made it support the new BlobLib.
+
+commit 387a79a94bb79bd81183b9bc4a79eb183b62f3b6
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sun Jun 19 16:19:55 2011 -0500
+
+    Updated DepotDownloader. It _should_ work now.
+    The information contained within this revision comment is provided on an "as is" basis without any warranties, expressed or otherwise implied.
+
+commit e90a6663a1b3a0b9326109d0465c8cf69c73cbad
+Author: Asher Baker <asherkin@limetech.org>
+Date:   Sun Jun 19 19:16:16 2011 +0100
+
+    Derp, no wonder that didn't work.
+
+commit 43632c4095d7650709f80291e179f7eeae1198a8
+Author: Asher Baker <asherkin@limetech.org>
+Date:   Fri Jun 3 00:00:21 2011 +0700
+
+    Added (bad and incomplete) support for specifying a game name instead of a depot id.
+
+commit 3a8fbb363c9ac5771c991c368d7508db285b0a51
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Apr 20 08:33:08 2011 +0000
+
+    Fixed DepotDownloader to make use of the latest ContentServerClient changes.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40238
+
+commit 391dbd9b8a5bd012f5be07977a8e970f08f1728a
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Mon Mar 28 06:08:56 2011 +0000
+
+    Added support for dumping a human readable list of files in a depot with -manifest <depotid>.
+    Added -filelist to specify exactly what files to download from a depot. Additionally works with regular expressions.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40222
+
+commit de9ea3a6c8908fbf03ef9bf3dec3776f34342ea7
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Wed Mar 23 04:29:04 2011 +0000
+
+    Cut some code and determined the issue behind authenticated downloads not working. It's fixed now.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40218
+
+commit 14f2b6e39da2df3a9eb41a54dfd2509fc7626159
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sat Mar 19 10:09:53 2011 +0000
+
+    Don't download files that have already been downloaded.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40214
+
+commit bb5c54441499d4cd4bd66904be41887a39037d71
+Author: Ryan Stecker <voidedweasel@gmail.com>
+Date:   Sat Mar 19 09:16:59 2011 +0000
+
+    Added DepotDownloader POC project. Move over hldsupdatetool, there's a new kid on the block.
+    
+    --HG--
+    extra : convert_revision : svn%3A946a0da7-ebce-4904-9acb-2f1e67aed693%40212

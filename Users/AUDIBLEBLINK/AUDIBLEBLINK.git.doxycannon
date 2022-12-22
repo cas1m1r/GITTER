@@ -1,0 +1,566 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# doxycannon
+
+[![CodeFactor](https://www.codefactor.io/repository/github/audibleblink/doxycannon/badge)](https://www.codefactor.io/repository/github/audibleblink/doxycannon)
+
+Doxycannon uses docker to create multiple socks proxies where the upstream
+internet connections are either VPN connections or Tor nodes
+
+In VPN mode, it takes a pool of OpenVPN files and creates a Docker container for
+each one. After a successful VPN connection, each container spawns a SOCKS5
+proxy server and binds it to a port on the Docker host. 
+
+In Tor mode, containers initiate a connection to the Tor network. 
+
+Both VPN and Tor nodes can be rotated through, giving you a new egress IP with each request.
+
+Combined with tools like Burp suite or proxychains, this creates your very own (small) private 
+botnet on the cheap.
+
+[Password Spraying Blog Post Using DoxyCannon](https://sec.alexflor.es/post/password_spraying_with_doxycannon/)
+
+## Prerequisites
+
+If using VPN mode, you'll need a VPN subscription to a provider that distributes `*.ovpn` files
+
+- Install the required pip modules:
+  ```sh
+  pip install -r requirements.txt
+  ```
+
+- Ensure docker is installed and enabled. Refer to the
+  [Wiki](../../wiki/installing-docker) for installation instructions on
+  Kali/Debian
+
+- `proxychains4` is required for interactive mode
+
+## Setup
+- Create a `NAME.txt` file with your ovpn credentials in `VPN`. The format is:
+  ```txt
+  username
+  password
+  ```
+- Fill the VPN folder with `*.ovpn` files and ensure that the `auth-user-pass`
+  directive in your `./VPN/*.ovpn` files says `auth-user-pass NAME.txt`
+   - Check out [this wiki section](../../wiki#getting-started-with-vpn-providers)
+     for installation instructions for individual VPN providers
+- Within the VPN folder, you may divide/organize your VPN file into subdirectories
+     and use the `--dir` flag with the `--up` or `--single` commands to only use 
+     those configs
+
+     ```sh
+     mkdir -p VPN/US
+     mv US.opvn auth-us.txt VPN/US
+     doxycannon vpn --dir VPN/US --up
+
+     mkdir -p VPN/FR
+     mv FR.opvn auth-fr.txt VPN/FR
+     doxycannon vpn --dir VPN/FR --up
+     ```
+
+- If `--dir` is equal to `VPN`, a container will be launched for each `ovpn` file inside the folder. Use `--single` to have HAproxy load-balance between all VPNs.
+    ```sh
+     doxycannon vpn --dir VPN --up
+     doxycannon vpn --dir VPN --single # Launch HAproxy to load balance
+     ```
+
+- `--single` does not stop proxy containers when it quits, it only stops HAproxy. Use `--down` to bring them down.
+
+- Alternatively, use the `tor` subcommand to just spin up tor nodes
+
+    ```sh
+    doxycannon tor --nodes 7 --single
+    ```
+
+## Usage
+_note_: Before 14 May 21, versions of [rofl0r/proxychains-ng](https://github.com/rofl0r/proxychains-ng) use a 
+second-based seed for the PRNG that determines random proxy selection. Be sure to use a version based on or 
+after this [commit](https://github.com/rofl0r/proxychains-ng/commit/092d7042e092a033ac0c33a238927050c2cc7de0)
+
+
+### One-off, random commands
+While your containers are up, you can use proxychains-ng to issue commands through
+random proxies
+
+```sh
+proxychains4 -q curl -s ipconfig.io/json
+proxychains4 -q hydra -L users.txt -p Winter2020 manager.example.com -t 8 ssh
+```
+
+### GUI Tools
+
+Use the `--single` flag to create a proxy rotator.
+
+```sh
+❯❯ ./doxycannon.py [vpn|tor] --single
+[+] Writing HAProxy configuration
+[*] Image doxyproxy built.
+[*] Staring single-port mode...
+[*] Proxy rotator listening on port 1337. Ctrl-c to quit
+^C
+[*] doxyproxy was issued a stop command
+[*] Your proxies are still running.
+```
+
+To see what's happening, checkout out the [haproxy](haproxy) folder.  Essentially, the tool builds
+a layer 4 load-balancer between all the VPNs. This allows rotatation of proxies through a single
+port. One can then point browsers or BURPSuite at it and have every request use a
+different VPN.
+
+### Specific SOCKS proxies
+
+Example: To make a request through Japan, use `docker ps` and find the local
+port to which the Japanese VPN is bound.
+
+Configure your tool to use that port:
+
+```sh
+curl --socks5 localhost:50xx ipconfig.io/json
+```
+
+### Interactive
+Once you've started your containers, run the utility with
+the `--interactive` flag to get a bash session where all network traffic is
+redirected through proxychains4
+
+```sh
+./doxycannon.py --interactive
+```
+
+
+### Credit
+[pry0cc](https://github.com/pry0cc/ProxyDock) for the idea
+
+This was originally a fork of pry0cc's ProxyDock. It's been modified to an
+extent where less than 1% of the original code remains.
+====================== GIT HISTORY: ======================
+922f1bb HEAD@{0}: clone: from https://github.com/audibleblink/doxycannon
+commit 922f1bb65f12e6ba9aa1e861f822c7af3148d873
+Merge: b8d0506 a428e85
+Author: Alex Flores <domain@me.com>
+Date:   Wed Aug 25 12:06:09 2021 -0400
+
+    adds ability to stop individual containers
+    
+    adds ability to stop individual containers
+
+commit a428e85d41578c57a685a77805ee41309246532a
+Author: oxis <oxis44@protonmail.com>
+Date:   Wed Aug 25 16:16:37 2021 +0100
+
+    README conflict fix
+    
+    typo
+    
+    stupid....
+
+commit 88d85fb8f34c35e232879bb697d0fd65d99d9d12
+Author: oxis <oxis44@protonmail.com>
+Date:   Wed Aug 25 16:12:12 2021 +0100
+
+    update
+
+commit b8d05060b04f0e8b3d74ef5a7cfb19083caed45d
+Author: Alex Flores <virtualsnyper@gmail.com>
+Date:   Fri May 14 10:37:02 2021 -0400
+
+    update note about rofl0r/proxychains-ng prng
+
+commit 1cffffb4fa79a87ba306c3869883a4e0934d0e94
+Author: audibleblink <domain@me.com>
+Date:   Thu May 13 22:44:28 2021 -0400
+
+    readme tlc
+
+commit 923f5f79e9f9bb843f0892afbe5f493bb45bb403
+Author: audibleblink <domain@me.com>
+Date:   Thu May 13 21:05:56 2021 -0400
+
+    appease codefactor & update dockerfile base images
+
+commit 93c86bc0da4c4b54270049904c41ecc485f7c642
+Author: audibleblink <domain@me.com>
+Date:   Thu May 13 20:31:46 2021 -0400
+
+    docker network error handling
+
+commit ffad62c5375cc08709e04e81236dafe7aeaf9ea1
+Author: ben <oxis44@protonmail.com>
+Date:   Thu May 13 18:10:05 2021 +0100
+
+    Oxis cherrypick (#33)
+    
+    * use docker networking
+    * adds `tor --build`
+
+commit 5ef3f3051cb9f79d41f60cf8d034fb629506ea5f
+Author: audibleblink <domain@me.com>
+Date:   Wed May 12 20:58:26 2021 -0400
+
+    consistant use of template literals
+
+commit f653f3d0c929f691b16d87c753214e9fbdbdf69a
+Author: audibleblink <domain@me.com>
+Date:   Wed May 12 20:56:53 2021 -0400
+
+    docker network error handling and logging
+
+commit ad0d60dd51037be8df930806e824e6a6ff2a800e
+Author: oXis <oxis44@protonmail.com>
+Date:   Wed May 12 20:34:38 2021 -0400
+
+    remove build container use docker dns
+
+commit b5605bf96c1811afe8e8cd8de889d980c92479bc
+Author: Alex Flores <domain@me.com>
+Date:   Mon May 10 22:29:22 2021 -0400
+
+    v0.5.0
+    
+    Bugs
+     * fixes supervisor dangling processes (thanks @oxis)
+     * doxyproxy container name cant have slashes
+     * wrong port displayed on doxyproxy start message when using configured
+       port
+    
+    Enhancements
+      * Configurable port for doxyproxy (thanks @oxis)
+      * Now works without `privileged=true`
+      * Added support for WSL2
+      * Docker daemons that run in VMs (windows/macos): use special hostname
+        for haproxy that points to the VM IP running the daemon.
+        `network=host` doesn't work on those environments
+      * Fewer default threads
+
+commit a4b51dfc6df5d75dbc0be475eea3580a2ed98999
+Author: oxis <oxis44@protonmail.com>
+Date:   Mon May 10 20:55:41 2021 +0100
+
+    fixes haproxy supervisord bug
+    
+      * bump version
+      * fix readme
+      * add comments
+      * add haproxy port config
+
+commit 139055a0176fcc6367d37ea313e32e5f3156cb09
+Author: audibleblink <domain@me.com>
+Date:   Mon Aug 24 18:14:54 2020 -0400
+
+    v0.4.0 - Tor nodes
+    
+      * create subcommands vpn and tor
+      * remove --build flag. Build implicitly on config changes
+      * adds tor Dockerfile
+      * adds --nuke option to delete all Docker artifacts
+
+commit fc98e765b25720400245cc9b6705e50add080480
+Merge: b97745e 4077b17
+Author: Alex Flores <virtualsnyper@gmail.com>
+Date:   Fri Aug 21 14:54:30 2020 -0400
+
+    Merge pull request #24 from audibleblink/v0.3.0
+    
+    V0.3.0
+
+commit 4077b17a466a0ff206ab7ca9e1624691250c76d3
+Author: audibleblink <domain@me.com>
+Date:   Fri Aug 21 14:46:32 2020 -0400
+
+    check docker is running before all
+
+commit 43ec9af62c62bf1e7dbcce942d2f1362acbeb9a9
+Author: audibleblink <domain@me.com>
+Date:   Fri Aug 21 14:36:19 2020 -0400
+
+    adds --clean option to remove dangling containers
+
+commit deaf619b4c6c7d9f78983dcee2a5ccfa6363cf06
+Author: audibleblink <domain@me.com>
+Date:   Fri Aug 21 14:09:01 2020 -0400
+
+    handle exception for duplicate containers
+
+commit b97745ee19a98b665adfd400ed6086d0a1bb5123
+Author: audibleblink <domain@me.com>
+Date:   Fri Aug 21 13:46:39 2020 -0400
+
+    version bumps; python3
+
+commit 5392b45bc2026c24f46f5184ae9b692f0320e851
+Author: audibleblink <domain@me.com>
+Date:   Fri Aug 21 13:45:23 2020 -0400
+
+    adds configurable vpn config dir to CLI options
+
+commit 59a05db52160ce6d7f8dc6d7f06c860b9f421298
+Author: Alex Flores <virtualsnyper@gmail.com>
+Date:   Fri Aug 21 11:50:19 2020 -0400
+
+    Update README.md
+
+commit 8525ca23e8568aada2c154070e4e9f0708394994
+Merge: 1666d29 1375ffd
+Author: Alex Flores <domain@me.com>
+Date:   Tue Oct 9 21:51:09 2018 -0400
+
+    Merge pull request #18 from routeback/patch-5
+    
+    Update doxycannon.py
+
+commit 1666d29e8c0d03256c27d2f001a449dc5af6a63d
+Merge: 4dfc09b c0eaf98
+Author: Alex Flores <domain@me.com>
+Date:   Tue Oct 9 21:50:20 2018 -0400
+
+    Merge pull request #12 from routeback/patch-2
+    
+    Update 02_proxy.ini
+
+commit 4dfc09bdac84c77ddc16d46abd473ae8738f98da
+Merge: 90f8f24 49be3e7
+Author: Alex Flores <domain@me.com>
+Date:   Tue Oct 9 21:37:11 2018 -0400
+
+    Merge pull request #17 from routeback/patch-4
+    
+    Update Readme.md
+
+commit 90f8f2495670e1f37488a5d12f260e88a21fe6c6
+Merge: 56f2780 5397474
+Author: Alex Flores <domain@me.com>
+Date:   Tue Oct 9 21:36:35 2018 -0400
+
+    Merge pull request #11 from routeback/patch-1
+    
+    Update Readme.md
+
+commit 1375ffd13543384dfbc332e8520bd9fe315b3985
+Author: Frank Cass <routeback@users.noreply.github.com>
+Date:   Wed Oct 3 22:47:20 2018 -0400
+
+    Update doxycannon.py
+    
+    Typo & consistency
+
+commit 49be3e700e08b0d985554c42dd69003e4ca84634
+Author: Frank Cass <routeback@users.noreply.github.com>
+Date:   Wed Oct 3 18:24:56 2018 -0400
+
+    Update Readme.md
+    
+    Included link to your blog.
+
+commit c0eaf988041c32a728bfca66cdb4532aa56ad993
+Author: Frank Cass <routeback@users.noreply.github.com>
+Date:   Wed Oct 3 11:51:04 2018 -0400
+
+    Update 02_proxy.ini
+    
+    Dante / sockd attempts to start before tun0 is up and will reach the default retry limit of 3, resulting in a FATAL state. This update allows it to continuously retry up to 15 times until tun0 is established.
+
+commit 5397474412f3688e2020026797021de9c8d12a32
+Author: Frank Cass <routeback@users.noreply.github.com>
+Date:   Tue Oct 2 20:12:28 2018 -0400
+
+    Update Readme.md
+    
+    Typo
+
+commit 56f27806058c0e2e2e6613aceeda055779f9e4d9
+Author: Alex Flores <domain@me.com>
+Date:   Tue Sep 4 08:23:38 2018 -0400
+
+    Create LICENSE
+
+commit 39d9091e34011887f02bff48406ec0f4b73c25ed
+Author: Alex Flores <domain@me.com>
+Date:   Thu Apr 19 19:47:29 2018 -0400
+
+    adds tor as first hop to TODO section
+
+commit a9aa6d75d5d5f9adc7b4c3b6d56330f835cc5de0
+Author: Alex Flores <domain@me.com>
+Date:   Thu Apr 19 18:40:02 2018 -0400
+
+    update exception class
+
+commit d1a6bd49a34d1d104272d58cfdaed18bc74fc613
+Author: cclauss <cclauss@bluewin.ch>
+Date:   Thu Apr 19 10:48:00 2018 +0200
+
+    print() is a function in Python 3
+
+commit ee00d9116225230e9d5826d63237aa4880211b85
+Author: Alex Flores <domain@me.com>
+Date:   Thu Apr 12 22:03:37 2018 -0400
+
+    Update README.md
+
+commit ddb21166d94a92e1241194d90b40003142de62f4
+Author: Alex Flores <domain@me.com>
+Date:   Fri Apr 6 21:31:49 2018 -0400
+
+    adds update output for --single
+
+commit 857df9b1e57b62efef6d21b3cf940a660e13097e
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 22:37:18 2018 -0400
+
+    clarify project description & amend prerequisites
+
+commit fdb2641606b74353f3ec11065cec212ce7bf0db9
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 18:57:50 2018 -0400
+
+    replace image with asciicast
+
+commit 38ca3e463b92c9fd87c61086aa9366d9e6ee0cba
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 18:22:14 2018 -0400
+
+    Update README.md
+
+commit c77dde1edf7307e23d337ca273419acb1f7aef89
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 18:19:06 2018 -0400
+
+    adds documentation for --single mode
+
+commit 2bc70b7c1074f9d4f4b360479e18f7df619fc5fa
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 17:59:47 2018 -0400
+
+    adds the --single operator which starts a proxy rotator
+
+commit a59da5022562a0ccaf3a181ed0adcbfaeea5d094
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 15:55:37 2018 -0400
+
+    update haproxy docs
+
+commit 017b5d1b3f1910edb699abee8e148de9e8d64dcb
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 15:32:03 2018 -0400
+
+    make doxycannon.py executable
+
+commit 59dc4972311080f75722f353392b7beb9ef1de49
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 16:23:01 2018 -0400
+
+    flake8 pass
+
+commit 2fa54817f0c42eddb60f92bbeee46fdf2a7474af
+Merge: d9dc7ff bb2cb7a
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 15:52:34 2018 -0400
+
+    replace bash control script with python / official Docker sdk
+    
+    version bump to v0.2.0
+
+commit bb2cb7ac2e8d1e76501b663d20f04d4b9e0882a0
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 14:46:56 2018 -0400
+
+    readme link fixes
+
+commit c9c1f77a32b2e4e03fbcfa420439fa729e914cfc
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 14:44:26 2018 -0400
+
+    adds interactive mode
+
+commit ea681afde54b3f5c1059b54cc9ae7171f47074a9
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 14:44:16 2018 -0400
+
+    cleanup haproxy.conf template
+
+commit 81f01c41ea3fb0e0b4e3fb01de0ef5c691692966
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 14:40:26 2018 -0400
+
+    adds that ability to start and stop containers
+    
+     - uses python docker sdk for management
+     - container management is threaded, introducing a drastic decrease in
+       start/stop time
+     - configuration files for haproxy and proxychains are dynamically
+       generated based on the number of ovpn files provided
+
+commit 7df40d29bf60f42add7953d1a2eda14297ea1dc4
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 14:39:11 2018 -0400
+
+    update readme for forthcoming version change
+
+commit 2d95dc10a52f6ea95c9a32236b5afb133e1c7f9b
+Author: Alex Flores <domain@me.com>
+Date:   Tue Apr 3 14:23:29 2018 -0400
+
+    depricate bash control script
+
+commit f8e43f55659d6e6e119e7fdaae6a6111e19a39fe
+Author: Alex Flores <domain@me.com>
+Date:   Fri Mar 30 00:18:28 2018 -0400
+
+    squash WIP commits
+
+commit d9dc7ff3579471933a3008ea7cc8e32a7c04256d
+Author: Alex Flores <domain@me.com>
+Date:   Fri Mar 30 17:30:43 2018 -0400
+
+    check off todos
+
+commit b3fbe97979b3af69e963ee447c0278c5b95b6449
+Author: Alex Flores <domain@me.com>
+Date:   Fri Mar 30 16:44:23 2018 -0400
+
+    adds haproxy rotator
+
+commit b4d416eb98a4346fabc1ac63b0ef0eb8bde27346
+Author: Alex Flores <domain@me.com>
+Date:   Fri Mar 30 14:22:43 2018 -0400
+
+    add note about proxychains PRNG seeding
+
+commit 3116b989d2ee477b211b2e901996f2dc23d93723
+Author: Alex Flores <domain@me.com>
+Date:   Fri Mar 30 12:59:18 2018 -0400
+
+    adds TODO bullet points
+
+commit ecedc377210c376948d150b1d34ac1dcb705649a
+Author: Alex Flores <domain@me.com>
+Date:   Fri Mar 30 12:49:50 2018 -0400
+
+    add interactive mode functionality and documentation
+
+commit 0de749c5541f1c2bd43707a8ab271155a67f9a05
+Author: Alex Flores <domain@me.com>
+Date:   Thu Mar 29 22:12:35 2018 -0400
+
+    make variable interpoation syntax consistent
+    
+      - use `basename` to get container names
+
+commit 0a1adcf9229d0ed335d6cd255f2cdfa4fe3d4dda
+Author: Alex Flores <domain@me.com>
+Date:   Thu Mar 29 21:37:52 2018 -0400
+
+    replace pics in readme; add template proxychains.conf
+
+commit 0663ae229787e038444cb6ccd914aaffcdda367e
+Author: Alex Flores <domain@me.com>
+Date:   Thu Mar 29 19:09:50 2018 -0400
+
+    add openvpn recommendation
+
+commit 4e1c2f6a3479b7d5beee0502d6eb76755619f4ee
+Author: Alex Flores <domain@me.com>
+Date:   Thu Mar 29 18:56:22 2018 -0400
+
+    initial commit

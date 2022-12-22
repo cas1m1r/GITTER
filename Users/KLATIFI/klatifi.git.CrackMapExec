@@ -1,0 +1,4398 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit c6243deac6b5e36f22c7f7b6fdb3f62d47c061ef
+Author: byt3bl33d3r <msalvati@coalfire.com>
+Date:   Thu Feb 9 12:03:53 2017 -0700
+
+    Fixes #136
+
+commit fccd6498ee477f8ac7dbc07ecf05887a89dcfde7
+Author: byt3bl33d3r <msalvati@coalfire.com>
+Date:   Thu Feb 9 11:28:15 2017 -0700
+
+    Fixes #152
+
+commit 29e726e622d72aafc8f931136ebbc9fe0671f401
+Author: byt3bl33d3r <msalvati@coalfire.com>
+Date:   Thu Feb 9 10:51:34 2017 -0700
+
+    Resolves #151
+
+commit 04c4e3de6460d93119f43e50f7cb2690700b7b55
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 10 15:48:15 2017 -0700
+
+    Adds workaround for issue #147
+
+commit 8b5b2d5cd4375ef2776f71c6b4dc11bdbacfb6b6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:19:50 2016 -0700
+
+    fixed gevent version in requirements.txt file
+
+commit ab79ee2ca80b12dce05a86a19e85d59e060ec7ca
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:16:59 2016 -0700
+
+    back to dev
+
+commit 1e858f90be4a772f1759960aecfb87ad50ac3142
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:11:22 2016 -0700
+
+    Changed version for release
+
+commit a62feb3c21b8c6727c2e4b5049899c7e1f90f736
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:00:36 2016 -0700
+
+    changed epilogue
+
+commit fffc8d91a1b395686221ebc2b88ce49cb6b60707
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 00:59:00 2016 -0700
+
+    Changed release codename
+
+commit 45354e8a4d3f69e85afcd06f5e09564f9c125d8f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 00:43:02 2016 -0700
+
+    fixed version string in crackmapexec.py
+
+commit ab4d0a440602bdab7727ca336778c5b7311892e5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 00:40:08 2016 -0700
+
+    Revert "Initial implementation of module chaining"
+    
+    This reverts commit db056d1ab49f34bcb9c67880c7f1229705800e50.
+    
+    Module chaining will be re-implemented once I find a less hacky way of
+    going about it.
+    
+    This also closes issue #144 and PR #145
+
+commit b1e83227047a64cbe45145b8ebf5054640822317
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 26 13:47:36 2016 -0600
+
+    changed var names in token_rider module
+
+commit 3d50982bfa00358921f6fc96b21442ff87b87c88
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Sep 22 22:30:01 2016 -0600
+
+    fixed powerview module again
+
+commit b6e86907578e02c6cbb117d058ec9bb5848d73b8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Sep 22 22:27:31 2016 -0600
+
+    fixed powerview module
+
+commit 07872985d7837faaf01b845032d59a32ab920546
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Sep 21 13:40:59 2016 -0600
+
+    This commit addresses a number of issues including #130 and #126
+
+commit 1468e258ee1bfbdb7fbbc9921b2fecf7ee5c40fc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Sep 13 15:57:36 2016 -0600
+
+    removed wrong import
+
+commit 9bda755de431a2e30c4287d4f2be670a33b7b9b0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Sep 13 15:55:34 2016 -0600
+
+    Added SessionError handling
+
+commit 2121503ffe655bb942d00ae2c971ae551a7a986d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 12 01:10:08 2016 -0600
+
+    Removed some debug code and dependency_link in setup.py
+
+commit db056d1ab49f34bcb9c67880c7f1229705800e50
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 12 00:52:50 2016 -0600
+
+    Initial implementation of module chaining
+    
+    Oook, this commit is basicallu just so I can start tracking (and
+    testing) all of the changes made so far:
+    
+    - All execution methods are now completely fileless, all output and/or batch
+      files get outputted/hosted locally on a SMB server that gets spun up on runtime
+    
+    - Module structure has been modified for module chaining
+    
+    - Module chaining implementation is currently very hacky, I definitly
+      have to figure out something more elegant but for now it
+      works. Module chaining is performed via the -MC flag and has it's own
+      mini syntax (will be adding it to the wiki)
+    
+    - You can now specify credential ID ranges using the -id flag
+    - Added the eventvwr_bypass and rundll32_exec modules
+    - Renamed a lot of the modules for naming consistency
+    
+    TODO:
+    
+    - Launchers/Payloads need to be escaped before being generated when
+      module chaining
+    
+    - Add check for modules 'required_server' attribute
+    - Finish modifying the functions in the Connection object so they return
+      the results
+
+commit e67fc4ca8f1c9f73933c5f11fe52d292693c233f
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Aug 13 23:02:20 2016 -0600
+
+    Update README.md
+
+commit 16f3b4c8c248c58a21e6309b00f6ea7266067fbd
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Aug 13 23:00:14 2016 -0600
+
+    Update README.md
+
+commit 90f1f3ad546da8d7a68aa4a4b8648a7a6e09dc5c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 12 00:36:38 2016 -0600
+
+    Some extensive code refactoring
+    
+    - The whole connector function has been removed finally (was there since
+      v1.0)
+    - Functions now get called dynamically based on parsed arguments
+    - All of CME's functionality can now be accessed through the modules
+      (W00t!), just have finish modifing the code so the results will get
+      returned
+
+commit 4e89098161999bd81e2fd5967818bacf075f6a34
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 8 19:08:30 2016 -0600
+
+    Version Bump
+
+commit 6f2596902c23744775e4062b8e822857ba93e941
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 6 10:28:16 2016 -0600
+
+    Implemented @mattifestation's AMSI bypass and multiple bugfixes
+    
+    - @mattifestation's AMSI bypass now gets called before executing
+      powershell commands or scripts
+    
+    - Squashed some bugs related to account bruteforcing, enumerating users
+      and creating/deleting the UseLogonCredential reg key
+
+commit 8ddfcb10e4cc22c9ca95b4feca34ebd364bf38f8
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Aug 2 15:28:16 2016 -0600
+
+    Update README.md
+
+commit 377f5a77067d2bae89de2377a7c9db4dd36fdf6f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Aug 2 09:07:40 2016 -0600
+
+    Added a 'cme' script entry point in setup.py
+
+commit 6876761cfe4669930c0a8d82a5f92ebac83da688
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Aug 2 08:49:30 2016 -0600
+
+    Added the --ufail-limit flag to limit failed login attempts per username
+
+commit 698f1473cc332eb10212c0465ca14497a58dbd7c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 22:33:28 2016 -0600
+
+    Updated README.md
+
+commit 022671d039f0a6ceccbecf73a4f120200b330c3b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 22:06:17 2016 -0600
+
+    Re-implemented the --gfail-limit and --fail-limit options (Properly this
+    time) to limit failed login attemptes
+    
+    - The logic responsible for SMB bruteforcing/login has been modified
+      to sync between the concurrent threads: this allows us to limit failed login
+      attemptes with the two new flags. However this does cause the threads
+      to lock so there is a minor reduction in speed but IMHO this is a good
+      middle ground.
+    
+    - You can now specify multiple DB credential IDs, CME will then
+      bruteforce using the specifspecified cred set
+    
+    - Version bump
+
+commit 64729377733ffa3a03dd1407e2e8391beb4e2272
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 03:36:58 2016 -0600
+
+    Updated execution methods and user enumeration for better
+    non-standard smb port support
+    
+    - Fixed bug where current path was included in command output when using
+      the smbexec exec method
+    
+    - Batch file name generation is now randomized on every command executed
+      rather than on object initialization
+
+commit 9af1ab56cfc2b0f1485c78ca8429947d84c99d99
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 02:23:17 2016 -0600
+
+    Added the mimikittenz module
+    
+    - Removed the mem_scraper module since the new mimikittenz module should
+      replace its functionalitu
+    
+    - Fixed newline in enum_chrome output
+    - Version Bump
+
+commit cb3c39beb8aa4f613852570ac9f04386d112c577
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Jul 21 05:40:10 2016 -0600
+
+    Fixed logic bug with password file if brute forcing
+
+commit 2cfb70dd776834d0254d959f05fed9f73fde7143
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sun Jul 3 12:16:45 2016 -0600
+
+    Update ISSUE_TEMPLATE.md
+
+commit d76ce31f57b6dc4178fb4d0a980c7f793391fc08
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jul 3 12:12:19 2016 -0600
+
+    Added issue template
+
+commit 2e102130b1551984decb6226c060585f3c0d0152
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jul 2 23:12:51 2016 -0600
+
+    Fixed unhandled traceback occurring when an invalid WMI namespace is
+    specified
+
+commit 9c1259b60f5dace92768af41da1d0f1b00a0688a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jul 2 22:47:03 2016 -0600
+
+    Fixed a bunch errors in the SMB Spider (closes #117)
+    
+    Additionally, regexes are now pre-compiled before starting the spider
+
+commit 74f746592ace591a021c21087812fd5818d87b13
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jun 29 00:53:41 2016 -0600
+
+    Initial commit of the enum_chrome module (resolves half of #112)
+    
+    The modyle uses Mimikatz's new DPAPI Chrome module to decrypt saved
+    chrome credentials
+    
+    Additionally a new version of Invoke-Mimikatz.ps1 script has been added
+    that contains the latest Mimikatz binaries and a patch for it to work
+    when injected
+    (https://github.com/PowerShellMafia/PowerSploit/issues/147)
+
+commit f189b50a5f34d860485dedd7f7faff885525fa2b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jun 28 16:28:49 2016 -0600
+
+    Version bump to 3.1.2
+    
+    Updated install instructions and setup.py since impacket 0.9.15 has been
+    released!
+
+commit 928c9af721552aebb8f1e471317f6252b4938bdb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 25 11:11:29 2016 -0600
+
+    Fixed if statement in msf credential import code
+
+commit 04da664df7a479c3fb1ed44ff72225d74a6d14db
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 25 11:09:48 2016 -0600
+
+    Updated setup.py
+
+commit 53b49a7c3a3a96533e020081d3147347c7540384
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 17 21:44:40 2016 -0600
+
+    Added support for importing Metasploit credentials (closes issue #89)
+
+commit d44d9273723668f1c23932507f50e2611c651723
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 17 20:31:31 2016 -0600
+
+    Initial commit for the mem_scraper and powerview modules
+
+commit 6056ce83db1e13004147a20b122c736b79fdc553
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 17 01:34:38 2016 -0600
+
+    Initial commit for the powerview and memscraper modules
+    
+    The powerview module will replace all of the get_net* modules
+    Memscraper module stil has a bug which i'm working on
+
+commit 58edfe18f3f433564b0a13be030fd94566e8ed95
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jun 14 18:58:19 2016 -0600
+
+    Code cleanup of the execute method in the Connection class in
+    connection.py
+    
+    Additionally, since the smbexec execution method seems to be detected by
+    a number of AV HIPS'es, i've switched the default execution method order
+    to:
+    1. wmiexec
+    2. atexec
+    3. smbexec
+    
+    Furthermore, the method argument in the execute function now accepts a
+    list of exec methods.
+
+commit 7b0b06af3934412decb1626c494d568f4598b221
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jun 14 17:49:20 2016 -0600
+
+    Fixed log creation in tokens.py module
+
+commit 062db9c3542b1294cce400b577297645a8a1970c
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Jun 8 22:03:48 2016 -0600
+
+    Added a VERY SMALL TAG ZOMG
+
+commit 48e61cd8830f4f473d2f1d7e81af0479b35821ae
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Jun 8 21:59:55 2016 -0600
+
+    Typos again
+
+commit b4559abaac621460733462a9288a5e81151b9441
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jun 8 21:51:25 2016 -0600
+
+    Version bump
+
+commit db223b583ab3304ef3946bb3938f87e06b722445
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jun 8 21:44:45 2016 -0600
+
+    Some code cleanup, bug fixes and re-added the config file
+    
+    * For some reason the config file got lost in between version bumps, re-added it
+    * Improved the logic in first_run.py, it will now autodetect missing files and will copy/generate them accordinglu
+    * Code cleanup in cmedb.py and bug fixes in crackmapexec.py
+
+commit fa42461a3c1bb8bc6ef4fe89621ed1eff87d4eba
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Jun 7 01:18:05 2016 -0600
+
+    Typo's
+
+commit cee2f2036818b00ddefcc254a367ef6f0dffa30c
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Jun 7 01:16:57 2016 -0600
+
+    Update README.md
+
+commit 88c517eb12db8a530af54ba5e45d41d3286e86ce
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Jun 7 00:51:40 2016 -0600
+
+    Update README.md
+
+commit 18e391473125eba92d444a54cd4afe24a7fd91e4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jun 5 14:43:51 2016 -0600
+
+    Cleaned up the module loading code
+
+commit 89e08605f47d8018089788f50f63846d4b83f620
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Jun 4 12:55:50 2016 -0600
+
+    Update README.md
+
+commit 67c26ccf41f1f172c346917973e14d5a4a263fa4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 03:13:23 2016 -0600
+
+    Changed version number for Pypi and updated Install instructions again
+
+commit d4e56334371bfceb96a1b22bfdd52e96950bdbf4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:39:58 2016 -0600
+
+    setup.py wierdness
+
+commit 1e281bd638a27e9da024a31a3cabb87ef9f7202b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:18:17 2016 -0600
+
+    Got rid of some left over merger cruft
+
+commit 4175122463a6bf6cbdefb0c93558d537e608876e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:12:04 2016 -0600
+
+    Updated README with better install instructions
+
+commit a7b5b17252776e3e25ec3196b799a9cd4920a491
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:05:57 2016 -0600
+
+    Updated README with install instructions
+
+commit 5b8b25527872d243bee73785a59e8b881cae1b56
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:48:00 2016 -0600
+
+    Forgot to change the package description
+
+commit ef916220451adb3e90f852e35120669247413ef3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:24:22 2016 -0600
+
+    Updated usage in README
+
+commit ca9e272f26c747bff6b16b01fca55f990eb1619a
+Merge: 838cc29 da4e553
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:21:18 2016 -0600
+
+    Resolved merge conflict
+
+commit 838cc296343dfcae79461c3fbbe2f6bd708b0ee2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:18:20 2016 -0600
+
+    Merged changes
+
+commit 23d8a6517fb1a36bac9b09e3923201ee291d00ac
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:13:38 2016 -0600
+
+    Refactoring for packiging is now complete!
+
+commit 68a908562a1be40ba82ce3e38bbf285a9bcb4bbc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 3 23:42:26 2016 -0600
+
+    Second round of refactoring for packaging
+
+commit da4e55380a1d1ad46d3176c513b829bd4a7099f4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon May 16 18:07:01 2016 -0600
+
+    Added error handling for CME server in case the port is already in use.
+    Should resolve #109
+
+commit d5a7af9858516061fe52ad1b88712dd0b4b8065a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon May 16 17:48:31 2016 -0600
+
+    goddammit, git add bro
+
+commit 78484dc5272c59ca73fe30ce6d05d84d37254f1e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon May 16 17:48:06 2016 -0600
+
+    Initial structure for packaging
+
+commit 2c77b0c583d6b2686e4f5f52837a7893e7fc31f8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri May 6 23:47:50 2016 -0600
+
+    Since https://github.com/CoreSecurity/impacket/issues/137 is now
+    resolved, we can now add the architecture aware wrapper
+
+commit 4dc262526a3bf4d10a690a78909157592ce5e8c2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Apr 27 19:18:16 2016 -0600
+
+    Ok so for some wierd af reason the -m flag doesn't autocomplete module paths in
+    bash (wtf), this is only the case for the letter m (even more wtf). if
+    you do -p for example it autocompletes (omfg wtf) so since bash is being
+    a bitch for no reason, I've added the --module flag as an alternative so
+    it autocompletes module paths (bash go home you're drunk)
+
+commit 6a8ab5ef2f5da3591766b0c4028529a4d75d973b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Apr 27 18:14:15 2016 -0600
+
+    This commit introduces failover command execution
+    
+    If a command or module fails to run using a certain execution method
+    (e.g wmiexec) it will automatically try another one.
+    
+    This behavior can be overrided by using the --exec-method flag
+
+commit a6cc776a1291c78e56937fd0e8b6db37d7098eba
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 26 00:44:59 2016 -0600
+
+    No reason to save output to a log file it there's no output :/
+
+commit 91ab69d008bed81c7bef8137f4d5d2feb58e40de
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 25 20:57:23 2016 -0600
+
+    Fix for issue #106
+    
+    Consolidated commands in cme_db.py
+    Added an option in cme_db.py to specify the database manually
+
+commit 95e9a6b61e79ee18d27a2b9909c9e175a7ad63f9
+Merge: 079cf69 c8657ca
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Mon Apr 25 20:22:59 2016 -0600
+
+    Merge pull request #105 from Cat0x00/patch-1
+    
+    Missing libs
+
+commit c8657ca73b1c4f09bac4d2030cbbdff001f2155e
+Author: Cat0x00 <paulikas.vytautas@gmail.com>
+Date:   Sun Apr 24 18:25:12 2016 +0300
+
+    Missing libs
+    
+    During my tests i found out that in case of:
+    ./crackmapexec.py 127.0.0.1 -u user -p pass --lsa
+    Tool will (and it did) fail due to missing libraries. This applies to cases when the target is a legacy OS, such as WinXP or Win2k3.
+    
+    I have fixed the issue by adding missing libraries. Not sure if there are any other missing libs in this file. ;]
+
+commit 079cf6940692e5f9f7f7c3bda77be5b662261095
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Apr 21 19:59:13 2016 -0600
+
+    Fixed bug when parsing payload module options
+
+commit fd42f45d7f559eb0c9ea64f601828bc997a82ebc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Apr 21 19:30:59 2016 -0600
+
+    fail
+
+commit 82af618800c442016847fb548b18094930e99b5b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Apr 21 19:29:19 2016 -0600
+
+    Added the com_exec.py module based on @subTee's com scriptlet
+    whitelisting bypass
+
+commit d256444cb5fa7e7d27b41f7026649e0819d6816e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 19:48:07 2016 -0600
+
+    This commit should resolve issue #92
+    
+    Changed the way the tokens module opens a read handle to the USERFILE
+
+commit a56ad587ec733dc48bfe42844212f9e0e4c5175f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 19:30:23 2016 -0600
+
+    Revamped the mimikatz module's credential parsing (Stole it from Empire)
+    
+    Implemented proper handling of hashes if only the nthash is supplied
+
+commit f7a45a3de7514ed3949f1509c737ac0e5a8301dd
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 18:05:41 2016 -0600
+
+    Added instructions in case of command not found error in kali install script
+
+commit 21ddc511871c29961cf37b099cdb51cf3a49c3c9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 17:34:11 2016 -0600
+
+    Made kali install script executable
+
+commit 424c34c4f4623bece40f3904153f3a2c242363ef
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 17:30:54 2016 -0600
+
+    Added a -y in kali install script
+
+commit 42e4b05a3b7755a6e4f01528eb2dc30183b27fc3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 17:06:25 2016 -0600
+
+    Added missing dep in kali install script
+
+commit 7737f65fda142e2809649abcdd3424c163f1cc0b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 15:52:34 2016 -0600
+
+    Added path checking in Kalis install script
+
+commit b1556496196cc7792f1895bdb39a5a6b7d314085
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 15:50:21 2016 -0600
+
+    Initial commit for Kali install script
+
+commit 0bb288e7a0c9ff6f00788488c6ffed93fe987f7b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:55:54 2016 -0600
+
+    fixed module names
+
+commit f890da0a608e04d5f4bee304498d715e01bbbe69
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:52:57 2016 -0600
+
+    Fixed wrong variable in get_computers module
+
+commit c2217f1c81ac0c948dee69c6334c2c2948687e67
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:48:48 2016 -0600
+
+    Added the get_computers module
+
+commit 69167140af856a79fe1c713ca3af2a3dfa210512
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:15:59 2016 -0600
+
+    Added the get_groups module
+
+commit f6c2c2f24d28fdd18ab6c7886cc70729f0fdb45c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 01:07:25 2016 -0600
+
+    Added the get_group_members module
+
+commit e5e954068ab17b0d5f42169557ccb7f27006c68d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 00:09:08 2016 -0600
+
+    Added options in token module to search for a specific username in
+    enumerated tokens
+
+commit 1d6cc4ac64ff557d0495266764d1d6dc394e5742
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 11 23:33:57 2016 -0600
+
+    Fixed typo variable
+
+commit ec14e47258b46b3a3b5a7e1737f03254350e151b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 11 23:23:15 2016 -0600
+
+    Changed the add_credential SQL query, added tab complete support fro the
+    import command
+
+commit b85a4ecabddce805f56f64eeef3da59725048c71
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 11 23:06:42 2016 -0600
+
+    Database navigator now supports filtering seearching through hosts and creds (like Empire)
+
+commit cd9a77796f1c7908e0466606a31441727ad14815
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Apr 10 17:10:33 2016 -0600
+
+    This commit introduces a command in cme_db.py which will import
+    credentials from Empire using it's RESTful API (resolves half of issue #89)
+    
+    Reading through Metasploit's docs, it seems like you cannot access
+    it's stored credentials using the RPC server (would have to directly
+    access the postgres db, I do have to confirm this tho)
+
+commit 3ce031ffeeac01e3aa4ed5a688925a22b93f099a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 9 15:18:10 2016 -0600
+
+    Made the output of --lusers actually decent
+
+commit 4da8c0795695835ea3cbf048d53412860959b80a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 9 14:36:31 2016 -0600
+
+    Cleaned up the Powershell code in the token_rider module:
+    * Added error handling in case a command fails to execute on a target
+    * POST request code is now a function
+    * Made the output POST'd back to us actually useful
+
+commit 94d1c040c8c94c5c743b64918a0072c20238c60c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 9 03:57:40 2016 -0600
+
+    Initial commit for the token_rider module! OMFG this thing is amazing
+    it deserves its own blog post!
+    
+    Fixed a bug with the smbexec execution method which would cause it to
+    exit without retrieving output
+
+commit d3eb5cd8ff23daff3d2e216e9898a4c181fb4ed6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 22:13:01 2016 -0600
+
+    Added entry in .gitignore
+
+commit 84dfa1d8391c5da1d985c9a810c46952f644feb8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 20:38:49 2016 -0600
+
+    Lots of unicode fixes (omfg halp) resolves issue #92
+
+commit 9052e48286cb2fcdafcc5f5087547b9b52dbc1f5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 19:58:01 2016 -0600
+
+    Removed decription of authentication error (will display if --verbose is
+    passed)
+    
+    Fixed host tracking in the inject_pe_dll.py module
+
+commit eb4f185118fbd57eff6a504f387501307dff361f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 00:25:06 2016 -0600
+
+    Database now tracks which users have admin access to which hosts
+    
+    Added a configuration file for specifying Empire's and Metasploits API and RPC creds
+    Added the empire_agent_exec module: connects to Empire, generates a launcher and executes it
+    
+    Minor bug fixes
+
+commit a1c41d97c96278eb3e7e28fb82073d1b9acb72dc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Apr 3 20:21:58 2016 -0600
+
+    Fixed incorrect error handling when database wasn't created
+    (part of issue #93)
+
+commit cd989879d495fc14f99375934c9052658fee4264
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 13:11:28 2016 -0600
+
+    Removed debug statement and fixed output in tokens.py module
+
+commit 7bfe04236a3c7b9de521cf94ca38abdb57353d83
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 12:58:55 2016 -0600
+
+    Added a tokens module to enumerate available tokens
+    Added a --server-host flag to specify the IP to bind the server to
+
+commit 9262832b86b0d5764fae7a30bf048b566299d754
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 11:37:34 2016 -0600
+
+    Fixed missing imports when dumping NTDS via vss
+
+commit 7e6657eedbe8be37d1f23ff451dbd69e19e2af3c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 10:06:23 2016 -0600
+
+    fixed timeout and error handling when smb spidering
+
+commit e6a293c9f30d2629e8488b100d55ca303a0e9a32
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 00:47:17 2016 -0600
+
+    Updated usage in README
+
+commit e5e38cb8814ce41b9989f5851d51b65e5039d59c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 00:45:16 2016 -0600
+
+    Re-added License to master
+
+commit 05387abf6501f434bf52bb4f8feaaeec3405b5c0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 00:26:09 2016 -0600
+
+    Changed the wdigest flag
+
+commit 811001edc477484b8f2f49b706fbdba4754a8395
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Mar 29 23:58:24 2016 -0600
+
+    Forgot to add the smbspider class back in connector.py, whoops!
+
+commit 0bc0855c43f19b539a7de0273aee33f71f19ae85
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 28 00:42:42 2016 -0600
+
+    Added default mimikatz command to module description
+
+commit f8afef444c8f98d32692042f5428a5cf154d71aa
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 28 00:25:19 2016 -0600
+
+    Changed README again
+
+commit f5895ac4ea5436fd614f3bca5fa6635b8ed79d77
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 28 00:21:20 2016 -0600
+
+    Changed README
+
+commit 6eabf0224c9eea37eb5a745f7229ed3a5c7a1e52
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Mar 27 15:45:41 2016 -0600
+
+    Updated README
+
+commit 10a12a9a0ff725df6c6d57ec484232c0a7c821db
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Mar 27 15:17:18 2016 -0600
+
+    Initial v3.0 commit to master
+    
+    Quick re-cap on the new features:
+    
+    * Credentials and hosts are now stored in a database, the cme_db.py script can be used to query it
+    * Module system has been implemented allowing anyone to create payloads
+    * All underlying powershell code has been ported to a module
+    * The HTTP/HTTPS server now tracks connections: no more guessing when to CTRL-C
+    * All around better code quality, error handling and logging
+
+commit 792a631fe21d0e42d044862da34ad56c4843e234
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Mar 12 19:20:40 2016 -0700
+
+    Updated the usage in README
+
+commit 4c3ca3a0f66cf08eede2ba48b808d579290803ed
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Mar 12 18:24:08 2016 -0700
+
+    Added the --tokens options to enumerate available tokens (issue #86)
+    
+    Re-added Empire's function to strip powershell comments
+    Changed the PowerView PS script to the actual supported one
+
+commit 5814121e6d061d4798e6cdcf83b1dcb291a6dff5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 22:08:13 2016 -0700
+
+    Actually pushing the new cert would be nice
+
+commit f4141c90414a231e60526c53f9cf35eb6110b634
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 22:02:25 2016 -0700
+
+    Regererated SSL cert, fixed a typo variable
+
+commit 3ec981f3faba24cfde586259c126b9b6defea6d0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 20:09:52 2016 -0700
+
+    Re-added the --timeout option
+
+commit ade4c12ad43310438de1db8fb45d138920ac14d3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 20:01:42 2016 -0700
+
+    Revert "Stole Empires powershell architecture detection code, arch is now detected and handled automatically"
+    
+    This reverts commit cd103f5cb66537740b0e7ac7e759571470d48826.
+    
+    This is being reverted due to a bug in wmiexec when executing long
+    command strings. Falling back to the old method for now until/if fixed.
+
+commit bdcebd00453aff49300d1a2d50c537a1124fcd87
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 7 22:32:35 2016 -0700
+
+    Changed the default server to HTTPS (cause why not)
+
+commit cd103f5cb66537740b0e7ac7e759571470d48826
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 7 20:13:51 2016 -0700
+
+    Stole Empires powershell architecture detection code, arch is now detected and handled automatically
+    
+    Removed the --ps-arch option as its now useless
+    Added a --timeout switch to specify a max timeout for each thread
+    Regenerated default key and cert for the https server
+
+commit 2427ccaa9bd56edbb05381ca31fb7a7951e607ce
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 27 00:29:35 2016 -0700
+
+    Updated README
+
+commit 7b255b3c9a687a3195b1f3fe23a06ada4c514d3e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 26 23:50:33 2016 -0700
+
+    - More code cleanup in the smart_login function, added pwdump support
+      when using the combo file (-C) flag (resolves #80)
+
+commit c50ffb0f65349a0b32d3a99a696f64a7fa4b5a7f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 26 21:23:03 2016 -0700
+
+    - Re-Factored MSSQL support for better integration when executing
+      commands and attacks (e.g. mimikatz, injection)
+    - By default, the --mssql flag will enumerate db instances and will
+      allow you to execute commands through xp_cmdshell
+    - Made some logic changes on how/when connections are initiated
+
+commit 3c5cf012fd3a24811227f74d3558f94665fdc267
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 19 01:56:42 2016 -0700
+
+    - Password. Username and Hash flags now accept one file or
+      user/pass/has per
+      argument
+    - smart_login function partial code cleanup
+
+commit b1646c3f76bfab5702626f116f5f890bf9f77c7c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Jan 18 20:40:50 2016 -0700
+
+    - Made output *FABULOUS* by aligning the logger output
+    - Moar unicode fixes (srsly fuck unicode)
+
+commit 224befe25d393c38a870798727ec52113ec37288
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 22:43:57 2016 -0700
+
+    Fixed bug that would cause a traceback in rpcquery.py when PTH
+
+commit 5c319105713cf07d8cb8e751bcc4056d281d40fe
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 22:42:53 2016 -0700
+
+    Fixed .join() error in smart_login.py when PTH
+
+commit 7075c095cce69de0886ba4df7cbf7ee70f859092
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 12:28:52 2016 -0700
+
+    Fixed wmiquery error when passing-the-hash
+
+commit d383c3df8fa06fe2bef6dd46a5cf98aab90f6603
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 00:51:25 2016 -0700
+
+    Updated requirements.txt
+
+commit 65187a719004752c42af0ba7ff040f92db5250ff
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 00:22:22 2016 -0700
+
+    Updated Readme
+
+commit 3aaa378a235dc7ffecb00e7ca1b6e0c5bde17e93
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 00:09:45 2016 -0700
+
+    - HTTP/S server now uses the new logging system
+
+commit 256f2cd12de93e01486c86d23acb806af6452128
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 23:00:50 2016 -0700
+
+    - Powershell process architecture is now auto selected based on payload
+    - Added flag to force Powershell process architecture
+
+commit d1508d2923275ec98922a06239e6edcbf9191a7f
+Merge: 5a1adba 58b6d06
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 22:40:45 2016 -0700
+
+    Merge branch 'mssql_and_logging' of github.com:byt3bl33d3r/CrackMapExec into mssql_and_logging
+
+commit 5a1adba6482e90331b9b5bf4278598b40dde9c7f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 22:33:11 2016 -0700
+
+    - Logging has been overhauled for readability and parsing (resolves #47)
+    - Added flag to test creds against MSSQL DBs (resolves #66)
+    - Added flags to enable/disable xp_cmdshell on MSSQL DBs
+    - Added flag to execute commands through xp_cmdshell on MSSQL DBs
+    - Added flag to enumerate MSSQL DB instances
+    - Targets are now accepted with arguments instead of a comma
+      seperated list (resolves #71)
+
+commit 58b6d0636d2a4a8c1fb9acfde21953f9f248bdff
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 22:33:11 2016 -0700
+
+    - Logging has been overhauled for readability and parsing (resolves #47)
+    - Added flag to test creds against MSSQL DBs (resolves #66)
+    - Added flags to enable/disable xp_cmdshell on MSSQL DBs
+    - Added flag to execute commands through xp_cmdshell on MSSQL DBs
+    -
+    - Targets are now accepted with arguments instead of a comma
+      seperated list (resolves #71)
+
+commit 7aa67e388c8fcc8c84b4396a6be5bab0aed12922
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 13 19:21:04 2016 -0700
+
+    Resolves #70
+
+commit 86ca7e464092d1d6a6dec3cdfe9f57b5ca6d7ba8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 6 23:28:31 2016 -0700
+
+    Updated target paramater description
+
+commit f85a50cfe4fc0329717ba7e2d78932ce0ad2a69f
+Merge: 15c5b83 1a40805
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Jan 6 22:47:17 2016 -0700
+
+    Merge pull request #62 from maaaaz/master
+    
+    Service Interaction name parameter & encoding errors fix
+
+commit 15c5b83bc23f7934d242a707967d2ccc3cad52ee
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 6 22:07:19 2016 -0700
+
+    added ability to accept FQDNS and hostnames as targets (resolves #13)
+
+commit a1e113520aa7c1b0ce64b0adb015e9bffbc5e9f9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Dec 25 12:54:02 2015 -0700
+
+    Adding a user-agent to the HTTP/S request when downloading the Meterpreter staged shellcode would cause a rpc_access_denied error
+    when executing the PS code with WMI.
+    Have to investigate why, for now removed the offending code and everything seems to be working perfectly.
+
+commit 1a40805ae481788041a285b91533cef9c32782ca
+Author: maaaaz <maaaaz@androwarn.com>
+Date:   Sun Dec 20 12:24:17 2015 -0500
+
+    service interaction fix
+
+commit d2c103bf56483d32cb5115f4e6bd38e6fef2831f
+Author: maaaaz <maaaaz@androwarn.com>
+Date:   Sun Dec 20 12:10:40 2015 -0500
+
+    encoding errors fix
+
+commit 3d0203a78031e28f542f84df933ff0373577d511
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 20 00:19:23 2015 -0700
+
+    Version bump and README update
+
+commit 553ec9910e9b0abae2d144c032e0e600a776baa3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 20 00:11:08 2015 -0700
+
+    Updated the Powershell payloads to support Powersploits 3.0 update
+
+commit c328c397f815a49e89a868dfe5baedcb2da35cd0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Dec 19 22:01:04 2015 -0700
+
+    Forgot regex string for Invoke-NinjaCopy
+
+commit 5515464c029471d4a24589fbfacc41c570ad4426
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Dec 19 21:57:28 2015 -0700
+
+    Updated PowerSploit scripts to latest version
+
+commit 9f130886ee4756bc2e1bd184b4fbf54619265ad2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 13 15:51:00 2015 -0700
+
+    updated README
+
+commit 45e37570a3c206befbdb7f0b47f0087ae775f831
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 13 14:27:18 2015 -0700
+
+    Updated powerview.ps1 to latest commit
+
+commit e965cd83743db2bf7bff2e80e642d5b28c977a43
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 13 13:47:51 2015 -0700
+
+    Should resolve #51
+
+commit f5c8684876950648f23ec1f05281067cf97af6cf
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Dec 11 00:29:47 2015 -0700
+
+    Fixed output for --gpp-passwords option in http/s server
+
+commit 3574bbe8322f8d582991fe0bdf52207b133bdf44
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Dec 11 00:24:43 2015 -0700
+
+    Added --gpp-passwords option to retrieve GPP passwords
+
+commit 4e1414fa04a53adff05f927234a1b31560256de7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 29 12:21:42 2015 -0700
+
+    Removed some useless imports
+
+commit 9e50051651e5fdf64e946fd71ef999d4e4c1ebe7
+Merge: 3016461 9916c03
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 29 12:21:19 2015 -0700
+
+    Merge branch 'maaaaz-master'
+
+commit 9916c03a056912afc72ac13c704e2634a5aca5e1
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 29 12:21:06 2015 -0700
+
+    Removed code to check for log directory
+
+commit 7401c135631b9eaa532a2f44a6b60797ec5ac265
+Author: maaaaz <maaaaz@androwarn.com>
+Date:   Sun Nov 29 12:07:30 2015 -0500
+
+    post v2.1 changes
+
+commit 3016461f414e71310d70dea9a6359a970840c481
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 20:24:04 2015 -0700
+
+    Updated usage in README
+
+commit a2c2c1748936c34d8f75cdf378c9844b324c9fd9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 20:20:42 2015 -0700
+
+    Added src param for --download (resolves #32)
+
+commit 474ded4ea2faca4f4a008090ed9b45464e2aee98
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 19:47:40 2015 -0700
+
+    Fixed port variable when invoking PowerView
+
+commit f0fe1a25a788ea9f682e5c804e39fb2566f2a1b7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 19:33:55 2015 -0700
+
+    Added option to set the HTTP/HTTPS server port (resolves #33)
+
+commit 0d1e580edd0ff7d83cfe36459fe45a52ad698c40
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 18:54:34 2015 -0700
+
+    Added previous commit changes to passpoldump.py
+
+commit 6e2d24c0b7da18f160f760d89c0663f6e981560a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 18:51:50 2015 -0700
+
+    Fixed a bug when passing-the hash that would cause an AttributeError
+
+commit 11e75ac897e10514603f41b329a79a0a2f21b71a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 23:04:54 2015 -0700
+
+    Added --fail-limit and --gfail-limit options to limit the amount of
+    failed login attemptes per host and globally
+
+commit 2fe0d795f0037a90408a28d8f0b1e9ce1d9fb5f5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 21:15:12 2015 -0700
+
+    Updated README with new usage
+
+commit 2212a032756af309eddcf293a73dad7647a53ebf
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 21:13:46 2015 -0700
+
+    Added options to interact with Windows services
+
+commit a9e0ee99ecbd58f2c86d18bdd27259f8aaef9096
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:59:11 2015 -0700
+
+    Fixed bug with atexec that would cause it to not retrieve command output
+    Made atexec output more consistent
+
+commit a7be3ea0a7c8d8073593e6ed1b896d6ff8db34d5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:31:48 2015 -0700
+
+    Usage update in README
+
+commit f1d97518ac3472047cf0c027289dfd036eee34fb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:29:27 2015 -0700
+
+    Version bump and README update
+
+commit c9bb82fb4503de3927e90199099c0ff63875fc67
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:13:32 2015 -0700
+
+    Initial PowerView integration, for some reason only works when using
+    smbexec as the execution method, so for now it's forced to that
+    Fixed a bug where forcing Powershell code to run in a 32bit process
+    would cause a rpc_access_denied error message
+    Made Mimikatz parser output more consistent
+    Made wmiexec and smbexec output more consistent
+
+commit bff44a5ed2e98cc5d2c9b35152289c02d22cc6ae
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Nov 14 21:51:59 2015 -0700
+
+    Fixed WMI query output formatting
+
+commit 19ecdf870ae03207ccf15e0c11b24efa49245657
+Merge: 433a98f 4690ca2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 13 22:38:19 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 433a98f4d870aa988cc5bf77aa9bdf0814c8e30b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 13 22:38:13 2015 -0700
+
+    Fixed namspace error when injecting an exe
+
+commit 4690ca29b90af7a6ff289b34a4f80e1483ba9293
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Nov 11 09:26:01 2015 -0700
+
+    fixes issue #43
+
+commit 9ebc95519abbc5b9dc1f72b942812d4413d2f0e6
+Merge: 365675f 1179067
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 23:26:13 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 365675f3803e8d273f7706d5e8576c9b1c6edb4c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 23:25:11 2015 -0700
+
+    Re-added the synopsys sections in the PowerShell scripts
+    
+    All comments and uneeded sections get dynamically removed when the
+    script is requested
+
+commit 117906707f2c4df54b1bb0dccad47ce40dfe41ef
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Nov 10 22:15:28 2015 -0700
+
+    Update README.md
+
+commit 6e173670a01dafe8ec53cf0fed4c50d47897a972
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Nov 10 22:14:49 2015 -0700
+
+    Update README.md
+
+commit 3a7479d7dd2ca442154c8f15565df6c52727efa4
+Merge: 38ca35d 9d15d52
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 20:12:57 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 38ca35d6190dcd4765b5e58c20e2b5a8d5910f99
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 20:06:58 2015 -0700
+
+    Vss NTDS.dit dumping method back online
+    
+    Updated README
+
+commit b31ba6f10dead5210324a096c25a63bb2f731ff2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 02:24:13 2015 -0700
+
+    Updated README
+
+commit b62d3e0e604a56c359db5de57b132ab6d86d4838
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 02:16:48 2015 -0700
+
+    rougue variable messing with my flow
+
+commit 66dbf87af515f3bfb26d283a9cc2fc9dc533b435
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 01:57:04 2015 -0700
+
+    Everything is set! \o/
+    
+    Recap on changes:
+    Complete refactor, script broken up to make it readable
+    Kerberos support (!!!! sweeeeet !!!!)
+    Logging has been overhauled (everything sent to stdout gets logged)
+    Added a noOutput attr on all three excution methods
+    Exposed a --no-output option for moar stealth when executing commands
+    Exposed a --lsa option to dump LSA secrets
+    Exposed the -history and -pwdLastSet options from secretdump
+    Fixed passpoldumper
+    Fixed the NTDS.dit dumper
+    HTTP/HTTPS server now removes powershell script comments
+    HTTP/HTTPS server randomizes powershell function names to bypass AV on
+    windows 10
+    --session and --luser output has been made decent (resolves #42)
+    
+    Moar code style changes and bugfixes
+    
+    TODO:
+    hook back up ninja and vss NTDS.dit dumping methods
+    Allow all three execution methods to utilize the smbserver as fallback
+    to retrieve command output
+    expose some options to control remote services
+
+commit e84c55dc8c2a84b96d6394650b33b96356392b66
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 23:39:37 2015 -0700
+
+    Removed SMB as a PS script server (still can't get it working reliably
+    on my system)
+
+commit ac5210826d59e7432940cdc83e2115464c6b9256
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 23:32:48 2015 -0700
+
+    Added PoC Powershell obfuscation (if you can even call it that) to
+    bypass Windows Defender on Win 10
+    
+    Everythings pretty much back to normal, just needs testing and more
+    code cleanup
+
+commit 83e2f34b4c0beb003e419b8db5467ac53dca204c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 20:11:18 2015 -0700
+
+    Almost all functionality restored, removed psexec execution method
+
+commit e7246fd777cc6b9d2ab22ce18a89eba42f0934d8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 15:27:33 2015 -0700
+
+    Refactor pass 1
+    
+    Revamped logging and main greenlet
+    Major code cleanup and bug fixes everywhere
+
+commit 73a3917bc24afb3da2c6d0080b22aa7bb4a0b662
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 5 18:01:28 2015 -0700
+
+    Added all 4 execution methods to main greenlet
+
+commit 894ad2769314f87c1631b9ff7ce4ca14a675301e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Nov 4 10:03:39 2015 -0700
+
+    Minor changes when handling platform checks
+
+commit 9d15d52df1c42e589ead04b71d0f570baee2dd60
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Nov 4 09:20:15 2015 -0700
+
+    Possible fix for #38
+
+commit fcfdf3d04c0692665c9f2c55d9794bae66ec9316
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 3 03:22:58 2015 -0700
+
+    Initial re-write
+    
+    Overhauled logging, major code cleanup and organization
+    Updated all impacket script code to latest commit.
+    Initial Kerberos support
+
+commit 2256caa865dcc68b78187fc099a08a00a8c7007b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Nov 2 10:52:05 2015 -0700
+
+    Modded the smbserver
+
+commit 995011f21d92440d0ffc9c8e70bf335a55500095
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 19:52:05 2015 -0700
+
+    Fixed smbserver class for unicode
+
+commit a3467bf6800cdcffb68efca3563c44481f7b2727
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 19:40:44 2015 -0700
+
+    Fixed mimikatz log parser to not display raw mem output in password fields
+
+commit c58dd26833a440113cbaeca4c67ac19cf224b25f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 19:06:38 2015 -0700
+
+    fixes #30
+
+commit 56fe9aa19aeeafb965d766b8c6441f870341d7b1
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 18:52:00 2015 -0700
+
+    Added Windows support
+
+commit 05fc05c17897d25a0f54efc9af06cf14ed068b19
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 17:58:50 2015 -0700
+
+    Fixes #35 and #27
+    
+    Content searching didn't work due to a bug parsing the * when listing
+    directory contents
+    
+    Printing anything Unicode should now work everywhere
+    
+    Made share spidering output more consistent/prettier
+
+commit 97a1b3eca28049300accd8587226ac50382998be
+Merge: 8c23097 c52c399
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 14:47:56 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 8c230979efe50305e5b87eea0cba0cad5e0afff9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 14:45:42 2015 -0700
+
+    Fixes #34 and #28
+    
+    All strings are now unicode by default (ala Python3)
+
+commit c52c3993f35e7b73bd6c95c0c658c692facbee17
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 14:45:42 2015 -0700
+
+    Fixes #24 and #38
+    
+    All strings are now unicode by default (ala Python3)
+
+commit b10d3efa1ed2f5daa64c9a6734f3b7f75317d9e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 13:27:42 2015 -0700
+
+    Added option to use SMB server to download PS scripts (Does not work yet!)
+    
+    You can now have subnets and IP ranges in a target file
+
+commit 56bd3908ec78851e336e93c16384aab802b6d3df
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 30 22:51:22 2015 -0600
+
+    Revert "Possible fix for #24"
+    
+    This reverts commit c74d7720df18d85c7634ba42cd7c3de058b64aa7.
+
+commit 4a0f83fc028684ef3b9e906a7c0eac91a85aa7e7
+Merge: 7741bf5 c341c30
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 30 22:47:26 2015 -0600
+
+    Merge branch 'master' into smb_transport
+
+commit c341c305bc41b12cf5a8d0af6874363357fd4a40
+Merge: c74d772 255fff8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 24 10:43:01 2015 -0600
+
+    Resolves merge conflicts
+
+commit c74d7720df18d85c7634ba42cd7c3de058b64aa7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 24 10:41:15 2015 -0600
+
+    Possible fix for #24
+
+commit 255fff88bd18a38e3287f2995f7970bc80f79299
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 23 10:12:29 2015 -0600
+
+    fixes #23
+
+commit 7741bf538bba25b1f6a4f299a1edbcafdf0fdeb9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 22 19:20:07 2015 -0600
+
+    Initial SMB transport support
+
+commit df60fbf3355c3453dd241ca3d2d6ca42cd90bf11
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 19:26:26 2015 -0600
+
+    Updated usage in README
+
+commit ccf0025c42469e1ca3f1b8a6ac3b7163fdbe3f25
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 19:13:36 2015 -0600
+
+    added options to create and delete the UseLogonCredential registry key for wdigest dumping on Windows 8.1 (#18)
+
+commit 9ad18f95b89685ac4166fda437099e8d272e865d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 09:00:42 2015 -0600
+
+    Thread number now defaults to 10 (resolves issue #12)
+
+commit b13a4a4a7616d55fb7bc64cd1e4b731eac00ef12
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 08:41:29 2015 -0600
+
+    Revamped the print_* functions for unicode handling
+
+commit 9964d4f9912dbe2859109d1269b4bc2a888bc65e
+Author: Dan McInerney <dan.h.mcinerney@gmail.com>
+Date:   Sun Oct 18 16:36:30 2015 -0600
+
+    replaced ".decode('utf8')" with "unicode(x, errors='ignore')"
+
+commit ee0afffbcd26febed754410266cb1d031ab7dfb3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 18 08:56:37 2015 -0600
+
+    --spider and --list now default to top level directory
+
+commit b420d19401968369d102383a2f47176a9d1f30f7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 17 23:09:28 2015 -0600
+
+    Removed a debug import
+
+commit 3f05e1758fef2fccb7e98948ecce70cd83eedadd
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 17 22:54:15 2015 -0600
+
+    Fixed another null session support bug
+    
+    Fixed a bug when listing directory/share content
+
+commit 8fafa7479b7ca5c6912b2e29586c94b8ffe0086b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 16 16:13:56 2015 -0600
+
+    Updated usage in README
+
+commit 9657a3809c414b305d4c6aa419c068b5b8ee433a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 16 15:31:59 2015 -0600
+
+    updated ninja NTDIS.dit method for HTTPS support
+
+commit 7d2ba3c63a533df4a9a4501da3d72313d07ff4d7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 16 15:25:35 2015 -0600
+
+    Added HTTPS support as per #15
+
+commit 8054b5e655ad4b96567fad72c7eb9399ee49dd73
+Merge: 98a07ac b2304e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 11 10:16:22 2015 -0600
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 98a07acebe5f2f1e57a71c2f2b9e71b10c428952
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 11 09:30:57 2015 -0600
+
+    fixes #14, print_* functions now support unicode
+
+commit b2304e825e09fe587382748dad449356f9023722
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Oct 10 23:23:08 2015 -0600
+
+    moar grammar
+
+commit 870f815269e64666195b7813ced1e6350eb9d613
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 16:45:46 2015 -0600
+
+    Fixed --shares output formatting
+    
+    Changed --list date/time formatting
+    Added last modified and size info to spider results
+
+commit 3cd0a98a57b2fb41fdc1c06d7f05fb2ab170db46
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 09:54:55 2015 -0600
+
+    Grammar
+
+commit b5e6b0d4521342c49198a643052f44304b92a2bf
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 09:52:55 2015 -0600
+
+    Updated README
+
+commit 6be318bcfb783ec7c9f47eadd745479b9616fb20
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 09:28:04 2015 -0600
+
+    Cleaned up output of --wmi
+    
+    Added more specific error handling when spidering content
+    Changed the content searching option to --content
+
+commit 429f1b79c54a34512640f3eecc11d7313f798861
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 22:01:02 2015 -0600
+
+    Fixed exception when not specifying --exclude-dirs
+
+commit 334ee093b46b102f7f1bc3edfefd4876bf52d041
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 21:30:41 2015 -0600
+
+    Updated README
+
+commit a01c46ccf8a8a9f9564ca390e7d9f1d13ed4abc1
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 21:26:48 2015 -0600
+
+    Some output and usage fixes
+
+commit 2a18c360a2ac5e9e2420cc8bba26015c75d9af2e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 21:04:20 2015 -0600
+
+    added regex support when spidering
+
+commit 21713caf12e74e64968a45569d97fbee23044962
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 20:15:53 2015 -0600
+
+    Added option to exclude directories from spidering
+
+commit b2f0533ff3d98036fc55279746a768157e95400b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 19:44:02 2015 -0600
+
+    Added error handling when searching file contents
+
+commit 39887088bfc236d1a253cff86a3d5626288cb16f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 17:52:33 2015 -0600
+
+    Added file content searching support when spidering shares
+
+commit 1699faef780deea7f2c1306c81ebb209b9253c69
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 12:58:09 2015 -0600
+
+    Fixed logic bug when enumerating share access
+
+commit a12ec073bb89365c8d3b644dca4f7056c7ca70ca
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 19:09:02 2015 -0600
+
+    some code flipping
+
+commit 46c82fdf2531543ba99abeb8658c8f857e479d5a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 13:49:47 2015 -0600
+
+    Updated usage and examples in the README
+
+commit e25ccc6c030181b611ed765ea04ad3bd6e304e30
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 12:59:48 2015 -0600
+
+    Added missing backslash
+
+commit f216354515b607ae3cdc19865648ec974e287a6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 12:57:16 2015 -0600
+
+    Added option to force all Powershell code/commands to run in a 32bit process
+
+commit e48fc47e11e65f53ef8d90ef0eb49d4a659c68c7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 22:21:25 2015 -0600
+
+    Consolidated Meterpreter injection options
+
+commit cd048eab371ee2b5ed1c1894fa1e6dc9825d99cd
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 19:51:20 2015 -0600
+
+    Updated README
+
+commit 0362c9fcb384a9b0a4059f7b6ff29cf162b61be2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 19:34:05 2015 -0600
+
+    Added option to directly inject meterpreter into memory using Invoke-Shellcode
+
+commit be72603423fbb6a5afa0c664645aab22883f11ef
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 14:24:03 2015 -0600
+
+    added option to check UAC status
+
+commit e8886d386187b0e797cc1e6a8633592f9e6e36e3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Oct 6 12:53:31 2015 -0600
+
+    Updated README
+
+commit a9854cf4f0699432cb863fac2c03d1aa0008df7a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Oct 6 02:07:28 2015 -0600
+
+    Added an option to enumerate users by bruteforcing RID's
+    
+    Additionally, added options to enumerate disks and dump password policies
+    Tweaked output when enumerating users through samr
+
+commit fea5b42400c2712180222719835c9f2f22494bcc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 5 00:14:34 2015 -0600
+
+    Removed some redundent error handeling
+    
+    Removed code that was normalizing paths (was causing too many issues and bugs)
+
+commit a7b5302d248668d2664c96c1a52b5a1e8e68406f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 4 23:00:40 2015 -0600
+
+    Added null session support when using multiple user/pass/hashes
+    
+    Made output more consistent
+
+commit 52856907a11557711f31231049a35167e65462f7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 4 00:34:43 2015 -0600
+
+    Updated usage in README
+
+commit b0ce9678646323e635f547a2388b712dba2b42d5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 4 00:04:08 2015 -0600
+
+    -u, -p and -H can now accept a comma seperated list of usernames/passwords/hashes or files containing them
+    
+    Removed the bruteforce options since it's now implicitly handled by -u,-p and -H
+    Re-implemented the -C (combo file) option for concurrency, additionally the combo file can now accept entries in username:password format
+
+commit c2b9b42a740e121beba4b98fc12fe2c8879ba20f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 3 14:32:37 2015 -0600
+
+    Removed a debug print statement
+    
+    Output fixes
+
+commit 9058bc589c30a0bd2342dbb6999ed2f5ad8c1be0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 3 14:22:47 2015 -0600
+
+    Added an option to specify a combo file (thanks @johnnyxmas)
+    
+    Added path checking when specifying --bruteforce or --patterfile
+    Fixed a bug that would cause a traceback when specyfing a hash but no plain-text password
+
+commit 62212eb186fb8d60704cdd94dfae953756fa9fbb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 28 15:08:14 2015 -0600
+
+    Added a check for the --path argument if injecting into memory
+    
+    Fixed error handling to display the error when executing commands
+
+commit 67be507b631aa8b8c941d038f6376d8af7ee69f4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:55:23 2015 -0600
+
+    fixed line in example
+
+commit 2a9a1bd64cddf1b3d245304ea9bec0edbcab040d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:52:14 2015 -0600
+
+    Updated examples in README
+
+commit 1525337981b4d56aee8e20c7343455e77200ba8d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:37:05 2015 -0600
+
+    Will now print status if login is successful (Useful if you just want credential validation)
+
+commit b1cbbaee54bae07a126f973735d64650903b7240
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:08:09 2015 -0600
+
+    substituted Invoke-Mimikatz.ps1 with Empire's version
+
+commit 1449e0009143dfdd76f5b9717c4d939febdb91c2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 14:51:18 2015 +0200
+
+    Removed an item from To Do \o/
+
+commit 2f0618099eb5381058ffdd46c5f9dcd4e9d897fb
+Merge: 796c267 f60dbc5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 14:50:25 2015 +0200
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 796c2679235cb1921d16e2284b2e90ccb6eeee6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 14:50:17 2015 +0200
+
+    Added option to execute Invoke-Mimikatz with a custom command
+
+commit f60dbc5af892d4cefdf512939d29f61085885eb9
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Thu Sep 24 01:17:46 2015 +0200
+
+    Added more to the To do in README.md
+
+commit 6e8f58a1e342b2541956b0477eda5df7d9b91b20
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Sep 23 21:56:36 2015 +0200
+
+    Added To do in Readme
+
+commit 67d7f4d00c88755132f922f6f321216723d06863
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Sep 23 18:23:25 2015 +0200
+
+    Update README.md
+
+commit 3e1b958e448285f4face11dcf6b706fa613d4bfb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Sep 23 13:54:50 2015 +0200
+
+    Added check to see if connection was established before shutting down if a Exception was raised
+
+commit 659baf3283ba41aeb64c4f3504b92a8b2d327e5c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 22:50:06 2015 +0200
+
+    Fixed bug where injecting would cause the script to exit prematurely
+    Specified inject command to have no output
+
+commit 56824319bbc0eca9dc3c52d9174dfcb094234a47
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 20:03:08 2015 +0200
+
+    moar README edits
+
+commit 3e6c9d86322c7ba2e7ee0d6815952abc2a5b01c2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:58:18 2015 +0200
+
+    updated README with links to added PowerSploit scripts
+
+commit 6ad50f85ee926626a264cf3e6deccfabaacab610
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:50:46 2015 +0200
+
+    updated README
+
+commit 617cdf8f00014a882c35eef3abffb00fb5526220
+Merge: f6784bb 99e5c3e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:41:07 2015 +0200
+
+    Resolved merge conflicts
+
+commit f6784bbbf8cfbf6712dd238195b3846540c42171
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:39:39 2015 +0200
+
+    Added support for injecting Shellcode, exe or a dll using Invoke-Shellcode and Invoke-ReflectivePEInjection PowerSploit scripts
+
+commit 99e5c3e0ddd895ded6ef3a048f0d6c598bfb2c27
+Merge: 81ecc32 d715b73
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Mon Sep 7 12:38:07 2015 +0200
+
+    Merge pull request #6 from infosecgeek/infosecgeek
+    
+    Fix missing args.domain argument
+
+commit d715b7368416da24c9e058b6158deb2c4828a3bd
+Author: infosecgeek <infosecgeek@users.noreply.github.com>
+Date:   Mon Sep 7 04:52:46 2015 -0400
+
+    Fix missing args.domain argument
+
+commit 81ecc32d6c8d779e4acaa848261aae2088e4d0f4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 29 12:26:15 2015 +0200
+
+    now accepts a file with a list of targets
+
+commit afca0d1e546be53865da6d7f587d4b74630b0f6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 29 12:05:27 2015 +0200
+
+    now supports IP ranges in addition to IP CIDR's
+
+commit f9fd2d54afa6743aa0b79a84cfc9a2ce08eeedc8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 21:46:54 2015 +0200
+
+    usage will now display if called script is called with no arguments
+
+commit 7e6245389db1630a6c9641d00054861669970091
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 21:38:50 2015 +0200
+
+    added some 1337 ascii art
+
+commit d022ca4a55c7b08202ac4dd8c09a3f08949f3286
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 21:17:36 2015 +0200
+
+    added colored output
+
+commit ae38fe715ff26e1cbf1ba71eb711f120782ac977
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 19:21:17 2015 +0200
+
+    fixed bug were WMI results were not converted to string before printing
+
+commit 266e0077e30240cf5d2eaa2de45519970f20cd2a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 18:02:20 2015 +0200
+
+    added option to perform WMI querys using WQL
+
+commit 3c24c22f4c7a1474c4bba107f1e1349dd03a24d8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 26 14:26:36 2015 +0200
+
+    Updated README with links to the PS scripts from the PowerSploit project
+
+commit b03a41af3f5422b95c3f732865800fecec9c78ae
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 26 13:52:07 2015 +0200
+
+    SMB brute force now diplayes domain if valid account is found
+
+commit dcfa80ba5b56497f0e40119ccb7ec135e76ab6aa
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 26 13:44:10 2015 +0200
+
+    Updated secretsdump.py code for Windows 2003 DC support
+
+commit 258a76b05425b5df8cec4e44dbcb3c4c73f09e07
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 22 15:30:34 2015 +0200
+
+    Added option to bruteforce SMB accounts
+
+commit a09a399f81a00406a84c22c6da32980813f2a589
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 17:12:07 2015 +0200
+
+    fixed indentation
+
+commit 0a23e6c00c6e56b4b9c918238ad35364a0bb7eb8
+Merge: 57ea01c 15de3aa
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Fri Aug 21 17:05:43 2015 +0200
+
+    Merge pull request #5 from gabtremblay/master
+
+commit 15de3aaced2d40f9f914f8538b4da27a130e6402
+Author: Gabriel Tremblay <initnull@gmail.com>
+Date:   Fri Aug 21 10:25:04 2015 -0400
+
+    Added handling for netbioserror exception when logging out on unsupported server
+
+commit 052351fc38d3db165d293b6bed3b96b76a603145
+Author: Gabriel Tremblay <initnull@gmail.com>
+Date:   Fri Aug 21 10:17:17 2015 -0400
+
+    Fixed Requirements
+
+commit 57ea01c05010be035e4cb16dce158afcd5b676e6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 05:22:49 2015 +0200
+
+    added hint to use the drsuapi method
+
+commit a8d538f8fb82e13bf9246b22f42692d58091dd48
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 05:13:57 2015 +0200
+
+    changed a little text
+
+commit 128fa758a87e08d65677a4c4f5c9cfcf02f4c017
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 04:55:39 2015 +0200
+
+    Added support for dumping NTDS.dit via VSS, DRSUAPI and with Invoke-NinjaCopy
+
+commit 3d42f073cd3a5a95269b9274f49701ec325c665a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Aug 20 23:33:18 2015 +0200
+
+    Fixed a bug where SMB connections would reset after logging in with a null session
+    Added initial NTDS.dit dumpuing support using DRSUAPI
+
+commit bb2e30048ff67e8c73615d0e733902832efcbdd6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Aug 20 13:45:12 2015 +0200
+
+    added install instructions for kali
+
+commit 691f9c88cd61e0650497920bc15005132e66bc91
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Aug 20 10:52:34 2015 +0200
+
+    This should fix #4, all list and filenames are now encoded to utf8
+
+commit aae373c2941807cbe4c19150b1ccfe83f3e3e1e2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 23:13:50 2015 +0200
+
+    it's @agsolino not @agosolino (I'm a dummy)
+
+commit 9a35b2f09717e1bffcd0b3f44aff0caea6c28a73
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 23:09:36 2015 +0200
+
+    added links to all of @agosolino's awesome work ;)
+
+commit ad1d70848ce877156e822a5d24aa447e82122375
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:30:57 2015 +0200
+
+    Updated README.md
+
+commit 2705e7e6ab2e92fdbb8647334c73c7990c9974ab
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:26:51 2015 +0200
+
+    forgot to censor username and password from readme, oops! (yes I changed them)
+
+commit 526ace710c6ee58d49bc6e2d580ebd8f299efb24
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:24:19 2015 +0200
+
+    no reason to print execution method if there is no output
+
+commit 834570bf2f5f138581d8ed2eca824e8e52d19e6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:17:54 2015 +0200
+
+    Made README.md decent
+
+commit d77d235ba89d89001cd5006597b07d5f932dd6e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 17:13:54 2015 +0200
+
+    Changed logging level in verbose mode
+    -t option is now required
+
+commit 415f5cc27e4065b3880dfa11c8b2d27199cf3ea2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 16:33:56 2015 +0200
+
+    Added verbose output option
+    Added check to proceed on intrusive options only if provided with user, password or hash
+
+commit a16886521b4263ec937a7a392ab972b234b2985e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 16:17:08 2015 +0200
+
+    added --patternfile support for share spidering
+
+commit 68230fb08a3e2df6735e4fe6a44ff6257f82eb6e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 16:06:07 2015 +0200
+
+    Added share spidering capability
+
+commit 3429f4bf8360da5e4d5c1e3e76a55bc959926724
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 11:47:51 2015 +0200
+
+    All three execution methods now support wrting output to a SMB server
+
+commit 50aa5226d0532227762ef9d9b874c4399359e01c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 17 18:43:55 2015 +0200
+
+    added served_over_smb directory
+
+commit 651c181c83d7ef834bdb43b5c8f649a993eae123
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 17 18:40:10 2015 +0200
+
+    smbexec and wmiexec now will start an SMB server and use it to read command output if unable to retrieve output from disk
+    changed default method of execution to smbexec
+    Fixed bug where an unexpected exit would occur if specifying only one target with --mimikatz
+
+commit d2f48f6518f10966f1a80eb11a2dd757fb2694e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Aug 16 23:25:20 2015 +0200
+
+    Atexec output now gets printed properly
+    session and logged on users enumeration now gets printed inside the greenlet
+
+commit 2a30cdb34cbe46ec5be1103b955348413cd2c3b5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Aug 16 15:53:08 2015 +0200
+
+    Added atexec execution mode: executes commands using RPC calls to the windows task manager
+    Added option to enumerate logged on users via the NetWkstaUserEnum WinAPI call
+    Added option to enumerate active sessions using the NetSessionEnum WinAPI call
+
+commit ea761c23ca545e06d935b82586d3ac7a9d573ece
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 15 23:40:22 2015 +0200
+
+    Added list command
+
+commit a396b76424dbef38a7b1d12576580cd32c9fcd8d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 15 22:48:54 2015 +0200
+
+    Added upload, download and delete commands
+    Code is now fully concurrent, removed greenlet sync code
+    If plain text creds are dumped using mimikatz, creds will be parsed and displayed to the user
+    Full mimikatz output is stored to log files
+
+commit d0550fa545d82b4016a1666d276b79bdc7084f82
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 15 15:32:57 2015 +0200
+
+    Greenlet Output is now partially synced between threads
+    added temporary logging handler
+    added options group
+
+commit 227e858933315bc64bb7d390c53eddf561a4bc57
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 14 16:18:52 2015 +0200
+
+    initial commit
+
+commit b8422747436964a507a19fa853aafcdd46564d85
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Fri Aug 14 16:11:55 2015 +0200
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit c6243deac6b5e36f22c7f7b6fdb3f62d47c061ef
+Author: byt3bl33d3r <msalvati@coalfire.com>
+Date:   Thu Feb 9 12:03:53 2017 -0700
+
+    Fixes #136
+
+commit fccd6498ee477f8ac7dbc07ecf05887a89dcfde7
+Author: byt3bl33d3r <msalvati@coalfire.com>
+Date:   Thu Feb 9 11:28:15 2017 -0700
+
+    Fixes #152
+
+commit 29e726e622d72aafc8f931136ebbc9fe0671f401
+Author: byt3bl33d3r <msalvati@coalfire.com>
+Date:   Thu Feb 9 10:51:34 2017 -0700
+
+    Resolves #151
+
+commit 04c4e3de6460d93119f43e50f7cb2690700b7b55
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 10 15:48:15 2017 -0700
+
+    Adds workaround for issue #147
+
+commit 8b5b2d5cd4375ef2776f71c6b4dc11bdbacfb6b6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:19:50 2016 -0700
+
+    fixed gevent version in requirements.txt file
+
+commit ab79ee2ca80b12dce05a86a19e85d59e060ec7ca
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:16:59 2016 -0700
+
+    back to dev
+
+commit 1e858f90be4a772f1759960aecfb87ad50ac3142
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:11:22 2016 -0700
+
+    Changed version for release
+
+commit a62feb3c21b8c6727c2e4b5049899c7e1f90f736
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 01:00:36 2016 -0700
+
+    changed epilogue
+
+commit fffc8d91a1b395686221ebc2b88ce49cb6b60707
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 00:59:00 2016 -0700
+
+    Changed release codename
+
+commit 45354e8a4d3f69e85afcd06f5e09564f9c125d8f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 00:43:02 2016 -0700
+
+    fixed version string in crackmapexec.py
+
+commit ab4d0a440602bdab7727ca336778c5b7311892e5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Dec 29 00:40:08 2016 -0700
+
+    Revert "Initial implementation of module chaining"
+    
+    This reverts commit db056d1ab49f34bcb9c67880c7f1229705800e50.
+    
+    Module chaining will be re-implemented once I find a less hacky way of
+    going about it.
+    
+    This also closes issue #144 and PR #145
+
+commit b1e83227047a64cbe45145b8ebf5054640822317
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 26 13:47:36 2016 -0600
+
+    changed var names in token_rider module
+
+commit 3d50982bfa00358921f6fc96b21442ff87b87c88
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Sep 22 22:30:01 2016 -0600
+
+    fixed powerview module again
+
+commit b6e86907578e02c6cbb117d058ec9bb5848d73b8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Sep 22 22:27:31 2016 -0600
+
+    fixed powerview module
+
+commit 07872985d7837faaf01b845032d59a32ab920546
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Sep 21 13:40:59 2016 -0600
+
+    This commit addresses a number of issues including #130 and #126
+
+commit 1468e258ee1bfbdb7fbbc9921b2fecf7ee5c40fc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Sep 13 15:57:36 2016 -0600
+
+    removed wrong import
+
+commit 9bda755de431a2e30c4287d4f2be670a33b7b9b0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Sep 13 15:55:34 2016 -0600
+
+    Added SessionError handling
+
+commit 2121503ffe655bb942d00ae2c971ae551a7a986d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 12 01:10:08 2016 -0600
+
+    Removed some debug code and dependency_link in setup.py
+
+commit db056d1ab49f34bcb9c67880c7f1229705800e50
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 12 00:52:50 2016 -0600
+
+    Initial implementation of module chaining
+    
+    Oook, this commit is basicallu just so I can start tracking (and
+    testing) all of the changes made so far:
+    
+    - All execution methods are now completely fileless, all output and/or batch
+      files get outputted/hosted locally on a SMB server that gets spun up on runtime
+    
+    - Module structure has been modified for module chaining
+    
+    - Module chaining implementation is currently very hacky, I definitly
+      have to figure out something more elegant but for now it
+      works. Module chaining is performed via the -MC flag and has it's own
+      mini syntax (will be adding it to the wiki)
+    
+    - You can now specify credential ID ranges using the -id flag
+    - Added the eventvwr_bypass and rundll32_exec modules
+    - Renamed a lot of the modules for naming consistency
+    
+    TODO:
+    
+    - Launchers/Payloads need to be escaped before being generated when
+      module chaining
+    
+    - Add check for modules 'required_server' attribute
+    - Finish modifying the functions in the Connection object so they return
+      the results
+
+commit e67fc4ca8f1c9f73933c5f11fe52d292693c233f
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Aug 13 23:02:20 2016 -0600
+
+    Update README.md
+
+commit 16f3b4c8c248c58a21e6309b00f6ea7266067fbd
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Aug 13 23:00:14 2016 -0600
+
+    Update README.md
+
+commit 90f1f3ad546da8d7a68aa4a4b8648a7a6e09dc5c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 12 00:36:38 2016 -0600
+
+    Some extensive code refactoring
+    
+    - The whole connector function has been removed finally (was there since
+      v1.0)
+    - Functions now get called dynamically based on parsed arguments
+    - All of CME's functionality can now be accessed through the modules
+      (W00t!), just have finish modifing the code so the results will get
+      returned
+
+commit 4e89098161999bd81e2fd5967818bacf075f6a34
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 8 19:08:30 2016 -0600
+
+    Version Bump
+
+commit 6f2596902c23744775e4062b8e822857ba93e941
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 6 10:28:16 2016 -0600
+
+    Implemented @mattifestation's AMSI bypass and multiple bugfixes
+    
+    - @mattifestation's AMSI bypass now gets called before executing
+      powershell commands or scripts
+    
+    - Squashed some bugs related to account bruteforcing, enumerating users
+      and creating/deleting the UseLogonCredential reg key
+
+commit 8ddfcb10e4cc22c9ca95b4feca34ebd364bf38f8
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Aug 2 15:28:16 2016 -0600
+
+    Update README.md
+
+commit 377f5a77067d2bae89de2377a7c9db4dd36fdf6f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Aug 2 09:07:40 2016 -0600
+
+    Added a 'cme' script entry point in setup.py
+
+commit 6876761cfe4669930c0a8d82a5f92ebac83da688
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Aug 2 08:49:30 2016 -0600
+
+    Added the --ufail-limit flag to limit failed login attempts per username
+
+commit 698f1473cc332eb10212c0465ca14497a58dbd7c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 22:33:28 2016 -0600
+
+    Updated README.md
+
+commit 022671d039f0a6ceccbecf73a4f120200b330c3b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 22:06:17 2016 -0600
+
+    Re-implemented the --gfail-limit and --fail-limit options (Properly this
+    time) to limit failed login attemptes
+    
+    - The logic responsible for SMB bruteforcing/login has been modified
+      to sync between the concurrent threads: this allows us to limit failed login
+      attemptes with the two new flags. However this does cause the threads
+      to lock so there is a minor reduction in speed but IMHO this is a good
+      middle ground.
+    
+    - You can now specify multiple DB credential IDs, CME will then
+      bruteforce using the specifspecified cred set
+    
+    - Version bump
+
+commit 64729377733ffa3a03dd1407e2e8391beb4e2272
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 03:36:58 2016 -0600
+
+    Updated execution methods and user enumeration for better
+    non-standard smb port support
+    
+    - Fixed bug where current path was included in command output when using
+      the smbexec exec method
+    
+    - Batch file name generation is now randomized on every command executed
+      rather than on object initialization
+
+commit 9af1ab56cfc2b0f1485c78ca8429947d84c99d99
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 1 02:23:17 2016 -0600
+
+    Added the mimikittenz module
+    
+    - Removed the mem_scraper module since the new mimikittenz module should
+      replace its functionalitu
+    
+    - Fixed newline in enum_chrome output
+    - Version Bump
+
+commit cb3c39beb8aa4f613852570ac9f04386d112c577
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Jul 21 05:40:10 2016 -0600
+
+    Fixed logic bug with password file if brute forcing
+
+commit 2cfb70dd776834d0254d959f05fed9f73fde7143
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sun Jul 3 12:16:45 2016 -0600
+
+    Update ISSUE_TEMPLATE.md
+
+commit d76ce31f57b6dc4178fb4d0a980c7f793391fc08
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jul 3 12:12:19 2016 -0600
+
+    Added issue template
+
+commit 2e102130b1551984decb6226c060585f3c0d0152
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jul 2 23:12:51 2016 -0600
+
+    Fixed unhandled traceback occurring when an invalid WMI namespace is
+    specified
+
+commit 9c1259b60f5dace92768af41da1d0f1b00a0688a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jul 2 22:47:03 2016 -0600
+
+    Fixed a bunch errors in the SMB Spider (closes #117)
+    
+    Additionally, regexes are now pre-compiled before starting the spider
+
+commit 74f746592ace591a021c21087812fd5818d87b13
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jun 29 00:53:41 2016 -0600
+
+    Initial commit of the enum_chrome module (resolves half of #112)
+    
+    The modyle uses Mimikatz's new DPAPI Chrome module to decrypt saved
+    chrome credentials
+    
+    Additionally a new version of Invoke-Mimikatz.ps1 script has been added
+    that contains the latest Mimikatz binaries and a patch for it to work
+    when injected
+    (https://github.com/PowerShellMafia/PowerSploit/issues/147)
+
+commit f189b50a5f34d860485dedd7f7faff885525fa2b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jun 28 16:28:49 2016 -0600
+
+    Version bump to 3.1.2
+    
+    Updated install instructions and setup.py since impacket 0.9.15 has been
+    released!
+
+commit 928c9af721552aebb8f1e471317f6252b4938bdb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 25 11:11:29 2016 -0600
+
+    Fixed if statement in msf credential import code
+
+commit 04da664df7a479c3fb1ed44ff72225d74a6d14db
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 25 11:09:48 2016 -0600
+
+    Updated setup.py
+
+commit 53b49a7c3a3a96533e020081d3147347c7540384
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 17 21:44:40 2016 -0600
+
+    Added support for importing Metasploit credentials (closes issue #89)
+
+commit d44d9273723668f1c23932507f50e2611c651723
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 17 20:31:31 2016 -0600
+
+    Initial commit for the mem_scraper and powerview modules
+
+commit 6056ce83db1e13004147a20b122c736b79fdc553
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 17 01:34:38 2016 -0600
+
+    Initial commit for the powerview and memscraper modules
+    
+    The powerview module will replace all of the get_net* modules
+    Memscraper module stil has a bug which i'm working on
+
+commit 58edfe18f3f433564b0a13be030fd94566e8ed95
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jun 14 18:58:19 2016 -0600
+
+    Code cleanup of the execute method in the Connection class in
+    connection.py
+    
+    Additionally, since the smbexec execution method seems to be detected by
+    a number of AV HIPS'es, i've switched the default execution method order
+    to:
+    1. wmiexec
+    2. atexec
+    3. smbexec
+    
+    Furthermore, the method argument in the execute function now accepts a
+    list of exec methods.
+
+commit 7b0b06af3934412decb1626c494d568f4598b221
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jun 14 17:49:20 2016 -0600
+
+    Fixed log creation in tokens.py module
+
+commit 062db9c3542b1294cce400b577297645a8a1970c
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Jun 8 22:03:48 2016 -0600
+
+    Added a VERY SMALL TAG ZOMG
+
+commit 48e61cd8830f4f473d2f1d7e81af0479b35821ae
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Jun 8 21:59:55 2016 -0600
+
+    Typos again
+
+commit b4559abaac621460733462a9288a5e81151b9441
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jun 8 21:51:25 2016 -0600
+
+    Version bump
+
+commit db223b583ab3304ef3946bb3938f87e06b722445
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jun 8 21:44:45 2016 -0600
+
+    Some code cleanup, bug fixes and re-added the config file
+    
+    * For some reason the config file got lost in between version bumps, re-added it
+    * Improved the logic in first_run.py, it will now autodetect missing files and will copy/generate them accordinglu
+    * Code cleanup in cmedb.py and bug fixes in crackmapexec.py
+
+commit fa42461a3c1bb8bc6ef4fe89621ed1eff87d4eba
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Jun 7 01:18:05 2016 -0600
+
+    Typo's
+
+commit cee2f2036818b00ddefcc254a367ef6f0dffa30c
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Jun 7 01:16:57 2016 -0600
+
+    Update README.md
+
+commit 88c517eb12db8a530af54ba5e45d41d3286e86ce
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Jun 7 00:51:40 2016 -0600
+
+    Update README.md
+
+commit 18e391473125eba92d444a54cd4afe24a7fd91e4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jun 5 14:43:51 2016 -0600
+
+    Cleaned up the module loading code
+
+commit 89e08605f47d8018089788f50f63846d4b83f620
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Jun 4 12:55:50 2016 -0600
+
+    Update README.md
+
+commit 67c26ccf41f1f172c346917973e14d5a4a263fa4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 03:13:23 2016 -0600
+
+    Changed version number for Pypi and updated Install instructions again
+
+commit d4e56334371bfceb96a1b22bfdd52e96950bdbf4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:39:58 2016 -0600
+
+    setup.py wierdness
+
+commit 1e281bd638a27e9da024a31a3cabb87ef9f7202b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:18:17 2016 -0600
+
+    Got rid of some left over merger cruft
+
+commit 4175122463a6bf6cbdefb0c93558d537e608876e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:12:04 2016 -0600
+
+    Updated README with better install instructions
+
+commit a7b5b17252776e3e25ec3196b799a9cd4920a491
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 02:05:57 2016 -0600
+
+    Updated README with install instructions
+
+commit 5b8b25527872d243bee73785a59e8b881cae1b56
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:48:00 2016 -0600
+
+    Forgot to change the package description
+
+commit ef916220451adb3e90f852e35120669247413ef3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:24:22 2016 -0600
+
+    Updated usage in README
+
+commit ca9e272f26c747bff6b16b01fca55f990eb1619a
+Merge: 838cc29 da4e553
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:21:18 2016 -0600
+
+    Resolved merge conflict
+
+commit 838cc296343dfcae79461c3fbbe2f6bd708b0ee2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:18:20 2016 -0600
+
+    Merged changes
+
+commit 23d8a6517fb1a36bac9b09e3923201ee291d00ac
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jun 4 01:13:38 2016 -0600
+
+    Refactoring for packiging is now complete!
+
+commit 68a908562a1be40ba82ce3e38bbf285a9bcb4bbc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Jun 3 23:42:26 2016 -0600
+
+    Second round of refactoring for packaging
+
+commit da4e55380a1d1ad46d3176c513b829bd4a7099f4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon May 16 18:07:01 2016 -0600
+
+    Added error handling for CME server in case the port is already in use.
+    Should resolve #109
+
+commit d5a7af9858516061fe52ad1b88712dd0b4b8065a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon May 16 17:48:31 2016 -0600
+
+    goddammit, git add bro
+
+commit 78484dc5272c59ca73fe30ce6d05d84d37254f1e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon May 16 17:48:06 2016 -0600
+
+    Initial structure for packaging
+
+commit 2c77b0c583d6b2686e4f5f52837a7893e7fc31f8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri May 6 23:47:50 2016 -0600
+
+    Since https://github.com/CoreSecurity/impacket/issues/137 is now
+    resolved, we can now add the architecture aware wrapper
+
+commit 4dc262526a3bf4d10a690a78909157592ce5e8c2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Apr 27 19:18:16 2016 -0600
+
+    Ok so for some wierd af reason the -m flag doesn't autocomplete module paths in
+    bash (wtf), this is only the case for the letter m (even more wtf). if
+    you do -p for example it autocompletes (omfg wtf) so since bash is being
+    a bitch for no reason, I've added the --module flag as an alternative so
+    it autocompletes module paths (bash go home you're drunk)
+
+commit 6a8ab5ef2f5da3591766b0c4028529a4d75d973b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Apr 27 18:14:15 2016 -0600
+
+    This commit introduces failover command execution
+    
+    If a command or module fails to run using a certain execution method
+    (e.g wmiexec) it will automatically try another one.
+    
+    This behavior can be overrided by using the --exec-method flag
+
+commit a6cc776a1291c78e56937fd0e8b6db37d7098eba
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 26 00:44:59 2016 -0600
+
+    No reason to save output to a log file it there's no output :/
+
+commit 91ab69d008bed81c7bef8137f4d5d2feb58e40de
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 25 20:57:23 2016 -0600
+
+    Fix for issue #106
+    
+    Consolidated commands in cme_db.py
+    Added an option in cme_db.py to specify the database manually
+
+commit 95e9a6b61e79ee18d27a2b9909c9e175a7ad63f9
+Merge: 079cf69 c8657ca
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Mon Apr 25 20:22:59 2016 -0600
+
+    Merge pull request #105 from Cat0x00/patch-1
+    
+    Missing libs
+
+commit c8657ca73b1c4f09bac4d2030cbbdff001f2155e
+Author: Cat0x00 <paulikas.vytautas@gmail.com>
+Date:   Sun Apr 24 18:25:12 2016 +0300
+
+    Missing libs
+    
+    During my tests i found out that in case of:
+    ./crackmapexec.py 127.0.0.1 -u user -p pass --lsa
+    Tool will (and it did) fail due to missing libraries. This applies to cases when the target is a legacy OS, such as WinXP or Win2k3.
+    
+    I have fixed the issue by adding missing libraries. Not sure if there are any other missing libs in this file. ;]
+
+commit 079cf6940692e5f9f7f7c3bda77be5b662261095
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Apr 21 19:59:13 2016 -0600
+
+    Fixed bug when parsing payload module options
+
+commit fd42f45d7f559eb0c9ea64f601828bc997a82ebc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Apr 21 19:30:59 2016 -0600
+
+    fail
+
+commit 82af618800c442016847fb548b18094930e99b5b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Apr 21 19:29:19 2016 -0600
+
+    Added the com_exec.py module based on @subTee's com scriptlet
+    whitelisting bypass
+
+commit d256444cb5fa7e7d27b41f7026649e0819d6816e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 19:48:07 2016 -0600
+
+    This commit should resolve issue #92
+    
+    Changed the way the tokens module opens a read handle to the USERFILE
+
+commit a56ad587ec733dc48bfe42844212f9e0e4c5175f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 19:30:23 2016 -0600
+
+    Revamped the mimikatz module's credential parsing (Stole it from Empire)
+    
+    Implemented proper handling of hashes if only the nthash is supplied
+
+commit f7a45a3de7514ed3949f1509c737ac0e5a8301dd
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 18:05:41 2016 -0600
+
+    Added instructions in case of command not found error in kali install script
+
+commit 21ddc511871c29961cf37b099cdb51cf3a49c3c9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 17:34:11 2016 -0600
+
+    Made kali install script executable
+
+commit 424c34c4f4623bece40f3904153f3a2c242363ef
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 17:30:54 2016 -0600
+
+    Added a -y in kali install script
+
+commit 42e4b05a3b7755a6e4f01528eb2dc30183b27fc3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 17:06:25 2016 -0600
+
+    Added missing dep in kali install script
+
+commit 7737f65fda142e2809649abcdd3424c163f1cc0b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 15:52:34 2016 -0600
+
+    Added path checking in Kalis install script
+
+commit b1556496196cc7792f1895bdb39a5a6b7d314085
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 16 15:50:21 2016 -0600
+
+    Initial commit for Kali install script
+
+commit 0bb288e7a0c9ff6f00788488c6ffed93fe987f7b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:55:54 2016 -0600
+
+    fixed module names
+
+commit f890da0a608e04d5f4bee304498d715e01bbbe69
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:52:57 2016 -0600
+
+    Fixed wrong variable in get_computers module
+
+commit c2217f1c81ac0c948dee69c6334c2c2948687e67
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:48:48 2016 -0600
+
+    Added the get_computers module
+
+commit 69167140af856a79fe1c713ca3af2a3dfa210512
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 10:15:59 2016 -0600
+
+    Added the get_groups module
+
+commit f6c2c2f24d28fdd18ab6c7886cc70729f0fdb45c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 01:07:25 2016 -0600
+
+    Added the get_group_members module
+
+commit e5e954068ab17b0d5f42169557ccb7f27006c68d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Apr 12 00:09:08 2016 -0600
+
+    Added options in token module to search for a specific username in
+    enumerated tokens
+
+commit 1d6cc4ac64ff557d0495266764d1d6dc394e5742
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 11 23:33:57 2016 -0600
+
+    Fixed typo variable
+
+commit ec14e47258b46b3a3b5a7e1737f03254350e151b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 11 23:23:15 2016 -0600
+
+    Changed the add_credential SQL query, added tab complete support fro the
+    import command
+
+commit b85a4ecabddce805f56f64eeef3da59725048c71
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Apr 11 23:06:42 2016 -0600
+
+    Database navigator now supports filtering seearching through hosts and creds (like Empire)
+
+commit cd9a77796f1c7908e0466606a31441727ad14815
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Apr 10 17:10:33 2016 -0600
+
+    This commit introduces a command in cme_db.py which will import
+    credentials from Empire using it's RESTful API (resolves half of issue #89)
+    
+    Reading through Metasploit's docs, it seems like you cannot access
+    it's stored credentials using the RPC server (would have to directly
+    access the postgres db, I do have to confirm this tho)
+
+commit 3ce031ffeeac01e3aa4ed5a688925a22b93f099a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 9 15:18:10 2016 -0600
+
+    Made the output of --lusers actually decent
+
+commit 4da8c0795695835ea3cbf048d53412860959b80a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 9 14:36:31 2016 -0600
+
+    Cleaned up the Powershell code in the token_rider module:
+    * Added error handling in case a command fails to execute on a target
+    * POST request code is now a function
+    * Made the output POST'd back to us actually useful
+
+commit 94d1c040c8c94c5c743b64918a0072c20238c60c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Apr 9 03:57:40 2016 -0600
+
+    Initial commit for the token_rider module! OMFG this thing is amazing
+    it deserves its own blog post!
+    
+    Fixed a bug with the smbexec execution method which would cause it to
+    exit without retrieving output
+
+commit d3eb5cd8ff23daff3d2e216e9898a4c181fb4ed6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 22:13:01 2016 -0600
+
+    Added entry in .gitignore
+
+commit 84dfa1d8391c5da1d985c9a810c46952f644feb8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 20:38:49 2016 -0600
+
+    Lots of unicode fixes (omfg halp) resolves issue #92
+
+commit 9052e48286cb2fcdafcc5f5087547b9b52dbc1f5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 19:58:01 2016 -0600
+
+    Removed decription of authentication error (will display if --verbose is
+    passed)
+    
+    Fixed host tracking in the inject_pe_dll.py module
+
+commit eb4f185118fbd57eff6a504f387501307dff361f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Apr 8 00:25:06 2016 -0600
+
+    Database now tracks which users have admin access to which hosts
+    
+    Added a configuration file for specifying Empire's and Metasploits API and RPC creds
+    Added the empire_agent_exec module: connects to Empire, generates a launcher and executes it
+    
+    Minor bug fixes
+
+commit a1c41d97c96278eb3e7e28fb82073d1b9acb72dc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Apr 3 20:21:58 2016 -0600
+
+    Fixed incorrect error handling when database wasn't created
+    (part of issue #93)
+
+commit cd989879d495fc14f99375934c9052658fee4264
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 13:11:28 2016 -0600
+
+    Removed debug statement and fixed output in tokens.py module
+
+commit 7bfe04236a3c7b9de521cf94ca38abdb57353d83
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 12:58:55 2016 -0600
+
+    Added a tokens module to enumerate available tokens
+    Added a --server-host flag to specify the IP to bind the server to
+
+commit 9262832b86b0d5764fae7a30bf048b566299d754
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 11:37:34 2016 -0600
+
+    Fixed missing imports when dumping NTDS via vss
+
+commit 7e6657eedbe8be37d1f23ff451dbd69e19e2af3c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 10:06:23 2016 -0600
+
+    fixed timeout and error handling when smb spidering
+
+commit e6a293c9f30d2629e8488b100d55ca303a0e9a32
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 00:47:17 2016 -0600
+
+    Updated usage in README
+
+commit e5e38cb8814ce41b9989f5851d51b65e5039d59c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 00:45:16 2016 -0600
+
+    Re-added License to master
+
+commit 05387abf6501f434bf52bb4f8feaaeec3405b5c0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Mar 30 00:26:09 2016 -0600
+
+    Changed the wdigest flag
+
+commit 811001edc477484b8f2f49b706fbdba4754a8395
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Mar 29 23:58:24 2016 -0600
+
+    Forgot to add the smbspider class back in connector.py, whoops!
+
+commit 0bc0855c43f19b539a7de0273aee33f71f19ae85
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 28 00:42:42 2016 -0600
+
+    Added default mimikatz command to module description
+
+commit f8afef444c8f98d32692042f5428a5cf154d71aa
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 28 00:25:19 2016 -0600
+
+    Changed README again
+
+commit f5895ac4ea5436fd614f3bca5fa6635b8ed79d77
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 28 00:21:20 2016 -0600
+
+    Changed README
+
+commit 6eabf0224c9eea37eb5a745f7229ed3a5c7a1e52
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Mar 27 15:45:41 2016 -0600
+
+    Updated README
+
+commit 10a12a9a0ff725df6c6d57ec484232c0a7c821db
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Mar 27 15:17:18 2016 -0600
+
+    Initial v3.0 commit to master
+    
+    Quick re-cap on the new features:
+    
+    * Credentials and hosts are now stored in a database, the cme_db.py script can be used to query it
+    * Module system has been implemented allowing anyone to create payloads
+    * All underlying powershell code has been ported to a module
+    * The HTTP/HTTPS server now tracks connections: no more guessing when to CTRL-C
+    * All around better code quality, error handling and logging
+
+commit 792a631fe21d0e42d044862da34ad56c4843e234
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Mar 12 19:20:40 2016 -0700
+
+    Updated the usage in README
+
+commit 4c3ca3a0f66cf08eede2ba48b808d579290803ed
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Mar 12 18:24:08 2016 -0700
+
+    Added the --tokens options to enumerate available tokens (issue #86)
+    
+    Re-added Empire's function to strip powershell comments
+    Changed the PowerView PS script to the actual supported one
+
+commit 5814121e6d061d4798e6cdcf83b1dcb291a6dff5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 22:08:13 2016 -0700
+
+    Actually pushing the new cert would be nice
+
+commit f4141c90414a231e60526c53f9cf35eb6110b634
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 22:02:25 2016 -0700
+
+    Regererated SSL cert, fixed a typo variable
+
+commit 3ec981f3faba24cfde586259c126b9b6defea6d0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 20:09:52 2016 -0700
+
+    Re-added the --timeout option
+
+commit ade4c12ad43310438de1db8fb45d138920ac14d3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Mar 11 20:01:42 2016 -0700
+
+    Revert "Stole Empires powershell architecture detection code, arch is now detected and handled automatically"
+    
+    This reverts commit cd103f5cb66537740b0e7ac7e759571470d48826.
+    
+    This is being reverted due to a bug in wmiexec when executing long
+    command strings. Falling back to the old method for now until/if fixed.
+
+commit bdcebd00453aff49300d1a2d50c537a1124fcd87
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 7 22:32:35 2016 -0700
+
+    Changed the default server to HTTPS (cause why not)
+
+commit cd103f5cb66537740b0e7ac7e759571470d48826
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Mar 7 20:13:51 2016 -0700
+
+    Stole Empires powershell architecture detection code, arch is now detected and handled automatically
+    
+    Removed the --ps-arch option as its now useless
+    Added a --timeout switch to specify a max timeout for each thread
+    Regenerated default key and cert for the https server
+
+commit 2427ccaa9bd56edbb05381ca31fb7a7951e607ce
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 27 00:29:35 2016 -0700
+
+    Updated README
+
+commit 7b255b3c9a687a3195b1f3fe23a06ada4c514d3e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 26 23:50:33 2016 -0700
+
+    - More code cleanup in the smart_login function, added pwdump support
+      when using the combo file (-C) flag (resolves #80)
+
+commit c50ffb0f65349a0b32d3a99a696f64a7fa4b5a7f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 26 21:23:03 2016 -0700
+
+    - Re-Factored MSSQL support for better integration when executing
+      commands and attacks (e.g. mimikatz, injection)
+    - By default, the --mssql flag will enumerate db instances and will
+      allow you to execute commands through xp_cmdshell
+    - Made some logic changes on how/when connections are initiated
+
+commit 3c5cf012fd3a24811227f74d3558f94665fdc267
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Jan 19 01:56:42 2016 -0700
+
+    - Password. Username and Hash flags now accept one file or
+      user/pass/has per
+      argument
+    - smart_login function partial code cleanup
+
+commit b1646c3f76bfab5702626f116f5f890bf9f77c7c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Jan 18 20:40:50 2016 -0700
+
+    - Made output *FABULOUS* by aligning the logger output
+    - Moar unicode fixes (srsly fuck unicode)
+
+commit 224befe25d393c38a870798727ec52113ec37288
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 22:43:57 2016 -0700
+
+    Fixed bug that would cause a traceback in rpcquery.py when PTH
+
+commit 5c319105713cf07d8cb8e751bcc4056d281d40fe
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 22:42:53 2016 -0700
+
+    Fixed .join() error in smart_login.py when PTH
+
+commit 7075c095cce69de0886ba4df7cbf7ee70f859092
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 12:28:52 2016 -0700
+
+    Fixed wmiquery error when passing-the-hash
+
+commit d383c3df8fa06fe2bef6dd46a5cf98aab90f6603
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 00:51:25 2016 -0700
+
+    Updated requirements.txt
+
+commit 65187a719004752c42af0ba7ff040f92db5250ff
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 00:22:22 2016 -0700
+
+    Updated Readme
+
+commit 3aaa378a235dc7ffecb00e7ca1b6e0c5bde17e93
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Jan 17 00:09:45 2016 -0700
+
+    - HTTP/S server now uses the new logging system
+
+commit 256f2cd12de93e01486c86d23acb806af6452128
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 23:00:50 2016 -0700
+
+    - Powershell process architecture is now auto selected based on payload
+    - Added flag to force Powershell process architecture
+
+commit d1508d2923275ec98922a06239e6edcbf9191a7f
+Merge: 5a1adba 58b6d06
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 22:40:45 2016 -0700
+
+    Merge branch 'mssql_and_logging' of github.com:byt3bl33d3r/CrackMapExec into mssql_and_logging
+
+commit 5a1adba6482e90331b9b5bf4278598b40dde9c7f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 22:33:11 2016 -0700
+
+    - Logging has been overhauled for readability and parsing (resolves #47)
+    - Added flag to test creds against MSSQL DBs (resolves #66)
+    - Added flags to enable/disable xp_cmdshell on MSSQL DBs
+    - Added flag to execute commands through xp_cmdshell on MSSQL DBs
+    - Added flag to enumerate MSSQL DB instances
+    - Targets are now accepted with arguments instead of a comma
+      seperated list (resolves #71)
+
+commit 58b6d0636d2a4a8c1fb9acfde21953f9f248bdff
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Jan 16 22:33:11 2016 -0700
+
+    - Logging has been overhauled for readability and parsing (resolves #47)
+    - Added flag to test creds against MSSQL DBs (resolves #66)
+    - Added flags to enable/disable xp_cmdshell on MSSQL DBs
+    - Added flag to execute commands through xp_cmdshell on MSSQL DBs
+    -
+    - Targets are now accepted with arguments instead of a comma
+      seperated list (resolves #71)
+
+commit 7aa67e388c8fcc8c84b4396a6be5bab0aed12922
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 13 19:21:04 2016 -0700
+
+    Resolves #70
+
+commit 86ca7e464092d1d6a6dec3cdfe9f57b5ca6d7ba8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 6 23:28:31 2016 -0700
+
+    Updated target paramater description
+
+commit f85a50cfe4fc0329717ba7e2d78932ce0ad2a69f
+Merge: 15c5b83 1a40805
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Jan 6 22:47:17 2016 -0700
+
+    Merge pull request #62 from maaaaz/master
+    
+    Service Interaction name parameter & encoding errors fix
+
+commit 15c5b83bc23f7934d242a707967d2ccc3cad52ee
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Jan 6 22:07:19 2016 -0700
+
+    added ability to accept FQDNS and hostnames as targets (resolves #13)
+
+commit a1e113520aa7c1b0ce64b0adb015e9bffbc5e9f9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Dec 25 12:54:02 2015 -0700
+
+    Adding a user-agent to the HTTP/S request when downloading the Meterpreter staged shellcode would cause a rpc_access_denied error
+    when executing the PS code with WMI.
+    Have to investigate why, for now removed the offending code and everything seems to be working perfectly.
+
+commit 1a40805ae481788041a285b91533cef9c32782ca
+Author: maaaaz <maaaaz@androwarn.com>
+Date:   Sun Dec 20 12:24:17 2015 -0500
+
+    service interaction fix
+
+commit d2c103bf56483d32cb5115f4e6bd38e6fef2831f
+Author: maaaaz <maaaaz@androwarn.com>
+Date:   Sun Dec 20 12:10:40 2015 -0500
+
+    encoding errors fix
+
+commit 3d0203a78031e28f542f84df933ff0373577d511
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 20 00:19:23 2015 -0700
+
+    Version bump and README update
+
+commit 553ec9910e9b0abae2d144c032e0e600a776baa3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 20 00:11:08 2015 -0700
+
+    Updated the Powershell payloads to support Powersploits 3.0 update
+
+commit c328c397f815a49e89a868dfe5baedcb2da35cd0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Dec 19 22:01:04 2015 -0700
+
+    Forgot regex string for Invoke-NinjaCopy
+
+commit 5515464c029471d4a24589fbfacc41c570ad4426
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Dec 19 21:57:28 2015 -0700
+
+    Updated PowerSploit scripts to latest version
+
+commit 9f130886ee4756bc2e1bd184b4fbf54619265ad2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 13 15:51:00 2015 -0700
+
+    updated README
+
+commit 45e37570a3c206befbdb7f0b47f0087ae775f831
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 13 14:27:18 2015 -0700
+
+    Updated powerview.ps1 to latest commit
+
+commit e965cd83743db2bf7bff2e80e642d5b28c977a43
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Dec 13 13:47:51 2015 -0700
+
+    Should resolve #51
+
+commit f5c8684876950648f23ec1f05281067cf97af6cf
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Dec 11 00:29:47 2015 -0700
+
+    Fixed output for --gpp-passwords option in http/s server
+
+commit 3574bbe8322f8d582991fe0bdf52207b133bdf44
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Dec 11 00:24:43 2015 -0700
+
+    Added --gpp-passwords option to retrieve GPP passwords
+
+commit 4e1414fa04a53adff05f927234a1b31560256de7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 29 12:21:42 2015 -0700
+
+    Removed some useless imports
+
+commit 9e50051651e5fdf64e946fd71ef999d4e4c1ebe7
+Merge: 3016461 9916c03
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 29 12:21:19 2015 -0700
+
+    Merge branch 'maaaaz-master'
+
+commit 9916c03a056912afc72ac13c704e2634a5aca5e1
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 29 12:21:06 2015 -0700
+
+    Removed code to check for log directory
+
+commit 7401c135631b9eaa532a2f44a6b60797ec5ac265
+Author: maaaaz <maaaaz@androwarn.com>
+Date:   Sun Nov 29 12:07:30 2015 -0500
+
+    post v2.1 changes
+
+commit 3016461f414e71310d70dea9a6359a970840c481
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 20:24:04 2015 -0700
+
+    Updated usage in README
+
+commit a2c2c1748936c34d8f75cdf378c9844b324c9fd9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 20:20:42 2015 -0700
+
+    Added src param for --download (resolves #32)
+
+commit 474ded4ea2faca4f4a008090ed9b45464e2aee98
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 19:47:40 2015 -0700
+
+    Fixed port variable when invoking PowerView
+
+commit f0fe1a25a788ea9f682e5c804e39fb2566f2a1b7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 19:33:55 2015 -0700
+
+    Added option to set the HTTP/HTTPS server port (resolves #33)
+
+commit 0d1e580edd0ff7d83cfe36459fe45a52ad698c40
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 18:54:34 2015 -0700
+
+    Added previous commit changes to passpoldump.py
+
+commit 6e2d24c0b7da18f160f760d89c0663f6e981560a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 20 18:51:50 2015 -0700
+
+    Fixed a bug when passing-the hash that would cause an AttributeError
+
+commit 11e75ac897e10514603f41b329a79a0a2f21b71a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 23:04:54 2015 -0700
+
+    Added --fail-limit and --gfail-limit options to limit the amount of
+    failed login attemptes per host and globally
+
+commit 2fe0d795f0037a90408a28d8f0b1e9ce1d9fb5f5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 21:15:12 2015 -0700
+
+    Updated README with new usage
+
+commit 2212a032756af309eddcf293a73dad7647a53ebf
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 21:13:46 2015 -0700
+
+    Added options to interact with Windows services
+
+commit a9e0ee99ecbd58f2c86d18bdd27259f8aaef9096
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:59:11 2015 -0700
+
+    Fixed bug with atexec that would cause it to not retrieve command output
+    Made atexec output more consistent
+
+commit a7be3ea0a7c8d8073593e6ed1b896d6ff8db34d5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:31:48 2015 -0700
+
+    Usage update in README
+
+commit f1d97518ac3472047cf0c027289dfd036eee34fb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:29:27 2015 -0700
+
+    Version bump and README update
+
+commit c9bb82fb4503de3927e90199099c0ff63875fc67
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 19 18:13:32 2015 -0700
+
+    Initial PowerView integration, for some reason only works when using
+    smbexec as the execution method, so for now it's forced to that
+    Fixed a bug where forcing Powershell code to run in a 32bit process
+    would cause a rpc_access_denied error message
+    Made Mimikatz parser output more consistent
+    Made wmiexec and smbexec output more consistent
+
+commit bff44a5ed2e98cc5d2c9b35152289c02d22cc6ae
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Nov 14 21:51:59 2015 -0700
+
+    Fixed WMI query output formatting
+
+commit 19ecdf870ae03207ccf15e0c11b24efa49245657
+Merge: 433a98f 4690ca2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 13 22:38:19 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 433a98f4d870aa988cc5bf77aa9bdf0814c8e30b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Nov 13 22:38:13 2015 -0700
+
+    Fixed namspace error when injecting an exe
+
+commit 4690ca29b90af7a6ff289b34a4f80e1483ba9293
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Nov 11 09:26:01 2015 -0700
+
+    fixes issue #43
+
+commit 9ebc95519abbc5b9dc1f72b942812d4413d2f0e6
+Merge: 365675f 1179067
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 23:26:13 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 365675f3803e8d273f7706d5e8576c9b1c6edb4c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 23:25:11 2015 -0700
+
+    Re-added the synopsys sections in the PowerShell scripts
+    
+    All comments and uneeded sections get dynamically removed when the
+    script is requested
+
+commit 117906707f2c4df54b1bb0dccad47ce40dfe41ef
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Nov 10 22:15:28 2015 -0700
+
+    Update README.md
+
+commit 6e173670a01dafe8ec53cf0fed4c50d47897a972
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Tue Nov 10 22:14:49 2015 -0700
+
+    Update README.md
+
+commit 3a7479d7dd2ca442154c8f15565df6c52727efa4
+Merge: 38ca35d 9d15d52
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 20:12:57 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 38ca35d6190dcd4765b5e58c20e2b5a8d5910f99
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 20:06:58 2015 -0700
+
+    Vss NTDS.dit dumping method back online
+    
+    Updated README
+
+commit b31ba6f10dead5210324a096c25a63bb2f731ff2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 02:24:13 2015 -0700
+
+    Updated README
+
+commit b62d3e0e604a56c359db5de57b132ab6d86d4838
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 02:16:48 2015 -0700
+
+    rougue variable messing with my flow
+
+commit 66dbf87af515f3bfb26d283a9cc2fc9dc533b435
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 10 01:57:04 2015 -0700
+
+    Everything is set! \o/
+    
+    Recap on changes:
+    Complete refactor, script broken up to make it readable
+    Kerberos support (!!!! sweeeeet !!!!)
+    Logging has been overhauled (everything sent to stdout gets logged)
+    Added a noOutput attr on all three excution methods
+    Exposed a --no-output option for moar stealth when executing commands
+    Exposed a --lsa option to dump LSA secrets
+    Exposed the -history and -pwdLastSet options from secretdump
+    Fixed passpoldumper
+    Fixed the NTDS.dit dumper
+    HTTP/HTTPS server now removes powershell script comments
+    HTTP/HTTPS server randomizes powershell function names to bypass AV on
+    windows 10
+    --session and --luser output has been made decent (resolves #42)
+    
+    Moar code style changes and bugfixes
+    
+    TODO:
+    hook back up ninja and vss NTDS.dit dumping methods
+    Allow all three execution methods to utilize the smbserver as fallback
+    to retrieve command output
+    expose some options to control remote services
+
+commit e84c55dc8c2a84b96d6394650b33b96356392b66
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 23:39:37 2015 -0700
+
+    Removed SMB as a PS script server (still can't get it working reliably
+    on my system)
+
+commit ac5210826d59e7432940cdc83e2115464c6b9256
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 23:32:48 2015 -0700
+
+    Added PoC Powershell obfuscation (if you can even call it that) to
+    bypass Windows Defender on Win 10
+    
+    Everythings pretty much back to normal, just needs testing and more
+    code cleanup
+
+commit 83e2f34b4c0beb003e419b8db5467ac53dca204c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 20:11:18 2015 -0700
+
+    Almost all functionality restored, removed psexec execution method
+
+commit e7246fd777cc6b9d2ab22ce18a89eba42f0934d8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 8 15:27:33 2015 -0700
+
+    Refactor pass 1
+    
+    Revamped logging and main greenlet
+    Major code cleanup and bug fixes everywhere
+
+commit 73a3917bc24afb3da2c6d0080b22aa7bb4a0b662
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Nov 5 18:01:28 2015 -0700
+
+    Added all 4 execution methods to main greenlet
+
+commit 894ad2769314f87c1631b9ff7ce4ca14a675301e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Nov 4 10:03:39 2015 -0700
+
+    Minor changes when handling platform checks
+
+commit 9d15d52df1c42e589ead04b71d0f570baee2dd60
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Nov 4 09:20:15 2015 -0700
+
+    Possible fix for #38
+
+commit fcfdf3d04c0692665c9f2c55d9794bae66ec9316
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Nov 3 03:22:58 2015 -0700
+
+    Initial re-write
+    
+    Overhauled logging, major code cleanup and organization
+    Updated all impacket script code to latest commit.
+    Initial Kerberos support
+
+commit 2256caa865dcc68b78187fc099a08a00a8c7007b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Nov 2 10:52:05 2015 -0700
+
+    Modded the smbserver
+
+commit 995011f21d92440d0ffc9c8e70bf335a55500095
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 19:52:05 2015 -0700
+
+    Fixed smbserver class for unicode
+
+commit a3467bf6800cdcffb68efca3563c44481f7b2727
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 19:40:44 2015 -0700
+
+    Fixed mimikatz log parser to not display raw mem output in password fields
+
+commit c58dd26833a440113cbaeca4c67ac19cf224b25f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 19:06:38 2015 -0700
+
+    fixes #30
+
+commit 56fe9aa19aeeafb965d766b8c6441f870341d7b1
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 18:52:00 2015 -0700
+
+    Added Windows support
+
+commit 05fc05c17897d25a0f54efc9af06cf14ed068b19
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 17:58:50 2015 -0700
+
+    Fixes #35 and #27
+    
+    Content searching didn't work due to a bug parsing the * when listing
+    directory contents
+    
+    Printing anything Unicode should now work everywhere
+    
+    Made share spidering output more consistent/prettier
+
+commit 97a1b3eca28049300accd8587226ac50382998be
+Merge: 8c23097 c52c399
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 14:47:56 2015 -0700
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 8c230979efe50305e5b87eea0cba0cad5e0afff9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 14:45:42 2015 -0700
+
+    Fixes #34 and #28
+    
+    All strings are now unicode by default (ala Python3)
+
+commit c52c3993f35e7b73bd6c95c0c658c692facbee17
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 14:45:42 2015 -0700
+
+    Fixes #24 and #38
+    
+    All strings are now unicode by default (ala Python3)
+
+commit b10d3efa1ed2f5daa64c9a6734f3b7f75317d9e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Nov 1 13:27:42 2015 -0700
+
+    Added option to use SMB server to download PS scripts (Does not work yet!)
+    
+    You can now have subnets and IP ranges in a target file
+
+commit 56bd3908ec78851e336e93c16384aab802b6d3df
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 30 22:51:22 2015 -0600
+
+    Revert "Possible fix for #24"
+    
+    This reverts commit c74d7720df18d85c7634ba42cd7c3de058b64aa7.
+
+commit 4a0f83fc028684ef3b9e906a7c0eac91a85aa7e7
+Merge: 7741bf5 c341c30
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 30 22:47:26 2015 -0600
+
+    Merge branch 'master' into smb_transport
+
+commit c341c305bc41b12cf5a8d0af6874363357fd4a40
+Merge: c74d772 255fff8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 24 10:43:01 2015 -0600
+
+    Resolves merge conflicts
+
+commit c74d7720df18d85c7634ba42cd7c3de058b64aa7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 24 10:41:15 2015 -0600
+
+    Possible fix for #24
+
+commit 255fff88bd18a38e3287f2995f7970bc80f79299
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 23 10:12:29 2015 -0600
+
+    fixes #23
+
+commit 7741bf538bba25b1f6a4f299a1edbcafdf0fdeb9
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 22 19:20:07 2015 -0600
+
+    Initial SMB transport support
+
+commit df60fbf3355c3453dd241ca3d2d6ca42cd90bf11
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 19:26:26 2015 -0600
+
+    Updated usage in README
+
+commit ccf0025c42469e1ca3f1b8a6ac3b7163fdbe3f25
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 19:13:36 2015 -0600
+
+    added options to create and delete the UseLogonCredential registry key for wdigest dumping on Windows 8.1 (#18)
+
+commit 9ad18f95b89685ac4166fda437099e8d272e865d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 09:00:42 2015 -0600
+
+    Thread number now defaults to 10 (resolves issue #12)
+
+commit b13a4a4a7616d55fb7bc64cd1e4b731eac00ef12
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 19 08:41:29 2015 -0600
+
+    Revamped the print_* functions for unicode handling
+
+commit 9964d4f9912dbe2859109d1269b4bc2a888bc65e
+Author: Dan McInerney <dan.h.mcinerney@gmail.com>
+Date:   Sun Oct 18 16:36:30 2015 -0600
+
+    replaced ".decode('utf8')" with "unicode(x, errors='ignore')"
+
+commit ee0afffbcd26febed754410266cb1d031ab7dfb3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 18 08:56:37 2015 -0600
+
+    --spider and --list now default to top level directory
+
+commit b420d19401968369d102383a2f47176a9d1f30f7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 17 23:09:28 2015 -0600
+
+    Removed a debug import
+
+commit 3f05e1758fef2fccb7e98948ecce70cd83eedadd
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 17 22:54:15 2015 -0600
+
+    Fixed another null session support bug
+    
+    Fixed a bug when listing directory/share content
+
+commit 8fafa7479b7ca5c6912b2e29586c94b8ffe0086b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 16 16:13:56 2015 -0600
+
+    Updated usage in README
+
+commit 9657a3809c414b305d4c6aa419c068b5b8ee433a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 16 15:31:59 2015 -0600
+
+    updated ninja NTDIS.dit method for HTTPS support
+
+commit 7d2ba3c63a533df4a9a4501da3d72313d07ff4d7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 16 15:25:35 2015 -0600
+
+    Added HTTPS support as per #15
+
+commit 8054b5e655ad4b96567fad72c7eb9399ee49dd73
+Merge: 98a07ac b2304e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 11 10:16:22 2015 -0600
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 98a07acebe5f2f1e57a71c2f2b9e71b10c428952
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 11 09:30:57 2015 -0600
+
+    fixes #14, print_* functions now support unicode
+
+commit b2304e825e09fe587382748dad449356f9023722
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Sat Oct 10 23:23:08 2015 -0600
+
+    moar grammar
+
+commit 870f815269e64666195b7813ced1e6350eb9d613
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 16:45:46 2015 -0600
+
+    Fixed --shares output formatting
+    
+    Changed --list date/time formatting
+    Added last modified and size info to spider results
+
+commit 3cd0a98a57b2fb41fdc1c06d7f05fb2ab170db46
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 09:54:55 2015 -0600
+
+    Grammar
+
+commit b5e6b0d4521342c49198a643052f44304b92a2bf
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 09:52:55 2015 -0600
+
+    Updated README
+
+commit 6be318bcfb783ec7c9f47eadd745479b9616fb20
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 10 09:28:04 2015 -0600
+
+    Cleaned up output of --wmi
+    
+    Added more specific error handling when spidering content
+    Changed the content searching option to --content
+
+commit 429f1b79c54a34512640f3eecc11d7313f798861
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 22:01:02 2015 -0600
+
+    Fixed exception when not specifying --exclude-dirs
+
+commit 334ee093b46b102f7f1bc3edfefd4876bf52d041
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 21:30:41 2015 -0600
+
+    Updated README
+
+commit a01c46ccf8a8a9f9564ca390e7d9f1d13ed4abc1
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 21:26:48 2015 -0600
+
+    Some output and usage fixes
+
+commit 2a18c360a2ac5e9e2420cc8bba26015c75d9af2e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 21:04:20 2015 -0600
+
+    added regex support when spidering
+
+commit 21713caf12e74e64968a45569d97fbee23044962
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 20:15:53 2015 -0600
+
+    Added option to exclude directories from spidering
+
+commit b2f0533ff3d98036fc55279746a768157e95400b
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 19:44:02 2015 -0600
+
+    Added error handling when searching file contents
+
+commit 39887088bfc236d1a253cff86a3d5626288cb16f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 17:52:33 2015 -0600
+
+    Added file content searching support when spidering shares
+
+commit 1699faef780deea7f2c1306c81ebb209b9253c69
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Oct 9 12:58:09 2015 -0600
+
+    Fixed logic bug when enumerating share access
+
+commit a12ec073bb89365c8d3b644dca4f7056c7ca70ca
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 19:09:02 2015 -0600
+
+    some code flipping
+
+commit 46c82fdf2531543ba99abeb8658c8f857e479d5a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 13:49:47 2015 -0600
+
+    Updated usage and examples in the README
+
+commit e25ccc6c030181b611ed765ea04ad3bd6e304e30
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 12:59:48 2015 -0600
+
+    Added missing backslash
+
+commit f216354515b607ae3cdc19865648ec974e287a6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Oct 8 12:57:16 2015 -0600
+
+    Added option to force all Powershell code/commands to run in a 32bit process
+
+commit e48fc47e11e65f53ef8d90ef0eb49d4a659c68c7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 22:21:25 2015 -0600
+
+    Consolidated Meterpreter injection options
+
+commit cd048eab371ee2b5ed1c1894fa1e6dc9825d99cd
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 19:51:20 2015 -0600
+
+    Updated README
+
+commit 0362c9fcb384a9b0a4059f7b6ff29cf162b61be2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 19:34:05 2015 -0600
+
+    Added option to directly inject meterpreter into memory using Invoke-Shellcode
+
+commit be72603423fbb6a5afa0c664645aab22883f11ef
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Oct 7 14:24:03 2015 -0600
+
+    added option to check UAC status
+
+commit e8886d386187b0e797cc1e6a8633592f9e6e36e3
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Oct 6 12:53:31 2015 -0600
+
+    Updated README
+
+commit a9854cf4f0699432cb863fac2c03d1aa0008df7a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Tue Oct 6 02:07:28 2015 -0600
+
+    Added an option to enumerate users by bruteforcing RID's
+    
+    Additionally, added options to enumerate disks and dump password policies
+    Tweaked output when enumerating users through samr
+
+commit fea5b42400c2712180222719835c9f2f22494bcc
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Oct 5 00:14:34 2015 -0600
+
+    Removed some redundent error handeling
+    
+    Removed code that was normalizing paths (was causing too many issues and bugs)
+
+commit a7b5302d248668d2664c96c1a52b5a1e8e68406f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 4 23:00:40 2015 -0600
+
+    Added null session support when using multiple user/pass/hashes
+    
+    Made output more consistent
+
+commit 52856907a11557711f31231049a35167e65462f7
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 4 00:34:43 2015 -0600
+
+    Updated usage in README
+
+commit b0ce9678646323e635f547a2388b712dba2b42d5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Oct 4 00:04:08 2015 -0600
+
+    -u, -p and -H can now accept a comma seperated list of usernames/passwords/hashes or files containing them
+    
+    Removed the bruteforce options since it's now implicitly handled by -u,-p and -H
+    Re-implemented the -C (combo file) option for concurrency, additionally the combo file can now accept entries in username:password format
+
+commit c2b9b42a740e121beba4b98fc12fe2c8879ba20f
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 3 14:32:37 2015 -0600
+
+    Removed a debug print statement
+    
+    Output fixes
+
+commit 9058bc589c30a0bd2342dbb6999ed2f5ad8c1be0
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Oct 3 14:22:47 2015 -0600
+
+    Added an option to specify a combo file (thanks @johnnyxmas)
+    
+    Added path checking when specifying --bruteforce or --patterfile
+    Fixed a bug that would cause a traceback when specyfing a hash but no plain-text password
+
+commit 62212eb186fb8d60704cdd94dfae953756fa9fbb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Sep 28 15:08:14 2015 -0600
+
+    Added a check for the --path argument if injecting into memory
+    
+    Fixed error handling to display the error when executing commands
+
+commit 67be507b631aa8b8c941d038f6376d8af7ee69f4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:55:23 2015 -0600
+
+    fixed line in example
+
+commit 2a9a1bd64cddf1b3d245304ea9bec0edbcab040d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:52:14 2015 -0600
+
+    Updated examples in README
+
+commit 1525337981b4d56aee8e20c7343455e77200ba8d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:37:05 2015 -0600
+
+    Will now print status if login is successful (Useful if you just want credential validation)
+
+commit b1cbbaee54bae07a126f973735d64650903b7240
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 08:08:09 2015 -0600
+
+    substituted Invoke-Mimikatz.ps1 with Empire's version
+
+commit 1449e0009143dfdd76f5b9717c4d939febdb91c2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 14:51:18 2015 +0200
+
+    Removed an item from To Do \o/
+
+commit 2f0618099eb5381058ffdd46c5f9dcd4e9d897fb
+Merge: 796c267 f60dbc5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 14:50:25 2015 +0200
+
+    Merge branch 'master' of github.com:byt3bl33d3r/CrackMapExec
+
+commit 796c2679235cb1921d16e2284b2e90ccb6eeee6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 27 14:50:17 2015 +0200
+
+    Added option to execute Invoke-Mimikatz with a custom command
+
+commit f60dbc5af892d4cefdf512939d29f61085885eb9
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Thu Sep 24 01:17:46 2015 +0200
+
+    Added more to the To do in README.md
+
+commit 6e8f58a1e342b2541956b0477eda5df7d9b91b20
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Sep 23 21:56:36 2015 +0200
+
+    Added To do in Readme
+
+commit 67d7f4d00c88755132f922f6f321216723d06863
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Wed Sep 23 18:23:25 2015 +0200
+
+    Update README.md
+
+commit 3e1b958e448285f4face11dcf6b706fa613d4bfb
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Sep 23 13:54:50 2015 +0200
+
+    Added check to see if connection was established before shutting down if a Exception was raised
+
+commit 659baf3283ba41aeb64c4f3504b92a8b2d327e5c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 22:50:06 2015 +0200
+
+    Fixed bug where injecting would cause the script to exit prematurely
+    Specified inject command to have no output
+
+commit 56824319bbc0eca9dc3c52d9174dfcb094234a47
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 20:03:08 2015 +0200
+
+    moar README edits
+
+commit 3e6c9d86322c7ba2e7ee0d6815952abc2a5b01c2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:58:18 2015 +0200
+
+    updated README with links to added PowerSploit scripts
+
+commit 6ad50f85ee926626a264cf3e6deccfabaacab610
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:50:46 2015 +0200
+
+    updated README
+
+commit 617cdf8f00014a882c35eef3abffb00fb5526220
+Merge: f6784bb 99e5c3e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:41:07 2015 +0200
+
+    Resolved merge conflicts
+
+commit f6784bbbf8cfbf6712dd238195b3846540c42171
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Sep 13 19:39:39 2015 +0200
+
+    Added support for injecting Shellcode, exe or a dll using Invoke-Shellcode and Invoke-ReflectivePEInjection PowerSploit scripts
+
+commit 99e5c3e0ddd895ded6ef3a048f0d6c598bfb2c27
+Merge: 81ecc32 d715b73
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Mon Sep 7 12:38:07 2015 +0200
+
+    Merge pull request #6 from infosecgeek/infosecgeek
+    
+    Fix missing args.domain argument
+
+commit d715b7368416da24c9e058b6158deb2c4828a3bd
+Author: infosecgeek <infosecgeek@users.noreply.github.com>
+Date:   Mon Sep 7 04:52:46 2015 -0400
+
+    Fix missing args.domain argument
+
+commit 81ecc32d6c8d779e4acaa848261aae2088e4d0f4
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 29 12:26:15 2015 +0200
+
+    now accepts a file with a list of targets
+
+commit afca0d1e546be53865da6d7f587d4b74630b0f6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 29 12:05:27 2015 +0200
+
+    now supports IP ranges in addition to IP CIDR's
+
+commit f9fd2d54afa6743aa0b79a84cfc9a2ce08eeedc8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 21:46:54 2015 +0200
+
+    usage will now display if called script is called with no arguments
+
+commit 7e6245389db1630a6c9641d00054861669970091
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 21:38:50 2015 +0200
+
+    added some 1337 ascii art
+
+commit d022ca4a55c7b08202ac4dd8c09a3f08949f3286
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 21:17:36 2015 +0200
+
+    added colored output
+
+commit ae38fe715ff26e1cbf1ba71eb711f120782ac977
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 19:21:17 2015 +0200
+
+    fixed bug were WMI results were not converted to string before printing
+
+commit 266e0077e30240cf5d2eaa2de45519970f20cd2a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 28 18:02:20 2015 +0200
+
+    added option to perform WMI querys using WQL
+
+commit 3c24c22f4c7a1474c4bba107f1e1349dd03a24d8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 26 14:26:36 2015 +0200
+
+    Updated README with links to the PS scripts from the PowerSploit project
+
+commit b03a41af3f5422b95c3f732865800fecec9c78ae
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 26 13:52:07 2015 +0200
+
+    SMB brute force now diplayes domain if valid account is found
+
+commit dcfa80ba5b56497f0e40119ccb7ec135e76ab6aa
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 26 13:44:10 2015 +0200
+
+    Updated secretsdump.py code for Windows 2003 DC support
+
+commit 258a76b05425b5df8cec4e44dbcb3c4c73f09e07
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 22 15:30:34 2015 +0200
+
+    Added option to bruteforce SMB accounts
+
+commit a09a399f81a00406a84c22c6da32980813f2a589
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 17:12:07 2015 +0200
+
+    fixed indentation
+
+commit 0a23e6c00c6e56b4b9c918238ad35364a0bb7eb8
+Merge: 57ea01c 15de3aa
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Fri Aug 21 17:05:43 2015 +0200
+
+    Merge pull request #5 from gabtremblay/master
+
+commit 15de3aaced2d40f9f914f8538b4da27a130e6402
+Author: Gabriel Tremblay <initnull@gmail.com>
+Date:   Fri Aug 21 10:25:04 2015 -0400
+
+    Added handling for netbioserror exception when logging out on unsupported server
+
+commit 052351fc38d3db165d293b6bed3b96b76a603145
+Author: Gabriel Tremblay <initnull@gmail.com>
+Date:   Fri Aug 21 10:17:17 2015 -0400
+
+    Fixed Requirements
+
+commit 57ea01c05010be035e4cb16dce158afcd5b676e6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 05:22:49 2015 +0200
+
+    added hint to use the drsuapi method
+
+commit a8d538f8fb82e13bf9246b22f42692d58091dd48
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 05:13:57 2015 +0200
+
+    changed a little text
+
+commit 128fa758a87e08d65677a4c4f5c9cfcf02f4c017
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 21 04:55:39 2015 +0200
+
+    Added support for dumping NTDS.dit via VSS, DRSUAPI and with Invoke-NinjaCopy
+
+commit 3d42f073cd3a5a95269b9274f49701ec325c665a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Aug 20 23:33:18 2015 +0200
+
+    Fixed a bug where SMB connections would reset after logging in with a null session
+    Added initial NTDS.dit dumpuing support using DRSUAPI
+
+commit bb2e30048ff67e8c73615d0e733902832efcbdd6
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Aug 20 13:45:12 2015 +0200
+
+    added install instructions for kali
+
+commit 691f9c88cd61e0650497920bc15005132e66bc91
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Thu Aug 20 10:52:34 2015 +0200
+
+    This should fix #4, all list and filenames are now encoded to utf8
+
+commit aae373c2941807cbe4c19150b1ccfe83f3e3e1e2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 23:13:50 2015 +0200
+
+    it's @agsolino not @agosolino (I'm a dummy)
+
+commit 9a35b2f09717e1bffcd0b3f44aff0caea6c28a73
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 23:09:36 2015 +0200
+
+    added links to all of @agosolino's awesome work ;)
+
+commit ad1d70848ce877156e822a5d24aa447e82122375
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:30:57 2015 +0200
+
+    Updated README.md
+
+commit 2705e7e6ab2e92fdbb8647334c73c7990c9974ab
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:26:51 2015 +0200
+
+    forgot to censor username and password from readme, oops! (yes I changed them)
+
+commit 526ace710c6ee58d49bc6e2d580ebd8f299efb24
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:24:19 2015 +0200
+
+    no reason to print execution method if there is no output
+
+commit 834570bf2f5f138581d8ed2eca824e8e52d19e6a
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 19:17:54 2015 +0200
+
+    Made README.md decent
+
+commit d77d235ba89d89001cd5006597b07d5f932dd6e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 17:13:54 2015 +0200
+
+    Changed logging level in verbose mode
+    -t option is now required
+
+commit 415f5cc27e4065b3880dfa11c8b2d27199cf3ea2
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 16:33:56 2015 +0200
+
+    Added verbose output option
+    Added check to proceed on intrusive options only if provided with user, password or hash
+
+commit a16886521b4263ec937a7a392ab972b234b2985e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 16:17:08 2015 +0200
+
+    added --patternfile support for share spidering
+
+commit 68230fb08a3e2df6735e4fe6a44ff6257f82eb6e
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 16:06:07 2015 +0200
+
+    Added share spidering capability
+
+commit 3429f4bf8360da5e4d5c1e3e76a55bc959926724
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Wed Aug 19 11:47:51 2015 +0200
+
+    All three execution methods now support wrting output to a SMB server
+
+commit 50aa5226d0532227762ef9d9b874c4399359e01c
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 17 18:43:55 2015 +0200
+
+    added served_over_smb directory
+
+commit 651c181c83d7ef834bdb43b5c8f649a993eae123
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Mon Aug 17 18:40:10 2015 +0200
+
+    smbexec and wmiexec now will start an SMB server and use it to read command output if unable to retrieve output from disk
+    changed default method of execution to smbexec
+    Fixed bug where an unexpected exit would occur if specifying only one target with --mimikatz
+
+commit d2f48f6518f10966f1a80eb11a2dd757fb2694e8
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Aug 16 23:25:20 2015 +0200
+
+    Atexec output now gets printed properly
+    session and logged on users enumeration now gets printed inside the greenlet
+
+commit 2a30cdb34cbe46ec5be1103b955348413cd2c3b5
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sun Aug 16 15:53:08 2015 +0200
+
+    Added atexec execution mode: executes commands using RPC calls to the windows task manager
+    Added option to enumerate logged on users via the NetWkstaUserEnum WinAPI call
+    Added option to enumerate active sessions using the NetSessionEnum WinAPI call
+
+commit ea761c23ca545e06d935b82586d3ac7a9d573ece
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 15 23:40:22 2015 +0200
+
+    Added list command
+
+commit a396b76424dbef38a7b1d12576580cd32c9fcd8d
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 15 22:48:54 2015 +0200
+
+    Added upload, download and delete commands
+    Code is now fully concurrent, removed greenlet sync code
+    If plain text creds are dumped using mimikatz, creds will be parsed and displayed to the user
+    Full mimikatz output is stored to log files
+
+commit d0550fa545d82b4016a1666d276b79bdc7084f82
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Sat Aug 15 15:32:57 2015 +0200
+
+    Greenlet Output is now partially synced between threads
+    added temporary logging handler
+    added options group
+
+commit 227e858933315bc64bb7d390c53eddf561a4bc57
+Author: byt3bl33d3r <byt3bl33d3r@gmail.com>
+Date:   Fri Aug 14 16:18:52 2015 +0200
+
+    initial commit
+
+commit b8422747436964a507a19fa853aafcdd46564d85
+Author: byt3bl33d3r <byt3bl33d3r@users.noreply.github.com>
+Date:   Fri Aug 14 16:11:55 2015 +0200
+
+    Initial commit

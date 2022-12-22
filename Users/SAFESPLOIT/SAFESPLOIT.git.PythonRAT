@@ -1,0 +1,579 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# PythonRAT
+
+PythonRAT is a Command and Control (C2) server which can control multiple machines running the Remote Administration Trojan (RAT) forming a botnet cluster which was written in Python3. 
+
+PythonRAT was developed for **educational** purposes and continues to be developed as such!
+
+<p align="center">
+  <img width="367" alt="PythonRAT Banner" src="https://user-images.githubusercontent.com/10171446/178044012-1ad8b92b-024e-4902-9492-7f7b6b1e0761.png">
+</p>
+
+
+# Features
+
+- Integrated keylogger written as a class
+  - Can be started and stopped remotely
+  - With options to _dump_ or _overwrite_ the log file
+- Check privilege level (Administrator/User)
+- Spawn other programs
+- Download files from target
+- Download files from specified URL
+- Upload files to target
+- C2 allows control of multiple target sessions
+- Issue a _sendall *command*_ to every active session
+- Persistence by creating a registry entry (Windows)
+- Conceals infection by writing files in AppData (Windows)
+
+- Screenshot of the target's screen which is sent to server
+- Remote shutdown of the backdoor _(executable is NOT safely removed)_
+
+
+# Table of Contents  
+- [Usage Manuals](#usage-manuals)
+  - [C2 Manual](#c2-manual)
+  - [Session Manual](#session-manual)
+- [Dependencies](#dependencies)
+- [Wine and Pyinstaller (Win version) Installation on Linux](#wine-and-pyinstaller-win-version-installation-on-linux)
+  - [Environment Setup](#environment-setup)
+  - [Installing Dependencies](#installing-dependencies)
+- [Backdoor Compilation and Obfuscation for Windows](#backdoor-compilation-and-obfuscation-for-windows)
+  - [Compile to Executable using Pyinstaller Linux](#compile-to-executable-using-pyinstaller-linux)
+  - [Compile to Executable using Pyinstaller (Win) under Wine](#compile-to-executable-using-pyinstaller-win-under-wine)
+  - [Obfuscation using SFX Archive (Theory)](#obfuscation-using-sfx-archive-theory)
+  - [Creating SFX Archive](#creating-sfx-archive)
+  - [Creating SFX Archive - Visual](#creating-sfx-archive---visual)
+  - [Task Manager](#task-manager)
+- [Preview Images](#preview-images)
+  - [Target Connection to C2 Server](#target-connection-to-c2-server)
+  - [Interacting with Session](#interacting-with-session)
+  - [Test Commands on Target](#test-commands-on-target)
+  - [Session Options](#session-options)
+  - [Backgrounding and Killing Session](#backgrounding-and-killing-session)
+
+# Usage Manuals
+## C2 Manual
+
+    targets                 --> Prints Active Sessions
+    session *session num*   --> Will Connect To Session (background to return)
+    clear                   --> Clear Terminal Screen
+    exit                    --> Quit ALL Active Sessions and Closes C2 Server!!
+    kill *session num*      --> Issue 'quit' To Specified Target Session
+    sendall *command*       --> Sends The *command* To ALL Active Sessions (sendall notepad)
+
+
+
+## Session Manual
+
+    quit                                --> Quit Session With The Target
+    clear                               --> Clear The Screen
+    background                          --> Send Session With Target To Background
+    cd *Directory name*                 --> Changes Directory On Target System
+    upload *file name*                  --> Upload File To The Target Machine From Working Dir 
+    download *file name*                --> Download File From Target Machine
+    get *url*                           --> Download File From Specified URL to Target ./
+    keylog_start                        --> Start The Keylogger
+    keylog_dump                         --> Print Keystrokes That The Target From taskmanager.txt
+    keylog_stop                         --> Stop And Self Destruct Keylogger File
+    screenshot                          --> Takes screenshot and sends to server ./screenshots/
+    start *programName*                 --> Spawn Program Using backdoor e.g. 'start notepad'
+    remove_backdoor                     --> Removes backdoor from target!!!
+    
+    ===Windows Only===
+    persistence *RegName* *filename*    --> Create Persistence In Registry
+                                            copies backdoor to ~/AppData/Roaming/filename
+                                            example: persistence Backdoor windows32.exe
+    check                               --> Check If Has Administrator Privileges
+
+# Dependencies
+
+The C2 server has no _external dependencies_ as of _v0.9.2-alpha_.
+
+The backdoor relies on the following as of v0.10.1-alpha:
+
+    pip install mss \
+                pynput \
+                requests
+
+ - **MSS** is required for the `screenshot()` function.
+ - **Pynput** is required for the `Keylogger` class.
+ - **Requests** is required for the `download_url()` function.
+
+
+The below mentioned steps are for compiling the backdoor for deployment. 
+For those wishing to test the C2 server and backdoor interaction see [issue 1](https://github.com/safesploit/PythonRAT/issues/1#issuecomment-1210378473).
+
+# Wine and Pyinstaller (Win version) Installation on Linux
+
+
+Python 2.7.14 Releases: https://www.python.org/downloads/release/python-2714/
+
+## Environment Setup
+
+┌──(root💀kali)-[~/]
+
+└─# 
+
+    sudo su
+    dpkg --add-architecture i386
+    apt update
+    apt install wine32 
+    wget https://www.python.org/ftp/python/2.7.14/python-2.7.14.msi
+    sudo wine msiexec -i ~/python-2.7.14.msi #x86 arch
+    
+    
+## Installing Dependencies
+
+┌──(root💀kali)-[~]
+
+└─# 
+
+    cd /root/.wine/drive_c/Python27
+    wine python.exe -m pip install  pyinstaller \
+                                    requests \ 
+                                    mss \
+				    pynput
+
+
+# Backdoor Compilation and Obfuscation for Windows
+
+## Compile to Executable using Pyinstaller Linux
+
+    $ pyinstaller --onefile --noconsole backdoor.py
+
+or,
+
+## Compile to Executable using Pyinstaller (Win) under Wine
+
+┌──(root💀kali)-[~]
+
+└─#
+
+	wine /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile --noconsole ~/backdoor.py
+    
+**alternatively** if an _icon_ has already been created,
+    
+	wine /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile --noconsole --icon ~/malware_128x128.ico ~/backdoor.py
+    
+This will produce _./dist/backdoor.exe_
+
+
+## Obfuscation using SFX Archive (Theory)
+
+The executable _backdoor.exe_ will be made to look like an image (jpg) file.
+By default, Windows does not show file extensions (e.g. backdoor.exe will show in Windows Explorer as backdoor).
+Hence, we will create an SFX archive name _wallpaper.jpg.exe_ which Windows Explorer will show as _wallpaper.jpg_.
+
+This will involve having an _image_ which we will also create an icon version of _.ico_ to assign the SFX archive.
+Making the executable appear to be an image.
+
+Of course, this same method could be applied to audio, document or video file using an appropriate icon.
+
+### NOTE: SFX Archive
+
+SFX archive is not the only method of obfuscating the executable.
+We can when compiling using _Pyinstaller_ add the argument _--add-data "/root/wallpaper.jpg;."_ with
+_--icon ~/wallpaper.ico_.
+
+┌──(root💀kali)-[~]
+
+└─#
+
+    wine /root/.wine/drive_c/Python27/Scripts/pyinstaller.exe --onefile --noconsole --add-data "/root/wallpaper.jpg;." --icon ~/malware_128x128.ico ~/backdoor.py
+    mv ./dist/_backdoor.exe_ ./dist/_wallpaper.jpg.exe_
+
+
+## Creating SFX Archive
+
+WinRAR > Add To Archive (image.jpg and backdoor.exe)
+
+Rename archive to: _image.jpg.exe_
+
+
+-Add to SFX Archive (Y) and Advanced>
+
+    **Setup>Run after extraction**
+    
+		California-HD-Background.jpg
+		backdoor.exe
+
+	**Modes**
+		Unpack to temporary folder
+		Silent mode
+			Hide all
+
+	**Update**
+		Update mode>
+			Extract and update files
+		Overwrite mode>
+			Overwrite all files
+			
+	**Text and icon**
+		Load SFX icon from the file (image ICO)
+
+
+
+## Creating SFX Archive - Visual
+
+https://user-images.githubusercontent.com/10171446/153578069-851d3896-67d0-465b-ad92-267ad21504ee.mp4
+
+
+This will produce an SFX archive which looks like an image
+
+While inspecting the file will reveal it is an executable the file extension _.exe_ is concealed.
+Furthermore, if viewed from the Desktop the file cannot be differentiated from a 'real' image.
+
+![image8](https://user-images.githubusercontent.com/10171446/153618884-601e9a7f-9bda-4fd5-a5a0-9808053160c5.PNG)
+
+
+
+Once opened the SFX archive will open the image file inside the archive and the malware will execute after.
+
+Due to _--noconsole_ argument in _Pyinstaller_, no window will be rendered.
+
+
+## Task Manager
+
+The _backdoor.exe_ process can be seen in Task Manager and ended there if necessary.
+
+# Preview Images
+
+## Target Connection to C2 Server
+
+![Screenshot_2022-02-10_06-16-22](https://user-images.githubusercontent.com/10171446/153403206-4ce3dc23-4c1a-41b6-a715-2e2021d965ce.png)
+
+
+## Interacting with Session
+
+![Screenshot_2022-02-10_06-17-20](https://user-images.githubusercontent.com/10171446/153403283-3df77fd8-2cbe-4990-b82f-d847bdde3bee.png)
+
+
+## Test Commands on Target
+
+![Screenshot_2022-02-10_06-22-48](https://user-images.githubusercontent.com/10171446/153403427-058ebe8a-36d8-465c-8386-7a55cea1641b.png)
+
+
+## Session Options
+
+![Screenshot_2022-02-10_06-23-21](https://user-images.githubusercontent.com/10171446/153403579-3b090b00-2dec-4c33-a94d-020eb2b0d2b4.png)
+
+
+## Backgrounding and Killing Session
+
+![Screenshot_2022-02-10_06-25-04](https://user-images.githubusercontent.com/10171446/153403973-d9757c68-4ca2-405f-ae13-a0ca0666bfcc.png)
+
+====================== GIT HISTORY: ======================
+3480a1c HEAD@{0}: clone: from https://github.com/safesploit/PythonRAT
+commit 3480a1cfcf2fc9dc23227306c000d99d81b7f0dd
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sat Aug 20 21:06:41 2022 +0100
+
+    Create LICENSE
+
+commit 3db3591f5443305818fa5ac45ae09e17df9e7658
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sat Aug 13 18:35:15 2022 +0100
+
+    Update README.md
+
+commit 9dd0a57ddea6ee3de064e6156ef1b7b5a1ec4b68
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Tue Aug 9 10:18:25 2022 +0100
+
+    Add files via upload
+
+commit 6d3a8fafe4ef492fdf88095bc334bb19e4c41d38
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sat Aug 6 20:50:08 2022 +0100
+
+    Add files via upload
+
+commit 53a5d58082db437323256648a6061200d48fe3d3
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Fri Jul 8 19:23:24 2022 +0100
+
+    Add files via upload
+
+commit 75d0f98fb8946723447aefee943ea29cfe36f03f
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Fri Jul 8 15:28:55 2022 +0100
+
+    Update README.md
+
+commit 6fd5c94388e7b7080c00b1483339e47ff9c75ab7
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Fri Jul 8 15:21:12 2022 +0100
+
+    Delete CHANGELOG
+
+commit fc77ec89e3d68bf7c12c808dd7be82a03ef6326b
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Fri Jul 8 15:08:55 2022 +0100
+
+    Update CHANGELOG
+
+commit 5e69f772669cf0caff26254dc6b190a7f7ddfb11
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Fri Jul 8 15:08:20 2022 +0100
+
+    Add files via upload
+
+commit 7447184e8cd62ffe33cbac52832d5258ca20c9b9
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Fri Jul 8 15:07:40 2022 +0100
+
+    Delete SHA256SUMS
+    
+    Not maintained as of v1.0.0
+
+commit 14531703fc5a576d789665b479994dfe8bc333da
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sat May 28 07:59:43 2022 +0100
+
+    Update README.md
+
+commit bb2de981c0074bf333794c30bbd9f352f41a6301
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sat May 28 07:56:40 2022 +0100
+
+    Update README.md
+    
+    CHANGES:
+    -Formatting relating to broken ToC
+    -Minor format changes to make copy/paste easier with ToC generator
+
+commit ebab4bd051f8dbdb3f4ced8a588f7fb5a3874dbd
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sun May 15 05:05:07 2022 +0100
+
+    Update README.md
+
+commit e1441412df494dfa8d1a1b146de660888aff7793
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sun Feb 13 15:57:14 2022 +0000
+
+    Update SHA256SUMS
+
+commit d0e76aacee574233454761842eaf90294443f5f2
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sun Feb 13 13:27:02 2022 +0000
+
+    Update README.md
+
+commit 8e582c4e15d23fb836f66a85031da8eecf67a2d5
+Author: Zepher Ashe <safesploit@users.noreply.github.com>
+Date:   Sun Feb 13 13:26:00 2022 +0000
+
+    Add files via upload
+    
+    signed
+
+commit 83a6453d602489c409a0336be4b26fe2a0e3e914
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 15:23:46 2022 +0000
+
+    Update README.md
+
+commit 5c79744d3290b67cdb3a7b65c417573a828be575
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 15:18:39 2022 +0000
+
+    Update README.md
+
+commit 28cd3329761fc0dd5fb55fcccceeb30717bdcf2b
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:55:59 2022 +0000
+
+    Update README.md
+
+commit 4ee5034543be40bfbbbb3965e0f4c6eb2f077387
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:55:16 2022 +0000
+
+    Update README.md
+    
+    table of contents
+
+commit f83e39089be731edc1d3258e3e62ad4ec5c6a35b
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:30:27 2022 +0000
+
+    Delete malware_128x128.ico
+    
+    moved to resources
+
+commit 3e6d66c359ca38f1e42bea40b03f9305724554a2
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:29:41 2022 +0000
+
+    Update SHA256SUMS
+
+commit 4248441fe7bc1ebe8a685fc99a3e8926f14d241f
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:29:10 2022 +0000
+
+    Add files via upload
+
+commit 06a66788e265eaea53bcf1f719b1ac4219703124
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:28:53 2022 +0000
+
+    Add files via upload
+
+commit b1d374c9653ba422cee7417b4baca730c93a948c
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:21:25 2022 +0000
+
+    Update SHA256SUMS
+
+commit d75eb45cde610afc5e372c93ffd4db0ab3d4e235
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:19:56 2022 +0000
+
+    Backdoor and keylogger files
+
+commit caa9087d89461bdb7869dba0e9b8f4264df18de8
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:08:24 2022 +0000
+
+    Update README.md
+
+commit b69cce188c37096e197d1ed261520d7caa18c45f
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:06:54 2022 +0000
+
+    Update SHA256SUMS
+
+commit 3a3cce9eea215104ce8df0fcb140aacab0c2f9ff
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:06:15 2022 +0000
+
+    Add files via upload
+    
+    Icon file
+
+commit f1a7875a73966478bba486e58f9738bf712f4d25
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:05:04 2022 +0000
+
+    Update README.md
+
+commit 47beaa77225d906c815441cae8cf77e9e06d6037
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 12:01:24 2022 +0000
+
+    Update README.md
+    
+    table of contents template
+
+commit 0cee4fbb241843a9324585ebd2f5353762e10cb4
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 11:49:06 2022 +0000
+
+    Update README.md
+
+commit eabde88095b78c15ad3e0dbafbb62c3a972f0bbd
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 10:46:42 2022 +0000
+
+    Update README.md
+
+commit 030f98e055958fac75faa75aa2a509ba58bca4cf
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 10:07:23 2022 +0000
+
+    Update README.md
+
+commit 4f24ee5e58e5a348db4e9e449b3c92035ef53d5d
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Fri Feb 11 09:33:23 2022 +0000
+
+    Update README.md
+    
+    -Updated server manual
+    -Compile instruction on Linux to deployment on Windows
+
+commit b9ad6c0718e86801d47b09b47647b91ac49141cf
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Thu Feb 10 12:38:49 2022 +0000
+
+    Update SHA256SUMS
+    
+    c2.py checksum
+
+commit 6a2a1923d320ec37ccbe6fd9d03f9103312ff2db
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Thu Feb 10 12:36:27 2022 +0000
+
+    Create c2.py
+
+commit 5dd23d24ac538e7a33849d44612a6ef05240ad79
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Thu Feb 10 12:34:43 2022 +0000
+
+    Update README.md
+    
+    Preview images and compile instructions
+
+commit b925d2cd56285e1d9980096dbd7cf3004d02d95b
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Thu Feb 10 11:44:05 2022 +0000
+
+    Update README.md
+
+commit ae15510581a9661a00b14b90d8ecfcb84dd3967c
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Thu Feb 10 01:16:03 2022 +0000
+
+    Update README.md
+
+commit 59cd1b2c138de755818b957d2f7828f1832437e4
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Thu Feb 10 01:11:17 2022 +0000
+
+    Update README.md
+    
+    features section
+
+commit 52b7d3a5f45abf8051fd3c4b97ecb9d52c2a2726
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Wed Feb 9 21:56:17 2022 +0000
+
+    Update README.md
+    
+    formatting
+
+commit beecfa371156e76895b27d342b209287358f8e57
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Wed Feb 9 21:49:47 2022 +0000
+
+    Update README.md
+    
+    manual instructions
+
+commit 0e0306cfebb293da6b3106ad29aaf83d24269474
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Tue Feb 8 21:56:11 2022 +0000
+
+    Create SHA256SUMS
+
+commit 75010cbf2b416da57c20dede4059018c20b7822f
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Tue Feb 8 21:54:36 2022 +0000
+
+    Create README.md
+    
+    Amendment
+
+commit 1b5eae37160616d061c59cc663747009689fec9b
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Tue Feb 8 21:51:16 2022 +0000
+
+    Update README.md
+
+commit 7fa8a984f620cf9f23795dd8efd52c6df2a8c5de
+Author: Zepher Ashe <safesploit@protonmail.com>
+Date:   Tue Feb 8 21:43:27 2022 +0000
+
+    Initial commit

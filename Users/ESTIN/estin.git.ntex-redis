@@ -1,0 +1,880 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 621df2cc75fa662dcb72f08b06b58abfb4a769da
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Thu Jul 7 09:34:51 2022 +0300
+
+    MSRV up to 1.55.0
+
+commit faff0a13a0e6504444f7ea1a940a025f03d563c7
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Thu Jul 7 09:29:37 2022 +0300
+
+    use redis:7.0.2
+
+commit c7da01943d014a0b489da6302465cee6a48f0b46
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jul 6 21:24:35 2022 +0300
+
+    cleanup
+
+commit d52f4ed1f1af02a35c2eef116963766f29f16cd2
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Sat Jul 2 15:30:23 2022 +0300
+
+    remove return
+
+commit 8c487be3b8b84103c4ce70f9ebd4f6b19fc356c9
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Sat Jul 2 15:25:09 2022 +0300
+
+    support subscribe/unsubscribe to multimple channels, added ssubscribe/sunsubscribe and psubsribe/punsubscribe
+
+commit ebf070b0dc9184abcbcf113714232556b0b322cb
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Fri Jul 1 09:31:16 2022 +0300
+
+    remove unwrap() on SimpleClient::exec
+
+commit 0142f8fe92222133915a917e0361f4c067a13e27
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 21:25:13 2022 +0300
+
+    Reset command, and docs how to get regular client
+
+commit 09aa4f93aa8b46cbf7316cf0885fe79e22c0859f
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 14:42:33 2022 +0300
+
+    rename OutputStream to SubscriptionClient, consume SimpleClient by SubscriptionClient and back, rename SimpleClient::stream to SimpleClient::subscribe
+
+commit 5148644f7a107eb2f3ca2b9499ed9638cbd40ece
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 12:38:31 2022 +0300
+
+    parse message in clear way, pass channel param to SubscriptionItem
+
+commit ccbc4bd40f1ca53bd0eaa2642e9a8845931541ad
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 10:22:56 2022 +0300
+
+    clear stream impl for OutputStream
+
+commit 28097254fc49bdeb0bb195238fc5a1bd58dbc7a7
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 10:17:48 2022 +0300
+
+    don't consume connection, unsubscribe command
+
+commit 6402c008be857d98959909779e0cbe6bbbff2272
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Tue Jun 28 23:02:40 2022 +0300
+
+    impl recv and poll_recv
+
+commit 3418e919b539404215ec9509d12e1d4d93790b9e
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Tue Jun 28 17:40:01 2022 +0300
+
+    pubsub initial support
+
+commit 074066af8ba776dc618c1f596daa37330dfcc886
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 4 15:49:05 2022 +0600
+
+    Add Keys command #4
+
+commit 874f06a2af4d7ed40d2898308d9e240ff2d1d62f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 3 13:11:56 2022 +0600
+
+    Add Clone trait impl to CommandError
+
+commit fe7e7b3d205cf41a94e190805cca396a5ef766fb
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 3 13:11:38 2022 +0600
+
+    upgrade itoa crate
+
+commit 645e5767fca386bdc8a9693db6e9967de6a84a49
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Jan 10 10:53:27 2022 +0600
+
+    Simplify connector type, drop .boxed_connector() method
+
+commit ecbaa7afa5f5d9d4ae2332476aa98efefb2e4f7f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Thu Dec 30 18:48:55 2021 +0600
+
+    Upgrade to ntex 0.5.0
+
+commit 6f98ff7d675da9a25c39d3523bf03380a7f53c5c
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 27 01:23:06 2021 +0600
+
+    upgrade to ntex 0.5-b.4
+
+commit 123241cc3d11b626a128068c2bd825eda4ec7fad
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Dec 25 12:43:49 2021 +0600
+
+    Add RedisConnector::boxed_connector()
+
+commit 3d4f68d7f0562792dbe42693ffb66f14db00cfbd
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 24 18:31:12 2021 +0600
+
+    prep release
+
+commit 70b1457f3df7de5a73168c6f70bdbc9f0425237e
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 24 11:28:14 2021 +0600
+
+    use new service trait
+
+commit 34fbc336bb1fe28dd4438d35eae1745202317311
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Dec 22 22:04:23 2021 +0600
+
+    prep release
+
+commit 19ec37a8991474e9484d5c4831794d8ab35d7922
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Dec 22 02:22:34 2021 +0600
+
+    update api usage
+
+commit ed9b887e12523845397fe238380201f3206fc488
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue Dec 21 18:50:07 2021 +0600
+
+    add boxed connector
+
+commit 7e10b7757dbc7cb0090c824e30c60f37baa64ed2
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue Dec 21 14:44:07 2021 +0600
+
+    Upgrade to ntex 0.5.0 b.2
+
+commit cd174263d2edd21650fdd55c805c93564ee77e27
+Merge: 412f5bb 41005e2
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 20 23:08:13 2021 +0600
+
+    Merge pull request #3 from ntex-rs/ntex-io
+    
+    upgrade to ntex 0.5
+
+commit 41005e26d37b2128e45f0469aa017cc5eb87002b
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 20 22:11:05 2021 +0600
+
+    fix loop
+
+commit 376b68656b1eca13bdc59f643b90f61b1d34ad6c
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 20 21:41:46 2021 +0600
+
+    update to 0.5.0-b.1
+
+commit 67a6850f95bf2e483027a0bb03a77b09bfe900e8
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun Dec 19 18:19:40 2021 +0600
+
+    fix connector definitions
+
+commit 43e69d1fedfc3dae9885a159d5c10cef703df796
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun Dec 19 18:03:49 2021 +0600
+
+    upgrade to ntex 0.5
+
+commit 412f5bb17802a356f43ffcc60671ad2fdf8c1516
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 3 00:04:22 2021 +0600
+
+    update msrv
+
+commit 02c49d81b88b744e92249eb37a297bf1ab065f10
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 3 00:00:06 2021 +0600
+
+    memory pools support
+
+commit 77e8aae7dcc1b0e5923c386a2e0e914cc9d39907
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Sep 3 00:41:20 2021 +0600
+
+    Fix panic during protocol decode
+
+commit cd8baa2249c6ac367743d5e1d3adbed311a989e6
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Aug 28 22:20:30 2021 +0600
+
+    update github action
+
+commit e15004d526f7e9cd319435ddc66955c9d88f6a5d
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Aug 28 21:35:28 2021 +0600
+
+    use new ntex's timer api
+
+commit a0e4fd5601d9b546b596dbe86a73baa7c44fe953
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Aug 20 15:50:28 2021 +0600
+
+    add Select and Ping commands
+
+commit b20c3258a520af4147a03bd2afe7991bc7a46e29
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun Jun 27 08:28:24 2021 +0600
+
+    Upgrade to ntex-0.4
+
+commit c3d969748d99a80e3c6bfa7eb107da1548487c03
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 5 15:03:05 2021 +0600
+
+    revert client changes
+
+commit c1ccfe7fc517ced98f14ff926d3302805c1c4f43
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 5 14:59:30 2021 +0600
+
+    prep release
+
+commit 631517c61d205b6c63834dc4a43d9ef46fd3e0fd
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon May 3 21:09:43 2021 +0600
+
+    cleanups
+
+commit 121af8ae1d1ae36b0b1d892a2702ddb9f6a948b7
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:31:44 2021 +0600
+
+    fmt
+
+commit 3c47f7c286f6510306e32c58c85d0f0bf0c8be9f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:25:14 2021 +0600
+
+    fix rustls
+
+commit 2227fbd9f6c238e7605fbc0c09b47d69ed136a96
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:23:44 2021 +0600
+
+    update msrv
+
+commit 84370aec6e6e57080935bb572f31627b6e50b48f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:21:15 2021 +0600
+
+    clippy
+
+commit a1144f43cfc1cf719c40c5fd3d531c0a881e3d86
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:15:54 2021 +0600
+
+    use ntex::framed for redis transports
+
+commit 9a184f427d2fa40dd6b9f6032a7ea5df2c201c2a
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Apr 3 23:06:58 2021 +0600
+
+    upgrade ntex, drop direct futures dependency
+
+commit 47f737a8e8f1aae3459647faa4806ff7ce8ae709
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 22:33:43 2021 +0600
+
+    tune gh action
+
+commit 7f5618396c80247856b8400272937908a7ccc5c9
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 22:27:02 2021 +0600
+
+    update doc tests
+
+commit 34ba6cd788e93d86d596f66bcbd45022f858dc92
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 19:54:56 2021 +0600
+
+    fix tests
+
+commit 8d608e58356636c626467c0678d24f3d5269c820
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 19:45:30 2021 +0600
+
+    prep release
+
+commit cdf15376098dbff5dede6f71afa88dd0a7254a46
+Merge: 483f336 329f290
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 19:20:47 2021 +0600
+
+    Merge pull request #2 from dpypin/more-commands
+    
+    More commands
+
+commit 329f29004ebc518dff1a18024d73bc867c9299d7
+Author: Dmitry Pypin <dmpypin@microsoft.com>
+Date:   Sat Feb 27 02:25:00 2021 -0800
+
+    Updated ntex to version 0.3.3
+
+commit 151380e43e738aba6caeb1eafd7d6eda8bc87b30
+Author: Dmitry Pypin <dmpypin@microsoft.com>
+Date:   Tue Feb 16 11:27:20 2021 -0800
+
+    Added features config and Client.is_connected()
+
+commit 74fe3f4b2af6192ac36c8c420ddb9f2a8427ce0e
+Author: Dmitry Pypin <dmpypin@microsoft.com>
+Date:   Fri Feb 5 13:19:53 2021 -0800
+
+    Added HGETALL, HINCRBY, INCRBY, EXPIRE, EXPIREAT, TTL commands
+
+commit 483f33631e870240f09f6cd2d2852d5569a72008
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Thu Jul 30 11:08:33 2020 +0600
+
+    update license
+
+commit d6f5611b67f339715cabd1b5065bb648294bd6f4
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 22:42:30 2020 +0600
+
+    add basic hashes commands
+
+commit 85e42dc8cc5eebcf8c9cf5d51151a47a1c0be960
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 16:14:14 2020 +0600
+
+    improve lpush commands
+
+commit 91881e53d626f1ec33b61948b160a69d3d938f69
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 15:58:30 2020 +0600
+
+    update readme
+
+commit aeaf71c54e349f185840e28e6c0657138528fc02
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:30:28 2020 +0600
+
+    fix codecov link
+
+commit 20734541a4257a803595b02a9adc00725ce33fee
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:26:52 2020 +0600
+
+    add example
+
+commit 341b131122a008b5752e234cf61b26c303cd540e
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:19:31 2020 +0600
+
+    api doc
+
+commit d65985a302a845cd57abe0204dbad4f8c5b02332
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:04:25 2020 +0600
+
+    add basic keys and lists commands
+
+commit b20b6b15e461a201317df370487fa3da55e9acbe
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 12:43:44 2020 +0600
+
+    add simple client; refactor redis request
+
+commit 49b9c16ff85617fc3dce77ca5d43b2292799b176
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 15:21:18 2020 +0600
+
+    disable coverage for tests
+
+commit 759c6ed948f016659abf077c5b3b106f8926906f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 15:00:01 2020 +0600
+
+    add basic example; add impl Error for all errors
+
+commit 328ac300a3f3d316530678650af978eb3e03bd48
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 14:45:16 2020 +0600
+
+    add tests
+
+commit 027bed0f43b63e06fa58258c84d169fd7d22a17f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 10:50:12 2020 +0600
+
+    implement cmd and client
+
+commit 70509f5d3ef4fc900942d6eedaee507e29f29eb4
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun May 24 13:08:56 2020 +0600
+
+    use Bytes repr for string variables
+
+commit 29046f3613456f938ebc88f00f3e9186f3d75c3c
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun May 24 03:15:19 2020 +0600
+
+    disable osx and windows ci
+
+commit b67351a0c518f4e6ddd80ed3b2f83f35ba4a79ee
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun May 24 03:05:46 2020 +0600
+
+    add redis protcol codec
+
+commit c1e10aaef7b6ab97fb09d7e4d7fa499d1144a671
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat May 23 23:10:55 2020 +0600
+
+    initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 621df2cc75fa662dcb72f08b06b58abfb4a769da
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Thu Jul 7 09:34:51 2022 +0300
+
+    MSRV up to 1.55.0
+
+commit faff0a13a0e6504444f7ea1a940a025f03d563c7
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Thu Jul 7 09:29:37 2022 +0300
+
+    use redis:7.0.2
+
+commit c7da01943d014a0b489da6302465cee6a48f0b46
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jul 6 21:24:35 2022 +0300
+
+    cleanup
+
+commit d52f4ed1f1af02a35c2eef116963766f29f16cd2
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Sat Jul 2 15:30:23 2022 +0300
+
+    remove return
+
+commit 8c487be3b8b84103c4ce70f9ebd4f6b19fc356c9
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Sat Jul 2 15:25:09 2022 +0300
+
+    support subscribe/unsubscribe to multimple channels, added ssubscribe/sunsubscribe and psubsribe/punsubscribe
+
+commit ebf070b0dc9184abcbcf113714232556b0b322cb
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Fri Jul 1 09:31:16 2022 +0300
+
+    remove unwrap() on SimpleClient::exec
+
+commit 0142f8fe92222133915a917e0361f4c067a13e27
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 21:25:13 2022 +0300
+
+    Reset command, and docs how to get regular client
+
+commit 09aa4f93aa8b46cbf7316cf0885fe79e22c0859f
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 14:42:33 2022 +0300
+
+    rename OutputStream to SubscriptionClient, consume SimpleClient by SubscriptionClient and back, rename SimpleClient::stream to SimpleClient::subscribe
+
+commit 5148644f7a107eb2f3ca2b9499ed9638cbd40ece
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 12:38:31 2022 +0300
+
+    parse message in clear way, pass channel param to SubscriptionItem
+
+commit ccbc4bd40f1ca53bd0eaa2642e9a8845931541ad
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 10:22:56 2022 +0300
+
+    clear stream impl for OutputStream
+
+commit 28097254fc49bdeb0bb195238fc5a1bd58dbc7a7
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Wed Jun 29 10:17:48 2022 +0300
+
+    don't consume connection, unsubscribe command
+
+commit 6402c008be857d98959909779e0cbe6bbbff2272
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Tue Jun 28 23:02:40 2022 +0300
+
+    impl recv and poll_recv
+
+commit 3418e919b539404215ec9509d12e1d4d93790b9e
+Author: Evgeniy Tatarkin <tatarkin.evg@gmail.com>
+Date:   Tue Jun 28 17:40:01 2022 +0300
+
+    pubsub initial support
+
+commit 074066af8ba776dc618c1f596daa37330dfcc886
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 4 15:49:05 2022 +0600
+
+    Add Keys command #4
+
+commit 874f06a2af4d7ed40d2898308d9e240ff2d1d62f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 3 13:11:56 2022 +0600
+
+    Add Clone trait impl to CommandError
+
+commit fe7e7b3d205cf41a94e190805cca396a5ef766fb
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 3 13:11:38 2022 +0600
+
+    upgrade itoa crate
+
+commit 645e5767fca386bdc8a9693db6e9967de6a84a49
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Jan 10 10:53:27 2022 +0600
+
+    Simplify connector type, drop .boxed_connector() method
+
+commit ecbaa7afa5f5d9d4ae2332476aa98efefb2e4f7f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Thu Dec 30 18:48:55 2021 +0600
+
+    Upgrade to ntex 0.5.0
+
+commit 6f98ff7d675da9a25c39d3523bf03380a7f53c5c
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 27 01:23:06 2021 +0600
+
+    upgrade to ntex 0.5-b.4
+
+commit 123241cc3d11b626a128068c2bd825eda4ec7fad
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Dec 25 12:43:49 2021 +0600
+
+    Add RedisConnector::boxed_connector()
+
+commit 3d4f68d7f0562792dbe42693ffb66f14db00cfbd
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 24 18:31:12 2021 +0600
+
+    prep release
+
+commit 70b1457f3df7de5a73168c6f70bdbc9f0425237e
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 24 11:28:14 2021 +0600
+
+    use new service trait
+
+commit 34fbc336bb1fe28dd4438d35eae1745202317311
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Dec 22 22:04:23 2021 +0600
+
+    prep release
+
+commit 19ec37a8991474e9484d5c4831794d8ab35d7922
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Dec 22 02:22:34 2021 +0600
+
+    update api usage
+
+commit ed9b887e12523845397fe238380201f3206fc488
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue Dec 21 18:50:07 2021 +0600
+
+    add boxed connector
+
+commit 7e10b7757dbc7cb0090c824e30c60f37baa64ed2
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue Dec 21 14:44:07 2021 +0600
+
+    Upgrade to ntex 0.5.0 b.2
+
+commit cd174263d2edd21650fdd55c805c93564ee77e27
+Merge: 412f5bb 41005e2
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 20 23:08:13 2021 +0600
+
+    Merge pull request #3 from ntex-rs/ntex-io
+    
+    upgrade to ntex 0.5
+
+commit 41005e26d37b2128e45f0469aa017cc5eb87002b
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 20 22:11:05 2021 +0600
+
+    fix loop
+
+commit 376b68656b1eca13bdc59f643b90f61b1d34ad6c
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon Dec 20 21:41:46 2021 +0600
+
+    update to 0.5.0-b.1
+
+commit 67a6850f95bf2e483027a0bb03a77b09bfe900e8
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun Dec 19 18:19:40 2021 +0600
+
+    fix connector definitions
+
+commit 43e69d1fedfc3dae9885a159d5c10cef703df796
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun Dec 19 18:03:49 2021 +0600
+
+    upgrade to ntex 0.5
+
+commit 412f5bb17802a356f43ffcc60671ad2fdf8c1516
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 3 00:04:22 2021 +0600
+
+    update msrv
+
+commit 02c49d81b88b744e92249eb37a297bf1ab065f10
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Dec 3 00:00:06 2021 +0600
+
+    memory pools support
+
+commit 77e8aae7dcc1b0e5923c386a2e0e914cc9d39907
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Sep 3 00:41:20 2021 +0600
+
+    Fix panic during protocol decode
+
+commit cd8baa2249c6ac367743d5e1d3adbed311a989e6
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Aug 28 22:20:30 2021 +0600
+
+    update github action
+
+commit e15004d526f7e9cd319435ddc66955c9d88f6a5d
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Aug 28 21:35:28 2021 +0600
+
+    use new ntex's timer api
+
+commit a0e4fd5601d9b546b596dbe86a73baa7c44fe953
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Fri Aug 20 15:50:28 2021 +0600
+
+    add Select and Ping commands
+
+commit b20c3258a520af4147a03bd2afe7991bc7a46e29
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun Jun 27 08:28:24 2021 +0600
+
+    Upgrade to ntex-0.4
+
+commit c3d969748d99a80e3c6bfa7eb107da1548487c03
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 5 15:03:05 2021 +0600
+
+    revert client changes
+
+commit c1ccfe7fc517ced98f14ff926d3302805c1c4f43
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 5 14:59:30 2021 +0600
+
+    prep release
+
+commit 631517c61d205b6c63834dc4a43d9ef46fd3e0fd
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Mon May 3 21:09:43 2021 +0600
+
+    cleanups
+
+commit 121af8ae1d1ae36b0b1d892a2702ddb9f6a948b7
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:31:44 2021 +0600
+
+    fmt
+
+commit 3c47f7c286f6510306e32c58c85d0f0bf0c8be9f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:25:14 2021 +0600
+
+    fix rustls
+
+commit 2227fbd9f6c238e7605fbc0c09b47d69ed136a96
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:23:44 2021 +0600
+
+    update msrv
+
+commit 84370aec6e6e57080935bb572f31627b6e50b48f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:21:15 2021 +0600
+
+    clippy
+
+commit a1144f43cfc1cf719c40c5fd3d531c0a881e3d86
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Apr 21 23:15:54 2021 +0600
+
+    use ntex::framed for redis transports
+
+commit 9a184f427d2fa40dd6b9f6032a7ea5df2c201c2a
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat Apr 3 23:06:58 2021 +0600
+
+    upgrade ntex, drop direct futures dependency
+
+commit 47f737a8e8f1aae3459647faa4806ff7ce8ae709
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 22:33:43 2021 +0600
+
+    tune gh action
+
+commit 7f5618396c80247856b8400272937908a7ccc5c9
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 22:27:02 2021 +0600
+
+    update doc tests
+
+commit 34ba6cd788e93d86d596f66bcbd45022f858dc92
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 19:54:56 2021 +0600
+
+    fix tests
+
+commit 8d608e58356636c626467c0678d24f3d5269c820
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 19:45:30 2021 +0600
+
+    prep release
+
+commit cdf15376098dbff5dede6f71afa88dd0a7254a46
+Merge: 483f336 329f290
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed Mar 10 19:20:47 2021 +0600
+
+    Merge pull request #2 from dpypin/more-commands
+    
+    More commands
+
+commit 329f29004ebc518dff1a18024d73bc867c9299d7
+Author: Dmitry Pypin <dmpypin@microsoft.com>
+Date:   Sat Feb 27 02:25:00 2021 -0800
+
+    Updated ntex to version 0.3.3
+
+commit 151380e43e738aba6caeb1eafd7d6eda8bc87b30
+Author: Dmitry Pypin <dmpypin@microsoft.com>
+Date:   Tue Feb 16 11:27:20 2021 -0800
+
+    Added features config and Client.is_connected()
+
+commit 74fe3f4b2af6192ac36c8c420ddb9f2a8427ce0e
+Author: Dmitry Pypin <dmpypin@microsoft.com>
+Date:   Fri Feb 5 13:19:53 2021 -0800
+
+    Added HGETALL, HINCRBY, INCRBY, EXPIRE, EXPIREAT, TTL commands
+
+commit 483f33631e870240f09f6cd2d2852d5569a72008
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Thu Jul 30 11:08:33 2020 +0600
+
+    update license
+
+commit d6f5611b67f339715cabd1b5065bb648294bd6f4
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 22:42:30 2020 +0600
+
+    add basic hashes commands
+
+commit 85e42dc8cc5eebcf8c9cf5d51151a47a1c0be960
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 16:14:14 2020 +0600
+
+    improve lpush commands
+
+commit 91881e53d626f1ec33b61948b160a69d3d938f69
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 15:58:30 2020 +0600
+
+    update readme
+
+commit aeaf71c54e349f185840e28e6c0657138528fc02
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:30:28 2020 +0600
+
+    fix codecov link
+
+commit 20734541a4257a803595b02a9adc00725ce33fee
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:26:52 2020 +0600
+
+    add example
+
+commit 341b131122a008b5752e234cf61b26c303cd540e
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:19:31 2020 +0600
+
+    api doc
+
+commit d65985a302a845cd57abe0204dbad4f8c5b02332
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 14:04:25 2020 +0600
+
+    add basic keys and lists commands
+
+commit b20b6b15e461a201317df370487fa3da55e9acbe
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Wed May 27 12:43:44 2020 +0600
+
+    add simple client; refactor redis request
+
+commit 49b9c16ff85617fc3dce77ca5d43b2292799b176
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 15:21:18 2020 +0600
+
+    disable coverage for tests
+
+commit 759c6ed948f016659abf077c5b3b106f8926906f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 15:00:01 2020 +0600
+
+    add basic example; add impl Error for all errors
+
+commit 328ac300a3f3d316530678650af978eb3e03bd48
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 14:45:16 2020 +0600
+
+    add tests
+
+commit 027bed0f43b63e06fa58258c84d169fd7d22a17f
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Tue May 26 10:50:12 2020 +0600
+
+    implement cmd and client
+
+commit 70509f5d3ef4fc900942d6eedaee507e29f29eb4
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun May 24 13:08:56 2020 +0600
+
+    use Bytes repr for string variables
+
+commit 29046f3613456f938ebc88f00f3e9186f3d75c3c
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun May 24 03:15:19 2020 +0600
+
+    disable osx and windows ci
+
+commit b67351a0c518f4e6ddd80ed3b2f83f35ba4a79ee
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sun May 24 03:05:46 2020 +0600
+
+    add redis protcol codec
+
+commit c1e10aaef7b6ab97fb09d7e4d7fa499d1144a671
+Author: Nikolay Kim <fafhrd91@gmail.com>
+Date:   Sat May 23 23:10:55 2020 +0600
+
+    initial commit

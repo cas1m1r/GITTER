@@ -1,0 +1,142 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+Alpha Toolkit
+==========
+
+### Presentation 
+* Botnets of the Web - How to Hijack One
+
+### Slides
+* http://www.slideshare.net/HansMichaelVarbaek/botnets-of-the-web-how-to-hijack-one
+
+### Demo
+* https://www.youtube.com/playlist?list=PLIjb28IYMQgqWSjVFsSTT5QY_gPYoynxh
+
+Requirements
+------------
+* php5-cli (For bwall's decoder used with `scraper.py`)
+
+Installation notes
+------------------
+* statis.py & rsser.py:
+
+`pip install feedparser`
+
+* scraper.py: 
+
+`pip install requests`
+`pip install beautifulsoup4`
+`pip install python-magic`
+
+### Tested on:
+* Python 2.7.3
+* Kali-Linux
+
+Directories
+------------
+* botConfiguration: Output directory for `rsser.py`
+* bwalldecoder: Used to decode scraped payloads locally with `scraper.py`
+* raw: Raw payloads found by `scraper.py`
+* output: Directory used by `logscraper.sh`
+* statisDir: Directory used by `statis.py`
+* sorted: Directory where gunzipped payloads are stored after mime-check by `scraper.py`
+* decoded: Directory where decoded payloads are stored by `scraper.py`
+
+Tools
+-----
+* `./logscraper.sh` - Shell script which parses Apache access.log's
+* `./statis.py` - Python script that collects all the publish dates in the BallastSec bot RSS feeds.
+* `./rsser.py` - Python scripts that collects and decodes all botnet configurations in BallastSec bot RSS feeds.
+* `./scraper.py` - Python script that scrapes the website at BallastSec and saves the payloads locally (a check is done first). Gunzips the payloads, checks the mime-type of the payload and stores it in an appropriate directory (sorted/known-mime-type). Unzips known good mime-types (i.e. not archives). Cleans up after itself.
+* `./bwalldecoder/Decoder/haxx.php` Accepts a file via CLI and returns the decoded contents only.
+* `./findpBots.sh` Finds pBots in the decoded directory.
+* `./findRA1NX.sh` Finds RA1NX bots in the decoded directory.
+
+Developed by
+------------
+* Hans-Michael Varbaek
+
+Code design
+-----------
+* Spaghetti
+* Modify-on-the-fly
+* As-long-as-it-works====================== GIT HISTORY: ======================
+d539d56 HEAD@{0}: clone: from https://github.com/Varbaek/alpha-toolkit
+commit d539d568149fb7cca54c73bda8c4775e2417f3bd
+Merge: 2b6d6dd b2f243c
+Author: Varbaek <Varbaek@users.noreply.github.com>
+Date:   Thu Nov 14 23:48:45 2013 +1100
+
+    First release
+
+commit 2b6d6dd244da0bc5f07b33df0dced7052ddbe2aa
+Author: Varbaek <Varbaek@users.noreply.github.com>
+Date:   Thu Nov 14 23:46:13 2013 +1100
+
+    First release
+
+commit 4ebe4c67924050c6b8331d008611d0eb9e24e1dd
+Author: Varbaek <Varbaek@users.noreply.github.com>
+Date:   Thu Nov 14 23:21:45 2013 +1100
+
+    First release
+
+commit b2f243cf8b641d0e60950e30bc951aa8ddad7b7d
+Author: Hans-Michael Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 21:05:56 2013 +1100
+
+    Update README.md
+
+commit 01570c59e918b1d617f8f051dafcd0c1502118fb
+Author: Hans-Michael Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 21:00:16 2013 +1100
+
+    Update README.md
+
+commit dd48be5813b0d9bfae4326b129b6a2e8fa83070a
+Author: Hans-Michael Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 20:59:12 2013 +1100
+
+    Update README.md
+
+commit 984e5b7ba0896ba421d6329bba056c48e3129b51
+Author: Hans-Michael Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 20:58:34 2013 +1100
+
+    Update README.md
+
+commit cfd6cc4b868bd9d692711d10ce74600ddefc36bb
+Author: Hans-Michael Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 20:58:08 2013 +1100
+
+    Update README.md
+
+commit c6bffcf5d3063812cdc0c3c46b0da2d613dc0e66
+Author: Hans-Michael Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 20:57:58 2013 +1100
+
+    Update README.md
+
+commit 06964ef8ed3ff356edbb5a2ed0402d68b29f0096
+Author: Hans-Michael Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 20:57:37 2013 +1100
+
+    Updated with links to slides and demo videos.
+
+commit 3f573bbb8cc44f26fad2083f207dbab0e9810580
+Author: Varbaek <Varbaek@users.noreply.github.com>
+Date:   Tue Nov 12 19:58:42 2013 +1100
+
+    First remote commit
+
+commit 78f0847ef41d35d733b503286dc15da4fc932f70
+Author: Varbaek <hansv@senseofsecurity.com.au>
+Date:   Tue Nov 12 19:38:30 2013 +1100
+
+    License Updated to Attribution-ShareAlike 3.0 Unported
+
+commit c6ecc2a1fdc18f093bf989498f834ed3781e27b8
+Author: Varbaek <hansv@senseofsecurity.com.au>
+Date:   Tue Nov 12 00:36:17 2013 -0800
+
+    Initial commit

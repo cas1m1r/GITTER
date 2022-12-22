@@ -1,0 +1,236 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center">
+<img src="https://github.com/ExtremeHacking/infinityhacks-botnet/blob/master/assets/webpublic/logo.png" height="60"><br>
+A cloud based remote android managment suite, powered by NodeJS
+</p>
+
+
+
+## Features
+- GPS Logging
+- Microphone Recording
+- View Contacts
+- SMS Logs
+- Send SMS
+- Call Logs
+- View Installed Apps
+- View Stub Permissions
+- Live Clipboard Logging
+- Live Notification Logging
+- View WiFi Networks (logs previously seen)
+- File Explorer & Downloader
+- Command Queuing
+- Built In APK Builder
+- Auto Allow Permission
+
+## Prerequisites 
+ - Java Runtime Environment 8
+    - See [installation](#Installation) for OS specifics
+ - NodeJs 
+ - A Server
+
+## Installation 
+1. Install JRE 8 
+    - Debian, Ubuntu, Etc
+        - `sudo apt-get install openjdk-8-jre`
+    - Fedora, Oracle, Red Hat, etc
+        -  `su -c "yum install java-1.8.0-openjdk"`
+    - Windows 
+        - click [HERE](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) for downloads
+
+2. Install NodeJS [Instructions Here](https://nodejs.org/en/download/package-manager/) (If you can't figure this out, you shouldn't really be using this)
+
+3. install PM2 
+    - `npm install pm2 -g`
+
+4. Download and Extract [HERE](https://codeload.github.com/ExtremeHacking/infinityhacks-botnet/zip/master)
+
+5. In the extracted folder, run these commands
+    - `npm install` <- install dependencies
+    - `pm2 start index.js` <-- start the script
+    - `pm2 startup` <- to run botnet on startup
+
+6. Default Username & Password
+    - Username: admin
+    - Password: admin
+    
+7. Set Username & Password Manually  
+    1. Stop botnet `pm2 stop index`
+    2. Open `maindb.json` in a text editor
+    3. under `admin` 
+        - set the `username` as plain text
+        - set the `password` as a LOWERCASE MD5 hash
+    4. save the file
+    5. run `pm2 restart all`
+
+8. in your browser navigate to `http://<SERVER IP>:22533`
+    
+It's recommended to run botnet behind a reverse proxy such as [NGINX](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+
+## Watch Practical Video
+https://www.youtube.com/watch?v=Q8tej2ey33c
+
+## Disclaimer
+<b>Infinityhacks Botnet Provides no warranty with this software and will not be responsible for any direct or indirect damage caused due to the usage of this tool.<br>
+Infinityhacks Botnet is built for both Educational and Internal use ONLY.</b>
+
+<br>
+<p align="center">Made By <a href="//infinityhacks.net">Prashant Asoliya</a></p>     
+<p align="center" style="font-size: 8px">v1.1.0</p>
+
+Inspired by L3MON (https://github.com/D3VL/L3MON)
+====================== GIT HISTORY: ======================
+2f341fb HEAD@{0}: clone: from https://github.com/05t3/infinityhacks-botnet
+commit 2f341fb69fa20173ca378f121bfb61854055b195
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 18:28:36 2020 +0530
+
+    Update README.md
+
+commit 014f915ef93ac0b64a7e0b560bd7b68df3cb7bf3
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 18:27:27 2020 +0530
+
+    Update README.md
+
+commit 2a2015817232b7b98ed3e62053cdc7d7bf8df358
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 03:11:08 2020 +0530
+
+    infinityhacks
+
+commit b37e6af92da543853027aa1cd4bc15f3d576eb6c
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 02:05:27 2020 +0530
+
+    Update README.md
+
+commit afb7e310d7b7a6b7a8ec2d5743533bf580bd0ec6
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 02:04:29 2020 +0530
+
+    Update README.md
+
+commit 96384ca769fbf3606855c5f40f1cf983aeb5e054
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 02:03:06 2020 +0530
+
+    Update README.md
+
+commit e9952414d7d63889ee289c7a2034593efc4ebea3
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:57:49 2020 +0530
+
+    Update README.md
+
+commit 6cfd8764a8e24e0fd51548c5d54a2f77730e2c82
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:56:56 2020 +0530
+
+    Update README.md
+
+commit 04fef373a870f070e4ce3cfb3fc543fec52c670c
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:53:31 2020 +0530
+
+    Update README.md
+
+commit a8299eabe43937532398a6801dd4b49e5bb3f6f3
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:52:13 2020 +0530
+
+    Update README.md
+
+commit 7cd002e8dfd60a0e64abd07722f7457bb73cb869
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:51:46 2020 +0530
+
+    Update README.md
+
+commit e46a1770ccc5983ac661724cec611b629d540898
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:49:09 2020 +0530
+
+    Update README.md
+
+commit fe9456a73f9923d4f89fd6627eb115379d8f71e4
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:46:43 2020 +0530
+
+    Update README.md
+
+commit 472d3fe6fe719bf2f5d238f8b125f57cefa4d179
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:41:10 2020 +0530
+
+    Update README.md
+
+commit 0faa1356c80ad265f73bd52ebf52ab53ea1d06fc
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:35:30 2020 +0530
+
+    Update README.md
+
+commit 92ee30099d17c4b794e5a91b9114af8d55ae044a
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:33:36 2020 +0530
+
+    Update README.md
+
+commit 6085137b29f26768ca5127c294d93536d2e32821
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:31:39 2020 +0530
+
+     botnet
+
+commit a0b7073b593f5eefe6a718c6fd4d614116379d19
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:27:33 2020 +0530
+
+    Create README.md
+
+commit 3a09a299e5fcaa4aa3fb4457eed706d39a611bde
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:27:02 2020 +0530
+
+    infinityhacks botnet
+
+commit 67d4413f3982bf7deae92e57890459e7006cf3d5
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:22:52 2020 +0530
+
+    infinityhacks botnet
+
+commit 7e1fdf2422ba810ac09bea3289f5e8380b63e48e
+Merge: 144841f 1abc8a9
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:22:27 2020 +0530
+
+    Merge branch 'master' of https://github.com/ExtremeHacking/infinityhacks-botnet
+
+commit 144841fd20ecc5cc60902696b97b46c4534a37c5
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:15:11 2020 +0530
+
+    Infinityhacks botnet
+    
+    Infinityhacks botnet
+
+commit 1abc8a96e19bb41f1f946387b27945e074b61ae4
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:11:07 2020 +0530
+
+    Add files via upload
+
+commit ec4426797163dfc0768c55767ade21494f3812dd
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 01:09:39 2020 +0530
+
+    Add files via upload
+
+commit df063cbc23e1de65008b1e7d480be0fd057c0069
+Author: Extreme Hacking <62741019+ExtremeHacking@users.noreply.github.com>
+Date:   Sun Mar 29 00:46:44 2020 +0530
+
+    Initial commit

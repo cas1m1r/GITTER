@@ -1,0 +1,1856 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 74effad0b30afeafe601181d0d794e5d2c07c431
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Oct 11 21:11:43 2022 -0400
+
+    Update VirtualListView.csproj
+
+commit a133d42c102e576d67f590385db53d18cefdd490
+Author: redth <jondick@gmail.com>
+Date:   Fri Aug 5 14:07:24 2022 -0400
+
+    Build nuget
+
+commit cba7fb5f3b91760651980890840c7f32bbafb086
+Author: redth <jondick@gmail.com>
+Date:   Sat May 21 08:20:19 2022 -0400
+
+    iOS Fixes
+
+commit 92a115f6a6850675e5b8171e7eeed5e78d8a7f02
+Author: redth <jondick@gmail.com>
+Date:   Thu May 19 21:35:26 2022 -0400
+
+    Fix iOS selection
+
+commit 2766423096ebd6a20036bc9a29dc2bf819e85a3d
+Author: redth <jondick@gmail.com>
+Date:   Thu May 19 17:23:08 2022 -0400
+
+    More cleanup, work around selected items
+
+commit 5b0261c6611f2d23d6fa08d8a28e3abb1af3073d
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 17:26:41 2022 -0400
+
+    Delete Info.plist
+
+commit 11d9e4b584121d1a6ca000d218490bb86512710e
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 17:20:38 2022 -0400
+
+    Invalidate less
+    
+    Bugs were fixed, this is not necessary now
+
+commit f4b0617247965440cca5a23adab149e587406a6b
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 17:07:41 2022 -0400
+
+    Fix sample main cell to show track again
+
+commit c7ef854e01ce2859d936b31a449517a1ce6b0969
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 16:57:33 2022 -0400
+
+    Fix windows not refreshing items when scrolling
+
+commit e11fe9865f4c5f6ba2381effe40ce8926ce50f40
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 16:57:19 2022 -0400
+
+    Fix upstream api changes for MAUI GA
+
+commit 640dde46927ed0a79c7f850939dc3515ac739d69
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 16:56:43 2022 -0400
+
+    Include ios/maccat in a way compatible with the IDE
+
+commit ddce32a518bfa5f43843c331e26ed9fa790c8040
+Author: redth <jondick@gmail.com>
+Date:   Tue May 17 21:49:21 2022 -0400
+
+    Clean up iOS/MacCatalyst
+
+commit e0d18e434ceea761bf97fc30bb4dbf4ccce8e202
+Author: redth <jondick@gmail.com>
+Date:   Tue May 17 21:47:29 2022 -0400
+
+    Sample updates for GA
+
+commit 6ce87f0be36e09b8d737f91bfa4c9d354fffd694
+Author: redth <jondick@gmail.com>
+Date:   Tue May 17 21:46:13 2022 -0400
+
+    Support vscode debug with comet ext
+
+commit c2dfbc217b4c27f3163cb07d4188483f0d5125a8
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:32:09 2022 -0500
+
+    DataTemplate inflation being finicky
+
+commit 7ab28a36b84028a46058030fe49197be0a051b07
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:27:39 2022 -0500
+
+    Recycle view when clicked
+
+commit e5dadfbb1e0ff8fef3c933c60986a47844d7fa64
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:26:31 2022 -0500
+
+    Template wasn't loading in winui
+    
+    The Xaml Reader needs all assemblies it requires loaded before you use it, and apparently the order changed such that Microsoft.WinUI wasn't loaded already anymore, so let's manually load it.
+
+commit cdcdbe28219db8d4f2670a8b2885f020585c4556
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:25:43 2022 -0500
+
+    Make virtual cell a content view
+
+commit 90a1e744bf8e43df0a725dc9480aaa5603e62a38
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:25:28 2022 -0500
+
+    Code cleanup
+
+commit 70dd18886033858f5dc8c3f5abf7717dd97ad44c
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:24:45 2022 -0500
+
+    Clean up projects a bit for latest MAUI
+
+commit c17b6a0e959d5cafd445b540e30d620944361d58
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:24:28 2022 -0500
+
+    Make launch profile Windows
+
+commit 21fe4a72294af11f18a28ce8be0520d0c64c0280
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:24:20 2022 -0500
+
+    Make database static to survive android activity cycles
+    
+    When using layout inspector it likes to do this
+
+commit ac3364033e7affc0fc1449496a4f26a92227d3ec
+Author: Redth <jondick@gmail.com>
+Date:   Wed Dec 1 22:32:01 2021 -0500
+
+    Updates for MAUI Preview11
+
+commit fcb95f592db9c97a875af944563ebcf9bd93a30e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Sep 27 17:12:19 2021 -0400
+
+    Simpler LRUCache
+
+commit 0d3c643dd9d6c53113b4b647916f638ec2d6760b
+Merge: 9877abf f1e1464
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:49:54 2021 -0400
+
+    Merge branch 'main' of https://github.com/Redth/Maui.VirtualListView into main
+
+commit 9877abf297471a38ddc0625e2c0a8e68f3b05f90
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:49:53 2021 -0400
+
+    White bg to cell for ios
+
+commit fad5fc2b61f97a8a0fed4a8920d96cac4677f4e4
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:49:48 2021 -0400
+
+    Split up positional view selector and add lrucache
+    
+    This adds an LRUCache for position info so that lookups for items within reasonable scroll offset ranges are faster (especially around things like selecting/deselecting items, or looking up if items should be selectable).
+
+commit f3ed99aa4d80b96c99741f479766e76912fb10af
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:48:22 2021 -0400
+
+    Cleanup
+
+commit c712cd0653459bd719671c9f460a546e4b4d1c33
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:47:28 2021 -0400
+
+    Clean up projects for rc1
+
+commit 579ef78270c47202aef05c21fbf9bf357137521e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Thu Sep 2 19:41:33 2021 -0400
+
+    Create NuGet.config
+
+commit f1e146401d2f900c0497b50381d55204bcf8c7ab
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 16:05:07 2021 -0400
+
+    Clean up mapping, winui orientation
+
+commit aa57ff52b4eb22fdbdf623b8ad742233111c247b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 14:04:38 2021 -0400
+
+    Use MauiAppBuilder for extension method
+
+commit 6c130861741ecbd9df2abe690991e0bba7c33595
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 14:04:29 2021 -0400
+
+    Fix mapping for orientation on android
+
+commit 7da11eec7a146000ab424b9b1dcb9f98a0d79cbd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 14:04:20 2021 -0400
+
+    Use now public VisualDiagnostics API's
+
+commit 3bb3eafd1f2d214cdd54c4de28ea2bdd28f66469
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 13:47:02 2021 -0400
+
+    Add orientation to windows
+
+commit f18fb25718b4d4cf3fa7b5ca4932b03e0b57d509
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 13:46:42 2021 -0400
+
+    Update for MAUI changes
+
+commit 7d716a1fbeefa2170f483873584fcb712c0c8eac
+Merge: e78aab4 83f72b6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sun Aug 22 09:02:30 2021 -0400
+
+    Merge pull request #1 from Redth/maui
+    
+    Switch to MAUI support as primary
+
+commit 83f72b6ad913416031c9095954411f0eb92a29e3
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Aug 22 09:01:25 2021 -0400
+
+    Horizontal support for iOS/Android
+
+commit ef91f640d3a8050fdeec6c6cdc6e3609115aa051
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:41:51 2021 -0400
+
+    Somehow this fixes datatemplates for now
+
+commit 23dd9b0f990b0849c60041250e88fe3f53990c2d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:15:42 2021 -0400
+
+    Remove unused template
+
+commit 09adabf502db6e27c01ce0446a5ae17d312aadb6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:15:29 2021 -0400
+
+    Windows!
+
+commit 9db9fe034fd39119d05a401c221cfb0ce57c0f86
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:14:12 2021 -0400
+
+    Refactor the view callbacks, add visual tree support
+
+commit fb3c8c6df96344c750b2c564852e99eb8aa6ac1e
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:44:54 2021 -0400
+
+    No special file needed for windows now
+
+commit 0c49044845d9980d3396e5318c8f21e09b52ac86
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:44:43 2021 -0400
+
+    Bring windows into single proj
+
+commit 90630822fab61a32a9336529c2ab23c8e7a2a702
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:44:04 2021 -0400
+
+    Fix double nested virtual view cell
+
+commit 93574baf19a3d533ff015635cc5d0ccdefaa8aae
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:43:20 2021 -0400
+
+    Remove old winui project
+
+commit 204818cb347c62cc046e0b2d4de1776f073aa4bf
+Merge: 2a4a99a 4a563f3
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 23:12:06 2021 -0400
+
+    Merge branch 'maui' of https://github.com/Redth/Maui.VirtualListView into maui
+
+commit 2a4a99ab7ff0dcf8f16e553dd1d879cc152cc9a4
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 23:12:04 2021 -0400
+
+    Make catalyst work
+
+commit 4a563f30b7ee1cb1d062c07563fc667bed18d431
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 23:00:07 2021 -0400
+
+    Update README.md
+
+commit 5bc5d4db2af1aea9c770f266f70e791e43afa9e6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 22:25:13 2021 -0400
+
+    Fixup recycle on other platforms
+
+commit c8cbd16914171fee988a07df1844983cf162f7fd
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 22:18:27 2021 -0400
+
+    Use create/recycle/getreuseid pattern
+
+commit a41318e0f6fcda62cad2cd5acb3226fdf37608eb
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 17:12:29 2021 -0400
+
+    Selected/Deselected mappings
+
+commit dbbf730dad1e906c0abb75d40476733ec4cb16ef
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 13:31:18 2021 -0400
+
+    Cleanup debug writeline
+
+commit d5bff2fe01f5bbbd6e5b1ac5b291df39c2509c63
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 13:23:40 2021 -0400
+
+    Comment out some windows WIP
+
+commit 2457b1e7fcae3f9d8fa7547280b011b12fc5d725
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 13:20:04 2021 -0400
+
+    Ensure apple files are seen in IDE
+
+commit 7a65ae307ef7921dcb30749d7bcc2d1b436d46cf
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 13:04:51 2021 -0400
+
+    Fix up templates and selector
+
+commit 9b532da9627f86495e73d9c62d9776c4b35a73a1
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 12:44:23 2021 -0400
+
+    Fix adapter invalidation call from Controls
+
+commit e54b04b7af9aa9c9aff0986fc7cec19c0d065904
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 09:18:49 2021 -0400
+
+    Update README.md
+
+commit 47bc0404845d44bd90239d8e48060e49a25f6b05
+Merge: 5c7047f ec5a038
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 09:14:03 2021 -0400
+
+    Merge branch 'maui' of https://github.com/Redth/Xamarin.Forms.VirtualListView into maui
+
+commit 5c7047fd2b7d466aeb5c8b2ba4979185c4fab809
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 09:13:57 2021 -0400
+
+    Some windows things
+
+commit ec5a03862f9faff3e1267f7ef384ef7dce76b834
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Aug 15 13:43:41 2021 -0400
+
+    Fix layout issues in container
+
+commit 3c38285947b38b8d32c27b3291320146186c3d33
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 21:12:44 2021 -0400
+
+    SizeToFit sorta helps
+
+commit 988c40a8666503bf1470e9b6440a6c34ccd0984a
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 21:12:30 2021 -0400
+
+    Cache iOS version
+
+commit abe1ca82605d32b91fbb64da9b5f5814c579c8c9
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:48:14 2021 -0400
+
+    Fix bug where CV was recreated
+
+commit 31bf952f130e5d75a08cd7d45bd525a7953a7605
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:48:04 2021 -0400
+
+    Cleanup, use fields directly
+
+commit 50576198bee0f941615668c5a1e284a7795f335a
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:47:44 2021 -0400
+
+    Cleanup
+
+commit 5a3c0c283ca8ccb21c56bb7adcca97ecbe906575
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:47:35 2021 -0400
+
+    Add vscode debug launch
+
+commit d6fbc9525482709c0be35b098d3f46cbfcf7724e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Thu Aug 12 19:00:52 2021 -0400
+
+    Build macCatalyst
+
+commit 6ca9664dc02bde6d01933d97f09ff96fc69d5df8
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:52:56 2021 -0400
+
+    Add image back
+
+commit 1c16b2925107bbd4521b0964ba07fc363475b0a9
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:50:03 2021 -0400
+
+    Initial winui work
+
+commit 11c509615ac8df0eb90405bf108afeadc411b4cd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:49:52 2021 -0400
+
+    Initial WinUI work (incomplete)
+
+commit e513e12a32adac38db7e4da3b43b501632e3fe7b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:46:49 2021 -0400
+
+    P7 fixups
+
+commit b1323e26aed588a97f6a288f1e46ed39505fe472
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jul 1 13:49:04 2021 -0400
+
+    Remove ios temporarily
+
+commit 47580995ccb1e3c6b6b5a72ce699c3b5423bde11
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jul 1 13:46:10 2021 -0400
+
+    Initial untested windows bits
+
+commit de3b0983adef2c4d0acc05889459285709b7f003
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jul 1 11:30:43 2021 -0400
+
+    Initial (untested) iOS support
+
+commit c25524d43211052bd06f314d2ab574ffddc7f115
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Jun 30 17:41:58 2021 -0400
+
+    Fix up android layout for container view
+
+commit d346ed0f75a090ad6f0f57eb28dca274c2569bcd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jun 29 13:47:26 2021 -0400
+
+    Lots of updates
+
+commit 36606ba8200de31e0b4fb30ffa378580d08b5277
+Author: redth <jondick@gmail.com>
+Date:   Sun Jun 27 14:23:47 2021 -0400
+
+    Get maui context from parent control
+
+commit f006a39064869124f1b3e9c50b0b0797a6125d6a
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:14:11 2021 -0400
+
+    Fix up namespace/generated/resources clashes
+
+commit 21503629415ef9241b73b062267566fdf5c32cfa
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:06:18 2021 -0400
+
+    Use json instead of sqlite in sample for now
+
+commit 63bed0188609f30102160e05ff9a94ed78b9d8ec
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:06:00 2021 -0400
+
+    Add app bits to net6 sample app
+
+commit bfbcb0e22fdb7502631c28832368375820d9d8b6
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:05:36 2021 -0400
+
+    Cleanup android view recycling
+
+commit ed770f35ade3c3e1a65e51609b0706ee8c7f5e8e
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 16:23:51 2021 -0400
+
+    Work on sample and controls impl
+
+commit a3dea84d6f1f2a1f89f9b6b6d6dbe91ed57b966f
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 23:10:14 2021 -0400
+
+    Cleanup
+
+commit 3bd6be96364fa5455b38dc0c06bbd6af941d1af5
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 23:06:32 2021 -0400
+
+    Small refactor
+
+commit 7fc7c88ef917cd5b5bfa67ae0cc124f488d7bb27
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 23:00:49 2021 -0400
+
+    Compile fixes
+
+commit db9c04c0e868bb85f2db438b4cf8b737d791d51b
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 22:56:54 2021 -0400
+
+    Reloadable/recycle
+
+commit b854f9184460eb33d07efecf9b7bcc4eb55fc82e
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 22:51:05 2021 -0400
+
+    More progress, focusing on Android for now
+
+commit ce2548a979c77c580b79e526fe69c549ecaac25c
+Merge: 29d3cec 1d6fdcf
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jun 25 16:52:01 2021 -0400
+
+    Merge branch 'maui' of https://github.com/Redth/Xamarin.Forms.VirtualListView into maui
+
+commit 29d3cec461939be0d04fa0de7c1763d434340b07
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jun 25 16:50:45 2021 -0400
+
+    Progress...
+
+commit 1d6fdcf3eb74873f3465220212e782c96c118d2e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Jun 25 13:09:33 2021 -0400
+
+    More net6/maui porting work
+
+commit b4c0645bd24a47b8c63754be9164c20dfe1783df
+Author: Jonathan Dick <jond@hey.com>
+Date:   Tue Jun 22 09:35:11 2021 -0400
+
+    Initial work to port to MAUI
+
+commit e78aab4c1f8a6f93d6912c2e5196340e485a788d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 8 21:05:41 2021 -0500
+
+    Add some initial scroll event support
+
+commit ca97f7de853f40147c348648ab34d8938183b11c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Feb 5 10:17:21 2021 -0500
+
+    Clean up UWP and leave at latest failed attempt 😭
+
+commit b74c15d2af9be54f2a07adbd7e86d7bce37156b7
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Feb 5 10:16:54 2021 -0500
+
+    Move android into folder
+
+commit 46abd2bc0ba3674ff7d9dfafd23ea07f654049e1
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 12:18:58 2021 -0500
+
+    Update README.md
+
+commit 70057b2ea10dc436f27ff262120cbe7133a9b412
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 11:48:53 2021 -0500
+
+    Clean up adapter code and example
+
+commit 5ab89d1011c3d6385b57feabc25695d91add571b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 11:42:04 2021 -0500
+
+    Update README.md
+
+commit d24f1384b801bac1fb8e55d8886add7c96ab290f
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 11:38:04 2021 -0500
+
+    Resize gifs
+
+commit 95e6710f6b46efcd7df5809cb54692ef98d58d72
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 10:56:35 2021 -0500
+
+    Add videos to readme
+
+commit be7fab74c2bff8fdac83392c5a2f6468cbe9146c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 10:39:29 2021 -0500
+
+    Add more readme
+
+commit 537bee937152cbd69ada5f2bac6e105ba4903470
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 09:12:44 2021 -0500
+
+    More attempts to wrangle UWP into submission
+
+commit d4aee2ebc4915413bd043a24b1334508908134ca
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:10:21 2021 -0500
+
+    UWP updates
+
+commit a44868f781860e41b21f64f7724b89ad252562ca
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:02:12 2021 -0500
+
+    Clean up namespace
+
+commit 4c6f01e7d77473a60892b53d23181fbfd9686ca2
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:01:39 2021 -0500
+
+    Update VirtualListView.sln
+
+commit d4453776361e68115fd2a3d661fda2bc9e2046b1
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:01:35 2021 -0500
+
+    UWP Sample fixes
+
+commit 87febdebc44880ddadbf4bb36d7c04b16ee4e278
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 09:17:40 2021 -0500
+
+    Fix cell width measure for iOS
+
+commit a8f4d8d713984b7e8ac6c3dc058c3a31ec68c3af
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 08:53:53 2021 -0500
+
+    Make iOS consistent with Android/UWP and use cells
+    
+    For headers/footers
+
+commit 148af1aa1e98327d1930c3043a0391e931f441d3
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:06:34 2021 -0500
+
+    Use a selector item for the container view on UWP
+
+commit fcbeaa9491db65eabaa88dfefacaf7296b7de60e
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:06:26 2021 -0500
+
+    Finish the UWP data source
+
+commit bca2c6c066dd9dabee39976eb08b7c628726dff7
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:05:31 2021 -0500
+
+    Add section index to the positioninfo for sections
+
+commit 0913cec8b9160ab7567bdad19ac69591489c71b0
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:05:15 2021 -0500
+
+    Use a better sqlitedb path for xplat
+    
+    UWP didn't like the path.
+
+commit 10c54ee1ca5a49ab0b935145834b7e479747f69c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:05:01 2021 -0500
+
+    Fixup UWP Sample namespaces
+
+commit 44bac1e7d85d665a78d4f8c370161578e3a4f6fd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 17:30:15 2021 -0500
+
+    Started UWP impl
+
+commit 950f5ab4801173e606f9ce9d578abe5f822c6574
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 15:54:51 2021 -0500
+
+    Improve sample styling
+
+commit d586600ef5c5860e37374df6999e0bf75dabde5e
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 15:42:08 2021 -0500
+
+    Update sample
+
+commit 250eaba7bba88cb07e917ae0410e4d9073b58b77
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:44:22 2021 -0500
+
+    Clean up some public -> internals, split files
+
+commit 6e3f3c289cc3b212cfee4db8f57b3fdae16cc8e9
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:36:36 2021 -0500
+
+    Refactor code out into more files
+
+commit b0ec8f32a9ddb2e24ee51f00e9d0b661114c59c2
+Merge: 2ed7401 f3ae50b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:21:21 2021 -0500
+
+    Merge branch 'main' of https://github.com/Redth/XFSlimListView into main
+
+commit 2ed7401082c1c516a59bab10e5f7efbd0667515d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:20:40 2021 -0500
+
+    Fix renames (again?)
+
+commit e663c6bc3c1cf181085e25356467a35bd034e074
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:11:03 2021 -0500
+
+    More rename missed items
+
+commit f3ae50b40fdf473a5fe0551a6ac279b352537075
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 12:32:33 2021 -0500
+
+    Rename
+
+commit 28fd3003da47d2bca1135d8c9c7858980c289911
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 12:32:06 2021 -0500
+
+    Fix renames
+
+commit b109270063e8a992065d7f412063432c227c9f72
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 12:19:47 2021 -0500
+
+    Refactor
+
+commit 224dc4ef5e84c9813f0313349a2731b7f1a87675
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sun Jan 31 22:36:36 2021 -0500
+
+    Start adding selected items support on iOS
+
+commit 42d150d3ce2362af71fd23ac899dcbf3d82cbdee
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 29 15:59:28 2021 -0500
+
+    Move global headers/footers to supplementary view on iOS
+
+commit 8e52c283ad126c57551b6a65455e0aa87cd784dc
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 29 10:59:42 2021 -0500
+
+    Support for PositionData in Item view
+
+commit 7be091855cd5cf1bda9071b78a0ef70bd555acb4
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 29 10:56:33 2021 -0500
+
+    Bump nugets
+
+commit fbc0821b4c0b349fa56b9161d36e1c6d8b0d6443
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 28 16:07:05 2021 -0500
+
+    More android divider work
+
+commit dc73ed2e8ab15ec5dff1ebbb1537beecc1e9a8fd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 28 13:25:26 2021 -0500
+
+    Initial separator support
+
+commit b0c0032b339d92c1d8d59b96175b836525d2ed41
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:37:05 2021 -0500
+
+    Add some commentary
+
+commit f0320931119c9c280c9d1d8d11721e90e43bdfd6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:29:50 2021 -0500
+
+    refactor adapters
+
+commit 1a9fc95eef76b1a839fd2abf7cd0223e3dd9722f
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:28:41 2021 -0500
+
+    Remove unused adapter impl
+
+commit 28137ce6c790d1d63ac47904257589a618c8ea6d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:24:56 2021 -0500
+
+    Move things around again
+
+commit 4f8101fe1a3f90d4dcb636aff547d52f541440cf
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 20:57:29 2021 -0500
+
+    Move impl into sample to iterate faster
+
+commit 78f859ab335a10251694337743555a470f6dffd4
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:27:12 2021 -0500
+
+    Cleanup
+
+commit 65485f95d76c04efc9fb4d78d07e49751445f608
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:26:55 2021 -0500
+
+    Add a bunch more items to test
+
+commit 92da8c074021853fe7791b21651dd2d7fb162649
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:26:48 2021 -0500
+
+    iOS fixups
+
+commit 92e2c0393ec8a2302c8e7bb9a1ccd8f9ff627bc2
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:26:40 2021 -0500
+
+    Disable android horizontal for now
+
+commit 435477c5f5a7cc9b990b8697c205178fd7d54270
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:50:15 2021 -0500
+
+    Fix kind
+
+commit 1cb88f0f63d9e92641fe070d1e21aa77960cd63d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:49:36 2021 -0500
+
+    Fix cast
+
+commit 8a622bfa716520f74aff1a66880c9009a558d49f
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:48:37 2021 -0500
+
+    more sizing
+
+commit e24c45557aed7f3217a29d5f55061d07a212746a
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:44:19 2021 -0500
+
+    Some work oon sizing and section header/footer
+
+commit 84ef0015f9edc629a8f4b14523856ba9012f55d2
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 22:58:59 2021 -0500
+
+    Some iOS love
+
+commit 530ef42bd6b8f1e21026107a0920d59f4160ba09
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 18:15:49 2021 -0500
+
+    Use header/footer more better
+
+commit 99ec6d1e8221aea2b880150cc8f8864b94120e15
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 15:08:28 2021 -0500
+
+    Dup control
+
+commit 28e74e44338a10a7bb12376f08e6e84780e9ce03
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 15:07:06 2021 -0500
+
+    Fix android sample
+
+commit 92c6084f19a64199f5ef8340904d690912d75092
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 21 23:08:44 2021 -0500
+
+    Only fire item clicked for item types
+
+commit ec65f882d1bfbf50a32f3984a23e4771b52e3f4b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 21 23:06:34 2021 -0500
+
+    Fix count for rv adapter
+
+commit 154fd48b56b8636d07c717bfeb889cda5af0b518
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 21 22:57:21 2021 -0500
+
+    Some initial work
+
+commit ceb4379079de56b35f002fcae0eb287da3776e06
+Author: Jonathan Dick <jond@hey.com>
+Date:   Thu Jan 21 18:52:07 2021 -0500
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 74effad0b30afeafe601181d0d794e5d2c07c431
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Oct 11 21:11:43 2022 -0400
+
+    Update VirtualListView.csproj
+
+commit a133d42c102e576d67f590385db53d18cefdd490
+Author: redth <jondick@gmail.com>
+Date:   Fri Aug 5 14:07:24 2022 -0400
+
+    Build nuget
+
+commit cba7fb5f3b91760651980890840c7f32bbafb086
+Author: redth <jondick@gmail.com>
+Date:   Sat May 21 08:20:19 2022 -0400
+
+    iOS Fixes
+
+commit 92a115f6a6850675e5b8171e7eeed5e78d8a7f02
+Author: redth <jondick@gmail.com>
+Date:   Thu May 19 21:35:26 2022 -0400
+
+    Fix iOS selection
+
+commit 2766423096ebd6a20036bc9a29dc2bf819e85a3d
+Author: redth <jondick@gmail.com>
+Date:   Thu May 19 17:23:08 2022 -0400
+
+    More cleanup, work around selected items
+
+commit 5b0261c6611f2d23d6fa08d8a28e3abb1af3073d
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 17:26:41 2022 -0400
+
+    Delete Info.plist
+
+commit 11d9e4b584121d1a6ca000d218490bb86512710e
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 17:20:38 2022 -0400
+
+    Invalidate less
+    
+    Bugs were fixed, this is not necessary now
+
+commit f4b0617247965440cca5a23adab149e587406a6b
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 17:07:41 2022 -0400
+
+    Fix sample main cell to show track again
+
+commit c7ef854e01ce2859d936b31a449517a1ce6b0969
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 16:57:33 2022 -0400
+
+    Fix windows not refreshing items when scrolling
+
+commit e11fe9865f4c5f6ba2381effe40ce8926ce50f40
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 16:57:19 2022 -0400
+
+    Fix upstream api changes for MAUI GA
+
+commit 640dde46927ed0a79c7f850939dc3515ac739d69
+Author: redth <jondick@gmail.com>
+Date:   Wed May 18 16:56:43 2022 -0400
+
+    Include ios/maccat in a way compatible with the IDE
+
+commit ddce32a518bfa5f43843c331e26ed9fa790c8040
+Author: redth <jondick@gmail.com>
+Date:   Tue May 17 21:49:21 2022 -0400
+
+    Clean up iOS/MacCatalyst
+
+commit e0d18e434ceea761bf97fc30bb4dbf4ccce8e202
+Author: redth <jondick@gmail.com>
+Date:   Tue May 17 21:47:29 2022 -0400
+
+    Sample updates for GA
+
+commit 6ce87f0be36e09b8d737f91bfa4c9d354fffd694
+Author: redth <jondick@gmail.com>
+Date:   Tue May 17 21:46:13 2022 -0400
+
+    Support vscode debug with comet ext
+
+commit c2dfbc217b4c27f3163cb07d4188483f0d5125a8
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:32:09 2022 -0500
+
+    DataTemplate inflation being finicky
+
+commit 7ab28a36b84028a46058030fe49197be0a051b07
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:27:39 2022 -0500
+
+    Recycle view when clicked
+
+commit e5dadfbb1e0ff8fef3c933c60986a47844d7fa64
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:26:31 2022 -0500
+
+    Template wasn't loading in winui
+    
+    The Xaml Reader needs all assemblies it requires loaded before you use it, and apparently the order changed such that Microsoft.WinUI wasn't loaded already anymore, so let's manually load it.
+
+commit cdcdbe28219db8d4f2670a8b2885f020585c4556
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:25:43 2022 -0500
+
+    Make virtual cell a content view
+
+commit 90a1e744bf8e43df0a725dc9480aaa5603e62a38
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:25:28 2022 -0500
+
+    Code cleanup
+
+commit 70dd18886033858f5dc8c3f5abf7717dd97ad44c
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:24:45 2022 -0500
+
+    Clean up projects a bit for latest MAUI
+
+commit c17b6a0e959d5cafd445b540e30d620944361d58
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:24:28 2022 -0500
+
+    Make launch profile Windows
+
+commit 21fe4a72294af11f18a28ce8be0520d0c64c0280
+Author: Redth <jondick@gmail.com>
+Date:   Mon Jan 17 15:24:20 2022 -0500
+
+    Make database static to survive android activity cycles
+    
+    When using layout inspector it likes to do this
+
+commit ac3364033e7affc0fc1449496a4f26a92227d3ec
+Author: Redth <jondick@gmail.com>
+Date:   Wed Dec 1 22:32:01 2021 -0500
+
+    Updates for MAUI Preview11
+
+commit fcb95f592db9c97a875af944563ebcf9bd93a30e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Sep 27 17:12:19 2021 -0400
+
+    Simpler LRUCache
+
+commit 0d3c643dd9d6c53113b4b647916f638ec2d6760b
+Merge: 9877abf f1e1464
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:49:54 2021 -0400
+
+    Merge branch 'main' of https://github.com/Redth/Maui.VirtualListView into main
+
+commit 9877abf297471a38ddc0625e2c0a8e68f3b05f90
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:49:53 2021 -0400
+
+    White bg to cell for ios
+
+commit fad5fc2b61f97a8a0fed4a8920d96cac4677f4e4
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:49:48 2021 -0400
+
+    Split up positional view selector and add lrucache
+    
+    This adds an LRUCache for position info so that lookups for items within reasonable scroll offset ranges are faster (especially around things like selecting/deselecting items, or looking up if items should be selectable).
+
+commit f3ed99aa4d80b96c99741f479766e76912fb10af
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:48:22 2021 -0400
+
+    Cleanup
+
+commit c712cd0653459bd719671c9f460a546e4b4d1c33
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Sep 12 16:47:28 2021 -0400
+
+    Clean up projects for rc1
+
+commit 579ef78270c47202aef05c21fbf9bf357137521e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Thu Sep 2 19:41:33 2021 -0400
+
+    Create NuGet.config
+
+commit f1e146401d2f900c0497b50381d55204bcf8c7ab
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 16:05:07 2021 -0400
+
+    Clean up mapping, winui orientation
+
+commit aa57ff52b4eb22fdbdf623b8ad742233111c247b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 14:04:38 2021 -0400
+
+    Use MauiAppBuilder for extension method
+
+commit 6c130861741ecbd9df2abe690991e0bba7c33595
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 14:04:29 2021 -0400
+
+    Fix mapping for orientation on android
+
+commit 7da11eec7a146000ab424b9b1dcb9f98a0d79cbd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 14:04:20 2021 -0400
+
+    Use now public VisualDiagnostics API's
+
+commit 3bb3eafd1f2d214cdd54c4de28ea2bdd28f66469
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 13:47:02 2021 -0400
+
+    Add orientation to windows
+
+commit f18fb25718b4d4cf3fa7b5ca4932b03e0b57d509
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Sep 1 13:46:42 2021 -0400
+
+    Update for MAUI changes
+
+commit 7d716a1fbeefa2170f483873584fcb712c0c8eac
+Merge: e78aab4 83f72b6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sun Aug 22 09:02:30 2021 -0400
+
+    Merge pull request #1 from Redth/maui
+    
+    Switch to MAUI support as primary
+
+commit 83f72b6ad913416031c9095954411f0eb92a29e3
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Aug 22 09:01:25 2021 -0400
+
+    Horizontal support for iOS/Android
+
+commit ef91f640d3a8050fdeec6c6cdc6e3609115aa051
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:41:51 2021 -0400
+
+    Somehow this fixes datatemplates for now
+
+commit 23dd9b0f990b0849c60041250e88fe3f53990c2d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:15:42 2021 -0400
+
+    Remove unused template
+
+commit 09adabf502db6e27c01ce0446a5ae17d312aadb6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:15:29 2021 -0400
+
+    Windows!
+
+commit 9db9fe034fd39119d05a401c221cfb0ce57c0f86
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Aug 20 17:14:12 2021 -0400
+
+    Refactor the view callbacks, add visual tree support
+
+commit fb3c8c6df96344c750b2c564852e99eb8aa6ac1e
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:44:54 2021 -0400
+
+    No special file needed for windows now
+
+commit 0c49044845d9980d3396e5318c8f21e09b52ac86
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:44:43 2021 -0400
+
+    Bring windows into single proj
+
+commit 90630822fab61a32a9336529c2ab23c8e7a2a702
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:44:04 2021 -0400
+
+    Fix double nested virtual view cell
+
+commit 93574baf19a3d533ff015635cc5d0ccdefaa8aae
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Aug 17 14:43:20 2021 -0400
+
+    Remove old winui project
+
+commit 204818cb347c62cc046e0b2d4de1776f073aa4bf
+Merge: 2a4a99a 4a563f3
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 23:12:06 2021 -0400
+
+    Merge branch 'maui' of https://github.com/Redth/Maui.VirtualListView into maui
+
+commit 2a4a99ab7ff0dcf8f16e553dd1d879cc152cc9a4
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 23:12:04 2021 -0400
+
+    Make catalyst work
+
+commit 4a563f30b7ee1cb1d062c07563fc667bed18d431
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 23:00:07 2021 -0400
+
+    Update README.md
+
+commit 5bc5d4db2af1aea9c770f266f70e791e43afa9e6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 22:25:13 2021 -0400
+
+    Fixup recycle on other platforms
+
+commit c8cbd16914171fee988a07df1844983cf162f7fd
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 22:18:27 2021 -0400
+
+    Use create/recycle/getreuseid pattern
+
+commit a41318e0f6fcda62cad2cd5acb3226fdf37608eb
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 17:12:29 2021 -0400
+
+    Selected/Deselected mappings
+
+commit dbbf730dad1e906c0abb75d40476733ec4cb16ef
+Author: Jonathan Dick <jond@hey.com>
+Date:   Mon Aug 16 13:31:18 2021 -0400
+
+    Cleanup debug writeline
+
+commit d5bff2fe01f5bbbd6e5b1ac5b291df39c2509c63
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 13:23:40 2021 -0400
+
+    Comment out some windows WIP
+
+commit 2457b1e7fcae3f9d8fa7547280b011b12fc5d725
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 13:20:04 2021 -0400
+
+    Ensure apple files are seen in IDE
+
+commit 7a65ae307ef7921dcb30749d7bcc2d1b436d46cf
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 13:04:51 2021 -0400
+
+    Fix up templates and selector
+
+commit 9b532da9627f86495e73d9c62d9776c4b35a73a1
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 12:44:23 2021 -0400
+
+    Fix adapter invalidation call from Controls
+
+commit e54b04b7af9aa9c9aff0986fc7cec19c0d065904
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 09:18:49 2021 -0400
+
+    Update README.md
+
+commit 47bc0404845d44bd90239d8e48060e49a25f6b05
+Merge: 5c7047f ec5a038
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 09:14:03 2021 -0400
+
+    Merge branch 'maui' of https://github.com/Redth/Xamarin.Forms.VirtualListView into maui
+
+commit 5c7047fd2b7d466aeb5c8b2ba4979185c4fab809
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Aug 16 09:13:57 2021 -0400
+
+    Some windows things
+
+commit ec5a03862f9faff3e1267f7ef384ef7dce76b834
+Author: Jonathan Dick <jond@hey.com>
+Date:   Sun Aug 15 13:43:41 2021 -0400
+
+    Fix layout issues in container
+
+commit 3c38285947b38b8d32c27b3291320146186c3d33
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 21:12:44 2021 -0400
+
+    SizeToFit sorta helps
+
+commit 988c40a8666503bf1470e9b6440a6c34ccd0984a
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 21:12:30 2021 -0400
+
+    Cache iOS version
+
+commit abe1ca82605d32b91fbb64da9b5f5814c579c8c9
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:48:14 2021 -0400
+
+    Fix bug where CV was recreated
+
+commit 31bf952f130e5d75a08cd7d45bd525a7953a7605
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:48:04 2021 -0400
+
+    Cleanup, use fields directly
+
+commit 50576198bee0f941615668c5a1e284a7795f335a
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:47:44 2021 -0400
+
+    Cleanup
+
+commit 5a3c0c283ca8ccb21c56bb7adcca97ecbe906575
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Aug 13 11:47:35 2021 -0400
+
+    Add vscode debug launch
+
+commit d6fbc9525482709c0be35b098d3f46cbfcf7724e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Thu Aug 12 19:00:52 2021 -0400
+
+    Build macCatalyst
+
+commit 6ca9664dc02bde6d01933d97f09ff96fc69d5df8
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:52:56 2021 -0400
+
+    Add image back
+
+commit 1c16b2925107bbd4521b0964ba07fc363475b0a9
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:50:03 2021 -0400
+
+    Initial winui work
+
+commit 11c509615ac8df0eb90405bf108afeadc411b4cd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:49:52 2021 -0400
+
+    Initial WinUI work (incomplete)
+
+commit e513e12a32adac38db7e4da3b43b501632e3fe7b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Aug 12 17:46:49 2021 -0400
+
+    P7 fixups
+
+commit b1323e26aed588a97f6a288f1e46ed39505fe472
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jul 1 13:49:04 2021 -0400
+
+    Remove ios temporarily
+
+commit 47580995ccb1e3c6b6b5a72ce699c3b5423bde11
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jul 1 13:46:10 2021 -0400
+
+    Initial untested windows bits
+
+commit de3b0983adef2c4d0acc05889459285709b7f003
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jul 1 11:30:43 2021 -0400
+
+    Initial (untested) iOS support
+
+commit c25524d43211052bd06f314d2ab574ffddc7f115
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Jun 30 17:41:58 2021 -0400
+
+    Fix up android layout for container view
+
+commit d346ed0f75a090ad6f0f57eb28dca274c2569bcd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jun 29 13:47:26 2021 -0400
+
+    Lots of updates
+
+commit 36606ba8200de31e0b4fb30ffa378580d08b5277
+Author: redth <jondick@gmail.com>
+Date:   Sun Jun 27 14:23:47 2021 -0400
+
+    Get maui context from parent control
+
+commit f006a39064869124f1b3e9c50b0b0797a6125d6a
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:14:11 2021 -0400
+
+    Fix up namespace/generated/resources clashes
+
+commit 21503629415ef9241b73b062267566fdf5c32cfa
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:06:18 2021 -0400
+
+    Use json instead of sqlite in sample for now
+
+commit 63bed0188609f30102160e05ff9a94ed78b9d8ec
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:06:00 2021 -0400
+
+    Add app bits to net6 sample app
+
+commit bfbcb0e22fdb7502631c28832368375820d9d8b6
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 23:05:36 2021 -0400
+
+    Cleanup android view recycling
+
+commit ed770f35ade3c3e1a65e51609b0706ee8c7f5e8e
+Author: redth <jondick@gmail.com>
+Date:   Sat Jun 26 16:23:51 2021 -0400
+
+    Work on sample and controls impl
+
+commit a3dea84d6f1f2a1f89f9b6b6d6dbe91ed57b966f
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 23:10:14 2021 -0400
+
+    Cleanup
+
+commit 3bd6be96364fa5455b38dc0c06bbd6af941d1af5
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 23:06:32 2021 -0400
+
+    Small refactor
+
+commit 7fc7c88ef917cd5b5bfa67ae0cc124f488d7bb27
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 23:00:49 2021 -0400
+
+    Compile fixes
+
+commit db9c04c0e868bb85f2db438b4cf8b737d791d51b
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 22:56:54 2021 -0400
+
+    Reloadable/recycle
+
+commit b854f9184460eb33d07efecf9b7bcc4eb55fc82e
+Author: redth <jondick@gmail.com>
+Date:   Fri Jun 25 22:51:05 2021 -0400
+
+    More progress, focusing on Android for now
+
+commit ce2548a979c77c580b79e526fe69c549ecaac25c
+Merge: 29d3cec 1d6fdcf
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jun 25 16:52:01 2021 -0400
+
+    Merge branch 'maui' of https://github.com/Redth/Xamarin.Forms.VirtualListView into maui
+
+commit 29d3cec461939be0d04fa0de7c1763d434340b07
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jun 25 16:50:45 2021 -0400
+
+    Progress...
+
+commit 1d6fdcf3eb74873f3465220212e782c96c118d2e
+Author: Jonathan Dick <jond@hey.com>
+Date:   Fri Jun 25 13:09:33 2021 -0400
+
+    More net6/maui porting work
+
+commit b4c0645bd24a47b8c63754be9164c20dfe1783df
+Author: Jonathan Dick <jond@hey.com>
+Date:   Tue Jun 22 09:35:11 2021 -0400
+
+    Initial work to port to MAUI
+
+commit e78aab4c1f8a6f93d6912c2e5196340e485a788d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 8 21:05:41 2021 -0500
+
+    Add some initial scroll event support
+
+commit ca97f7de853f40147c348648ab34d8938183b11c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Feb 5 10:17:21 2021 -0500
+
+    Clean up UWP and leave at latest failed attempt 😭
+
+commit b74c15d2af9be54f2a07adbd7e86d7bce37156b7
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Feb 5 10:16:54 2021 -0500
+
+    Move android into folder
+
+commit 46abd2bc0ba3674ff7d9dfafd23ea07f654049e1
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 12:18:58 2021 -0500
+
+    Update README.md
+
+commit 70057b2ea10dc436f27ff262120cbe7133a9b412
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 11:48:53 2021 -0500
+
+    Clean up adapter code and example
+
+commit 5ab89d1011c3d6385b57feabc25695d91add571b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 11:42:04 2021 -0500
+
+    Update README.md
+
+commit d24f1384b801bac1fb8e55d8886add7c96ab290f
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 11:38:04 2021 -0500
+
+    Resize gifs
+
+commit 95e6710f6b46efcd7df5809cb54692ef98d58d72
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 10:56:35 2021 -0500
+
+    Add videos to readme
+
+commit be7fab74c2bff8fdac83392c5a2f6468cbe9146c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 10:39:29 2021 -0500
+
+    Add more readme
+
+commit 537bee937152cbd69ada5f2bac6e105ba4903470
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Feb 4 09:12:44 2021 -0500
+
+    More attempts to wrangle UWP into submission
+
+commit d4aee2ebc4915413bd043a24b1334508908134ca
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:10:21 2021 -0500
+
+    UWP updates
+
+commit a44868f781860e41b21f64f7724b89ad252562ca
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:02:12 2021 -0500
+
+    Clean up namespace
+
+commit 4c6f01e7d77473a60892b53d23181fbfd9686ca2
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:01:39 2021 -0500
+
+    Update VirtualListView.sln
+
+commit d4453776361e68115fd2a3d661fda2bc9e2046b1
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 15:01:35 2021 -0500
+
+    UWP Sample fixes
+
+commit 87febdebc44880ddadbf4bb36d7c04b16ee4e278
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 09:17:40 2021 -0500
+
+    Fix cell width measure for iOS
+
+commit a8f4d8d713984b7e8ac6c3dc058c3a31ec68c3af
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Wed Feb 3 08:53:53 2021 -0500
+
+    Make iOS consistent with Android/UWP and use cells
+    
+    For headers/footers
+
+commit 148af1aa1e98327d1930c3043a0391e931f441d3
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:06:34 2021 -0500
+
+    Use a selector item for the container view on UWP
+
+commit fcbeaa9491db65eabaa88dfefacaf7296b7de60e
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:06:26 2021 -0500
+
+    Finish the UWP data source
+
+commit bca2c6c066dd9dabee39976eb08b7c628726dff7
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:05:31 2021 -0500
+
+    Add section index to the positioninfo for sections
+
+commit 0913cec8b9160ab7567bdad19ac69591489c71b0
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:05:15 2021 -0500
+
+    Use a better sqlitedb path for xplat
+    
+    UWP didn't like the path.
+
+commit 10c54ee1ca5a49ab0b935145834b7e479747f69c
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Feb 2 16:05:01 2021 -0500
+
+    Fixup UWP Sample namespaces
+
+commit 44bac1e7d85d665a78d4f8c370161578e3a4f6fd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 17:30:15 2021 -0500
+
+    Started UWP impl
+
+commit 950f5ab4801173e606f9ce9d578abe5f822c6574
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 15:54:51 2021 -0500
+
+    Improve sample styling
+
+commit d586600ef5c5860e37374df6999e0bf75dabde5e
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 15:42:08 2021 -0500
+
+    Update sample
+
+commit 250eaba7bba88cb07e917ae0410e4d9073b58b77
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:44:22 2021 -0500
+
+    Clean up some public -> internals, split files
+
+commit 6e3f3c289cc3b212cfee4db8f57b3fdae16cc8e9
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:36:36 2021 -0500
+
+    Refactor code out into more files
+
+commit b0ec8f32a9ddb2e24ee51f00e9d0b661114c59c2
+Merge: 2ed7401 f3ae50b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:21:21 2021 -0500
+
+    Merge branch 'main' of https://github.com/Redth/XFSlimListView into main
+
+commit 2ed7401082c1c516a59bab10e5f7efbd0667515d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:20:40 2021 -0500
+
+    Fix renames (again?)
+
+commit e663c6bc3c1cf181085e25356467a35bd034e074
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 13:11:03 2021 -0500
+
+    More rename missed items
+
+commit f3ae50b40fdf473a5fe0551a6ac279b352537075
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 12:32:33 2021 -0500
+
+    Rename
+
+commit 28fd3003da47d2bca1135d8c9c7858980c289911
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 12:32:06 2021 -0500
+
+    Fix renames
+
+commit b109270063e8a992065d7f412063432c227c9f72
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Mon Feb 1 12:19:47 2021 -0500
+
+    Refactor
+
+commit 224dc4ef5e84c9813f0313349a2731b7f1a87675
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sun Jan 31 22:36:36 2021 -0500
+
+    Start adding selected items support on iOS
+
+commit 42d150d3ce2362af71fd23ac899dcbf3d82cbdee
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 29 15:59:28 2021 -0500
+
+    Move global headers/footers to supplementary view on iOS
+
+commit 8e52c283ad126c57551b6a65455e0aa87cd784dc
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 29 10:59:42 2021 -0500
+
+    Support for PositionData in Item view
+
+commit 7be091855cd5cf1bda9071b78a0ef70bd555acb4
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 29 10:56:33 2021 -0500
+
+    Bump nugets
+
+commit fbc0821b4c0b349fa56b9161d36e1c6d8b0d6443
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 28 16:07:05 2021 -0500
+
+    More android divider work
+
+commit dc73ed2e8ab15ec5dff1ebbb1537beecc1e9a8fd
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 28 13:25:26 2021 -0500
+
+    Initial separator support
+
+commit b0c0032b339d92c1d8d59b96175b836525d2ed41
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:37:05 2021 -0500
+
+    Add some commentary
+
+commit f0320931119c9c280c9d1d8d11721e90e43bdfd6
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:29:50 2021 -0500
+
+    refactor adapters
+
+commit 1a9fc95eef76b1a839fd2abf7cd0223e3dd9722f
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:28:41 2021 -0500
+
+    Remove unused adapter impl
+
+commit 28137ce6c790d1d63ac47904257589a618c8ea6d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 22:24:56 2021 -0500
+
+    Move things around again
+
+commit 4f8101fe1a3f90d4dcb636aff547d52f541440cf
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Tue Jan 26 20:57:29 2021 -0500
+
+    Move impl into sample to iterate faster
+
+commit 78f859ab335a10251694337743555a470f6dffd4
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:27:12 2021 -0500
+
+    Cleanup
+
+commit 65485f95d76c04efc9fb4d78d07e49751445f608
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:26:55 2021 -0500
+
+    Add a bunch more items to test
+
+commit 92da8c074021853fe7791b21651dd2d7fb162649
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:26:48 2021 -0500
+
+    iOS fixups
+
+commit 92e2c0393ec8a2302c8e7bb9a1ccd8f9ff627bc2
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Sat Jan 23 18:26:40 2021 -0500
+
+    Disable android horizontal for now
+
+commit 435477c5f5a7cc9b990b8697c205178fd7d54270
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:50:15 2021 -0500
+
+    Fix kind
+
+commit 1cb88f0f63d9e92641fe070d1e21aa77960cd63d
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:49:36 2021 -0500
+
+    Fix cast
+
+commit 8a622bfa716520f74aff1a66880c9009a558d49f
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:48:37 2021 -0500
+
+    more sizing
+
+commit e24c45557aed7f3217a29d5f55061d07a212746a
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 23:44:19 2021 -0500
+
+    Some work oon sizing and section header/footer
+
+commit 84ef0015f9edc629a8f4b14523856ba9012f55d2
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 22:58:59 2021 -0500
+
+    Some iOS love
+
+commit 530ef42bd6b8f1e21026107a0920d59f4160ba09
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 18:15:49 2021 -0500
+
+    Use header/footer more better
+
+commit 99ec6d1e8221aea2b880150cc8f8864b94120e15
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 15:08:28 2021 -0500
+
+    Dup control
+
+commit 28e74e44338a10a7bb12376f08e6e84780e9ce03
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Fri Jan 22 15:07:06 2021 -0500
+
+    Fix android sample
+
+commit 92c6084f19a64199f5ef8340904d690912d75092
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 21 23:08:44 2021 -0500
+
+    Only fire item clicked for item types
+
+commit ec65f882d1bfbf50a32f3984a23e4771b52e3f4b
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 21 23:06:34 2021 -0500
+
+    Fix count for rv adapter
+
+commit 154fd48b56b8636d07c717bfeb889cda5af0b518
+Author: Jonathan Dick <jondick@gmail.com>
+Date:   Thu Jan 21 22:57:21 2021 -0500
+
+    Some initial work
+
+commit ceb4379079de56b35f002fcae0eb287da3776e06
+Author: Jonathan Dick <jond@hey.com>
+Date:   Thu Jan 21 18:52:07 2021 -0500
+
+    Initial commit

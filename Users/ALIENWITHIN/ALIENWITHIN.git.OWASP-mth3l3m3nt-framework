@@ -1,0 +1,631 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+#OWASP Mth3l3m3nt Framework
+
+A slightly major (forgive pun) upgrade is on going. This is to bring in things like: 
+* Easier coding standard
+* Support for PHP 8
+* More robust features
+* Fix bug requests sent in.
+
+This tool is released under  [GNU Affero General Public License v3](http://www.gnu.org/licenses/agpl-3.0.en.html).
+
+Modules Packed in so far are: 
+* Payload Store
+* Shell Generator (PHP/ASP/JSP/JSPX/CFM)
+* Payload Encoder and Decoder (Base64/Rot13/Hex/Hexwith \x seperator/ Hex with 0x Prefix)
+* CURL GUI (GET/POST/TRACE/OPTIONS/HEAD)
+* LFI Exploitation module (currently prepacked with: Koha Lib Lime LFI/ Wordpress Aspose E-book generator LFI/ Zimbra Collaboration Server LFI)
+* HTTP Bot Herd to control web shells. 
+* WHOIS
+* String Tools 
+* Client Side Obfuscator
+* Cookie Theft Database (Enables you to steal session cookies & download page content if a stored XSS is present)
+
+Currently it is set to use a flat file database. 
+
+Copy all the files into your webroot except db_dump_optional
+
+Ensure the Folders Below are writeable: 
+
+* tmp
+* framework/data
+* framework/data/site_config.json
+* incoming/
+* scripts/
+
+It should run from the get go All just navigate to it.
+
+the login url is: /cnc
+
+username:mth3l3m3nt
+password:mth3l3m3nt
+
+
+By Default I have set it to use the JIG database but this you can change at any point in the backend. 
+The DB Dump in place is for users who use MySQL and need demo data. Unfortunately I have only done for MySQL. It's my DB of choice. 
+
+Alternatively watch the installation here: 
+
+https://www.youtube.com/playlist?list=PL8peOGsl5TC4WscgWaNMx0xJlS6X2QJI0
+
+If you would like to switch from JIG you can do so in the settings. Please note the DB has to be created, it only populates it with the required tables, it doesn't drop or create the DB , other supported Databases are: 
+
+* Mongo DB 
+* MSSQL
+* PostgreSQL
+* SQLite
+* MySQL
+
+Other than SQLite please ensure that you have the PHP extensions for the Databases above so that it can access them through PHP Data Objects.
+
+For MySQL users needing MySQL Sample Data like alot of it especially payloads switch the database to MySQL and import data from the Dump to populate.
+
+Incase of questions or suggestions or bugs and what nots:
+http://munir.skilledsoft.com
+
+You may also send them or subscribe to the mailing list: 
+https://lists.owasp.org/mailman/listinfo/owasp-mth3l3m3nt-framework-project
+
+It's been tested on : 
+
+* Apache 
+* Litespeed
+* Nginx
+* Lighttpd
+
+Incase you test on another server please give your review.
+
+If installing it in a subfolder edit the .htaccess file to reflect the RewriteBase as the subfolder.
+
+Having Problems getting it running on your webserver, check out our [webserver configuration guide](https://github.com/alienwithin/OWASP-mth3l3m3nt-framework/wiki/WebServer-Configuration).
+====================== GIT HISTORY: ======================
+1f1fc24 HEAD@{0}: clone: from https://github.com/alienwithin/OWASP-mth3l3m3nt-framework
+commit 1f1fc2477abef478bb801d0122af6d61c0cf6c8c
+Author: Munir Njenga <munir@visibility.co.ke>
+Date:   Thu Jan 21 23:42:34 2021 +0300
+
+    Old
+    
+    Mth3l3m3nt Awaiting Rebirth
+
+commit 3ff8f701b93a8424860de662afe77474225ce5cb
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Mon May 4 20:43:12 2020 +0300
+
+    Revamp In Progress
+    
+    Clearing Repo for New Mth3l3m3nt that is in development.
+
+commit 6f8e3998a20738634877abda0e1567f2904eefc5
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Wed Aug 9 23:48:29 2017 +0300
+
+    UI Touchup
+    
+    make the UI more friendly
+
+commit 56379f52882f3d0207b220af6e972bdf199aaebf
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Wed Mar 1 10:47:13 2017 +0300
+
+    Update layout.html
+
+commit 2a13c3591c2fb4a6403bc1c42a3b43c60a35c245
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Wed Mar 1 10:46:23 2017 +0300
+
+    Update layout.html
+    
+    Added support for non standard http ports
+
+commit 1be78479dd4367c128c63c34d37b4d32494d074e
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Feb 6 09:49:21 2017 +0300
+
+    FaceLift
+    
+    New branding and themes to give it a more befitting look.
+
+commit 2a347d1f61bec7c543de3611a6392c25ac9a6314
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Aug 23 14:30:38 2016 +0300
+
+    Added frontend Favicon
+    
+    Added frontend Favicon
+
+commit d229b1982a6d47dad009494d17679609dd05022f
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Aug 23 13:29:25 2016 +0300
+
+    Update LFI Plugin DB
+    
+    Update LFI Plugin DB
+
+commit 37103311dea3458ef107f28fb4fd6ff58e201a27
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Aug 23 13:24:21 2016 +0300
+
+    Larfi View
+    
+    Larfi View Fix
+
+commit 1157f690b182e913469a81ac18a33a8b3d5d5488
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Aug 23 13:19:53 2016 +0300
+
+    Update Logical Error
+    
+    Logical error in dealing with cookie injection
+
+commit 2594116dc5552a23e854a36b70662cb914be7b0f
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Aug 23 13:07:27 2016 +0300
+
+    Update Frontend
+    
+    Front end theme just as light but more informative :).
+    
+    Updated Payload model abit based on refactoring.
+
+commit 26ac1163fa1b0f290c13d6b6e313588ae9cdfc48
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Aug 22 16:37:09 2016 +0300
+
+    Open Basedir
+    
+    Fixed Compatibility with secure openbasedir setting
+
+commit 49db34ccab6654a30d46de63022b3a9b066b0a2d
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Aug 22 15:56:37 2016 +0300
+
+    LFI starter
+    
+    LFI Starter DB
+
+commit 923847f1b40d1ad5735f768eb90ce208b9827e8a
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Aug 22 15:22:53 2016 +0300
+
+    LFI Plugins OverHaul
+    
+    - Refactoring Paths
+    - Moved LFI Plugins to work from a DB similar to the workflow in Webot.
+    - Removed Old LFI Classes and Plugins now GUI based no code.
+    - Updated Templates to use the new model
+
+commit 582a6bdd6179dca7e8de0e217bff27b66c59d2a6
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Fri May 13 09:19:05 2016 +0300
+
+    Fixed Unlink
+    
+    Clean up of files when cleaning up after a campaign is done was dirty
+    and attack script wasnt being cleaned additionally a 500 error after the
+    first sweep of files was fixed to avoid crashing the backend over and
+    over.
+
+commit 15c9cd1ec562a74fc7455e1fdb7ce1d3af5f52f0
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Sun May 8 11:02:58 2016 +0300
+
+    Update Web Herd
+    
+    Webherd should use POST method than get method to reduce amount of info
+    in logs current compatible shells with this are only PHP & ASP the
+    others still on GET but in process of being converted to POST for
+    compatibility with webherd module.
+
+commit e65bd67c0a4c0c2daef6e7bb011e6ef5dbba093d
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Mon Apr 11 09:06:10 2016 +0300
+
+    Fix Follow Location Issue
+    
+    If open_basedir is set in php.ini disable follow location i.e. redirects in requests else if it isn't safely follow.
+
+commit 8f0d9e2c86d044e00107b9ef66d77ef45baf6bca
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Fri Apr 8 16:25:43 2016 +0300
+
+    Update README.md
+
+commit 23a8f3c51b2fd002b50293cd7727517c7d6eccdd
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Fri Apr 8 11:30:04 2016 +0300
+
+    Update README.md
+
+commit 3a55970e453c331eaafe1f11ce862a6a128ff5c2
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Fri Apr 8 11:26:56 2016 +0300
+
+    Added Cookie Theft Database
+    
+    Added the feature that gives potency to XSS by stealing cookies and
+    testing if those cookies can access certain priviledged pages.
+
+commit 157cac5f10b6265b2fe57d43e15fca086ce0d1f6
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Apr 4 15:29:50 2016 +0300
+
+    Update Model
+    
+    Fixed issue where user password was blanking out if none specified in
+    the backend during profile information update
+
+commit 95e49da3f39ee0c35cb476934e270ab4adcbb000
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Fri Feb 12 09:37:47 2016 +0300
+
+    Update README.md
+
+commit 71058e35d29e5345fc5e07a2793ef31343e9c248
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Fri Jan 8 20:56:53 2016 +0300
+
+    Update README.md
+
+commit 59b716bf5f7757413ccdcc7dd5a3c618cbc8cf24
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Fri Jan 8 20:54:57 2016 +0300
+
+    Update composer.json
+
+commit 3b7e7161647b4658d7ee35d84f1bfb147d011f32
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Fri Jan 8 20:47:10 2016 +0300
+
+    Update composer.json
+
+commit 1f6951ee241149223a078ce6f4cc4817e63c42c4
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Thu Dec 3 10:48:50 2015 +0300
+
+    update
+    
+    Fix Dump variables
+
+commit 8357c9eec59d63553cb516168e4b174bc68d7c37
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Dec 1 10:36:14 2015 +0300
+
+    POST
+    
+    Fixed Logical Error in post request that was passing post values wrong
+
+commit 4d2251559f6b38b80eccd18ff6a48edc47fd8f31
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Nov 30 16:53:36 2015 +0300
+
+    fixed bounds
+    
+    There were no boundaries on header methods, now fixed :)
+
+commit 84c85636fca7c29819d63d067d408ac2b0cf7905
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Mon Nov 30 16:09:07 2015 +0300
+
+    Update README.md
+
+commit efb3eac65daa00837d57424ec68e8d3ab5a4f1c4
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Mon Nov 30 16:08:26 2015 +0300
+
+    Update README.md
+
+commit 6d9b2dbc323c8e79ae2c4304206e5cc6f54c73ba
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Fri Nov 27 12:13:44 2015 +0300
+
+    Server Configuration Samples
+    
+    Added working Server Configuration Samples based on installation
+    documentation in the wiki
+
+commit b901231f7c58ca6d6424b5ffd8e618fa6d56e42a
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Fri Nov 27 10:00:20 2015 +0300
+
+    Dev Docs
+    
+    Update to current Developer Documentation
+
+commit a3be39883c9e88ad580e3094d0ba7d80d40f8c7d
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 25 17:13:52 2015 +0300
+
+    ERD
+    
+    ERD
+
+commit 88ee12239b8577f27432f6ee47e9466df42b543e
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 25 16:06:46 2015 +0300
+
+    webot
+    
+    added Web Herd Documentation
+
+commit 65e41d9a1cd17e0dc4b3d623619acb5736d8017a
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 25 12:49:57 2015 +0300
+
+    cso
+    
+    Client Side obfuscator
+
+commit ddc55a0f41a247013cbfb5640746ad4d8cd0d262
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 24 17:27:11 2015 +0300
+
+    payload encoder decoder module
+
+commit d18aaf09a4a21a3ddf9f86f3f57bfe1a0648df3a
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 24 16:13:59 2015 +0300
+
+    GenericRequests
+
+commit c2beaa55e07ca06b5acbd8dcb066ed50e3a8995e
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 24 11:45:35 2015 +0300
+
+    payloads-doc
+
+commit 1fb1738edc1f038adb37f63e91cbc060a47c19af
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 24 10:36:55 2015 +0300
+
+    payloads
+    
+    added some payloads to payload db
+
+commit 43c1937e7f1fa8d2418036a2fe90a30aae390d49
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 24 10:21:24 2015 +0300
+
+    lighttpd
+
+commit d1d82e166a938bdae49b9890c056b08bc0097acf
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 24 10:18:34 2015 +0300
+
+    lighttpd installation
+
+commit 821951a0dc3befcd5435df1a2089b348d3e69ac9
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Nov 23 17:05:41 2015 +0300
+
+    Nginx
+    
+    Nginx Installation Guide
+
+commit 0373f2908c336c147289b8cbe85fff1ce404fa6c
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Mon Nov 23 14:37:12 2015 +0300
+
+    Update README.md
+
+commit 3083b9efd171293756e3568d2a640b65a816965b
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Mon Nov 23 13:13:31 2015 +0300
+
+    Update README.md
+
+commit 085a914ab1d33b846686ae53abdd3ddc313f2007
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Thu Nov 19 13:10:52 2015 +0300
+
+    Docs
+
+commit 0b7eb162516d807eea4fa434081ac300c85ad83d
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Thu Nov 19 10:07:17 2015 +0300
+
+    Installation Wiki
+    
+    Windows Installation Images
+
+commit 2ffc0a623b30259dad389b5effa151d721e23dc0
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 18 17:04:07 2015 +0300
+
+    Docs
+
+commit f5dfec5fdde539de620fc2c851d9c34af5cd6245
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 18 12:50:08 2015 +0300
+
+    blank shot
+    
+    missing check for blank url in CVE 2015-7254
+
+commit 55e0a9bb38c5d29eaf6034ba9a8c1c0e07c3d2fc
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 18 12:45:09 2015 +0300
+
+    CVE-2015-7254
+    
+    Added the exploit CVE-2015-7254.
+
+commit 788698499ebf4d2d1611a318305f74dfa2e41cfe
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 18 10:45:35 2015 +0300
+
+    Minor Fix
+    
+    Backend Search Issue Fixed
+
+commit f3b4ddfc57438ebf7e9eb3c34e78eb6d47776892
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 17 18:31:14 2015 +0300
+
+    Starter Pack
+    
+    Added payload starter pack update
+
+commit c6e980877cfaadcc9cd1d9871141416396d18cc6
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 17 13:01:20 2015 +0300
+
+    Code Cleanup
+    
+    Cleanup
+
+commit e9445c574cc5d9f66c99243d08d03e794f98d2c6
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 17 10:36:30 2015 +0300
+
+    route update
+    
+    Updated missing route in client side tools
+
+commit beec38093a282f70264642f3dce1f170d1ea08d4
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Nov 17 10:32:51 2015 +0300
+
+    Generic Request Update
+    
+    Modified Logic of POST , Added HEAD,OPTIONS & TRACE Methods.
+
+commit a09bb455a88915cefccf5736e9c8e16fcb884434
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Wed Nov 4 16:54:27 2015 +0300
+
+    Update README.md
+
+commit cf77f7b1e64775eade74573e3868d746d128fada
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Wed Nov 4 16:47:43 2015 +0300
+
+    Update README.md
+
+commit cea01591cc7177cdbecb9f85f93af45f20e51f4f
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Wed Nov 4 16:16:28 2015 +0300
+
+    Update README.md
+
+commit 520ee2e4b0189eb969dea117adc2796fa76d17ab
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Wed Nov 4 16:15:48 2015 +0300
+
+    Added Webserver Configuration
+
+commit 3488819eaab3e733c2c8b5ce35a14ac0833620a6
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 4 15:34:08 2015 +0300
+
+    Various Feature Additions and cleanup
+
+commit b80f37d6fa95f718a2a1d6f7c090c5270f63387e
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Wed Nov 4 15:05:28 2015 +0300
+
+    Update
+    
+    Update
+
+commit 77e91aaec794eb8afa22b6a5b03b85578a561fce
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Fri Oct 2 09:06:44 2015 +0300
+
+    Cleanup
+    
+    Update Comments on Functions that seem non self explanatory  and removed
+    all from decoder as it doesn't meet purpose.
+
+commit cdd57b092c2dae84f1c601a885cbeb298c958bb2
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Thu Oct 1 18:02:23 2015 +0300
+
+    Update Readme
+    
+    Update Readme
+
+commit f320053dd6186eaf869a72a33ef40c52bc5f5af2
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Thu Oct 1 18:01:29 2015 +0300
+
+    Fixed Validation Issue
+    
+    Initially you could input two fields with the same database key , now it
+    validates and breaks on attempting the same.
+
+commit 0bea0911d0154d0962365fdc07b2df166bafbc08
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Mon Sep 28 14:41:08 2015 +0300
+
+    Update README.md
+
+commit 4bb7274a0a69ad04d36ccfafa5c8299f55f63369
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Sep 28 14:39:50 2015 +0300
+
+    Added Playlist
+    
+    Added Playlist
+
+commit 9df0ce799935d489b063c6c92f098a1a5ccf8c73
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Mon Sep 28 14:29:47 2015 +0300
+
+    Documentation Update
+    
+    Updated Documentation Added UMLs and Links to videos on Usage
+
+commit 43e69d3493bcd3eb2c98063fb490d3c18aa3f5d0
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Thu Aug 13 15:27:27 2015 +0300
+
+    Developer Docs
+    
+    Added Developer Documents to the framework for people that want to
+    extend it
+
+commit 5560c061ba6462ce6c3f164296d976b3506af80d
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Tue Jul 28 13:46:09 2015 +0300
+
+    Update README.md
+
+commit 33cf10626cd2808b98f2cdde56e47a6798d83dc9
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Tue Jul 14 11:15:19 2015 +0300
+
+    Update user.php
+
+commit 2232d8e75889160dda0e81471ea700d9c9a2b504
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Tue Jul 14 11:13:41 2015 +0300
+
+    Update .htaccess
+
+commit 19e645135b9e6790693886e396c414a074c68643
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Tue Jul 14 11:11:28 2015 +0300
+
+    Update README.md
+
+commit 571f8475185081691fdc969a7d38ec250ba302bc
+Author: Munir Njiru <munir.n.n@gmail.com>
+Date:   Tue Jul 14 11:07:45 2015 +0300
+
+    Project Upload
+    
+    Upload Mth3l3m3nt Framework to Github
+
+commit 210d91d3ebd06a223dfb9195f60ae6fab825d0ec
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Tue Jul 14 11:04:47 2015 +0300
+
+    Update README.md
+
+commit 118d4fdd9a2026f6e4c38a710de445be50e9cbef
+Author: Munir Njiru <alienwithin@users.noreply.github.com>
+Date:   Tue Jul 14 10:59:32 2015 +0300
+
+    Initial commit

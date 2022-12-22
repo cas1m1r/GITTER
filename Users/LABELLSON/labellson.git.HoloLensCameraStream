@@ -1,0 +1,376 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit f129383d5a0f9f8b86fe4fa1ff79a482e09b8225
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Jan 10 11:44:17 2018 -0800
+
+    ReadMe mentions projection mapping.
+
+commit 66a5b3b8012059c1bd1aafc744332d2d927a5a02
+Merge: f369d74 b79271e
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Jan 10 11:35:18 2018 -0800
+
+    Merge pull request #28 from labellson/pixelProjection
+    
+    Reproject pixel coordinates to 3d world
+
+commit b79271e8063687382320149084a31e3b9525727c
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Nov 24 13:29:07 2017 +0100
+
+    Created Projection Example and implemented PixelCoordToWorldCoord method
+
+commit 1118a82f0eedcf937d5d967efd1a74f30e70e802
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Jun 23 12:27:11 2017 +0200
+
+    Mirrored Upside-down the UV of camera texture in HolographicImageBlend.shader
+
+commit 323289fb45fd442ac49aa58a9b155213cba1b861
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Jun 9 16:31:21 2017 +0200
+
+    Added camera hologram blending effect with projection matrix and HolographicImageBlending shader
+
+commit 711f770a9f1dda6cacfdd2b5a406454bc387e4c1
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Jun 9 14:09:15 2017 +0200
+
+    Changed PixelCoordToWorldCoord(). dirRay isn't taking account the center of Camera
+
+commit 0219c868b5c2e6a49cc72b17554166920c03c1c7
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Mon Jun 5 10:59:51 2017 +0200
+
+    Fixed right to left handed conversion as in PR comment
+
+commit a2e7e46af06ba48ff693377c4f15c35302a21cf6
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Wed May 31 18:06:28 2017 +0200
+
+    Made cameraToWorldMatrix useful to Unity. The transformations applied were not right
+
+commit f369d74511fc3c44ad28b52649ab3d4460c64b37
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Fri Aug 4 09:35:07 2017 -0700
+
+    Switch default build scene to Video Panel Example
+
+commit e1c7e89a232b019128172556c3ac418e14a42830
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Thu May 11 17:59:13 2017 -0400
+
+    Move utilities into utils. Add example scene for Matrix Usage.
+
+commit c7d11e3c8a281ae85bc827c284dbe90b3f42cb6a
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Wed May 10 17:05:10 2017 -0400
+
+    Commenting helper method in example code
+
+commit 13a3621f05034d502ca7f8a57355b10d84b03234
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Wed May 10 17:00:50 2017 -0400
+
+    Conform variable names between dummy and main plugin
+
+commit 19921146cd1e2792ab192d019450016b9710fd74
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Wed May 10 16:54:18 2017 -0400
+
+    Adding support for fetching CameraToWorld Matrix and Projection Matrix from sample frames similar to built in PhotoCapture.
+
+commit 1aa8f6cb56a2593e118016b317277e18b442a077
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:40:32 2017 -0700
+
+    Changed example readme format for asset store compatibility
+
+commit c72622526ef4344b46b5cae8c6569f95655b37a9
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:29:59 2017 -0700
+
+    Version bump
+
+commit 8aa592706f7b4085536b467dfc7b8cfec72d637e
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:22:04 2017 -0700
+
+    Clean up HologramOptions pull request
+
+commit ef23a8a38db1eef19fba27ddca9cac30d85356a0
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:21:00 2017 -0700
+
+    Copy dummy dll to proper dir
+
+commit 877e4fcd0a35fa2a690c8cdcb389c6b5423e2b28
+Merge: 2068e14 3f7d547
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:06:09 2017 -0700
+
+    Merge pull request #8 from SoylentGraham/HologramOptions
+    
+    New SetupParams options
+
+commit 2068e140b3db070a76a63aefcc479b1ff79ba133
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 14:04:23 2017 -0700
+
+    Adding README to example project
+
+commit 3f7d547332136db17576d45ab3b98dc91d584263
+Author: Graham Reeves <graham@grahamreeves.com>
+Date:   Wed Apr 26 00:50:09 2017 +0100
+
+    Fixed holograms not appearing. Effect was on wrong stream type (but presumably some options are global...)
+
+commit 2223c7923694122295ae7b10a5fee029b4727ee0
+Author: Graham Reeves <graham@grahamreeves.com>
+Date:   Wed Apr 26 00:21:14 2017 +0100
+
+    Added MixedReality effect and options to the CameraParams
+
+commit d526af9a20e1736d2c4bbe6e4f3a980e92d36439
+Author: Graham Reeves <graham@grahamreeves.com>
+Date:   Wed Apr 26 00:06:07 2017 +0100
+
+    Made the 180 rotation optional
+
+commit c000b28d40674532f339e8f9c19cb15e96c7b8eb
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 18:09:16 2017 -0700
+
+    Update README
+
+commit 1e4c3d190a725f373b6a914e09a4e74c1ffd8234
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 17:35:14 2017 -0700
+
+    Update assembly version.
+
+commit b2b5d6a66b89cae32dbf07de5d7f87572514b2c3
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 17:32:09 2017 -0700
+
+    Upgrade example to Unity 5.6
+
+commit 9b4b078b47185552449b72ffe587d4d882281d46
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 16:30:23 2017 -0700
+
+    Add copyright headers
+
+commit a17458dc348453caf824bd204aa0aa16020167fe
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 14:09:37 2017 -0700
+
+    Improvements to README
+
+commit 99bc9e38df67e27845afb0ddafd94c342f005b23
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Fri Apr 7 10:05:59 2017 -0700
+
+    A simple video panel UI that can display images. Images are not upside-down. You can set resolution and frame rate.
+
+commit 7bfe64f1803dcc472f61785961a855d2e9a2e847
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Thu Apr 6 15:54:19 2017 -0700
+
+    Adjusted example camera to clear to black.
+
+commit ed1aac1c6edf5f6cdc5f47281fcb631b491c6a14
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Thu Apr 6 09:35:25 2017 -0700
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit f129383d5a0f9f8b86fe4fa1ff79a482e09b8225
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Jan 10 11:44:17 2018 -0800
+
+    ReadMe mentions projection mapping.
+
+commit 66a5b3b8012059c1bd1aafc744332d2d927a5a02
+Merge: f369d74 b79271e
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Jan 10 11:35:18 2018 -0800
+
+    Merge pull request #28 from labellson/pixelProjection
+    
+    Reproject pixel coordinates to 3d world
+
+commit b79271e8063687382320149084a31e3b9525727c
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Nov 24 13:29:07 2017 +0100
+
+    Created Projection Example and implemented PixelCoordToWorldCoord method
+
+commit 1118a82f0eedcf937d5d967efd1a74f30e70e802
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Jun 23 12:27:11 2017 +0200
+
+    Mirrored Upside-down the UV of camera texture in HolographicImageBlend.shader
+
+commit 323289fb45fd442ac49aa58a9b155213cba1b861
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Jun 9 16:31:21 2017 +0200
+
+    Added camera hologram blending effect with projection matrix and HolographicImageBlending shader
+
+commit 711f770a9f1dda6cacfdd2b5a406454bc387e4c1
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Fri Jun 9 14:09:15 2017 +0200
+
+    Changed PixelCoordToWorldCoord(). dirRay isn't taking account the center of Camera
+
+commit 0219c868b5c2e6a49cc72b17554166920c03c1c7
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Mon Jun 5 10:59:51 2017 +0200
+
+    Fixed right to left handed conversion as in PR comment
+
+commit a2e7e46af06ba48ff693377c4f15c35302a21cf6
+Author: Daniel Laguna <labellson@gmail.com>
+Date:   Wed May 31 18:06:28 2017 +0200
+
+    Made cameraToWorldMatrix useful to Unity. The transformations applied were not right
+
+commit f369d74511fc3c44ad28b52649ab3d4460c64b37
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Fri Aug 4 09:35:07 2017 -0700
+
+    Switch default build scene to Video Panel Example
+
+commit e1c7e89a232b019128172556c3ac418e14a42830
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Thu May 11 17:59:13 2017 -0400
+
+    Move utilities into utils. Add example scene for Matrix Usage.
+
+commit c7d11e3c8a281ae85bc827c284dbe90b3f42cb6a
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Wed May 10 17:05:10 2017 -0400
+
+    Commenting helper method in example code
+
+commit 13a3621f05034d502ca7f8a57355b10d84b03234
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Wed May 10 17:00:50 2017 -0400
+
+    Conform variable names between dummy and main plugin
+
+commit 19921146cd1e2792ab192d019450016b9710fd74
+Author: Jon <mcelroy.jon@gmail.com>
+Date:   Wed May 10 16:54:18 2017 -0400
+
+    Adding support for fetching CameraToWorld Matrix and Projection Matrix from sample frames similar to built in PhotoCapture.
+
+commit 1aa8f6cb56a2593e118016b317277e18b442a077
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:40:32 2017 -0700
+
+    Changed example readme format for asset store compatibility
+
+commit c72622526ef4344b46b5cae8c6569f95655b37a9
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:29:59 2017 -0700
+
+    Version bump
+
+commit 8aa592706f7b4085536b467dfc7b8cfec72d637e
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:22:04 2017 -0700
+
+    Clean up HologramOptions pull request
+
+commit ef23a8a38db1eef19fba27ddca9cac30d85356a0
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:21:00 2017 -0700
+
+    Copy dummy dll to proper dir
+
+commit 877e4fcd0a35fa2a690c8cdcb389c6b5423e2b28
+Merge: 2068e14 3f7d547
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 17:06:09 2017 -0700
+
+    Merge pull request #8 from SoylentGraham/HologramOptions
+    
+    New SetupParams options
+
+commit 2068e140b3db070a76a63aefcc479b1ff79ba133
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Wed Apr 26 14:04:23 2017 -0700
+
+    Adding README to example project
+
+commit 3f7d547332136db17576d45ab3b98dc91d584263
+Author: Graham Reeves <graham@grahamreeves.com>
+Date:   Wed Apr 26 00:50:09 2017 +0100
+
+    Fixed holograms not appearing. Effect was on wrong stream type (but presumably some options are global...)
+
+commit 2223c7923694122295ae7b10a5fee029b4727ee0
+Author: Graham Reeves <graham@grahamreeves.com>
+Date:   Wed Apr 26 00:21:14 2017 +0100
+
+    Added MixedReality effect and options to the CameraParams
+
+commit d526af9a20e1736d2c4bbe6e4f3a980e92d36439
+Author: Graham Reeves <graham@grahamreeves.com>
+Date:   Wed Apr 26 00:06:07 2017 +0100
+
+    Made the 180 rotation optional
+
+commit c000b28d40674532f339e8f9c19cb15e96c7b8eb
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 18:09:16 2017 -0700
+
+    Update README
+
+commit 1e4c3d190a725f373b6a914e09a4e74c1ffd8234
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 17:35:14 2017 -0700
+
+    Update assembly version.
+
+commit b2b5d6a66b89cae32dbf07de5d7f87572514b2c3
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 17:32:09 2017 -0700
+
+    Upgrade example to Unity 5.6
+
+commit 9b4b078b47185552449b72ffe587d4d882281d46
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 16:30:23 2017 -0700
+
+    Add copyright headers
+
+commit a17458dc348453caf824bd204aa0aa16020167fe
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Tue Apr 11 14:09:37 2017 -0700
+
+    Improvements to README
+
+commit 99bc9e38df67e27845afb0ddafd94c342f005b23
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Fri Apr 7 10:05:59 2017 -0700
+
+    A simple video panel UI that can display images. Images are not upside-down. You can set resolution and frame rate.
+
+commit 7bfe64f1803dcc472f61785961a855d2e9a2e847
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Thu Apr 6 15:54:19 2017 -0700
+
+    Adjusted example camera to clear to black.
+
+commit ed1aac1c6edf5f6cdc5f47281fcb631b491c6a14
+Author: Eric Smith <motionsmith@gmail.com>
+Date:   Thu Apr 6 09:35:25 2017 -0700
+
+    Initial commit

@@ -1,0 +1,136 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 67d94b56a647bb99f926ab0400e48196ceada779
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Wed Jan 23 12:51:37 2019 +0100
+
+    BUGFIX: Tensor used for bbox (tx, ty, w, h) conversion to (topLX, topLy, botRX, botRY) was sharing memory when computing the transformation on method write_results
+
+commit 73886d30540c901dc27a29f5b3f7f97f446e8af3
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Wed Jan 23 11:05:13 2019 +0100
+
+    Add detector and some methods to util. BUG: Seems like NMS or transformation to original bboxes scale isn't working
+
+commit 9dfea81752f0548b2e18138ee389dceff46c039a
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Tue Jan 22 12:42:29 2019 +0100
+
+    Add write_results function. Returns the detections in the batches
+
+commit d6f1c9a5d7b3864c219f2e62cd32d0b7cf08277a
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 17:14:05 2019 +0100
+
+    Add weights and load weights function
+
+commit bb3e2e61ee0bfca2a6cbedad694e39ae5b672133
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 15:58:42 2019 +0100
+
+    Add predict_transform and last yolo layer to darknet architecture
+
+commit c90c78e8a839493c648ef4586487a049cfda9df1
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 10:47:35 2019 +0100
+
+    Fix some typos
+
+commit 2fafb67101a564588ed23899e803b0bb5de103c1
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 10:40:49 2019 +0100
+
+    Add yolo layer an finished create_modules method
+
+commit 12ec92dbfefbecb660f91a5d9a8cd941ed3c8564
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 09:20:26 2019 +0100
+
+    Add shortcut layer
+
+commit 7073c8ac5ee9b3a832192b0aae2b559cbda42a88
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 09:18:03 2019 +0100
+
+    Add Route layer and EmptyLayer
+
+commit 40ff34b10ba26dd4716078fe5eca25eed81426ad
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Fri Jan 18 15:00:03 2019 +0100
+
+    Add upsample block creation
+
+commit 668a0e44941916876768c970f311fa5ed67eaf7e
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Fri Jan 18 12:29:50 2019 +0100
+
+    Add .cfg parser and create_modules() with convolutional() function in order to create conv blocks from yolo
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 67d94b56a647bb99f926ab0400e48196ceada779
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Wed Jan 23 12:51:37 2019 +0100
+
+    BUGFIX: Tensor used for bbox (tx, ty, w, h) conversion to (topLX, topLy, botRX, botRY) was sharing memory when computing the transformation on method write_results
+
+commit 73886d30540c901dc27a29f5b3f7f97f446e8af3
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Wed Jan 23 11:05:13 2019 +0100
+
+    Add detector and some methods to util. BUG: Seems like NMS or transformation to original bboxes scale isn't working
+
+commit 9dfea81752f0548b2e18138ee389dceff46c039a
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Tue Jan 22 12:42:29 2019 +0100
+
+    Add write_results function. Returns the detections in the batches
+
+commit d6f1c9a5d7b3864c219f2e62cd32d0b7cf08277a
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 17:14:05 2019 +0100
+
+    Add weights and load weights function
+
+commit bb3e2e61ee0bfca2a6cbedad694e39ae5b672133
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 15:58:42 2019 +0100
+
+    Add predict_transform and last yolo layer to darknet architecture
+
+commit c90c78e8a839493c648ef4586487a049cfda9df1
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 10:47:35 2019 +0100
+
+    Fix some typos
+
+commit 2fafb67101a564588ed23899e803b0bb5de103c1
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 10:40:49 2019 +0100
+
+    Add yolo layer an finished create_modules method
+
+commit 12ec92dbfefbecb660f91a5d9a8cd941ed3c8564
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 09:20:26 2019 +0100
+
+    Add shortcut layer
+
+commit 7073c8ac5ee9b3a832192b0aae2b559cbda42a88
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Mon Jan 21 09:18:03 2019 +0100
+
+    Add Route layer and EmptyLayer
+
+commit 40ff34b10ba26dd4716078fe5eca25eed81426ad
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Fri Jan 18 15:00:03 2019 +0100
+
+    Add upsample block creation
+
+commit 668a0e44941916876768c970f311fa5ed67eaf7e
+Author: Daniel Laguna <daniel.laguna.soto@accenture.com>
+Date:   Fri Jan 18 12:29:50 2019 +0100
+
+    Add .cfg parser and create_modules() with convolutional() function in order to create conv blocks from yolo

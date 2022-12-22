@@ -1,0 +1,655 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+====================== GIT HISTORY: ======================
+83106f4 HEAD@{0}: clone: from https://github.com/Vnet-as/postfwd-anti-geoip-spam-plugin
+commit 83106f4bde5a3bd70583533e03bb071083678199
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Oct 5 11:41:34 2021 +0200
+
+    Refactoring: extract common functions
+    
+    - Extract database connection healthcheck to function
+    - Extract check for user existence in logins database to function
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 7243ffecb43f66deba6c54e30f8b3392bacd6263
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Oct 5 11:10:14 2021 +0200
+
+    Remove uninitialized variable for geoip version
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 4846bae17c18ffb774273129815c2b42eff61a3a
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Oct 5 10:25:35 2021 +0200
+
+    Drop geoip v1 support (#67)
+    
+    Drop support for GeoIP database version 1
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 51119cadaf53d1578f9eebb297ea02887269f173
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Oct 5 08:25:10 2021 +0200
+
+    IPv6 support (#65)
+    
+    Add IPv6 support
+    
+    More info in PR description https://github.com/Vnet-as/postfwd-anti-geoip-spam-plugin/pull/65
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 8648137ece5707e9e1ceb810159c28e6ba3975a4
+Author: francoisPE <60675606+francoisPE@users.noreply.github.com>
+Date:   Sat Apr 3 15:08:50 2021 +0200
+
+    Add missing path in install.sh commands (#63)
+    
+    Add missing `/etc/postfix/` that creates error and do not apply `chmod` correctly.
+
+commit 463caee980e9e3a81272686c6e32a4aee1202cf3
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Sun Mar 28 19:55:56 2021 +0200
+
+    Move debugging config section to logging (#62)
+    
+    Rename former debugging options to:
+    - logging.enable
+    - logging.ip_limit
+    - logging.country_limit
+    
+    Use  default values for logging limits
+    - 20 unique ip limit
+    - 5 unique country limit
+    
+    - Use Readonly module for constants. This eliminates percritic warnings about magical numbers and using const
+    - Add tests with IPs that are not in DB or are invalid.
+
+commit bda4cb8fa4cfa81edadf8e050ecbda0295af2b0b
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Sat Mar 27 12:41:08 2021 +0100
+
+    Docs: Enhance support matrics with GeoIP version (#61)
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 4bb1653b6650e5616d12d84f1164e9280c1a856b
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Sat Mar 27 12:34:16 2021 +0100
+
+    Add support for GeoIP2 DB (#60)
+    
+    - This commit will be tagged 1.50.0
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 8300d9d793903ad1187e74a55763c8e77e2f90a5
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Fri Mar 26 13:26:57 2021 +0100
+
+    Run integration tests on perl version matrix 5.28, 5.30, 5.32 (#58)
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 1ac2b0ef88c1bb747a1284178b5959db5da3110e
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Fri Mar 26 13:02:09 2021 +0100
+
+    Repo/conf directory (#57)
+    
+    Move config files to directory `conf/`
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 9db5d5eabee460bcc95191e4fc39c7804cb2b830
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Mar 23 15:19:56 2021 +0100
+
+    CI: Create integration test using GitHub Actions (#56)
+    
+    Implement CI using GitHub Actions
+    
+    - Add static lint with perlcritic
+    - Add options to install dependencies from cpanfile
+    - Use docker-compose similar as for local testing
+    - Reaching port 10040 from host doesn't work with docker network so far. Use host network and try to revisit it again soon.
+    - Improve testing script to be runnable from different directory
+    - Improve error report in testing script
+    - Closes #28
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit b163cf213998be718cdb18da97a822572a92ce6b
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 22 20:05:56 2021 +0100
+
+    Docs/lint (#55)
+    
+    Docs: simplify and make documentation prettier.
+    
+    - Rename ini code blocks for proper highlight
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 77923eaa94111629c730433c07bc53a293aa3ff3
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 22 19:11:32 2021 +0100
+
+    Fix plugin version inside of perl plugin file (#54)
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 72684f8befc14211ffac5d18b5d12d8b4628e1dd
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Mar 3 13:38:43 2020 +0100
+
+    Feat/ip whitelist (#51)
+    
+    * Implement IP whitelisting feature
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit ae4164110c16292828bfb8197afbd0d1aa19d801
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Sat Mar 23 22:26:05 2019 +0100
+
+    Feat/postfwd3 support (#46)
+    
+    * Upgrade script with postfwd3 plugin interface change
+    * Update to postfwd3 docker
+    * Add new geoip database path configuration option
+    * Update and refactor documentation
+    * Always log Number of unique IPs/Countries
+    * Add testing scripts and postgresql docker-compose
+    * Save request value of plugin items (`request{client_uniq_country_login_count}`)
+
+commit 6827048e16f885194ba8ce11d5989126ff95704e
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Tue Mar 12 10:58:48 2019 +0100
+
+    Move documentation into directory `docs`
+    
+    This will DockerHub help to properly find README file and at the same
+    time GitHub will show README correctly
+
+commit 3125f883c940b532a1e28df8ed71ca888f13b3ce
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Mar 12 10:41:11 2019 +0100
+
+    Enh/dockerhub readme (#42)
+    
+    * Move Docker files into /docker directory
+    * Update paths for Dockerfile in docker-compose
+    * Add DockerHub README
+
+commit f73f7ec13e1e8f33c6ae920ed254d409541c5fa8
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 11 22:14:59 2019 +0100
+
+    Update README with changes for release 1.2
+
+commit 93012229aff1c5a84862b157b97efc40bcdfb9d7
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 11 22:13:53 2019 +0100
+
+    Add example for unique IP count restriction
+    
+    Closes #11
+
+commit c72a40ceb2ad5fadba303501cd1170400f959061
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 11 22:07:05 2019 +0100
+
+    Relink blog URL to Medium
+    
+    Closes #30
+
+commit a432c38b2765439ca7659edc7c7eb7c355927713
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sun Jan 6 12:37:32 2019 +0100
+
+    Add version v1.2 with list of linting changes to changelog
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 02252ecdb860e0dcc284f713679908581f6f76fd
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 11 22:16:40 2019 +0100
+
+    Add instructions and script for testing
+
+commit 8eb3ccf806eeb58f8a822e3fabe5c393a0fdbdde
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 11 21:08:12 2019 +0100
+
+    Enh/autoflush stdout option (#38)
+    
+    * Add autoflush option to configuration files
+    
+    Autoflush helps in development, because it forces flushing of STDOUT,
+    which makes all log messages visible immediately, but decreases
+    performance.
+    
+    By default disabled in production and enabled in development docker
+    compose.
+
+commit 8ce6047e70ce4695354fe6cc9bd8d5822a47aeab
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 11 21:04:17 2019 +0100
+
+    [WIP]: Enh/perlcritic lint (#26)
+    
+    * Remove lint.pl script and replace it with RC file for perl critic
+    
+    This is more general solution. Lint can now be executed easily
+    with command `perlcritic <file>`, so for example
+    `perlcritic postfwd-anti-spam.plugin`.
+    
+    * Resolve Perl Critic interpolation violations
+    
+    Use English module and replace magic punctuation variables $$ and $!
+    with their english equivalents and properly quote literal strings.
+    
+    * Correct notation for Double-sigil dereference violation
+    * Fix `always return from subroutine` violation.
+    * Fix `builtin function with parentheses` style violation
+    * Rename variable with camel case to snake
+    * Brace file handle
+    * Fix `Always unpack @_ first` violation
+    * Don't exit with negative literal number
+    * Fix `Prohibit Magic Numbers` violation with constants
+    * Fix `Package variable declared or used` violation
+    * During database connection, we can refer also to function DBI->errstr
+    * Fix regular expression violation
+    
+    Add explicit m/ and /xms for more expectable regular expression
+    behavior
+    
+    * Add version declaration
+    * Fix `C-style "for" loop` violation
+    * Perl Tidy plugin
+
+commit d421f9e8213d9b7f6a389fb58545119f87edd129
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Mon Mar 11 20:07:28 2019 +0100
+
+    Print log info about GeoIP database
+
+commit e00819b2370e38d40583a58b9893400d2e14482c
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sun Mar 10 12:57:13 2019 +0100
+
+    Fix development docker compose volumes
+    
+    The initial configuration used volumes which are unusable for
+    configuration files. Change to bind volumes fixes the issue.
+
+commit 9dc2d74806e563339f3c6cec17e35425dc15e7d6
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sun Mar 10 21:31:14 2019 +0100
+
+    Install MaxMind GeoIP database
+
+commit 247cae411af3195654c26f58d71a1966927f44c0
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sun Mar 10 21:27:44 2019 +0100
+
+    Remove double running postfwd2
+    
+    Running postfwd2 is already defined in ENTRYPOINT.
+
+commit b20c500e0bb48b5f5887be32b29083a133f2f248
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sun Mar 10 11:46:38 2019 +0100
+
+    Bump postfwd version to 1.39
+    
+    Postfwd version tag 1.37 was removed from dockerhub.
+    
+    Closes #31
+
+commit 5ce370b8fdb3098d79cc9a12bbd3bbfd727f0c70
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sat Jan 5 19:15:47 2019 +0100
+
+    Add changelog for release 1.1
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 149beee9272192309a2bafba499afabc4a9d513e
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sat Jan 5 17:49:56 2019 +0100
+
+    Create docker-compose for easy development environment bootstrap
+    
+    Create docker-compose configuration, sample postfwd and postfwd antispam
+    configuration together with initial mysql database creation script.
+    
+    This allows developers to simply create development environment on local
+    computer and actively develop and test postfwd plugin.
+    
+    The postfwd branch is frozen to version `v1.37`.
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 7e031af79dc5c9a0456c4f7daabb3aa1b46494a2
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sat Jan 5 17:42:04 2019 +0100
+
+    Allow timeout retries on database connection
+    
+    Allow datbase connection 3 retries and 10 second timeout before failing.
+    
+    Print information after successful connection.
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 151f07ff00f4712e6c15fa255080c521b2311b6e
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Fri Jan 4 23:28:02 2019 +0100
+
+    Integrate plugin with postfwd Docker image
+    
+    This commit introduces Dockerfile, which pulls official postfwd Docker
+    Image v1.37 and installs postfwd geoip anti spam plugin.
+    
+    Closes https://github.com/Vnet-as/postfwd-anti-geoip-spam-plugin/issues/14
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 98af7ae9d7d7af46503f04fa4c46fea3af0e5642
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Sat Jan 5 14:11:54 2019 +0100
+
+    Allow logging to STDOUT
+    
+    Add program name into logging message in format <DATE PROGRAM LOG_LEVEL
+    MESSAGE>.
+    
+    If statement `logfile` in `[logging]` section of configuration file
+    `anti-spam.conf` is empty, nonexistent or equal to `''` or `""`, log to
+    STDOUT.
+    
+    Closes https://github.com/Vnet-as/postfwd-anti-geoip-spam-plugin/issues/20
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit b7c98b9ab26a53cd63a08ff85a0fc55294adc7e4
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Fri Jan 4 22:01:38 2019 +0100
+
+    Use dynamic shebang
+    
+    According to best practices
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 74d900dd9253a23df2a6c205b345e955a4deab9d
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Fri Jan 4 21:56:25 2019 +0100
+
+    Allow custom path to main configuration files
+    
+    In order to allow setting of different location of main configuration
+    files, implement customization via environment variables.
+    
+    This is important, if we want for example have all configuration files in
+    `/etc/postfwd/` directory.
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 108ef05f5a3fbcc7ed0adba7f673a4a84d3037d9
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Mon Nov 12 18:34:07 2018 +0100
+
+    Remove unuseful test
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 50b4c84fc74f5059543676fac0dcdcd761296b4a
+Merge: 980ba0b 6596fee
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Fri Nov 9 13:37:38 2018 +0100
+
+    Merge pull request #13 from Vnet-as/enh/grammar-lint-readme
+    
+    Simplify and lint documentation
+
+commit 6596fee6beb038d37751c3da44cb58fffa7c6813
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Fri Nov 9 13:24:58 2018 +0100
+
+    Simplify and lint documentation
+    
+    * Lint lists to `-` format.
+    * Grammar fixes
+    * Shrink dependency and dependency installation chapters
+    * Add note about possibility of changing log file location
+    * Other small changes.
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 980ba0bc25b6d6cf04d500ebef99ae328485abe4
+Merge: 0e4f073 9bca724
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Wed Dec 27 21:04:59 2017 +0100
+
+    Merge pull request #11 from kollyma/uniq_ip_restriction
+    
+    Add function to count unque IP addresses per sasl user
+
+commit 9bca724f9625089ad58cf8950dc7cc9c1a4a6fb2
+Author: Martin Kolly <martin.kolly@senselan.ch>
+Date:   Wed Dec 27 09:54:40 2017 +0100
+
+    add uniq IP restrictions
+
+commit 0e4f0730aab16b6f824a58a4a358635952775d95
+Merge: 5f39746 796f067
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:54:16 2017 +0100
+
+    Merge pull request #10 from Lirt/bug/rotating-logs/#6
+    
+    Bug/rotating logs/#6
+
+commit 796f067e39f533086cd2dd56e4808cddaf7152d5
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:53:20 2017 +0100
+
+    Instructions to use logrotate with logging system of plugin. Closes #6.
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 3247b13713d10c04baebde8f05454f963dc31806
+Merge: 809197a 5f39746
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:44:25 2017 +0100
+
+    Merge pull request #2 from Vnet-as/master
+    
+    pull master
+
+commit 5f39746192167a93396767d5abfc10a786aa27e1
+Merge: b140c24 ec32dfa
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:39:31 2017 +0100
+
+    Merge pull request #9 from Lirt/feat/install-script/#5
+    
+    Feat/install script/#5
+
+commit ec32dfafedb91aff42e3f2c539fc4e1b61e39fda
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:38:08 2017 +0100
+
+    Add syntax highlighting for config INI
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 18b733efae290db4ea578b3358ea45e3180c6056
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:31:31 2017 +0100
+
+    Fix documentation links
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit edce6e1f20ea4e581fd3c7cb433c12787f213512
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:25:23 2017 +0100
+
+    Replace instructions to install by running install script + cleanup.
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit d4314976d334aab8c525cd635524f620d3d59145
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 17:24:55 2017 +0100
+
+    Use Bash strict mode and handle possible errors
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 809197aa31b29180fd832a9bbe1b639fcf460bc2
+Merge: 4e695bf b140c24
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 16:58:47 2017 +0100
+
+    Merge pull request #1 from Vnet-as/master
+    
+    pull master
+
+commit b140c2451255f312458dd31790a8167530017027
+Merge: 4e695bf f517654
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 16:36:45 2017 +0100
+
+    Merge pull request #8 from Lirt/refact/perl-linting/#7
+    
+    Add linting script and instructions to use it. Closes #7
+
+commit f517654a6e127855e0683185876e1f7e31c7be8c
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Nov 1 16:35:21 2017 +0100
+
+    Add linting script and instructions to use it. Closes #7
+    
+    Signed-off-by: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+
+commit 4e695bfb6b3078d87985b77e90718d00f406d3af
+Merge: 6f99b99 ed73218
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Tue Oct 31 22:13:33 2017 +0100
+
+    Merge pull request #3 from kirecek/master
+    
+    Remove todo section from README + remove spaces at end of lines
+
+commit ed732182a9d9a93c0ab5043705f702a0eb42e776
+Author: kirecek <erikjankovic@gmail.com>
+Date:   Tue Oct 31 19:02:28 2017 +0100
+
+    Remove todo section from README + cosmetic changes
+    
+    Signed-off-by: kirecek <erikjankovic@gmail.com>
+
+commit 6f99b999257e224999a508943cf3545e22ba3d70
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Wed Feb 22 17:59:03 2017 +0100
+
+    Delete sql-statements.conf
+
+commit 0c3ac6df7e1b939933cce3d6db6a316684c0ffaf
+Merge: f27dfc7 04c9c6e
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Feb 22 17:56:07 2017 +0100
+
+    Merge branch 'master' of https://github.com/Vnet-as/postfwd-anti-geoip-spam-plugin
+
+commit f27dfc7e37b3f635df6165fe49daeac001a96196
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Wed Feb 22 17:52:21 2017 +0100
+
+    Implemented configuration file.
+    Added configuration file for SQL statements.
+    Refactoring of code.
+    Small error checks.
+    Updated Readme.
+    Added testing version of installation script.
+    Added small test script.
+
+commit 04c9c6ebe669c2b839e2d11fb563f5ddb3e835c7
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Thu Feb 16 11:38:53 2017 +0100
+
+    Update README.md
+
+commit 60be8a1532aceaafb0ca21f1a098b23db5fe5491
+Author: Ondrej Vaško <ondrej.vasko@vnet.sk>
+Date:   Thu Feb 16 09:38:59 2017 +0100
+
+    Update to issue with private and loopback IP ranges by changing postfwd.cf configuration.
+    Added small checks for IP address validation before GeoIP resolving.
+    Small changes to Readme.
+
+commit 44c56b3312fa9c3668b16bd98f4430c5b4a4cb6a
+Author: Ondrej Vaško <ondrej.vasko@vnet.sk>
+Date:   Tue Feb 14 15:01:07 2017 +0100
+
+    Added link to howtoforge blog in README.md + updated formatting.
+
+commit 0db5d1927a6f3fc4a0e42b62b9b4aff519327e54
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Fri Feb 10 10:22:42 2017 +0100
+
+    Updated formatting and typos in README.
+
+commit fa4b966ca1450a71fef7a09825b96bc02a8d8c27
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Tue Jan 31 19:04:36 2017 +0100
+
+    Fix to readme and added ToC.
+
+commit a0ddfb19e84d48242723808a92aed928b035a5f6
+Author: Ondrej Vasko <ondrej.vaskoo@gmail.com>
+Date:   Tue Jan 31 18:55:18 2017 +0100
+
+    Small update to log messages and error handling.
+
+commit fb3fb3125508c16bb6235dcf67d31772d5dbf8f5
+Author: root <root@localhost.localdomain>
+Date:   Tue Jan 31 17:01:17 2017 +0100
+
+    1. Fixed issue with autoreconnecting not working with postgres backend. Issue was solved by adding dbh->ping at start of functions and reconnect method if ping was not successful.
+    2. Refactoring of logging methods.
+    3. Updated error handling.
+    4. Updated README.
+
+commit e6f5321ee252135e0574782911fb8ff866814381
+Author: ondrej.vasko <ondrej.vasko@vnet.sk>
+Date:   Fri Oct 14 10:57:50 2016 +0200
+
+    Removed quotes from $dbh->errstr. More error and string checks.
+
+commit 5fb4f3203e5160acb3a834588a864e9ace253cc4
+Author: ondrej.vasko <ondrej.vasko@vnet.sk>
+Date:   Fri Oct 14 10:14:11 2016 +0200
+
+    Updated plugin to work better with postfwd. Changed logging function names because of redefined errors. Added one more error check on fetchrow array
+
+commit 74930684c837a78e8e3179d3545d253924d97499
+Author: ondrej.vasko <ondrej.vasko@vnet.sk>
+Date:   Thu Oct 13 16:38:01 2016 +0200
+
+    Initial commit. Added README and main plugin file.
+
+commit efeb2b7a6444fea4d49ac032a4d0d47e0d9c4902
+Author: Ondrej Vaško <ondrej.vaskoo@gmail.com>
+Date:   Thu Oct 13 16:24:17 2016 +0200
+
+    Initial commit

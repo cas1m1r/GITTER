@@ -1,0 +1,500 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# IRC Bot Hunters
+a collection of Metasploit PoC exploits I wrote for IRC Botnets that takes over the owner of a bot which then allows Remote Code Execution. Most IRC Botnets can be taken over by using their herders' usernames or by triggering a certain command which does shell execution. Almost all of the modules here have been accepted in the Metasploit repository. If you are looking for C&C exploit modules or pwning backdoors like r57 / c99 shell, I have also made [some modules](https://github.com/rapid7/metasploit-framework/search?utf8=%E2%9C%93&q=jay+turla) which I have pushed in the main msf repository.
+
+![image](https://cloud.githubusercontent.com/assets/3483615/9675972/44986a28-52f7-11e5-8c1a-76cabf835cb6.png)
+
+# Accepted Metasploit Modules
+
+w3tw0rk / Pitbul IRC Bot  Remote Code Execution - https://www.rapid7.com/db/modules/exploit/multi/misc/w3tw0rk_exec
+
+Legend Perl IRC Bot Remote Code Execution - https://www.rapid7.com/db/modules/exploit/multi/misc/legend_bot_exec
+
+Xdh / LinuxNet Perlbot / fBot IRC Bot Remote Code Execution - https://www.rapid7.com/db/modules/exploit/multi/misc/xdh_x_exec
+
+PHP IRC Bot pbot eval() Remote Code Execution (Credited Only) - https://www.rapid7.com/db/modules/exploit/multi/misc/pbot_exec
+
+# Some References
+w3tw0rk / Pitbull Perl IRC Bot Remote Code Execution PoC Exploit - https://www.exploit-db.com/exploits/36652/
+
+Legend Perl IRC Bot - Remote Code Execution  - https://www.exploit-db.com/exploits/36836/
+
+# Inspiration
+- MalwareMustDie!
+
+# Request for Metasploit Modules?
+Want an IRC bot pwned or you have an exploit for an IRC bot that you want to be ported to msf? Contact me at shipcodez@gmail.com
+
+I am always open for suggestions and new modules as long as you give me details and analysis of a new IRC bot in the wild. Save the world from cavities!!!
+====================== GIT HISTORY: ======================
+629233f HEAD@{0}: clone: from https://github.com/shipcod3/IRC-Bot-Hunters
+commit 629233f7257173c557952f7d61d82ca8700eb646
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Thu May 26 18:13:57 2022 +0800
+
+    Update open_source_repos.md
+
+commit 8e2e5bcc869547381b2de0045d2d66a769f76289
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Thu May 26 18:13:46 2022 +0800
+
+    Update open_source_repos.md
+
+commit 36de072f7f29f5da994b71d38213b3937c6ad1f6
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue May 24 00:31:36 2022 +0800
+
+    Create RC-Worm.PHP.Caracula
+    
+    First PHP worm using mirc to spread
+
+commit 8f6c8cbf0728858c28bcfd40fde975a28817c96a
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue Apr 19 12:15:04 2022 +0800
+
+    add command list
+    
+    command lists for banyak irc botnet
+
+commit a74fc5650db92462d5d68a6405a8ee0c417ee2f9
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue Apr 19 12:12:09 2022 +0800
+
+    Update README.md
+
+commit e5ff5a883e722773b01fd4261aeea635c6060721
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue Apr 19 11:50:37 2022 +0800
+
+    Create banyak_irc.pl
+
+commit b7aee6dd11005e81b481fe401f8e91df32bcd3a7
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Mon Feb 1 11:10:41 2021 +0800
+
+    Update README.md
+
+commit 75bdcb5b34e19887d20627f4e3d04e6f72d29ae4
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue Dec 8 01:12:17 2020 +0800
+
+    Create pbot.php
+
+commit d9923ea4ddabea10f2e446deedabfaae3f9f9533
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat Apr 7 01:58:44 2018 +0800
+
+    Create bossabot.c
+    
+    Found bossabot's source code
+
+commit 9553620a1185b491473b2655de89ed3a5c7a518a
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sun Mar 18 20:23:08 2018 +0800
+
+    Create timthumbscanner.txt
+
+commit 89da21d70b544f74cb882b80dd252e5c973b51b5
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sun Mar 18 20:14:52 2018 +0800
+
+    Create magscan?.txt
+
+commit 047430aeeb0035b31b86e4bb19ebd0fbec57a6f0
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Thu Jan 19 21:29:11 2017 +0800
+
+    Update README.md
+
+commit dc822543b19a99ebf6f38f57d6d017ed944ac23a
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Thu Jan 19 21:25:59 2017 +0800
+
+    Update README.md
+
+commit 4ab4a1a281039f8bcb5e32534b524136667bac07
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Thu Jan 19 20:06:39 2017 +0800
+
+    Update README.md
+
+commit 6060f79e7c3803c9cbe9fabae3d503c4c26fc05d
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Mon Dec 5 02:46:05 2016 +0800
+
+    Update open_source_repos.md
+
+commit 53d2d7ba1a62404062a5727d5c9868d0dade255d
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Mon Dec 5 02:41:13 2016 +0800
+
+    Rename open_source_repos.txt to open_source_repos.md
+
+commit e11c3aac948bce6ae568a075c519bd07f0862296
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Mon Dec 5 02:40:36 2016 +0800
+
+    Create open_source_repos.txt
+
+commit df4f8dd93cc8493dce74e952cf0ea5e9f12615d1
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Fri Aug 19 21:35:08 2016 +0800
+
+    Phoenix Exploit Kit File - geoip.php
+
+commit 4d1c242bbb0c94c03f503c660b93da93ccfa5bd2
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue Aug 16 05:36:19 2016 +0800
+
+    Delete test.xml
+
+commit d557dd25edb21164f70c84a35d8de037d3db744a
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue Aug 16 01:34:16 2016 +0800
+
+    Update README.md
+
+commit 938a271192a764602e9ee2da489a72b3ab41b67b
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Tue Aug 16 01:31:51 2016 +0800
+
+    Update README.md
+    
+    adding some info on the readme.md
+
+commit bcdb93064b052b6576a16efc8d33d6c5ea6e3bb5
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat May 21 01:10:47 2016 +0800
+
+    Update xdh_x_exec.rb
+
+commit 6325b28d991a827e23e09d5fa37128b8642cd168
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat May 21 01:10:09 2016 +0800
+
+    Update w3tw0rk_exec.rb
+
+commit 6ce382f0b7af2483c358ac5174b3cbfb2af16068
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat May 21 01:09:40 2016 +0800
+
+    Update legend_bot_exec.rb
+
+commit 8d638218fa2f6c22529bde058e011eaee830db6b
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat May 21 01:09:05 2016 +0800
+
+    Update kaiten_exec.rb
+
+commit 07617d142b8f8b7bd61ecff815d1d2696db8d283
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat May 21 01:07:47 2016 +0800
+
+    Create pbot_exec.rb
+
+commit 9982b3fa356ea86b521bb2a110fb7617b8c69805
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat May 21 00:59:01 2016 +0800
+
+    Update README.md
+
+commit 97f33675a4548c905943b7137f36b84fb06a85f3
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Sat May 21 00:57:10 2016 +0800
+
+    Update README.md
+
+commit 8b1025992590fa30f9e900c397133096cf4f5025
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Thu Mar 31 04:04:02 2016 +0800
+
+    Update test.xml
+
+commit ced5d4c7de80b8d41360385878784ad63482dcfe
+Author: Jay Turla <shipcodez@gmail.com>
+Date:   Thu Mar 31 03:59:25 2016 +0800
+
+    Create test.xml
+
+commit 9d26b5c4d0485b0a3150063ef7b92a4906d49411
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Jan 15 14:21:24 2016 +0800
+
+    Update README.md
+
+commit d92ac2048e4b5c567fd0c54adddf8e059c76eddf
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Dec 7 11:03:05 2015 +0800
+
+    Update README.md
+
+commit 60fe40fc109f216548348b0006ace5ae24ea1d5c
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Dec 7 11:01:51 2015 +0800
+
+    Delete w3tw0rk_hunter.py
+
+commit 47d21f35baf002cbd02fe6309d14da9679b54c2f
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Dec 7 10:24:45 2015 +0800
+
+    Update and rename legend_rce.py to legend_bot_exec.rb
+
+commit b76a7900de95ca5f93ce5ee3ed82876d9168f5f5
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Dec 7 09:26:28 2015 +0800
+
+    Create xdh_x_exec.rb
+
+commit 2e928977e4f6e00799737f3277abd9e41556cc69
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 23 08:35:22 2015 +0800
+
+    Create mma.php
+
+commit 04c13667b547198786ccaaf61d2793ddfbf3dfca
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 16 21:01:34 2015 +0800
+
+    Update kaiten_exec.rb
+
+commit 06dcd0c5a35acf7067d1d048853cfc6ea2f125db
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 16 13:45:46 2015 +0800
+
+    Update kaiten_exec.rb
+
+commit a315983615d590999089deb29924d1fdefe962b1
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 16 13:43:18 2015 +0800
+
+    Update kaiten_exec.rb
+
+commit 74a160b431a2070a12f2ee861484e192ac5c658e
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 16 13:38:23 2015 +0800
+
+    Update kaiten_exec.rb
+
+commit 52898df98b2abbcb9cbaf68b636f334404363875
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 16 13:23:23 2015 +0800
+
+    Update kaiten_exec.rb
+
+commit 68c5636313433522f614d026eef21910c94000c6
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 16 13:21:40 2015 +0800
+
+    Create kaiten_exec.rb
+
+commit 230e6e805acd35935b461f4f91829d62d819f2e5
+Author: JT <shipcodez@gmail.com>
+Date:   Sun Oct 11 18:25:43 2015 +0800
+
+    Update kaiten.c
+
+commit b0fa67a60b3c6d77631ea0e8810e45a6dfd514e5
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Oct 9 10:15:32 2015 +0800
+
+    Create kaiten.c
+    
+    adding kaiten
+
+commit 1de0c11cc50a5f4a1f5a1036ad068e252381403e
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Sep 4 11:23:30 2015 +0800
+
+    Update README.md
+
+commit b092d30531789546b1047e5c6c30858e6e55e5c8
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Sep 4 11:20:38 2015 +0800
+
+    Create w3tw0rk_exec.rb
+    
+    w3tw0rk / Pitbul IRC Bot  Remote Code Execution Metasploit Module
+
+commit abbe50e19e98a8debc55eb6ec278bd406ff0ccb5
+Author: JT <shipcodez@gmail.com>
+Date:   Fri Sep 4 11:17:10 2015 +0800
+
+    Update w3tw0rk_hunter.py
+
+commit 5d2f52f8239b06b341210689427556983bc760d9
+Author: JT <shipcodez@gmail.com>
+Date:   Wed Aug 26 14:13:12 2015 +0800
+
+    Update legend.txt
+
+commit aaf6b67ebcf44b38a786a63d91bdba59d303a9a4
+Author: JT <shipcodez@gmail.com>
+Date:   Wed Aug 26 01:25:09 2015 +0800
+
+    Update w3tw0rk.txt
+
+commit db89065b79363ff09cea0d44f45dd5d70275d5ba
+Author: JT <shipcodez@gmail.com>
+Date:   Tue Aug 25 16:51:22 2015 +0800
+
+    Update w3tw0rk.txt
+
+commit 419bb6b18213fffedb646ac82b853b9ccad00fbe
+Author: JT <shipcodez@gmail.com>
+Date:   Tue Aug 25 16:44:38 2015 +0800
+
+    Create w3tw0rk.txt
+
+commit 7914f2fd4daa0c15f446afdf1db484f052229653
+Author: JT <shipcodez@gmail.com>
+Date:   Thu Jun 25 16:58:49 2015 +0800
+
+    Update README.md
+
+commit 19d92a6d1e6873832424fef42ea8487c9c0e1e52
+Author: JT <shipcodez@gmail.com>
+Date:   Thu Jun 25 16:58:13 2015 +0800
+
+    Update README.md
+
+commit 4afe004945ad1be9dcf6b9272c9b94edca174a8d
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 27 14:31:36 2015 +0800
+
+    Create README.md
+
+commit 11b479e9155005b46a4b44c9c33700735383495c
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 27 14:30:06 2015 +0800
+
+    Create legend.txt
+    
+    The Legend Bot Sample
+
+commit 8917db6f07ff8ba960510c7812c999ee60554c11
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 27 14:27:01 2015 +0800
+
+    Update w3tw0rk_hunter.py
+
+commit 98a43a59584524447db08a3564525050acd2b13b
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 27 14:26:32 2015 +0800
+
+    Update and rename thehunter.py to w3tw0rk_hunter.py
+
+commit cfedc2ff75cb99a458c6f1da3d0da98016e98cea
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 27 14:25:39 2015 +0800
+
+    Update README.md
+
+commit bbf092392feef58304ad8f3ecf7fd8185912a8cd
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 27 11:39:54 2015 +0800
+
+    Create legend_rce.py
+
+commit 445370c69cf02599df462b6a0c81493ddd70137b
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 23:48:45 2015 +0800
+
+    Update README.md
+
+commit 8d671945d45563f1625aa23feb6a9ba2f4f7e483
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:58:51 2015 +0800
+
+    Update README.md
+
+commit 28434270a638bb32803538a521955d7b6c4a6314
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:39:34 2015 +0800
+
+    Update thehunter.py
+
+commit 2cc42188cd77860ecb5c85dbd5c81be035ec11d8
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:31:20 2015 +0800
+
+    Update thehunter.py
+
+commit a24a9b41d630cd339ba02e745e0c814f57e083a8
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:24:38 2015 +0800
+
+    Update thehunter.py
+
+commit 1bb31db511d47a7a65f737f5951082b9b29d6604
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:24:15 2015 +0800
+
+    Update thehunter.py
+
+commit 27d85fd930f0d8bd2a126b20fccc82b2b13baf36
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:18:35 2015 +0800
+
+    Update thehunter.py
+
+commit 0a6b51509102276a9d61209e68804a0030a25de0
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:17:58 2015 +0800
+
+    Update README.md
+
+commit dab62238c1904262f885a6ad786dda269262f725
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 15:11:07 2015 +0800
+
+    Update and rename w3tw0rk.py to thehunter.py
+
+commit 197930760eebae3ad56790c36bbf2d131a641342
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 14:49:32 2015 +0800
+
+    Update w3tw0rk.py
+
+commit 2f427c7783a1973a4ef5ceccb076674b08701d0d
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 14:48:24 2015 +0800
+
+    Update w3tw0rk.py
+
+commit a659535d650359fcac378be1d72b488afb767ee1
+Author: JT <shipcodez@gmail.com>
+Date:   Mon Apr 6 14:39:50 2015 +0800
+
+    Update README.md
+
+commit bc1a98b75051ac722bde8ec049a95e411468a8c6
+Author: JT <shipcodez@gmail.com>
+Date:   Sun Apr 5 22:40:57 2015 +0800
+
+    Rename w3tw0rk.pl to w3tw0rk.py
+
+commit 3dc637d910e20d44af70df807edcd25a21146334
+Author: JT <shipcodez@gmail.com>
+Date:   Sun Apr 5 22:40:14 2015 +0800
+
+    Update w3tw0rk.pl
+
+commit 36c205019ca3e20eff4ebaec22275d56cf01314f
+Author: JT <shipcodez@gmail.com>
+Date:   Sun Apr 5 22:39:44 2015 +0800
+
+    Update w3tw0rk.pl
+
+commit bbc1d12b99b44941a9d2c2b3e455d57fdd5eeb1d
+Author: JT <shipcodez@gmail.com>
+Date:   Sun Apr 5 22:17:02 2015 +0800
+
+    Create w3tw0rk.pl
+
+commit 47077c5d23632ff57ed3e6bf5b2e680e23603bce
+Author: JT <shipcodez@gmail.com>
+Date:   Sun Apr 5 22:02:35 2015 +0800
+
+    Initial commit

@@ -1,0 +1,92 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# pwndb
+pwndb is a tool that looks for leaked passwords from a dark web breach database given a user or domain.
+
+
+### Credit
+Tool has been extended from the one made by [PostRequest](https://github.com/postrequest) [here](https://github.com/postrequest/tools/tree/master/pwndb).
+
+### Usage
+Any number of users and domains can be specified.
+```
+pwndb -user foo -user bar
+pwndb -domain foo.com -domain bar.com -domain baz.com
+```
+
+If at least one user and domain is specfied, all permutations will be checked but it will return *only* results that contain both.  
+The below command will check foo@baz.com and bar@baz.com
+```
+pwndb -user foo -user bar -domain baz.com
+```
+
+### Installation
+1. Download and install the go tools. [https://golang.org/dl/](https://golang.org/dl/)
+2. Find the location of your GOPATH.
+    ```
+    go env GOPATH
+    ```
+3. Drop pwndb.go in GOPATH/src/pwndb (create any folders that don't exist)
+4. Run the go install command and the binary should be able to run from anywhere.
+
+    ```
+    go install pwndb
+    pwndb
+    ```
+### Quick Setup
+Download and run the binary for your platform below. (or from [releases](https://github.com/coj337/pwndb/releases))  
+[Windows](https://github.com/coj337/pwndb/releases/download/v1.1/pwndb-windows.exe)  
+[Linux](https://github.com/coj337/pwndb/releases/download/v1.1/pwndb-linux)  
+[OSX](https://github.com/coj337/pwndb/releases/download/v1.1/pwndb-osx)
+
+### Demo
+![demo image](https://github.com/coj337/pwndb/blob/master/demo.png)
+====================== GIT HISTORY: ======================
+76dff91 HEAD@{0}: clone: from https://github.com/coj337/pwndb
+commit 76dff913f545d8bd423327bfd88a68e8b218f6e7
+Author: Colin Watson <coj337@users.noreply.github.com>
+Date:   Wed Jul 8 21:17:37 2020 +1000
+
+    Add credit to readme
+
+commit 58e7eb6e15cd9735b2720c496da97065581b3291
+Author: Colin Watson <coj337@users.noreply.github.com>
+Date:   Wed Jul 8 21:06:18 2020 +1000
+
+    Add demo to readme
+
+commit 6ddb8c0d631d4866c9cc5018bc1534f88c0c1761
+Author: Colin Watson <cojwatson@gmail.com>
+Date:   Wed Jul 8 21:04:30 2020 +1000
+
+    Add demo
+
+commit 5e636edbddbe028bd327e5f54306f67a432dc0c5
+Author: Colin Watson <coj337@users.noreply.github.com>
+Date:   Wed Jul 8 20:52:02 2020 +1000
+
+    Update README.md
+
+commit d9dbe4f5628289ace3b052c5df2fa1c4a0e8fa90
+Author: Colin Watson <coj337@users.noreply.github.com>
+Date:   Wed Jul 8 20:49:41 2020 +1000
+
+    Update README.md
+
+commit 0eadde1b8e436b9d4ad97210a8cd6f970e049105
+Author: Colin Watson <coj337@users.noreply.github.com>
+Date:   Wed Jul 8 20:39:20 2020 +1000
+
+    Create README
+
+commit 519466347e4b7fd2f420fa80b4163e90ed9513f7
+Author: Colin Watson <coj337@users.noreply.github.com>
+Date:   Wed Jul 8 20:17:25 2020 +1000
+
+    Create release workflow
+
+commit e67e8fd0d7aa0f6baa6b4460764c791a495b7602
+Author: Colin Watson <cojwatson@gmail.com>
+Date:   Wed Jul 8 19:47:09 2020 +1000
+
+    initial commit

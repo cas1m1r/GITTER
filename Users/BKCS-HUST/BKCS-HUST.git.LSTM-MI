@@ -1,0 +1,91 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# A LSTM based framework for handling multiclass imbalance in DGA botnet detection. 
+
+This repo contains very simple code for classifying domains as DGA or benign. This code demonstrates our results in our paper here: https://www.sciencedirect.com/science/article/pii/S0925231217317320. This paper presents a novel LSTM.MI algorithm to combine both binary and multiclass classification models, where the original LSTM is adapted to be cost-sensitive. The cost items are introduced into backpropagation learning procedure to take into account the identification importance among classes.
+
+Follow the instructions, you can reimplement our method. Besides, we also provide some datasets:
+
+- The real-world collected datasets of some DGA botnet including Shifu, Tinba, Necurs, Locky, etc.
+- trainingdata.csv: This dataset contains 1 million normal domains of Alexa, over 600,000 DGA domains, and 8 statistic features corresponding to these domains. The DGA domains are collected at http://osint.bambenekconsulting.com/feeds/.
+- traindga4.csv: 10% of trainingdata dataset. However, 8 statistic features are not normalized into the values ranging from 0 to 1.
+- traindga5.csv: 10% of trainingdata dataset. However, 8 statistic features are normalized into the values ranging from 0 to 1.
+
+**If you reuse our dataset, please cite out paper as follows.**
+
+Tran, Duc, et al. "A LSTM based framework for handling multiclass imbalance in DGA botnet detection." Neurocomputing 275 (2018): 2401-2413.
+
+or
+
+@article{tran2018lstm,
+  title={A LSTM based framework for handling multiclass imbalance in DGA botnet detection},
+  author={Tran, Duc and Mac, Hieu and Tong, Van and Tran, Hai Anh and Nguyen, Linh Giang},
+  journal={Neurocomputing},
+  volume={275},
+  pages={2401--2413},
+  year={2018},
+  publisher={Elsevier}
+}
+
+## Implementing the code
+
+'lstm.py' will trainthe classifier and generate the report to evaluate the method. This code will run on your local machine or on a machine with a GPU (GPU will of course be much faster).
+  
+## Backup link
+If there is any problems related to the download on Github, please use the backup link on Google Driver:
+https://drive.google.com/drive/folders/1EI67tTK2NnwW9MZa3Qr2anPbJ_Dlix91?fbclid=IwAR0A_Ltrkrn9Zt4VvF0IFhE_v3GWz-YDqaq-SsHaU2mHNG5861KXylvZlBY
+====================== GIT HISTORY: ======================
+bc0677b HEAD@{0}: clone: from https://github.com/BKCS-HUST/LSTM-MI
+commit bc0677bae54cfc59cbd6b3b82f1e8ac883391013
+Author: VanVanTong <tongvanvan94@gmail.com>
+Date:   Thu Sep 10 15:27:57 2020 +0200
+
+    Update readme
+
+commit 7dd61bcf8ce1577513fa7713f857f5e057d5d41e
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Sat Aug 25 14:36:03 2018 +0700
+
+    update readme
+
+commit 7625331e33a62f0568f10e264ae8a97829b81109
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Sat Aug 25 14:34:16 2018 +0700
+
+    update readme
+
+commit 0feed7d745a59e0f60869dd1fe2a0a51bfe2e153
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Sat Aug 25 10:28:40 2018 +0700
+
+    update source code and readme
+
+commit 6415bfcb8d4968f669dc43013b94faad73017736
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Sat Aug 25 08:43:48 2018 +0700
+
+    lstm-mi
+
+commit add3bcc574becee0cc2f839f587d43098f4861c4
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Sat Aug 25 08:30:53 2018 +0700
+
+    update readme
+
+commit 0c5021e1959a6255b97b39453db5ddafd9fb617d
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Sat Aug 25 08:29:49 2018 +0700
+
+    update readme
+
+commit c7861f1be6bdd07b09256e40c0c62c5a3dccd1bc
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Sat Aug 25 08:26:24 2018 +0700
+
+    update readme
+
+commit 5e692f064ac91365e9ad601f7f6895a984aac952
+Author: shinichikudo987 <tongvanvan94@gmail.com>
+Date:   Fri Aug 24 16:58:47 2018 +0700
+
+    first commit

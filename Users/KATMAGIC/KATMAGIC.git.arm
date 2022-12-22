@@ -1,53 +1,2917 @@
 ======================: FILES :======================
-.
-├── arm
-├── arm.1
-├── armrc.sample
-├── ChangeLog
-├── install
-├── LICENSE
-├── README
-├── setup.py
-├── src
-│   ├── __init__.py
-│   ├── interface
-│   │   ├── configPanel.py
-│   │   ├── connPanel.py
-│   │   ├── controller.py
-│   │   ├── descriptorPopup.py
-│   │   ├── fileDescriptorPopup.py
-│   │   ├── graphing
-│   │   │   ├── bandwidthStats.py
-│   │   │   ├── connStats.py
-│   │   │   ├── graphPanel.py
-│   │   │   ├── __init__.py
-│   │   │   └── psStats.py
-│   │   ├── headerPanel.py
-│   │   ├── __init__.py
-│   │   ├── logPanel.py
-│   │   └── torrcPanel.py
-│   ├── prereq.py
-│   ├── settings.cfg
-│   ├── starter.py
-│   ├── test.py
-│   ├── uninstall
-│   ├── util
-│   │   ├── conf.py
-│   │   ├── connections.py
-│   │   ├── hostnames.py
-│   │   ├── __init__.py
-│   │   ├── log.py
-│   │   ├── panel.py
-│   │   ├── sysTools.py
-│   │   ├── torConfig.py
-│   │   ├── torTools.py
-│   │   └── uiTools.py
-│   └── version.py
-└── TODO
+======================: BRANCHES :======================
+======================: LOGINFO :======================
+commit eb68081eadcd662f88bc03de80511ee051b1f964
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Dec 13 17:56:48 2010 +0000
 
-4 directories, 40 files
-====================== GIT HISTORY: ======================
-eb68081 HEAD@{0}: clone: from https://github.com/katmagic/arm
+    Missed a couple resources with the previous commit.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23934 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 97a80e4bc0c95ea9303fb31429bd1f498c6da63f
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Dec 13 17:56:26 2010 +0000
+
+    added: testing script for checking connection resolution performance, connection dumps, and the glyph demo
+    change: reordered resolvers by order of performance
+    fix: bringing all linux connection resolvers into parity (established tcp connections only)
+    fix: altering lsof calls to work on FreeBSD (thanks to Fabian Keil)
+    fix: timing issue caused the first connection resolution to not have the pid
+    fix: when the pid was unavailable some resolvers failed to work
+    fix: commands with quoted pipes were being misparsed by the sysTools' call function
+    fix: including udp connection results (needed since exits proxy dns traffic)
+    fix: skipping internal -> external address translation when the external address is private (caught by Fabian Keil)
+    fix: labeling connections to our socks port as being client connections
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23933 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4d77f742bc7a0f9b80774c755ec162bd5e46865d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Dec 12 01:02:54 2010 +0000
+
+    Reverting change to the license (looks like that isn't allowed) and removing copyright section from the man page.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23927 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b111cba8fe715c6d6b3bc73f5768608ea093ab9c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Dec 12 00:21:28 2010 +0000
+
+    More fixes for issues caught by weasel
+    change: noting myself in the license file
+    fix: startup script wasn't hanlding unusual paths, such as with spaces and dashes
+    fix: startup script was forking the final process instad of calling exec
+    fix: initially built diff differed from rebuilt version since it was missing the pycompat
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23926 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7044b1f74eb81a2d07fcc956ea1361762678230d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Dec 9 17:49:12 2010 +0000
+
+    Logging a warning (with advice) when arm's cpu usage is high (thanks to Clete)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23913 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b58699ee254ae2ff62ea9974e9231bf1e13df9ee
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Dec 9 17:25:25 2010 +0000
+
+    Including arm cpu usage in the header panel and logs.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23912 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8ca7fcce8ec172a297107766d312ec869254015a
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Dec 7 17:46:03 2010 +0000
+
+    Removing dependency on python 2.6 for installation and building.
+    This was using the gzip name attribute unnecessarily which isn't available in older python versions (caught by weasel).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23900 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ff590de69fa728222cea24876e51e5c40a23ce1d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Dec 7 17:42:11 2010 +0000
+
+    Changing arm's versioning scheme to differentiate it from debian.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23899 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit fe55d3c9f354f1bcacc20e9020f5f695c5f555c4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Dec 7 03:35:21 2010 +0000
+
+    fix: crashing issue when nickname was undefined but displayed on the connection panel
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23898 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c1c9f471d372847acd7c40d18d8a90b0ae6dd933
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Dec 6 18:16:30 2010 +0000
+
+    Applying patches from Fabian Keil and Hans Schnehl with fixes for BSD (most notably for getting the pid and connection resolution).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23897 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a56048bd97050e73afb1ae6f06c412266ad42eb2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Dec 5 03:07:36 2010 +0000
+
+    Supporting FreeBSD connection resolvers and sockstat resolution as a general resolver (thanks to Fabian and Hans).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23884 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 0da1f02b5d20b4b546648ec96ccc4f7905d13311
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Dec 1 03:55:25 2010 +0000
+
+    Hotfixes for a couple issues discovered in the release and repairing the rpm build (not quite working yet, though).
+    fix: install script was failing to make the temporary directory for the compressed man page
+    fix: a torrc validation log entries had a typo
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23882 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8b8929beb6def07b3b7996b3c83d97c7d33e417c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 28 10:55:19 2010 +0000
+
+    Release prep for arm version 1.4.0
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23872 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 92e944c3ed03990ff77cec004a335d9b485bc556
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 28 09:45:38 2010 +0000
+
+    Correcting mistake for clearing prompt made in the previous change.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23871 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 029106bd9f10594684a019dbc4c437c19b5ead7d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 28 09:26:14 2010 +0000
+
+    Condensing and simplifying validation error messages.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23870 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e2a4923432ca6889b5219f2436ce6c5dff0d8e53
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 28 04:56:23 2010 +0000
+
+    Checking tor version for cached man page results.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23869 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3e99a26e686f70b7c34983a9f924da60d6daa4bd
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 28 04:42:30 2010 +0000
+
+    Tidying up the configuration code a bit.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23868 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bc8e1457114e91115302c8aeba8c529f1b8bf4d8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 28 03:17:11 2010 +0000
+
+    Expanding the torrc validation
+    added: checking if torrc entries are pointless due to matching their default value
+    added: validation warning when custom entries are missing from the torrc
+    fix: validation wasn't taking option aliases into consideration
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23867 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c55192862a17e05876e2797bf0b88702c59b6a71
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 28 00:03:03 2010 +0000
+
+    Display and validation for multiline torrc entries.
+    fix: error in parsing single line csv values (wasn't stripping internal spaces)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23866 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b52af39fb69cebccbcc20a56218fd8e62e8b8c75
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Nov 27 21:55:13 2010 +0000
+
+    Renaming new config panels.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23865 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 392f4b7a83bff8c481850d5786bb2d811d406d5b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Nov 27 07:46:34 2010 +0000
+
+    Adding popup for saving custom tor configurations.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23862 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c1466892be2dda6f8cb74dc12d3ba20561ccbb47
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 26 05:19:46 2010 +0000
+
+    fix: preventing man page parsing from complaining about an unrecognized 'OPTIONS' category
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23860 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a14a1480a82f81aaf80b954ecbeefe4df2803f59
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 24 17:08:29 2010 +0000
+
+    Couple fixes to try making the interface more resilient to resizing while popups are visible:
+    - abandoning text input fields when the window's resized (otherwise the input
+    field is filled with unprintable characters.
+    - skip drawing strings if doing so would cause an error
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23857 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b7ea951c62a7291f66c04f28fdcfe80a14ab4efb
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 22 18:02:58 2010 +0000
+
+    Removing controller password from the loaded configuration values after it's used.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23855 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 1cd90a207fcd746fc0197a7b52d8a235788270d4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 22 17:51:02 2010 +0000
+
+    Removing the only reference arm has to the controller password. Python doesn't have a method to directly free this memory so this is the best we can do to get rid of it.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23854 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3b57e1342ced4d05da273a19fd89514a7590f937
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 22 17:41:10 2010 +0000
+
+    Reintroducing the torrc page.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23853 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 749a0d09ec852452f9c6ccd5c04f12266e6f4c06
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 22 03:10:55 2010 +0000
+
+    I'm not spotting a good solution for deduplicating large logs, so sidesteping the issue for now by disabling the feature when it takes too long.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23852 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 40e4a454504fd7fa3642d0281d26cb9e13e2644e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Nov 20 05:33:59 2010 +0000
+
+    More changes for deb builds:
+    - Including flag so dh_pysupport will recognize the private python module (thanks, weasel and Emilio Pozuelo Monfort!)
+    - Only performing man page compression when the --install flag is provided (preventing extra work and error messages)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23838 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit fd3512d0f20fc345939b2af8e62dda325f1aefe8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 19 18:02:42 2010 +0000
+
+    Improvements for when typing in input:
+    - cursor stops at the end of the content when using the arrow keys
+    - home/end key functionality
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23836 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a8e9b540ddfb35b886025d28178c51ce46947e3d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 19 17:21:52 2010 +0000
+
+    Refactoring changes for setconf functionality.
+    - added logging for setconf calls made by arm
+    - moved setconf functionality into torTools
+    - allowing blank config values to be set
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23835 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b5c7283620c77711b140fb8ed042c5a35179665e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 19 06:07:01 2010 +0000
+
+    More changes for deb:
+    changed the changelog to my @torproject.org address
+    copied the torctl license into debian/copyright
+    appended slash to homepage url
+    droping pycompat
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23833 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 9124dd54ca7e3cdc3bc14ce0c3013ee49a333772
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Nov 18 18:12:16 2010 +0000
+
+    More changes for the deb build:
+    - Using temporary file for man page build. There's still a tiny window for nastyness, but I'm not spotting a nice way of piping the gzip output to a pipe file instance. However, this implementation is sufficient to make me happy so leaving it this way until someone offers a better suggestion (guess I could do a popen and direct the results of a gzip but... ick). (thanks to asn for the suggestion!)
+    - Better method of wiping the egg-info thanks to weasel.
+    - A few revisions to the wording of various metadata.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23828 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 9817f885aa944b9cefc0678e5b92d186aa07d1a8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Nov 18 16:21:55 2010 +0000
+
+    More changes for the deb:
+    purging egg-info from the debian build
+    revising path in the man page for docs to reflect debian's special location for them
+    upping the Standards-Version
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23827 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a4e7dd35a5640eca28dd39802bb015f8b84dad7f
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Nov 18 15:50:31 2010 +0000
+
+    Breaking the truce with distutils and reverting r23802. The egg must die.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23826 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a94bbab5d39bbd39ad8b16722f57b8951717265f
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Nov 18 07:25:42 2010 +0000
+
+    Using input mode for textpads and having them terminate (with no effect) when the user presses escape.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23821 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8b8cb022370f74a5adcdd64d1ca3a02fdc2a5a34
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Nov 18 06:50:37 2010 +0000
+
+    using curses.textpad to improve input for all text fields, and moving it into a utility
+    fix: skipping SETCONF calls if the value is unchanged
+    fix: crashing issue when the 'queries.ps.rate' config value was undefined and the stats graph was displayed
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23820 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f691d222f3009a7eb4b781a4c1af2dfa4f9db85e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 17 18:13:04 2010 +0000
+
+    Usability and functionality improvements for setting config values:
+    - Using a textpad rather than getstr so the entry field isn't so dumb (this has cursor movement, emacs style keybindings, etc).
+    - Optionally prepopulating the current value in the field.
+    - Accepting 'true' and 'false' for boolean fields.
+    - Properly handling LineList entries.
+    - Cropping off useless parts of the error message.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23819 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8df3616ecb867d850db09f03df16a407f7a3f393
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 17 17:05:30 2010 +0000
+
+    Displaying SETCONF errors until a key is pressed.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23818 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f67273a0a5e883b42f312699e2cce36e1a141ea6
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 17 07:09:55 2010 +0000
+
+    Including sample configuration file in "/usr/share/doc/arm/armrc.sample" on installation. For debian the path is tor-arm instead.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23817 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ff6628b16e70e6332975b102d01ffc179f600110
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 17 03:32:30 2010 +0000
+
+    Basic editing functionality for configuration values.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23814 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e8561b2bb684a8855665d33ba8a6ce95d011b6b7
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Nov 16 17:25:49 2010 +0000
+
+    fix: Correction to man page entry (caught by weasel)
+    Dropping the armrc sample, and adding the default location the config is picked up from.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23810 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4bdfbe24ba53d6035113cf9b27d3023d7ab156dc
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Nov 16 15:59:38 2010 +0000
+
+    Making debian build non-native and documenting steps for making a release build.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23807 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a94e6fde315fab86cf40bc5e548544c6e4f5e9c6
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Nov 16 15:42:18 2010 +0000
+
+    Moving build resources out of the trunk and splitting up deb/rpm resources.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23806 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 2acc04387e31ca68ee9e28869c7525051c7d5e64
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Nov 16 15:36:09 2010 +0000
+
+    Updating svn external entries for torctl.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23805 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 0075178604c8606ecf45b1486bbfaae338a70a78
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 15 05:46:24 2010 +0000
+
+    Finally ending my war with distutils and installing arm to '/usr/share/pyshared'.
+    Custom locations are against the grain for distutils and there is no way of generating a build without its accursed egg-info metadata (which in turn causes lintian errors when installing to '/usr/share'). I suppose this location isn't the end of the world. Arm will have plenty of friends in /usr/share/pyshared to keep it company...
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23802 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3344a9f04f3120f8251ce80f3286517431212d0f
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 15 04:34:55 2010 +0000
+
+    Changing installation location from /usr/lib to /usr/share (request by weasel)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23801 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3ca94650ef1ad1ea39da11be2b86c6ad81d7fc1e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 15 04:25:37 2010 +0000
+
+    Workaround for needing a setup.cfg when buiding.
+    To make distutil install to /usr/lib it either needs an input flag or setup.cfg saying so. Unfortunately distutil is too dumb to accept this as a setup function argument so this is a hack to append it to the input argument list.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23800 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 99719dd6333aae5e4580f13aba5c77767020868c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 15 03:32:06 2010 +0000
+
+    Moving the man page compressed for installation to /tmp to avoid having it appear in the source deb.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23798 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 03c4de0b2664e1e9faa55c1d2b400a4fb76ef353
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 15 03:16:54 2010 +0000
+
+    Storing uncompressed man page and compressing them as part of the install process.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23797 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b7765c4dfe318f4e41fb99f1335854b23a2a4429
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 14 04:07:53 2010 +0000
+
+    Using white for unknown config entries ('black' text appears in some terminals, but not all)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23795 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 027b2fa237f39a2a8c08b44d86e930267675e1c1
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Nov 14 03:28:42 2010 +0000
+
+    Detail panel for the currently selected configuration option.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23794 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit edc2e5c1ec3b2ffc94373d95238a69a0e687e2f4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 12 18:18:58 2010 +0000
+
+    Character map for curses ACS glyphs.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23789 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 31a664a24c2938701581be3fc068d690314c4788
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Nov 11 03:43:02 2010 +0000
+
+    Providing an option to use the same ordering as the man page.
+    fix: miscategorizing the first config option in each category
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23783 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 97686d32411053f7a0ec6d7bb2fbc5bf23b405ce
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 10 17:14:58 2010 +0000
+
+    Added sort dialog function to simplify controller and eliminate duplicate code.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23781 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit dc2efd6d64bf336fbb14703d14744c05fe5cacc2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 5 16:47:47 2010 +0000
+
+    Sort dialog for configuration options is now functional. However, the code's ugly as sin so next gonna break it out into a popup function...
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23759 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7db3a9dc7021341cc245e7b87fd4c647b1610533
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 5 16:18:32 2010 +0000
+
+    Fetching multiline torrc options dynamically rather than having them hardcoded in the config.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23758 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 933366c922c032c0d72b1f5dad2194400b634065
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Nov 5 15:43:39 2010 +0000
+
+    Moving logic for feting CSV values into config util, with additional error handling and testing.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23757 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b79c8b970d9a6e84a495f9bf6398bdf4fdb06f6e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Nov 4 17:18:58 2010 +0000
+
+    Making the config sort order configurable via the armrc (still working on the sort dialog)
+    change: dropping the argument type from the main panel to make more room for the description
+    fix: making the default runlevel for config type errors NOTICE (was accidently lowered to INFO)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23744 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ffec756eeb33f357b5abf9a25bd6cdc8d38f14d5
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 3 16:51:12 2010 +0000
+
+    fixing typo spotted by arma
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23743 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 16ca61d28049eeb123c579f738477cabf4c9e09e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 3 16:45:00 2010 +0000
+
+    Hiding virtual options by default.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23742 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 1605fdf10455a8e51d77660743c2d10ee62affc8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 3 16:39:29 2010 +0000
+
+    Hiding private controller options by default.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23741 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 9227fa45a7083d7755b6aec45392bbc8bfa6b4ca
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Nov 3 16:27:12 2010 +0000
+
+    Adding sort functionality to the config page (defaulting to category / option)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23740 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f7d8095b5b2fa6a66438b0baddbd2e132771d02a
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Nov 2 14:45:54 2010 +0000
+
+    Color coding config options by their category (clinet, relay, auth, etc).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23730 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 65a645b1f290d3aa3c3c2b6b2217e53f38723692
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Oct 31 08:13:38 2010 +0000
+
+    Cursor selection for entries in the config state.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23728 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 258093b26c53eee75255a5aea4fc666a4eda817c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Oct 31 03:44:46 2010 +0000
+
+    fix: basing man page filtering on tor's available config options (more accurate, and doesn't exclude single line config entries)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23727 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7440b5490feffac41d851dc9f97491f4fc5563ff
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Oct 31 03:07:06 2010 +0000
+
+    fix: removing case sensitivity when fetching descriptions from the man page
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23726 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 667ca7b7f8b553e3dd092277bcebded045e697a3
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Oct 30 05:54:20 2010 +0000
+
+    persisting tor config descriptions to reduce startup time (idea by nickm)
+    fix: stripping error number from file related IOError log messages
+    fix: order of prepopulated arm events was backwards
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23723 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6df380ee2e65e2bf8df30616d2a7d0d1378a2c2d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 29 17:10:00 2010 +0000
+
+    Including descriptions for the config options on the settings panel.
+    
+    This is adding about 200ms to arm's startup time. I'll try to improve this next (nickm suggested saving cached results to disk, which should take care of this for subsiquent runs).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23722 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 21a8d52b924c7734e81eabf1bee93f83f5e39f91
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 29 16:09:23 2010 +0000
+
+    Adding caching for GETCONF results
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23721 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7dfdfd9e178322f24f31d13de89ddc0e03b10814
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 29 15:14:31 2010 +0000
+
+    Renaming the torrc util to torConfig now that it has more functionality.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23720 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 831ee8b02932a3041f8f68ea036c6f78700514d0
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 29 02:57:48 2010 +0000
+
+    Parsing the tor man page to get descriptions for configuration options.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23717 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 9901e39da49d54e2dc50d1be1493cb5a00d6dd51
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Oct 28 16:34:49 2010 +0000
+
+    Emphasizing settings that differ from their defaults.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23709 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 0f6d2f624301cec09463652b952e3d6c858bf144
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Oct 28 16:10:24 2010 +0000
+
+    Minor revisions concerning the config state panel and requesting options fetched specially in tor
+    change: moved the config option mapping logic to the torTools
+    change: made column sizes for the config state panel configurable
+    fix: wasn't properly fetching HiddenServiceOptions when requested directly
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23708 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 92baddbc1bbcfc805cfdad7af038da0085f56e36
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Oct 27 16:41:20 2010 +0000
+
+    Adding a simple panel for config settings
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23693 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit cb466240d1ec4f0e36d1d0328df51efd56cf5682
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Oct 26 16:48:35 2010 +0000
+
+    Revisions in preparation for a config editor panel
+    
+    - Using singleton pattern for fetching the torrc, allowing the controller to
+      handle loading and validation logging independently of the the torrc display.
+    - Dropping tor/arm state support from the display for now, greatly simplifying
+      the configFile panel. The next work will be to make an independent panel for
+      showing/editing tor's current state.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23680 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3bb3de385c3106d7432fca631ea20a88251a555b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Oct 25 02:17:02 2010 +0000
+
+    Bug fix bundle
+    fix: the arm starter was only executable from the arm directory
+    fix: wasn't loading the settings.cfg if starting starter from the src directory (caught by NightMonkey)
+    fix: displaying empty conf contents caused crashes when calling math.log10(0) (caught by NightMonkey)
+    fix: issuing a sighup casused a crash due to new config changes
+    fix: utilities weren't getting internal parsing settings if armrc was unset
+    fix: conf page wasn't fetching special options (hidden service) via their special command
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23670 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f0c918147636199a64825d4e3fec6190c42ebbf4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Oct 24 00:10:16 2010 +0000
+
+    added: config panel can now show tor's state, the torrc, and arm's state/rc
+    added: INFO level logging for arm startup time
+    fix: extra line when line cap was reached
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23663 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3ebba295c92efb50f8883df6108b9195b9c972e5
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 22 05:22:10 2010 +0000
+
+    Readding armrc.sample (had issue due to type conflicts with the previous commit)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23661 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6c073aea7bd603d2d05c337ed393d93ed2220221
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 22 05:21:29 2010 +0000
+
+    Rewrite of the conf panel and several important bug fixes
+    
+    change: full rewrite of the log panel, providing:
+      - change: simplified and expanded on config validation and display (performance improvements, friendly units for torrc corrections, etc)
+      - change: scrolling by displayed content rather than line numbers
+      - fix: unnecessary whitespace was being stripped
+      - fix: scrolling was buggy if comments were being stripped
+      - fix: log panel wasn't respecting the prepopulate* log level config options
+      - fix: torrc validation didn't recognize 'second' and 'byte' arguments
+    
+    change: revised the arm config interface (simplified and expanded to include maps)
+    fix: not all worker threads were daemons, causing the process to persist in a broken state after exceptions and when quitting via ctrl+c
+    fix: custom armrcs resulted in the default parsing config options being unavailable
+    fix: rounding error in rendering the scrollbar, causing it to shrink a line when at the bottom
+    fix: off by one error when wrapping lines in the log panel
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23660 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e285af2f3d8b6cfce9f030c6f4a2f615e17df5ce
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 8 16:18:26 2010 +0000
+
+    fix: crashing issue manifesting on python 2.7 due to float values being used in the bandwidth graph (caught by tomb)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23463 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a442d50df82b1913d931f81267d81da580d4ba07
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 8 15:17:14 2010 +0000
+
+    Revised TODO, putting tasks in priority order.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23462 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f3d0425be6001a151ede2300ab91e8ba665bff06
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Oct 7 06:08:47 2010 +0000
+
+    Revisions for the deb release build.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23441 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c84771fa115e5f2e2deaf686c399e7bc2bf26c75
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Oct 7 04:59:21 2010 +0000
+
+    Release prep. Bumping the version, updating changelog, and setting the maintiner to my gmail address for this release so it'll sign.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23438 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ac8e77a550fddba9eeb320a2e1660f5948e171a5
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Oct 7 02:25:24 2010 +0000
+
+    fix: forcing log panel redraw if estimating the content hight meant we incorrectly showed/hid the scroll bar
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23436 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 487089725e48da7b8ef5958e189a5d398ac7f521
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Oct 6 16:19:49 2010 +0000
+
+    added: providing a path prefix config option for chroot jails (feature request by asn)
+    fix: more common debug/info messages for deduplication
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23422 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 1275158c43f183c148906dabc6f398db1f6eb310
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Oct 6 15:22:35 2010 +0000
+
+    Including a few common debug messages in duplicate detection.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23421 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3229428cd54b221e780abbde5c239140b517b6c6
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Oct 6 15:13:54 2010 +0000
+
+    change: including a log message when redrawing the log panel with the corrected content height
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23420 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 35da24a9280e49588f96466e04e3cec5b3bfbedc
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Oct 5 16:51:19 2010 +0000
+
+    change: simplifying detection for if the date has changed
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23411 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit aeb6eee1c71f0c35308971cc1a0235edf35087a4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Oct 5 16:44:47 2010 +0000
+
+    added: log cropping based on time (requested by voidzero)
+    fix: cropping prepopulated events if it exceeds caching size
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23410 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 78c36f6fdb0665de7db7c3f7610d140bc7564dd8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Oct 5 06:08:10 2010 +0000
+
+    fix: parsing error for lsof connection resolutions
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23403 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 619c64c39494cdf5a4ec314ae34451e1ac4b72b0
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Oct 3 04:01:00 2010 +0000
+
+    fix: loading arm defaults from file, so duplicate log detection works without copying the armrc
+    fix: only providing success message if installation... well, succeeds
+    fix: rpm build broken by version import (missing manifest entry)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23398 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6b7b0cf407e4732b39e803498b288b5ae94dca5e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Oct 3 02:43:47 2010 +0000
+
+    added: option to save a snapshot of the current log
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23397 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 5b2f75a87d833c78ba59c0b7d1e884151f536691
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Oct 2 22:36:42 2010 +0000
+
+    fix: redrawing the log panel if the content height estimate is too far off (fixing numerous display bugs)
+    fix: refactoring error caused the help popup to crash
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23393 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8da372e05c6ef3fa172777a0b2bb626dd650008e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Oct 2 20:21:56 2010 +0000
+
+    Making the configuration file a bit more friendly and adding known message substrings to it.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23392 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 392919b493235ffa0f3e53b0c3fd7368da4e72c2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 1 16:36:12 2010 +0000
+
+    added: option to save log events to a file
+    change: bolding ERR events
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23378 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bb826feca7c949ca048e9fd1ec3fb6b2bd72058d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Oct 1 15:18:17 2010 +0000
+
+    change: restricting duplicate checks to the appropriate event types, and simplifying a little
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23377 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3370d3194433627bce96fa97d05a472d19d319bc
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Sep 30 17:05:42 2010 +0000
+
+    fix: minor revisions thanks to a new version of pylint
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23354 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3f956350c10f745a577a27f08ec9850c55334c6d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Sep 30 15:58:15 2010 +0000
+
+    fix: minor formatting improvements when the log panel title doesn't have much room
+    fix: missing a character when hyphenating strings
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23353 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 727aa70fab7bd6c7f33642f45c3a353c5e44ba86
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Sep 29 16:30:48 2010 +0000
+
+    added: hiding duplicate log entries (feature request by asn)
+    change: making the number of lines an entry displays customizable
+    change: improved performance and capabilities of the cropStr function and dropped splitLine (no longer needed)
+    change: caching daybreak and deduplication results for the latest events listing
+    change: using previously drawn content as an estimate for the content size rather than estimating beforehand (simpler, better performance, and much less of a headache)
+    fix: dumping a stacktrace to /tmp and exiting immediately if exceptions are raised while redrawing
+    fix: providing ellipse when truncating the fingerprint in the header panel
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23335 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4e881adf907fd547332d4da0697eee8233ee4026
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Sep 22 16:06:39 2010 +0000
+
+    change: making date dividers fully box the events rather than just being a header
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23285 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 0550cbf720cb2ee939bec34964354a7d0da174ab
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Sep 22 15:21:24 2010 +0000
+
+    fix: had log merging by time backwards
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23283 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b7cd8c9ed19a36afe3aea7c0d94dd490206265d0
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Sep 22 04:41:37 2010 +0000
+
+    added: log panel dividers for the date
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23282 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f87b0400ae8e1363465d63d79fcfc0134bef0643
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Sep 21 07:31:50 2010 +0000
+
+    fix: wasn't dropping intermediate graph labels for tight bounds due to type issue
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23273 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c20c9b3574a0eb88db67969a20f2684b039105df
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Sep 20 16:45:04 2010 +0000
+
+    fix: dropping intermediate graph bounds if they match the min or max bound (they're useless in this case)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23254 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a06e4c995a97a73265c3a73f3fb1ed8ec4a76311
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Sep 20 16:06:20 2010 +0000
+
+    fix: had case sensitive check for the torrc logging types (caught by asn)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23253 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3c445abdb24b99239f386685b04d757cca75dfa9
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Sep 19 01:41:28 2010 +0000
+
+    added: providing a notice if tor supports event types that arm doesn't, and logging them as the 'UNKNOWN' type
+    change: condensing the label for runlevel event ranges further if they're identical for multiple types
+    fix: ordering of individual runlevel entries were sometimes reversed
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23243 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b23dad2b140be41fdf54cb184d09bf601654273d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Sep 14 22:21:48 2010 +0000
+
+    change: full rewrite of the log panel, providing:
+      - an option to clear the event log
+      - coalescing of updates if they're numerous (such as at the DEBUG runlevel)
+      - extra restriction of the read portion of tor's log file if it contains a subset of the events being logged
+      - several performance fixes (for log prepopulation, duplicate work when determining the content length, etc)
+      - minor fixes including:
+        - dropping brackets from lable if no events are being logged
+        - merging tor and arm backlogs according to timestamps
+        - regex matches were failing for multiline log entries
+    added: caching for static GETINFO parameter
+    change: home/end keys jump to start/end of all scroll areas (request by dun)
+    change: measuring by bits for transfer rates (config can set it back to bytes)
+    change: dropping the 'frequentRefresh' parameter in favor of just doing refreshes when there's new graph stats available
+    fix: adding additional refreshes to make graph panel seem more responsive during popups
+    fix: refactoring mistake resulting in a crash during sighup
+    fix: bug with cache invalidation making use of the fingerprint if running as a clinet
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23196 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit cd981b5c141f5fbe9075c666a3de9fe96ad69802
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Sep 10 07:18:35 2010 +0000
+
+    added: incremental y-axis measurements to the graph (requested by voidzero)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23158 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit dedc2a4c4561089998ceadfaa84f83fa26766743
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Sep 7 16:37:31 2010 +0000
+
+    change: rearranging resources to keep only things important for the user in the root directory
+    fix: path mistake when uninstalling the man page
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23144 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 577d9531144c5d2b5c5b3aa96f909dca5ff8a4fe
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Sep 7 14:57:01 2010 +0000
+
+    fix: crashing error when ExitPolicy was undefined (caught by asn)
+    fix: extra comma in header panel display when ExitPolicy was undefined
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23143 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6622d9782bc48a7f578f70a4b588abc0e2d36436
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Sep 7 14:45:40 2010 +0000
+
+    fix: changing debian arch to all rather than any (suggestion by murb)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23142 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 29e5077203c082641db07d39d0b804217957aba3
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Sep 3 16:31:46 2010 +0000
+
+    change: trimmed last couple letters off downloaded/uploaded labels (requested by asn)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23122 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit db4b2c4e0b36cb5deac6274581fb6eca1a4881af
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Aug 31 05:17:50 2010 +0000
+
+    added: refactoring and script for building RPMs
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23105 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b8d4e47298e7adde9b1b805fee8d3240fca2dac6
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Aug 30 16:29:04 2010 +0000
+
+    added: uninstaller script
+    change: checking prereqs before installing
+    fix: resolved remaining lintian issues, and debs can now be generated via debian/make-deb
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23092 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bf0ab370dc865af99df0f23b27d5fcdc220331d2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Aug 28 20:44:08 2010 +0000
+
+    added: installing a man page along with arm
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23085 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 9515c30f0a13e9595bf0ac6dc78cae4e68c772c4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Aug 27 16:33:17 2010 +0000
+
+    fix: connection panel failed to handle family entries identified by its nickname
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23068 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ca42b941e77b5908c1f21a2eaa3a0c570badf537
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Aug 27 05:32:05 2010 +0000
+
+    fix: incompatability with TorCtl's new logging implementation, causing freezing on TorCtl events
+    fix: dropping NOTICE events unless requested
+    fix: changing /usr/bin starter to reflect arm's new install path
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23066 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6630dba154c4f9a5cd93879adaefb493d12e735a
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Aug 26 15:37:22 2010 +0000
+
+    change: using TorCtl instead of torUtil for initializing the connection
+    change: removing duplicate control port connecting functionality
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23060 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bbe90fce2f9a70097674689a6d68770c9165d204
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 25 05:42:49 2010 +0000
+
+    change: renaming the deb package to 'tor-arm'
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23050 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 38e6e7e6eea2999e199216d44c14b61db35775a2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 25 05:23:38 2010 +0000
+
+    added: a sweet, sweet collection of ioerror's tears
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23049 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 2bbc810350f05ebb505e2cdb553f7cfedaccbd5c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 25 04:47:25 2010 +0000
+
+    change: additional revisions for debian package setup from ioerror
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23047 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 85b19cdd6b439ddacab73b42acac38d7e450efe2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 25 03:15:00 2010 +0000
+
+    added: debian resources provided by ioerror (there will probably be further revisions for this...)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23045 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c9ce9f423e43894ce4924ee8e8713d0f26caa280
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 25 02:09:10 2010 +0000
+
+    added - simple install alias
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23044 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 27607a19415a93dc0b4fc0920c06fd9ab8e975bc
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Aug 24 16:49:42 2010 +0000
+
+    Finishing distutil changes to make arm installable.
+    fix: adding '/usr/local/bin/arm' entry for the arm installation
+    fix: directing build to /tmp to avoid cluttering the local arm directory
+    fix: missing graphing moduile from install
+    fix: deleting autogenerated egg metadata after setup
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23035 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8e1dba2a8465e548cdeb43a988f4cc4cd94c3872
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Aug 23 01:13:01 2010 +0000
+
+    Revising externals definitions for torctl, and making a mirror based on the current git trunk.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23018 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit caf7c63e87f8212a96388023e8ffd395741a2ecd
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Aug 21 20:40:29 2010 +0000
+
+    fix: correcting mistake with the startup path from the last commit
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23011 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bbc233500603fc451eda0269075f99e6a8a2e573
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Aug 21 20:38:47 2010 +0000
+
+    added: setup script for installing to '/usr/local/arm'. This is not yet functional since it doesn't add a '/usr/local/bin' entry yet.
+    - changing the layout to accomidate distutils
+    - removing the consensus tracker (this will be added to the tor tools when the following is resolved:
+        https://trac.torproject.org/projects/tor/ticket/1737
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23010 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit d6b3f1ff655e7dc4010c9dfa405c2a12fbc3e650
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Aug 20 15:36:38 2010 +0000
+
+    Dropping screenshots from the package (not really needed since they're already on the site).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@23000 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7f3a0ec8b3987f7ed31ab72fc03daff05f35ad72
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Aug 20 14:26:43 2010 +0000
+
+    fix: crashing error in bandwidth panel for wide screen displays (caught by cjb)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22998 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 60d59657740439380a494a68c1142cc04377e61c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Aug 19 16:39:15 2010 +0000
+
+    fix: dropping alias replacement when validating HashedControlSessionPassword (either version issue or handled specially)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22994 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6fa032ffae530bf900f2b762543ac8bb5bf6a23c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Aug 19 16:31:33 2010 +0000
+
+    fix: shifting bandwidth prepopulation by a sampling interval to account for tor's internal behavior (thanks to voidzero, nickm, arma, and Sebastian)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22993 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 9b26780caf76672f03ce7fe4249c9bf4375a54d7
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Aug 19 16:12:13 2010 +0000
+
+    fix: offset error for the x-axis labling depending on if accounting is set or not
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22992 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 0046158a303574916b1732433ca9201b827ed503
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Aug 19 16:00:27 2010 +0000
+
+    added: interface option for growing and shrinking the graph's size
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22991 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ef26c6300bd7acf419d5fb337cb4a481adeb8e74
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 18 16:43:36 2010 +0000
+
+    added: config option for graph height
+    fix: graph panel wasn't restricting bounds for sane config options
+    fix: off-by-one error with graphing bounds
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22952 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 13046bb12bb7880e411c9dc3dc749d105920df39
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 18 15:26:54 2010 +0000
+
+    fix: accounting information was being dropped on tor shutdown
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22949 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f0df1dad8c1022effaed0d80ca8cfc255683defd
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 18 15:24:51 2010 +0000
+
+    change: moving shutdown notice from log panel to tor util
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22948 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ec05dd4c1b8029ba2e350ac420d896a456dc86b2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Aug 10 15:19:30 2010 +0000
+
+    Making heartbeats take all events into account (rather than just BW).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22851 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6f455fcfe37e9ab9c78ff8ed4ee88c530f155ca4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Aug 6 04:48:49 2010 +0000
+
+    fix: bandwidth stats above the graph weren't getting reset by sighups (caught by voidzero)
+    fix: config panel and connection panels were failing to parse torrcs with tabs (caught by voidzero)
+    fix: connection panel was dropping exit policy entries beyond the first for determining exits
+    fix: race condition between heartbeat detection and getting the first BW event
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22809 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 990ea09fbb0ffb1a15db4e14ada3d2d5e732e1bd
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Aug 5 16:11:17 2010 +0000
+
+    Workaround for GETCONF's inability to handle command aliases.
+    Fix for 'https://trac.torproject.org/projects/tor/ticket/1798', to be removed when tor is able to handle this input. Also improving warning when unable to parse torrc input. Bug caught by voidzero.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22806 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8177848d64ecce61a9d2f7453e4713d6998e6546
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Aug 4 03:53:24 2010 +0000
+
+    Moving additional functionality from the interface to torTools utility.
+    - Moving heartbeat functionality out of the log panel. This is in preparation for the panel's rewrite.
+    - Now that torTools.Controller is making use of several event types it makes more sense for its setControllerEvents method's mandatory events listing to live here. This also simplifies /interface/controller.py a little.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22799 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7809c5cd8a196055952af50b3b22a1ff66a37608
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Aug 1 23:44:25 2010 +0000
+
+    Couple more minor fixes for consensus tracker emails.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22765 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3caa82682deed01d68af62c770b28f92008f6a41
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jul 31 21:01:31 2010 +0000
+
+    Accidently checked in a low threshold that was being used for testing (oops!).
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22758 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 22da42af41f7b69227eb4a16ec1028b853c9b023
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jul 31 21:00:34 2010 +0000
+
+    Fixing a couple more issues, no longer caching desc fetch failures and properly
+    cropping samplings when it gets too large. Also sending daily emails at
+    midnight (GMT).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22757 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit cc83f85373895ea57881b94c030294ae6cb2b47c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jul 31 09:41:40 2010 +0000
+
+    Crashing bug when fingerprint cache doesn't match startup descriptors.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22737 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ce09b15cb0d4e4004f5655864b78ad92cfdfbc50
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jul 31 07:23:56 2010 +0000
+
+    Minor tweak to labeling.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22736 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 9d8ddfdea705c0c7948aba9a744aa7d502818b5f
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jul 31 07:19:35 2010 +0000
+
+    Several revisions to consensus tracker including:
+    - usage of observed bandwidth rather than measured
+    - inclusion of metric for the total bandwidth
+    - including exit policy and bandwidth among relay attributes in tarball
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22735 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f409e6b7f6a2accbc4c5416696a5e4970f7e8bb3
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jul 30 16:21:11 2010 +0000
+
+    Vastly improved consensus tracking script including:
+    - much more readable and better summarized html emails
+    - attached tarball with the consensus additions
+    - tracking bandwidth along with counts
+    - breakdown of all relays (guards, middle hops, and exits)
+    - startup options are now cli parameters
+    - code's been cleaned up and commented
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22728 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bb5eb4fddf42f06b6e65b5f2d226d3368dd2fd7d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 18 12:26:20 2010 +0000
+
+    Revision of the exit alert script (next gonna clean up the code and add bandwidth alerts).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22646 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b399f450a435654802d39331d01b167e2bfec4ae
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 14 14:45:49 2010 +0000
+
+    fix: key mismatch introduced with the last checkin
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22639 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ed6516b0e74821271a132aeb79a9469a0465964c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 14 14:31:45 2010 +0000
+
+    change: Revised some commenting and notes.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22638 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 5b00e5294211221d7d6f2eee63325ec17eb69a2c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 13 16:25:55 2010 +0000
+
+    fix: making rdns resolution disabled by defaut due to possible connection disclosure to upstream resolver
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22632 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 3ce2e1ac1cf1430821dac0936d655ce319c58b5a
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 13 16:17:14 2010 +0000
+
+    Ideas for client mode features (thanks to velope, bja, and Sebastian)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22631 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e182f6899141f2cc45ba5ba8aed4b00a6f7afa43
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 11 02:54:33 2010 +0000
+
+    change: using PidFile entry to fetch pid if available (idea by arma)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22626 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 523f43ad9ea22dd15e7b42388cb60c45c1942db8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 11 01:38:18 2010 +0000
+
+    change: dropping information from the header when not running as a relay (not sure what to provide in a client-only context...)
+    fix: skipping bandwidth prepopulation if not running as a relay (caught by arma)
+    fix: caching that fingerprints will be unknown if orport is unset
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22625 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8a25d392199a3580c8279e80b86d33d46f1d9a44
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jul 9 16:40:31 2010 +0000
+
+    fix: crashing issue and minor display issue if orport is unset
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22624 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c85f45eede922a054c8bb575c24b6a1707c04a39
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jul 9 16:16:31 2010 +0000
+
+    fix: most of arm wasn't realizing when tor was shut down
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22623 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 5649ba0eb8cc2abbb864221714168a37875b44a7
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jul 9 15:51:08 2010 +0000
+
+    added: logging refresh rate metric
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22622 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit afe3591bd955c12fe4ebcc32b41542d569f17fec
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Jul 8 16:40:58 2010 +0000
+
+    change: log panel present torctl events of arbitrary runlevels (rather than all-or-nothing)
+    fix: added handling for BUILDTIMEOUT_SET events
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22618 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e0e0715c4f92c4bc956006c4283f5e4990730f07
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 7 16:44:54 2010 +0000
+
+    Additional prep for release (updated change notes, spelling corrections, and a few fixes thanks to pylint).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22616 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8cec64ec05075be0974e33d82d60e6b842d9a2fb
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 7 15:11:54 2010 +0000
+
+    Minor tweak to log messaging (syncing before release commit).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22615 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 1b1abba5f377e04db027ac078d9df3f27dd15e6a
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 7 04:21:05 2010 +0000
+
+    fix: using expanded time label for log notice
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22614 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e6c451e16ae33d9dc60c87c7254b207ff035241a
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 7 04:17:12 2010 +0000
+
+    fix: increasing precision for notice of time missing from bandwidth prepopulation
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22613 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 1319ca2707d7ed32ab437a6ac9935cebb8bcf4ff
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 7 04:09:30 2010 +0000
+
+    change: notice level log entry for bandwidth prepopulation success
+    fix: only raising connection resolution rate if deemed necessary by multiple subsiquent entires
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22612 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e73f8c7c0bd09144acc1daf92f8f94dc7b95e357
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 6 01:00:08 2010 +0000
+
+    Adding bandwidth prepopulation from the state file.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22604 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit fe9dd77bd5e2df315b9feb6e24123545047c63b5
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Jul 5 05:20:11 2010 +0000
+
+    Revisions to project 113 to track new relays (over the duration of the runtime) rather than just since the last sampling.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22600 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7c77d49eedff4ac65b03e11f8d33c1a61c95e3f5
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Jul 5 01:06:41 2010 +0000
+
+    Including project 113 (script to provide email alerts when the number of exits radically change).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22598 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b3aca81e202d0da06bf94c10bc36c16e6acd50f5
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 4 03:57:25 2010 +0000
+
+    Displaying the measured bandwidth stat.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22586 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 53ae1ad93355da808c78b88cd5394e234f79d5c1
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 4 02:47:56 2010 +0000
+
+    fix: shouldn't cache undefined fingerprint (happens during startup and no known event to clear cache on)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22585 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 5cbc0cdacf1651bbfa4057d994c165f0d296c3ab
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 4 02:45:02 2010 +0000
+
+    Caching failures for all relay attributes fetched by torTools and cleaning up the functions.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22584 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7aad1df571f294996379ff01eb5737f8b5278dac
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jul 2 15:32:44 2010 +0000
+
+    Adding optional 15 minute graphing interval and stub in case prepopulating from the state file actually works out (still not sure if it'll be viable).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22583 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 2f852bbdb8b1f096876fe383dc6ad82fe4653f5c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 30 16:24:44 2010 +0000
+
+    More fixes for issues introduced while refactoring, including:
+    - ps stats consistently failed to load
+    - caching the no-flags state
+    - crashing issue when tor shuts down
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22575 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 39b2b3f321d603dc239c890147d1e5aca2817852
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 30 15:39:32 2010 +0000
+
+    Minor syntax mistake.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22574 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit d589655fe97c36fdafd1fccedbf49ed2685aca18
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 30 05:40:05 2010 +0000
+
+    Client side caching for several frequently fetched parameters (fingerprint, flags, etc) as well as several bug fixes.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22573 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4db8c142430b769b6f541ef12efb7aa967472b26
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jun 27 04:09:21 2010 +0000
+
+    change: making accounting update rate configurable and use a lower default
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22560 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a219ec6abd97b566797beb161b20c37c3abc033b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jun 27 03:53:55 2010 +0000
+
+    change: attempting to reduce GETINFO call volume from the header panel
+    fix: wasn't accounting for the ORListenAddress correctly
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22559 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f2bf8aca830366aee826cad26288b4af390dd4e1
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jun 26 22:27:20 2010 +0000
+
+    change: upping default refresh rate of graph so stat updates are presented
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22558 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7bb548d0c541c4b9677651398ae3ce23c7c6752b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jun 26 22:10:52 2010 +0000
+
+    fix: crashing issue when parsing config entry for password
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22557 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 200e0293f76629152a55290ff3876bbd8c37ccec
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jun 26 22:03:30 2010 +0000
+
+    added: observed bandwidth fetched from self descriptor
+    fix: crashing issue when graph collapsed too much
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22556 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ab335b1ec192752c48f76fb5b7f85008731f7101
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jun 25 15:04:30 2010 +0000
+
+    added: logging for GETINFO and GETCONF requests
+    fix: no longer querying accounting data when disabled
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22550 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8d426aeb65df151601235fdba30d7be81405fcce
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Jun 24 16:26:16 2010 +0000
+
+    Rewrote graph panel and related stats. Besides refactoring, added configurability, etc this included the following:
+    added: graph can be configured to display any numeric ps stat
+    added: optional caching-only mode for ps graph, dramatically reducing call volume
+    added: third option for graphing bounds (restricting to both local minima and maxima)
+    change: substantially dropped rate at which graphing content is redrawn
+    fix: revised calculation for effective bandwidth rate to take MaxAdvertisedBandwidth into account
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22549 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 0a98f431be2fda4af0683ed3bc353cd2daf9c3db
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 16 16:15:01 2010 +0000
+
+    Revised roadmap items.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22514 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bd2feb80a856c4d44dc5a84986fa25759b70a9b0
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 9 16:07:56 2010 +0000
+
+    change: fetching header config parameters in a more uniform way
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22497 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8de604a5ef41ce354479b27bfb781fa5778ef1be
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 9 15:46:48 2010 +0000
+
+    change: providing notice for unrecognized armrc values
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22496 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit de7509e8030dc246c5395687eb6c8dd339abdf37
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jun 8 16:29:02 2010 +0000
+
+    added: greatly expanded options customizable via the armrc and including sample
+    fix: parsing error when ExitPolicy is undefined (caught by Paul Menzel)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22491 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 07c71f1028adf9033a633bf54abbc21379cd98fd
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jun 6 02:38:34 2010 +0000
+
+    fix - failing to cache ps results for the system resource graph
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22477 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 2b2a094612ed9c346af1ad84ba0896c99088bc6d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jun 6 02:15:01 2010 +0000
+
+    fix: stopping connection resolution (and related failover message) when tor's stopped
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22476 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c0ed2ebc011f7dee4c691bc5a968ed6bb2ad74e2
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jun 6 00:31:54 2010 +0000
+
+    added: notice in the header panel when tor's disconnected
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22475 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 67c0f66104da1f237d69a5841b4668a735cc4baf
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jun 5 21:34:41 2010 +0000
+
+    Few more additions to the release roadmap, thanks to advice from Sebastian.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22474 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4b4d6b2ee1857aac5bbc7e462de91aa3653c2abe
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jun 5 20:51:56 2010 +0000
+
+    Few more revisions to the arm todo.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22473 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 032d7bed9ab468400fab52aa7d069594efcb6abf
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jun 4 16:29:58 2010 +0000
+
+    Revised todo with all roadmap for next version and lots of other updates.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22469 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b23ce45079efa8543c7a5cdba88e59e421bd4416
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon May 31 22:41:07 2010 +0000
+
+    Full rewrite of the header panel, providing:
+      - lightweight redrawing (smarter caching and moved updating into a daemon thread)
+      - more graceful handling of tiny displays
+      - configurable update rate
+    fix: revised sleep pattern used for threads, greatly reducing the time it takes to quit
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22447 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a306de70dfb99aa5c6e627866ca57d2e77967a55
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu May 20 16:26:46 2010 +0000
+
+    Moved reset functionality (issuing and listening) into tor util and fixed minor bug with issuing sighups (it uses regex matches rather than absolute).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22375 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b4996b8bfa89c92ff1f774540f05748edc0cb16b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed May 19 16:04:14 2010 +0000
+
+    Initial commit for singleton accessor of tor controller
+    Still in the middle of refactoring - this will simplify interface code, provide a wrapper (listener and convenience functions around TorCtl), and allow arm to be reattached to new controllers (ie, arm will continue to work if tor's stopped then restarted). This commit includes moving the setter for controller events to tor util.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22374 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 16bfde4bb65578b860b4066ac9341fe7e621a11e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed May 12 15:54:45 2010 +0000
+
+    change: moving tor pid resolution to its own util function
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22320 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e95a1921ef390b0d4bf5f37cf125bd59ea24d1ee
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed May 12 14:58:18 2010 +0000
+
+    fix: concurrency bug when halting connection resolvers
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22319 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 76160223a7b766c83e0f22b1c5cbce8e4ac5fdfe
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri May 7 16:25:49 2010 +0000
+
+    Util for improved system call handling.
+    added: system tools util providing: simplified usage, suppression of leaks to stdout, logging, and optional caching
+    change: caching ps calls for several seconds (lowers the call volume but also reduces the fidelity of the resource graph)
+    fix: preventing 'command unavailable' error messages from going to stdout, which disrupts the display (caught by sid77)
+    fix: bug in defaulting the connection resolver to something predetermined to be available
+    fix: connection resolver was being initiated while in blind mode
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22295 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4c99984b2dd74367d88b79f324c2d0c5464626c8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Apr 30 15:01:15 2010 +0000
+
+    fix: crashing error if TorCtl reports TorCtlClosed before the first refresh (caught by Tas)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22259 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 88ee63204757eb4ff6274dec0633a5c5c2479fdc
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Apr 30 14:57:31 2010 +0000
+
+    Improved messaging and failover behavior if controller password defined in config is incorrect.
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22258 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a52075b2944777d0d9abc923b7880187de0f9b82
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Apr 25 21:15:26 2010 +0000
+
+    The last batch commit (note: this is *not* a shiny, new release - just the parts I have done).
+    added: custom settings config, currently just used for the controller password (requested by ioerror)
+    fix: removed -p option due to being a gaping security problem (caught by ioerror and nickm)
+    fix: preventing the connection panel from resetting while in blind mode (caught by micah)
+    fix: ss resolution wasn't specifying the use of numeric ports (caught by data)
+    fix: crashing issue when trying to resolve addresses without network connectivity
+    fix: forgot to join on connection resolver when quitting
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22234 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8a71a577e291a95abd1d62c6ecb73bbbceaf1a95
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Apr 11 01:17:40 2010 +0000
+
+    Few issues discovered while testing on freebsd.
+    - fixed crashing error when failing to find event types
+    - noted connection querying problems for freebsd
+      - netstat lacks an equivilant for the -p flag, making it useless to arm
+      - ss belongs to a spreadsheet program instead (this had me a bit speachless)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22169 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e3a2c6a08b875a703152ff65a072335203ba7e11
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Apr 9 15:41:47 2010 +0000
+
+    Quick fix for malformed display string (crashing issue).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22160 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 1ceb4d01301437b8a29373a6dabc939162278c3a
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Apr 8 16:25:14 2010 +0000
+
+    Utility and service rewrite (refactored roughly a third of the codebase, including revised APIs and much better documentation).
+    added: centralized logging utility for handling arm events, simplifying several parts of the interface
+    added: rewrote connection resolver, including:
+      - fallback support for 'ss' and 'lsof' (requested by dun, John Case, and Christopher Davis)
+      - readjusts resolution rate if calls prove burdensome
+      - ui option for selecting mode of resolution
+    added: rewrote hostname resolver, including:
+      - optional resolution via socket module (seems worse so disabled by default... pity)
+      - non-blocking thread safety
+      - extra error info
+    change: revised curses wrapper utilities (plus some hacks of the interface to accommodate it)
+    fix: issuing resets via RELOAD signal rather than sighup (thanks to Sebastian for pointing this out)
+    fix: taking into account potential None values when running get_option on arbitrary values (caught by pipe and enki)
+    fix: crashing problem if use_default_colors() calls failed (caught by sid77)
+    fix: removed workaround for mysterious torrc validation bug (was accidentally already fixed - thanks to dun for lending a test environment)
+    fix: size and time labels weren't doing integer truncation (rounding was unintended and frustratingly difficult to get rid of)
+    fix: hack to prevent log panel from drawing before being positioned
+    fix: arm crashed if torrc was an empty file
+    fix: wasn't consistently bolding help keys
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22148 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 5d5dabddf6516d9d9b6544563315b38ede56e2f9
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Apr 6 15:51:26 2010 +0000
+
+    Fix for scrubbing bug discovered by waltman.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@22134 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 39b4a66d6505976fe9650c5e41c834ed6ce862fc
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Mar 9 15:49:09 2010 +0000
+
+    Fix for initializing error when processing family connections (caught by dun).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@21888 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4a5c76db49c8c53ea6049be6ba39cb1e74961030
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Mar 8 05:38:39 2010 +0000
+
+    Weekend bugfix bundle.
+    added: returned option to reload torrc and added option to issue a sighup
+    fix: header panel wasn't interpreting multi-line exit policies (caught by dun)
+    fix: substantial display bug when stripping comments and torrc is bigger than the panel (caught by Paul Menzel)
+    fix: deb specific hack for estimating the file descriptor limit was broken (caught by Paul Menzel)
+    fix: skip printing stack trace in case of keyboard interrupt
+    fix: updated listing of directory authorities (for tor version 0.2.1.24)
+    fix: several uncaught exceptions when the network consensus couldn't be fetched
+    fix: torrc comment stripping wasn't removing comments on the same lines as commands
+    fix: torrc validation was failing under some conditions for CSV values (like ExitPolicy)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@21852 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit d4d793f10584e33037ad54a70726ed9ac922d875
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Feb 28 02:48:24 2010 +0000
+
+    Hiding client/exit information to address privacy concerns and fixes for numerous issues brought up in irc.
+    added: scrubbing connection details of possible client and exit connections
+    change: providing file descriptions in README, updated known issues and future plans in TODO
+    change: added precision for bandwidth cap and burst if uneven values (requested by mete1989)
+    fix: HiddenService* parameters fetched via a special option (caught by dun, karsten, and grumpy3)
+    fix: workaround for os specific torrc validation bug - unfortunately haven't managed to repro yet so no fix (caught by grumpy3, Tas, and dun)
+    fix: checking for python curses bindings at startup (caught by dun)
+    fix: import error - TorCtl and socket missing from confPanel.py (caught by grumpy3)
+    fix: showing external ip in connection panel rather than local nat address (caught by mete1989)
+    fix: raised minimum width at which graph stats are displayed beside label (caught by dun)
+    fix: wasn't treating "accept *" and "reject *" as catch-all policies
+    fix: wasn't resizing graph panel properly in case of a sighup
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@21772 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6829482f03258f779190adbc709e3829793e3259
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Feb 15 01:01:34 2010 +0000
+
+    Refactoring goodness and bug fixes.
+    change: revised curses utilities to further simplify interface implementations
+    change: substantial layout changes (adding util and init packages) and including a copy of the gpl
+    fix: bug with handing of DST for accounting's 'Time to reset' (patch provided by waltman)
+    fix: header and connection panels weren't accounting for having ORListenAddress set (caught by waltman)
+    fix: crashing bug when shrank too much for scrollbars to be drawn
+    fix: couple system commands weren't redirecting their stderr to /dev/null
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@21646 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit ba133dc2cf0e383bb775ca3f890eb05168aaba13
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Feb 8 01:47:07 2010 +0000
+
+    Had enough of a siesta - getting back into development beginning with a rewrite if the starter.
+    added: made authentication a little smarter, using PROTOCOLINFO to autodetect authentication type and cookie location
+    change: made 'blind mode' (disables connection queries) a startup option rather than flag in source (request by Sebastian)
+    change: all log events (including arm) are now set via character flags, with TorCtl events log as their own toggleable type
+    change: starting log label with runlevel events, condensing if logging a range
+    change: simplifying command line parsing via getopt
+    fix: blind mode now prevents all netstats (including connection counts and halting resolver thread), improving performance
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@21580 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit dbde23403edad087f05ca54d19055d18b4e0958c
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 30 04:12:57 2009 +0000
+
+    Weekend bugfix bundle.
+    added: most commands can be immediately executed from the help page (feature request by arma)
+    fix: truncating header's version fields if too long (caught by hexa)
+    fix: file descriptor dialog now provides a wider variety of error messages in case of failure
+    fix: offset issue in connections listing when scroll bar was visible
+    fix: removing family connections from listing when control port is closed
+    fix: preventing TorCtl startup issues from going to stdout (duplicates warnings)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@21062 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit aa50ba9b35d68e8115b15f070a776e0d65022749
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Nov 9 03:51:58 2009 +0000
+
+    This will be the last update for a while since I'm about to start a new job.
+    added: including family relays on connections listing
+    added: file descriptors dialog (stats and scrollable listing)
+    change: logs warning if torrc fails to load
+    fix: size and time labels used in torrc are expanded for validation
+    fix: duplicate torrc entries weren't being detected if not erroneous
+    fix: crashing issue when cleaning up hostname cache
+    fix: stretching connection lines to fill full screen
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20927 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f8feb80f36e78751e618e2ecef9e3684ef0b89a1
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Oct 22 03:03:12 2009 +0000
+
+    Substantial bundle of changes including torrc validation, improved arm event logging, and numerous bug fixes.
+    added: verifies loaded torrc consistency against tor's actual state (gives warning and providing corrections)
+    added: checks for torrc entries that are irrelevant due to duplication (gives notices and highlights)
+    added: log provides TorCtl events (hack... so ugly...)
+    added: option for logging runlevel events of arm, tor, or both
+    added: ARM-DEBUG event for netstat query time
+    added: providing progress bar when resolving a batch of hostnames
+    change: providing prompt notice when tor's control port is closed
+    fix: limiting pre-loaded events to this tor instance
+    fix: limits log entries used to pre-load events (big logs caused issue with startup time)
+    fix: properly closing TorCtl when quitting (was occasionally screwing up terminal)
+    fix: at several points TorCtlClosed exceptions were uncaught, causing crashes when tor was closed
+    fix: netstat and geoip failures were being noisy when tor quits
+    fix: bug in tracking connection counts if tor quits when paused
+    fix: sighup wasn't resetting all relevant internal variables
+    fix: pausing bypassed connection sorting
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20814 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c5a73efa7547b69aba887ff66345d78b35a7c9a9
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Oct 17 03:19:18 2009 +0000
+
+    Resolving a few small issues that bugged me.
+    change: using log file to pre-populate events if available
+    change: asks for confirmation when quitting
+    change: provides warning when tor's descriptors won't be updated
+    change: event log now allows for multi-line messages
+    fix: occasional crashing error concerning connection cache when paused
+    fix: issue with tracking connection times when paused or not visible
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20798 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c9a46401632a9bb355a00d1bd9b2522406308491
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Sep 28 06:56:21 2009 +0000
+
+    More issues discussed on irc.
+    fix: made netstat lookups a best-effort service, separate from draw thread (caught by arma and StrangeCharm)
+    fix: using ps as final fallback if otherwise unable to determine pid (suggested by Sebastian)
+    fix: appends tor's pwd if torrc path is relative (caught by arma)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20678 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bfe85d17e6d8a9476a6193b2c46872f5b0a13af7
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Sep 27 08:50:41 2009 +0000
+
+    Few issues discussed on irc.
+    added: changelog and cleaned up todo documents (requested by arma)
+    added: option in controller.py to disable connection panel (feature request by Sebastian)
+    fix: failed to work on osx and bsd due to crashes after failed system calls (caught by Sebastian and Christopher Davis)
+    fix: reloading static data in bandwidth panel after HUP (caught by hexa)
+    fix: couple alignment issues with the connection listings
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20674 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 2ebf989a1da49c6e8ede6a0b3b6647cc184a0df6
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Sep 23 09:10:49 2009 +0000
+
+    Bundle of semi-low hanging fruit, including a few issues discussed on irc.
+    added: showing extra parameters in connection listings if room's available
+    added: identifying directory server connections
+    change: providing an error message if running an incompatible python version (issue spotted by arma)
+    change: giving arm a version to help in bug reports
+    change: minor tweak to the wording of a faq entry (requested by Sebastian)
+    fix: wasn't accounting for RelayBandwidthRate/Burst in effective bandwidth (caught by hexa and arma)
+    fix: timing issue when shutting down (caught by arma)
+    fix: couple issues with connection time being tracked when paused
+    fix: preserving old results when netstat fails
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20655 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit cdee0207c4aed92433bca5655ecb1a2dae0e5033
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Sep 7 05:21:42 2009 +0000
+
+    Several substantial features (last tasks for arm's todo list).
+    added: scroll bars for connections listing and event log
+    added: made log scrollable (feature request by StrangeCharm)
+    added: regular expression filtering for log (feature request by StrangeCharm)
+    added: connection uptimes (time since connection was first made)
+    added: identifying client from server connections and providing popup for client circuits
+    added: graph for system resource usage (cpu/memory)
+    change: removed cursor toggling option for connection page
+    fix: minor display issue when changing event types
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20493 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit bcb3b92ae5afd6552946493251d83f35ca84347e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Aug 29 02:23:53 2009 +0000
+
+    Limiting readme line length to 80 characters.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20441 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit eae8f78cafb40c827871ea57cbee04a7a6b4fb49
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Aug 23 06:44:45 2009 +0000
+
+    Several fixes and changes, mostly concerning the graph panel and making better use of screen real estate.
+    added: labeled the graph's x-axis and reordered the information with changes omitted for small (tty sized) terminals (feature request by StrangeCharm)
+    added: doubling up contents of header panel in case of wide screens to take advantage of added space
+    added: exit policy to header if a wide display
+    change: added precision for bandwidth measurements
+    change: using "orconn-status" info to eliminated ambiguity in identifying inbound connection fingerprints (clever idea, but had very little impact)
+    fix: when sighup signal is received reloads torrc and internal state (caught by StrangeCharm)
+    fix: probable resolution of nasty concurrent bug concerning access to connection cache
+    fix: minor issues concerning connection panel including graph widths and miscalculating local maxima
+    fix: short circuits fingerprint cache when looking up localhost descriptor (preventing lookup failures)
+    fix: minor issues with connection panel and description popups when no connections are available
+    fix: descriptor popup wasn't determining if the first visible line belonged to an encryption block
+    fix: made interface more resilient against arbitrary resizing (such as during popups)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20354 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4b2f7cb432c339de97e087dd2b2902499468607d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Aug 18 00:07:49 2009 +0000
+
+    Work done over this last week.
+    added: popup for raw consensus description
+    added: total bandwidth measurement
+    added: connection entry for lookup of local consensus data
+    change: widened graphs to utilize full screen width (clever idea by StrangeCharm)
+    change: preserving runtime and pid when shutting down
+    change: few tweaks to the readme
+    fix: joining on worker daemon threads to exit gracefully (had a noisy race condition)
+    fix: using BW events to keep connection count graph in sync with bandwidth graph
+    fix: can now support graphs of multiple sizes
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20331 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit fb44e28ace8365ee074e01a0d5b7d8eb5f8eb7b6
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Aug 8 07:02:41 2009 +0000
+
+    Rewrote graph panel so it can handle any real time statistics.
+    added: option to graph connection counts (feature request by phobos)
+    added: custom graph bounds (global or local maxima)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20233 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit d5ddee87c0236d37e4f73057fe27bb1f562c3ef5
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Aug 3 18:43:51 2009 +0000
+
+    Added start of a faq to the readme in preparation for announcement on or-talk.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20210 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e606078aaa80e0e197c2e522d61d63df63817231
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Jul 30 07:09:47 2009 +0000
+
+    Work done over the trip.
+    added: customizable update interval for bandwidth graph (feature request by StrangeCharm)
+    change: noted new project page in the readme (www.atagar.com/arm)
+    change: added word wrapping to conf panel
+    change: added function for custom popup menus
+    change: logs error message when required event types are unsupported rather than throwing an exception
+    change: using different screenshot images
+    fix: resolved issue that caused monitor to think tor was resumed when quit
+    fix: bug with panel utility's resize detection
+    fix: resorts connections after NEWDESC and NEWCONSENSUS events
+    fix: forgetting to to resume monitor at multiple points after a temporary pause
+    fix: minor refactoring based on suggestions from pylint (unused imports and such)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20198 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 77330fff1932bccda54166c636e04f6e673f4972
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 22 19:41:20 2009 +0000
+
+    Another small grab bag update.
+    added: version status to header panel
+    change: noted "Common *nix commands including: ps, pidof, host, and netstat" among requirements in readme
+    change: took some tricks from Mike's ConsensusTracker to further improve match rate
+    fix: type mismatch that greatly diminished fingerprint matching
+    fix: accidently used idhash rather than idhex for fingerprints when updating cache with the contents of a NEWDESC event
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20115 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 767871141ce02e88c4bff2b34d3bc229b14b3bac
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 21 11:18:43 2009 +0000
+
+    Fixed missing import and provides warning when geoip database is unavailable (thanks to SwissTorExit and karsten).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20100 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 0ca15e64c01eefad510d61622b3ebf861c5c425d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 21 04:00:11 2009 +0000
+
+    If only one tor process is running use that pid (netstat fails if running as a different user - hopefully last fix...).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20098 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c4e73696adb1ba83304f4b7ced13284a041c5851
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 21 03:20:28 2009 +0000
+
+    Fixes for a couple of crashing mistakes in last commit.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20097 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e4942a62ae2a5ef082ef091243297838ecfb8130
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 21 02:56:42 2009 +0000
+
+    Provided fix for dealing with multiple tor instances - checks pid of process with the open control port.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20096 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e4d44a60b6e5a7fd59446641e5dfb0f38282c55b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 19 17:54:11 2009 +0000
+
+    Fixed a couple bugs, the most interesting being when netstat can't resolve a connections listing (spotted by phobos).
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20090 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit de960ca7f3345765d3f0e48cff24412866c2c598
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 19 08:09:48 2009 +0000
+
+    Last substantial feature on my to-do list.
+    added: connections can be selected to view consensus details (very spiffy!)
+    added: listing selection is by menu rather than cycling
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20087 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7dadd1606bdcd941886f498ecfbe08d8ce7521c7
+Author: phobos <phobos@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jul 18 15:51:23 2009 +0000
+
+    Add a screenshot of arm in action so people can see what it looks like.
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20079 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c4cb702f2f2cd02b5505ff32d30651f93dc1ee0b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jul 18 07:16:16 2009 +0000
+
+    Miscellaneous fix and feature batch.
+    added: relay's flags to the header
+    added: listing by relay nickname
+    added: additional event aliases and option for NEWCONSENSUS
+    fix: updates cached consensus mappings with NEWDESC and NEWCONSENSUS events
+    change: use constant "Listing" label for sorting rather than current view
+    change: removed 'reload torrc' option (deceptive and useless)
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20078 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit f92cdf0d864059dff13dba226d897c6cbb824472
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jul 14 19:17:14 2009 +0000
+
+    Resolved a few quick bugs:
+    fix: added fingerprint lookup cache to resolve substantial performance issue
+    fix: hostname resolution progress accounts for newly added entries (no more negative progress)
+    fix: resolved bug that prevented arm from starting if too small
+    fix: ordering issue when sorting unresolved ip addresses
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@20016 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b3174b1519b691dd3c13784ea6b9ba1d8a973fd1
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jul 12 06:11:36 2009 +0000
+
+    Connections panel can now list by IP, hostname, or fingerprint - reverse resolution was easy, but comparing three different implementations and making it non-blocking with a pausable thread-pool backend? Not so much.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19975 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit db933afc299384a63f16748e9eac45d87309f0e6
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Jul 9 05:31:36 2009 +0000
+
+    Connection listing now has user configurable sort functionality (it's actually pretty spiffy - supports secondary and tertiary sub-keys).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19957 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit df8d658c55c02bb1645a3346eb146221e44fe2d8
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jul 8 21:13:28 2009 +0000
+
+    Preliminary connection page and miscellaneous additions.
+    added: basic connection listing page (using netstat results)
+    added: 'addfstr' to util which allows for embedded formatting tags (VERY helpful)
+    added: help shows page's current settings
+    added: made bandwidth panel toggleable
+    added: avg bandwidth to bottom of panel
+    bug fix: prevented header from being paused on page change
+    bug fix: prevented bandwidth accounting events from being lost when paused
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19953 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 848b0619acc6d261024f430fc52bb1eb7360d550
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Jun 15 06:42:19 2009 +0000
+
+    Decently big batch of feature additions and bug fixes.
+    added: second page that presents torrc with syntax highlighing, optional comment stripping, etc
+    added: ps sampling (cpu/memory usage, pid, and uptime)
+    added: help popup with page controls
+    bug fix: corrected issue that caused periodic refreshing to fail
+    bug fix: accounting reset time takes into account DST
+    bug fix: make accounting input and header pausable
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19716 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 73c6d94f55cdff8c827da4631cebcc922f2225a1
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Jun 11 00:55:29 2009 +0000
+
+    Removed '--path-to-torctl' startup option.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19709 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c615c5a3622fddd2019c63d7738120ba75ceb4c1
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Jun 11 00:48:06 2009 +0000
+
+    Bug fix: accounting 'time to reset' now includes gmt to local conversion
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19708 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 30b1a0e26b0c2cb5e2c7a6210b0ecf089721086b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Jun 8 03:03:24 2009 +0000
+
+    Yet another fix to svn external setting.
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19656 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b1b122de62783d76bb27f70bf3599ea898f1c350
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon Jun 8 02:49:08 2009 +0000
+
+    Fixed mistake in svn external setting.
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19655 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 85d3701070905bbe45223029de5ab96c62a308e0
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sun Jun 7 21:31:52 2009 +0000
+
+    Added accounting data if set.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19646 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 605f57b46fe2dbbd638f728f3b487457ab7ff53e
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jun 6 17:23:27 2009 +0000
+
+    Tad too hasty with last commit. Moving log help into starter to avoid importing headache.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19637 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit b4c7ad1e9558cbc034525442beb66157a60327fc
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat Jun 6 17:09:34 2009 +0000
+
+    Added command line argument to specify locatoin of TorCtl without changing Python path first (feature request by phobos).
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19636 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 8577ba4390f94c0f60a3e8d2576e55c58b779d1d
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri Jun 5 08:54:07 2009 +0000
+
+    Offloaded resizing to the curses wrapper and switched from a functional to an OO implementation which further simplified the controller. As an added plus this should make adding additional 'pages' trivial.
+    Also dealt with another curses wtf bug where panels wouldn't repaint unless done in a specific order.
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19629 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 74949e7e3593a0d75b9522ba646753550a460623
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Thu Jun 4 18:59:42 2009 +0000
+
+    Tested and corrected formatting for all event types except STREAM and STREAM_BW (not sure how to make those occur...).
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19626 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit a7fd565fe45df582e39d52cf4f50b62f476f8b26
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 3 06:37:57 2009 +0000
+
+    Changed unchecked event stubs to present information and provide debugging information in case of type mismatch.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19620 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 56aafaec9b6a65f03db180ba2b75d7bd2acf9f44
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Wed Jun 3 02:36:55 2009 +0000
+
+    Added notice when relay's been silent for five seconds (based on BW events so probably due to Tor being closed). Another idea by karsten.
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19619 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 6708da3166efc6b60f23f4a69d0c83d4bb225cbd
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue Jun 2 08:37:49 2009 +0000
+
+    Introduced wrapper to hide curses ugliness which greatly simplified interface code. Also fixed all problems with resizing - it's now rock solid.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19615 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit e92361ba0f5ef13459229b3f06692d02fff0ff0b
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Sat May 30 06:40:12 2009 +0000
+
+    Allows logged events to be changed while running (suggested feature by karsten) and experimenting with a more modular design.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19594 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 88069d1b6151aaf24772f815e0a19a25a78078ce
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Fri May 29 07:58:26 2009 +0000
+
+    Fixes for several rather sinister reliability problems:
+    Added non-blocking reentrant locks to fix concurrency errors that caused chaotic terminal glitches (such as switching to a Chinese character set)
+    Now fully handles resizing (including vertical)
+    Using new capabilities in TorCtl including cookie authentication and disabling logging
+    Fixed bandwidth graph bug when paused
+    Occasionally refreshes static content in case of graphical hiccups
+    Added workaround for obscure curses caching bug that prevented portions of the screen from being redrawn
+    Fixed bug preventing initialization if too small
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19580 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 056e4b79fc06cf70d6be61909a38ad1ad11f5afb
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Tue May 26 05:36:59 2009 +0000
+
+    Few small tweaks to arm including:
+    - added tiny shell script to alias starting
+    - added more informative error message if TorCtl isn't available
+    - changed defaultly logged events
+    - make inclusion of 'unknown' events toggleable
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19567 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 88a61aac1e29d4d94ca9e63431441dec65da9f57
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon May 25 05:43:58 2009 +0000
+
+    Resolved issue that prevented monitor from functioning in terminals without curs_set support.
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19551 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 4562d0e1b3720d2da3331f73647d113cbf4681fa
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon May 25 05:28:35 2009 +0000
+
+    Fixed bug with undefined exit policy.
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19550 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit c8da1e883e86598f23907d5f0b5ac1bf533355f4
+Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon May 25 04:56:23 2009 +0000
+
+    Initial version of arm (terminal relay status monitor).
+    
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19549 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+
+commit 7795bce3b99170ce6cb9f26596006e60613de630
+Author: arma <arma@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
+Date:   Mon May 25 03:27:02 2009 +0000
+
+    new module 'arm' for atagar and his tor monitor
+    
+    
+    git-svn-id: https://svn.torproject.org/svn/arm/trunk@19548 55e972cd-5a19-0410-ae62-a4d7a52db4cd
+======================: FILES :======================
+======================: BRANCHES :======================
+======================: LOGINFO :======================
 commit eb68081eadcd662f88bc03de80511ee051b1f964
 Author: atagar <atagar@55e972cd-5a19-0410-ae62-a4d7a52db4cd>
 Date:   Mon Dec 13 17:56:48 2010 +0000

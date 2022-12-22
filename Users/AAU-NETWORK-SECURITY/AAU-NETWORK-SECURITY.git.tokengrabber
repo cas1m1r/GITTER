@@ -1,0 +1,62 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# tokengrabber
+Tool to sniff honeytokens from the system. There are 2 methods of detection. The first method leverages the 
+use of DNS calls made by canarytokens to trigger emails by sniffing all DNS lookups from the target machine to check for canarytokens domain.
+
+
+The second method performs some reverse engineering and pattern matching to find canrytokens in their content.
+The usage is described below.  
+
+
+Usage:
+
+DNS sniffer\
+$python dns_sniffer.py -i interface \
+example: $python dns_sniffer.py -i eth0
+
+PDF Token\
+python pdf-parser.py -o 16 -O filename.pdf \
+the /URI of the object stream contains canarytokens.net
+
+DOCX Token\
+python docx.py -f filename.docx
+
+DIRECTORY Token\
+python folder.py --d dir_name
+
+__Screenshots__
+
+DNS Sniffer:
+
+![DNS](https://github.com/sastry17/tokengrabber/blob/master/screenshots/DNS.png)
+
+Detection for folder, pdf and docx Canarytokens:
+
+![Canary_token](https://github.com/sastry17/tokengrabber/blob/master/screenshots/Application.png )
+
+
+
+====================== GIT HISTORY: ======================
+5d6ec01 HEAD@{0}: clone: from https://github.com/aau-network-security/tokengrabber
+commit 5d6ec01cdd210ea3c6ef7dfdf735bc365508cdcc
+Author: Shreyas Srinivasa <58994291+sastry17@users.noreply.github.com>
+Date:   Thu Oct 8 16:39:37 2020 +0200
+
+    removed temp
+    
+    removed temp
+
+commit aabf5a7a107fe5340fd3e629ce5d8aae3970345b
+Author: Shreyas Srinivasa <58994291+sastry17@users.noreply.github.com>
+Date:   Thu Oct 8 16:31:34 2020 +0200
+
+    updted repo
+    
+    updated repo
+
+commit 1d534cb62389629916b5a5ef782abb3c130e7225
+Author: Shreyas Srinivasa <58994291+sastry17@users.noreply.github.com>
+Date:   Thu Oct 8 16:29:16 2020 +0200
+
+    Initial commit

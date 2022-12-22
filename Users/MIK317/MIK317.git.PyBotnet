@@ -1,0 +1,337 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# PyBotnet
+
+This is an `HTTPs Pull Botnet` :
+The victims are always active and every 30 seconds (you can change the time for request), must send a request to the C&C Panel for check if there are commands to execute.
+
+The botnet is very useful for passive control, like credentials harvesting or malware spamming, but not for commands execution in-live because the host doesn't contact the victim (however, there is a reverse shell option).
+
+### Requirements
+
+- Requests library (for all the requests realized)
+- PyCrypto (for crypting and hashing)
+- CherryPy (for the http server)
+- Jinja2 (for the templates)
+
+### Utility
+
+Aside from the `Server`, `Core` (the agent) and the `HTML Web Pages`, there is a simple script, named `db.py` that you can use for initialize, delete and view the dbs.
+Here you can see the help message: 
+
+![Db.py Help Message](https://github.com/Mik317/PyBotnet/blob/master/doc/dbhelp.png)
+, while here youcan see the various usages:
+
+![Db.py Usages](https://github.com/Mik317/PyBotnet/blob/master/doc/dbopt.png).
+
+### Something More
+
+The botnet is very simple: as soon as the bot is infected, it will send to the Server Web API* a request to the `/welcome/`, and trough JSON, it will send the `Key` (that's the pc-user encoded with SHA512 and MD5), the username, the IP, the location, a simple uname and other infos that will be memorized in the `Bots` table of the DB `bots.db` (created with sqlite using `py db.py init`).
+
+* API = the API are the pages that contains only the things that the bots must see.
+
+Immediately after, the bot begin to send every 30 seconds (default time) some requests to the API at the page `/check_cmd/<their key>`, and if there are commands in queque in the table `CmdsIn` of the DB `cmds.db`, they will be returned, vested from the bots and executed for send the output at the `/cmd_out/` throug JSON, that will be stored in the table `CmdsOut` on the DB `cmds.db`.
+
+As you will have guessed, all is based on the `Keys` of the bots, that identify all of them and are used for get infos, give commands and read outputs.
+
+The authentication, is based on the session of CherryPy, and will be enforced by a simple header (`LoggedIn`), that verify if the key of the BotMaster is `OK`. The auth happens when BotMaster Key, and User+Pass are `OK`.
+All the things, such as login,requests from the bot, etc .... are logged using the logging function of CherryPy, that grab IP, date and some infos on the request.
+
+This botnet provide a very beautiful web panel, written in `HTML`+`Bootstrap`+`Chart.js`,and allow you to:
+- Control and manage all the bots 
+- Send commands to bots
+- Have a nice view of the data sent and received
+
+### Get Started
+
+This botnet is composed by 2 main files: `Server.py` (that's the HTTP Server that contains API, C&C Panel, the DBs of sqlite and the session), and the `Core.py` file, that is the agent with which infect the bots.
+
+0. Execute the following command: `py db.py init`
+01. Edit all the GLOBAL variables with your configuration (inside `Server.py`), like `HOST`, `DB_PATH`, `API` and other
+1. Execute the `Server` using the following command on the server machine: `py Server.py`
+2. Go to `localhost:8080`
+3. Login using the user, the pass* and the key of the botmaster
+4. Execute the `Core.py` on the victim machine, using a command like this: `py Core.py`
+5. Wait some seconds that the Agent send us all the infos
+6. Explore the C&C Panel !!! (check the `Commands table`)
+
+* Pass = The password will be generated automatically using AES and base64 encoding, therefore you must copy it every time that you execute the server, because it is one-time valid.
+
+The credentials can be obtained only from Chrome, and will be memorized in the `Creds` table of the `creds.db` DB; After, you can see they for every single bot. If you want get the credentias, you will insert as command to execute, the special keyword `cred`, that execute the `cred` module in the Agent.
+
+Some photos here:
+
+![Server Started](https://github.com/Mik317/PyBotnet/blob/master/doc/startserver.png)
+![Login Botnet](https://github.com/Mik317/PyBotnet/blob/master/doc/login.png)
+![DashBoard](https://github.com/Mik317/PyBotnet/blob/master/doc/dashboard.png)
+![View Bot From Key](https://github.com/Mik317/PyBotnet/blob/master/doc/view.png)
+![Bots Requests](https://github.com/Mik317/PyBotnet/blob/master/doc/botrequests.png)
+![CMD In](https://github.com/Mik317/PyBotnet/blob/master/doc/cmdin.png)
+![CMD Out](https://github.com/Mik317/PyBotnet/blob/master/doc/cdmout.png)
+
+And, if you give the `cred` command ...... you can obtain all the credentials stealed from the Chrome Credentials DB, that will be reported on the Web Panel like this:
+![Cred Page](https://github.com/Mik317/PyBotnet/blob/master/doc/cred.png)
+
+After a revision of the code I've:
+- Added the DDOS Module
+- Added the DDOS & Malware Map of Karspersky (very cools)
+- Deleted some bugs on the section that receives commands and outputs
+
+![DdosMap](https://github.com/Mik317/PyBotnet/blob/master/doc/karsp.png)
+
+The DDOS functionality is very simply, and is inspired by Nicco and Vitto ;;))
+For launch a DDOS attack, you must specify only the command and the `server`:`port`, giving as input something like this:
+`ddos www.<test_site>.com:80`.
+Going to the CMD panel, you will see that the output is: `Dossed <site_that_you_have_entered>:<port>`
+
+
+### Commands
+
+| Command       | Description   |     
+| ------------- |:-------------:|
+| $simple_command_to_execute_directly_(like_`ls`)      | Simply executed as a normal command |
+| cred      | Obtain all the credentials stored in the Chrome DB      |
+| ddos | Launch a DDOS Attack      |
+
+### Todo
+- [x] Add some graphs on the DashBoard page
+- [x] Add the Credential Grabber Module
+- [x] Add the web page for managing the credentials
+- [x] Add the DDOS Module
+- [x] Add the DDOS Map (using [Karspersky Map](https://cybermap.kaspersky.com/))
+- [x] Add the ngrok server for remote tunnelling (see [PyBotnet Web](https://61485ab1.ngrok.io/) if my server is enabled (the address can be variable))
+- [x] Add the possibility to change port and host of the server
+- [ ] Add persistence
+====================== GIT HISTORY: ======================
+ec7a063 HEAD@{0}: clone: from https://github.com/Mik317/PyBotnet
+commit ec7a063a54c19edac07f7fd9d91969425f085dab
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Wed May 23 17:06:54 2018 +0200
+
+    Update README.md
+
+commit 824327d8a4c5e2cdb514685f9bdf0f82c10a58df
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Thu May 17 19:28:42 2018 +0200
+
+    Update README.md
+
+commit ce7f6170ce7a4bd4728c83d7ca5163f92f220b77
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Thu May 17 19:25:56 2018 +0200
+
+    Delete db.cpython-35.pyc
+
+commit 677d9c42b5dc9c5c4ee6a34e1b0fd4153fbf5a42
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Thu May 17 19:25:41 2018 +0200
+
+    Update Server.py
+
+commit dbc12fde42ece23bf3f1c31c4588815a94544d31
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Thu May 17 19:22:11 2018 +0200
+
+    Added files and source
+    
+    1. Uploaded the Core and the Server code.
+    2. Almost finished the revision
+    3. Edited some things on the documentation
+
+commit fa44baea3e72d266872779bc394b63eb246a845a
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sun May 13 17:55:53 2018 +0200
+
+    Update README.md
+
+commit d4e17604ee2fe2650a0604b921e49ee09829fde1
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Tue May 8 22:06:35 2018 +0200
+
+    Update README.md
+
+commit f749aedaabebeaca707f818123510d45ae368e7d
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Tue May 8 22:04:27 2018 +0200
+
+    Update README.md
+
+commit 2f4f7e0aa89f17aa696babc0fd55e1b6d83f2996
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Tue May 8 20:33:41 2018 +0200
+
+    Update README.md
+
+commit db161834da443f43de66c7cfcf64811f7ae478a5
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Mon May 7 15:26:33 2018 +0200
+
+    Update README.md
+
+commit 4b2387e03e97d82671f57b59ae4dcf7aeae0564d
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Mon May 7 15:20:52 2018 +0200
+
+    Add files via upload
+
+commit 7be12eb1cd01dcbb8c07bc097a32845b3d722f70
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sun Apr 1 23:48:51 2018 +0200
+
+    Update README.md
+
+commit b3e9e14fe152aea068d6af10ec3baab1acf9be62
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sun Apr 1 22:52:21 2018 +0200
+
+    Update README.md
+
+commit 4289babbf8611674784ad4ce370d4cd6d76a68c9
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sun Apr 1 09:54:39 2018 +0200
+
+    Update README.md
+
+commit 41b200668221d7778c402dac46c436cbb33385f0
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sat Mar 31 15:28:11 2018 +0200
+
+    Update README.md
+
+commit 595622d396ebfb75f775382bf180463308a42479
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sat Mar 31 15:18:51 2018 +0200
+
+    Update README.md
+
+commit 2477873b1540106c9bed835bacf1966a73403c18
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sat Mar 31 15:09:54 2018 +0200
+
+    Update README.md
+
+commit 39efc6ba8f94436cd5c2a760c22e9b8fac58162f
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sat Mar 31 11:40:39 2018 +0200
+
+    Update README.md
+
+commit edbbd76b5861fd84ea1513a6c80c3fbab1035d00
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Sat Mar 31 11:39:36 2018 +0200
+
+    Add files via upload
+
+commit 4c0794febd2fbddb39393fda400c1f5c36a80c8b
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:54:04 2018 +0200
+
+    Add files via upload
+
+commit 3fd68a78d21aa57f901a1709e140a1a447143969
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:53:24 2018 +0200
+
+    Delete view.png
+
+commit 4e8bc9ec44c1f9aaf1300643d1ab9d78a5b8285b
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:52:16 2018 +0200
+
+    Update README.md
+
+commit 976b6de5281255ae0e25c6785d15428381d36608
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:51:02 2018 +0200
+
+    Add files via upload
+
+commit f4ecdb218912792ae5c9571426bf8f9f2498a44b
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:49:20 2018 +0200
+
+    Delete view.png
+
+commit 05762f7d2cece0fe1d84ecb6493671439bc816df
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:48:35 2018 +0200
+
+    Add files via upload
+
+commit f62ed0ce1ea6693bc7aa58b80a1bbe37a3deced8
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:47:24 2018 +0200
+
+    Delete dashboard.png
+
+commit f5c52b7c02b0ff63842913aa4a8aadc4abe8291d
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 17:43:54 2018 +0200
+
+    Add files via upload
+
+commit df61092b83e11db34842c6bed3c9b7ac98f16cc4
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 16:12:15 2018 +0200
+
+    Update README.md
+
+commit 3cfa7620d88543860c486fb7e7cc7248ac696cf7
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 15:55:35 2018 +0200
+
+    Update README.md
+
+commit 649dfd6e88c24b4eb249cf15537ea4d480ce30d7
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 15:30:09 2018 +0200
+
+    Add files via upload
+
+commit a568c3b18719a7b24f6dee0276273d178d3a8b09
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 15:24:44 2018 +0200
+
+    Add files via upload
+
+commit f2519fa8a4ac5561acb3df30269fbb926754a48d
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 15:23:57 2018 +0200
+
+    Create README.md
+
+commit 73a8a0559e8c05ed80f94f91442c6817f16310b1
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 14:54:26 2018 +0200
+
+    Update README.md
+
+commit 3a425266837a024135418aa927dc31e4a89307cb
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 30 00:38:33 2018 +0200
+
+    Update README.md
+
+commit 3ac1557908b076452071f70fc2dc33644b161fc4
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Fri Mar 16 14:21:23 2018 +0100
+
+    Update README.md
+
+commit 8f4291fd6a167e75a685bc0ab64fecdb5443344d
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Thu Mar 15 15:57:53 2018 +0100
+
+    Update README.md
+
+commit 767c356ccd3d6cd4f39a4fcb1148cdd001445a2f
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Thu Mar 15 15:47:02 2018 +0100
+
+    Update README.md
+
+commit 3ed303ef228d995b7b3c5cd21b33e1a1bd426548
+Author: Michele Romano <33063403+Mik317@users.noreply.github.com>
+Date:   Tue Jan 23 16:15:12 2018 +0100
+
+    Initial commit

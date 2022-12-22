@@ -1,0 +1,1295 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# BOTNET
+Telegram Bot written in .NET
+
+## Build and Run
+1. Open `BotNet.sln` in Visual Studio
+2. Right click `BotNet` project in Solution Explorer, select `Manage User Secrets`
+3. In the opened `secrets.json`, add your bot token to following properties:
+
+```json
+{
+  "BotOptions:AccessToken": "yourtoken",
+  "GoogleMapOptions:ApiKey": "yourApiKey",
+  "HostingOptions:UseLongPolling": true
+}
+```
+
+4. Run the project by pressing F5====================== GIT HISTORY: ======================
+1699809 HEAD@{0}: clone: from https://github.com/teknologi-umum/botnet
+commit 16998092737e09c347196f09d30a356239232c89
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Dec 2 18:55:12 2022 +0700
+
+    Crop & resize prompt image before sending
+
+commit 201bf64b109ceac5c87e182c5edf94b294892c12
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Dec 2 18:29:05 2022 +0700
+
+    Fix rpc errors
+
+commit f9df7c285ac1cf805dc8231c8536512caae4a584
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Dec 1 20:30:37 2022 +0700
+
+    Support modifying sticker
+
+commit 610a348ed49731ffd8ad70ff7b99d9e65235ee14
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Dec 1 20:17:17 2022 +0700
+
+    Add "inpainting"
+
+commit 01dd3e7c8c0905f6d679c25c968307b886c03c73
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Nov 30 16:19:34 2022 +0700
+
+    Retire /pse
+
+commit 0275ba4c0418dca810f5f379540dbc9fa8c7d40b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 29 12:07:22 2022 +0700
+
+    Upgrade to text-davinci-003
+
+commit ac04c65d998aee8b2514e1263f3a9349b6071f67
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Nov 23 09:39:52 2022 +0700
+
+    Add text measurement
+
+commit 345704bf8c1a775899f3b9b7cb079be9cb8ea6bd
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Nov 23 02:57:07 2022 +0700
+
+    Upgrade to .net 7, orleans 7, maui 7
+
+commit 6bbf905963b69c748161d16a537f1663740aa873
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 15 14:16:07 2022 +0700
+
+    Lower art quality
+
+commit 480cad8af641d322ca999ff91d54eccdb0165aa4
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 1 21:46:18 2022 +0700
+
+    Higher art quality
+
+commit 6abe2cb5fd49e6ed6a677333b7787cef9c17da58
+Merge: 9e9f1c7 288e397
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 25 15:46:51 2022 +0700
+
+    Merge pull request #53 from NemrudDemir/main
+    
+    Change rate limit of /map to 1 query per chat per user per 2 minutes
+
+commit 288e39730b899f389eba0d030feb03289e341818
+Author: Nemrud Demir <n@nemrud.de>
+Date:   Mon Oct 24 22:31:58 2022 +0200
+
+    Change rate limit of /map to 1 query per chat per user per 2 minutes
+
+commit 9e9f1c79ab6bb3d77a1c85bbc7a1a286fb4d8569
+Merge: 4a51d88 38c4f8d
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Oct 24 17:30:12 2022 +0700
+
+    Merge pull request #51 from oinpentuls/feat/add-search-places
+    
+    feat(place-search): #29 add search place and show the static map
+
+commit 38c4f8db33bb61ea2e4f43bd61dfd8617b939955
+Merge: f45c6b4 4a51d88
+Author: Ahmad Tohir <achmad.tohier@gmail.com>
+Date:   Mon Oct 24 17:07:18 2022 +0700
+
+    merge with upstream
+
+commit f45c6b4bfb0b85226b58d71347de746544d0b520
+Author: Ahmad Tohir <achmad.tohier@gmail.com>
+Date:   Mon Oct 24 17:02:35 2022 +0700
+
+    refactor(place-search): change command from /search_place to /map
+
+commit 4a51d881e77857425a66d5620990e994fa371ba7
+Merge: 8af015b 6c71a77
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Oct 24 16:50:56 2022 +0700
+
+    Merge pull request #50 from oinpentuls/feat/add-tokopedia-link-sanitizer
+    
+    Feat/add tokopedia link sanitizer
+
+commit 7b788208ef177e1ed610ba95891105efb0fab64e
+Author: Ahmad Tohir <achmad.tohier@gmail.com>
+Date:   Sat Oct 22 03:29:04 2022 +0700
+
+    refactor(place-search): bring back pse
+
+commit 6a5461041947236d5f6db249a6a3f013f85eecf3
+Author: Ahmad Tohir <achmad.tohier@gmail.com>
+Date:   Sat Oct 22 03:06:53 2022 +0700
+
+    feat(place-search): add search place and show the static map
+
+commit 6c71a777861a022c55b37e48ca3da5bd838533c9
+Merge: 42053de 8af015b
+Author: Ahmad Tohir <achmad.tohier@gmail.com>
+Date:   Fri Oct 21 00:42:51 2022 +0700
+
+    merge with upstream
+
+commit 42053dede432fe6bbc539f12188b44585becff36
+Author: Ahmad Tohir <achmad.tohier@gmail.com>
+Date:   Fri Oct 21 00:37:47 2022 +0700
+
+    feat(clean-cmd): #47 add tokopedia link sanitizer
+
+commit 8af015b43a24aad64dcb9f04910a474d83ce7fe4
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Oct 19 20:44:50 2022 +0700
+
+    Remove generating art message
+
+commit 074e105292d2c3eafb0a8144f11965ccd7a89dc9
+Merge: a3f8468 ef54f8b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Oct 17 23:15:04 2022 +0700
+
+    Merge pull request #49 from teknologi-umum/stability
+    
+    Use stability for /art
+
+commit ef54f8b4061fd007f71bd35dce911359cea49adb
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Oct 17 23:11:48 2022 +0700
+
+    Remove Classifier
+
+commit a3f84687dc93d3f0360d1272ade389de8c4a19ea
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Oct 12 13:37:43 2022 +0700
+
+    Downgrade Pakde to curie
+
+commit bc1eaa7fd8f49fd9d27a553559c1e24dfeb17f7e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Oct 12 13:30:27 2022 +0700
+
+    Add frequencyPenalty
+
+commit 5192cdfb1c61583893daee689a31afc9dfeff233
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Oct 12 00:14:08 2022 +0700
+
+    Explicitly specify Pakde speaks Indonesian
+
+commit 4d02d1f790d0d2d6691c4b46c45286c17311de02
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Oct 12 00:07:46 2022 +0700
+
+    Fix grammar error in prompt
+
+commit a1a49390fb2deda6c33fbeaa05fa585f55478929
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Oct 12 00:06:08 2022 +0700
+
+    Upgrade Pakde engine and personality
+
+commit 640e3c4b2ed364458d62e6a17a772f06b3ffc197
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Oct 12 00:04:03 2022 +0700
+
+    Tweak Pakde parameters
+
+commit 624f79a1cb20212ccbb9d3f03600fe3c6ee3d518
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 11 23:53:02 2022 +0700
+
+    Enable Pakde
+
+commit a96dd42d335e123b985b0cfd78e837e000ff5465
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 11 23:51:45 2022 +0700
+
+    WIP Stability client
+
+commit c4784bbfac86291613209a708d764720f63df840
+Merge: 7c6fdae 02063d3
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 27 14:14:22 2022 +0700
+
+    Merge pull request #46 from zasdaym/fix/silakan
+    
+    Fix silahkan to silakan
+
+commit 7c6fdae530d63a812c4ae16bca3e16545ae210fc
+Merge: ec6760a c15980d
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Sep 23 14:32:03 2022 +0700
+
+    Merge remote-tracking branch 'origin/main' into main
+
+commit ec6760ac6b69ddd46b9603ab933c2c3689db4a34
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Sep 23 14:31:54 2022 +0700
+
+    Enable /explain and /jelaskan
+
+commit c15980d877f2560787296faa3b731d2f86719915
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Sep 21 11:59:59 2022 +0700
+
+    Support sanitizing instagram reel urls
+
+commit d324823d32904b666b15c10cd0547f9ea4f27f6c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 18 15:55:18 2022 +0700
+
+    Refresh timer every 10 seconds
+
+commit a1df9992a609c0ef65d873937fb1ea83279bf334
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 18 15:45:21 2022 +0700
+
+    Add wait timer
+
+commit 4a1d2f08d0a54d0b5041074ceb5f6f3831bba430
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 18 15:27:06 2022 +0700
+
+    Generate art in asynchronous task
+
+commit 88a91fbb3c940294fbeccb5ea61db0ba93265c14
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 18 15:09:44 2022 +0700
+
+    Fix bug where /art is handled multiple times
+
+commit b53503de7990aee77abda228fcf38bd52651a61a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 18 14:52:11 2022 +0700
+
+    Shared rate limiter for /art
+
+commit e130f2008e0ed4c8da335b5de7c09ba87165420e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 18 14:41:43 2022 +0700
+
+    Add generated art
+
+commit ed3b1d0ecc543ac3bc982b1dee6d88d77133b03a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Sep 8 15:57:10 2022 +0700
+
+    Support tiktok vm links
+
+commit 2794b5b16b79cb04e1a887839d39e2e381fe478f
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Aug 29 18:54:36 2022 +0700
+
+    Whitelist System.IO.Path
+
+commit 02063d3198d617b1e40b6dc0a71ff0fd7a107aaf
+Author: Zasda Yusuf Mikail <zasdaym@gmail.com>
+Date:   Thu Aug 11 22:53:44 2022 +0700
+
+    Fix silahkan to silakan
+
+commit 6f287c090d15ead55a799bd2ff5573721c747a56
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Aug 8 15:59:45 2022 +0700
+
+    Fix instagram link regex
+
+commit c9b673b16dbe1434c442fc401e13ba396027d4f6
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Aug 8 08:11:47 2022 +0700
+
+    Add sanitizer tests
+
+commit d5976f5c1ec49eb2a331b81e6b5c8dd08b6d093c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Aug 8 07:40:53 2022 +0700
+
+    Fix twitter link sanitizer
+
+commit ce3c6c74985d98759df62519f34c31fc28a474c4
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Aug 3 08:39:09 2022 +0700
+
+    Fix fuck tests
+
+commit e5df9db2b0f1e99c2c2e49f4f98d2303dc74d93b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Aug 2 22:39:48 2022 +0700
+
+    Handle SUSPENDED_BY_PAI
+
+commit efe9f8999704cc20042099a12d0df69142c2c79f
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Jul 31 13:40:28 2022 +0700
+
+    Prevent duplicate PSE result
+
+commit 993ed5eb16d252613298197acda844a1b066d6e8
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Jul 31 11:01:06 2022 +0700
+
+    Add system website
+
+commit 77adc2327206af18cfe0b9975a5806f2705df0ac
+Merge: bcdcd50 b0add91
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Jul 30 20:27:30 2022 +0700
+
+    Merge pull request #45 from teknologi-umum/pse
+    
+    Add /pse
+
+commit b0add91c2b945729bb40f7a363b117edfe392b90
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Jul 30 20:23:59 2022 +0700
+
+    Don't clear crawled systems on invalidate
+
+commit 616e05afe3d7ce226d4dd9cb2d8b4f8f51da9d49
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Jul 30 20:21:35 2022 +0700
+
+    Add bot command
+
+commit 91509dcc20a7c9347293e477449f4b0f5e743ba9
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Jul 30 18:29:30 2022 +0700
+
+    Crawler is now working
+
+commit 58a8cc2ed832927a2e689b022f37880f756c1208
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Jul 30 15:59:38 2022 +0700
+
+    Add PSE crawler
+
+commit ce75692adc3c4aea9ee4c7c4db467e98615c7cef
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Jul 30 14:05:06 2022 +0700
+
+    Add PSE Service
+
+commit bcdcd50e180947cccdf4a811dd4c59d9ed511f74
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Jul 17 11:35:37 2022 +0700
+
+    Add /webp
+
+commit 36cc1e1cf784a415763e83c3efca68bc1001075c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Jun 18 15:10:09 2022 +0700
+
+    Fix instagram link sanitizer regex
+
+commit 8fbdc32b5a000135959fbdaf23085bec41edf784
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Jun 7 13:06:32 2022 +0700
+
+    Disable some logging
+
+commit bd4b02dfe5ad2b20344cd7dbc4f5b685124633bd
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Jun 7 12:25:16 2022 +0700
+
+    Add instagram link sanitizer
+
+commit 74a6b26a26d0bc56b71b4cb4bbe2d0f234f3acbf
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed May 18 23:10:12 2022 +0700
+
+    Use regex for link sanitizers
+
+commit 1c4093b6c11c69edc93c02ce740f6e57b8626c7e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun May 15 23:03:59 2022 +0700
+
+    Longer cooldown for /idea
+
+commit 979e2512d575af02948c825d2c03b75c10636b6d
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat May 7 15:57:49 2022 +0700
+
+    Change /joke to /humor
+
+commit 35cceaf3171cc8339b0d0ad80178b0ad5a54f707
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Apr 27 23:18:56 2022 +0700
+
+    Smol bubble wrap
+
+commit e2deafffc87d44a162054397f2ff2cc31382652c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Apr 26 16:20:38 2022 +0700
+
+    Deprecate Pakde
+
+commit 109ab14133b2baf494902323fd60caa8d3a82b8a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Apr 23 01:44:44 2022 +0700
+
+    Tweak parameters
+
+commit 0835a72f5cfd85894efdf8b9f1626059ab787960
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Apr 22 16:59:24 2022 +0700
+
+    Tweak penalties (2)
+
+commit ba4dbaa00ff5e7db4470b2c2c107dcf52b0c6d72
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Apr 22 16:51:03 2022 +0700
+
+    Tweak penalties
+
+commit 35e61df78f3759628915b9529e75b3024d57751a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Apr 22 00:40:01 2022 +0700
+
+    Sarcastic bot now speaks Indonesian
+
+commit d52c22e713900fb6d219200d09cf14edfd26be69
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 17 03:55:35 2022 +0700
+
+    Fix "Pakde" showing in replies
+
+commit c855b0bcd742bdb8f8fca523980af33e91aec684
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 17 03:26:12 2022 +0700
+
+    Better tldr formatting
+
+commit 3871b8e4ff405d09dfad768592c9943e7ffc38cf
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 17 02:41:19 2022 +0700
+
+    Remove stops
+
+commit afe416b9831e300bcd05025088419a992df95ba0
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 17 02:32:08 2022 +0700
+
+    Add /tldr
+
+commit dfe460a2aac732401c5cd432f44ec57897cf6b40
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 17 01:53:43 2022 +0700
+
+    Add sarcastic bot and hex color code attachment
+
+commit f1abe53af58f73bf7bdc47314f665d3f7524a248
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 14 23:20:46 2022 +0700
+
+    Reduce cost
+
+commit b683e93b907c840219d31a8d17ff01f79f6c8d57
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 14 19:05:13 2022 +0700
+
+    Don't respond to empty thread
+
+commit 6e2fa12dda6a2233dcbca3a465aa87cb75fb7ead
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 14 19:00:36 2022 +0700
+
+    Optimize bubble wrap
+
+commit d9f861f335474f8e9a6e945b86e7d6d7bf16836a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 14 18:58:49 2022 +0700
+
+    Add threaded conversation
+
+commit e0d3fafa7c9ca04ab0df521ef32add0944e64b67
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 14 15:30:12 2022 +0700
+
+    Add call sign activation
+
+commit d4d50330ff2431b7a949e94a5abc9e7c36594451
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 7 17:28:07 2022 +0700
+
+    Fix /joke
+
+commit d85a5c63f9744950f2688c62be546a3d158ff450
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 7 17:17:15 2022 +0700
+
+    Fix /joke
+
+commit 1c66fe033d1e8b0aa7969a5afb0e579d431fcc60
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Apr 7 13:00:47 2022 +0700
+
+    Add /art
+
+commit 0cff54ac98ee447171b321d504d7fe0092c8d4d3
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Apr 6 20:48:41 2022 +0700
+
+    Trim idea
+
+commit 385d3ec7566f96e5426312438bf27eeb3d333fcd
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Apr 6 20:44:38 2022 +0700
+
+    Add /idea
+
+commit 1d1ee8c574310225b73669e7a387ee580d36335e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Apr 6 20:27:13 2022 +0700
+
+    Add /cat
+
+commit ba926577dcd2b754be9d5ca5a75bd6008154cf11
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Apr 6 20:14:34 2022 +0700
+
+    Add rate limit to /waifu
+
+commit 1e5a2d253d5830042e9b6ca52044603e2bf1c519
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Apr 6 17:29:40 2022 +0700
+
+    Disable /waifu
+
+commit 760de8ed05e12bdfb46bb37afd6a757eae0529a6
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Apr 6 17:23:55 2022 +0700
+
+    Add /waifu
+
+commit b68f1275bd872e0fd99346da29ff55656c8a486b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Apr 4 01:43:33 2022 +0700
+
+    Fix exec handler
+
+commit a14c46a0ee46e566de00218a60f084afd008a321
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Apr 4 01:23:36 2022 +0700
+
+    Fix piston
+
+commit 65c170e701b00c00a9d15ce4c441e9082f9ed031
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 3 19:27:23 2022 +0700
+
+    Fix CI not checking out submodules
+
+commit 0cb2dd4c69a38f53ba25eb51b8e5aa50dbb6def3
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 3 19:23:06 2022 +0700
+
+    Add Pehape integration
+
+commit ca8ee336a416091fd08709adb9d17ddad43949b7
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Apr 3 19:10:45 2022 +0700
+
+    Add twitter link sanitizer
+
+commit 851fbca7844f140ab301b6938977937f807e1492
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Apr 2 00:00:33 2022 +0700
+
+    Add collections, encoders, json serializer, regex
+
+commit 79cbf4d36c8c905a895138a8231eed422c692eb4
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Apr 1 13:37:39 2022 +0700
+
+    Fix service registration
+
+commit cd979e879025feb87be27eae3cbe37d7a6c1a601
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Apr 1 13:30:41 2022 +0700
+
+    Enable lambda expression, add reference to System types
+
+commit 80731f3325365787ae31dd14cb9afdec581c867c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Apr 1 02:49:57 2022 +0700
+
+    Add /evalcs
+
+commit 0a7fd0355b5b7f4baae101f684a00cd4edf676d4
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Feb 27 17:52:15 2022 +0700
+
+    Remove global.json
+
+commit c33d481c724f9ceab4fa0c83adfb11fc6498fb27
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Feb 27 17:49:08 2022 +0700
+
+    Update docker image version
+
+commit 66118202ecc2dfd9ae38400b4d2c0c8fe9388778
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Feb 27 17:41:52 2022 +0700
+
+    Update SDK version
+
+commit 3ec3b2af6dab61452663428b14656d22743fea8f
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Feb 27 17:36:53 2022 +0700
+
+    Add /clean to clean tiktok links
+
+commit c8110104158299301e41be84d57b996c1a804223
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Dec 12 22:39:55 2021 +0700
+
+    Add rate limit to /joke
+
+commit 5a1f059f9e14413ad89114f1f687670973fbb962
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Dec 12 20:01:03 2021 +0700
+
+    Revert appsettings.json
+
+commit d13c149f3bf73e1230696dcbc7897af11e377daa
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Dec 12 19:58:43 2021 +0700
+
+    Add /joke
+
+commit 4aae767d42503ef16f51c92c44db06ae90a89fc3
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 30 23:37:58 2021 +0700
+
+    Remove space after A:
+
+commit db35fd10a0db2cd5ebfeb428cb0cc656c8f7e921
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 30 23:29:26 2021 +0700
+
+    Fix build error
+
+commit 868eadd04979000b23a34704b76a6484bf10a911
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 30 23:27:03 2021 +0700
+
+    Change /ask prompt
+
+commit 0e49e2479686c3b74ec0d25298ebc444b30e680b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Nov 26 14:41:37 2021 +0700
+
+    Deprecate /jelaskan and /explain
+
+commit 6a879f9499f8b6352bc58b105625837a6433b75f
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Nov 26 14:30:52 2021 +0700
+
+    Increase rate limits
+
+commit 2c2c6b6056615053813ba0b9951a1093c7a72e11
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Nov 13 09:03:14 2021 +0700
+
+    Refactor OpenAI client and tweak some parameters
+
+commit 7bd118ae25ab6bbf0b423a3f2c0c3ae1e61e4e17
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Nov 11 20:20:31 2021 +0700
+
+    Fix rate limiter
+
+commit 5ea4d605c94afcd86bee31be3d3859d023d052aa
+Merge: afe5013 4abf96c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 23:01:08 2021 +0700
+
+    Merge pull request #44 from teknologi-umum/monolith-rate-limiter
+    
+    Rate limiter (monolith version)
+
+commit 4abf96c448a0258c3db40686571e47613e86090d
+Merge: 6a1c844 afe5013
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 22:50:28 2021 +0700
+
+    Merge remote-tracking branch 'origin/main' into monolith-rate-limiter
+
+commit 6a1c844dc093618460d0424853b092686b9fec23
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 22:50:18 2021 +0700
+
+    Add rate limits to OpenAI services
+
+commit afe5013ac4815b66c01103ed66d4b930c078778f
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 14:22:53 2021 +0700
+
+    Tweak penalties
+
+commit 4a9a401d38da697ac991f07b4ec6537136c44567
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 13:09:03 2021 +0700
+
+    Increase /genjs quota
+
+commit 36a85b866c6dadddfde17790529842aa80ea9e73
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 13:01:19 2021 +0700
+
+    Reduce /genjs maxTokens
+
+commit 739a6205010f1e31263ad9cce7285f6723afa659
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 12:52:31 2021 +0700
+
+    Enable /genjs
+
+commit cbac6d35e41cc6677537a3bbfc039e7d0f7a0fab
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 01:48:21 2021 +0700
+
+    Disable /genjs
+
+commit 2cafeafe8157215380f7b2b4567acf0b2ce9a3a2
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 01:39:45 2021 +0700
+
+    Update Dockerfile to .NET 6.0.0
+
+commit 9951b171b39ebd62d0a5544d4088b77b744bdd13
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 01:39:00 2021 +0700
+
+    Update GitHub CI to .NET 6.0.0
+
+commit e4c9be43715b2b70be8eb546198687fff3afdd3d
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Nov 9 01:36:55 2021 +0700
+
+    Greatly improve accuracy, add /genjs
+
+commit 812a76e6e0de3d253a97513418fb704f5ff5b30a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Nov 8 14:42:54 2021 +0700
+
+    Revert /ask to english version
+
+commit a572fa410a7c00e445f48e0fd65981f2b588b135
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Nov 8 05:30:24 2021 +0700
+
+    Add Translator
+
+commit 6e85e35d5815aa9778a21af56de9e039a14ddc3e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Nov 8 04:27:19 2021 +0700
+
+    The bot now knows your full name
+
+commit fe730cd232802eaaf5afb11f6e465150e75b6beb
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Nov 8 01:38:17 2021 +0700
+
+    Revert to Manusia
+
+commit a15b68253ccc90d8801cebc45fe13828187fdbf2
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Nov 8 01:31:45 2021 +0700
+
+    Fix bugs
+
+commit b591cf0ea81a89bd710fa35764b3d30b39a5c635
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Nov 8 01:20:57 2021 +0700
+
+    Fix bugs
+
+commit 5daadda04708e3c7afe84f401470c993fb8f49d6
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Nov 8 00:16:40 2021 +0700
+
+    Fix truncated result
+
+commit ac452690bd0d754f8e2de93fa0de8474d9d6468e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Nov 7 23:40:19 2021 +0700
+
+    Change language to Indonesia
+
+commit 67ec3ce043011f81b5dd2fee809b34b29959eb37
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Nov 7 21:59:37 2021 +0700
+
+    Change bot background story
+
+commit 22f4684694b799a07eaac4a95e50455faef47bc6
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Nov 7 21:35:14 2021 +0700
+
+    Add /ask and /explain
+
+commit 41b893c30514b1f2817c9f685355f9d04606d1d3
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Nov 7 13:38:21 2021 +0700
+
+    Add NewtonsoftJson
+
+commit 69b069bab73932ab4b69a68d27874013d3f5490e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Nov 7 13:26:19 2021 +0700
+
+    Change secret path
+
+commit b856e88b7b4203e3f2b86701a47fb87f4e171846
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Nov 7 13:08:54 2021 +0700
+
+    Add webhook
+
+commit 92b473fe61c5a70044783d670c488582c0f10b85
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Nov 7 12:08:40 2021 +0700
+
+    Change pop! to 💥
+
+commit e0d0b5237c6f9860293b863c1a5396976998e0d2
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Nov 6 19:04:55 2021 +0700
+
+    Delay BubbleWrapGrain deactivation by 5 seconds
+
+commit 85650e8e2eb7406e853b6c6655cb2ea52d7098ce
+Merge: d459e44 8603018
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Nov 6 13:17:30 2021 +0700
+
+    Merge pull request #43 from teknologi-umum/feature/bubble-wrap
+    
+    Add /pop
+
+commit 8603018d9cf93aed6be86aa9ae00acdcb30eb3b9
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Nov 6 13:16:34 2021 +0700
+
+    Add /pop
+
+commit d459e44201a76667c93500327706cca9c47d791f
+Merge: 7f2cb95 84a6460
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Nov 5 18:24:48 2021 +0700
+
+    Merge pull request #42 from teknologi-umum/feature/copypasta
+    
+    Add copypasta
+
+commit 84a64605d1e4e130f389a6d1e6f3291b3cc00baf
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Nov 5 18:18:53 2021 +0700
+
+    Add copypasta
+
+commit 7f2cb958e3194052535643f3c30c4fd2eea0aaea
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Nov 5 00:03:42 2021 +0700
+
+    Add PistonClient
+
+commit 0bf480cdf654817b158d6d16f7f310ec6210b579
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Oct 30 15:40:23 2021 +0700
+
+    Add BigIntegerConverter
+
+commit e62399179fa579b28839c20550223f51fe306554
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 26 09:03:18 2021 +0700
+
+    Fix string trimming
+
+commit 9f04b86b954d8735733ae10f4698843920f8854c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 26 01:48:01 2021 +0700
+
+    Fix LGTM.com issues
+
+commit 66c08a8474edab7e5c8d69967aa6c079107086dc
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 26 01:43:13 2021 +0700
+
+    Handle string result
+
+commit c75ecf946f02d116c2bd6a1f54267d23a1fd8416
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 26 01:17:32 2021 +0700
+
+    Add reference to ClearScript.linux-x64
+
+commit 5649f0c46054337647499dd5cb45c828d9211aed
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 26 01:10:32 2021 +0700
+
+    Fix typo in error message
+
+commit 00e41dfecba9fe06d2a3828c2fd58ba9d6b84f7c
+Merge: 46301a3 26d6245
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 26 01:04:35 2021 +0700
+
+    Merge pull request #41 from teknologi-umum/evaljs
+    
+    Add /evaljs
+
+commit 26d62450cc8d20e0351dbfa0c037b1cc2a98d88e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Oct 26 01:01:25 2021 +0700
+
+    Add /evaljs
+
+commit 46301a3485eb54516f95cf54ffb7732d4d0faf7c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Oct 25 21:01:17 2021 +0700
+
+    Bump sdk to 6.0.100.rc.2
+
+commit 518ac69b4c6d2178d411a721d4984bf7df121463
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Oct 25 20:49:32 2021 +0700
+
+    Remove SafeSearch and DuckDuckGo
+
+commit 1e229bdd1f073cdae1a7f8b008d526977b8f799e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Oct 4 22:05:42 2021 +0700
+
+    Fix brainfuck
+
+commit 65599f95739a1d067b0070004d941d9eabc1c51d
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Oct 3 09:19:34 2021 +0700
+
+    Add Brainfuck transpiler to inline query handler
+
+commit 1afa0e045ee01fad8b701db5295db9616d9778dd
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Thu Sep 30 09:09:52 2021 +0700
+
+    Add brainfuck transpiler
+
+commit b08fa813086d369c72751ae818dc44654904e84c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 28 18:39:18 2021 +0700
+
+    Add brainfuck interpreter
+
+commit cceb06d237c8916eefe0f03973ed35ecf9401b84
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Sep 27 01:40:56 2021 +0700
+
+    Add fancy text generator
+
+commit 8402c813a6c411be6c1cfd9e328c409064b58f35
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 25 04:21:24 2021 +0700
+
+    Refactored SafeSearchDictionary
+
+commit eb7bd1e417aedc2c18093675e2ffe23350345d5a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 25 01:23:29 2021 +0700
+
+    Remove /read
+
+commit 8549e4932cc06275b0641621dacac36eee53ba56
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Fri Sep 24 18:36:41 2021 +0700
+
+    Add decimal clock svg renderer
+
+commit 9ba33dc0c34ccbe140b628e3eb789479064ba9c4
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Sep 22 22:37:21 2021 +0700
+
+    Add Memory to HostingOptions
+
+commit 14dc3b887307182e6a3019878e7417aaf19651c0
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Sep 22 03:05:39 2021 +0700
+
+    Heavily optimize OCR for minimal memory usage
+
+commit 47ae5b095f587bba375f173f708f1b4dcf4f9601
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Sep 22 02:10:05 2021 +0700
+
+    Fix reader
+
+commit e48fb8868f874e1e6d25e10507132937c4b6aee5
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Sep 22 01:53:57 2021 +0700
+
+    Add IronOcrOptions
+
+commit cbf5c5ac990587447cbb46948c57209a5de28661
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Sep 22 00:30:18 2021 +0700
+
+    Add memory pressure coordinator
+
+commit 3bf4cfad29d1185746439ab428a1d589bc991b9e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 22:59:07 2021 +0700
+
+    Disable /read
+
+commit 9ea5f18f0722f881bbc926639013a6475ca888cc
+Merge: 0f62e65 f98524e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 22:50:42 2021 +0700
+
+    Merge pull request #37 from teknologi-umum/feature/read
+    
+    Add /read
+
+commit f98524e418218bc9f2d3a0728969d5fe27013a4d
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 22:49:43 2021 +0700
+
+    Add /read
+
+commit 0f62e6546774ded66b3e58987025d9e117acf05a
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 22:16:15 2021 +0700
+
+    Refactor project structure
+
+commit d4be652dc0b6180166bb6c884a09d890b1acf07c
+Merge: a6c7034 b6f698e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 22:07:24 2021 +0700
+
+    Merge pull request #36 from teknologi-umum/feature/flip-flop
+    
+    Add /flip and /flop
+
+commit b6f698e8d096aff2db22b1c58bc7c7b28373332c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 22:05:57 2021 +0700
+
+    Add /flip and /flop
+
+commit a6c7034506ee0db9b82b9a041d8ca46f19d5b853
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 19:56:31 2021 +0700
+
+    Optimize caching, memory, async operations, and DDG search
+
+commit d1f208e89712bb51f2612b38f7872a031625c7d5
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 04:08:00 2021 +0700
+
+    Update push.yml
+
+commit c5613aaafb08494005fe0b279635d6dc7647db57
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 04:03:42 2021 +0700
+
+    Fix CI scripts
+
+commit 544efee5e2be4144b53bb9499a15ece86ad972e8
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 03:56:50 2021 +0700
+
+    Add checkout submodules to workflow scripts
+
+commit 3da26f787a3468592970daf1730a5a3251bd208a
+Merge: f140ed5 fb9a62f
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 03:42:28 2021 +0700
+
+    Merge pull request #33 from teknologi-umum/feature/duck-duck-go
+    
+    Add DDG
+
+commit fb9a62fe13f9d0c178cb3c8b1c149b5a2c99212c
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 21 03:41:16 2021 +0700
+
+    Add DDG client and Opengraph client
+
+commit 8314efa38ad2b6a012cb9d3d7f21f9f44bffae60
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Sep 20 22:30:08 2021 +0700
+
+    Fully cover SafeSearchDictionary
+
+commit 51f3236e99b2e9fd6358c172aeda88fd42da1e48
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Mon Sep 20 03:05:22 2021 +0700
+
+    Add safe search dictionary
+
+commit f140ed5bffd23f952a4ecc1f9330716d08586030
+Merge: f9b10f3 6280825
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 21:31:44 2021 +0700
+
+    Merge pull request #24 from teknologi-umum/feature/color-card
+    
+    Add color hex string to image
+
+commit 62808257630b77cc21a02364258453b17668b3c3
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 21:24:25 2021 +0700
+
+    Support 3-digit hex string
+
+commit 8a9275db2ee533dad4f01723874ce7b45116c9f9
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 20:56:29 2021 +0700
+
+    Tweak color card appearance
+
+commit 7be8c9305f467619b10add9cbe86fc1731fbf707
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 20:05:37 2021 +0700
+
+    Add Application Insights
+
+commit dc60d8a51cc11daeb2b1f4b4a9f63d49a9646447
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 18:48:46 2021 +0700
+
+    Add ColorCardRenderer
+
+commit f9b10f3b6c4d942168d252d7e0866885d1871888
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 00:41:44 2021 +0700
+
+    Fix caching strategy
+
+commit 8b78f2100e25ff9bd4578f7cdc1cd23cff4826a1
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 00:35:52 2021 +0700
+
+    Refactor caching strategy
+
+commit 87dfb00d75bea8ea2c04c48c2f83718fd0f00d89
+Merge: 4015ef4 b91d3a7
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 00:09:08 2021 +0700
+
+    Merge pull request #23 from teknologi-umum/feature/dadjokes
+    
+    Add dad jokes
+
+commit b91d3a70937383d3590460af9357176fd5d6e5f0
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sun Sep 19 00:05:49 2021 +0700
+
+    Add dad jokes
+
+commit 4015ef4b155466b0958da41a8ecfb8fc31635842
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 18:45:59 2021 +0700
+
+    Fix failing tests
+
+commit fc709ec16bcd297a87f947e59848da53e8bcf1f0
+Merge: 23dafb8 c3eb7de
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 18:40:50 2021 +0700
+
+    Merge pull request #18 from teknologi-umum/feature/inline-query-grain
+    
+    Add InlineQueryGrain
+
+commit c3eb7def596bfeedb94335a679cbf8b273f51f0e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 18:39:18 2021 +0700
+
+    Add InlineQueryGrain
+
+commit 23dafb88e7195efda020b37960755a2c6f5ce746
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 12:38:46 2021 +0700
+
+    Remove unused properties
+
+commit 236dc358ce931a6d22db41d4db9140b46cb0faeb
+Merge: acf12f8 bc5948b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 12:21:49 2021 +0700
+
+    Merge pull request #17 from teknologi-umum/feature/tenor
+    
+    Add TenorClient as a replacement to Giphy
+
+commit bc5948b637842f037eccade87a62f8a966318c94
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 12:18:56 2021 +0700
+
+    Add TenorClient as a replacement to Giphy
+
+commit acf12f8b926a8f9bced98b3dcd603958150618e9
+Merge: 83f83c4 1e69f1f
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 04:53:29 2021 +0700
+
+    Merge pull request #15 from teknologi-umum/feature/giphy
+    
+    Add Giphy support
+
+commit 1e69f1f86a1307940d35b7e1282386f3e0724e7e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 04:51:35 2021 +0700
+
+    Split workflow
+
+commit 76a80e9a39369d2e4e965f12b59c1832ae140978
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 04:43:43 2021 +0700
+
+    Improve Giphy loading speed
+
+commit 0196517cd542097221d1d91e36a1def844af9d54
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 03:46:57 2021 +0700
+
+    Add Github actions
+
+commit 8bae356daa99ea07500bef9f5bb5558a51d2633e
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Sat Sep 18 03:36:43 2021 +0700
+
+    Add fly.io support
+
+commit 9030be21fd1b8d75f8f76259c3a85e87a8cea421
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Wed Sep 15 00:55:18 2021 +0700
+
+    Add minimum Giphy implementation
+
+commit 83f83c42663c6ad5151ec204bcfecc3ebc77e47b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 14 01:30:29 2021 +0700
+
+    Scaffold Orleans bot project
+
+commit a3f45613c0d7075aafa4d22367f70bfce3f0821b
+Author: Ronny Gunawan <3048897+ronnygunawan@users.noreply.github.com>
+Date:   Tue Sep 14 01:23:56 2021 +0700
+
+    Initial commit

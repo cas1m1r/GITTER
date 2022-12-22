@@ -1,0 +1,180 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# WordPress Redirect Botnet Cleaner 
+
+## Intro 
+
+Recently I detected some waves of WordPress infections<br>
+Based on XSS Stored vulnerabilities in various themes & plugins
+
+This botnet use the following domain names:
+- letsmakeparty3.ga
+- lobbydesires.com
+- train.developfirstline.com
+- track.developfirstline.com
+- ws.stivenfernando.com
+- dontstopthismusics.com
+- blackentertainments.com
+- js.digestcolect.com
+
+This malware is very invasive it can infect all js, php, html files and all articles in the database of your WordPress.
+
+In some cases the `home_url` and `site_url` of your website are replaced by the malware domain causing redirections.
+
+After some work I decided to make these scripts to easily detect & patch infected WordPress.
+
+You can find the PART1 of my work on the "lobbydesires.com" version [HERE](https://medium.com/@guillaume.muh/lobbydesires-botnet-927bbc139457) (FRENCH)<br>
+The PART2 on the more complex version "letsmakeparty3.ga" is coming soon.. 
+
+
+## Requirements
+To use these scripts you need to install `mysql-connector-python` and `tqdm` modules
+```
+python3 -m pip install tqdm mysql-connector-python
+```
+
+## Usage
+
+#### detect_infected_files.py
+```
+./detect_infected_files.py <PATH>
+```
+Search all js, php & html files recursively in the given path and list the infected ones in the file `infected_list.txt`<br>
+Then you can use this list with the `fix_infected_files.py` script to fix them.
+
+This script also search for temp/log files used by the malware and raise an alert but this files aren't deleted in the `fix_infected_files.py` script due to the high risk of false positive.
+
+#### fix_infected_files.py
+```
+./fix_infected_files.py <INFECTED_FILES_LIST>
+```
+This script use the file created by `detect_infected_files.py` to fix all infected files.<br><br>
+
+
+#### detect_infected_database.py
+```
+./detect_infected_database.py
+```
+List all infected articles in the database and check if the `home_url` and `site_url` are infected
+
+To use this script you need to open `config.py` and provide the WordPress database credentials 
+<br>You can find them in the wp-config.php file
+
+You need also to complete the domain value in the `config.py` file
+
+
+
+#### fix_infected_database.py
+```
+./fix_infected_database.py
+```
+Fix all infected articles by removing the payload and replace the infected `home_url` and `site_url` in the database.
+
+To use this script you need to open `config.py` and provide the WordPress database credentials 
+<br>You can find them in the wp-config.php file
+
+You need also to complete the domain value in the `config.py` file
+
+
+#### payloads_file_to_test_fix.txt
+This file contents all the raw payloads. You can use them to test the `fix_infected_files.py` script and improve it
+
+#### config.py
+This file contents some constants and the detection regex used to find infection in such a way that it's easy to scale up if the botnet migrate to a new domain.
+====================== GIT HISTORY: ======================
+fc0e228 HEAD@{0}: clone: from https://github.com/Guiomuh/WP_Redirect_Botnet_Cleaner
+commit fc0e2289d49482672f50012f07d7718a01d43000
+Author: Guillaume MUH <ttjb8772@EB-L-OR6218460.ad-subs.w2k.francetelecom.fr>
+Date:   Fri Aug 28 17:10:32 2020 +0200
+
+    new domains & payloads
+
+commit 4b58c89f68d6bb7bde06a4819da70f5295feac21
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Tue Jul 21 10:37:14 2020 +0000
+
+    infected DB wp_options table fix
+
+commit c4ba0d344b6584ce4c2218563589a56084d9fbd5
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Sat Jul 18 14:03:00 2020 +0000
+
+    handle temp file
+
+commit b07574c5f99ef7c9f04f7883e191d38797b9df33
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Sat Jul 18 14:01:51 2020 +0000
+
+    scale up + new payloads
+
+commit b2420240f95cfc588729c3d93dd67426754bebb4
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 19:44:40 2020 +0200
+
+    rename
+
+commit e79b6eeff2f90df7e480d53e602234e768190597
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 19:42:10 2020 +0200
+
+    detect colateral js infected files (*.js*)
+
+commit c9882333d05463cbf7b94e34e13028f42a41f500
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 19:41:34 2020 +0200
+
+    update script description
+
+commit 98a8e43dc1ee19fa256dba79a908b41675087ad9
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 19:41:21 2020 +0200
+
+    DB site_url home_url infection detect & fix
+
+commit 10fc2da1d13e09513d7cabc30d2f93d24e002fa9
+Author: Guillaume MUH <ttjb8772@EB-L-OR6218460.ad-subs.w2k.francetelecom.fr>
+Date:   Fri Jul 17 14:21:10 2020 +0200
+
+    autogen offuscated payloads for detection
+
+commit f59ef721086dcf7048a7e9e03b5f6986c267cbbb
+Author: Guillaume MUH <ttjb8772@EB-L-OR6218460.ad-subs.w2k.francetelecom.fr>
+Date:   Fri Jul 17 14:16:32 2020 +0200
+
+    improve tmp/log files detection
+
+commit dbc6b19baaae6bff3ef7e4b795b4437ccf420079
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 00:56:02 2020 +0200
+
+    fix new payloads & JS file list
+
+commit 91c24e6367670aa0404a9ae0123e14280c36b690
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 00:55:06 2020 +0200
+
+    add new domain
+
+commit 3c2e8e44618b49199ee1466c43d0c9ad4b3b0617
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 00:54:45 2020 +0200
+
+    improve detection
+
+commit 2692b3a17026a37d9b12a5df38a02aa2743d0e9e
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Fri Jul 17 00:08:23 2020 +0200
+
+    new payloads
+
+commit 2cf9e78d388dae2caf8953fc8618c48ada16dfef
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Thu Jul 16 23:11:33 2020 +0200
+
+    config file & MySQL error handle
+
+commit d947f85636be0bec24b981a7415d3013cd0e8b23
+Author: Guillaume Muh <guillaume.muh@protonmail.com>
+Date:   Tue Jul 14 00:18:24 2020 +0200
+
+    first commit

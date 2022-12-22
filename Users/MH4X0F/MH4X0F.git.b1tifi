@@ -1,0 +1,416 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+B1tifi
+---
+[![build](https://travis-ci.org/mh4x0f/b1tifi.svg)](https://travis-ci.org/mh4x0f/b1tifi/)
+
+### Description
+The B1tifi is a ssh management tool to provides commandline access to a remote system running SSH server.
+
+### Installation
+- python 2.7
+
+```bash
+git clone https://github.com/mh4x0f/b1tifi.git
+cd b1tifi
+python setup.py install
+```
+
+
+
+```
+mh4x0f@0xfl4bs:~# b1tifi
+
+  ___   _          _
+ / _ \ / |        | |
+| |_) )- |___ _  _| |_  _
+|  _ < | (   ) |/     \| |
+| |_) )| || || ( (| |) ) |
+|  __/ |_| \_)\_)_   _/ \_)
+| |               | |
+|_|               |_|
+
+    Version: 1.3.2
+    Author:  Marcos Nesster (@mh4x0f)
+
+b1tifi:: help
+
+[*] Available Commands:
+=======================
+
+    Commands     Description
+    --------     -----------
+    agents       list all agents in interacting
+    check        test all agents login ssh  
+    clear        clean up the line
+    del          delete bot using <id>/all
+    execute      execute command on agents
+    exit         exit the program.
+    help         show this help
+    interact     interact with one/all agents
+    jobs         list/kill jobs running on agents
+    list         list/check/filter list agents on database
+    register     add bot on database
+    sysinfo      print information session on agents
+    update       find newer versions
+
+
+b1tifi::
+
+
+```
+
+### Demo
+====================== GIT HISTORY: ======================
+f29051a HEAD@{0}: clone: from https://github.com/mh4x0f/b1tifi
+commit f29051a8fa813f36ac0c7e545eca52b5ac6616e6
+Merge: 526bb48 747980e
+Author: Marcos Nesster <mh4root@gmail.com>
+Date:   Mon May 7 23:55:58 2018 -0300
+
+    Merge pull request #7 from mh4x0f/add-license-1
+    
+    Create LICENSE
+
+commit 747980e6b865be5003784ccff486493e350467ce
+Author: Marcos Nesster <mh4root@gmail.com>
+Date:   Mon May 7 23:55:33 2018 -0300
+
+    Create LICENSE
+
+commit 526bb48a24461683584e15062f43154b9a667dae
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Sun May 6 23:18:54 2018 -0300
+
+    changed description tool
+
+commit 18008fb4ad7ee9ec3f704e2800c45f46ba884468
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Fri May 4 23:47:11 2018 -0300
+
+    added changed file struct for add modules OS #4
+
+commit ccfe06a34503fb6cd62541731b9e4816d05a2953
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Thu May 3 20:35:49 2018 -0300
+
+    added option ssh key Authentication #3
+
+commit 9e66f7c6c144021f24b170844663d584a0f6d4a6
+Author: Marcos Nesster <mh4root@gmail.com>
+Date:   Wed May 2 21:29:06 2018 -0300
+
+    fixed url github
+
+commit 37b840b98015af7c44172700a065e5ef55427640
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Wed May 2 20:23:25 2018 -0300
+
+    initial b1tifi 1.3.2
+
+commit 7a567917b8a5cfea63ed4776f87fa57e04355d22
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Thu Sep 8 15:18:09 2016 -0300
+
+    added lock session when execute command as job
+
+commit 331edf922c12f6b7bc62a4cfb90224d0552f2cb1
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Wed Sep 7 00:07:15 2016 -0300
+
+    added command "agents" for list all agents in session
+
+commit 2357ea4b1eccd6e45e74c5e64ce0bbaf5348866a
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Mon Sep 5 22:20:35 2016 -0300
+
+     added support resolve the DNS/IP address host file #2
+
+commit 85da782f3769968d0fbf00140c110021bcb2045e
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Sat Aug 20 09:40:24 2016 -0300
+
+     added tabulate in imports clients
+
+commit 2c30a3c2cf9baa3292cb2f57dfad9778163189de
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Fri Jun 17 21:21:36 2016 -0300
+
+    added support imports clients from a file
+
+commit 6f7d0e465a70af6e02f7b912a8ba787a56ad6bea
+Author: Marcos Nesster <mh4root@gmail.com>
+Date:   Fri Jun 17 02:49:51 2016 -0300
+
+    Update README.md
+
+commit cad8e7c4b16e2adfc0b51d3f11d3d568bdb439fe
+Author: Marcos Nesster <mh4root@gmail.com>
+Date:   Fri Jun 17 02:47:30 2016 -0300
+
+    fix name database
+
+commit 2bc718f33f036103224ce1b9f580246f10e74e6b
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Fri Jun 17 02:42:02 2016 -0300
+
+    Initial v1.3.1 commit
+
+commit 74973283a6058d295d806c16b1a48c3ee6abcaae
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Thu Jun 16 11:00:22 2016 -0300
+
+    added docs screenshot
+
+commit 93af4671d8389489aa1faac12a1655608071d7bb
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Thu Jun 16 01:06:09 2016 -0300
+
+    added travis.yml
+
+commit 01a9c69900a32708ea892dc1c43c779dd568fcb7
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Wed Jun 15 01:53:56 2016 -0300
+
+    change directory structure
+
+commit 42efdca00f1cbeaf08ba663c5deee18d04bc34b4
+Author: mh4x0f <mh4root@gmail.com>
+Date:   Thu Jun 9 11:42:45 2016 -0300
+
+    added command "clear" and fixed delete all bot in database
+
+commit f050aaa81d1c6511f2a378ff310a0dbd3889c1cd
+Merge: efc4f0a 19236b0
+Author: Marcos Nesster <mh4root@gmail.com>
+Date:   Tue Apr 12 12:20:51 2016 -0300
+
+    Merge pull request #1 from unixfox/patch-1
+    
+    Update secureUI.py
+
+commit 19236b0b8ece8a2fe1bad7f5cc6cb555f52aad43
+Author: Emilien Devos <unixfox@users.noreply.github.com>
+Date:   Tue Apr 12 15:51:55 2016 +0200
+
+    Update secureUI.py
+    
+    https://stackoverflow.com/questions/21883912/importerror-no-module-named-pxssh
+
+commit efc4f0ab89752f9c6370692f84185df795f73ab9
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Wed Dec 9 23:15:19 2015 -0300
+
+    fix database: no such column port
+
+commit e0a4ffad92379a6ceb48c47af1b96ac5c4329650
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Wed Dec 9 23:06:17 2015 -0300
+
+    added command jobs,execute. fix some bugs
+
+commit c76a2482c68f2030fa3c31f985dfe077155e7e31
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Sun Dec 6 20:27:36 2015 -0300
+
+    added shell /bin/bash on command [interact]
+
+commit b859ff3f5472218cde3d454c95316a429e81fb90
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Sat Dec 5 12:56:24 2015 -0300
+
+    fixed some bugs, added sysinfo function
+
+commit 85f3c544a99a20d41788a5b195e00571e290b487
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Fri Nov 27 15:33:37 2015 -0300
+
+    added argparse on list command
+
+commit feaf1ae3b80b95847d562320c449c21efba69fbc
+Author: Marcos Nesster <mh4root@gmail.com>
+Date:   Wed Nov 25 11:34:11 2015 -0300
+
+    fix install dependencies
+
+commit 545b018c757a14fde8e56be90c7170d73ebb7b76
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Wed Nov 25 11:16:36 2015 -0300
+
+    delete
+
+commit 3549ec0cb996fcd6f40bb6234347c582dbdfbc7e
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Wed Nov 25 11:14:39 2015 -0300
+
+    added new banner and remove .idea/scopes
+
+commit 052d6531bd5fd5edada779a1b6c5270224b2cad6
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Wed Nov 25 11:12:09 2015 -0300
+
+    added new banner and remove .idea/scopes
+
+commit 3ef5760d25e88ab84838efd2a39ac5a5a23bd18a
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Wed Nov 25 10:59:48 2015 -0300
+
+    remove .idea
+
+commit 4914ede51c98f314b9e795a28b7ed498ee637405
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Tue Nov 24 10:53:35 2015 -0300
+
+    added requires and change readme.md
+
+commit 38bd5e0ef546568cae5d2af23ada4e4a0e4bfa8f
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Mon Nov 23 23:17:03 2015 -0300
+
+    new version 1.1 all improvements code
+
+commit 4c80c20870ae7ba97ecc7a2c5747c9384754aa68
+Author: msfcd3r <mh4root@gmail.com>
+Date:   Mon Nov 23 22:58:30 2015 -0300
+
+    del all
+
+commit 0cbe99708cd42e13ef10cd11ebdb74a4f367567c
+Author: Mharcos Nesster <mh4root@gmail.com>
+Date:   Tue Sep 1 01:13:35 2015 -0300
+
+    Update B0Tdr4g0n.py
+
+commit 03ae4defd997039b4c632ab7e4c827cec46285c1
+Author: Mharcos Nesster <mh4root@gmail.com>
+Date:   Sun Aug 24 11:56:21 2014 -0300
+
+    Update B0Tdr4g0n.py
+
+commit 5d59425210aa4abab63c359873383deac81abdbf
+Author: Mharcos Nesster <mh4root@gmail.com>
+Date:   Fri May 23 18:41:55 2014 -0300
+
+    Update B0Tdr4g0n.py
+
+commit c46829cb1029fd292636959c5e7ee03363212a39
+Author: Mharcos Nesster <mh4root@gmail.com>
+Date:   Fri May 23 18:34:40 2014 -0300
+
+    Update B0Tdr4g0n.py
+
+commit 71686d1a024f00bcc523049aa5edb1bd0e3e004c
+Author: Mharcos Nesster <mh4root@gmail.com>
+Date:   Fri May 23 18:27:08 2014 -0300
+
+    Update B0Tdr4g0n.py
+
+commit 5b0c7b01f7c25e3772a6793c0f8ea052e9c3b56a
+Author: Mharcos Nesster <mh4root@gmail.com>
+Date:   Thu May 22 21:13:08 2014 -0300
+
+    Update B0Tdr4g0n.py
+
+commit 71f836bf710989d8eb8abac24260d9a72f5acb3c
+Author: Mharcos Nesster <mh4root@gmail.com>
+Date:   Thu May 22 21:09:52 2014 -0300
+
+    Update B0Tdr4g0n.py
+
+commit a287512273a56260407eab3b2137d29a9ba3bb44
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Wed May 21 17:38:35 2014 -0300
+
+    Update README.md
+
+commit be51c304829ddeb73996e64dac5f29146a072bc9
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Wed May 21 17:42:15 2014 -0300
+
+    SSH Manager
+
+commit 9724aef8fb21224409cb855d10b5ecb002ba2b00
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 22:32:04 2014 -0300
+
+    Update README.md
+
+commit 8641a6c3be75afa2da00708ea7ec467b086c578d
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 22:29:39 2014 -0300
+
+    Create lincese.txt
+
+commit 81ed091a4a90f6139f815177f265e6938021e1c9
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 22:28:43 2014 -0300
+
+    Update README.md
+
+commit f02b83aeea6fa9123b89464b53589a913160d9ad
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 21:47:49 2014 -0300
+
+    Update README.md
+
+commit 7fd92ec035ad881549483a0960f9316b43a90df4
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 21:46:30 2014 -0300
+
+    Update README.md
+
+commit b3fdca1ed11dd16ea456b8a735eb0f5f9ab39b04
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 21:37:23 2014 -0300
+
+    Update README.md
+
+commit 5cdd5f7464546790d0f234777230eb53c5c31d73
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 21:33:45 2014 -0300
+
+    Update README.md
+
+commit da7cae9fd8696898435a1fc8e298f4cb9d7031ba
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 21:28:39 2014 -0300
+
+    Update README.md
+
+commit 89a00e8da75108a956b8ba42748e7bcbc16dc569
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 21:25:03 2014 -0300
+
+    Update README.md
+
+commit 8b598f437cbdf51ecde98875e12aa20230afb3b9
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 20:54:58 2014 -0300
+
+    Update README.md
+
+commit 17d4ee620890f0c4ec0e8274f75efde82a2615c0
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 20:53:40 2014 -0300
+
+    Update README.md
+
+commit c1a476b44d35285c4be1692e044505f7597b17f8
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 20:52:33 2014 -0300
+
+    Update README.md
+
+commit 3b42d6353df76a6acd32c77035e73e6e135f7900
+Author: Mharcos Nesster <msfc0d3r@hotmail.com>
+Date:   Mon May 19 20:51:48 2014 -0300
+
+    Update README.md
+    
+    Documentation
+
+commit c10cdca72ac3dfc292faad7ab6d28f1dbbdbe1d2
+Author: mh4x05 <mh4@mh4x05.(none)>
+Date:   Mon May 19 20:38:57 2014 -0300
+
+    User mode
