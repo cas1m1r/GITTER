@@ -1,3 +1,4 @@
+from gitparsed import *
 import random
 import string
 import json
@@ -20,11 +21,32 @@ def exec(cmd:str):
         os.remove(fout)
         return result.split('\n')
 
-# TODO: 
-# - connect emails found in GIT with the username being looked at.
-# - check for the commits that match the user repo
-# - actually look inside files committed to find malware?
-# ex: Users/AKSHITANOT4HACK/AkshitaNot4hack.json
+def collect_user_summary(uname):
+	# - connect emails found in GIT with the username being looked at.
+	# - check for the commits that match the user repo
+	# - actually look inside files committed to find malware?
+	if test_folder_exists(uname):
+		print(f'\033[1m[+] Found \033[32m{uname}\033[0m, parsing info...')
+		userdata = {'name': uname, 'repos':[], 'emails': []}
+		upath = f'Users/{uname.upper()}'
+		# check if they have repo data 
+		repo_files = []
+		for file in os.listdir(upath):
+			if file.find(f'{uname.upper()}.git.')==0:
+				reponame = file.split('.')[-1]
+				print(f'\tParsing repo {reponame} by {uname}')
+				gitrepo = Repo(create_repo_str(uname, reponame))
+				if gitrepo.parsed:
+					userdata['repos'].append(reponame)
+					for email in gitrepo.info['emails']:
+						userdata['emails'].append(email)
+		return userdata
+	else:
+		print(f'\033[1m[!]Cannot Find\033[31m{uname}\033[0m, sorry...')
+		return {}
+
+def test_folder_exists(uname:str):
+	return os.path.isdir(f'Users/{uname.upper()}')
 
 def git_snoop(userFile:str):
 	if not os.path.isfile(userFile):
@@ -73,3 +95,38 @@ def check_user_repos(username:str):
 	print(f'[+] Dumped detailed Github Repository Data from {username} to:\n\t{gpath}')
 	return result
 
+def get_usernames():
+	usernames = []
+	print(f'[-] Pulling Github Usernames from Users/')
+	for folder in os.listdir('Users/'):
+		if os.path.isdir(os.path.join(f'Users/{folder}')):
+			for fname in os.listdir(os.path.join(f'Users/{folder}')):
+				if fname.find('.json')>0 and fname.find('_gitdata.json')<0:
+					# print(f'--> {fname.split(" ")[0]}')
+					usernames.append(fname.split('.json')[0])
+	return usernames
+
+
+def main():
+	names = get_usernames()
+	if '--update-info' in sys.argv:
+		print(f'[+] Updating User information for \033[1m{len(names)}\033[0m github users')
+		for uname in names:
+			ufile = f'Users/{uname.upper()}/{uname}.json'
+			if os.path.isfile(ufile):
+				userinfo = json.loads(open(ufile,'r').read())
+				# add information to user file
+				if 'email' not in userinfo.keys():
+					print(f'\t+ processing \033[32m{uname}\033[0m')
+					detailed = collect_user_summary(uname)
+					userinfo['emails'] = detailed['emails']
+					open(ufile,'w').write(json.dumps(userinfo,indent=2))
+				else:
+					print(f'\t- Already processed \033[32m{uname}\033[0m')
+			else:
+				print(f'\033[1m[?] Missing file: \033[31m{ufile}\033[0m]')
+	
+
+
+if __name__ == '__main__':
+	main()

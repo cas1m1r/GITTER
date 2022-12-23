@@ -1,11 +1,17 @@
-from gitanalyzed import random_filename, exec, exec_as_script
 import random
 import json
 import sys
+import os
 
 class Repo:
 	def __init__(self, fpath):
+		if not os.path.isfile(fpath):
+			print(f'\033[1mCANNOT FIND FILE:\033[31m{fpath}\03[0m')
+			self.parsed = False
+			return
 		rawlines = self.load_repo_log(fpath)
+		self.parsed = True
+		self.name = fpath.split('.')[-1]
 		self.files = self.pull_file_list(rawlines)
 		self.info = self.pull_commit_details(rawlines)
 
@@ -41,5 +47,9 @@ class Repo:
 		authors = list(set(authors))
 		return {'emails': authors, 'dates': dates, 'commits': commits}
 
+
+
+def create_repo_str(uname, repo):
+	return f'Users/{uname.upper()}/{uname.upper()}.git.{repo}'
 
 
