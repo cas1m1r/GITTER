@@ -1,111 +1,218 @@
 ======================: FILES :======================
-======================: BRANCHES :======================
-======================: LOGINFO :======================
-commit 283b198802dfc7d68b4fc11750a11bb8ff1fd7c4
-Author: esryu <esryu@ucsd.edu>
-Date:   Sun Aug 16 14:37:21 2020 -0700
+.
+├── frontend
+│   ├── angular.json
+│   ├── Dockerfile
+│   ├── e2e
+│   │   ├── protractor.conf.js
+│   │   ├── src
+│   │   │   ├── app.e2e-spec.ts
+│   │   │   └── app.po.ts
+│   │   └── tsconfig.e2e.json
+│   ├── ionic.config.json
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   │   ├── app
+│   │   │   ├── api
+│   │   │   │   ├── api.module.ts
+│   │   │   │   └── api.service.ts
+│   │   │   ├── app.component.html
+│   │   │   ├── app.component.spec.ts
+│   │   │   ├── app.component.ts
+│   │   │   ├── app.module.ts
+│   │   │   ├── app-routing.module.ts
+│   │   │   ├── auth
+│   │   │   │   ├── auth-login
+│   │   │   │   │   ├── auth-login.component.html
+│   │   │   │   │   ├── auth-login.component.scss
+│   │   │   │   │   ├── auth-login.component.spec.ts
+│   │   │   │   │   └── auth-login.component.ts
+│   │   │   │   ├── auth-menu-button
+│   │   │   │   │   ├── auth-menu-button.component.html
+│   │   │   │   │   ├── auth-menu-button.component.scss
+│   │   │   │   │   ├── auth-menu-button.component.spec.ts
+│   │   │   │   │   ├── auth-menu-button.component.ts
+│   │   │   │   │   └── auth-menu-user
+│   │   │   │   │       ├── auth-menu-user.component.html
+│   │   │   │   │       ├── auth-menu-user.component.scss
+│   │   │   │   │       ├── auth-menu-user.component.spec.ts
+│   │   │   │   │       └── auth-menu-user.component.ts
+│   │   │   │   ├── auth.module.ts
+│   │   │   │   ├── auth-register
+│   │   │   │   │   ├── auth-register.component.html
+│   │   │   │   │   ├── auth-register.component.scss
+│   │   │   │   │   ├── auth-register.component.spec.ts
+│   │   │   │   │   └── auth-register.component.ts
+│   │   │   │   ├── models
+│   │   │   │   │   └── user.model.ts
+│   │   │   │   └── services
+│   │   │   │       ├── auth.guard.service.spec.ts
+│   │   │   │       ├── auth.guard.service.ts
+│   │   │   │       ├── auth.service.spec.ts
+│   │   │   │       └── auth.service.ts
+│   │   │   ├── feed
+│   │   │   │   ├── feed-item
+│   │   │   │   │   ├── feed-item.component.html
+│   │   │   │   │   ├── feed-item.component.scss
+│   │   │   │   │   ├── feed-item.component.spec.ts
+│   │   │   │   │   └── feed-item.component.ts
+│   │   │   │   ├── feed-list
+│   │   │   │   │   ├── feed-list.component.html
+│   │   │   │   │   ├── feed-list.component.scss
+│   │   │   │   │   ├── feed-list.component.spec.ts
+│   │   │   │   │   └── feed-list.component.ts
+│   │   │   │   ├── feed.module.ts
+│   │   │   │   ├── feed-upload
+│   │   │   │   │   ├── feed-upload-button
+│   │   │   │   │   │   ├── feed-upload-button.component.html
+│   │   │   │   │   │   ├── feed-upload-button.component.scss
+│   │   │   │   │   │   ├── feed-upload-button.component.spec.ts
+│   │   │   │   │   │   └── feed-upload-button.component.ts
+│   │   │   │   │   ├── feed-upload.component.html
+│   │   │   │   │   ├── feed-upload.component.scss
+│   │   │   │   │   ├── feed-upload.component.spec.ts
+│   │   │   │   │   └── feed-upload.component.ts
+│   │   │   │   ├── models
+│   │   │   │   │   └── feed-item.model.ts
+│   │   │   │   └── services
+│   │   │   │       ├── feed.provider.service.spec.ts
+│   │   │   │       └── feed.provider.service.ts
+│   │   │   ├── home
+│   │   │   │   ├── home.module.ts
+│   │   │   │   ├── home.page.html
+│   │   │   │   ├── home.page.scss
+│   │   │   │   ├── home.page.spec.ts
+│   │   │   │   └── home.page.ts
+│   │   │   └── menubar
+│   │   │       ├── menubar.component.html
+│   │   │       ├── menubar.component.scss
+│   │   │       ├── menubar.component.spec.ts
+│   │   │       └── menubar.component.ts
+│   │   ├── assets
+│   │   │   ├── icon
+│   │   │   │   └── favicon.png
+│   │   │   └── shapes.svg
+│   │   ├── environments
+│   │   │   ├── environment.prod.ts
+│   │   │   └── environment.ts
+│   │   ├── global.scss
+│   │   ├── index.html
+│   │   ├── karma.conf.js
+│   │   ├── main.ts
+│   │   ├── polyfills.ts
+│   │   ├── test.ts
+│   │   ├── theme
+│   │   │   └── variables.scss
+│   │   ├── tsconfig.app.json
+│   │   └── tsconfig.spec.json
+│   ├── tsconfig.json
+│   ├── tslint.json
+│   └── udagram_tests
+│       └── git_test.sh
+├── package-lock.json
+├── README.md
+├── screenshots
+│   ├── describe hpa.png
+│   ├── describe services.png
+│   ├── dockerhub.png
+│   ├── get pods.png
+│   ├── kubectl apply.png
+│   ├── logs.png
+│   ├── README.md
+│   ├── reverse proxy.png
+│   └── travis.png
+├── udagram-api.postman_collection.json
+├── udagram-backend-feed
+│   ├── Dockerfile
+│   ├── mock
+│   │   ├── xander0.jpg
+│   │   ├── xander1.jpg
+│   │   └── xander2.jpg
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   │   ├── aws.ts
+│   │   ├── config
+│   │   │   └── config.ts
+│   │   ├── controllers
+│   │   │   └── v0
+│   │   │       ├── feed
+│   │   │       │   ├── models
+│   │   │       │   │   └── FeedItem.ts
+│   │   │       │   └── routes
+│   │   │       │       └── feed.router.ts
+│   │   │       ├── index.router.ts
+│   │   │       ├── model.index.ts
+│   │   │       └── users
+│   │   │           ├── models
+│   │   │           │   └── User.ts
+│   │   │           └── routes
+│   │   │               ├── auth.router.ts
+│   │   │               └── user.router.ts
+│   │   ├── migrations
+│   │   │   ├── 20190325-create-feed-item.js
+│   │   │   └── 20190328-create-user.js
+│   │   ├── sequelize.ts
+│   │   └── server.ts
+│   ├── tsconfig.json
+│   └── tslint.json
+├── udagram-backend-user
+│   ├── Dockerfile
+│   ├── mock
+│   │   ├── xander0.jpg
+│   │   ├── xander1.jpg
+│   │   └── xander2.jpg
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   │   ├── aws.ts
+│   │   ├── config
+│   │   │   └── config.ts
+│   │   ├── controllers
+│   │   │   └── v0
+│   │   │       ├── feed
+│   │   │       │   ├── models
+│   │   │       │   │   └── FeedItem.ts
+│   │   │       │   └── routes
+│   │   │       │       └── feed.router.ts
+│   │   │       ├── index.router.ts
+│   │   │       ├── model.index.ts
+│   │   │       └── users
+│   │   │           ├── models
+│   │   │           │   └── User.ts
+│   │   │           └── routes
+│   │   │               ├── auth.router.ts
+│   │   │               └── user.router.ts
+│   │   ├── migrations
+│   │   │   ├── 20190325-create-feed-item.js
+│   │   │   └── 20190328-create-user.js
+│   │   ├── sequelize.ts
+│   │   └── server.ts
+│   ├── tsconfig.json
+│   └── tslint.json
+└── udagram-deployment-project
+    ├── docker
+    │   ├── docker-compose-build.yaml
+    │   ├── docker-compose.yaml
+    │   ├── Dockerfile
+    │   ├── nginx.conf
+    │   └── set_env.sh
+    └── k8s
+        ├── backend-feed-deployment.yaml
+        ├── backend-feed-service.yaml
+        ├── backend-user-deployment.yaml
+        ├── backend-user-service.yaml
+        ├── env-configmap.yaml
+        ├── env-secret.yaml
+        ├── frontend-deployment.yaml
+        ├── frontend-service.yaml
+        ├── reverseproxy-deployment.yaml
+        └── reverseproxy-service.yaml
 
-    Delete set_env.sh
-
-commit ff0666d2b6e697994f4fc00ad3d36813e4b0fcd2
-Merge: aeffc1a 56cd377
-Author: esryu <esryu@ucsd.edu>
-Date:   Sun Aug 16 14:35:41 2020 -0700
-
-    conflict gone
-
-commit aeffc1a7c16f1e8d65d3a50eebaf41080985544a
-Author: esryu <esryu@ucsd.edu>
-Date:   Sun Aug 16 14:32:21 2020 -0700
-
-    submit
-
-commit 56cd3770cfe99b550f733b61ee448143f966077d
-Author: esryu <esryu@ucsd.edu>
-Date:   Sun Aug 16 13:39:36 2020 -0700
-
-    Delete .travis.yml.swp
-
-commit efb4a41859dfdc1f4ae00c0ba22fc74a00452c54
-Author: esryu <esryu@ucsd.edu>
-Date:   Sun Aug 16 13:39:23 2020 -0700
-
-    Delete .set_env.sh.swp
-
-commit 330aa87964ebbd09f08e51eaf1c87d2a1e2c6669
-Author: esryu <esryu@ucsd.edu>
-Date:   Sun Aug 16 13:12:48 2020 -0700
-
-    Delete aws-secret.yaml
-
-commit 62f4a2f5d1778fba4f4fb9bdcf908151ad656951
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 23:37:54 2020 -0700
-
-    pls
-
-commit 95916c5b9ba27d5afdb8788cfc63241685ef6613
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 23:21:54 2020 -0700
-
-    was there a change
-
-commit e6a1aaf2566098dbe923efe16c46e9ecd39aacdb
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 23:12:47 2020 -0700
-
-    I tried changin compose
-
-commit ca8b48e687af271c56c6f0e51088f0a44dfb3dd8
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 23:00:25 2020 -0700
-
-    altered compose files
-
-commit 98192773144510d531bbff59ce678a54cf1e30f6
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 22:46:58 2020 -0700
-
-    try travis
-
-commit dd3a73c3cda36bad2e326c07a21082ff42354f9a
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 21:36:17 2020 -0700
-
-    need images to update
-
-commit 9b294c10a098989a34774d5cd53bac25e6366f8b
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 21:16:53 2020 -0700
-
-    changed travis
-
-commit 742e67a011f2243677cd7ff52c7c399b227b34dc
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 14:34:00 2020 -0700
-
-    aws
-
-commit 16efd6735bb4b10e48b7d0ab19c2df190d5f4377
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 13:54:59 2020 -0700
-
-    secrets
-
-commit b10dd87337df3b193fd8a1a7458292afb2da0eb2
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 12:56:26 2020 -0700
-
-    update travis
-
-commit eeeec4198f339c652c25870900fcfc660fb44fba
-Author: esryu <esryu@ucsd.edu>
-Date:   Sat Aug 15 12:45:57 2020 -0700
-
-    travis
-======================: FILES :======================
-======================: BRANCHES :======================
-======================: LOGINFO :======================
+57 directories, 152 files
+====================== GIT HISTORY: ======================
+283b198 HEAD@{0}: clone: from https://github.com/esryu/microservices
 commit 283b198802dfc7d68b4fc11750a11bb8ff1fd7c4
 Author: esryu <esryu@ucsd.edu>
 Date:   Sun Aug 16 14:37:21 2020 -0700
