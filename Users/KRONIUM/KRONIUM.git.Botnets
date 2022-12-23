@@ -1,4 +1,367 @@
 ======================: FILES :======================
+Botnets
+├── _config.yml
+├── Gemini
+│   ├── bot
+│   │   ├── attack.h
+│   │   ├── checksum.h
+│   │   ├── gpon8080_scanner.h
+│   │   ├── gpon80_scanner.h
+│   │   ├── huawei_scanner.h
+│   │   ├── includes.h
+│   │   ├── killer.h
+│   │   ├── lw-n605r_scanner.h
+│   │   ├── protocol.h
+│   │   ├── rand.h
+│   │   ├── resolv.h
+│   │   ├── scanner.h
+│   │   ├── table.h
+│   │   ├── tr064_scanner.h
+│   │   ├── uid1_scanner.h
+│   │   └── util.h
+│   ├── build.sh
+│   ├── cnc
+│   │   ├── admin.go
+│   │   ├── attack.go
+│   │   ├── bot.go
+│   │   ├── clientList.go
+│   │   ├── database.go
+│   │   └── main.go
+│   ├── loader
+│   │   └── src
+│   │       └── headers
+│   │           ├── binary.h
+│   │           ├── config.h
+│   │           ├── connection.h
+│   │           ├── includes.h
+│   │           ├── server.h
+│   │           ├── telnet_info.h
+│   │           └── util.h
+│   └── scanListen.go
+├── Hades
+│   ├── bot
+│   │   ├── attack.h
+│   │   ├── checksum.h
+│   │   ├── gpon8080_scanner.h
+│   │   ├── gpon80_scanner.h
+│   │   ├── huawei_scanner.h
+│   │   ├── includes.h
+│   │   ├── killer.h
+│   │   ├── protocol.h
+│   │   ├── rand.h
+│   │   ├── resolv.h
+│   │   ├── table.h
+│   │   └── util.h
+│   ├── build.sh
+│   ├── cnc
+│   │   ├── admin.go
+│   │   ├── attack.go
+│   │   ├── bot.go
+│   │   ├── clientList.go
+│   │   ├── database.go
+│   │   └── main.go
+│   ├── debug.sh
+│   ├── dlr
+│   │   └── build.sh
+│   └── loader
+│       └── src
+│           └── headers
+│               ├── binary.h
+│               ├── connection.h
+│               ├── includes.h
+│               ├── server.h
+│               ├── telnet_info.h
+│               └── util.h
+├── Kowai1_0
+│   ├── Alone.sh
+│   ├── build.py
+│   ├── cc.py
+│   └── src
+│       └── headers
+│           ├── binary.h.txt
+│           ├── connection.h.txt
+│           ├── includes.h.txt
+│           ├── server.h.txt
+│           ├── telnet_info.h.txt
+│           └── util.h.txt
+├── Methods
+│   ├── Chargen.c
+│   ├── DOMINATE.c
+│   ├── Heartbeat.c
+│   ├── Improved SSYN.c
+│   ├── mDNS.c
+│   ├── Netbios.c
+│   ├── Quake.c
+│   ├── SSDP.c
+│   ├── STCP.c
+│   ├── Syn.c
+│   ├── TriGemini.c
+│   ├── TS3.c
+│   └── UDP.c
+├── okane
+│   ├── dlr
+│   │   └── build.sh
+│   ├── loader
+│   │   ├── bins
+│   │   │   ├── dlr.arm
+│   │   │   ├── dlr.arm5
+│   │   │   ├── dlr.arm6
+│   │   │   ├── dlr.arm7
+│   │   │   ├── dlr.i486
+│   │   │   ├── dlr.i686
+│   │   │   ├── dlr.m68k
+│   │   │   ├── dlr.mips
+│   │   │   ├── dlr.mips64
+│   │   │   ├── dlr.mpsl
+│   │   │   ├── dlr.ppc
+│   │   │   ├── dlr.sh4
+│   │   │   ├── dlr.spc
+│   │   │   └── dlr.x86
+│   │   ├── build.sh
+│   │   └── src
+│   │       └── headers
+│   │           ├── binary.h
+│   │           ├── config.h
+│   │           ├── connection.h
+│   │           ├── includes.h
+│   │           ├── server.h
+│   │           ├── telnet_info.h
+│   │           └── util.h
+│   ├── okane
+│   │   ├── bot
+│   │   │   ├── attack.h
+│   │   │   ├── checksum.h
+│   │   │   ├── includes.h
+│   │   │   ├── killer.h
+│   │   │   ├── protocol.h
+│   │   │   ├── rand.h
+│   │   │   ├── resolv.h
+│   │   │   ├── scanner_exploit.h
+│   │   │   ├── scanner.h
+│   │   │   ├── table.h
+│   │   │   └── util.h
+│   │   ├── build.sh
+│   │   ├── cnc
+│   │   │   ├── admin.go
+│   │   │   ├── attack.go
+│   │   │   ├── bot.go
+│   │   │   ├── clientList.go
+│   │   │   ├── database.go
+│   │   │   └── main.go
+│   │   └── tools
+│   │       └── scanListen.go
+│   └── Projects
+│       └── Proj1
+│           ├── pkg
+│           │   └── linux_amd64
+│           │       └── github.com
+│           │           ├── go-sql-driver
+│           │           │   └── mysql.a
+│           │           └── mattn
+│           │               └── go-shellwords.a
+│           └── src
+│               └── github.com
+│                   └── go-sql-driver
+│                       └── mysql
+│                           ├── appengine.go
+│                           ├── AUTHORS
+│                           ├── benchmark_go18_test.go
+│                           ├── benchmark_test.go
+│                           ├── buffer.go
+│                           ├── CHANGELOG.md
+│                           ├── collations.go
+│                           ├── connection.go
+│                           ├── connection_go18.go
+│                           ├── connection_go18_test.go
+│                           ├── connection_test.go
+│                           ├── const.go
+│                           ├── CONTRIBUTING.md
+│                           ├── driver.go
+│                           ├── driver_go18_test.go
+│                           ├── driver_test.go
+│                           ├── dsn.go
+│                           ├── dsn_test.go
+│                           ├── errors.go
+│                           └── errors_test.go
+├── Omni
+│   ├── bot
+│   │   ├── attack.h
+│   │   ├── checksum.h
+│   │   ├── desktop.ini
+│   │   ├── includes.h
+│   │   ├── killer.h
+│   │   ├── protocol.h
+│   │   ├── rand.h
+│   │   ├── resolv.h
+│   │   ├── scanner_exploit.h
+│   │   ├── scanner.h
+│   │   ├── table.h
+│   │   └── util.h
+│   ├── build_payload.py
+│   ├── build.sh
+│   ├── cnc
+│   │   ├── admin.go
+│   │   ├── attack.go
+│   │   ├── bot.go
+│   │   ├── clientList.go
+│   │   ├── database.go
+│   │   └── main.go
+│   ├── loader
+│   │   └── src
+│   │       └── headers
+│   │           ├── binary.h
+│   │           ├── connection.h
+│   │           ├── includes.h
+│   │           ├── server.h
+│   │           ├── telnet_info.h
+│   │           └── util.h
+│   ├── OmniV2-Setup.txt
+│   └── scanListen.go
+├── Omni2_0
+│   ├── bot
+│   │   ├── attack.h
+│   │   ├── checksum.h
+│   │   ├── includes.h
+│   │   ├── killer.h
+│   │   ├── protocol.h
+│   │   ├── rand.h
+│   │   ├── resolv.h
+│   │   ├── scanner_exploit.h
+│   │   ├── scanner.h
+│   │   ├── table.h
+│   │   └── util.h
+│   ├── build_payload.py
+│   ├── build.sh
+│   ├── cnc
+│   │   ├── admin.go
+│   │   ├── attack.go
+│   │   ├── bot.go
+│   │   ├── clientList.go
+│   │   ├── database.go
+│   │   └── main.go
+│   ├── loader
+│   │   └── src
+│   │       └── headers
+│   │           ├── binary.h
+│   │           ├── connection.h
+│   │           ├── includes.h
+│   │           ├── server.h
+│   │           ├── telnet_info.h
+│   │           └── util.h
+│   ├── OmniV2-Setup.txt
+│   └── scanListen.go
+├── Omni3_0
+│   ├── bot
+│   │   ├── attack.h
+│   │   ├── checksum.h
+│   │   ├── gpon8080_scanner.h
+│   │   ├── gpon80_scanner.h
+│   │   ├── huawei_scanner.h
+│   │   ├── includes.h
+│   │   ├── killer.h
+│   │   ├── protocol.h
+│   │   ├── rand.h
+│   │   ├── realtek_scanner.h
+│   │   ├── resolv.h
+│   │   ├── scanner.h
+│   │   ├── table.h
+│   │   └── util.h
+│   ├── build.sh
+│   ├── cnc
+│   │   ├── admin.go
+│   │   ├── attack.go
+│   │   ├── bot.go
+│   │   ├── clientList.go
+│   │   ├── database.go
+│   │   └── main.go
+│   ├── loader
+│   │   └── src
+│   │       └── headers
+│   │           ├── binary.h
+│   │           ├── config.h
+│   │           ├── connection.h
+│   │           ├── includes.h
+│   │           ├── server.h
+│   │           ├── telnet_info.h
+│   │           └── util.h
+│   ├── payload.py
+│   └── scanListen.go
+├── README.md
+├── SECURITY.md
+├── TimeoutSec_L7
+│   ├── bot
+│   │   ├── attack.h
+│   │   ├── checksum.h
+│   │   ├── includes.h
+│   │   ├── killer.h
+│   │   ├── protocol.h
+│   │   ├── rand.h
+│   │   ├── resolv.h
+│   │   ├── scanner.h
+│   │   ├── table.h
+│   │   └── util.h
+│   ├── build.sh
+│   ├── cnc
+│   │   ├── admin.go
+│   │   ├── attack.go
+│   │   ├── bot.go
+│   │   ├── clientList.go
+│   │   ├── database.go
+│   │   └── main.go
+│   ├── INSTALL.txt
+│   ├── loader
+│   │   └── src
+│   │       └── headers
+│   │           ├── binary.h
+│   │           ├── config.h
+│   │           ├── connection.h
+│   │           ├── includes.h
+│   │           ├── server.h
+│   │           ├── telnet_info.h
+│   │           └── util.h
+│   ├── payz.py
+│   ├── Private source with layer 7 HTTP floods.txt
+│   └── scanListen.go
+└── Xenon
+    ├── auto.sh
+    ├── bot
+    │   ├── attack.h
+    │   ├── checksum.h
+    │   ├── includes.h
+    │   ├── killer.h
+    │   ├── protocol.h
+    │   ├── rand.h
+    │   ├── resolv.h
+    │   ├── scanner_exploit.h
+    │   ├── scanner.h
+    │   ├── table.h
+    │   └── util.h
+    ├── build.sh
+    ├── cnc
+    │   ├── admin.go
+    │   ├── attack.go
+    │   ├── bot.go
+    │   ├── clientList.go
+    │   ├── database.go
+    │   └── main.go
+    ├── dlr
+    │   └── build.sh
+    ├── l.go
+    ├── loader
+    │   └── src
+    │       └── headers
+    │           ├── binary.h
+    │           ├── config.h
+    │           ├── connection.h
+    │           ├── includes.h
+    │           ├── server.h
+    │           ├── telnet_info.h
+    │           └── util.h
+    ├── scanListen.go
+    ├── setup_UPDATED.txt
+    └── uchttpd.py
+
+69 directories, 291 files
 ======================: README CONTENT :======================
 # Botnets
 Botnet Stash (EDUCATION ONLY)

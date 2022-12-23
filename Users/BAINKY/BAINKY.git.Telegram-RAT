@@ -1,0 +1,2203 @@
+======================: FILES :======================
+Telegram-RAT
+├── API.py
+├── Compile.bat
+├── Core
+│   ├── Bomb
+│   │   ├── ForkBomb.py
+│   │   └── ZipBomb.py
+│   ├── Files
+│   │   ├── Taskkill.py
+│   │   └── Tasklist.py
+│   ├── Fun
+│   │   ├── Message.py
+│   │   ├── OpenURL.py
+│   │   ├── Speak.py
+│   │   └── Wallpapers.py
+│   ├── Main
+│   │   ├── Audio.py
+│   │   ├── Autorun.py
+│   │   ├── Power.py
+│   │   ├── Screen.py
+│   │   └── Webcam.py
+│   ├── Network
+│   │   ├── Information.py
+│   │   └── Location.py
+│   ├── Other
+│   │   ├── Clipboard.py
+│   │   ├── DVD.py
+│   │   ├── Freeze.py
+│   │   ├── Keylogger.py
+│   │   ├── Monitor.py
+│   │   ├── Rotate.py
+│   │   ├── SendKeys.py
+│   │   └── Volume.py
+│   ├── Settings
+│   │   ├── Admin.py
+│   │   ├── Antivirus.py
+│   │   ├── CriticalProcess.py
+│   │   ├── MessageBox.py
+│   │   └── Organization.py
+│   └── Stealer
+│       ├── Chromium.py
+│       ├── Discord.py
+│       ├── FileZilla.py
+│       ├── Telegram.py
+│       └── Wifi.py
+├── LICENSE
+├── Modules
+│   ├── PyAudio-0.2.11-cp37-cp37m-win32.whl
+│   ├── PyAudio-0.2.11-cp37-cp37m-win_amd64.whl
+│   ├── PyAudio-0.2.11-cp38-cp38-win32.whl
+│   ├── PyAudio-0.2.11-cp38-cp38-win_amd64.whl
+│   └── Requirements.bat
+├── RAT.py
+├── README.md
+├── Updater.py
+└── Version
+    ├── Changelogs.txt
+    └── Version.txt
+
+11 directories, 46 files
+======================: README CONTENT :======================
+
+<h2 align="center">⚠️ This repository is no longer maintained ⚠️</h2>
+
+<p align="center">
+Some features might not work, you don't need to report it, I don't do any more development anyway.
+</p>
+
+#
+
+<h1 align="center">:snake: Telegram-RAT</h1>
+
+<p align="center">
+  Control computer via Telegram!
+</p>
+
+# :page_facing_up: Installation guide
+* For the script to work, install Python and download files from the repository
+  * Go to the `Modules` directory and run `Requirements.bat` to install the necessary modules
+
+#
+
+* Create a bot in a telegram via [@BotFather](https://t.me/BotFather), after which find its API Token
+
+  <img src="https://i.imgur.com/3eWSJtZ.png">
+
+* Now you need to get your Telegram-ID. To do this, go to [@my_id_bot](https://t.me/my_id_bot) and save your identifier.
+
+  <img src="https://i.imgur.com/TIoauMO.png">
+
+* Now open the file `RAT.py` and insert your token from the bot and your identifier that you received earlier.
+
+  <img src="https://i.imgur.com/ZaMLZ2F.png">
+
+* Press `CTRL + S` to save the changes.                                                
+* To compile a script, use `Compile.bat`
+  * The compiled `.exe` file will be in the `dist` folder. And at startup it will send you a message about online.
+  * To get a list of commands, use `/help`
+
+# :rose: Functions
+
+### _Network_
+* Location by BSSID
+* System Information
+
+### _Main_
+* Desktop Capture
+* Webcam Capture
+* Sound Capture
+* Computer Power
+   * Hibernate
+   * Shutdown
+   * Restart
+   * Logoff
+   * BSoD
+* Startup Management
+   * Add to Autorun
+   * Uninstall
+
+### _Files_
+* Files Manager
+   * Current Directory
+   * List of Files
+   * Remove a File
+      * Remove all Files
+   * Upload File
+   * Download File
+   * Run File
+      * Run File as Administrator
+* Process Manager
+  * Process list
+  * Process Kill
+     * Kill all Processes
+     * Disable Task Manager
+
+### _Fun_
+* Send Message
+* Speak Message
+* Open URL
+* Set Wallpapers
+
+### _Bomb_
+* ForkBomb
+* ZipBomb
+
+### _Stealer_
+* Wi-Fi Data
+* FTP Client
+* Discord Token
+* Telegram Session
+* Get CreditCards
+* Get Bookmarks
+* Get Passwords
+* Get Cookies
+* Get History
+
+
+### _Other_
+* Clipboard Editing
+* Receive Keylogs
+* Send Key Press
+* Monitor Control
+* Volume Control
+* Display Rotate
+* Block Input
+* CD-ROM
+
+### _Scripting_
+* Remote Shell
+* Batch Scripting
+
+# Screenshots
+<p align="center">
+    <img src="https://i.imgur.com/BXN7Dff.png" Telegram-RAT">
+</p>
+
+# Navigation buttons
+<p align="center">
+    <img src="https://i.imgur.com/CmehJlP.png" Telegram-RAT">
+</p>
+====================== GIT HISTORY: ======================
+12a2f0d HEAD@{0}: clone: from https://github.com/Bainky/Telegram-RAT
+commit 12a2f0d7131d928334085ddde7e1c4cc2bec3540
+Author: Bainky <me.bytecode@gmail.com>
+Date:   Wed Sep 15 17:16:54 2021 +0600
+
+     • README.md
+
+commit b7e83de62830ef2035a92567518d5e33103e9d4c
+Author: Bainky <me.bytecode@gmail.com>
+Date:   Wed Sep 15 17:12:18 2021 +0600
+
+     • README.md
+
+commit 0148b938974623677bc1d3147b95a7496dfd15c0
+Author: Bainky <me.bytecode@gmail.com>
+Date:   Wed Sep 15 17:01:07 2021 +0600
+
+    • Source Code
+
+commit deb17de4994e6c30930cd3a0bc2a730bcc187a6e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sat Jan 2 21:40:05 2021 +0600
+
+    Source Code
+
+commit 069ce181275488a821ec9a6d882ea72185899e71
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Jul 22 18:33:12 2020 +0600
+
+    • Source Code
+
+commit 0d06696d3ecc47084dfc81bf142f317c5cab7faf
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Jul 22 18:30:02 2020 +0600
+
+    • Source Code
+
+commit 8acd99328e76af7d35ffe2c74b946fed8aba6d83
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Jul 22 18:25:46 2020 +0600
+
+    • Source Code
+
+commit 43526a03896c8e86bcb26e23438226681dc5205a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jul 21 14:35:29 2020 +0600
+
+     • Source Code
+
+commit 058a992777ef822431ecf08e88e4244243aa8408
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jul 21 14:21:06 2020 +0600
+
+    • Source Code
+
+commit c42fe1ab2ebeb968f3975c89b7b6c26533152063
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 19:14:30 2020 +0600
+
+    • Source Code
+
+commit ec89bfadd03490491751ed1c4247ec50a2be01cb
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 19:11:01 2020 +0600
+
+    • Source Code
+
+commit 44376f0715299f01ef7a6c983f89440209f1fe96
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 18:36:16 2020 +0600
+
+     • New Features!
+    
+    • Added SendKeys
+    • Added ZipBomb
+    • Fixed Some Bugs
+        ›› Fixed Speak
+        ›› Fixed module imports
+        ›› Fixed BSoD on shutdown
+
+commit c8c00141e792233fbee7a3b304f0cb09726aaf4e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 18:35:33 2020 +0600
+
+     • Source Code
+
+commit 4a93cf466f0ae4180ac852a76306e8d071ae572b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 17:34:03 2020 +0600
+
+     • Source Code
+
+commit bc83f009350c6741024dcefcd52b9a1adc5bde02
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 17:31:35 2020 +0600
+
+    Delete ForkBomb.py
+
+commit 5bf89f008a7e9e5166b563dda98c45eab446aae2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 17:30:22 2020 +0600
+
+     • Source Code
+
+commit c721863ae98ee86445a9e9f24821f323f001dd44
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 17:29:18 2020 +0600
+
+     • Source Code
+
+commit f25bf39ebc7e29714366a9c0f9a4322a4adc2a1f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 17:28:42 2020 +0600
+
+     • Source Code
+
+commit 4c20915c69458b783a4f2f53241cddcb18a755ac
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 17:28:16 2020 +0600
+
+     • New Features!
+    
+    • Added SendKeys
+    • Added ZipBomb
+    • Fixed Some Bugs
+        ›› Fixed Speak
+        ›› Fixed module imports
+        ›› Fixed BSoD on shutdown
+
+commit 54cbbe5c7d42c5d606fe95c639b2bddacb957181
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 15:52:33 2020 +0600
+
+    • New Features!
+    
+    • Added SendKeys
+    • Added ZipBomb
+    • Fixed Some Bugs
+        ›› Fixed Speak
+        ›› Fixed module imports
+        ›› Fixed BSoD on shutdown
+
+commit 5d37446dbf6bcb8726601619e12c460b91bd7990
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 15:46:53 2020 +0600
+
+    • New Features!
+    
+    • Added SendKeys
+    • Added ZipBomb
+    • Fixed Some Bugs
+        ›› Fixed Speak
+        ›› Fixed module imports
+        ›› Fixed BSoD on shutdown
+
+commit 44752f5488339f669f9b66684cb4bbed274a2328
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 15:46:03 2020 +0600
+
+     • New Features!
+    
+    • Added SendKeys
+    • Added ZipBomb
+    • Fixed Some Bugs
+        ›› Fixed Speak
+        ›› Fixed module imports
+        ›› Fixed BSoD on shutdown
+
+commit 2440a8f851f0f9f4f5741a504d7580ccf18a43f1
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 20 15:44:30 2020 +0600
+
+     • Source Code
+
+commit c86fb8a91f667bfb65ba5d1619313f49aa8c5c49
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sat Jul 18 20:08:43 2020 +0600
+
+     •  MIT License
+
+commit 662d1938f6660ada90b3051a5bd788ef4cc6ac51
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sat Jul 18 16:24:31 2020 +0600
+
+    • MIT License
+
+commit f8fde350c0125a83be5d68b68190ee5c99126e83
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 07:59:41 2020 +0600
+
+     • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit d5a30ea6e57653099328f328b0a0222f09d14106
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 07:32:05 2020 +0600
+
+     • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 03d3fba7622fbfb292a50142046b7722466109ec
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 01:14:21 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 40a0c5b71df7ecdbb79861d61f47f6bfdae1cc6c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 01:00:16 2020 +0600
+
+     • Source Code
+
+commit 274873ddbe78ec3c6e1f6c6e9df738ac8a9a0a74
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:57:42 2020 +0600
+
+     • Source Code
+
+commit ff26413870875142c7260a3cd4891fba3e448549
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:57:20 2020 +0600
+
+     • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 1cf24fcb29b0ac8904e4e0f273b6d8faef8e623e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:48:29 2020 +0600
+
+     • Source Code
+
+commit d68fa577111c2fd04fbc393372208680e50ed2bd
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:48:08 2020 +0600
+
+    • Source Code
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 87f2cef8f5115f6b44ce727aad4ca021dc0ea3f0
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:46:28 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 3cc1255b87d2930f91e811e2952c5d2fc3365979
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:10:20 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit eaccdd41f0e9ddec549912749bb58761597ed26f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:05:01 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 3e9ae99bb65e158314e4b5f7e9f853051b8bc311
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jul 17 00:03:47 2020 +0600
+
+     • Source Code
+
+commit fbc66f428f61a7e3aee91817ceddfe0b54a670a8
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 13 22:42:38 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 132d4aa213fe6551234be9a94a0b492a5c36f17c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Jul 13 19:50:08 2020 +0600
+
+     • Source Code
+
+commit ebbce63a013574ae1e6604634f31e6857aaa7b41
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 20:21:22 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit c036fb64d7bc69d700b6580d8a65171ccd91e3b9
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 20:17:32 2020 +0600
+
+     • Source Code
+
+commit 1c824ba50b99d57b458c208b5bc2b817ffc51b97
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:32:24 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 1c2d99c7123a68c982bc3b2036eec95cb837ad83
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:32:18 2020 +0600
+
+    • New Features!
+    
+    • Wi-Fi Data
+    • FTP Client
+    • Receive Keylogs
+    • Volume Control
+    • Batch Scripting
+    • CD-ROM
+
+commit 5cfc1275d2c1499cf94925fb8c740d88aad1f50b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:31:39 2020 +0600
+
+    • Source Code
+
+commit e75fac2f70f18f9619178af96e9a3c97aff35211
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:26:03 2020 +0600
+
+    ok
+
+commit be9a2895a42edae381752e94e947b7db3163c17f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:26:01 2020 +0600
+
+    ok
+
+commit 80d636284a71c3e54a03d3f94cef51dce63bc232
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:25:59 2020 +0600
+
+    ok
+
+commit f887547e1bc2c06e704a6534bf54a354e83905b7
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:25:56 2020 +0600
+
+    ok
+
+commit d50be4cb1604bf15a9b6108a4e815daeb32b4713
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:25:33 2020 +0600
+
+    ok
+
+commit 5d2603cb8e29094e7ebc696acdf31525f3ae3b47
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:25:29 2020 +0600
+
+    ok
+
+commit ac29644705062b0ec15d52d01eef460b6effa2a6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:25:25 2020 +0600
+
+    ok
+
+commit 415d52ba99e8c5c36f3cf5e977b60466b219616e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:25:20 2020 +0600
+
+    ok
+
+commit dca09b307c3eef96f255f5bee71c1eb421fa6698
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:53 2020 +0600
+
+    ok
+
+commit 519a5657819ee94981e246c5d83d755079cb3baf
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:50 2020 +0600
+
+    ok
+
+commit ee4b021f33780b52ab13768fe3ceae3ad4e616b5
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:47 2020 +0600
+
+    ok
+
+commit 57d1f3ca5ca8e42c3ad14b120d3ab565b2e24ec9
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:45 2020 +0600
+
+    ok
+
+commit ec877ce99535aa0599fab5e439322dac5314a46e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:42 2020 +0600
+
+    ok
+
+commit 55da7660ac2e49dbe2ea0c65c992b9dfe4fc08f5
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:39 2020 +0600
+
+    ok
+
+commit d8ef8fc76ad8ddfe3fa9bc2e660e74eaad2b62d8
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:37 2020 +0600
+
+    ok
+
+commit 4b3a3bc2fb37d0e4c011a830b4727752de9ec5f0
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:35 2020 +0600
+
+    ok
+
+commit c9d0640229216c9b3192a2175b893a139c0fe4b0
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:32 2020 +0600
+
+    ok
+
+commit 6a5ae87f2ddc2a38a8ce878f2bfc759aea4c6c29
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:30 2020 +0600
+
+    ok
+
+commit c9a7d2249d02bb537fd6f742287bc17451c97835
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:27 2020 +0600
+
+    ok
+
+commit d9e7332699626938d157facf0e86d37e4ff67dbc
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:23 2020 +0600
+
+    ok
+
+commit b1d3626f5401650f4d1c4be887f944ed69cf4ca7
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:20 2020 +0600
+
+    ok
+
+commit 18251a14c9505ececb6467d97090705d7711afa5
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:24:18 2020 +0600
+
+    ok
+
+commit afc42fb9b2133d45a6d44aa4a9a15ed02f5e8486
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:23:35 2020 +0600
+
+    ok
+
+commit 3d4189f63df269abc8b302ff9f3d1024f840df3b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:23:16 2020 +0600
+
+    ok
+
+commit cb112d2c9012fccd3844f7e4bc9a98af9665dfca
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:23:13 2020 +0600
+
+    ok
+
+commit 65036bceac47030ae01835436fb75ec78ae1eba6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:23:11 2020 +0600
+
+    ok
+
+commit 0c5c7bcdf96b675100014a4e6a845efda195c22d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:23:08 2020 +0600
+
+    ok
+
+commit 13c4a8dc75d1d99c185746e7558a920568ac3588
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:23:04 2020 +0600
+
+    ok
+
+commit 1fbec86bbb976c822854afc3a431a373477d4361
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:23:02 2020 +0600
+
+    ok
+
+commit 80c68fc09a2dd0796d847145851d6cb2639c89fd
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:22:59 2020 +0600
+
+    ok
+
+commit fdda538fb805bd4dc037a6ebdd78c1f979cb6da8
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:22:56 2020 +0600
+
+    ok
+
+commit d247b385fea419d06c7f1fd838bf8819dfce992b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:22:53 2020 +0600
+
+    ok
+
+commit 8ace44fb7a0c8f65f9a03cb30358174945d70735
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:22:51 2020 +0600
+
+    ok
+
+commit f715f8c263257016ecbb10d5f79e7615e9007943
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jul 12 17:22:49 2020 +0600
+
+    ok
+
+commit afb50a428421d7ce21858173dda8acaa6ecce1da
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 28 21:06:31 2020 +0600
+
+    • New Features!
+    
+    • Location by BSSID
+    • Get CreditCards
+    • Get Bookmarks
+    • Discord Token
+
+commit 33f0b2070f17ae0f47423073b2056e940160b59f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 28 21:06:26 2020 +0600
+
+    • New Features!
+    
+    • Location by BSSID
+    • Get CreditCards
+    • Get Bookmarks
+    • Discord Token
+
+commit 1c89de13c8f2abb7d0bc9a61c86ad6c84e1b5a90
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 28 21:06:21 2020 +0600
+
+    • New Features!
+    
+    • Location by BSSID
+    • Get CreditCards
+    • Get Bookmarks
+    • Discord Token
+
+commit a52349f15d4de893da4e79c7c97c0b25c0b2b8ca
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 28 21:06:16 2020 +0600
+
+    • New Features!
+    
+    • Location by BSSID
+    • Get CreditCards
+    • Get Bookmarks
+    • Discord Token
+
+commit 3759a437074164168e0c75305e9db419cbfe0078
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:41:22 2020 +0600
+
+    • New Features!
+    
+    • Location by BSSID
+    • Get CreditCards
+    • Get Bookmarks
+    • Discord Token
+
+commit a31a872a8534abf44d6b90d6fbab47f5fbb9365e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:41:13 2020 +0600
+
+    • New Features!
+    
+    • Location by BSSID
+    • Get CreditCards
+    • Get Bookmarks
+    • Discord Token
+
+commit c213869d6dda0b2737754103b12754208b979732
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:17:12 2020 +0600
+
+    ok
+
+commit 8a97c190728af2bed402ed100de1412187fad238
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:59 2020 +0600
+
+    ok
+
+commit e033cb384d20dd5a903c34091a5ed0c1cba78c27
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:54 2020 +0600
+
+    ok
+
+commit 07093e7c5a2bc7e79577235db58d71d2737b860e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:33 2020 +0600
+
+    ok
+
+commit e8088223d9e770246e8f1e1d5f572410fb524dd6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:29 2020 +0600
+
+    ok
+
+commit a6e9366516214b94991a5c6bdf9a99f31b06679e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:24 2020 +0600
+
+    ok
+
+commit a37a1ccc41cef2deb4d2604d31d92e96d64af064
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:20 2020 +0600
+
+    ok
+
+commit c4a653fc177db445cbb868d967c06d2bd90e702c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:15 2020 +0600
+
+    ok
+
+commit ec48d609edd6a1fbd3475dc811af3b87beeecaa0
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:10 2020 +0600
+
+    ok
+
+commit 983e8cdb1c91ab1c2cc9ac3f0f10b844c62951c0
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:05 2020 +0600
+
+    ok
+
+commit 748378d53fb0ee56381f992e91730c5c8cf6410a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:16:00 2020 +0600
+
+    ok
+
+commit d146fd9019813e48cb3cb102efbb2e330d9a0091
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:15:48 2020 +0600
+
+    ok
+
+commit 87059b1f3e783760f30818cc642a22043a4cc22e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:15:40 2020 +0600
+
+    ok
+
+commit 44b86aef27cbcbcf5030956ea1cffca61f48072a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:15:33 2020 +0600
+
+    ok
+
+commit 8111053b01bd3aba4c56b573ae2cf5a9762c6571
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:15:26 2020 +0600
+
+    ok
+
+commit e6855229322277fd5fe5567d1734d7c977108792
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:15:19 2020 +0600
+
+    ok
+
+commit 8ca6e1d6203eaa0cbe4b17d0ec465f72dba0947a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:15:10 2020 +0600
+
+    ok
+
+commit 7e6aff78617c1a5034a4f41504f54f4fc70de2a2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:15:04 2020 +0600
+
+    ok
+
+commit 66e14b3f5f11b0423c013cc35b8457ce2cc526aa
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:57 2020 +0600
+
+    ok
+
+commit 6921e2a1a593d68bc9d46a3e9471bdcc4f66ac96
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:50 2020 +0600
+
+    ok
+
+commit 717056840e7ce989cb62a7106a1313b137b0b35f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:41 2020 +0600
+
+    ok
+
+commit 5e42c4c5647c1feee4fbb0a027d8686468297d27
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:35 2020 +0600
+
+    ok
+
+commit df1f9c5c58ff44a2e1191c6b4b76c943ca8ec730
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:25 2020 +0600
+
+    ok
+
+commit 708ad8fae6497df6553b7b93220222b1290f653c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:19 2020 +0600
+
+    ok
+
+commit e25163d2af2ca419a372c6c4ac3c0e83ce5a3c61
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:12 2020 +0600
+
+    ok
+
+commit 3ca521c8ebd824be8122bd2ef3c46aee05a554fb
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:14:04 2020 +0600
+
+    ok
+
+commit ce1e6bd847974ccfb00c32f9470dfd0f5509e637
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:56 2020 +0600
+
+    ok
+
+commit e2a1d064d2b93e7a645f994fce22fb3b3d79a7ae
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:46 2020 +0600
+
+    ok
+
+commit 5d3ec468371c3f82a468f877400599ce62c88b7a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:39 2020 +0600
+
+    ok
+
+commit 5c3fbc0d2f22df082ffacf521a48a5b6bade11c9
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:29 2020 +0600
+
+    ok
+
+commit 97599dd1694a440fbbe70431f6769c1ddd6fd77d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:22 2020 +0600
+
+    ok
+
+commit 056db26537c9f69d01539810180eaf6d02b5a31f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:16 2020 +0600
+
+    ok
+
+commit be720841badda99194227bad3b1e0d547f1ecddb
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:08 2020 +0600
+
+    ok
+
+commit 4fe9a3c8bd095f1c6ff63b76938c94d29f423ce6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:13:01 2020 +0600
+
+    ok
+
+commit 3077ddc013b5fec760b6081e8e42c394f9459ae6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:12:51 2020 +0600
+
+    ok
+
+commit 77b130dafc8ad5235573b327da26e093035ab197
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Jun 26 20:12:40 2020 +0600
+
+    ok
+
+commit 257b5d3a61aaccb3b07a0014b4a755a283f6f4f4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:31:51 2020 +0600
+
+    • New Features!
+    
+    • VirtualBox Detection
+    • System Information
+    • Telegram Session
+    • Monitor Control
+    • Display Rotate
+    • Bugs fixed
+
+commit a104e19ee5fd31d33152b24bc42f30ec675935a1
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:31:20 2020 +0600
+
+    • New Features!
+    
+    • VirtualBox Detection
+    • System Information
+    • Telegram Session
+    • Monitor Control
+    • Display Rotate
+    • Bugs fixed
+
+commit c69f896a845529da2f99245e337831f3b4e68e2f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:24:57 2020 +0600
+
+    ok
+
+commit 9ccb1a13cd302bc19f1b732fecccbe89b6246fca
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:24:50 2020 +0600
+
+    ok
+
+commit 63bfce97d36e3b4b5ffa4327d20eec924c1aee8f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:24:40 2020 +0600
+
+    ok
+
+commit ff2c0a6746564ec56dfd82f1dde2c5a1a4c67528
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:24:33 2020 +0600
+
+    ok
+
+commit 9d9d9a9a4f7e26d2298f87cef3d2f55137ab26e0
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:24:26 2020 +0600
+
+    ok
+
+commit bab8b4ad689e644059540ddf4ac4b356b4912d62
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:24:13 2020 +0600
+
+    ok
+
+commit 29bd8a25e35756fc0637687f62b5105863245a99
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:59 2020 +0600
+
+    ok
+
+commit c74d5f892fd334235e614a277d199dee35cb0fc6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:52 2020 +0600
+
+    ok
+
+commit 5cce12ef7c01e7ed37c78e47e83fe71f7a21a073
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:38 2020 +0600
+
+    ok
+
+commit 5f76789156e8001f6329c478c761c8faba8ea8e4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:35 2020 +0600
+
+    ok
+
+commit 715a82fc29517186cce48d50f2c64fb1118691c4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:32 2020 +0600
+
+    ok
+
+commit 3626fe1021c039473f153a8c8308ffc680113cc4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:29 2020 +0600
+
+    ok
+
+commit d20aa7d0c533bd86087829d03fcf0dd816ffe775
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:26 2020 +0600
+
+    ok
+
+commit 11c03c223d03cca731ef2e2b4e817cd72a57e7fe
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:24 2020 +0600
+
+    ok
+
+commit 134e6f7cebf1db7c9f609ab9243ca390914d7b60
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:21 2020 +0600
+
+    ok
+
+commit 850cc62b1b360de65a845a8d6b2746333bcb8d58
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:18 2020 +0600
+
+    ok
+
+commit f4a03442b4fd711e40eb12aca019cd110d8179d6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:23:15 2020 +0600
+
+    ok
+
+commit 661f94e236af992831bd58f2403dae58e3801e81
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:22:34 2020 +0600
+
+    ok
+
+commit 4d9cfbe4696ecde80f37d3aada12df7a42f19abb
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:22:31 2020 +0600
+
+    ok
+
+commit 3e1793dad012a3e7b50dc8d4707ecfe9458b897e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:22:28 2020 +0600
+
+    ok
+
+commit 65fdb6d7ffbc701a407b25137f49737280e2784b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:22:20 2020 +0600
+
+    ok
+
+commit 12441210d2229db57434a01e2c1e3222f8916ac7
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:22:09 2020 +0600
+
+    ok
+
+commit 116a5aef17704d3742d6db2b0acc123fac36cd47
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:22:02 2020 +0600
+
+    ok
+
+commit 5c736b5f3d554c61173e0862dd4c8a427dc33146
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:21:54 2020 +0600
+
+    ok
+
+commit c158697188a58f91f8d140dbd65a10f8f3ad43e4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:21:46 2020 +0600
+
+    ok
+
+commit dee6ba83d5376d415c4c8ba004003ee9c07fec98
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:21:38 2020 +0600
+
+    ok
+
+commit d2941d115d959d6dc908be00dd02b1f87ec5c98d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:21:31 2020 +0600
+
+    ok
+
+commit 3bb5ddb790672bf9adbc9504c013af2d520f9a5c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:21:21 2020 +0600
+
+    ok
+
+commit 458ef68f3348c88590a238358d8047c8b274353d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:21:13 2020 +0600
+
+    ok
+
+commit 0911550e0502d8b3f6ca56d132e29719331cf78b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:21:06 2020 +0600
+
+    ok
+
+commit bd6f0ace5ec6c31bbb04b5f8968463422a64cd3e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:20:58 2020 +0600
+
+    ok
+
+commit bc2e5109d3a426b0d95510d3a0d369211d921f94
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:20:51 2020 +0600
+
+    ok
+
+commit 7e67e3c324a7de015a0e8765907d18f0c12563a3
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:20:41 2020 +0600
+
+    ok
+
+commit 7e457f2eb83c61429cd85b332ac11f3ee806416c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:20:34 2020 +0600
+
+    ok
+
+commit 0a010847097447f3e1af62684ed989d83ac48ef4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:20:17 2020 +0600
+
+    • New Import
+
+commit 4120434d1d235b3caf5093f3c4d386fd22c1a508
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:19:32 2020 +0600
+
+    ok
+
+commit 51528403ec3e095c294b30139c85a3beee87c367
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Jun 9 20:19:24 2020 +0600
+
+    ok
+
+commit ec223ed28f0cc4a613f16db2354a986e72304695
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 21:25:21 2020 +0600
+
+    • New Features!
+    
+    • VirtualBox Detection
+    • System Information
+    • Telegram Session
+    • Monitor Control
+    • Display Rotate
+    • Bugs fixed
+
+commit 6f6e3fa5fec05c9afffaede9130b83f04d68a407
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:20:18 2020 +0600
+
+    • New Features!
+    
+    • VirtualBox Detection
+    • System Information
+    • Telegram Session
+    • Monitor Control
+    • Display Rotate
+    • Bugs fixed
+
+commit 76cbecda1134f332bbe0f29b73186fefd65ee043
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:12:16 2020 +0600
+
+    • New Features!
+    
+    • VirtualBox Detection
+    • System Information
+    • Telegram Session
+    • Monitor Control
+    • Display Rotate
+    • Bugs fixed
+
+commit c004ebd18ff4786b53b184d86fb61f9d6f3aa76b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:07:59 2020 +0600
+
+    • New Features!
+    
+    • VirtualBox Detection
+    • System Information
+    • Telegram Session
+    • Monitor Control
+    • Display Rotate
+    • Bugs fixed
+
+commit a944f811638efb7a68ec4052c95b1c34afa2d4ba
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:06:38 2020 +0600
+
+    ok
+
+commit eabbbf7148405cc60f54a614e81e2fc9a05c8a11
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:06:31 2020 +0600
+
+    ok
+
+commit 715a6aef610921a7bf3d40cdd0c4cff6dbb6ef2c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:06:23 2020 +0600
+
+    ok
+
+commit 4298675ab21435ab51b85cee4a51bbb3c467372b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:06:15 2020 +0600
+
+    ok
+
+commit baeaa811530c1ae9b72dd3608a79eafc0e8d4e67
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:06:06 2020 +0600
+
+    ok
+
+commit df3701cb1c0637155f944431da7902abffe66236
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:05:33 2020 +0600
+
+    ok
+
+commit 9b6e8fa7986394318a564f698c544897b786bc8a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:05:24 2020 +0600
+
+    ok
+
+commit 1a61b58bddd06b55e7a256d287c4d458db521e11
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:05:17 2020 +0600
+
+    ok
+
+commit 2ac692dac67b16855c55512cea528986bc64b14d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:05:08 2020 +0600
+
+    ok
+
+commit 20555babd5dc2bc63ee3551c966a2fe1514bbe47
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:59 2020 +0600
+
+    ok
+
+commit 1142e8f822ab08c31dd9bcafe00da6a2c3dd5430
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:52 2020 +0600
+
+    ok
+
+commit 74e58ee987a43bed8fec3d56da14b8d2d40367cc
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:43 2020 +0600
+
+    ok
+
+commit d4c24b98606f898badc3e1afdac460c579ec1b54
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:35 2020 +0600
+
+    ok
+
+commit f101f5c2bb10a7a4394d25ec5c484caada03ce5e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:27 2020 +0600
+
+    ok
+
+commit 141ce9c73aadccbdf0b0f2ec05c955406387b67b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:20 2020 +0600
+
+    ok
+
+commit dc61817a79179c5d8e49585eb4460984f159fdb9
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:13 2020 +0600
+
+    ok
+
+commit 0cd99b37ac726abb90dfc290baf895dc296ef067
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:04:03 2020 +0600
+
+    ok
+
+commit 982181eeba14502c8e1cd15d9741e80363334935
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:03:56 2020 +0600
+
+    ok
+
+commit 217c1fb1de72eef417497b3cbf5b016df79264e5
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:03:49 2020 +0600
+
+    ok
+
+commit db7eb2476de951661016fa824d4bf8ea993c9648
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:03:41 2020 +0600
+
+    ok
+
+commit eb0a50f05a1421bd85b76f45ba96a47f6a460087
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:03:34 2020 +0600
+
+    ok
+
+commit 9498eaf1556b85d03e41b2563f4792501a9867ff
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:03:23 2020 +0600
+
+    ok
+
+commit fbe93ddca7d43c487c91608f76163309e23b9a94
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:03:16 2020 +0600
+
+    ok
+
+commit 8249a64a06a3d4facefb15112acaaffb2521ef91
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:02:24 2020 +0600
+
+    ok
+
+commit c93e44d3ec6093533991c0ccee9d234a91ec1ad3
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:02:15 2020 +0600
+
+    ok
+
+commit c6c52db429025f7bdab4b7fd90711b951fb60ea2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:02:03 2020 +0600
+
+    ok
+
+commit 30bd940d2f4aa65979a5200b5c24af66f9859a2a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 19:01:25 2020 +0600
+
+    • New Features
+    
+    • VirtualBox Detection
+    • System Information
+    • Telegram Session
+    • Monitor Control
+    • Display Rotate
+    • Bugs fixed
+
+commit dd639d1d803ffc2c34f667caff1d83c7dd221afe
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Jun 7 18:34:10 2020 +0600
+
+    • SystemInformation \ • Telegram Session \ • Display Rotate \ • Monitor Control \ VirtualBox Detection
+
+commit ebdd417e6a009a290acfecd427b37eba7fca7d6b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:23:43 2020 +0600
+
+    Source
+
+commit 17f602d44fc31e5ac2775fd0e1e512115f55cc82
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:22:31 2020 +0600
+
+    FIX
+
+commit 702da06260daf2926aaeadeb83314eba23a59948
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:21:39 2020 +0600
+
+    Source
+
+commit aa8637a5007422007a8493c41d140fa4074b72df
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:19:42 2020 +0600
+
+    • Hibernate
+
+commit fdf5585895f2f2487792f4ceca2e057ea9bbcdf2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:17:22 2020 +0600
+
+    Source
+
+commit 4dec5e7b746645e48543daf73035748bcc10dff1
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:16:30 2020 +0600
+
+    Source
+
+commit c56a9cec3bb487e597c044fca1111482bbd43836
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:15:34 2020 +0600
+
+    Fix
+
+commit acfeb9a4b6479922a026929d3bbfd89ed789b501
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:15:08 2020 +0600
+
+    Source
+
+commit 4639ceaeb0d6545a3f556e672b35d60c16afec55
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:14:11 2020 +0600
+
+    Fix
+
+commit 82bbe44d9cb14144d577c67d399ace31cf63af0d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:13:25 2020 +0600
+
+    Fix
+
+commit 626fc1ee9d441d640538e533a8b520e35854b76f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:12:36 2020 +0600
+
+    • Added cookie stealer | Added browser history stealer | Added Hibernate
+
+commit ccb9286e63b8132d3fadf396d9f9e4bad7b69469
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 18:11:30 2020 +0600
+
+    Added Hibernate
+
+commit 47e120e9d4a64eaa5b3997f2f87be16f55fc04d1
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 28 16:31:26 2020 +0600
+
+    Delete Imports.py
+
+commit ee0f5da94f96a06fb5a2aea8328443c3c34e6733
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:24:01 2020 +0600
+
+    Fix
+
+commit aef657cb34bd18bcdea401f41cc625ec09290c31
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:23:23 2020 +0600
+
+    Fix
+
+commit a6512158712251f2e6094b492ba509943af709cb
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:18:34 2020 +0600
+
+    PyAudio Fix
+
+commit 5c2e7dcda780e6fcbc2906d55792ddee81540451
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:17:51 2020 +0600
+
+    Source
+
+commit 03fa8efeb79d80fd687900146cc9596836f49bce
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:17:30 2020 +0600
+
+    Source
+
+commit 8b1184644851db85c4094a8ce99e248d39441978
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:17:13 2020 +0600
+
+    Source
+
+commit dd8385fcbbf725aaad1a054bfd183a4384d7f4f8
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:16:48 2020 +0600
+
+    Source
+
+commit 3900a5cef4023f20d148ded33026282b29bbf2f2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:16:30 2020 +0600
+
+    Source
+
+commit cd8e4db52914d28b38dbee53abac9e128b516e7d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:16:01 2020 +0600
+
+    Source
+
+commit 97813ea75d018acc90d7c864f26e43bce687e740
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:15:44 2020 +0600
+
+    Source
+
+commit 26aebe4c9bfac241065ed104027d02f353f32bdc
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:15:07 2020 +0600
+
+    Source
+
+commit e716c216c5a05f1fe5a7e1a5840f5abf1bea6fb7
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:14:47 2020 +0600
+
+    Source
+
+commit f87d0519ba6670174661d71a05a26864674099b2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:14:24 2020 +0600
+
+    Create 1
+
+commit dbe0a0de81a785805640a22ec1393a35f25d9eef
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:13:26 2020 +0600
+
+    Source
+
+commit 7136f5703f73eb4603c683e8ce370e54527d015e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:13:04 2020 +0600
+
+    Source
+
+commit 4b8ec891ebb0e8adf95789de87c455a7e3c53584
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:12:42 2020 +0600
+
+    Fix
+
+commit 58e9cd3b272c6dc0612b8876bbec034cd9114f88
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:11:32 2020 +0600
+
+    fix
+
+commit 659a0dd34860831fbfdb37eaf85ce3e684d73f72
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:10:55 2020 +0600
+
+    Source
+
+commit eb8a9297c4f6868ebf15e9e11796633373d4f39e
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:10:26 2020 +0600
+
+    fix
+
+commit 26e586d5e325fdd8d6cc01555e76406667b1c930
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:10:05 2020 +0600
+
+    fix
+
+commit fb43800022ecff67fcbbe664a0db3307d3d238c6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:09:54 2020 +0600
+
+    Source
+
+commit fa20593be2d9b161d7ff6bcf90117996f3f24f2f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:09:08 2020 +0600
+
+    FIX
+
+commit a0c94537e1fda30fa68ebcbcd9579ad90b703a7d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:08:38 2020 +0600
+
+    Source
+
+commit 1e420aa92f0b415d198ec3a1c097bc23279c9542
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:05:56 2020 +0600
+
+    Delete e
+
+commit 95531de581df3a0925bc3c12f64322e70a993e43
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:05:40 2020 +0600
+
+    PyAudio fix
+
+commit dd50ad7b2fd7c951df6e7656cb737f50d8743b42
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:05:12 2020 +0600
+
+    Updated
+
+commit 67b28028aea423cabcf46fc4d51165fe5396e020
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:03:38 2020 +0600
+
+    • Added cookie stealer | Added browser history stealer
+
+commit 6f252713645e535f6399b5ca94cd70f949d0d779
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 18:01:17 2020 +0600
+
+    Delete RAT.py
+
+commit 921c0580c365fb412225359a7fa23f58acd7172d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 12:24:52 2020 +0600
+
+    Translated into english
+
+commit 885b2a7ae7e4999213615003e79ecbcd2c77c2c5
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 26 12:18:02 2020 +0600
+
+    Translated into english
+
+commit fabe9bc11aecb8bf07ce7eeae268eb22602ebe46
+Merge: 687ead3 d24b9fa
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun May 24 18:36:56 2020 +0300
+
+    Merge pull request #20 from Bainky/license
+    
+    MIT License
+
+commit d24b9fadc4584522ac1a4cfded79f2ad99b547f2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun May 24 21:36:18 2020 +0600
+
+    MIT License
+
+commit 687ead39cf21413e7c61b29711c57a9b259aec9c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 21 20:07:32 2020 +0600
+
+    Bugs fixed / Input blocking added / Process protection added ;)
+
+commit 2bde2a4f8da8581c6fa9e04acd8cd7dbd0e368e1
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 21 19:17:10 2020 +0600
+
+    Bugs fixed / Input blocking added / Process protection added ;)
+
+commit efb746b879c9d9cccbf5b93120f784c750ecc1af
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 21 17:52:06 2020 +0600
+
+    Bugs fixed / Input blocking added / Process protection added ;)
+
+commit fc46b1e96cd1497d3fe8089968a6415c11f49cf3
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 21 15:02:42 2020 +0600
+
+    Bugs fixed / Input blocking added / Process protection added ;)
+
+commit 934afc250a6086ea25bbea9c363a8729e83dccee
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 21 14:58:45 2020 +0600
+
+    new v19
+
+commit b2c210d231732849a8133f27b6edccc0fe67cf0d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri May 15 18:02:24 2020 +0600
+
+    bugs fixed / some features improved / additional settings added ;)
+
+commit 7d99cc99f3a1bb8b7dacff30c1e408559ad7f506
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri May 15 16:09:07 2020 +0600
+
+    new v18
+
+commit d903286873df6ccbcad3b0aebd6bd84e6eda0bfd
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed May 13 18:25:03 2020 +0600
+
+    bugs fixed / some features improved / Additional settings added ;)
+
+commit f5855502c749e0cd95deab86ad7e58d74e6d80cf
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed May 13 18:23:46 2020 +0600
+
+    new v17 | bugs fixed / some features improved / Additional settings added ;)
+
+commit 83ea9b66956e2b52054611c8b9cb1e3eaa112ac7
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed May 13 12:40:15 2020 +0600
+
+    new v17
+
+commit 47f46774d5d67216f2ccb712dbe3a68964733a75
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 7 16:02:45 2020 +0600
+
+    bugs fixed / added script settings / added remote shell
+
+commit 9c1c390eeaa08541434177cbd680d249b71fbbc4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu May 7 11:35:30 2020 +0600
+
+    fix
+
+commit 943773dcd3fe35c728bcb9af7f47f2a865fcdf15
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed May 6 19:04:13 2020 +0600
+
+    Fix
+
+commit c6a0307803a56770544edfed54fb85f7234bcf00
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue May 5 13:24:13 2020 +0600
+
+    Fix
+
+commit 14316f6982e7cf781bf42d8aa23caeb3d94971dd
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon May 4 17:56:28 2020 +0600
+
+    added remote shell / bugs fixed
+
+commit 76d81132ee35041db9e709ba3507e5ff1d2d0eaf
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon May 4 17:52:21 2020 +0600
+
+    added remote shell / bugs fixed
+
+commit e248c18ee737117ec54d98cf7edd3e7c40affc34
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon May 4 17:51:49 2020 +0600
+
+    added remote shell / bugs fixed
+
+commit dae79942c73237cae60b84984779fec5aa53b9d4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon May 4 16:35:57 2020 +0600
+
+    new features
+
+commit 51364f82a423996bd81deff7364a8abc59b2bc7b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun May 3 15:47:10 2020 +0600
+
+    Fix
+
+commit 739cca9ceb0557ef2eee2e7e2f4bd6279f428397
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri May 1 18:04:42 2020 +0600
+
+    fix
+
+commit a32c89ce8e77fb607ba3e74d745c952ca689e96f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 29 19:34:03 2020 +0600
+
+    Add FAQ
+
+commit 2cf7c2fef4633d42af493c52bf81fb4a909336cb
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 29 19:32:52 2020 +0600
+
+    Update README.md
+
+commit 9eedf7003960796db74e9e6708ec6aacbba02e24
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 29 19:32:24 2020 +0600
+
+    Add FAQ
+
+commit 96631c2193a7e9dfd7d69f60dcb6b95bcdc95f46
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Apr 28 19:46:47 2020 +0600
+
+    Update RAT.py
+
+commit ff3250c1ff3b039d01a645f6232f46dd68d459b0
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 16:08:50 2020 +0600
+
+    Update README.md
+
+commit cd1681ca00d7c5bea6cf131fc121dc988af8184d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 16:08:23 2020 +0600
+
+    Update README.md
+
+commit e62e435e461d313f33836f6901ccc06d9119f72a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 16:05:42 2020 +0600
+
+    Update README.md
+
+commit 83219488a52d52c94a6463666faafbe4f507ab98
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 16:03:46 2020 +0600
+
+    Update README.md
+
+commit e6f14b2dc89d6e9777cee2bf1ca408d01685bff1
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 15:15:48 2020 +0600
+
+    Update README.md
+
+commit 7cfe8211f3902a6c39666339147ab8eb6c060a48
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 14:26:37 2020 +0600
+
+    Update README.md
+
+commit e6a3924ecaa10b61a6b8d86a0565411d84a6fd4d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 14:26:09 2020 +0600
+
+    Update README.md
+
+commit a9d6f420179776eb47d521bcce7b3525015c19d2
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 14:24:14 2020 +0600
+
+    Update README.md
+
+commit d5c8f57b5b45a4a08340f3dc0259f7c5513b6d0b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 14:17:29 2020 +0600
+
+    Update README.md
+
+commit 8dcab176d3cff7259e6c3d83b345e8deb9c0566b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 14:13:30 2020 +0600
+
+    Update README.md
+
+commit 24cda439a7084bf14b2ff7fcf29cd9a019ee1731
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 27 13:38:28 2020 +0600
+
+    Update README.md
+
+commit 0321512c3f4cd4475962a57cb0db906c0311217f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Apr 24 12:12:54 2020 +0600
+
+    Update RAT.py
+
+commit 03d535050ee49e48c6138371d04e485986e84e7d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 23 18:14:32 2020 +0600
+
+    Update README.md
+
+commit 5dd1913054010b45bb199ccaf18d0e42745f7a9b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 23 18:13:00 2020 +0600
+
+    Update RAT.py
+
+commit 4d9998fabc091613c01424684b2040b9a1f0d676
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 23 16:42:09 2020 +0600
+
+    Update README.md
+
+commit e7d71e237fd577dd54fd883aa439ac3b0e51c72d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 23 16:41:31 2020 +0600
+
+    Update README.md
+
+commit ec795ecd872d8f4c8c52ab11071be06383f1eaf4
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 16 18:32:28 2020 +0600
+
+    Update README.md
+
+commit 60528d4c70857fd3776f0b6517e9a1797adf5493
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 16 18:31:47 2020 +0600
+
+    Update RAT.py
+
+commit 701963f151bb9d2c73fafe86097d24d4792c1bec
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 16 17:55:48 2020 +0600
+
+    Update RAT.py
+
+commit 4ab3902e5deb68bf0cc64796f112edf709a1d1e7
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 16 17:45:28 2020 +0600
+
+    Update README.md
+
+commit 805963419c59ca0476aa6fb98e8f2c0810729e9a
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 16 16:16:57 2020 +0600
+
+    Update README.md
+
+commit c1992da7faf55e551ee941b1c97a739c597cfe56
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 16 16:15:29 2020 +0600
+
+    Update README.md
+    
+    new functions
+
+commit d7102bc3fbcf129873ae703677474f6cdaeeed89
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Thu Apr 16 16:15:00 2020 +0600
+
+    new functions
+
+commit a6080ac1331c9917f14659816bc00f08edce43ec
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Fri Apr 10 19:35:15 2020 +0600
+
+    Update README.md
+
+commit e1ca93143f7287f419280c1e18e7a3079905c589
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 8 15:02:32 2020 +0600
+
+    Update RAT.py
+
+commit 7c79b45cff155be36401a84287c4450f34c7ca4d
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 8 14:55:20 2020 +0600
+
+    Update README.md
+
+commit defa9e4ee65797c568d13a561bc391ab231fe937
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 8 14:02:32 2020 +0600
+
+    Update README.md
+
+commit bac2506757c06c643177bb52b45c997064892278
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Mon Apr 6 00:17:11 2020 +0600
+
+    Add files via upload
+
+commit 1c29b4fd686e4a546826729c51571761bbfa3e67
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Apr 5 23:39:22 2020 +0600
+
+    Update README.md
+
+commit e8848ccd305459e2792667be171371cdf50a79c5
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Apr 5 00:25:00 2020 +0600
+
+    Update README.md
+
+commit 9464f9afe87d59fa0faf1c35064a00f786f68585
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Apr 5 00:24:06 2020 +0600
+
+    Update README.md
+
+commit 8d51a97e30055dad49797a2978424571431b59f6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sun Apr 5 00:22:47 2020 +0600
+
+    Update README.md
+
+commit 654e485331c83c46a420eecd9d16df223dc44fa6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sat Apr 4 19:31:54 2020 +0600
+
+    Update README.md
+
+commit c68a01ced25ace25a437be22086c73d86e9c1b18
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Sat Apr 4 19:27:40 2020 +0600
+
+    Update README.md
+
+commit fb1514d56642d75bfb8fab469cc316a11676e8a6
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 1 20:30:49 2020 +0600
+
+    Update README.md
+
+commit 2b162a40967d5bd7934d108aa636c76748a74789
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 1 20:30:27 2020 +0600
+
+    Update README.md
+
+commit cb713c6fb6349331469559b17d83fe96a208285c
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 1 20:29:17 2020 +0600
+
+    Update README.md
+
+commit 5064711f646bbc4cd57122db2a927908971451d1
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Wed Apr 1 00:30:47 2020 +0600
+
+    Update README.md
+
+commit b717f2a866acaff63a9d6fe3e618810b6c4adf65
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Mar 31 22:06:05 2020 +0600
+
+    Rename README1.md to README.md
+
+commit c74263de532d3fba013ebb14a90ed278b97b0920
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Mar 31 22:05:40 2020 +0600
+
+    Delete README.md
+
+commit bbe27eb006032d4584833665da75829b62f5728b
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Mar 31 22:03:01 2020 +0600
+
+    Update README1.md
+
+commit d486955428b85e7b2cf7219206a30240216b3c0f
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Mar 31 21:54:24 2020 +0600
+
+    Create README1.md
+
+commit 0af3fe50df8e22b2ec9bdac4e26d50cbe5ccb3bd
+Author: Bainky <61879874+Bainky@users.noreply.github.com>
+Date:   Tue Mar 31 21:41:09 2020 +0600
+
+    Create README.md

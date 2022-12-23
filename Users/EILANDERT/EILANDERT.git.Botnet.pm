@@ -1,4 +1,17 @@
 ======================: FILES :======================
+Botnet.pm
+├── Botnet.api.txt
+├── Botnet.cf
+├── Botnet.credits.txt
+├── Botnet.pl
+├── Botnet.pm
+├── Botnet.txt
+├── Botnet.variants.txt
+├── COPYING
+├── INSTALL
+└── README.md
+
+0 directories, 10 files
 ======================: README CONTENT :======================
 This is a SpamAssassin module. Comitted to github for archieving purposes.
 

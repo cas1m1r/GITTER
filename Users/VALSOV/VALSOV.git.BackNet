@@ -1,0 +1,1710 @@
+======================: FILES :======================
+BackNet
+├── BackNet.sln
+├── BackNet.sln.DotSettings.user
+├── Botnet
+│   ├── backnet.sql
+│   ├── db-co.php
+│   ├── functions.php
+│   └── index.php
+├── LICENSE
+├── Master
+│   ├── AdvancedConsole
+│   │   ├── AutoCompletionManager.cs
+│   │   ├── ColorTools.cs
+│   │   ├── CommandsHistory.cs
+│   │   ├── ConsoleTools.cs
+│   │   ├── CustomConsole.cs
+│   │   └── ProgressDisplayer.cs
+│   ├── App.config
+│   ├── Backnet-icon.ico
+│   ├── Botnet
+│   │   ├── BotnetManager.cs
+│   │   └── JSON
+│   │       ├── BaseRequestJson.cs
+│   │       ├── CheckServerJson.cs
+│   │       ├── ConnectClientJson.cs
+│   │       └── ViewHostsJson.cs
+│   ├── Commands
+│   │   ├── BrowserTornado
+│   │   │   ├── BrowserTornadoCommand.cs
+│   │   │   ├── Chrome.cs
+│   │   │   ├── CookieObject.cs
+│   │   │   └── Firefox.cs
+│   │   ├── Cmd.cs
+│   │   ├── Core
+│   │   │   ├── CD.cs
+│   │   │   ├── IMasterCommand.cs
+│   │   │   ├── IPreProcessCommand.cs
+│   │   │   ├── LCD.cs
+│   │   │   ├── LLS.cs
+│   │   │   ├── LPWD.cs
+│   │   │   ├── LS.cs
+│   │   │   ├── MasterCommandsManager.cs
+│   │   │   └── PWD.cs
+│   │   ├── Download.cs
+│   │   ├── DownloadUrl.cs
+│   │   ├── Execute.cs
+│   │   ├── Exit.cs
+│   │   ├── KeyLogger.cs
+│   │   ├── ListProcesses.cs
+│   │   ├── LoadCommands.cs
+│   │   ├── NetInfo.cs
+│   │   ├── Persistance.cs
+│   │   ├── PlaySound.cs
+│   │   ├── Screenshot.cs
+│   │   ├── StopConnection.cs
+│   │   ├── SysInfo.cs
+│   │   ├── Terminate.cs
+│   │   ├── Upload.cs
+│   │   └── Wallpaper.cs
+│   ├── Core
+│   │   ├── MasterManager.cs
+│   │   ├── MasterNetworkManager.cs
+│   │   └── Program.cs
+│   ├── Master.csproj
+│   ├── Master.csproj.user
+│   ├── packages.config
+│   └── Properties
+│       └── AssemblyInfo.cs
+├── packages
+│   ├── Accord.3.8.0
+│   │   ├── Accord.3.8.0.nupkg
+│   │   ├── build
+│   │   │   ├── Accord.dll.config
+│   │   │   └── Accord.targets
+│   │   └── lib
+│   │       ├── net35
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net35-unity full v3.5
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net35-unity micro v3.5
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net35-unity subset v3.5
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net35-unity web v3.5
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net40
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net45
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net46
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── net462
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       ├── netstandard1.4
+│   │       │   ├── Accord.dll
+│   │       │   └── Accord.xml
+│   │       └── netstandard2.0
+│   │           ├── Accord.dll
+│   │           └── Accord.xml
+│   ├── Accord.Video.3.8.0
+│   │   ├── Accord.Video.3.8.0.nupkg
+│   │   └── lib
+│   │       ├── net35
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net35-unity full v3.5
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net35-unity micro v3.5
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net35-unity subset v3.5
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net35-unity web v3.5
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net40
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net45
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net46
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       ├── net462
+│   │       │   ├── Accord.Video.dll
+│   │       │   └── Accord.Video.xml
+│   │       └── netstandard2.0
+│   │           ├── Accord.Video.dll
+│   │           └── Accord.Video.xml
+│   ├── Accord.Video.DirectShow.3.8.0
+│   │   ├── Accord.Video.DirectShow.3.8.0.nupkg
+│   │   └── lib
+│   │       ├── net35
+│   │       │   ├── Accord.Video.DirectShow.dll
+│   │       │   └── Accord.Video.DirectShow.xml
+│   │       ├── net40
+│   │       │   ├── Accord.Video.DirectShow.dll
+│   │       │   └── Accord.Video.DirectShow.xml
+│   │       ├── net45
+│   │       │   ├── Accord.Video.DirectShow.dll
+│   │       │   └── Accord.Video.DirectShow.xml
+│   │       ├── net46
+│   │       │   ├── Accord.Video.DirectShow.dll
+│   │       │   └── Accord.Video.DirectShow.xml
+│   │       ├── net462
+│   │       │   ├── Accord.Video.DirectShow.dll
+│   │       │   └── Accord.Video.DirectShow.xml
+│   │       └── netstandard2.0
+│   │           ├── Accord.Video.DirectShow.dll
+│   │           └── Accord.Video.DirectShow.xml
+│   ├── Accord.Video.FFMPEG.3.8.0
+│   │   ├── Accord.Video.FFMPEG.3.8.0.nupkg
+│   │   ├── build
+│   │   │   ├── Accord.Video.FFMPEG.targets
+│   │   │   ├── avcodec-57.dll
+│   │   │   ├── avdevice-57.dll
+│   │   │   ├── avfilter-6.dll
+│   │   │   ├── avformat-57.dll
+│   │   │   ├── avutil-55.dll
+│   │   │   ├── FFMPEG-README.txt
+│   │   │   ├── postproc-54.dll
+│   │   │   ├── swresample-2.dll
+│   │   │   └── swscale-4.dll
+│   │   └── lib
+│   │       ├── net35
+│   │       │   ├── Accord.Video.FFMPEG.dll
+│   │       │   └── Accord.Video.FFMPEG.xml
+│   │       ├── net40
+│   │       │   ├── Accord.Video.FFMPEG.dll
+│   │       │   └── Accord.Video.FFMPEG.xml
+│   │       ├── net45
+│   │       │   ├── Accord.Video.FFMPEG.dll
+│   │       │   └── Accord.Video.FFMPEG.xml
+│   │       ├── net46
+│   │       │   ├── Accord.Video.FFMPEG.dll
+│   │       │   └── Accord.Video.FFMPEG.xml
+│   │       └── net462
+│   │           ├── Accord.Video.FFMPEG.dll
+│   │           └── Accord.Video.FFMPEG.xml
+│   ├── Costura.Fody.2.0.0
+│   │   ├── build
+│   │   │   └── Costura.Fody.targets
+│   │   ├── Costura.Fody.2.0.0.nupkg
+│   │   ├── lib
+│   │   │   └── net452
+│   │   │       ├── Costura.dll
+│   │   │       └── Costura.xml
+│   │   ├── netclassictask
+│   │   │   ├── Costura.Tasks.dll
+│   │   │   └── Costura.Tasks.pdb
+│   │   ├── netclassicweaver
+│   │   │   ├── Costura.Fody.dll
+│   │   │   └── Costura.Fody.pdb
+│   │   ├── netstandardtask
+│   │   │   ├── Costura.Tasks.dll
+│   │   │   └── Costura.Tasks.pdb
+│   │   └── netstandardweaver
+│   │       ├── Costura.Fody.dll
+│   │       └── Costura.Fody.pdb
+│   ├── Costura.Fody.2.0.1
+│   │   ├── build
+│   │   │   └── Costura.Fody.targets
+│   │   ├── Costura.Fody.2.0.1.nupkg
+│   │   ├── lib
+│   │   │   └── net452
+│   │   │       ├── Costura.dll
+│   │   │       └── Costura.xml
+│   │   ├── netclassictask
+│   │   │   ├── Costura.Tasks.dll
+│   │   │   └── Costura.Tasks.pdb
+│   │   ├── netclassicweaver
+│   │   │   ├── Costura.Fody.dll
+│   │   │   └── Costura.Fody.pdb
+│   │   ├── netstandardtask
+│   │   │   ├── Costura.Tasks.dll
+│   │   │   └── Costura.Tasks.pdb
+│   │   └── netstandardweaver
+│   │       ├── Costura.Fody.dll
+│   │       └── Costura.Fody.pdb
+│   ├── Fody.3.0.0
+│   │   ├── build
+│   │   │   └── Fody.targets
+│   │   ├── Fody.3.0.0.nupkg
+│   │   ├── netclassictask
+│   │   │   ├── FodyCommon.dll
+│   │   │   ├── FodyCommon.pdb
+│   │   │   ├── Fody.dll
+│   │   │   ├── FodyHelpers.dll
+│   │   │   ├── FodyHelpers.pdb
+│   │   │   ├── FodyIsolated.dll
+│   │   │   ├── FodyIsolated.pdb
+│   │   │   ├── Fody.pdb
+│   │   │   ├── Mono.Cecil.dll
+│   │   │   ├── Mono.Cecil.Mdb.dll
+│   │   │   ├── Mono.Cecil.Mdb.pdb
+│   │   │   ├── Mono.Cecil.pdb
+│   │   │   ├── Mono.Cecil.Pdb.dll
+│   │   │   ├── Mono.Cecil.Pdb.pdb
+│   │   │   ├── Mono.Cecil.Rocks.dll
+│   │   │   └── Mono.Cecil.Rocks.pdb
+│   │   └── netstandardtask
+│   │       ├── FodyCommon.dll
+│   │       ├── FodyCommon.pdb
+│   │       ├── Fody.dll
+│   │       ├── FodyHelpers.dll
+│   │       ├── FodyHelpers.pdb
+│   │       ├── FodyIsolated.dll
+│   │       ├── FodyIsolated.pdb
+│   │       ├── Fody.pdb
+│   │       ├── Mono.Cecil.dll
+│   │       ├── Mono.Cecil.Mdb.dll
+│   │       ├── Mono.Cecil.Mdb.pdb
+│   │       ├── Mono.Cecil.pdb
+│   │       ├── Mono.Cecil.Pdb.dll
+│   │       ├── Mono.Cecil.Pdb.pdb
+│   │       ├── Mono.Cecil.Rocks.dll
+│   │       └── Mono.Cecil.Rocks.pdb
+│   ├── Fody.3.0.3
+│   │   ├── build
+│   │   │   └── Fody.targets
+│   │   ├── Fody.3.0.3.nupkg
+│   │   ├── netclassictask
+│   │   │   ├── FodyCommon.dll
+│   │   │   ├── FodyCommon.pdb
+│   │   │   ├── Fody.dll
+│   │   │   ├── FodyHelpers.dll
+│   │   │   ├── FodyHelpers.pdb
+│   │   │   ├── FodyIsolated.dll
+│   │   │   ├── FodyIsolated.pdb
+│   │   │   ├── Fody.pdb
+│   │   │   ├── Mono.Cecil.dll
+│   │   │   ├── Mono.Cecil.Mdb.dll
+│   │   │   ├── Mono.Cecil.Mdb.pdb
+│   │   │   ├── Mono.Cecil.pdb
+│   │   │   ├── Mono.Cecil.Pdb.dll
+│   │   │   ├── Mono.Cecil.Pdb.pdb
+│   │   │   ├── Mono.Cecil.Rocks.dll
+│   │   │   └── Mono.Cecil.Rocks.pdb
+│   │   └── netstandardtask
+│   │       ├── FodyCommon.dll
+│   │       ├── FodyCommon.pdb
+│   │       ├── Fody.dll
+│   │       ├── FodyHelpers.dll
+│   │       ├── FodyHelpers.pdb
+│   │       ├── FodyIsolated.dll
+│   │       ├── FodyIsolated.pdb
+│   │       ├── Fody.pdb
+│   │       ├── Mono.Cecil.dll
+│   │       ├── Mono.Cecil.Mdb.dll
+│   │       ├── Mono.Cecil.Mdb.pdb
+│   │       ├── Mono.Cecil.pdb
+│   │       ├── Mono.Cecil.Pdb.dll
+│   │       ├── Mono.Cecil.Pdb.pdb
+│   │       ├── Mono.Cecil.Rocks.dll
+│   │       └── Mono.Cecil.Rocks.pdb
+│   ├── Newtonsoft.Json.10.0.3
+│   │   ├── lib
+│   │   │   ├── net20
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── net35
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── net40
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── net45
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── netstandard1.0
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── netstandard1.3
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── portable-net40+sl5+win8+wp8+wpa81
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   └── portable-net45+win8+wp8+wpa81
+│   │   │       ├── Newtonsoft.Json.dll
+│   │   │       └── Newtonsoft.Json.xml
+│   │   ├── LICENSE.md
+│   │   ├── Newtonsoft.Json.10.0.3.nupkg
+│   │   └── tools
+│   │       └── install.ps1
+│   ├── Newtonsoft.Json.11.0.1
+│   │   ├── lib
+│   │   │   ├── net20
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── net35
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── net40
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── net45
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── netstandard1.0
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── netstandard1.3
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── netstandard2.0
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   ├── portable-net40+sl5+win8+wp8+wpa81
+│   │   │   │   ├── Newtonsoft.Json.dll
+│   │   │   │   └── Newtonsoft.Json.xml
+│   │   │   └── portable-net45+win8+wp8+wpa81
+│   │   │       ├── Newtonsoft.Json.dll
+│   │   │       └── Newtonsoft.Json.xml
+│   │   ├── LICENSE.md
+│   │   └── Newtonsoft.Json.11.0.1.nupkg
+│   ├── System.Data.SQLite.Core.1.0.106.0
+│   │   ├── build
+│   │   │   ├── net20
+│   │   │   │   ├── System.Data.SQLite.Core.targets
+│   │   │   │   ├── x64
+│   │   │   │   │   └── SQLite.Interop.dll
+│   │   │   │   └── x86
+│   │   │   │       └── SQLite.Interop.dll
+│   │   │   ├── net40
+│   │   │   │   ├── System.Data.SQLite.Core.targets
+│   │   │   │   ├── x64
+│   │   │   │   │   └── SQLite.Interop.dll
+│   │   │   │   └── x86
+│   │   │   │       └── SQLite.Interop.dll
+│   │   │   ├── net45
+│   │   │   │   ├── System.Data.SQLite.Core.targets
+│   │   │   │   ├── x64
+│   │   │   │   │   └── SQLite.Interop.dll
+│   │   │   │   └── x86
+│   │   │   │       └── SQLite.Interop.dll
+│   │   │   ├── net451
+│   │   │   │   ├── System.Data.SQLite.Core.targets
+│   │   │   │   ├── x64
+│   │   │   │   │   └── SQLite.Interop.dll
+│   │   │   │   └── x86
+│   │   │   │       └── SQLite.Interop.dll
+│   │   │   └── net46
+│   │   │       ├── System.Data.SQLite.Core.targets
+│   │   │       ├── x64
+│   │   │       │   └── SQLite.Interop.dll
+│   │   │       └── x86
+│   │   │           └── SQLite.Interop.dll
+│   │   ├── lib
+│   │   │   ├── net20
+│   │   │   │   ├── System.Data.SQLite.dll
+│   │   │   │   ├── System.Data.SQLite.dll.config
+│   │   │   │   └── System.Data.SQLite.xml
+│   │   │   ├── net40
+│   │   │   │   ├── System.Data.SQLite.dll
+│   │   │   │   ├── System.Data.SQLite.dll.config
+│   │   │   │   └── System.Data.SQLite.xml
+│   │   │   ├── net45
+│   │   │   │   ├── System.Data.SQLite.dll
+│   │   │   │   ├── System.Data.SQLite.dll.config
+│   │   │   │   └── System.Data.SQLite.xml
+│   │   │   ├── net451
+│   │   │   │   ├── System.Data.SQLite.dll
+│   │   │   │   ├── System.Data.SQLite.dll.config
+│   │   │   │   └── System.Data.SQLite.xml
+│   │   │   └── net46
+│   │   │       ├── System.Data.SQLite.dll
+│   │   │       ├── System.Data.SQLite.dll.config
+│   │   │       └── System.Data.SQLite.xml
+│   │   └── System.Data.SQLite.Core.1.0.106.0.nupkg
+│   └── System.Data.SQLite.Core.1.0.108.0
+│       ├── build
+│       │   ├── net20
+│       │   │   ├── System.Data.SQLite.Core.targets
+│       │   │   ├── x64
+│       │   │   │   └── SQLite.Interop.dll
+│       │   │   └── x86
+│       │   │       └── SQLite.Interop.dll
+│       │   ├── net40
+│       │   │   ├── System.Data.SQLite.Core.targets
+│       │   │   ├── x64
+│       │   │   │   └── SQLite.Interop.dll
+│       │   │   └── x86
+│       │   │       └── SQLite.Interop.dll
+│       │   ├── net45
+│       │   │   ├── System.Data.SQLite.Core.targets
+│       │   │   ├── x64
+│       │   │   │   └── SQLite.Interop.dll
+│       │   │   └── x86
+│       │   │       └── SQLite.Interop.dll
+│       │   ├── net451
+│       │   │   ├── System.Data.SQLite.Core.targets
+│       │   │   ├── x64
+│       │   │   │   └── SQLite.Interop.dll
+│       │   │   └── x86
+│       │   │       └── SQLite.Interop.dll
+│       │   └── net46
+│       │       ├── System.Data.SQLite.Core.targets
+│       │       ├── x64
+│       │       │   └── SQLite.Interop.dll
+│       │       └── x86
+│       │           └── SQLite.Interop.dll
+│       ├── lib
+│       │   ├── net20
+│       │   │   ├── System.Data.SQLite.dll
+│       │   │   ├── System.Data.SQLite.dll.config
+│       │   │   └── System.Data.SQLite.xml
+│       │   ├── net40
+│       │   │   ├── System.Data.SQLite.dll
+│       │   │   ├── System.Data.SQLite.dll.config
+│       │   │   └── System.Data.SQLite.xml
+│       │   ├── net45
+│       │   │   ├── System.Data.SQLite.dll
+│       │   │   ├── System.Data.SQLite.dll.config
+│       │   │   └── System.Data.SQLite.xml
+│       │   ├── net451
+│       │   │   ├── System.Data.SQLite.dll
+│       │   │   ├── System.Data.SQLite.dll.config
+│       │   │   └── System.Data.SQLite.xml
+│       │   └── net46
+│       │       ├── System.Data.SQLite.dll
+│       │       ├── System.Data.SQLite.dll.config
+│       │       └── System.Data.SQLite.xml
+│       └── System.Data.SQLite.Core.1.0.108.0.nupkg
+├── Plugins
+│   ├── Webcam_master
+│   │   ├── Class1.cs
+│   │   ├── Properties
+│   │   │   └── AssemblyInfo.cs
+│   │   └── Webcam_master.csproj
+│   └── Webcam_slave
+│       ├── Class1.cs
+│       ├── costura32
+│       │   ├── avcodec-57.dll
+│       │   ├── avdevice-57.dll
+│       │   ├── avfilter-6.dll
+│       │   ├── avformat-57.dll
+│       │   ├── avutil-55.dll
+│       │   ├── postproc-54.dll
+│       │   ├── swresample-2.dll
+│       │   └── swscale-4.dll
+│       ├── FodyWeavers.xml
+│       ├── packages.config
+│       ├── Properties
+│       │   └── AssemblyInfo.cs
+│       └── Webcam_slave.csproj
+├── README.md
+├── Shared
+│   ├── ExitException.cs
+│   ├── GlobalCommandsManager.cs
+│   ├── GlobalNetworkManager.cs
+│   ├── ICommand.cs
+│   ├── NetworkException.cs
+│   ├── Properties
+│   │   └── AssemblyInfo.cs
+│   ├── Shared.csproj
+│   └── StopSlaveException.cs
+└── Slave
+    ├── App.config
+    ├── app.manifest
+    ├── App.xaml
+    ├── App.xaml.cs
+    ├── Botnet
+    │   ├── BotnetManager.cs
+    │   └── GetCommandFromServerJson.cs
+    ├── Commands
+    │   ├── BrowserTornado.cs
+    │   ├── Cmd.cs
+    │   ├── Core
+    │   │   ├── CD.cs
+    │   │   ├── LS.cs
+    │   │   ├── PWD.cs
+    │   │   └── SlaveCommandsManager.cs
+    │   ├── Download.cs
+    │   ├── DownloadUrl.cs
+    │   ├── Execute.cs
+    │   ├── KeyLogger
+    │   │   ├── KeyboardHook.cs
+    │   │   ├── KeyboardKeys.cs
+    │   │   ├── KeyLoggerCommand.cs
+    │   │   ├── KeyLoggerManager.cs
+    │   │   └── Logger.cs
+    │   ├── ListProcesses.cs
+    │   ├── LoadCommands.cs
+    │   ├── NetInfo.cs
+    │   ├── Persistance.cs
+    │   ├── PlaySound.cs
+    │   ├── Screenshot.cs
+    │   ├── StopConnection.cs
+    │   ├── SysInfo.cs
+    │   ├── Terminate.cs
+    │   ├── Upload.cs
+    │   └── Wallpaper.cs
+    ├── Core
+    │   ├── Config.cs
+    │   ├── SlaveManager.cs
+    │   └── SlaveNetworkManager.cs
+    ├── FodyWeavers.xml
+    ├── MainWindow.xaml
+    ├── MainWindow.xaml.cs
+    ├── packages.config
+    ├── Properties
+    │   ├── AssemblyInfo.cs
+    │   ├── Resources.Designer.cs
+    │   ├── Resources.resx
+    │   ├── Settings.Designer.cs
+    │   └── Settings.settings
+    ├── Slave.csproj
+    └── Slave.csproj.user
+
+160 directories, 400 files
+======================: README CONTENT :======================
+# BackNet
+<img src="https://ci.appveyor.com/api/projects/status/x9x4tirpwb1ce74d/branch/master?svg=true"> <a href="https://www.codefactor.io/repository/github/valsov/backnet"><img src="https://www.codefactor.io/repository/github/valsov/backnet/badge" /></a>
+
+BackNet is a command line remote administration tool for Windows, written in C#.
+Able to achieve persistance and communicate with a botnet server, it works over a reverse TCP connection, avoiding firewall issues.
+
+Creating commands is fairly easy, feel free to contribute !
+
+## Features
+
+Most notable remote commands :
+- Keylogger
+- Webcam control
+- File upload and download
+- Remote program execution
+- System informations
+- Local Area Network scan
+- Wifi profiles informations dump (including passwords)
+- Firefox and Google Chrome databases information extraction
+- Remote shell
+- Persistance
+- LoadCommands - allows you to load commands from DLLs at runtime
+
+**More to come !**
+
+## Structure
+
+BackNet consists in 3 projects :
+- **Master** : The console application used to interact with the slave by sending commands. It can also be used to issue commands to the botnet server.
+- **Slave** : The WPF application to deploy on the computer you wish to monitor and control.
+- **Shared** : DLL that contains global mechanics for the Master and Slave projects. For example, the network manager. A DLL is not welcome in a lot of scenarios when using the Slave, so a reference embedding tool is used for the slave project : [Costura Fody](https://github.com/Fody/Costura)
+
+Communication between the Master and Slave was made easy, you can send and read lines, as well as send and receive files in just one line.
+
+Send a line of text
+```cs
+GlobalCommandsManager.networkManager.WriteLine("Hello !");
+```
+Read a line of text
+```cs
+string message = GlobalCommandsManager.networkManager.ReadLine();
+```
+
+Send a file over the network, using a FileStream
+```cs
+GlobalCommandsManager.networkManager.StreamToNetworkStream(fileStream);
+```
+Receive a file over the network
+```cs
+GlobalCommandsManager.networkManager.NetworkStreamToStream(fileStream);
+```
+
+
+File transferts come with a nice progress bar !
+
+## Commands
+
+Commands are located in both the Master and Slave projects. In order to create a new command, you will have to create two files containing the new command class, in the Master project and Slave project. A command class should be internal.
+A command will first be sent to the Slave, then processed by the Master (to process the Slave messages)
+
+- The Master commands must implement the IMasterCommand interface
+	- **name** : how to call your command from the Master interface
+	- **description** : describe what it will do
+	- **isLocal** : should this command only be executed on the master side ? (example : lcd - local change directory)
+	- **validArguments** : list of string representing the command arguments syntax, will be described below
+	- **Process(List\<string> args)** : the actual code executed on the Master side
+	- **PreProcess(List\<string> args)** -optional- : if your command needs to do some checks on the Master side before sending the command to the Slave, just make your IMasterCommand class implement the IPreprocessCommand interface as well 
+
+- The Slave commands must implement the ICommand interface
+	- **name** : same as the one in the IMasterCommand
+	- **Process(List\<string> args)** : code executed on the Slave side, this is usually where most of your work goes !
+
+Valid arguments are stated in a string which must follow those rule:
+- If there is no arguments for the command, then null
+- "?" is for a string, and "0" is for an integer
+- If a string is confidential, add a "\*" => "?\*", this way, it will not be sent to the slave as is
+- ? arguments must be followed by a [ArgumentName] => example: "?:[filename]" or "?\*:[filename]"
+
+Example : **download** command
+```cs
+public List<string> validArguments { get; set; } = new List<string>()
+{
+    "?:[remoteFileName] ?*:[localFileName]"
+};
+```
+The arguments are composed of two strings, the remote file name and the local file name. The latter won't be sent to the slave because it is confidential, so it's marked with a star.
+
+## Botnet
+
+Backnet was designed to communicate with a botnet server to issue commands to all the registered Slaves. This way, you can make a registered Slave connect to you (Master) and send commands  directly to it.
+More botnet commands will be added, like DDOS, bitcoin mining, etc...
+Of course, this behaviour is optional and requires you to setup a botnet server.
+
+PHP source code for the botnet server is avaible in the 'botnet' folder. The database engine used in this project is MySQL.
+<br>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/valsov/BackNet/blob/master/LICENSE) file for details
+====================== GIT HISTORY: ======================
+70c2c2f HEAD@{0}: clone: from https://github.com/valsov/BackNet
+commit 70c2c2fa40ff6f4390919cd5253215ccda010be9
+Merge: b40419f 2a2e8ae
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Mon May 28 18:07:49 2018 +0200
+
+    Merge branch 'Dev'
+
+commit 2a2e8ae698d75fcac59439147e70c1b5f6453ac7
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Mon May 28 18:07:27 2018 +0200
+
+    Readme update
+
+commit 4618ec928fd29c7808327904ce1357252055a743
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Mon May 28 18:02:24 2018 +0200
+
+    Webcam command as plugin
+    
+    The webcam just takes too much space with the DLLs, so it is now a plugin
+
+commit 2df024605ac5274d8bff198e7588956b5be450fa
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Mon May 28 18:01:29 2018 +0200
+
+    Plugin system
+
+commit 574f4e8f10819da5f7268ad2c80fa539c8a5aaef
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Sat May 26 15:55:52 2018 +0200
+
+    Keylogger tweaks
+
+commit e2d7d318df9f0c1a589542ae88550292288cb27c
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Sat May 26 15:55:26 2018 +0200
+
+    Better persistance
+
+commit c3ec0277d26e515c4bf4fdf404c5dc00effb6fc3
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Wed May 16 16:48:27 2018 +0200
+
+    Keylogger file logging
+
+commit 71867ac7d07e06ba9cec9fa440c1b98ea54756c8
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Sun May 6 23:03:39 2018 +0200
+
+    Persistance command
+    
+    As well as Config.debug usage
+
+commit 89c77d8705e454ececc2e15b4cfb201bd4ffba19
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Sun May 6 23:01:54 2018 +0200
+
+    Use of Costura Fody to embed DLL for slave
+
+commit 4cd250e8355adab4a647d9dc1e36fa47084bc4fb
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Sun May 6 22:58:07 2018 +0200
+
+    Better visibility on multiple menus
+
+commit a37324f9e68db73180111e609aeb154a6d9a55c6
+Merge: 941f33b b40419f
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Wed May 2 20:49:04 2018 +0200
+
+    Merge branch 'master' into Dev
+
+commit b40419fcb1d01b34deb884d8fedf2765125a3f28
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue May 1 21:37:04 2018 +0200
+
+    Solution file update for botnet
+
+commit e28e199b0b306b40bc8e572c6fba869b17064a70
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue May 1 21:15:12 2018 +0200
+
+    Botnet server files and database
+
+commit 6d41212ab39e1ab2df5d3a741bf121114ee39a76
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue May 1 21:07:29 2018 +0200
+
+    IMasterCommand summary update
+
+commit cd95b19cbe005aaf680a0256e43c38e0b02d030b
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue May 1 21:01:40 2018 +0200
+
+    Markdown...
+
+commit 9d8a477be0644e5b2ffbf91e84f0541ff8f38aac
+Merge: c588ee3 941f33b
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue May 1 20:59:21 2018 +0200
+
+    Merge branch 'Dev'
+
+commit 941f33b75c43b086e0b9d2ae4155b90078069efa
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue May 1 20:57:39 2018 +0200
+
+    Updates
+
+commit 573a3d78b009a8290671ed97c6341918503ad721
+Merge: 09f4ee8 c588ee3
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue May 1 20:36:46 2018 +0200
+
+    Merge branch 'master' into Dev
+
+commit c588ee384086da0166474ff2f5e54e101eec4b90
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Thu Apr 19 01:00:02 2018 +0200
+
+    Readme update
+
+commit 4d1385eb440f0e75e228eb876f2d57dbd0d682af
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Thu Apr 19 00:59:17 2018 +0200
+
+    Better code highlights
+
+commit 091ad12768eb658ca29290e80eca50eff180ab20
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Thu Apr 19 00:52:56 2018 +0200
+
+    Readme update
+
+commit 6c0ebdba193d502483d55ddd160afdd3d1ef7f13
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Wed Apr 18 00:33:25 2018 +0200
+
+    Travis doesn't support WPF, using AppVeyor
+
+commit bcc907997d450c8b2a973893bdf72e4d28ab6312
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Wed Apr 18 00:08:40 2018 +0200
+
+    Code cleanup
+
+commit a71251afd5ae5740bd0ffb4df019d9aef2b2cc61
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 20:03:54 2018 +0200
+
+    No travis after all
+
+commit 6e71f72c8abee3c7c125c411b6e0c19674aa816c
+Merge: aedb9ef 09f4ee8
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:57:02 2018 +0200
+
+    Merge branch 'Dev'
+
+commit 09f4ee81801a3e8fcf535b261775c15731325bdf
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:55:36 2018 +0200
+
+    Travis
+
+commit aedb9eff482b38b87515a4ad7d777a35cbe78e18
+Merge: 992fa81 5744169
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:32:39 2018 +0200
+
+    Merge branch 'Dev'
+
+commit 5744169a4fadf871389e86687ca8f41767a175dd
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:31:23 2018 +0200
+
+    MIT license add
+    
+    And readme update
+
+commit 992fa81f2fdf2ba20f89282b79d304594251389c
+Merge: ce20c24 0cb6b0c
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:13:24 2018 +0200
+
+    Merge branch 'Dev'
+
+commit 0cb6b0cf26a5a84b809c832a6c043c960be302ae
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:08:57 2018 +0200
+
+    Typos
+    
+    As well as a typo in the default buffer size, unlucky
+
+commit f1f11634a2c0b702ee98e677ef4e6d7174604796
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:08:15 2018 +0200
+
+    BrowserTornado shouldn't use Sleeps
+    
+    Sleeps are evil... mostly
+
+commit 87ec6966031f1e698a425a7dfd776812f31d6e58
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:07:32 2018 +0200
+
+    Commands history proper reset
+
+commit 5aa5adf93f8f50d26ac77dac4b7c3d3735f715c1
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 17 19:06:40 2018 +0200
+
+    Keylogger instance manipulation simplified
+    
+    A really good simplification !!!
+
+commit cd8b72b57ae0db737b2f0900b08e55175eb7f0f7
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Mon Apr 16 18:18:13 2018 +0200
+
+    Help messages colored
+
+commit f08255cad9a460ee829d0ccecc19b36e52f728c7
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Mon Apr 16 18:17:43 2018 +0200
+
+    Fixed Netinfo ICommand network scan memory consumption issue
+
+commit 6bc394ae7ac20111c1ba56e9ededbdeb559a002f
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Wed Apr 11 10:36:18 2018 +0200
+
+    Colored syntax
+
+commit e1229197b7e7be166e8a8f93c17d862eaba49390
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Wed Apr 11 10:13:05 2018 +0200
+
+    StopConnection edit
+    
+    Kill program if no botnet server was specified
+
+commit ce20c240ddb00bd6ee2ee666337915e8a25a97cb
+Merge: d5b56be ce0c346
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 10 21:08:18 2018 +0200
+
+    Merge branch 'Dev'
+
+commit ce0c3469a2c2471328a6b9c1344468d5d79312b5
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 10 21:07:19 2018 +0200
+
+    BrowserTornado integration
+
+commit 0613ce08e33f0879f9648b56e38e477a8e4e4876
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 10 21:06:33 2018 +0200
+
+    Command history no duplicates
+
+commit 08bbbaa56664f40243ca573ac5eda7cef4e5165d
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Tue Apr 10 21:06:01 2018 +0200
+
+    Quotted arguments bug fix
+
+commit 90e63ac9103219905d33196ce2b496f3d8e23720
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Mon Apr 9 14:59:16 2018 +0200
+
+    Reference to keylogger github project
+
+commit aed7a2a7be98c4fe373bcacab41dd9f3faf70497
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Sat Apr 7 01:08:27 2018 +0200
+
+    Huge renaming => refactor
+    
+    Much clearer this way :
+    Client -> Master
+    Server -> Slave
+
+commit 94129541767275b5e67fdbd1715f1cc147a747ea
+Author: valsov <valentin.sovignet@epsi.fr>
+Date:   Fri Mar 30 20:40:38 2018 +0200
+
+    Keylogger ICommand moved inside its folder
+
+commit eac4266cd35495ddafd738f53688641821766031
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Mar 20 19:39:22 2018 +0100
+
+    Netinfo LAN scan implementation
+
+commit c242b9a0e8f2a002cd29e8290cb723d7bebc4cf1
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Mar 20 19:39:08 2018 +0100
+
+    Connection is a success, not a message
+
+commit b497b7e0385b920ec482e5cd4143b2a9d8a54139
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Mar 20 19:38:44 2018 +0100
+
+    Command messages preffix changed
+    
+    [+] => [ ]
+
+commit 90c37ad0fe4771c7e6a7655f6e5d31d0cbf5a810
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Mar 20 16:14:41 2018 +0100
+
+    Command args parser error handling fix
+
+commit e10acc95a4245f68af741f4c7a55497e002a00ee
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Mar 20 14:13:52 2018 +0100
+
+    Syntax helper removed, embed in validArguments
+
+commit d5b56beeaeae61e1b4eea3a9ae39b4715af6bedc
+Merge: 17b34c0 5bb9619
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Mar 20 10:46:48 2018 +0100
+
+    Merge branch 'Dev'
+
+commit 5bb961990a092e6e76cd6ea15473c18d9d98049b
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Mar 20 10:45:03 2018 +0100
+
+    Data length sent inside StreamToNetworkStream
+
+commit 868cbb17df1b1feb2f6ea68206fefd131b3861f3
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Mar 19 20:25:26 2018 +0100
+
+    PreProcessCommand handling bug fix
+    
+    Not so smart............
+
+commit 80570f17c2356768ba53f7984f88f925fd98822c
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Mar 19 20:20:10 2018 +0100
+
+    Video implementation for webcam Command
+
+commit 020b1cd4db22b54d9f9cc69da660c00b4eb23ff1
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Mar 19 13:53:37 2018 +0100
+
+    IPreprocessCommand
+    
+    You can make  your commands implement the IPreProcessCommand interface to do some checks before sending the command to the server
+
+commit 8896efc2af577ce19f193603971d04d184c95d98
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Thu Mar 8 13:35:04 2018 +0100
+
+    User's informations disclosure avoided
+    
+    Added a syntax to specify confidential parameters in commands
+
+commit 4b95ea316c7b4f7e9692f5ab3490a3a72295f6a6
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Thu Mar 8 13:32:05 2018 +0100
+
+    Arguments handling for Execute ICommand
+
+commit fcd7312b7904b0fcc0578d2aed094b35b93af6bc
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Thu Mar 8 08:45:47 2018 +0100
+
+    AutoComplete fix
+
+commit b9f36482353cec2f25d5811f57c7cbb378e96449
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Thu Mar 8 08:25:22 2018 +0100
+
+    Completion meter - show bytes
+
+commit 407a51bfd521ae51803a0fb34d14d08cca18d5d1
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Mar 7 08:14:08 2018 +0100
+
+    Custom Console CTRL+LARROW or CTRL+RARROW
+
+commit 03ae162b603ff3c86ecbf2276e57cf0f34ec69a0
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Mar 7 08:13:27 2018 +0100
+
+    Misc fixes
+
+commit f980950195d71ec4311db32c60ee76b4ca1b25d4
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Mar 5 17:59:29 2018 +0100
+
+    CTRL+L clear console OutOfRangeEx fix
+    
+    Forgot to set first char height after conole clear with ctrl+l
+
+commit b8dc75af3b0fa19a94721a3a9bbeccb0c7ca481e
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Mar 5 10:09:59 2018 +0100
+
+    Completion meter - display each percentage
+    
+    Before, it only displayed (x % 2 == 0) percentages
+
+commit 3d577cc4d69a0c06bc188999aa1d9993388a47c1
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Mar 4 15:17:45 2018 +0100
+
+    LS and LLS hours format fix
+
+commit 92bd059743cd2291527419088ede1d637cc6b50f
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Mar 4 15:17:26 2018 +0100
+
+    Completion meter for uploads and downloads
+
+commit 63c24d94fccce2b85c4035319000b221f342afdf
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Mar 4 11:00:43 2018 +0100
+
+    Naming adjusted
+
+commit 17b34c05a6ea6ff0a799e3cdce6dd313824e36cb
+Merge: f31fb47 540442b
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 23:49:24 2018 +0100
+
+    Merge branch 'Dev'
+
+commit 540442b95b0fa0b9fe21b8f075c74581501d5cfc
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 22:28:36 2018 +0100
+
+    Removing multiple projects, adding folders
+    
+    Alot of projects is apparently a bad practice and makes solution slower to build
+
+commit 3554627e80ddec637feae70bf2c23c274c703b47
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 20:02:20 2018 +0100
+
+    Better server exception catching
+
+commit 291acf64752c0ed24f07ba2d613591ff21e9f72b
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 19:32:19 2018 +0100
+
+    MonitorConnection tweak
+    
+    MonitorConnection() no longer check if the connection is active when the user is outside the RunClient() method
+
+commit a2d6a6ae38eedf4cb8b45182d19b31a2153e8690
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 19:11:21 2018 +0100
+
+    Sysinfo admin checking functionnal and vm detection fixed
+
+commit e66d8ff59de2d88823f0bc742504b0eb5fb05721
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 18:36:47 2018 +0100
+
+    Clarification in error description - client botnet manager
+
+commit c254dd97e1afb19fad8c0bc21ccb0fba9395cd4e
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 18:34:19 2018 +0100
+
+    Command parser error fix
+    
+    When an empty argument was in the valid syntax list valid, all other valid syntaxes were voided
+
+commit ac3c63bfa012a2c022866b97609e434be3e4bea1
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 18:33:00 2018 +0100
+
+    Connection to client retry delay fixed
+    
+    Server wasn't decrementing retry count when couldn't connect to client, which caused infinite retry. Added a delay between each try
+
+commit 4af1ef9f349c15164e82987a22717662300c1ca6
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Mar 3 18:31:43 2018 +0100
+
+    WifiInfo command
+
+commit 65526bb9f6d210d3d4450ebc4d3144e4ce842986
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Feb 25 20:26:13 2018 +0100
+
+    Crypter project : files deleted
+
+commit 3bfd4e2b45d26b8464f97a49d22f113f104ece6d
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Feb 25 20:22:36 2018 +0100
+
+    Deleted Crypter project
+    
+    This is too evil to be put in this project. Simply no implementation of the cryptolocker
+
+commit 16e26f3e93100e5eb07638f47b481cff2dbb0f3a
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Feb 25 20:20:37 2018 +0100
+
+    Fixed unexpected error in Exception type detection
+    
+    typeof(Exception) obviouly wasn't the right choice... Using ex.GetType() was...
+
+commit 4a9cc7205d7f597ffdf10e3a22e56be9c7eca498
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Feb 25 18:56:42 2018 +0100
+
+    Bunch of changes and BOTNET !!!
+    
+    A lot of changes, but mainly the botnet implementation
+
+commit 8ce126a5eb0c64104dd207ef77688362d1f121e1
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 17 13:57:50 2018 +0100
+
+    Custom console implementation
+    
+    Add a CustomConsole to replace Console.ReadLine(), this allows auto-completion for commands and some other features. ColorTools has been moved in this project. The banner and command prompt also moved to this project.
+
+commit 455e1f146691a6ee8db416decc51911b1cddf879
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 17 13:02:26 2018 +0100
+
+    GetOpenPrograms renamed ListProcesses
+
+commit c635df29b4d9a3be5c56644847ca34c20e2c8dd8
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 17 12:59:58 2018 +0100
+
+    Aesthetic fix on disconection message
+
+commit 07d46a8e9a27706a6240ba678e595bcca294d6e6
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Feb 6 13:12:12 2018 +0100
+
+    Removed unnecessary usings and sort them
+    
+    Solution wide
+
+commit 0601038195c4a2ac4088695cccfc4a5d79663543
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Feb 6 11:06:59 2018 +0100
+
+    Csproj and sln files mess cleaned
+
+commit f21078d25bf4da59f8885a68741b21d0e7e3e8ca
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Feb 6 10:57:50 2018 +0100
+
+    Shared abstract CommandsManager
+
+commit cea14e1e3ae42cdd2a4256bfd803ae525b27729c
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Feb 5 17:05:11 2018 +0100
+
+    Remove PreProcess method for Icommand
+
+commit e7ac90260ec4107ee9f9ab18f4d1b5dca7b9c083
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Feb 5 16:24:38 2018 +0100
+
+    Command project splitted into 2 projects
+    
+    ClientCommands and ServerCommands created based on the Commands project.
+
+commit f31fb4754365eeda74c41059a7b811fa363d63c5
+Merge: 2c77056 907ef7c
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 17:51:53 2018 +0100
+
+    Merge branch 'Dev'
+
+commit 907ef7c28621c3a889d3e92d7fc1d1267058f25f
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 17:31:44 2018 +0100
+
+    Execute program ICommand
+
+commit a51803f03aeb4fbdd6a8248bfed0ab1c7536e414
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 15:54:45 2018 +0100
+
+    cd ls pwd ICommand
+
+commit ac36a0828e0c462c3d9d34af128b5edf74405e5a
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 14:22:07 2018 +0100
+
+    Add specific exception for network faults
+
+commit 8ce86b8e589c1fba0cfd4227df1f8fc32ba72bbf
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 13:56:23 2018 +0100
+
+    NetworkManager deleted
+    
+    Linked with the previous commit about spliting this project into classes
+
+commit 243084b93e05f5ad52862de57d72f993b1bc4bd9
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 13:53:41 2018 +0100
+
+    NetworkManager project splited into classes
+    
+    Both the ServerNetworkManager and the ClientNetworkManager were accessible by both the server and the client, which was a code structure issue.
+
+commit cef90a4d88de33e43c2c5f638bd178256c6853fb
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 13:14:44 2018 +0100
+
+    Window stealth (commented out)
+
+commit ee1fcc7a50f3d413432f0ec96fccdbffa0d119c4
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 13:14:01 2018 +0100
+
+    CheckCommandSyntax now accepts null in argument list
+
+commit 08b964894ca55ec11ebf52d956f55c1ed89b0649
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Feb 3 13:13:20 2018 +0100
+
+    Final banner and prompt
+
+commit 0003a20d8cad508a44e2963db3863e33aacbeb38
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 28 22:37:44 2018 +0100
+
+    Unexpected error fixed in DownloadUrl ICommand
+    
+    This removed some useless complexity
+
+commit 2c770565b22a39ff1be3e35c06d5168ea4077574
+Merge: a65d57c 9d5574a
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Thu Jan 25 09:10:13 2018 +0100
+
+    Merge branch 'Dev'
+
+commit 9d5574adf8465f916a8aedcbb02bb767d4fa8271
+Merge: 91896b7 86c3344
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 14:21:07 2018 +0100
+
+    Merge remote-tracking branch 'origin/Dev' into Dev
+
+commit 91896b724d7d50bb623b580f40f904058a979210
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 14:20:57 2018 +0100
+
+    Sysinfo 'processor' info description updated
+
+commit aa405057e7912313ce82702ce6ca0b3094bea812
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 14:20:17 2018 +0100
+
+    Valid syntax list simplification
+    
+    Remplaced List<List<Type>> by List<string> , so a new validation system as well
+
+commit 86c3344dd3d1ce767f74f77e857f1844d07b23e0
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 14:06:40 2018 +0100
+
+    Sysinfo Processor info description updated
+
+commit 936280971ba2fc83528173922fd76b4444de336e
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 14:05:07 2018 +0100
+
+    Simplification de la liste des syntaxes valides
+    
+    Remplacement des List<List<Type>> par List<string> et donc nouveau système de vérification
+
+commit 66207cd6f3fc6f0a21c4636a1233d1e7949df911
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 11:52:56 2018 +0100
+
+    Help display improved
+
+commit 0ce8c09d4e02242331fd8963ee513b51e4e013f5
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 11:52:29 2018 +0100
+
+    ColorTools beautifier
+
+commit 11ed27b2293b214983c0d1e2981a5d6baf664e11
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 24 11:52:08 2018 +0100
+
+    Sysinfo virtual machine detection
+
+commit e737765479843508b94beeeea93bbfe995d89277
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 22 13:05:21 2018 +0100
+
+    HearthBeat message no longer processed
+    
+    Simple "." is no longer processed by the server, as it as no other function than checking if the connection is still alive
+
+commit ec8b6549346b9785343e59052841a4ac2c6898e6
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 22 13:03:29 2018 +0100
+
+    Cmd ICommand small fix
+    
+    Remove the last cmd prompt message when typing 'exit' in the cmd
+
+commit e2d19793974e6d9496252fa2624f37b5c8ba4815
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 21:02:23 2018 +0100
+
+    Added an information to Sysinfo ICommand
+
+commit eb33536b43ab1673cce7d68ad54b1401a42f17a8
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 21:02:03 2018 +0100
+
+    AskListenAgain error fix
+
+commit 8ccf49c57e9d88b866695587f8a1eaf3852bab6d
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 21:01:43 2018 +0100
+
+    GetSplittedCommand takes into account quotes
+
+commit a65d57c67d07b23ffae1ec0687faa258d1f9e42c
+Merge: 29b833d 30979e5
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 14:49:37 2018 +0100
+
+    Merge branch 'Dev'
+
+commit 30979e551dda2c8cb02081445178bf241d7fe8ed
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 14:48:37 2018 +0100
+
+    Added some missing Summary
+
+commit 7872830b72a90de66b64daf46383c967cb57705e
+Merge: 06b7c3f 032238f
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 14:16:22 2018 +0100
+
+    Merge branch 'Dev-winCMD-command' into Dev
+
+commit 032238fa2a78aef4e3dc65072319dbdf38baf6d0
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 14:12:42 2018 +0100
+
+    CMD Icommand implementation
+    
+    Remote Windows cmd is now a command and no longer part of the default prompt (wich caused problems)
+
+commit 06b7c3fa53ca35fc78fd832b39d3254cd54201f0
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 01:05:49 2018 +0100
+
+    Push csproj containing renames
+    
+    Another error of push -_- ty visual studio
+
+commit b19709ad5d4ba639072ba1c29b1f760ad84a2191
+Merge: 7352de8 ba18d55
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 01:02:23 2018 +0100
+
+    Merge branch 'Dev' into Dev-winCMD-command
+
+commit ba18d55c577167478139427950eede4793851383
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Jan 21 01:01:10 2018 +0100
+
+    WIP win prompt as ICommand
+    
+    Wrong branch
+
+commit 6ee13d8798114ed5ef8c7ea60338d1105cb88218
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 10 12:47:37 2018 +0100
+
+    TableDisplay()
+
+commit ef8307ba2a20e4d429eba4b176abcd4ea6e0060b
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 10 09:03:40 2018 +0100
+
+    PlaySound command
+
+commit 9d2ed00c25d0d0748d1196337806411ccef23fd2
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 10 09:03:22 2018 +0100
+
+    GetOpenPrograms & TableDisplay() made static
+    
+    Moved TableDisplay() from SysInfo to Command manager as an internal static method
+
+commit 29b833d47a32bddb16520be3a06e1b85c54313c2
+Merge: 8f6e6ef 7352de8
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 13:23:13 2018 +0100
+
+    Merge branch 'Dev'
+
+commit 7352de832607911f698357ef4905dc765d005efb
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 13:16:01 2018 +0100
+
+    ICommand comment edited
+    
+    There is no system of command alias
+
+commit bb4363ca9dd35c4b4c317feaf50cfaba7951bfdb
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 13:14:18 2018 +0100
+
+    Forgot csproj wallpaper...
+
+commit 9829f9a7a454a729d069338230c22d9f8bcea779
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 13:00:47 2018 +0100
+
+    Wallpaper command
+    
+    Command to change the wallpaper
+
+commit 3f01decbe67baa2dc19cdf740672410af34b25fc
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 09:55:28 2018 +0100
+
+    Webcam check if exist
+    
+    Check if there is at least a webcam connected to the computer
+
+commit df101899d881dd83f3361a83d5de9bb8355d1a55
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 09:53:34 2018 +0100
+
+    Global help
+
+commit 7b7efa698e3fe06ef92954019cb1a73d923fc0f3
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 09:53:14 2018 +0100
+
+    Banner
+
+commit 795ab4c0bfdb08921fef6a821e802780d7f40bfa
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Jan 8 09:51:49 2018 +0100
+
+    Sysinfo update
+
+commit 6c7a3da2cb1a43ac707ea974c2533fc3375f9e88
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 3 21:37:46 2018 +0100
+
+    SysInfo added in project [bug]
+
+commit 15da28512c17983811ce90e9659d2905b17fe12a
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 3 21:33:30 2018 +0100
+
+    ICommand's savedData auto clear
+    
+    Now clear the ICommand savedData property from the client manager so that you don't need to clear it in your client method
+
+commit 4315c92b11d7e763bdb0d295ffcfbe5736c90ee6
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 3 21:25:41 2018 +0100
+
+    Sysinfo command
+    
+    Added the sysinfo command to display the remote operating system's informations. The manifest file is needed in order to display the correct Windows version
+
+commit ec4f83654b8113216eb36e9c24ea6c80fccf7580
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Jan 3 21:24:18 2018 +0100
+
+    Webcam : prevent hang up
+    
+    Prevent an infinite waiting when try to use the webcam when another application uses it
+
+commit e0a02e6cafa45e95638dae0b97c076af1a6ac37d
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Jan 2 20:34:18 2018 +0100
+
+    Some fix and simple webcam command
+
+commit 20185f44ee855dcfdb5903c8626c10a106d09a41
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Dec 25 20:38:12 2017 +0100
+
+    Main commands
+
+commit 8f6e6ef1d6f38565693a3366db9ee5e22f72209c
+Merge: f0251ea ce98c3c
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Dec 25 00:38:58 2017 +0100
+
+    Merge branch 'Dev'
+
+commit ce98c3c0b5ca78eeb58d308abcb129eabd1c3287
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Dec 25 00:27:38 2017 +0100
+
+    Refactoring completed
+    
+    Working ! Left : all commands implementation and cmd as a command
+
+commit 8c55202ffe31bc1f200b07e1a2b318ad391e60c4
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Dec 19 22:56:04 2017 +0100
+
+    NetworkManager implementation - buggy
+    
+    Doesn't work yet
+
+commit 81888c4973ea4807ae8fe5f9a5cbd5fe3c6e6ac2
+Merge: eb32ece d4b88d3
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Dec 16 16:56:00 2017 +0100
+
+    Merge remote-tracking branch 'origin/Dev' into Dev
+
+commit eb32eceb8a9c01b463b7ea946ecf682993f3483b
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Dec 16 15:23:49 2017 +0100
+
+    Commands refactoring - saving
+    
+    And shared project, can't compile because not finished at all
+
+commit d4b88d3da4bc6f97760e224ea71f5c938db61b28
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sat Dec 16 15:23:49 2017 +0100
+
+    Commands refactoring
+    
+    And shared project
+
+commit f454498e640f90a0449cef9d66f64c538e1f3768
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Dec 13 10:43:13 2017 +0100
+
+    Revert "test"
+    
+    This reverts commit d32226ffb883916d64c423d24df206f0e0eecde8.
+
+commit d32226ffb883916d64c423d24df206f0e0eecde8
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Wed Dec 13 10:43:13 2017 +0100
+
+    test
+    
+    commentaire du test
+
+commit edcd899dfe1ddb883142fd6bf36405cd6df07a37
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Dec 11 18:54:57 2017 +0100
+
+    Testing multiple branch
+    
+    Remove one useless TODO and implementing the sayhello() in the ClearScreen calls
+
+commit f0251ea05936db68c375ca1a044635575a284818
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Dec 11 18:39:49 2017 +0100
+
+    Use of inline methods
+    
+    Converting one-line methods to inline, some esthetics tweaks
+
+commit b6d073248c61d4fc72f20872b9810240a6a575f3
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Dec 11 18:11:01 2017 +0100
+
+    Fixed cmd encoding
+    
+    Now correctly displaying special chars
+
+commit 1cccff53ceb9312f2f529eed263b7245933b19f5
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Mon Dec 11 18:10:29 2017 +0100
+
+    Server assembly name changed
+    
+    From "ReverseShellServerWPF" to "ReverseShellServer"
+
+commit 8d3d7ad88a7c769854f1614dd08f8d12a864050d
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Dec 10 22:55:34 2017 +0100
+
+    Encoding error fix
+    
+    CMD output now returns the char with the right encoding
+
+commit b46702ddd80598b9354f26caedb1270bf559f2d6
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Sun Dec 10 22:17:32 2017 +0100
+
+    Keylogger implementation
+    
+    Implementing Keylogger in the rootkit. The Server application becomes a WPF app instead of a console application.
+
+commit a0040e4bdeaa960dfdf47f5aba2a9daf75a05a5d
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Thu Nov 30 19:16:11 2017 +0100
+
+    Working directory implementation
+    
+    Both local and remote working directory systems has been implemented and work
+
+commit a49b9e0957692970025594b5eb3b9b96a646199d
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Nov 28 22:36:20 2017 +0100
+
+    UploadToServer
+    
+    Functionnal
+
+commit 49704dea9ad6015eb36e79e1566b0f6b32bcad5a
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Nov 28 16:39:20 2017 +0100
+
+    Save the code
+    
+    Reverse shell has some bugs and not finished
+
+commit 8d92beb1481f1c82a0efee796260b76252f3f828
+Author: Valsov <Valsov@DESKTOP-54TDIGM>
+Date:   Tue Nov 28 16:33:43 2017 +0100
+
+    Initial commit

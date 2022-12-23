@@ -1,4 +1,34 @@
 ======================: FILES :======================
+postfwd-anti-geoip-spam-plugin
+├── conf
+│   ├── anti-spam.conf
+│   └── anti-spam-sql-st.conf
+├── cpanfile
+├── docker
+│   ├── docker-entrypoint.sh
+│   ├── Dockerfile
+│   └── README.md
+├── docs
+│   ├── CHANGELOG.md
+│   ├── DB-Queries.md
+│   ├── LICENSE
+│   └── README.md
+├── install.sh
+├── postfwd-anti-spam.plugin
+└── tests
+    ├── 01-dev-anti-spam-postgres-geoip2.conf
+    ├── 02-dev-anti-spam-mysql-geoip2.conf
+    ├── 03-dev-anti-spam-mysql-no-geoip.conf
+    ├── compose-dev-mysql.yml
+    ├── compose-dev-postgresql.yml
+    ├── dev-create-antispam-db.sql
+    ├── dev-postfwd.cf
+    ├── dev-request
+    ├── GeoLite2-Country-Test.mmdb
+    ├── integration-compose-test-geoip2.sh
+    └── ip_whitelist.txt
+
+4 directories, 23 files
 ======================: README CONTENT :======================
 ====================== GIT HISTORY: ======================
 83106f4 HEAD@{0}: clone: from https://github.com/Vnet-as/postfwd-anti-geoip-spam-plugin

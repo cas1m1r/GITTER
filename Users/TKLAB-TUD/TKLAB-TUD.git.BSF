@@ -1,4 +1,323 @@
 ======================: FILES :======================
+BSF
+├── LICENSE
+├── README.md
+├── resources
+│   ├── bsf2.jpg
+│   ├── bsf2.png
+│   ├── omnet_run_config.png
+│   ├── visualization_graph_only.png
+│   └── visualization_with_crawler.png
+├── simulations
+│   ├── cmd_traces
+│   ├── demo_blackhat.ini
+│   ├── dumps
+│   │   ├── Blackhat_Demo_1
+│   │   │   ├── crawlers
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time100800Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time104400Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time108000Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time111600Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time115200Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time118800Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time122400Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time126000Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time129600Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time133200Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time136800Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time140400Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time144000Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time147600Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time151200Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time154800Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time158400Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time162000Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time165600Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time169200Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time172800Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time90000Nodes401Crawler400.txt
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time93600Nodes401Crawler400.txt
+│   │   │   │   └── Blackhat_Demo_1-Run0Time97200Nodes401Crawler400.txt
+│   │   │   ├── graphs
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time100800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time104400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time108000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time10800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time111600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time115200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time118800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time122400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time126000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time129600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time133200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time136800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time140400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time144000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time14400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time147600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time151200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time154800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time158400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time162000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time165600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time169200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time172800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time18000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time21600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time25200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time28800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time32400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time36000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time3600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time39600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time43200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time46800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time50400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time54000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time57600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time61200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time64800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time68400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time72000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time7200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time75600Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time79200Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time82800Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time86400Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time90000Nodes401.gv
+│   │   │   │   ├── Blackhat_Demo_1-Run0Time93600Nodes401.gv
+│   │   │   │   └── Blackhat_Demo_1-Run0Time97200Nodes401.gv
+│   │   │   └── versions
+│   │   │       └── Blackhat_Demo_1-Run0Nodes401Crawler-1.txt
+│   │   └── Blackhat_Demo_2
+│   │       ├── crawlers
+│   │       │   ├── Blackhat_Demo_2-Run0Time100800Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time104400Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time108000Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time111600Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time115200Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time118800Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time122400Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time126000Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time129600Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time133200Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time136800Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time140400Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time144000Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time147600Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time151200Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time154800Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time158400Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time162000Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time165600Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time169200Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time172800Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time90000Nodes401Crawler400.txt
+│   │       │   ├── Blackhat_Demo_2-Run0Time93600Nodes401Crawler400.txt
+│   │       │   └── Blackhat_Demo_2-Run0Time97200Nodes401Crawler400.txt
+│   │       ├── graphs
+│   │       │   ├── Blackhat_Demo_2-Run0Time100800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time104400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time108000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time10800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time111600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time115200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time118800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time122400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time126000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time129600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time133200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time136800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time140400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time144000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time14400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time147600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time151200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time154800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time158400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time162000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time165600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time169200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time172800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time18000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time21600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time25200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time28800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time32400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time36000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time3600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time39600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time43200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time46800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time50400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time54000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time57600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time61200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time64800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time68400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time72000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time7200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time75600Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time79200Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time82800Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time86400Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time90000Nodes401.gv
+│   │       │   ├── Blackhat_Demo_2-Run0Time93600Nodes401.gv
+│   │       │   └── Blackhat_Demo_2-Run0Time97200Nodes401.gv
+│   │       └── versions
+│   │           └── Blackhat_Demo_2-Run0Nodes401Crawler-1.txt
+│   ├── omnetpp.ini
+│   ├── package.ned
+│   ├── results
+│   ├── samples.ini
+│   ├── tests.ini
+│   └── traces
+├── src
+│   ├── botmaster
+│   │   ├── Botmaster.cc
+│   │   ├── Botmaster.h
+│   │   └── Botmaster.ned
+│   ├── botnetIds
+│   │   └── basicid
+│   │       ├── BasicID.cc
+│   │       └── BasicID.h
+│   ├── churn
+│   │   ├── churnbase
+│   │   │   ├── ChurnBase.h
+│   │   │   └── ChurnBase.ned
+│   │   ├── lifetimechurn
+│   │   │   ├── LifetimeChurn.cc
+│   │   │   ├── LifetimeChurn.h
+│   │   │   └── LifetimeChurn.ned
+│   │   ├── nochurn
+│   │   │   ├── NoChurn.cc
+│   │   │   ├── NoChurn.h
+│   │   │   └── NoChurn.ned
+│   │   └── staticnochurn
+│   │       ├── StaticNoChurn.cc
+│   │       ├── StaticNoChurn.h
+│   │       └── StaticNoChurn.ned
+│   ├── churninitializer
+│   │   ├── ChurnInitializer.cc
+│   │   ├── ChurnInitializer.h
+│   │   └── ChurnInitializer.ned
+│   ├── common
+│   │   ├── IPAddress.cc
+│   │   └── IPAddress.h
+│   ├── defenses
+│   │   └── defensebase
+│   │       ├── DefenseBase.cc
+│   │       └── DefenseBase.h
+│   ├── globalnodelist
+│   │   ├── GlobalNodeList.cc
+│   │   ├── GlobalNodeList.h
+│   │   └── GlobalNodeList.ned
+│   ├── membershipmanagers
+│   │   └── mmbase
+│   │       ├── MMBase.cc
+│   │       └── MMBase.h
+│   ├── messagehandlers
+│   │   ├── basichandler
+│   │   │   ├── BasicMessageHandler.cc
+│   │   │   └── BasicMessageHandler.h
+│   │   ├── simplecrawlerhandler
+│   │   │   ├── SimpleCrawlerMsgHandler.cc
+│   │   │   └── SimpleCrawlerMsgHandler.h
+│   │   └── simplehandler
+│   │       ├── SimpleMsgHandler.cc
+│   │       ├── SimpleMsgHandler.h
+│   │       ├── SimpleTimeoutHandler.cc
+│   │       ├── SimpleTimeoutHandler.h
+│   │       ├── SimpleTimeoutSender.cc
+│   │       └── SimpleTimeoutSender.h
+│   ├── messages
+│   │   ├── basicmessages
+│   │   │   ├── BasicNetworkMsg.msg
+│   │   │   ├── BasicSelfMsg.msg
+│   │   │   ├── NetworkTimeoutMsg.msg
+│   │   │   └── OversimRespawnMsg.msg
+│   │   └── simplemessages
+│   │       ├── CmdRepMsg.msg
+│   │       ├── CmdReqMsg.msg
+│   │       ├── PingMsg.msg
+│   │       ├── PongMsg.msg
+│   │       ├── SimpleNLReqMsg.msg
+│   │       └── SimpleNLRespMsg.msg
+│   ├── monitoringdata
+│   │   ├── CrawlerData.cc
+│   │   ├── CrawlerData.h
+│   │   ├── MonitorData.cc
+│   │   ├── MonitorData.h
+│   │   ├── SensorNLEntry.cc
+│   │   └── SensorNLEntry.h
+│   ├── neighborlists
+│   │   ├── simpleentry
+│   │   │   ├── SimpleEntry.cc
+│   │   │   └── SimpleEntry.h
+│   │   └── simplenl
+│   │       ├── SimpleNL.cc
+│   │       └── SimpleNL.h
+│   ├── networks
+│   │   └── basicnetwork
+│   │       └── BasicNetwork.ned
+│   ├── nodes
+│   │   ├── crawlerbase
+│   │   │   ├── CrawlerBase.cc
+│   │   │   └── CrawlerBase.h
+│   │   ├── nodebase
+│   │   │   ├── NodeBase.cc
+│   │   │   ├── NodeBase.h
+│   │   │   └── NodeBase.ned
+│   │   ├── sensorbase
+│   │   │   ├── SensorBase.cc
+│   │   │   └── SensorBase.h
+│   │   ├── simplebot
+│   │   │   ├── SimpleBot.cc
+│   │   │   ├── SimpleBot.h
+│   │   │   └── SimpleBot.ned
+│   │   ├── simplecrawler
+│   │   │   ├── SimpleCrawler.cc
+│   │   │   ├── SimpleCrawler.h
+│   │   │   └── SimpleCrawler.ned
+│   │   └── smdbase
+│   │       ├── SMDBase.cc
+│   │       └── SMDBase.h
+│   ├── package.ned
+│   ├── routers
+│   │   └── basicrouter
+│   │       ├── BasicRouter.cc
+│   │       ├── BasicRouter.h
+│   │       └── BasicRouter.ned
+│   ├── selfmessagehandlers
+│   │   ├── basicselfmsghandler
+│   │   │   ├── BasicSelfMsgHandler.cc
+│   │   │   └── BasicSelfMsgHandler.h
+│   │   ├── crawlerselfmsgehandler
+│   │   │   ├── CrawlerSelfMsgHandler.cc
+│   │   │   └── CrawlerSelfMsgHandler.h
+│   │   ├── sensorselfmsghandler
+│   │   │   ├── SensorSelfMsgHandler.cc
+│   │   │   └── SensorSelfMsgHandler.h
+│   │   ├── simpleselfmsghandler
+│   │   │   ├── SimpleSelfMsgHandler.cc
+│   │   │   └── SimpleSelfMsgHandler.h
+│   │   └── smdselfmsghandler
+│   │       ├── SMDSelfMsgHandler.cc
+│   │       └── SMDSelfMsgHandler.h
+│   ├── smdlogic
+│   │   ├── SimpleSMD.cc
+│   │   └── SimpleSMD.h
+│   └── statistics
+│       ├── GraphDumper.h
+│       ├── NetworkAnalyzer.cc
+│       ├── NetworkAnalyzer.h
+│       └── NetworkAnalyzer.ned
+└── visualization
+    ├── app.py
+    ├── GraphUtil.py
+    └── __pycache__
+
+62 directories, 254 files
 ======================: README CONTENT :======================
 <img align="center" src="https://github.com/tklab-tud/BSF/blob/master/resources/bsf2.jpg" alt="BSF Logo" title="BSF Logo" width="200" height="200" />
      

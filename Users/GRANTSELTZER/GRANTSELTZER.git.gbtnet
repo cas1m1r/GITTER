@@ -1,4 +1,239 @@
 ======================: FILES :======================
+gbtnet
+├── common
+│   ├── errors.go
+│   ├── fileOperations.go
+│   └── structs.go
+├── gitaxis
+│   ├── authentication.go
+│   ├── cluster.go
+│   └── memberlistConfig.go
+├── github.com
+│   ├── armon
+│   │   └── go-metrics
+│   ├── hashicorp
+│   │   ├── errwrap
+│   │   ├── go-msgpack
+│   │   ├── go-multierror
+│   │   └── memberlist
+│   ├── kr
+│   │   ├── fs
+│   │   ├── pretty
+│   │   └── text
+│   ├── miekg
+│   │   └── dns
+│   ├── pmezard
+│   │   └── go-difflib
+│   └── tools
+│       └── godep
+├── Godeps
+│   ├── Godeps.json
+│   ├── Readme
+│   └── _workspace
+│       └── src
+│           ├── github.com
+│           │   ├── armon
+│           │   │   └── go-metrics
+│           │   │       ├── const_unix.go
+│           │   │       ├── const_windows.go
+│           │   │       ├── datadog
+│           │   │       │   └── dogstatsd.go
+│           │   │       ├── inmem.go
+│           │   │       ├── inmem_signal.go
+│           │   │       ├── LICENSE
+│           │   │       ├── metrics.go
+│           │   │       ├── prometheus
+│           │   │       │   └── prometheus.go
+│           │   │       ├── README.md
+│           │   │       ├── sink.go
+│           │   │       ├── start.go
+│           │   │       ├── statsd.go
+│           │   │       └── statsite.go
+│           │   ├── grantseltzer
+│           │   │   └── Gitaxis
+│           │   │       ├── common
+│           │   │       │   ├── errors.go
+│           │   │       │   ├── fileOperations.go
+│           │   │       │   └── structs.go
+│           │   │       ├── gitaxis
+│           │   │       │   ├── authentication.go
+│           │   │       │   ├── cluster.go
+│           │   │       │   └── memberlistConfig.go
+│           │   │       ├── keeper
+│           │   │       │   ├── handlers.go
+│           │   │       │   ├── keeper.go
+│           │   │       │   ├── pingInstruction.go
+│           │   │       │   └── queue.go
+│           │   │       └── license.txt
+│           │   ├── hashicorp
+│           │   │   ├── errwrap
+│           │   │   │   ├── errwrap.go
+│           │   │   │   ├── LICENSE
+│           │   │   │   └── README.md
+│           │   │   ├── go-msgpack
+│           │   │   │   ├── codec
+│           │   │   │   │   ├── 0doc.go
+│           │   │   │   │   ├── binc.go
+│           │   │   │   │   ├── decode.go
+│           │   │   │   │   ├── encode.go
+│           │   │   │   │   ├── helper.go
+│           │   │   │   │   ├── helper_internal.go
+│           │   │   │   │   ├── msgpack.go
+│           │   │   │   │   ├── msgpack_test.py
+│           │   │   │   │   ├── README.md
+│           │   │   │   │   ├── rpc.go
+│           │   │   │   │   ├── simple.go
+│           │   │   │   │   └── time.go
+│           │   │   │   └── LICENSE
+│           │   │   ├── go-multierror
+│           │   │   │   ├── append.go
+│           │   │   │   ├── flatten.go
+│           │   │   │   ├── format.go
+│           │   │   │   ├── LICENSE
+│           │   │   │   ├── multierror.go
+│           │   │   │   ├── prefix.go
+│           │   │   │   └── README.md
+│           │   │   └── memberlist
+│           │   │       ├── alive_delegate.go
+│           │   │       ├── awareness.go
+│           │   │       ├── broadcast.go
+│           │   │       ├── config.go
+│           │   │       ├── conflict_delegate.go
+│           │   │       ├── delegate.go
+│           │   │       ├── event_delegate.go
+│           │   │       ├── keyring.go
+│           │   │       ├── LICENSE
+│           │   │       ├── logging.go
+│           │   │       ├── Makefile
+│           │   │       ├── memberlist.go
+│           │   │       ├── merge_delegate.go
+│           │   │       ├── net.go
+│           │   │       ├── ping_delegate.go
+│           │   │       ├── queue.go
+│           │   │       ├── README.md
+│           │   │       ├── security.go
+│           │   │       ├── state.go
+│           │   │       ├── suspicion.go
+│           │   │       ├── test
+│           │   │       │   └── setup_subnet.sh
+│           │   │       ├── todo.md
+│           │   │       └── util.go
+│           │   └── miekg
+│           │       └── dns
+│           │           ├── AUTHORS
+│           │           ├── clientconfig.go
+│           │           ├── client.go
+│           │           ├── CONTRIBUTORS
+│           │           ├── COPYRIGHT
+│           │           ├── defaults.go
+│           │           ├── dns.go
+│           │           ├── dnssec.go
+│           │           ├── dnssec_keygen.go
+│           │           ├── dnssec_keyscan.go
+│           │           ├── dnssec_privkey.go
+│           │           ├── dnsutil
+│           │           │   └── util.go
+│           │           ├── doc.go
+│           │           ├── edns.go
+│           │           ├── format.go
+│           │           ├── generate.go
+│           │           ├── idn
+│           │           │   ├── code_points.go
+│           │           │   └── punycode.go
+│           │           ├── labels.go
+│           │           ├── LICENSE
+│           │           ├── msg_generate.go
+│           │           ├── msg.go
+│           │           ├── msg_helpers.go
+│           │           ├── nsecx.go
+│           │           ├── privaterr.go
+│           │           ├── rawmsg.go
+│           │           ├── README.md
+│           │           ├── reverse.go
+│           │           ├── sanitize.go
+│           │           ├── scan.go
+│           │           ├── scanner.go
+│           │           ├── scan_rr.go
+│           │           ├── server.go
+│           │           ├── sig0.go
+│           │           ├── singleinflight.go
+│           │           ├── tlsa.go
+│           │           ├── tsig.go
+│           │           ├── types_generate.go
+│           │           ├── types.go
+│           │           ├── udp.go
+│           │           ├── udp_linux.go
+│           │           ├── udp_other.go
+│           │           ├── udp_plan9.go
+│           │           ├── udp_windows.go
+│           │           ├── update.go
+│           │           ├── xfr.go
+│           │           ├── zmsg.go
+│           │           └── ztypes.go
+│           ├── golang.org
+│           │   └── x
+│           │       └── crypto
+│           │           ├── bcrypt
+│           │           │   ├── base64.go
+│           │           │   └── bcrypt.go
+│           │           ├── blowfish
+│           │           │   ├── block.go
+│           │           │   ├── cipher.go
+│           │           │   └── const.go
+│           │           ├── LICENSE
+│           │           └── PATENTS
+│           └── logrus
+│               ├── CHANGELOG.md
+│               ├── doc.go
+│               ├── entry.go
+│               ├── examples
+│               │   ├── basic
+│               │   │   └── basic.go
+│               │   └── hook
+│               │       └── hook.go
+│               ├── exported.go
+│               ├── formatter.go
+│               ├── formatters
+│               │   └── logstash
+│               │       └── logstash.go
+│               ├── hooks
+│               │   ├── syslog
+│               │   │   ├── README.md
+│               │   │   └── syslog.go
+│               │   └── test
+│               │       └── test.go
+│               ├── hooks.go
+│               ├── json_formatter.go
+│               ├── LICENSE
+│               ├── logger.go
+│               ├── logrus.go
+│               ├── README.md
+│               ├── terminal_bsd.go
+│               ├── terminal_linux.go
+│               ├── terminal_notwindows.go
+│               ├── terminal_solaris.go
+│               ├── terminal_windows.go
+│               ├── text_formatter.go
+│               └── writer.go
+├── golang.org
+│   └── x
+│       ├── crypto
+│       └── tools
+├── keeper
+│   ├── handlers.go
+│   ├── keeper.go
+│   ├── pingInstruction.go
+│   └── queue.go
+├── license.txt
+├── main.go
+├── membrane
+│   └── membrane.go
+├── README.md
+└── whisper
+    ├── postTasks.go
+    └── whisper.go
+
+65 directories, 167 files
 ======================: README CONTENT :======================
 # Gitaxis
 [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)

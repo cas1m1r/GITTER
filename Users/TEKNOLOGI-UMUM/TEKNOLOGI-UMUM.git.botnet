@@ -1,4 +1,262 @@
 ======================: FILES :======================
+botnet
+├── BotNet
+│   ├── appsettings.Development.json
+│   ├── appsettings.json
+│   ├── Bot
+│   │   ├── BotOptions.cs
+│   │   ├── BotService.cs
+│   │   ├── InlineQueryHandler.cs
+│   │   ├── ServiceCollectionExtensions.cs
+│   │   └── UpdateHandler.cs
+│   ├── BotNet.csproj
+│   ├── Controllers
+│   │   ├── DecimalClockController.cs
+│   │   ├── HealthController.cs
+│   │   ├── ImageRendererController.cs
+│   │   ├── OpenGraphController.cs
+│   │   ├── PSEController.cs
+│   │   └── WebhookController.cs
+│   ├── Program.cs
+│   ├── Properties
+│   │   ├── launchSettings.json
+│   │   ├── ServiceDependencies
+│   │   │   └── local
+│   │   │       └── appInsights.arm.json
+│   │   ├── serviceDependencies.json
+│   │   └── serviceDependencies.local.json
+│   ├── Startup.cs
+│   └── Views
+│       ├── DecimalClock
+│       │   └── Svg.cshtml
+│       └── PSE
+│           └── Index.cshtml
+├── BotNet.GrainInterfaces
+│   ├── BotNet.GrainInterfaces.csproj
+│   ├── IBubbleWrapGrain.cs
+│   ├── IDadJokeGrain.cs
+│   ├── IOpenGraphGrain.cs
+│   ├── ITenorGrain.cs
+│   └── ITrackedMessageGrain.cs
+├── BotNet.Grains
+│   ├── BotNet.Grains.csproj
+│   ├── BubbleWrapGrain.cs
+│   ├── DadJokeGrain.cs
+│   ├── OpenGraphGrain.cs
+│   ├── TenorGrain.cs
+│   └── TrackedMessageGrain.cs
+├── BotNet.Services
+│   ├── BotCommands
+│   │   ├── Art.cs
+│   │   ├── Cat.cs
+│   │   ├── Clean.cs
+│   │   ├── Eval.cs
+│   │   ├── Exec.cs
+│   │   ├── FlipFlop.cs
+│   │   ├── Fuck.cs
+│   │   ├── Idea.cs
+│   │   ├── Joke.cs
+│   │   ├── OpenAI.cs
+│   │   ├── Pop.cs
+│   │   ├── SearchPlace.cs
+│   │   ├── Waifu.cs
+│   │   └── Webp.cs
+│   ├── BotNet.Services.csproj
+│   ├── Brainfuck
+│   │   ├── BrainfuckInterpreter.cs
+│   │   ├── BrainfuckTranspiler.cs
+│   │   └── ServiceCollectionExtension.cs
+│   ├── ClearScript
+│   │   ├── JsonConverters
+│   │   │   ├── BigIntegerConverter.cs
+│   │   │   ├── DoubleConverter.cs
+│   │   │   ├── ScriptObjectConverter.cs
+│   │   │   └── UndefinedConverter.cs
+│   │   ├── ServiceCollectionExtensions.cs
+│   │   ├── V8Evaluator.cs
+│   │   └── V8Options.cs
+│   ├── ColorCard
+│   │   ├── ColorCardRenderer.cs
+│   │   └── ServiceCollectionExtensions.cs
+│   ├── CopyPasta
+│   │   ├── CopyPastaLookup.cs
+│   │   └── Pasta.json
+│   ├── Craiyon
+│   │   ├── CraiyonClient.cs
+│   │   ├── Models
+│   │   │   └── ImagesResult.cs
+│   │   └── ServiceCollectionExtensions.cs
+│   ├── DynamicExpresso
+│   │   ├── CSharpEvaluator.cs
+│   │   └── ServiceCollectionExtensions.cs
+│   ├── FancyText
+│   │   ├── CharMaps
+│   │   │   ├── BoldItalic.json
+│   │   │   ├── Bold.json
+│   │   │   ├── Cursive.json
+│   │   │   ├── Italic.json
+│   │   │   ├── Medieval.json
+│   │   │   ├── Monospace.json
+│   │   │   ├── OldEnglish.json
+│   │   │   └── WideText.json
+│   │   ├── FancyTextGenerator.cs
+│   │   └── FancyTextStyle.cs
+│   ├── Giphy
+│   │   ├── GiphyClient.cs
+│   │   ├── GiphyOptions.cs
+│   │   ├── Models
+│   │   │   ├── GifImage.cs
+│   │   │   ├── GifObject.cs
+│   │   │   ├── GifSearchResult.cs
+│   │   │   ├── Images.cs
+│   │   │   └── Mp4Image.cs
+│   │   └── ServiceCollectionExtension.cs
+│   ├── GoogleMap
+│   │   ├── GeoCode.cs
+│   │   ├── GoogleMapOptions.cs
+│   │   ├── Models
+│   │   │   ├── Geometry.cs
+│   │   │   ├── LocationType.cs
+│   │   │   ├── Response.cs
+│   │   │   ├── Result.cs
+│   │   │   ├── StatusCode.cs
+│   │   │   └── ZoomLevel.cs
+│   │   ├── ServiceCollectionExtensions.cs
+│   │   └── StaticMap.cs
+│   ├── Hosting
+│   │   └── HostingOptions.cs
+│   ├── ImageConverter
+│   │   ├── IcoToPngConverter.cs
+│   │   └── ServiceCollectionExtension.cs
+│   ├── ImageFlip
+│   │   └── Flipper.cs
+│   ├── Instagram
+│   │   └── InstagramLinkSanitizer.cs
+│   ├── Json
+│   │   └── SnakeCaseNamingPolicy.cs
+│   ├── OpenAI
+│   │   ├── AssistantBot.cs
+│   │   ├── AttachmentGenerator.cs
+│   │   ├── CodeExplainer.cs
+│   │   ├── CodeGenerator.cs
+│   │   ├── FriendlyBot.cs
+│   │   ├── Models
+│   │   │   ├── Choice.cs
+│   │   │   ├── CompletionResult.cs
+│   │   │   └── Logprobs.cs
+│   │   ├── OpenAIClient.cs
+│   │   ├── OpenAIOptions.cs
+│   │   ├── SarcasticBot.cs
+│   │   ├── ServiceCollectionExtensions.cs
+│   │   ├── TldrGenerator.cs
+│   │   └── Translator.cs
+│   ├── OpenGraph
+│   │   ├── Models
+│   │   │   ├── OpenGraphMetadata.cs
+│   │   │   ├── PWAIcon.cs
+│   │   │   └── PWAManifest.cs
+│   │   ├── OpenGraphService.cs
+│   │   └── ServiceCollectionExtension.cs
+│   ├── Piston
+│   │   ├── Models
+│   │   │   ├── ConsoleOutput.cs
+│   │   │   ├── ErrorMessageResult.cs
+│   │   │   ├── ExecutePayload.cs
+│   │   │   ├── ExecuteResult.cs
+│   │   │   ├── FilePayload.cs
+│   │   │   └── RuntimeResult.cs
+│   │   ├── PistonClient.cs
+│   │   ├── PistonOptions.cs
+│   │   └── ServiceCollectionExtensions.cs
+│   ├── ProgrammerHumor
+│   │   ├── ProgrammerHumorScraper.cs
+│   │   └── ServiceCollectionExtensions.cs
+│   ├── RateLimit
+│   │   ├── Internal
+│   │   │   ├── CooldownFormatter.cs
+│   │   │   ├── PerChatRateLimiter.cs
+│   │   │   ├── PerUserPerChatPerDayRateLimiter.cs
+│   │   │   ├── PerUserPerChatRateLimiter.cs
+│   │   │   ├── PerUserPerDayRateLimiter.cs
+│   │   │   └── PerUserRateLimiter.cs
+│   │   ├── RateLimiter.cs
+│   │   └── RateLimitExceededException.cs
+│   ├── Stability
+│   │   ├── generation.proto
+│   │   ├── ServiceCollectionExtensions.cs
+│   │   ├── StabilityClient.cs
+│   │   └── StabilityOptions.cs
+│   ├── Tenor
+│   │   ├── Models
+│   │   │   ├── GifObject.cs
+│   │   │   ├── GifSearchResult.cs
+│   │   │   ├── MediaFormatType.cs
+│   │   │   └── MediaObject.cs
+│   │   ├── ServiceCollectionExtension.cs
+│   │   ├── TenorClient.cs
+│   │   └── TenorOptions.cs
+│   ├── ThisXDoesNotExist
+│   │   ├── ServiceCollectionExtension.cs
+│   │   ├── ThisArtworkDoesNotExist.cs
+│   │   ├── ThisCatDoesNotExist.cs
+│   │   ├── ThisIdeaDoesNotExist.cs
+│   │   └── ThisWaifuDoesNotExist.cs
+│   ├── Tiktok
+│   │   ├── ServiceCollectionExtension.cs
+│   │   └── TiktokLinkSanitizer.cs
+│   ├── Tokopedia
+│   │   ├── ServiceCollectionExtension.cs
+│   │   └── TokopediaLinkSanitizer.cs
+│   ├── Twitter
+│   │   └── TwitterLinkSanitizer.cs
+│   ├── Typography
+│   │   ├── Assets
+│   │   │   ├── JetBrainsMonoNL-BoldItalic.ttf
+│   │   │   ├── JetBrainsMonoNL-Bold.ttf
+│   │   │   ├── JetBrainsMonoNL-ExtraBoldItalic.ttf
+│   │   │   ├── JetBrainsMonoNL-ExtraBold.ttf
+│   │   │   ├── JetBrainsMonoNL-ExtraLightItalic.ttf
+│   │   │   ├── JetBrainsMonoNL-ExtraLight.ttf
+│   │   │   ├── JetBrainsMonoNL-Italic.ttf
+│   │   │   ├── JetBrainsMonoNL-LightItalic.ttf
+│   │   │   ├── JetBrainsMonoNL-Light.ttf
+│   │   │   ├── JetBrainsMonoNL-MediumItalic.ttf
+│   │   │   ├── JetBrainsMonoNL-Medium.ttf
+│   │   │   ├── JetBrainsMonoNL-Regular.ttf
+│   │   │   ├── JetBrainsMonoNL-SemiBoldItalic.ttf
+│   │   │   ├── JetBrainsMonoNL-SemiBold.ttf
+│   │   │   ├── JetBrainsMonoNL-ThinItalic.ttf
+│   │   │   └── JetBrainsMonoNL-Thin.ttf
+│   │   ├── BotNetFontService.cs
+│   │   ├── FontFamily.cs
+│   │   ├── FontStyle.cs
+│   │   └── ServiceCollectionExtensions.cs
+│   └── Webp
+│       └── WebpToImageConverter.cs
+├── BotNet.sln
+├── BotNet.Tests
+│   ├── BotNet.Tests.csproj
+│   ├── Grains
+│   │   └── InlineQueryGrainTests.cs
+│   ├── Services
+│   │   ├── Brainfuck
+│   │   │   └── BrainfuckTranspilerTests.cs
+│   │   ├── Json
+│   │   │   └── SnakeCaseNamingPolicyTests.cs
+│   │   ├── LinkSanitizers
+│   │   │   └── RegexTests.cs
+│   │   └── Tenor
+│   │       └── TenorClientTests.cs
+│   └── TestUtilities
+│       └── HttpClientMock.cs
+├── Directory.Build.props
+├── Dockerfile
+├── fly.toml
+├── LICENSE
+├── pehape
+└── README.md
+
+60 directories, 195 files
 ======================: README CONTENT :======================
 # BOTNET
 Telegram Bot written in .NET

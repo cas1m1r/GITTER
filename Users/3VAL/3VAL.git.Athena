@@ -1,4 +1,818 @@
 ======================: FILES :======================
+Athena
+├── AthenaHTTP Thread.txt
+├── AthenaIRC_Documentation.pdf
+├── AthenaIRC Thread.txt
+├── Athena Source.zip
+├── master
+│   ├── AthenaHTTP Thread.txt
+│   ├── AthenaIRC_Documentation.pdf
+│   ├── AthenaIRC Thread.txt
+│   ├── Athena Source.zip
+│   ├── Source - Bot
+│   │   ├── Athena_1.cbp
+│   │   ├── Athena_1.depend
+│   │   ├── Athena_1.layout
+│   │   └── Source
+│   │       ├── DDoS
+│   │       │   ├── BandwithDrain.cpp
+│   │       │   ├── DdosCommandHandler.cpp
+│   │       │   ├── DdosEcf.cpp
+│   │       │   ├── DdosMassBrowserLoads.cpp
+│   │       │   ├── DdosRapidGetPostArme.cpp
+│   │       │   ├── DdosSlowlorisRudy.cpp
+│   │       │   ├── DdosSlowPost.cpp
+│   │       │   ├── DdosUdp_.cpp
+│   │       │   └── NonBlockingDdosTimer.cpp
+│   │       ├── Encryption
+│   │       │   ├── Base64_.cpp
+│   │       │   ├── MD5.cpp
+│   │       │   └── RC4.cpp
+│   │       ├── General
+│   │       │   ├── Botkiller.cpp
+│   │       │   ├── DlExecUpdate.cpp
+│   │       │   ├── FileSearchEngine.cpp
+│   │       │   ├── HostsFile.cpp
+│   │       │   ├── Injection.cpp
+│   │       │   ├── InstallAndPersistFileRegistry.cpp
+│   │       │   ├── LockComputer.cpp
+│   │       │   ├── MutexInstancesAndUsage.cpp
+│   │       │   ├── PacketSniff.cpp
+│   │       │   ├── SkypeMassMessenger.cpp
+│   │       │   ├── Socks4.cpp
+│   │       │   ├── UsbSpread.cpp
+│   │       │   └── Visit.cpp
+│   │       ├── Hub
+│   │       │   ├── Connect.cpp
+│   │       │   ├── DecryptIp.cpp
+│   │       │   ├── HttpUtilities.cpp
+│   │       │   ├── IrcUtilities.cpp
+│   │       │   └── Ssl.cpp
+│   │       ├── Includes
+│   │       │   ├── defines.h
+│   │       │   ├── includes.h
+│   │       │   └── settings.h
+│   │       ├── IrcWar
+│   │       │   ├── AutonomousFloods.cpp
+│   │       │   ├── Generator.cpp
+│   │       │   ├── IrcWar.cpp
+│   │       │   ├── SendData.cpp
+│   │       │   └── StartIrcWar.cpp
+│   │       ├── main.cpp
+│   │       ├── Omitted
+│   │       │   └── Anti-AntiVirus.cpp
+│   │       ├── Other
+│   │       │   ├── BlockingTimer.cpp
+│   │       │   ├── DynamicLinking.cpp
+│   │       │   ├── DynamicLinking.h
+│   │       │   ├── MD5.h
+│   │       │   ├── Notes.txt
+│   │       │   ├── Proactive.cpp
+│   │       │   ├── ProcessArgs.cpp
+│   │       │   ├── RestartExplorer.cpp
+│   │       │   └── VariableDeclarations.cpp
+│   │       ├── Protection
+│   │       │   ├── AntiDebugEmulate.cpp
+│   │       │   ├── ConfigSetup.cpp
+│   │       │   ├── ProcessPersistenceViaInjectedThreads.cpp
+│   │       │   ├── ProcessPersistenceViaSister.cpp
+│   │       │   └── TaskManagerTricks.cpp
+│   │       ├── Protocol
+│   │       │   ├── Commands.cpp
+│   │       │   └── Communication.cpp
+│   │       ├── Recovery
+│   │       │   ├── RecoveryChrome.cpp
+│   │       │   ├── RecoveryFirefox.cpp
+│   │       │   ├── RecoveryFtp.cpp
+│   │       │   └── RecoveryIm.cpp
+│   │       └── Utilities
+│   │           ├── ComputerInfo.cpp
+│   │           ├── Dacl.cpp
+│   │           ├── Files.cpp
+│   │           ├── Ftp.cpp
+│   │           ├── Http.cpp
+│   │           ├── Icmp.cpp
+│   │           ├── Misc.cpp
+│   │           ├── Mutex.cpp
+│   │           ├── Process_.cpp
+│   │           ├── ProcessStrings.cpp
+│   │           ├── Registry.cpp
+│   │           └── srandRelated.cpp
+│   ├── Source - Build Config Encrypt
+│   │   ├── AthenaConfigEncryptUtility.cbp
+│   │   ├── AthenaConfigEncryptUtility.depend
+│   │   ├── AthenaConfigEncryptUtility.layout
+│   │   ├── Encryption
+│   │   │   ├── BASE64.cpp
+│   │   │   └── RC4.cpp
+│   │   ├── includes.h
+│   │   ├── main.cpp
+│   │   └── Utilities.cpp
+│   ├── Source - Command Tool
+│   │   ├── Athena_Tool.cbp
+│   │   ├── Athena_Tool.depend
+│   │   ├── Athena_Tool.layout
+│   │   └── main.cpp
+│   └── Source - Panel
+│       ├── config.php
+│       ├── dump.sql
+│       ├── gate.php
+│       ├── geoip.csv
+│       ├── help.txt
+│       ├── img
+│       │   ├── arrow.png
+│       │   ├── background.png
+│       │   ├── flags
+│       │   │   ├── 00.gif
+│       │   │   ├── ad.gif
+│       │   │   ├── ae.gif
+│       │   │   ├── af.gif
+│       │   │   ├── ag.gif
+│       │   │   ├── ai.gif
+│       │   │   ├── al.gif
+│       │   │   ├── am.gif
+│       │   │   ├── an.gif
+│       │   │   ├── ao.gif
+│       │   │   ├── ar.gif
+│       │   │   ├── as.gif
+│       │   │   ├── at.gif
+│       │   │   ├── au.gif
+│       │   │   ├── aw.gif
+│       │   │   ├── ax.gif
+│       │   │   ├── az.gif
+│       │   │   ├── ba.gif
+│       │   │   ├── bb.gif
+│       │   │   ├── bd.gif
+│       │   │   ├── be.gif
+│       │   │   ├── bf.gif
+│       │   │   ├── bg.gif
+│       │   │   ├── bh.gif
+│       │   │   ├── bi.gif
+│       │   │   ├── bj.gif
+│       │   │   ├── bm.gif
+│       │   │   ├── bn.gif
+│       │   │   ├── bo.gif
+│       │   │   ├── br.gif
+│       │   │   ├── bs.gif
+│       │   │   ├── bt.gif
+│       │   │   ├── bv.gif
+│       │   │   ├── bw.gif
+│       │   │   ├── by.gif
+│       │   │   ├── bz.gif
+│       │   │   ├── ca.gif
+│       │   │   ├── catalonia.gif
+│       │   │   ├── cc.gif
+│       │   │   ├── cd.gif
+│       │   │   ├── cf.gif
+│       │   │   ├── cg.gif
+│       │   │   ├── ch.gif
+│       │   │   ├── ci.gif
+│       │   │   ├── ck.gif
+│       │   │   ├── cl.gif
+│       │   │   ├── cm.gif
+│       │   │   ├── cn.gif
+│       │   │   ├── co.gif
+│       │   │   ├── cr.gif
+│       │   │   ├── cross.png
+│       │   │   ├── cs.gif
+│       │   │   ├── cu.gif
+│       │   │   ├── cv.gif
+│       │   │   ├── cx.gif
+│       │   │   ├── cy.gif
+│       │   │   ├── cz.gif
+│       │   │   ├── de.gif
+│       │   │   ├── del.png
+│       │   │   ├── dj.gif
+│       │   │   ├── dk.gif
+│       │   │   ├── dm.gif
+│       │   │   ├── do.gif
+│       │   │   ├── dz.gif
+│       │   │   ├── ec.gif
+│       │   │   ├── ee.gif
+│       │   │   ├── eg.gif
+│       │   │   ├── eh.gif
+│       │   │   ├── en.gif
+│       │   │   ├── er.gif
+│       │   │   ├── es.gif
+│       │   │   ├── et.gif
+│       │   │   ├── eu.gif
+│       │   │   ├── fi.gif
+│       │   │   ├── fj.gif
+│       │   │   ├── fk.gif
+│       │   │   ├── fm.gif
+│       │   │   ├── fo.gif
+│       │   │   ├── fr.gif
+│       │   │   ├── fx.gif
+│       │   │   ├── ga.gif
+│       │   │   ├── gb.gif
+│       │   │   ├── gd.gif
+│       │   │   ├── ge.gif
+│       │   │   ├── gf.gif
+│       │   │   ├── gh.gif
+│       │   │   ├── gi.gif
+│       │   │   ├── gl.gif
+│       │   │   ├── gm.gif
+│       │   │   ├── gn.gif
+│       │   │   ├── gp.gif
+│       │   │   ├── gq.gif
+│       │   │   ├── gr.gif
+│       │   │   ├── gs.gif
+│       │   │   ├── gt.gif
+│       │   │   ├── gu.gif
+│       │   │   ├── gw.gif
+│       │   │   ├── gy.gif
+│       │   │   ├── hk.gif
+│       │   │   ├── hm.gif
+│       │   │   ├── hn.gif
+│       │   │   ├── hr.gif
+│       │   │   ├── ht.gif
+│       │   │   ├── hu.gif
+│       │   │   ├── id.gif
+│       │   │   ├── ie.gif
+│       │   │   ├── il.gif
+│       │   │   ├── in.gif
+│       │   │   ├── io.gif
+│       │   │   ├── iq.gif
+│       │   │   ├── ir.gif
+│       │   │   ├── is.gif
+│       │   │   ├── it.gif
+│       │   │   ├── jm.gif
+│       │   │   ├── jo.gif
+│       │   │   ├── jp.gif
+│       │   │   ├── ke.gif
+│       │   │   ├── kg.gif
+│       │   │   ├── kh.gif
+│       │   │   ├── ki.gif
+│       │   │   ├── km.gif
+│       │   │   ├── kn.gif
+│       │   │   ├── kp.gif
+│       │   │   ├── kr.gif
+│       │   │   ├── kw.gif
+│       │   │   ├── ky.gif
+│       │   │   ├── kz.gif
+│       │   │   ├── la.gif
+│       │   │   ├── lb.gif
+│       │   │   ├── lc.gif
+│       │   │   ├── li.gif
+│       │   │   ├── lk.gif
+│       │   │   ├── lr.gif
+│       │   │   ├── ls.gif
+│       │   │   ├── lt.gif
+│       │   │   ├── lu.gif
+│       │   │   ├── lv.gif
+│       │   │   ├── ly.gif
+│       │   │   ├── ma.gif
+│       │   │   ├── mc.gif
+│       │   │   ├── md.gif
+│       │   │   ├── me.gif
+│       │   │   ├── mg.gif
+│       │   │   ├── mh.gif
+│       │   │   ├── mk.gif
+│       │   │   ├── ml.gif
+│       │   │   ├── mm.gif
+│       │   │   ├── mn.gif
+│       │   │   ├── mo.gif
+│       │   │   ├── mp.gif
+│       │   │   ├── mq.gif
+│       │   │   ├── mr.gif
+│       │   │   ├── ms.gif
+│       │   │   ├── mt.gif
+│       │   │   ├── mu.gif
+│       │   │   ├── mv.gif
+│       │   │   ├── mw.gif
+│       │   │   ├── mx.gif
+│       │   │   ├── my.gif
+│       │   │   ├── mz.gif
+│       │   │   ├── na.gif
+│       │   │   ├── nc.gif
+│       │   │   ├── ne.gif
+│       │   │   ├── nf.gif
+│       │   │   ├── ng.gif
+│       │   │   ├── ni.gif
+│       │   │   ├── nl.gif
+│       │   │   ├── no.gif
+│       │   │   ├── np.gif
+│       │   │   ├── nr.gif
+│       │   │   ├── nu.gif
+│       │   │   ├── nz.gif
+│       │   │   ├── o1.gif
+│       │   │   ├── om.gif
+│       │   │   ├── pa.gif
+│       │   │   ├── pe.gif
+│       │   │   ├── pf.gif
+│       │   │   ├── pg.gif
+│       │   │   ├── ph.gif
+│       │   │   ├── pk.gif
+│       │   │   ├── pl.gif
+│       │   │   ├── pm.gif
+│       │   │   ├── pn.gif
+│       │   │   ├── pr.gif
+│       │   │   ├── ps.gif
+│       │   │   ├── pt.gif
+│       │   │   ├── pw.gif
+│       │   │   ├── py.gif
+│       │   │   ├── qa.gif
+│       │   │   ├── re.gif
+│       │   │   ├── ro.gif
+│       │   │   ├── rs.gif
+│       │   │   ├── ru.gif
+│       │   │   ├── rw.gif
+│       │   │   ├── sa.gif
+│       │   │   ├── sb.gif
+│       │   │   ├── sc.gif
+│       │   │   ├── sd.gif
+│       │   │   ├── se.gif
+│       │   │   ├── sg.gif
+│       │   │   ├── sh.gif
+│       │   │   ├── si.gif
+│       │   │   ├── sj.gif
+│       │   │   ├── sk.gif
+│       │   │   ├── sl.gif
+│       │   │   ├── sm.gif
+│       │   │   ├── sn.gif
+│       │   │   ├── so.gif
+│       │   │   ├── sr.gif
+│       │   │   ├── st.gif
+│       │   │   ├── sv.gif
+│       │   │   ├── sy.gif
+│       │   │   ├── sz.gif
+│       │   │   ├── tc.gif
+│       │   │   ├── td.gif
+│       │   │   ├── tf.gif
+│       │   │   ├── tg.gif
+│       │   │   ├── th.gif
+│       │   │   ├── tick.png
+│       │   │   ├── tj.gif
+│       │   │   ├── tk.gif
+│       │   │   ├── tl.gif
+│       │   │   ├── tm.gif
+│       │   │   ├── tn.gif
+│       │   │   ├── to.gif
+│       │   │   ├── tr.gif
+│       │   │   ├── tt.gif
+│       │   │   ├── tv.gif
+│       │   │   ├── tw.gif
+│       │   │   ├── tz.gif
+│       │   │   ├── ua.gif
+│       │   │   ├── ug.gif
+│       │   │   ├── uk.gif
+│       │   │   ├── um.gif
+│       │   │   ├── us.gif
+│       │   │   ├── uy.gif
+│       │   │   ├── uz.gif
+│       │   │   ├── va.gif
+│       │   │   ├── vc.gif
+│       │   │   ├── ve.gif
+│       │   │   ├── vg.gif
+│       │   │   ├── vi.gif
+│       │   │   ├── vn.gif
+│       │   │   ├── vu.gif
+│       │   │   ├── wales.gif
+│       │   │   ├── wf.gif
+│       │   │   ├── ws.gif
+│       │   │   ├── ye.gif
+│       │   │   ├── yt.gif
+│       │   │   ├── yu.gif
+│       │   │   ├── za.gif
+│       │   │   ├── zm.gif
+│       │   │   ├── zr.gif
+│       │   │   └── zw.gif
+│       │   ├── logo.png
+│       │   ├── stats-arrow-down.png
+│       │   └── stats-arrow-up.png
+│       ├── importgeoip.php
+│       ├── include
+│       │   ├── inc_activecommands.php
+│       │   ├── inc_botlist.php
+│       │   ├── inc_ddos.php
+│       │   ├── inc_genstats.php
+│       │   ├── inc_misc.php
+│       │   ├── inc_prefs.php
+│       │   ├── inc_userlist.php
+│       │   ├── inc_webchecker.php
+│       │   ├── tpl_activecommands.php
+│       │   ├── tpl_botlist.php
+│       │   ├── tpl_ddos.php
+│       │   ├── tpl_help.php
+│       │   ├── tpl_login.php
+│       │   ├── tpl_main.php
+│       │   ├── tpl_misc.php
+│       │   ├── tpl_prefs.php
+│       │   ├── tpl_userlist.php
+│       │   └── tpl_webchecker.php
+│       ├── index.php
+│       ├── js
+│       │   └── main.js
+│       ├── login
+│       │   └── index.php
+│       ├── _README[setup-instructions].txt
+│       ├── robots.txt
+│       └── styles
+│           ├── main.css
+│           └── reset.css
+├── Source - Bot
+│   ├── Athena_1.cbp
+│   ├── Athena_1.depend
+│   ├── Athena_1.layout
+│   └── Source
+│       ├── DDoS
+│       │   ├── BandwithDrain.cpp
+│       │   ├── DdosCommandHandler.cpp
+│       │   ├── DdosEcf.cpp
+│       │   ├── DdosMassBrowserLoads.cpp
+│       │   ├── DdosRapidGetPostArme.cpp
+│       │   ├── DdosSlowlorisRudy.cpp
+│       │   ├── DdosSlowPost.cpp
+│       │   ├── DdosUdp_.cpp
+│       │   └── NonBlockingDdosTimer.cpp
+│       ├── Encryption
+│       │   ├── Base64_.cpp
+│       │   ├── MD5.cpp
+│       │   └── RC4.cpp
+│       ├── General
+│       │   ├── Botkiller.cpp
+│       │   ├── DlExecUpdate.cpp
+│       │   ├── FileSearchEngine.cpp
+│       │   ├── HostsFile.cpp
+│       │   ├── Injection.cpp
+│       │   ├── InstallAndPersistFileRegistry.cpp
+│       │   ├── LockComputer.cpp
+│       │   ├── MutexInstancesAndUsage.cpp
+│       │   ├── PacketSniff.cpp
+│       │   ├── SkypeMassMessenger.cpp
+│       │   ├── Socks4.cpp
+│       │   ├── UsbSpread.cpp
+│       │   └── Visit.cpp
+│       ├── Hub
+│       │   ├── Connect.cpp
+│       │   ├── DecryptIp.cpp
+│       │   ├── HttpUtilities.cpp
+│       │   ├── IrcUtilities.cpp
+│       │   └── Ssl.cpp
+│       ├── Includes
+│       │   ├── defines.h
+│       │   ├── includes.h
+│       │   └── settings.h
+│       ├── IrcWar
+│       │   ├── AutonomousFloods.cpp
+│       │   ├── Generator.cpp
+│       │   ├── IrcWar.cpp
+│       │   ├── SendData.cpp
+│       │   └── StartIrcWar.cpp
+│       ├── main.cpp
+│       ├── Omitted
+│       │   └── Anti-AntiVirus.cpp
+│       ├── Other
+│       │   ├── BlockingTimer.cpp
+│       │   ├── DynamicLinking.cpp
+│       │   ├── DynamicLinking.h
+│       │   ├── MD5.h
+│       │   ├── Notes.txt
+│       │   ├── Proactive.cpp
+│       │   ├── ProcessArgs.cpp
+│       │   ├── RestartExplorer.cpp
+│       │   └── VariableDeclarations.cpp
+│       ├── Protection
+│       │   ├── AntiDebugEmulate.cpp
+│       │   ├── ConfigSetup.cpp
+│       │   ├── ProcessPersistenceViaInjectedThreads.cpp
+│       │   ├── ProcessPersistenceViaSister.cpp
+│       │   └── TaskManagerTricks.cpp
+│       ├── Protocol
+│       │   ├── Commands.cpp
+│       │   └── Communication.cpp
+│       ├── Recovery
+│       │   ├── RecoveryChrome.cpp
+│       │   ├── RecoveryFirefox.cpp
+│       │   ├── RecoveryFtp.cpp
+│       │   └── RecoveryIm.cpp
+│       └── Utilities
+│           ├── ComputerInfo.cpp
+│           ├── Dacl.cpp
+│           ├── Files.cpp
+│           ├── Ftp.cpp
+│           ├── Http.cpp
+│           ├── Icmp.cpp
+│           ├── Misc.cpp
+│           ├── Mutex.cpp
+│           ├── Process_.cpp
+│           ├── ProcessStrings.cpp
+│           ├── Registry.cpp
+│           └── srandRelated.cpp
+├── Source - Build Config Encrypt
+│   ├── AthenaConfigEncryptUtility.cbp
+│   ├── AthenaConfigEncryptUtility.depend
+│   ├── AthenaConfigEncryptUtility.layout
+│   ├── Encryption
+│   │   ├── BASE64.cpp
+│   │   └── RC4.cpp
+│   ├── includes.h
+│   ├── main.cpp
+│   └── Utilities.cpp
+├── Source - Command Tool
+│   ├── Athena_Tool.cbp
+│   ├── Athena_Tool.depend
+│   ├── Athena_Tool.layout
+│   └── main.cpp
+└── Source - Panel
+    ├── config.php
+    ├── dump.sql
+    ├── gate.php
+    ├── geoip.csv
+    ├── help.txt
+    ├── img
+    │   ├── arrow.png
+    │   ├── background.png
+    │   ├── flags
+    │   │   ├── 00.gif
+    │   │   ├── ad.gif
+    │   │   ├── ae.gif
+    │   │   ├── af.gif
+    │   │   ├── ag.gif
+    │   │   ├── ai.gif
+    │   │   ├── al.gif
+    │   │   ├── am.gif
+    │   │   ├── an.gif
+    │   │   ├── ao.gif
+    │   │   ├── ar.gif
+    │   │   ├── as.gif
+    │   │   ├── at.gif
+    │   │   ├── au.gif
+    │   │   ├── aw.gif
+    │   │   ├── ax.gif
+    │   │   ├── az.gif
+    │   │   ├── ba.gif
+    │   │   ├── bb.gif
+    │   │   ├── bd.gif
+    │   │   ├── be.gif
+    │   │   ├── bf.gif
+    │   │   ├── bg.gif
+    │   │   ├── bh.gif
+    │   │   ├── bi.gif
+    │   │   ├── bj.gif
+    │   │   ├── bm.gif
+    │   │   ├── bn.gif
+    │   │   ├── bo.gif
+    │   │   ├── br.gif
+    │   │   ├── bs.gif
+    │   │   ├── bt.gif
+    │   │   ├── bv.gif
+    │   │   ├── bw.gif
+    │   │   ├── by.gif
+    │   │   ├── bz.gif
+    │   │   ├── ca.gif
+    │   │   ├── catalonia.gif
+    │   │   ├── cc.gif
+    │   │   ├── cd.gif
+    │   │   ├── cf.gif
+    │   │   ├── cg.gif
+    │   │   ├── ch.gif
+    │   │   ├── ci.gif
+    │   │   ├── ck.gif
+    │   │   ├── cl.gif
+    │   │   ├── cm.gif
+    │   │   ├── cn.gif
+    │   │   ├── co.gif
+    │   │   ├── cr.gif
+    │   │   ├── cross.png
+    │   │   ├── cs.gif
+    │   │   ├── cu.gif
+    │   │   ├── cv.gif
+    │   │   ├── cx.gif
+    │   │   ├── cy.gif
+    │   │   ├── cz.gif
+    │   │   ├── de.gif
+    │   │   ├── del.png
+    │   │   ├── dj.gif
+    │   │   ├── dk.gif
+    │   │   ├── dm.gif
+    │   │   ├── do.gif
+    │   │   ├── dz.gif
+    │   │   ├── ec.gif
+    │   │   ├── ee.gif
+    │   │   ├── eg.gif
+    │   │   ├── eh.gif
+    │   │   ├── en.gif
+    │   │   ├── er.gif
+    │   │   ├── es.gif
+    │   │   ├── et.gif
+    │   │   ├── eu.gif
+    │   │   ├── fi.gif
+    │   │   ├── fj.gif
+    │   │   ├── fk.gif
+    │   │   ├── fm.gif
+    │   │   ├── fo.gif
+    │   │   ├── fr.gif
+    │   │   ├── fx.gif
+    │   │   ├── ga.gif
+    │   │   ├── gb.gif
+    │   │   ├── gd.gif
+    │   │   ├── ge.gif
+    │   │   ├── gf.gif
+    │   │   ├── gh.gif
+    │   │   ├── gi.gif
+    │   │   ├── gl.gif
+    │   │   ├── gm.gif
+    │   │   ├── gn.gif
+    │   │   ├── gp.gif
+    │   │   ├── gq.gif
+    │   │   ├── gr.gif
+    │   │   ├── gs.gif
+    │   │   ├── gt.gif
+    │   │   ├── gu.gif
+    │   │   ├── gw.gif
+    │   │   ├── gy.gif
+    │   │   ├── hk.gif
+    │   │   ├── hm.gif
+    │   │   ├── hn.gif
+    │   │   ├── hr.gif
+    │   │   ├── ht.gif
+    │   │   ├── hu.gif
+    │   │   ├── id.gif
+    │   │   ├── ie.gif
+    │   │   ├── il.gif
+    │   │   ├── in.gif
+    │   │   ├── io.gif
+    │   │   ├── iq.gif
+    │   │   ├── ir.gif
+    │   │   ├── is.gif
+    │   │   ├── it.gif
+    │   │   ├── jm.gif
+    │   │   ├── jo.gif
+    │   │   ├── jp.gif
+    │   │   ├── ke.gif
+    │   │   ├── kg.gif
+    │   │   ├── kh.gif
+    │   │   ├── ki.gif
+    │   │   ├── km.gif
+    │   │   ├── kn.gif
+    │   │   ├── kp.gif
+    │   │   ├── kr.gif
+    │   │   ├── kw.gif
+    │   │   ├── ky.gif
+    │   │   ├── kz.gif
+    │   │   ├── la.gif
+    │   │   ├── lb.gif
+    │   │   ├── lc.gif
+    │   │   ├── li.gif
+    │   │   ├── lk.gif
+    │   │   ├── lr.gif
+    │   │   ├── ls.gif
+    │   │   ├── lt.gif
+    │   │   ├── lu.gif
+    │   │   ├── lv.gif
+    │   │   ├── ly.gif
+    │   │   ├── ma.gif
+    │   │   ├── mc.gif
+    │   │   ├── md.gif
+    │   │   ├── me.gif
+    │   │   ├── mg.gif
+    │   │   ├── mh.gif
+    │   │   ├── mk.gif
+    │   │   ├── ml.gif
+    │   │   ├── mm.gif
+    │   │   ├── mn.gif
+    │   │   ├── mo.gif
+    │   │   ├── mp.gif
+    │   │   ├── mq.gif
+    │   │   ├── mr.gif
+    │   │   ├── ms.gif
+    │   │   ├── mt.gif
+    │   │   ├── mu.gif
+    │   │   ├── mv.gif
+    │   │   ├── mw.gif
+    │   │   ├── mx.gif
+    │   │   ├── my.gif
+    │   │   ├── mz.gif
+    │   │   ├── na.gif
+    │   │   ├── nc.gif
+    │   │   ├── ne.gif
+    │   │   ├── nf.gif
+    │   │   ├── ng.gif
+    │   │   ├── ni.gif
+    │   │   ├── nl.gif
+    │   │   ├── no.gif
+    │   │   ├── np.gif
+    │   │   ├── nr.gif
+    │   │   ├── nu.gif
+    │   │   ├── nz.gif
+    │   │   ├── o1.gif
+    │   │   ├── om.gif
+    │   │   ├── pa.gif
+    │   │   ├── pe.gif
+    │   │   ├── pf.gif
+    │   │   ├── pg.gif
+    │   │   ├── ph.gif
+    │   │   ├── pk.gif
+    │   │   ├── pl.gif
+    │   │   ├── pm.gif
+    │   │   ├── pn.gif
+    │   │   ├── pr.gif
+    │   │   ├── ps.gif
+    │   │   ├── pt.gif
+    │   │   ├── pw.gif
+    │   │   ├── py.gif
+    │   │   ├── qa.gif
+    │   │   ├── re.gif
+    │   │   ├── ro.gif
+    │   │   ├── rs.gif
+    │   │   ├── ru.gif
+    │   │   ├── rw.gif
+    │   │   ├── sa.gif
+    │   │   ├── sb.gif
+    │   │   ├── sc.gif
+    │   │   ├── sd.gif
+    │   │   ├── se.gif
+    │   │   ├── sg.gif
+    │   │   ├── sh.gif
+    │   │   ├── si.gif
+    │   │   ├── sj.gif
+    │   │   ├── sk.gif
+    │   │   ├── sl.gif
+    │   │   ├── sm.gif
+    │   │   ├── sn.gif
+    │   │   ├── so.gif
+    │   │   ├── sr.gif
+    │   │   ├── st.gif
+    │   │   ├── sv.gif
+    │   │   ├── sy.gif
+    │   │   ├── sz.gif
+    │   │   ├── tc.gif
+    │   │   ├── td.gif
+    │   │   ├── tf.gif
+    │   │   ├── tg.gif
+    │   │   ├── th.gif
+    │   │   ├── tick.png
+    │   │   ├── tj.gif
+    │   │   ├── tk.gif
+    │   │   ├── tl.gif
+    │   │   ├── tm.gif
+    │   │   ├── tn.gif
+    │   │   ├── to.gif
+    │   │   ├── tr.gif
+    │   │   ├── tt.gif
+    │   │   ├── tv.gif
+    │   │   ├── tw.gif
+    │   │   ├── tz.gif
+    │   │   ├── ua.gif
+    │   │   ├── ug.gif
+    │   │   ├── uk.gif
+    │   │   ├── um.gif
+    │   │   ├── us.gif
+    │   │   ├── uy.gif
+    │   │   ├── uz.gif
+    │   │   ├── va.gif
+    │   │   ├── vc.gif
+    │   │   ├── ve.gif
+    │   │   ├── vg.gif
+    │   │   ├── vi.gif
+    │   │   ├── vn.gif
+    │   │   ├── vu.gif
+    │   │   ├── wales.gif
+    │   │   ├── wf.gif
+    │   │   ├── ws.gif
+    │   │   ├── ye.gif
+    │   │   ├── yt.gif
+    │   │   ├── yu.gif
+    │   │   ├── za.gif
+    │   │   ├── zm.gif
+    │   │   ├── zr.gif
+    │   │   └── zw.gif
+    │   ├── logo.png
+    │   ├── stats-arrow-down.png
+    │   └── stats-arrow-up.png
+    ├── importgeoip.php
+    ├── include
+    │   ├── inc_activecommands.php
+    │   ├── inc_botlist.php
+    │   ├── inc_ddos.php
+    │   ├── inc_genstats.php
+    │   ├── inc_misc.php
+    │   ├── inc_prefs.php
+    │   ├── inc_userlist.php
+    │   ├── inc_webchecker.php
+    │   ├── tpl_activecommands.php
+    │   ├── tpl_botlist.php
+    │   ├── tpl_ddos.php
+    │   ├── tpl_help.php
+    │   ├── tpl_login.php
+    │   ├── tpl_main.php
+    │   ├── tpl_misc.php
+    │   ├── tpl_prefs.php
+    │   ├── tpl_userlist.php
+    │   └── tpl_webchecker.php
+    ├── index.php
+    ├── js
+    │   └── main.js
+    ├── login
+    │   └── index.php
+    ├── _README[setup-instructions].txt
+    ├── robots.txt
+    └── styles
+        ├── main.css
+        └── reset.css
+
+49 directories, 762 files
 ======================: README CONTENT :======================
 ====================== GIT HISTORY: ======================
 0fdce35 HEAD@{0}: clone: from https://github.com/3val/Athena

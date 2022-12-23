@@ -1,4 +1,83 @@
 ======================: FILES :======================
+Botnet-Finder-Framework
+├── algorithms
+│   ├── abstract_algorithm.py
+│   ├── algorithm_interface.py
+│   ├── algorithm.py
+│   ├── bottrack
+│   │   ├── algorithm.py
+│   │   └── config.json
+│   ├── disclosure
+│   │   ├── algorithm.py
+│   │   └── config.json
+│   └── __init__.py
+├── datasets
+│   ├── abstract_dataset_builder.py
+│   ├── abstract_dataset.py
+│   ├── bottrack
+│   │   ├── builder.py
+│   │   ├── config.json
+│   │   └── dataset.py
+│   ├── dataset_builder_interface.py
+│   ├── dataset_builder.py
+│   ├── disclosure
+│   │   ├── builder.py
+│   │   ├── config.json
+│   │   └── dataset.py
+│   ├── __init__.py
+│   ├── ip_labeled_dataset_interface.py
+│   ├── ip_labeled_dataset.py
+│   ├── labeled_dataset_interface.py
+│   ├── labeled_dataset.py
+│   ├── unlabeled_dataset_interface.py
+│   └── unlabeled_dataset.py
+├── extractors
+│   ├── bottrack
+│   │   ├── config.json
+│   │   ├── extractor.py
+│   │   └── __init__.py
+│   ├── disclosure
+│   │   ├── config.json
+│   │   ├── extractor.py
+│   │   └── __init__.py
+│   ├── extractor_interface.py
+│   ├── extractor.py
+│   └── __init__.py
+├── LICENSE
+├── main
+│   ├── app.py
+│   └── __init__.py
+├── metrics
+│   ├── __init__.py
+│   └── metrics.py
+├── NicolaDeCaoThesis.pdf
+├── outputs
+│   ├── __init__.py
+│   ├── plot
+│   │   ├── config.json
+│   │   ├── __init__.py
+│   │   └── plot.py
+│   └── save
+│       ├── config.json
+│       ├── __init__.py
+│       └── save.py
+├── README.md
+├── tests
+│   ├── __init__.py
+│   ├── test_botTrackExtractor.csv
+│   ├── test_botTrackExtractor_DatasetBuilder_config.json
+│   ├── test_botTrackExtractor_Extractor_config.json
+│   ├── test_botTrackExtractor_features.json
+│   ├── test_botTrackExtractor.py
+│   ├── test_disclosureExtractor.csv
+│   ├── test_disclosureExtractor_DatasetBuilder_config.json
+│   ├── test_disclosureExtractor_Extractor_config.json
+│   ├── test_disclosureExtractor_features.json
+│   └── test_disclosureExtractor.py
+└── util
+    └── __init__.py
+
+16 directories, 60 files
 ======================: README CONTENT :======================
 # Botnet-Finder-Framework
 ### A modular framework for botnet detectors prototyping and evaluation

@@ -1,4 +1,235 @@
 ======================: FILES :======================
+BotNet
+├── 6tisch-simulator
+│   ├── bin
+│   │   ├── check_config_json.py
+│   │   ├── compute_kpis.py
+│   │   ├── extract_config_json.py
+│   │   ├── __init__.py
+│   │   ├── mergeLogs.py
+│   │   ├── plot.py
+│   │   └── runSim.py
+│   ├── bitbucket-pipelines.yml
+│   ├── gui
+│   │   ├── backend
+│   │   │   ├── get_git_info
+│   │   │   ├── __init__.py
+│   │   │   ├── __main__.py
+│   │   │   ├── routes.py
+│   │   │   ├── sim.py
+│   │   │   ├── start
+│   │   │   ├── start.py
+│   │   │   ├── test
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── test_log_notification.py
+│   │   │   │   └── test_sim.py
+│   │   │   └── utils.py
+│   │   ├── backend.config.json
+│   │   ├── dist
+│   │   │   ├── css
+│   │   │   │   └── chunk-vendors.ab070236.css
+│   │   │   ├── favicon.ico
+│   │   │   ├── index.html
+│   │   │   └── js
+│   │   │       ├── app.1eb97c2e.js
+│   │   │       ├── app.1eb97c2e.js.map
+│   │   │       ├── chunk-vendors.3fc01c7e.js
+│   │   │       └── chunk-vendors.3fc01c7e.js.map
+│   │   ├── LICENSE
+│   │   └── WEBAPP_COMMIT_INFO.txt
+│   ├── Jenkinsfile
+│   ├── LICENSE
+│   ├── README.md
+│   ├── SimEngine
+│   │   ├── Connectivity.py
+│   │   ├── __init__.py
+│   │   ├── Mote
+│   │   │   ├── app.py
+│   │   │   ├── __init__.py
+│   │   │   ├── MoteDefines.py
+│   │   │   ├── Mote.py
+│   │   │   ├── radio.py
+│   │   │   ├── rpl.py
+│   │   │   ├── secjoin.py
+│   │   │   ├── sf.py
+│   │   │   ├── sixlowpan.py
+│   │   │   ├── sixp.py
+│   │   │   ├── trickle_timer.py
+│   │   │   └── tsch.py
+│   │   ├── SimConfig.py
+│   │   ├── SimEngine.py
+│   │   ├── SimLog.py
+│   │   └── SimSettings.py
+│   ├── tests
+│   │   ├── conftest.py
+│   │   ├── __init__.py
+│   │   ├── test_app.py
+│   │   ├── test_check_config_json.py
+│   │   ├── test_compute_kpis.py
+│   │   ├── test_connectivity_k7.py
+│   │   ├── test_connectivity.py
+│   │   ├── test_discreteeventengine.py
+│   │   ├── test_dummy.py
+│   │   ├── test_fixture.py
+│   │   ├── test_fragmentation.py
+│   │   ├── test_mote_addr.py
+│   │   ├── test_random_seed.py
+│   │   ├── test_rpl_of_best_link_pdr.py
+│   │   ├── test_rpl.py
+│   │   ├── test_runsim.py
+│   │   ├── test_scenario.py
+│   │   ├── test_secjoin.py
+│   │   ├── test_sf.py
+│   │   ├── test_sim_config.py
+│   │   ├── test_singleton.py
+│   │   ├── test_sixp.py
+│   │   ├── test_trickle_timer.py
+│   │   ├── test_tsch_clock.py
+│   │   ├── test_tsch.py
+│   │   ├── test_tsch_slotframe.py
+│   │   └── test_utils.py
+│   └── traces
+│       └── grenoble.k7.gz
+├── botnet
+│   ├── assets
+│   │   ├── sim-dynam.png
+│   │   ├── sim-network.png
+│   │   └── teaser.png
+│   └── scripts
+│       ├── 6tisch_dual_vis.sh
+│       ├── 6tisch_no_vis.sh
+│       ├── BotNetVisualizer.py
+│       ├── plot.py
+│       ├── plotting.ipynb
+│       └── swarmsim_propagation.sh
+├── conf
+│   ├── 6tisch.json
+│   ├── conf.yaml
+│   └── swarmsim.yaml
+├── environment.yml
+├── README.md
+└── swarmsimmaster
+    ├── check_env.py
+    ├── comms_env.py
+    ├── communication.py
+    ├── components
+    │   ├── generators
+    │   │   ├── csv
+    │   │   │   ├── agent_tracking_generator.py
+    │   │   │   ├── csv_generator.py
+    │   │   │   ├── __init__.py
+    │   │   │   └── passing_generator.py
+    │   │   ├── __init__.py
+    │   │   └── plot
+    │   │       ├── __init__.py
+    │   │       └── plot_generator.py
+    │   ├── grids
+    │   │   ├── ccp.py
+    │   │   ├── cubic.py
+    │   │   ├── grid.py
+    │   │   ├── __init__.py
+    │   │   ├── quadratic.py
+    │   │   └── triangular.py
+    │   ├── gui
+    │   │   ├── default.py
+    │   │   ├── __init__.py
+    │   │   └── template.py
+    │   ├── __init__.py
+    │   ├── models
+    │   │   ├── 2d_agent.obj
+    │   │   ├── 2d_hex_item.obj
+    │   │   ├── 2d_location.obj
+    │   │   ├── 2d_quad_item.obj
+    │   │   ├── 3d_agent_low_poly.obj
+    │   │   ├── 3d_agent.obj
+    │   │   ├── 3d_ccp_item.obj
+    │   │   ├── 3d_cube_item.obj
+    │   │   ├── 3d_location_2.obj
+    │   │   └── 3d_location.obj
+    │   ├── scenario
+    │   │   ├── 6tisch_scenario.py
+    │   │   ├── agent_item_location.py
+    │   │   ├── agents_items_locations_ring.py
+    │   │   ├── center_line_flock.py
+    │   │   ├── center_radius_flock.py
+    │   │   ├── dual_vis_tisch.py
+    │   │   ├── edge_radius_flock.py
+    │   │   ├── formation_ctrl.py
+    │   │   ├── __init__.py
+    │   │   ├── lonely_agent.py
+    │   │   ├── n_agent_in_line.py
+    │   │   ├── post_viz.py
+    │   │   ├── README.md
+    │   │   ├── test_interfaces.py
+    │   │   └── timer_sce.py
+    │   └── solution
+    │       ├── create_delete.py
+    │       ├── flock.py
+    │       ├── formation_circ.py
+    │       ├── formation_line.py
+    │       ├── __init__.py
+    │       ├── marking_3d_global.py
+    │       ├── marking_3d_local.py
+    │       ├── marking_3d_noComm.py
+    │       ├── post_viz.py
+    │       ├── random_walk.py
+    │       ├── random_walk_with_take_and_drop.py
+    │       ├── README.md
+    │       ├── rl_model.py
+    │       ├── scanning_for_all_aims.py
+    │       ├── test_all_the_interfaces.py
+    │       ├── test_marking.py
+    │       ├── test_velo_agent.py
+    │       ├── timer_sol_full.py
+    │       ├── timer_sol.py
+    │       └── tisch_visualization.py
+    ├── core
+    │   ├── agent.py
+    │   ├── config.py
+    │   ├── __init__.py
+    │   ├── item.py
+    │   ├── location.py
+    │   ├── matter.py
+    │   ├── swarm_sim_header.py
+    │   ├── velo_controlled_agent.py
+    │   ├── vis3d.py
+    │   ├── visualization
+    │   │   ├── camera.py
+    │   │   ├── __init__.py
+    │   │   ├── OGLWidget.py
+    │   │   ├── programs
+    │   │   │   ├── grid_program.py
+    │   │   │   ├── __init__.py
+    │   │   │   ├── offset_color_carry_program.py
+    │   │   │   ├── offset_color_program.py
+    │   │   │   └── program.py
+    │   │   ├── recorder.py
+    │   │   ├── shader
+    │   │   │   ├── frag.glsl
+    │   │   │   ├── grid_vertex.glsl
+    │   │   │   ├── offset_color_carry_vertex.glsl
+    │   │   │   └── offset_color_vertex.glsl
+    │   │   ├── toms_svg_generator.py
+    │   │   └── utils.py
+    │   └── world.py
+    ├── eval_callback.py
+    ├── logs
+    │   └── monitor.csv
+    ├── multiple.py
+    ├── old_comms_test.py
+    ├── outputs
+    │   ├── csv
+    │   ├── logs
+    │   ├── plots
+    │   ├── screenshots
+    │   └── videos
+    ├── rpyc_server.py
+    ├── swarmsim_env.py
+    ├── swarmsim.py
+    ├── timer_benchmark.py
+    └── train_model.py
+
+37 directories, 191 files
 ======================: README CONTENT :======================
 # BotNet: A Simulator for Studying the Effects of Accurate Communication Models on High-agent Count Multi-agent Control
 

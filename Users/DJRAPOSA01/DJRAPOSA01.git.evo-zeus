@@ -1,4 +1,832 @@
 ======================: FILES :======================
+evo-zeus
+├── bin
+│   ├── 7z.exe
+│   ├── bt.exe
+│   ├── FASM.EXE
+│   ├── PHP
+│   │   ├── ext
+│   │   │   ├── php_gmp.dll
+│   │   │   ├── php_mbstring.dll
+│   │   │   └── php_sockets.dll
+│   │   ├── php5ts.dll
+│   │   ├── php.exe
+│   │   └── php.ini
+│   └── upx.exe
+├── config.ini
+├── configs
+│   ├── buildtools
+│   │   └── config
+│   ├── debug
+│   │   └── config
+│   ├── default
+│   │   └── config
+│   └── full
+│       └── config
+├── configure.txt
+├── geobase
+│   ├── convert_maxmind_country.php
+│   ├── country[maxmind].txt
+│   └── GeoIPCountryWhois.csv
+├── include
+│   ├── imnact.h
+│   ├── iregexp2.h
+│   ├── mimeole.h
+│   ├── msoeapi.h
+│   └── X11
+│       └── keysymdef.h
+├── lib
+│   ├── x32
+│   │   ├── lde32.lib
+│   │   └── ntdll.lib
+│   └── x64
+│       ├── lde64.lib
+│       └── ntdll.lib
+├── make
+│   ├── baseconfig.inc.php
+│   ├── buildconfig.inc.php
+│   ├── configsample.inc.php
+│   ├── installdata.inc.php
+│   ├── make.log
+│   ├── make.php
+│   ├── make.vcxproj
+│   ├── make.vcxproj.user
+│   └── tools.inc.php
+├── make.cmd
+├── make_debug.cmd
+├── make_default.cmd
+├── make_full.cmd
+├── manual_en.html
+├── manual_ru.html
+├── output
+│   ├── builder
+│   │   ├── config.txt
+│   │   └── zsb.exe
+│   ├── other
+│   │   ├── redir.php
+│   │   └── sockslist.php
+│   ├── server
+│   │   └── zsbcs.exe
+│   ├── server[php]
+│   │   ├── amcharts
+│   │   │   ├── amcharts.js
+│   │   │   ├── amcharts.rar
+│   │   │   └── images
+│   │   │       ├── dragIcon.gif
+│   │   │       ├── dragIconH.gif
+│   │   │       └── lens.png
+│   │   ├── bank.php
+│   │   ├── codrops_back.png
+│   │   ├── c.php
+│   │   ├── cp.php
+│   │   ├── d.php
+│   │   ├── end.png
+│   │   ├── evo_aditional.sql.zip
+│   │   ├── faq.php
+│   │   ├── file.php
+│   │   ├── files
+│   │   ├── fixedmenu.png
+│   │   ├── frm_clock.php
+│   │   ├── gate.php
+│   │   ├── hover.png
+│   │   ├── image.jpg
+│   │   ├── images
+│   │   │   ├── back-header.jpg
+│   │   │   ├── bank.jpg
+│   │   │   ├── bottom.png
+│   │   │   ├── libertychk.jpg
+│   │   │   ├── liberty.jpg
+│   │   │   ├── nav.png
+│   │   │   ├── overlay.png
+│   │   │   ├── pmchk.png
+│   │   │   ├── pm.png
+│   │   │   ├── qiwichk.png
+│   │   │   ├── qiwi.png
+│   │   │   ├── qw.png
+│   │   │   ├── rbkchk.png
+│   │   │   ├── rbk.png
+│   │   │   ├── search.png
+│   │   │   ├── Thumbs.db
+│   │   │   ├── top.png
+│   │   │   ├── webmoneychk.png
+│   │   │   ├── webmoney.png
+│   │   │   ├── yamoneychk.png
+│   │   │   ├── yamoney.png
+│   │   │   ├── ym1.png
+│   │   │   └── ym.png
+│   │   ├── index.php
+│   │   ├── install
+│   │   │   ├── geobase.txt
+│   │   │   └── index.php
+│   │   ├── ipv4toc.sql
+│   │   ├── lilwaynebio.php
+│   │   ├── lr.php
+│   │   ├── module.php
+│   │   ├── mtanqste.php
+│   │   ├── pm.php
+│   │   ├── qw.php
+│   │   ├── rbk.php
+│   │   ├── scroll.png
+│   │   ├── server[php]-beta.zip
+│   │   ├── statcountry.php
+│   │   ├── statonline.php
+│   │   ├── statoospan.php
+│   │   ├── statoos.php
+│   │   ├── system
+│   │   │   ├── bank_statistics.lng.en.php
+│   │   │   ├── bank_statistics.lng.ru.php
+│   │   │   ├── bank_statistics.php
+│   │   │   ├── botnet_bots.lng.en.php
+│   │   │   ├── botnet_bots.lng.ru.php
+│   │   │   ├── botnet_bots.php
+│   │   │   ├── botnet_scripts.lng.en.php
+│   │   │   ├── botnet_scripts.lng.ru.php
+│   │   │   ├── botnet_scripts.php
+│   │   │   ├── config.php
+│   │   │   ├── fsarc.php
+│   │   │   ├── global.php
+│   │   │   ├── index.php
+│   │   │   ├── jabberclass.php
+│   │   │   ├── lng.en.php
+│   │   │   ├── lng.ru.php
+│   │   │   ├── reports_db.lng.en.php
+│   │   │   ├── reports_db.lng.ru.php
+│   │   │   ├── reports_db.php
+│   │   │   ├── reports_files.lng.en.php
+│   │   │   ├── reports_files.lng.ru.php
+│   │   │   ├── reports_files.php
+│   │   │   ├── reports_jn.lng.en.php
+│   │   │   ├── reports_jn.lng.ru.php
+│   │   │   ├── reports_jn.php
+│   │   │   ├── statonline.php
+│   │   │   ├── statoos.php~
+│   │   │   ├── stats_main.lng.en.php
+│   │   │   ├── stats_main.lng.ru.php
+│   │   │   ├── stats_main.php
+│   │   │   ├── stats_main.php~
+│   │   │   ├── stats_os.lng.en.php
+│   │   │   ├── stats_os.lng.ru.php
+│   │   │   ├── stats_os.php
+│   │   │   ├── stats_os.php~
+│   │   │   ├── style.css
+│   │   │   ├── sys_faq.lng.en.php
+│   │   │   ├── sys_faq.lng.ru.php
+│   │   │   ├── sys_faq.php
+│   │   │   ├── sys_info.lng.en.php
+│   │   │   ├── sys_info.lng.ru.php
+│   │   │   ├── sys_info.php
+│   │   │   ├── sys_options.lng.en.php
+│   │   │   ├── sys_options.lng.ru.php
+│   │   │   ├── sys_options.php
+│   │   │   ├── sys_user.lng.en.php
+│   │   │   ├── sys_user.lng.ru.php
+│   │   │   ├── sys_user.php
+│   │   │   ├── sys_users.lng.en.php
+│   │   │   ├── sys_users.lng.ru.php
+│   │   │   └── sys_users.php
+│   │   ├── theme
+│   │   │   ├── bar.js
+│   │   │   ├── failed.png
+│   │   │   ├── footer.html
+│   │   │   ├── header.html
+│   │   │   ├── img
+│   │   │   │   ├── bank.png
+│   │   │   │   ├── bots.png
+│   │   │   │   ├── ccgrabber.png
+│   │   │   │   ├── chartcounty.png
+│   │   │   │   ├── chartonline.png
+│   │   │   │   ├── chartos.png
+│   │   │   │   ├── charts.png
+│   │   │   │   ├── database.png
+│   │   │   │   ├── ddos.png
+│   │   │   │   ├── faq.png
+│   │   │   │   ├── files.png
+│   │   │   │   ├── fon.jpg
+│   │   │   │   ├── ibank.png
+│   │   │   │   ├── image.jpg
+│   │   │   │   ├── info.png
+│   │   │   │   ├── istat.png
+│   │   │   │   ├── jabber.png
+│   │   │   │   ├── liberty.png
+│   │   │   │   ├── line.png
+│   │   │   │   ├── logout.png
+│   │   │   │   ├── main.png
+│   │   │   │   ├── module.png
+│   │   │   │   ├── option.png
+│   │   │   │   ├── os.png
+│   │   │   │   ├── perfect.png
+│   │   │   │   ├── qiwi.png
+│   │   │   │   ├── rbk.png
+│   │   │   │   ├── script.png
+│   │   │   │   ├── user.png
+│   │   │   │   ├── users.png
+│   │   │   │   ├── vpn.png
+│   │   │   │   ├── webmoney.png
+│   │   │   │   └── yandex.png
+│   │   │   ├── index.php
+│   │   │   ├── popupmenu.js
+│   │   │   ├── small.html
+│   │   │   ├── style.css
+│   │   │   └── throbber.gif
+│   │   ├── vpn.php
+│   │   ├── wm.php
+│   │   └── ym.php
+│   └── www
+│       ├── amcharts
+│       │   ├── amcharts.js
+│       │   ├── amcharts.rar
+│       │   └── images
+│       │       ├── dragIcon.gif
+│       │       ├── dragIconH.gif
+│       │       └── lens.png
+│       ├── bank.php
+│       ├── codrops_back.png
+│       ├── d.php
+│       ├── end.png
+│       ├── faq.php
+│       ├── file.php
+│       ├── fixedmenu.png
+│       ├── frm_clock.php
+│       ├── hover.png
+│       ├── image.jpg
+│       ├── images
+│       │   ├── back-header.jpg
+│       │   ├── bank.jpg
+│       │   ├── bottom.png
+│       │   ├── libertychk.jpg
+│       │   ├── liberty.jpg
+│       │   ├── nav.png
+│       │   ├── overlay.png
+│       │   ├── pmchk.png
+│       │   ├── pm.png
+│       │   ├── qiwichk.png
+│       │   ├── qiwi.png
+│       │   ├── qw.png
+│       │   ├── rbkchk.png
+│       │   ├── rbk.png
+│       │   ├── search.png
+│       │   ├── Thumbs.db
+│       │   ├── top.png
+│       │   ├── webmoneychk.png
+│       │   ├── webmoney.png
+│       │   ├── yamoneychk.png
+│       │   ├── yamoney.png
+│       │   ├── ym1.png
+│       │   └── ym.png
+│       ├── index.php
+│       ├── lilwaynebio.php
+│       ├── lr.php
+│       ├── module.php
+│       ├── mtanqste.php
+│       ├── pm.php
+│       ├── qw.php
+│       ├── rbk.php
+│       ├── scroll.png
+│       ├── statcountry.php
+│       ├── statonline.php
+│       ├── statoospan.php
+│       ├── statoos.php
+│       ├── system
+│       │   ├── bank_statistics.lng.en.php
+│       │   ├── bank_statistics.lng.ru.php
+│       │   ├── bank_statistics.php
+│       │   ├── botnet_bots.lng.en.php
+│       │   ├── botnet_bots.lng.ru.php
+│       │   ├── botnet_bots.php
+│       │   ├── botnet_scripts.lng.en.php
+│       │   ├── botnet_scripts.lng.ru.php
+│       │   ├── botnet_scripts.php
+│       │   ├── config.php
+│       │   ├── config.php.old.php
+│       │   ├── fsarc.php
+│       │   ├── global.php
+│       │   ├── index.php
+│       │   ├── jabberclass.php
+│       │   ├── lng.en.php
+│       │   ├── lng.ru.php
+│       │   ├── reports_db.lng.en.php
+│       │   ├── reports_db.lng.ru.php
+│       │   ├── reports_db.php
+│       │   ├── reports_files.lng.en.php
+│       │   ├── reports_files.lng.ru.php
+│       │   ├── reports_files.php
+│       │   ├── reports_jn.lng.en.php
+│       │   ├── reports_jn.lng.ru.php
+│       │   ├── reports_jn.php
+│       │   ├── statonline.php
+│       │   ├── statoos.php~
+│       │   ├── stats_main.lng.en.php
+│       │   ├── stats_main.lng.ru.php
+│       │   ├── stats_main.php
+│       │   ├── stats_main.php~
+│       │   ├── stats_os.lng.en.php
+│       │   ├── stats_os.lng.ru.php
+│       │   ├── stats_os.php
+│       │   ├── stats_os.php~
+│       │   ├── style.css
+│       │   ├── sys_faq.lng.en.php
+│       │   ├── sys_faq.lng.ru.php
+│       │   ├── sys_faq.php
+│       │   ├── sys_info.lng.en.php
+│       │   ├── sys_info.lng.ru.php
+│       │   ├── sys_info.php
+│       │   ├── sys_options.lng.en.php
+│       │   ├── sys_options.lng.ru.php
+│       │   ├── sys_options.php
+│       │   ├── sys_user.lng.en.php
+│       │   ├── sys_user.lng.ru.php
+│       │   ├── sys_user.php
+│       │   ├── sys_users.lng.en.php
+│       │   ├── sys_users.lng.ru.php
+│       │   └── sys_users.php
+│       ├── test.php
+│       ├── theme
+│       │   ├── bar.js
+│       │   ├── failed.png
+│       │   ├── fon.jpg
+│       │   ├── footer.html
+│       │   ├── header.html
+│       │   ├── img
+│       │   │   ├── bank.png
+│       │   │   ├── bots.png
+│       │   │   ├── ccgrabber.png
+│       │   │   ├── chartcounty.png
+│       │   │   ├── chartonline.png
+│       │   │   ├── chartos.png
+│       │   │   ├── charts.png
+│       │   │   ├── database.png
+│       │   │   ├── ddos.png
+│       │   │   ├── faq.png
+│       │   │   ├── files.png
+│       │   │   ├── fon.jpg
+│       │   │   ├── ibank.png
+│       │   │   ├── image.jpg
+│       │   │   ├── info.png
+│       │   │   ├── istat.png
+│       │   │   ├── jabber.png
+│       │   │   ├── liberty.png
+│       │   │   ├── line.png
+│       │   │   ├── logout.png
+│       │   │   ├── main.png
+│       │   │   ├── module.png
+│       │   │   ├── option.png
+│       │   │   ├── os.png
+│       │   │   ├── perfect.png
+│       │   │   ├── qiwi.png
+│       │   │   ├── rbk.png
+│       │   │   ├── script.png
+│       │   │   ├── user.png
+│       │   │   ├── users.png
+│       │   │   ├── vpn.png
+│       │   │   ├── webmoney.png
+│       │   │   └── yandex.png
+│       │   ├── index.php
+│       │   ├── popupmenu.js
+│       │   ├── small.html
+│       │   ├── style.css
+│       │   └── throbber.gif
+│       ├── vpn.php
+│       ├── wm.php
+│       └── ym.php
+├── readme.md
+├── source
+│   ├── bcserver
+│   │   ├── bcserver.log
+│   │   ├── bcserver.vcxproj
+│   │   ├── bcserver.vcxproj.user
+│   │   ├── common.cpp
+│   │   ├── core.cpp
+│   │   ├── core.h
+│   │   ├── defines.h
+│   │   ├── language.h
+│   │   └── listen.cpp
+│   ├── builder
+│   │   ├── buildbot.cpp
+│   │   ├── buildbot.h
+│   │   ├── buildconfig.cpp
+│   │   ├── buildconfig.h
+│   │   ├── builder.cpp
+│   │   ├── builder.log
+│   │   ├── builder.vcxproj
+│   │   ├── builder.vcxproj.user
+│   │   ├── clients.h
+│   │   ├── common.cpp
+│   │   ├── defines.h
+│   │   ├── info.cpp
+│   │   ├── languages.cpp
+│   │   ├── languages.h
+│   │   ├── main.cpp
+│   │   ├── main.h
+│   │   ├── Release
+│   │   │   ├── builder.lastbuildstate
+│   │   │   └── builder.unsuccessfulbuild
+│   │   ├── resources
+│   │   │   ├── cuimanifest.xml
+│   │   │   ├── guimanifest.xml
+│   │   │   ├── main.ico
+│   │   │   ├── main[original].ico
+│   │   │   ├── resources.aps
+│   │   │   ├── resources.h
+│   │   │   └── resources.rc
+│   │   ├── settings.cpp
+│   │   ├── tools.cpp
+│   │   └── tools.h
+│   ├── buildtools
+│   │   ├── buildtools.log
+│   │   ├── buildtools.vcxproj
+│   │   ├── buildtools.vcxproj.user
+│   │   ├── common.cpp
+│   │   ├── core.cpp
+│   │   ├── core.h
+│   │   ├── defines.h
+│   │   ├── language.h
+│   │   ├── peinfo.cpp
+│   │   ├── Release
+│   │   │   └── buildtools.unsuccessfulbuild
+│   │   └── ror13.cpp
+│   ├── client
+│   │   ├── backconnectbot.cpp
+│   │   ├── backconnectbot.h
+│   │   ├── bank_catch.cpp
+│   │   ├── bank_catch.h
+│   │   ├── certstorehook.cpp
+│   │   ├── certstorehook.h
+│   │   ├── client.log
+│   │   ├── clientmanifest.xml
+│   │   ├── client.vcxproj
+│   │   ├── client.vcxproj.user
+│   │   ├── common.cpp
+│   │   ├── corecontrol.cpp
+│   │   ├── corecontrol.h
+│   │   ├── core.cpp
+│   │   ├── core.h
+│   │   ├── corehook.cpp
+│   │   ├── corehook.h
+│   │   ├── coreinject.cpp
+│   │   ├── coreinject.h
+│   │   ├── coreinstall.cpp
+│   │   ├── coreinstall.h
+│   │   ├── cryptedstrings.cpp
+│   │   ├── cryptedstrings.h
+│   │   ├── cryptedstrings.txt
+│   │   ├── defines.h
+│   │   ├── dynamicconfig.cpp
+│   │   ├── dynamicconfig.h
+│   │   ├── filesearch.cpp
+│   │   ├── filesearch.h
+│   │   ├── globals.h
+│   │   ├── httpgrabber.cpp
+│   │   ├── httpgrabber.h
+│   │   ├── localconfig.cpp
+│   │   ├── localconfig.h
+│   │   ├── localsettings.cpp
+│   │   ├── localsettings.h
+│   │   ├── modulesystem.cpp
+│   │   ├── modulesystem.h
+│   │   ├── nspr4hook.cpp
+│   │   ├── nspr4hook.h
+│   │   ├── osenv.cpp
+│   │   ├── osenv.h
+│   │   ├── process_keylogger.cpp
+│   │   ├── process_keylogger.h
+│   │   ├── remotescript.cpp
+│   │   ├── remotescript.h
+│   │   ├── report.cpp
+│   │   ├── report.h
+│   │   ├── resource.h
+│   │   ├── resources.aps
+│   │   ├── resources.rc
+│   │   ├── screenshot.cpp
+│   │   ├── screenshot.h
+│   │   ├── sockethook.cpp
+│   │   ├── sockethook.h
+│   │   ├── socks5server.cpp
+│   │   ├── socks5server.h
+│   │   ├── softwaregrabber.cpp
+│   │   ├── softwaregrabber.h
+│   │   ├── tcpserver.cpp
+│   │   ├── tcpserver.h
+│   │   ├── usbshadowcpy.cpp
+│   │   ├── usbshadowcpy.h
+│   │   ├── userhook.cpp
+│   │   ├── userhook.h
+│   │   ├── vnc
+│   │   │   ├── defines.h
+│   │   │   ├── rfb.cpp
+│   │   │   ├── rfb.h
+│   │   │   ├── vnckeyboard.cpp
+│   │   │   ├── vncmouse.cpp
+│   │   │   ├── vncpaint.cpp
+│   │   │   ├── vncserver.cpp
+│   │   │   └── vncserver.h
+│   │   ├── winapitables.cpp
+│   │   ├── winapitables.h
+│   │   ├── windowstation.cpp
+│   │   ├── windowstation.h
+│   │   ├── wininethook.cpp
+│   │   └── wininethook.h
+│   ├── common
+│   │   ├── backconnect.cpp
+│   │   ├── backconnect.h
+│   │   ├── baseoverlay.cpp
+│   │   ├── baseoverlay.h
+│   │   ├── binstorage.cpp
+│   │   ├── binstorage.h
+│   │   ├── botstatus.h
+│   │   ├── comlibrary.cpp
+│   │   ├── comlibrary.h
+│   │   ├── common.log
+│   │   ├── common.vcxproj
+│   │   ├── common.vcxproj.user
+│   │   ├── config0.cpp
+│   │   ├── config0.h
+│   │   ├── config1.cpp
+│   │   ├── config1.h
+│   │   ├── config.h
+│   │   ├── console.cpp
+│   │   ├── console.h
+│   │   ├── crypt.cpp
+│   │   ├── crypt.h
+│   │   ├── cui.cpp
+│   │   ├── cui[en].h
+│   │   ├── cui.h
+│   │   ├── debug.cpp
+│   │   ├── debug.h
+│   │   ├── defines.h
+│   │   ├── defines.php
+│   │   ├── disasm.cpp
+│   │   ├── disasm.h
+│   │   ├── fs.cpp
+│   │   ├── fs.h
+│   │   ├── gdi.cpp
+│   │   ├── gdi.h
+│   │   ├── generateddata.h
+│   │   ├── gui.cpp
+│   │   ├── gui.h
+│   │   ├── httpinject.cpp
+│   │   ├── httpinject.h
+│   │   ├── httptools.cpp
+│   │   ├── httptools.h
+│   │   ├── inetlib.cpp
+│   │   ├── inetlib.h
+│   │   ├── malwaretools.cpp
+│   │   ├── malwaretools.h
+│   │   ├── math.cpp
+│   │   ├── math.h
+│   │   ├── mem.cpp
+│   │   ├── mem.h
+│   │   ├── mscab.cpp
+│   │   ├── mscab.h
+│   │   ├── ntdll.h
+│   │   ├── peimage.cpp
+│   │   ├── peimage.h
+│   │   ├── pesettings.cpp
+│   │   ├── pesettings.h
+│   │   ├── process.cpp
+│   │   ├── process.h
+│   │   ├── registry.cpp
+│   │   ├── registry.h
+│   │   ├── sslsocket.cpp
+│   │   ├── sslsocket.h
+│   │   ├── str.cpp
+│   │   ├── str.h
+│   │   ├── sync.cpp
+│   │   ├── sync.h
+│   │   ├── threadsgroup.cpp
+│   │   ├── threadsgroup.h
+│   │   ├── time.cpp
+│   │   ├── time.h
+│   │   ├── tor.h
+│   │   ├── ucl.cpp
+│   │   ├── ucl.h
+│   │   ├── wahook.cpp
+│   │   ├── wahook.h
+│   │   ├── wininet.cpp
+│   │   ├── wininet.h
+│   │   ├── winsecurity.cpp
+│   │   ├── winsecurity.h
+│   │   ├── wsocket.cpp
+│   │   ├── wsocket.h
+│   │   ├── xmlparser.cpp
+│   │   └── xmlparser.h
+│   ├── other
+│   │   ├── httpinjects
+│   │   │   ├── bankofamerica.txt
+│   │   │   ├── paypal.txt
+│   │   │   └── usaa.txt
+│   │   ├── redir.php
+│   │   ├── sockslist.php
+│   │   ├── webinjects.txt
+│   │   └── zip.exe
+│   └── server[php]
+│       ├── cp.php
+│       ├── Debug
+│       │   └── server.log
+│       ├── gate.php
+│       ├── index.php
+│       ├── install
+│       │   └── index.php
+│       ├── server.vcxproj
+│       ├── server.vcxproj.user
+│       ├── system
+│       │   ├── botnet_bots.lng.en.php
+│       │   ├── botnet_bots.lng.ru.php
+│       │   ├── botnet_bots.php
+│       │   ├── botnet_scripts.lng.en.php
+│       │   ├── botnet_scripts.lng.ru.php
+│       │   ├── botnet_scripts.php
+│       │   ├── fsarc.php
+│       │   ├── global.php
+│       │   ├── index.php
+│       │   ├── jabberclass.php
+│       │   ├── lng.en.php
+│       │   ├── lng.ru.php
+│       │   ├── reports_db.lng.en.php
+│       │   ├── reports_db.lng.ru.php
+│       │   ├── reports_db.php
+│       │   ├── reports_files.lng.en.php
+│       │   ├── reports_files.lng.ru.php
+│       │   ├── reports_files.php
+│       │   ├── reports_jn.lng.en.php
+│       │   ├── reports_jn.lng.ru.php
+│       │   ├── reports_jn.php
+│       │   ├── stats_main.lng.en.php
+│       │   ├── stats_main.lng.ru.php
+│       │   ├── stats_main.php
+│       │   ├── stats_os.lng.en.php
+│       │   ├── stats_os.lng.ru.php
+│       │   ├── stats_os.php
+│       │   ├── sys_info.lng.en.php
+│       │   ├── sys_info.lng.ru.php
+│       │   ├── sys_info.php
+│       │   ├── sys_options.lng.en.php
+│       │   ├── sys_options.lng.ru.php
+│       │   ├── sys_options.php
+│       │   ├── sys_user.lng.en.php
+│       │   ├── sys_user.lng.ru.php
+│       │   ├── sys_user.php
+│       │   ├── sys_users.lng.en.php
+│       │   ├── sys_users.lng.ru.php
+│       │   └── sys_users.php
+│       └── theme
+│           ├── bar.js
+│           ├── failed.png
+│           ├── footer.html
+│           ├── header.html
+│           ├── img
+│           │   ├── bank.png
+│           │   ├── bots.png
+│           │   ├── ccgrabber.png
+│           │   ├── chartcounty.png
+│           │   ├── chartonline.png
+│           │   ├── chartos.png
+│           │   ├── charts.png
+│           │   ├── database.png
+│           │   ├── ddos.png
+│           │   ├── faq.png
+│           │   ├── files.png
+│           │   ├── fon.jpg
+│           │   ├── ibank.png
+│           │   ├── image.jpg
+│           │   ├── info.png
+│           │   ├── istat.png
+│           │   ├── jabber.png
+│           │   ├── liberty.png
+│           │   ├── line.png
+│           │   ├── logout.png
+│           │   ├── main.png
+│           │   ├── module.png
+│           │   ├── option.png
+│           │   ├── os.png
+│           │   ├── perfect.png
+│           │   ├── qiwi.png
+│           │   ├── rbk.png
+│           │   ├── script.png
+│           │   ├── user.png
+│           │   ├── users.png
+│           │   ├── vpn.png
+│           │   ├── webmoney.png
+│           │   └── yandex.png
+│           ├── index.php
+│           ├── popupmenu.js
+│           ├── small.html
+│           ├── style.css
+│           └── throbber.gif
+├── temp
+│   ├── bcserver
+│   │   └── win32
+│   │       ├── bcserver.map
+│   │       ├── common.obj
+│   │       ├── core.obj
+│   │       └── listen.obj
+│   ├── builder
+│   │   └── win32
+│   │       ├── 0.res
+│   │       ├── buildbot.obj
+│   │       ├── buildconfig.obj
+│   │       ├── builder.map
+│   │       ├── builder.obj
+│   │       ├── common.obj
+│   │       ├── info.obj
+│   │       ├── languages.obj
+│   │       ├── main.obj
+│   │       ├── settings.obj
+│   │       └── tools.obj
+│   ├── client
+│   │   └── win32
+│   │       ├── 0.res
+│   │       ├── backconnectbot.obj
+│   │       ├── bank_catch.obj
+│   │       ├── certstorehook.obj
+│   │       ├── client.map
+│   │       ├── common.obj
+│   │       ├── corecontrol.obj
+│   │       ├── corehook.obj
+│   │       ├── coreinject.obj
+│   │       ├── coreinstall.obj
+│   │       ├── core.obj
+│   │       ├── cryptedstrings.obj
+│   │       ├── dynamicconfig.obj
+│   │       ├── filesearch.obj
+│   │       ├── httpgrabber.obj
+│   │       ├── localconfig.obj
+│   │       ├── localsettings.obj
+│   │       ├── modulesystem.obj
+│   │       ├── nspr4hook.obj
+│   │       ├── osenv.obj
+│   │       ├── pesettings.obj
+│   │       ├── process_keylogger.obj
+│   │       ├── remotescript.obj
+│   │       ├── report.obj
+│   │       ├── rfb.obj
+│   │       ├── screenshot.obj
+│   │       ├── sockethook.obj
+│   │       ├── socks5server.obj
+│   │       ├── softwaregrabber.obj
+│   │       ├── tcpserver.obj
+│   │       ├── usbshadowcpy.obj
+│   │       ├── userhook.obj
+│   │       ├── vnckeyboard.obj
+│   │       ├── vncmouse.obj
+│   │       ├── vncpaint.obj
+│   │       ├── vncserver.obj
+│   │       ├── winapitables.obj
+│   │       ├── windowstation.obj
+│   │       └── wininethook.obj
+│   └── server
+│       └── php
+│           ├── botnet_bots.lng.en.php
+│           ├── botnet_bots.lng.ru.php
+│           ├── botnet_bots.php
+│           ├── botnet_scripts.lng.en.php
+│           ├── botnet_scripts.lng.ru.php
+│           ├── botnet_scripts.php
+│           ├── c.php
+│           ├── cp.php
+│           ├── fsarc.php
+│           ├── gate.php
+│           ├── global.php
+│           ├── index.php
+│           ├── jabberclass.php
+│           ├── lng.en.php
+│           ├── lng.ru.php
+│           ├── reports_db.lng.en.php
+│           ├── reports_db.lng.ru.php
+│           ├── reports_db.php
+│           ├── reports_files.lng.en.php
+│           ├── reports_files.lng.ru.php
+│           ├── reports_files.php
+│           ├── reports_jn.lng.en.php
+│           ├── reports_jn.lng.ru.php
+│           ├── reports_jn.php
+│           ├── stats_main.lng.en.php
+│           ├── stats_main.lng.ru.php
+│           ├── stats_main.php
+│           ├── stats_os.lng.en.php
+│           ├── stats_os.lng.ru.php
+│           ├── stats_os.php
+│           ├── sys_info.lng.en.php
+│           ├── sys_info.lng.ru.php
+│           ├── sys_info.php
+│           ├── sys_options.lng.en.php
+│           ├── sys_options.lng.ru.php
+│           ├── sys_options.php
+│           ├── sys_user.lng.en.php
+│           ├── sys_user.lng.ru.php
+│           ├── sys_user.php
+│           ├── sys_users.lng.en.php
+│           ├── sys_users.lng.ru.php
+│           └── sys_users.php
+├── VNC.txt
+├── webinjects2.txt
+├── webinjects.txt
+├── win7 2.sdf
+├── win7 2.sln
+├── win7 2.suo
+├── zeus.opensdf
+└── zeus.sdf
+
+62 directories, 763 files
 ======================: README CONTENT :======================
 ====================== GIT HISTORY: ======================
 3707ed9 HEAD@{0}: clone: from https://github.com/Djraposa01/evo-zeus

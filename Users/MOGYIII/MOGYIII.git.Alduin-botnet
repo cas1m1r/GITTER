@@ -1,0 +1,2143 @@
+======================: FILES :======================
+Alduin-botnet
+├── Alduin
+│   ├── Alduin.Common
+│   │   ├── Alduin.Common.csproj
+│   │   ├── Attributes
+│   │   │   ├── NotNullAttribute.cs
+│   │   │   └── TextAttribute.cs
+│   │   └── Interfaces
+│   │       └── ILogicalDeletable.cs
+│   ├── Alduin.DataAccess
+│   │   ├── Alduin.DataAccess.csproj
+│   │   ├── Conventions
+│   │   │   ├── CustomPropertyConvention.cs
+│   │   │   ├── CustomTableNameConvention.cs
+│   │   │   ├── HasManyConvention.cs
+│   │   │   ├── NotNullConvention.cs
+│   │   │   ├── PrimaryKeySequenceConvention.cs
+│   │   │   ├── ReferenceConvention.cs
+│   │   │   └── TextConvention.cs
+│   │   ├── Entities
+│   │   │   ├── Base
+│   │   │   │   ├── EntityBase.cs
+│   │   │   │   └── LogicalEntityBase.cs
+│   │   │   ├── BotEntity.cs
+│   │   │   ├── BotInfoEntity.cs
+│   │   │   ├── BotLogEntity.cs
+│   │   │   ├── InvitationEntity.cs
+│   │   │   ├── UserClaimEntity.cs
+│   │   │   └── UserEntity.cs
+│   │   ├── Helpers
+│   │   │   ├── AccentRemover.cs
+│   │   │   ├── NameConverter.cs
+│   │   │   └── SqlScriptExporter.cs
+│   │   └── SessionBuilder
+│   │       ├── SessionFactory.cs
+│   │       └── StoreConfiguration.cs
+│   ├── Alduin.DatabaseCreator
+│   │   ├── Alduin.DatabaseCreator.csproj
+│   │   ├── Alduin.DatabaseCreator.csproj.user
+│   │   ├── Alduin.TestDatabaseCreator.csproj.user
+│   │   ├── appsettings.json
+│   │   ├── Data
+│   │   │   ├── TestData.cs
+│   │   │   └── TestData.User.cs
+│   │   ├── DB
+│   │   │   ├── _CloseConnections.sql
+│   │   │   ├── _CreateSchema.sql
+│   │   │   ├── database.ini
+│   │   │   ├── _DropDB.sql
+│   │   │   ├── _InitDB.sql
+│   │   │   ├── recreate_db.cmd
+│   │   │   ├── recreate_db.py
+│   │   │   └── _UpdateSchema.sql
+│   │   └── Program.cs
+│   ├── Alduin.Logic
+│   │   ├── Alduin.Logic.csproj
+│   │   ├── DTOs
+│   │   │   └── ActionResult.cs
+│   │   ├── Identity
+│   │   │   ├── AppIdentityErrorDescriber.cs
+│   │   │   ├── AppIdentityUserClaim.cs
+│   │   │   ├── AppIdentityUser.cs
+│   │   │   ├── AppIdentityUserManager.cs
+│   │   │   ├── AppIdentityUserStore.cs
+│   │   │   └── AppSignInManager.cs
+│   │   ├── Interfaces
+│   │   │   ├── Managers
+│   │   │   │   ├── IBotInfoManager.cs
+│   │   │   │   ├── IBotLogManager.cs
+│   │   │   │   ├── IBotManager.cs
+│   │   │   │   ├── IInvitationManager.cs
+│   │   │   │   ├── IUserClaimManager.cs
+│   │   │   │   └── IUserManager.cs
+│   │   │   └── Repositories
+│   │   │       ├── IBotInfoRepository.cs
+│   │   │       ├── IBotLogRepository.cs
+│   │   │       ├── IBotRepository.cs
+│   │   │       ├── IInvitationRepository.cs
+│   │   │       ├── IUserClaimRepository.cs
+│   │   │       └── IUserRepository.cs
+│   │   ├── Managers
+│   │   │   ├── BotInfoManager.cs
+│   │   │   ├── BotLogManager.cs
+│   │   │   ├── BotManager.cs
+│   │   │   ├── InvitationManager.cs
+│   │   │   ├── ManagerBase.cs
+│   │   │   ├── UserClaimManager.cs
+│   │   │   └── UserManager.cs
+│   │   ├── Mapping
+│   │   │   └── AutoMapperBaseProfile.cs
+│   │   ├── Mediator
+│   │   │   ├── Commands
+│   │   │   │   ├── BotInfoCommand.cs
+│   │   │   │   ├── BotLogCommand.cs
+│   │   │   │   ├── ChangeClaimCommand.cs
+│   │   │   │   ├── DeleteUserCommand.cs
+│   │   │   │   ├── LoginCommand.cs
+│   │   │   │   ├── LogoutCommand.cs
+│   │   │   │   ├── RegbotCommand.cs
+│   │   │   │   ├── RegInvitationCommand.cs
+│   │   │   │   ├── RegisterCommand.cs
+│   │   │   │   ├── UpdateBotStatusCommand.cs
+│   │   │   │   ├── UpdateInvitationCommand.cs
+│   │   │   │   └── UserCommand.cs
+│   │   │   ├── Handlers
+│   │   │   │   ├── CommandHandlers
+│   │   │   │   │   ├── BotInfoCommandHandler.cs
+│   │   │   │   │   ├── BotLogCommandHandler.cs
+│   │   │   │   │   ├── BotUpdateStatusCommandHandler.cs
+│   │   │   │   │   ├── ChangeClaimCommandHandler.cs
+│   │   │   │   │   ├── DeleteUserCommandHandler.cs
+│   │   │   │   │   ├── LoginCommandHandler.cs
+│   │   │   │   │   ├── LogoutCommandHandler.cs
+│   │   │   │   │   ├── RegBotCommandHandler.cs
+│   │   │   │   │   ├── RegInvitationCommandHandler.cs
+│   │   │   │   │   ├── RegisterCommandHandler.cs
+│   │   │   │   │   └── SetUsedInvitationCommandHandler.cs
+│   │   │   │   └── QueryHandlers
+│   │   │   │       ├── BotListQueryHandler.cs
+│   │   │   │       ├── GetAllRoleQueryHandler.cs
+│   │   │   │       ├── GetAllUsersQueryHandler.cs
+│   │   │   │       ├── GetBotByIdQueryHandler.cs
+│   │   │   │       ├── GetBotByKeyUniqueQueryHandler.cs
+│   │   │   │       ├── GetBotInfoByBotIdQueryHandler.cs
+│   │   │   │       ├── GetBotListByStatusQueryHandler.cs
+│   │   │   │       ├── GetBotLogByBotIdQueryHandler.cs
+│   │   │   │       ├── GetInvitationByKeyQueryHandler.cs
+│   │   │   │       ├── GetInvitationByUserQueryHandler.cs
+│   │   │   │       ├── GetRoleByUserIdQueryHandler.cs
+│   │   │   │       ├── GetUserByIdQueryHandler.cs
+│   │   │   │       └── IdentityOptionsQueryHandler.cs
+│   │   │   └── Queries
+│   │   │       ├── GetAllRoleQuery.cs
+│   │   │       ├── GetAllUsersQuery.cs
+│   │   │       ├── GetBotByIdQuery.cs
+│   │   │       ├── GetBotByKeyUniqueQuery.cs
+│   │   │       ├── GetBotInfoByBotIdQuery.cs
+│   │   │       ├── GetBotListQuery.cs
+│   │   │       ├── GetBotLogByBotIdQuery.cs
+│   │   │       ├── GetBotsByStatusQuery.cs
+│   │   │       ├── GetInvitationByKeyQuery.cs
+│   │   │       ├── GetInvitationByUserQuery.cs
+│   │   │       ├── GetRoleByUserIdQuery.cs
+│   │   │       ├── GetUserByIdQuery.cs
+│   │   │       └── IdentityOptionsQuery.cs
+│   │   ├── Repositories
+│   │   │   ├── BotInfoRepository.cs
+│   │   │   ├── BotLogRepository.cs
+│   │   │   ├── BotRepository.cs
+│   │   │   ├── InvitationRepository.cs
+│   │   │   ├── RepositoryBase.cs
+│   │   │   ├── UserClaimRepository.cs
+│   │   │   └── UserRepository.cs
+│   │   ├── Services
+│   │   │   └── RegisterService.cs
+│   │   └── UnitOfWork
+│   │       └── UnitOfWork.cs
+│   ├── Alduin.Logic.Test
+│   │   ├── Alduin.Logic.Test.csproj
+│   │   ├── Managers
+│   │   │   ├── InvitationManagerTest.cs
+│   │   │   └── UserManagerTest.cs
+│   │   ├── Repositories
+│   │   │   ├── BotRepositoryTest.cs
+│   │   │   ├── InvitationRepositoryTest.cs
+│   │   │   └── UserRepositoryTest.cs
+│   │   └── Services
+│   │       └── RegisterServiceTest.cs
+│   ├── Alduin.Server
+│   │   ├── Alduin.Server.csproj
+│   │   ├── Commands
+│   │   │   ├── BaseCommands.cs
+│   │   │   ├── BaseFloodModel.cs
+│   │   │   ├── Commands
+│   │   │   │   ├── AdsCommand.cs
+│   │   │   │   ├── CMDCommand.cs
+│   │   │   │   ├── CommandResponseModel.cs
+│   │   │   │   ├── EditHostFileCommand.cs
+│   │   │   │   ├── ExecuteCommand.cs
+│   │   │   │   ├── GetImagesCommand.cs
+│   │   │   │   ├── GetImgCommand.cs
+│   │   │   │   ├── GetSourceFileCommand.cs
+│   │   │   │   ├── KillProcessCommand.cs
+│   │   │   │   ├── MessageCommand.cs
+│   │   │   │   ├── MiningCommand.cs
+│   │   │   │   ├── OpenWebsiteCommand.cs
+│   │   │   │   └── SeedTorrentCommand.cs
+│   │   │   ├── Floods
+│   │   │   │   ├── ArmeCommand.cs
+│   │   │   │   ├── HttpBandWidthCommand.cs
+│   │   │   │   ├── HulkCommand.cs
+│   │   │   │   ├── IcmpCommand.cs
+│   │   │   │   ├── RudyCommand.cs
+│   │   │   │   ├── SlowLorisCommand.cs
+│   │   │   │   ├── TcpCommand.cs
+│   │   │   │   ├── TorLorisCommand.cs
+│   │   │   │   └── UdpCommand.cs
+│   │   │   └── HardwareCollectorCommand.cs
+│   │   ├── Handler
+│   │   │   └── CommandExecute.cs
+│   │   ├── Modules
+│   │   │   ├── CloseDetector.cs
+│   │   │   ├── ConfigTor.cs
+│   │   │   ├── Connecter.cs
+│   │   │   ├── GetPathes.cs
+│   │   │   └── ServerFileManager.cs
+│   │   ├── Program.cs
+│   │   ├── Server.cs
+│   │   └── Services
+│   │       ├── DownloadFileServices.cs
+│   │       ├── GetAllDeatilsServices.cs
+│   │       ├── GetAllProcessServices.cs
+│   │       ├── GetAllSourceFileService.cs
+│   │       ├── GetAttackDeatilsService.cs
+│   │       ├── GetBotImagesJsonServices.cs
+│   │       └── UpdateBotDeatilsService.cs
+│   ├── Alduin.Shared
+│   │   ├── Alduin.Shared.csproj
+│   │   ├── DTOs
+│   │   │   ├── Base
+│   │   │   │   └── DTOBase.cs
+│   │   │   ├── BotDTO.cs
+│   │   │   ├── BotInfoDTO.cs
+│   │   │   ├── BotLogDTO.cs
+│   │   │   ├── InvitationDTO.cs
+│   │   │   ├── UserClaimDTO.cs
+│   │   │   └── UserDTO.cs
+│   │   ├── Enums
+│   │   │   └── Role.cs
+│   │   ├── Interfaces
+│   │   │   ├── DomainModel
+│   │   │   │   ├── DTO
+│   │   │   │   │   └── IDTO.cs
+│   │   │   │   └── Entity
+│   │   │   │       └── IEntity.cs
+│   │   │   ├── Managers
+│   │   │   │   └── IManager.cs
+│   │   │   ├── Repositories
+│   │   │   │   └── IRepository.cs
+│   │   │   └── UnitOfWork
+│   │   │       └── IUnitOfWork.cs
+│   │   ├── SharedResource
+│   │   │   └── SharedResource.hu-HU.resx
+│   │   └── Transaction
+│   │       ├── TransactionErrorMessage.cs
+│   │       └── TransactionResult.cs
+│   ├── Alduin.sln
+│   ├── Alduin.Stump
+│   │   ├── Alduin.Stump.vbproj
+│   │   ├── Alduin.Stump.vbproj.user
+│   │   ├── App.config
+│   │   ├── Class
+│   │   │   ├── Commands
+│   │   │   │   ├── AllImgToJson.vb
+│   │   │   │   ├── AllSourceFileToJson.vb
+│   │   │   │   ├── CommandHandler.vb
+│   │   │   │   ├── ExecuteCommand.vb
+│   │   │   │   ├── GetAllProcess.vb
+│   │   │   │   ├── GetDetails.vb
+│   │   │   │   ├── GetImg.vb
+│   │   │   │   ├── GetSourceFile.vb
+│   │   │   │   ├── KillProcessFromId.vb
+│   │   │   │   ├── MessageCommand.vb
+│   │   │   │   ├── MinerCommand.vb
+│   │   │   │   └── OpenWebsiteCommand.vb
+│   │   │   ├── Floods
+│   │   │   │   ├── Floods
+│   │   │   │   │   ├── 3. Layer
+│   │   │   │   │   │   └── ICMP.vb
+│   │   │   │   │   ├── 4. Layer
+│   │   │   │   │   │   ├── TCP.vb
+│   │   │   │   │   │   └── UDP.vb
+│   │   │   │   │   └── 7. Layer
+│   │   │   │   │       ├── ARME.vb
+│   │   │   │   │       ├── HttpBandWidth.vb
+│   │   │   │   │       ├── Hulk.vb
+│   │   │   │   │       ├── Rudy.vb
+│   │   │   │   │       ├── SlowLoris.vb
+│   │   │   │   │       └── TorLoris.vb
+│   │   │   │   └── Floodsbase.vb
+│   │   │   └── Network
+│   │   │       ├── SendHTTPonTor.vb
+│   │   │       └── TcpListen.vb
+│   │   ├── CloseDetect.vb
+│   │   ├── Config.json
+│   │   ├── Forms
+│   │   │   ├── WebBrowserForm.Designer.vb
+│   │   │   ├── WebBrowserForm.resx
+│   │   │   └── WebBrowserForm.vb
+│   │   ├── Interfaces
+│   │   │   └── ICommand.vb
+│   │   ├── Main.vb
+│   │   ├── Models
+│   │   │   ├── AdsModel.vb
+│   │   │   ├── BaseCommands.vb
+│   │   │   ├── BotDeatilsModel.vb
+│   │   │   ├── CMDModel.vb
+│   │   │   ├── DefaultRegistrationModel.vb
+│   │   │   ├── EditHostFileModel.vb
+│   │   │   ├── ExecuteModel.vb
+│   │   │   ├── FloodModel
+│   │   │   │   ├── ArmeModel.vb
+│   │   │   │   ├── BaseFloodModel.vb
+│   │   │   │   ├── HttpBandWidthModel.vb
+│   │   │   │   ├── HulkModel.vb
+│   │   │   │   ├── ICMPModel.vb
+│   │   │   │   ├── RudyModel.vb
+│   │   │   │   ├── SlowLorisModel.vb
+│   │   │   │   ├── TcpModel.vb
+│   │   │   │   ├── TorLorisModel.vb
+│   │   │   │   └── UdpModel.vb
+│   │   │   ├── GetImageModel.vb
+│   │   │   ├── GetImgModel.vb
+│   │   │   ├── GetSourceFileModel.vb
+│   │   │   ├── HardwareCollector.vb
+│   │   │   ├── Json
+│   │   │   │   ├── AllImgModel.vb
+│   │   │   │   ├── ConfigBotModel.vb
+│   │   │   │   ├── ConfigModel.vb
+│   │   │   │   ├── GetAllSourceFileModel.vb
+│   │   │   │   ├── IpInfoModel.vb
+│   │   │   │   └── MicroPhoneDevicesListModel.vb
+│   │   │   ├── KillProcessModel.vb
+│   │   │   ├── LogModel.vb
+│   │   │   ├── MessageModel.vb
+│   │   │   ├── MiningModel.vb
+│   │   │   ├── ProcessModel.vb
+│   │   │   ├── SeedTorrentModel.vb
+│   │   │   └── WebsiteModel.vb
+│   │   ├── Moduls
+│   │   │   ├── Anti
+│   │   │   │   └── AntiSandbox.vb
+│   │   │   ├── Converter
+│   │   │   │   ├── FileSize.vb
+│   │   │   │   ├── HashKey.vb
+│   │   │   │   └── TimeConverter.vb
+│   │   │   ├── Details
+│   │   │   │   ├── ComputerDetails.vb
+│   │   │   │   └── Details.vb
+│   │   │   ├── Grabs
+│   │   │   │   ├── GitGrab.vb
+│   │   │   │   ├── ImageGrab.vb
+│   │   │   │   ├── MicroPhoneGrab.vb
+│   │   │   │   ├── prec.vb
+│   │   │   │   └── TakeScreenShot.vb
+│   │   │   ├── Installers
+│   │   │   │   ├── CopyModule.vb
+│   │   │   │   ├── HidderModule.vb
+│   │   │   │   ├── Installing.vb
+│   │   │   │   └── StartupRegistryModule.vb
+│   │   │   ├── IO
+│   │   │   │   ├── GetPathes.vb
+│   │   │   │   ├── IOModule.vb
+│   │   │   │   └── UnZIPModule.vb
+│   │   │   ├── Network
+│   │   │   │   ├── ResponseHTTP.vb
+│   │   │   │   ├── Torrent.vb
+│   │   │   │   └── WebFilters.vb
+│   │   │   ├── Search
+│   │   │   │   └── ImageSearch.vb
+│   │   │   ├── Spreads
+│   │   │   │   └── USBSpread.vb
+│   │   │   ├── SQL
+│   │   │   │   └── SQLiteHandler.vb
+│   │   │   └── Tor
+│   │   │       └── ConfigTor.vb
+│   │   ├── My Project
+│   │   │   ├── Application.Designer.vb
+│   │   │   ├── Application.myapp
+│   │   │   ├── app.manifest
+│   │   │   ├── AssemblyInfo.vb
+│   │   │   ├── Resources.Designer.vb
+│   │   │   ├── Resources.resx
+│   │   │   ├── Settings.Designer.vb
+│   │   │   └── Settings.settings
+│   │   └── packages.config
+│   ├── Alduin.TestDatabaseCreator
+│   │   ├── Alduin.TestDatabaseCreator.csproj
+│   │   ├── Alduin.TestDatabaseCreator.csproj.user
+│   │   ├── appsettings.json
+│   │   ├── bin
+│   │   │   └── Release
+│   │   │       └── netcoreapp3.0
+│   │   │           ├── Alduin.Common.dll
+│   │   │           ├── Alduin.Common.pdb
+│   │   │           ├── Alduin.DataAccess.dll
+│   │   │           ├── Alduin.DataAccess.pdb
+│   │   │           ├── Alduin.Shared.dll
+│   │   │           ├── Alduin.Shared.pdb
+│   │   │           ├── Alduin.TestDatabaseCreator.deps.json
+│   │   │           ├── Alduin.TestDatabaseCreator.dll
+│   │   │           ├── Alduin.TestDatabaseCreator.exe
+│   │   │           ├── Alduin.TestDatabaseCreator.pdb
+│   │   │           ├── Alduin.TestDatabaseCreator.runtimeconfig.dev.json
+│   │   │           ├── Alduin.TestDatabaseCreator.runtimeconfig.json
+│   │   │           ├── Antlr3.Runtime.dll
+│   │   │           ├── appsettings.json
+│   │   │           ├── FluentNHibernate.dll
+│   │   │           ├── hu-HU
+│   │   │           │   └── Alduin.Shared.resources.dll
+│   │   │           ├── Iesi.Collections.dll
+│   │   │           ├── Microsoft.Extensions.Configuration.Abstractions.dll
+│   │   │           ├── Microsoft.Extensions.Configuration.dll
+│   │   │           ├── Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+│   │   │           ├── Microsoft.Extensions.Configuration.FileExtensions.dll
+│   │   │           ├── Microsoft.Extensions.Configuration.Json.dll
+│   │   │           ├── Microsoft.Extensions.DependencyInjection.Abstractions.dll
+│   │   │           ├── Microsoft.Extensions.FileProviders.Abstractions.dll
+│   │   │           ├── Microsoft.Extensions.FileProviders.Physical.dll
+│   │   │           ├── Microsoft.Extensions.FileSystemGlobbing.dll
+│   │   │           ├── Microsoft.Extensions.Primitives.dll
+│   │   │           ├── NHibernate.dll
+│   │   │           ├── Npgsql.dll
+│   │   │           ├── Remotion.Linq.dll
+│   │   │           ├── Remotion.Linq.EagerFetching.dll
+│   │   │           ├── runtimes
+│   │   │           │   └── win
+│   │   │           │       └── lib
+│   │   │           │           └── netstandard2.0
+│   │   │           │               └── System.Security.Cryptography.ProtectedData.dll
+│   │   │           ├── System.Configuration.ConfigurationManager.dll
+│   │   │           └── System.Security.Cryptography.ProtectedData.dll
+│   │   ├── Data
+│   │   │   ├── TestData.Bot.cs
+│   │   │   ├── TestData.cs
+│   │   │   ├── TestData.Invitation.cs
+│   │   │   └── TestData.User.cs
+│   │   └── Program.cs
+│   ├── Alduin.Web
+│   │   ├── Alduin.Web.csproj
+│   │   ├── Alduin.Web.csproj.user
+│   │   ├── appsettings.json
+│   │   ├── bundleconfig.json
+│   │   ├── compilerconfig.json
+│   │   ├── compilerconfig.json.defaults
+│   │   ├── Controllers
+│   │   │   ├── CommandsController.cs
+│   │   │   ├── ControllerBase.cs
+│   │   │   ├── GateController.cs
+│   │   │   ├── HomeController.cs
+│   │   │   ├── InvitationController.cs
+│   │   │   ├── ListController.cs
+│   │   │   ├── StaticsController.cs
+│   │   │   ├── TorController.cs
+│   │   │   ├── UserAccountController.cs
+│   │   │   └── UserSettingsController.cs
+│   │   ├── favicon.ico
+│   │   ├── Infrastructure
+│   │   │   └── IoC.cs
+│   │   ├── libman.json
+│   │   ├── Log
+│   │   │   └── Log.txt
+│   │   ├── Models
+│   │   │   ├── apppsettingsModel.cs
+│   │   │   ├── Auth
+│   │   │   │   ├── LoginModel.cs
+│   │   │   │   └── RegisterModel.cs
+│   │   │   ├── Bot
+│   │   │   │   ├── BotDeatilsInquiryModel.cs
+│   │   │   │   ├── BotDeatilsModel.cs
+│   │   │   │   ├── BotDownloadFileModel.cs
+│   │   │   │   ├── BotModel.cs
+│   │   │   │   ├── BotRegisterModel.cs
+│   │   │   │   ├── KillProcessModel.cs
+│   │   │   │   └── LogModel.cs
+│   │   │   ├── Commands
+│   │   │   │   ├── BaseFloodModel.cs
+│   │   │   │   ├── CommandBaseModel.cs
+│   │   │   │   ├── Commands
+│   │   │   │   │   ├── AdsModel.cs
+│   │   │   │   │   ├── CMDModel.cs
+│   │   │   │   │   ├── EditHostFileModel.cs
+│   │   │   │   │   ├── ExecuteModel.cs
+│   │   │   │   │   ├── GetAllFileJsonModel.cs
+│   │   │   │   │   ├── GetImgJsonModel.cs
+│   │   │   │   │   ├── GetImgModel.cs
+│   │   │   │   │   ├── MessageModel.cs
+│   │   │   │   │   ├── MiningModel.cs
+│   │   │   │   │   ├── ProcessModel.cs
+│   │   │   │   │   ├── SeedTorrentModel.cs
+│   │   │   │   │   └── WebsiteModel.cs
+│   │   │   │   └── Floods
+│   │   │   │       ├── ArmeModel.cs
+│   │   │   │       ├── HttpBandWidthModel.cs
+│   │   │   │       ├── HulkModel.cs
+│   │   │   │       ├── IcmpModel.cs
+│   │   │   │       ├── RudyModel.cs
+│   │   │   │       ├── SlowLorisModel.cs
+│   │   │   │       ├── TcpModel.cs
+│   │   │   │       ├── TorLorisModel.cs
+│   │   │   │       └── UdpModel.cs
+│   │   │   ├── ErrorViewModel.cs
+│   │   │   ├── Lists
+│   │   │   │   └── StreamModel.cs
+│   │   │   ├── Tor
+│   │   │   │   └── EditTorchFileModel.cs
+│   │   │   └── UserSettings
+│   │   │       ├── ChangePasswordModel.cs
+│   │   │       └── RoleChangeModel.cs
+│   │   ├── os_kali_jFt_icon.ico
+│   │   ├── Program.cs
+│   │   ├── Resources
+│   │   │   ├── Controllers
+│   │   │   │   ├── HomeController.hu-HU.resx
+│   │   │   │   ├── InvitationController.hu-HU.resx
+│   │   │   │   ├── ListController.hu-HU.resx
+│   │   │   │   ├── TorController.hu-HU.resx
+│   │   │   │   └── UserAccountController.hu-HU.resx
+│   │   │   ├── Models
+│   │   │   │   ├── LoginModel.hu-HU.resx
+│   │   │   │   └── RegisterModel.hu-HU.resx
+│   │   │   ├── SharedResource.hu-HU.resx
+│   │   │   └── Views
+│   │   │       ├── Commands
+│   │   │       │   ├── _ExecuteFile.hu-HU.resx
+│   │   │       │   ├── Index.hu-HU.resx
+│   │   │       │   ├── _Message.hu-HU.resx
+│   │   │       │   ├── Mining.hu-HU.resx
+│   │   │       │   ├── _OpenWebsite.hu-HU.resx
+│   │   │       │   ├── _SeedTorrent.hu-HU.resx
+│   │   │       │   └── Stream.hu-HU.resx
+│   │   │       ├── Home
+│   │   │       │   └── Settings.hu-HU.resx
+│   │   │       ├── Invitation
+│   │   │       │   └── index.hu-HU.resx
+│   │   │       ├── List
+│   │   │       │   ├── Bot.hu-HU.resx
+│   │   │       │   └── List.hu-HU.resx
+│   │   │       ├── Shared
+│   │   │       │   ├── _Layout.hu-HU.resx
+│   │   │       │   └── _SelectLanguagePartial.hu-HU.resx
+│   │   │       ├── Statics
+│   │   │       │   └── Index.hu-HU.resx
+│   │   │       ├── Tor
+│   │   │       │   ├── EditTorch.hu-HU.resx
+│   │   │       │   └── Index.hu-HU.resx
+│   │   │       └── UserSettings
+│   │   │           ├── ChangePassword.hu-HU.resx
+│   │   │           └── UsersSettings.hu-HU.resx
+│   │   ├── Run.bat
+│   │   ├── Services
+│   │   │   └── LocalizationService.cs
+│   │   ├── SharedResource
+│   │   │   └── SharedResourceDummy.cs
+│   │   ├── Startup.cs
+│   │   ├── Validators
+│   │   │   ├── AdsModelValidator.cs
+│   │   │   ├── BotDeatilsModelValidator.cs
+│   │   │   ├── BotRegistrationModelValidator.cs
+│   │   │   ├── ChangePasswordModelValidator.cs
+│   │   │   ├── CMDModelValidator.cs
+│   │   │   ├── EditHostFileModelValidator.cs
+│   │   │   ├── EditTorchFileValidator.cs
+│   │   │   ├── ExecuteCommandValidator.cs
+│   │   │   ├── Floods
+│   │   │   │   ├── ArmeModelValidator.cs
+│   │   │   │   ├── HttpBandWidthModelValidator.cs
+│   │   │   │   ├── HulkModelValidator .cs
+│   │   │   │   ├── IcmpModelValidator.cs
+│   │   │   │   ├── RudyModelValidator.cs
+│   │   │   │   ├── SlowLorisModelValidator.cs
+│   │   │   │   ├── TcpModelValidator.cs
+│   │   │   │   ├── TorLorisModelValidator.cs
+│   │   │   │   └── UdpModelValidator.cs
+│   │   │   ├── LoginModelValidator.cs
+│   │   │   ├── MessageCommandValidator.cs
+│   │   │   ├── MiningValidator.cs
+│   │   │   ├── OpenWebsiteValidator.cs
+│   │   │   ├── RegisterModelValidator.cs
+│   │   │   ├── SeedTorrentModelValidator.cs
+│   │   │   └── UserDTOValidator.cs
+│   │   ├── Views
+│   │   │   ├── Commands
+│   │   │   │   ├── _Ads.cshtml
+│   │   │   │   ├── _ARME.cshtml
+│   │   │   │   ├── _CMD.cshtml
+│   │   │   │   ├── _EditHostFile.cshtml
+│   │   │   │   ├── _ExecuteFile.cshtml
+│   │   │   │   ├── _HttpBandWidth.cshtml
+│   │   │   │   ├── _Hulk.cshtml
+│   │   │   │   ├── _Icmp.cshtml
+│   │   │   │   ├── Index.cshtml
+│   │   │   │   ├── _Message.cshtml
+│   │   │   │   ├── Mining.cshtml
+│   │   │   │   ├── _OpenWebsite.cshtml
+│   │   │   │   ├── _Rudy.cshtml
+│   │   │   │   ├── _SeedTorrent.cshtml
+│   │   │   │   ├── _SlowLoris.cshtml
+│   │   │   │   ├── Stream.cshtml
+│   │   │   │   ├── _Tcp.cshtml
+│   │   │   │   ├── _TorLoris.cshtml
+│   │   │   │   └── _Udp.cshtml
+│   │   │   ├── Home
+│   │   │   │   ├── Index.cshtml
+│   │   │   │   ├── Monero.cshtml
+│   │   │   │   ├── Privacy.cshtml
+│   │   │   │   └── Settings.cshtml
+│   │   │   ├── Invitation
+│   │   │   │   └── index.cshtml
+│   │   │   ├── List
+│   │   │   │   ├── Bot.cshtml
+│   │   │   │   └── List.cshtml
+│   │   │   ├── Shared
+│   │   │   │   ├── _CookieConsentPartial.cshtml
+│   │   │   │   ├── Error.cshtml
+│   │   │   │   ├── _Layout.cshtml
+│   │   │   │   ├── _SelectLanguagePartial.cshtml
+│   │   │   │   └── _ValidationScriptsPartial.cshtml
+│   │   │   ├── Statics
+│   │   │   │   └── Index.cshtml
+│   │   │   ├── Tor
+│   │   │   │   ├── EditTorch.cshtml
+│   │   │   │   └── Index.cshtml
+│   │   │   ├── UserAccount
+│   │   │   │   ├── Login.cshtml
+│   │   │   │   └── Register.cshtml
+│   │   │   ├── UserSettings
+│   │   │   │   ├── ChangePassword.cshtml
+│   │   │   │   └── UsersSettings.cshtml
+│   │   │   ├── _ViewImports.cshtml
+│   │   │   └── _ViewStart.cshtml
+│   │   └── wwwroot
+│   │       ├── css
+│   │       │   ├── bootstrap.min.css
+│   │       │   ├── lightbox.css
+│   │       │   ├── site.css
+│   │       │   └── site.min.css
+│   │       ├── favicon.ico
+│   │       ├── img
+│   │       │   ├── dragon logo.png
+│   │       │   ├── Gifs
+│   │       │   │   └── ajax-loader.gif
+│   │       │   ├── LightBoxImages
+│   │       │   │   ├── close.png
+│   │       │   │   ├── loading.gif
+│   │       │   │   ├── next.png
+│   │       │   │   └── prev.png
+│   │       │   ├── logo.png
+│   │       │   ├── Monero request.png
+│   │       │   └── NotLoad.gif
+│   │       ├── js
+│   │       │   ├── bootstrap.min.js
+│   │       │   ├── CountryClass.js
+│   │       │   ├── jquery.min.js
+│   │       │   ├── js.cookie.min.js
+│   │       │   ├── lightbox.js
+│   │       │   ├── notify.js
+│   │       │   ├── notify.min.js
+│   │       │   ├── site.js
+│   │       │   └── site.min.js
+│   │       └── lib
+│   │           ├── Alduin
+│   │           │   └── scss
+│   │           │       ├── _alert.scss
+│   │           │       ├── _badge.scss
+│   │           │       ├── bootstrap-grid.scss
+│   │           │       ├── bootstrap-reboot.scss
+│   │           │       ├── bootstrap.scss
+│   │           │       ├── _breadcrumb.scss
+│   │           │       ├── _button-group.scss
+│   │           │       ├── _buttons.scss
+│   │           │       ├── _card.scss
+│   │           │       ├── _carousel.scss
+│   │           │       ├── _close.scss
+│   │           │       ├── _code.scss
+│   │           │       ├── _custom-forms.scss
+│   │           │       ├── _dropdown.scss
+│   │           │       ├── _forms.scss
+│   │           │       ├── _functions.scss
+│   │           │       ├── _grid.scss
+│   │           │       ├── _images.scss
+│   │           │       ├── _input-group.scss
+│   │           │       ├── _jumbotron.scss
+│   │           │       ├── _list-group.scss
+│   │           │       ├── _media.scss
+│   │           │       ├── mixins
+│   │           │       │   ├── _alert.scss
+│   │           │       │   ├── _background-variant.scss
+│   │           │       │   ├── _badge.scss
+│   │           │       │   ├── _border-radius.scss
+│   │           │       │   ├── _box-shadow.scss
+│   │           │       │   ├── _breakpoints.scss
+│   │           │       │   ├── _buttons.scss
+│   │           │       │   ├── _caret.scss
+│   │           │       │   ├── _clearfix.scss
+│   │           │       │   ├── _deprecate.scss
+│   │           │       │   ├── _float.scss
+│   │           │       │   ├── _forms.scss
+│   │           │       │   ├── _gradients.scss
+│   │           │       │   ├── _grid-framework.scss
+│   │           │       │   ├── _grid.scss
+│   │           │       │   ├── _hover.scss
+│   │           │       │   ├── _image.scss
+│   │           │       │   ├── _list-group.scss
+│   │           │       │   ├── _lists.scss
+│   │           │       │   ├── _nav-divider.scss
+│   │           │       │   ├── _pagination.scss
+│   │           │       │   ├── _reset-text.scss
+│   │           │       │   ├── _resize.scss
+│   │           │       │   ├── _screen-reader.scss
+│   │           │       │   ├── _size.scss
+│   │           │       │   ├── _table-row.scss
+│   │           │       │   ├── _text-emphasis.scss
+│   │           │       │   ├── _text-hide.scss
+│   │           │       │   ├── _text-truncate.scss
+│   │           │       │   ├── _transition.scss
+│   │           │       │   └── _visibility.scss
+│   │           │       ├── _mixins.scss
+│   │           │       ├── _modal.scss
+│   │           │       ├── _navbar.scss
+│   │           │       ├── _nav.scss
+│   │           │       ├── _pagination.scss
+│   │           │       ├── _popover.scss
+│   │           │       ├── _print.scss
+│   │           │       ├── _progress.scss
+│   │           │       ├── _reboot.scss
+│   │           │       ├── _root.scss
+│   │           │       ├── _spinners.scss
+│   │           │       ├── _tables.scss
+│   │           │       ├── _toasts.scss
+│   │           │       ├── _tooltip.scss
+│   │           │       ├── _transitions.scss
+│   │           │       ├── _type.scss
+│   │           │       ├── utilities
+│   │           │       │   ├── _align.scss
+│   │           │       │   ├── _background.scss
+│   │           │       │   ├── _borders.scss
+│   │           │       │   ├── _clearfix.scss
+│   │           │       │   ├── _display.scss
+│   │           │       │   ├── _embed.scss
+│   │           │       │   ├── _flex.scss
+│   │           │       │   ├── _float.scss
+│   │           │       │   ├── _overflow.scss
+│   │           │       │   ├── _position.scss
+│   │           │       │   ├── _screenreaders.scss
+│   │           │       │   ├── _shadows.scss
+│   │           │       │   ├── _sizing.scss
+│   │           │       │   ├── _spacing.scss
+│   │           │       │   ├── _stretched-link.scss
+│   │           │       │   ├── _text.scss
+│   │           │       │   └── _visibility.scss
+│   │           │       ├── _utilities.scss
+│   │           │       ├── _variables.scss
+│   │           │       └── vendor
+│   │           │           └── _rfs.scss
+│   │           ├── bootstrap
+│   │           │   ├── dist
+│   │           │   │   ├── css
+│   │           │   │   │   ├── bootstrap.css
+│   │           │   │   │   ├── bootstrap.css.map
+│   │           │   │   │   ├── bootstrap-grid.css
+│   │           │   │   │   ├── bootstrap-grid.css.map
+│   │           │   │   │   ├── bootstrap-grid.min.css
+│   │           │   │   │   ├── bootstrap-grid.min.css.map
+│   │           │   │   │   ├── bootstrap.min.css
+│   │           │   │   │   ├── bootstrap.min.css.map
+│   │           │   │   │   ├── bootstrap-reboot.css
+│   │           │   │   │   ├── bootstrap-reboot.css.map
+│   │           │   │   │   ├── bootstrap-reboot.min.css
+│   │           │   │   │   └── bootstrap-reboot.min.css.map
+│   │           │   │   └── js
+│   │           │   │       ├── bootstrap.bundle.js
+│   │           │   │       ├── bootstrap.bundle.js.map
+│   │           │   │       ├── bootstrap.bundle.min.js
+│   │           │   │       ├── bootstrap.bundle.min.js.map
+│   │           │   │       ├── bootstrap.js
+│   │           │   │       ├── bootstrap.js.map
+│   │           │   │       ├── bootstrap.min.js
+│   │           │   │       └── bootstrap.min.js.map
+│   │           │   └── LICENSE
+│   │           ├── bootstrap-datepicker
+│   │           │   ├── css
+│   │           │   │   ├── bootstrap-datepicker3.css
+│   │           │   │   ├── bootstrap-datepicker3.css.map
+│   │           │   │   ├── bootstrap-datepicker3.min.css
+│   │           │   │   ├── bootstrap-datepicker3.standalone.css
+│   │           │   │   ├── bootstrap-datepicker3.standalone.css.map
+│   │           │   │   ├── bootstrap-datepicker3.standalone.min.css
+│   │           │   │   ├── bootstrap-datepicker.css
+│   │           │   │   ├── bootstrap-datepicker.css.map
+│   │           │   │   ├── bootstrap-datepicker.min.css
+│   │           │   │   ├── bootstrap-datepicker.standalone.css
+│   │           │   │   ├── bootstrap-datepicker.standalone.css.map
+│   │           │   │   └── bootstrap-datepicker.standalone.min.css
+│   │           │   ├── js
+│   │           │   │   ├── bootstrap-datepicker.js
+│   │           │   │   └── bootstrap-datepicker.min.js
+│   │           │   └── locales
+│   │           │       ├── bootstrap-datepicker.ar.min.js
+│   │           │       ├── bootstrap-datepicker.ar-tn.min.js
+│   │           │       ├── bootstrap-datepicker.az.min.js
+│   │           │       ├── bootstrap-datepicker.bg.min.js
+│   │           │       ├── bootstrap-datepicker.bm.min.js
+│   │           │       ├── bootstrap-datepicker.bn.min.js
+│   │           │       ├── bootstrap-datepicker.br.min.js
+│   │           │       ├── bootstrap-datepicker.bs.min.js
+│   │           │       ├── bootstrap-datepicker.ca.min.js
+│   │           │       ├── bootstrap-datepicker.cs.min.js
+│   │           │       ├── bootstrap-datepicker.cy.min.js
+│   │           │       ├── bootstrap-datepicker.da.min.js
+│   │           │       ├── bootstrap-datepicker.de.min.js
+│   │           │       ├── bootstrap-datepicker.el.min.js
+│   │           │       ├── bootstrap-datepicker.en-AU.min.js
+│   │           │       ├── bootstrap-datepicker-en-CA.min.js
+│   │           │       ├── bootstrap-datepicker.en-CA.min.js
+│   │           │       ├── bootstrap-datepicker.en-GB.min.js
+│   │           │       ├── bootstrap-datepicker.en-IE.min.js
+│   │           │       ├── bootstrap-datepicker.en-NZ.min.js
+│   │           │       ├── bootstrap-datepicker.en-ZA.min.js
+│   │           │       ├── bootstrap-datepicker.eo.min.js
+│   │           │       ├── bootstrap-datepicker.es.min.js
+│   │           │       ├── bootstrap-datepicker.et.min.js
+│   │           │       ├── bootstrap-datepicker.eu.min.js
+│   │           │       ├── bootstrap-datepicker.fa.min.js
+│   │           │       ├── bootstrap-datepicker.fi.min.js
+│   │           │       ├── bootstrap-datepicker.fo.min.js
+│   │           │       ├── bootstrap-datepicker.fr-CH.min.js
+│   │           │       ├── bootstrap-datepicker.fr.min.js
+│   │           │       ├── bootstrap-datepicker.gl.min.js
+│   │           │       ├── bootstrap-datepicker.he.min.js
+│   │           │       ├── bootstrap-datepicker.hi.min.js
+│   │           │       ├── bootstrap-datepicker.hr.min.js
+│   │           │       ├── bootstrap-datepicker.hu.min.js
+│   │           │       ├── bootstrap-datepicker.hy.min.js
+│   │           │       ├── bootstrap-datepicker.id.min.js
+│   │           │       ├── bootstrap-datepicker.is.min.js
+│   │           │       ├── bootstrap-datepicker.it-CH.min.js
+│   │           │       ├── bootstrap-datepicker.it.min.js
+│   │           │       ├── bootstrap-datepicker.ja.min.js
+│   │           │       ├── bootstrap-datepicker.ka.min.js
+│   │           │       ├── bootstrap-datepicker.kh.min.js
+│   │           │       ├── bootstrap-datepicker.kk.min.js
+│   │           │       ├── bootstrap-datepicker.km.min.js
+│   │           │       ├── bootstrap-datepicker.ko.min.js
+│   │           │       ├── bootstrap-datepicker.kr.min.js
+│   │           │       ├── bootstrap-datepicker.lt.min.js
+│   │           │       ├── bootstrap-datepicker.lv.min.js
+│   │           │       ├── bootstrap-datepicker.me.min.js
+│   │           │       ├── bootstrap-datepicker.mk.min.js
+│   │           │       ├── bootstrap-datepicker.mn.min.js
+│   │           │       ├── bootstrap-datepicker.ms.min.js
+│   │           │       ├── bootstrap-datepicker.nl-BE.min.js
+│   │           │       ├── bootstrap-datepicker.nl.min.js
+│   │           │       ├── bootstrap-datepicker.no.min.js
+│   │           │       ├── bootstrap-datepicker.oc.min.js
+│   │           │       ├── bootstrap-datepicker.pl.min.js
+│   │           │       ├── bootstrap-datepicker.pt-BR.min.js
+│   │           │       ├── bootstrap-datepicker.pt.min.js
+│   │           │       ├── bootstrap-datepicker.ro.min.js
+│   │           │       ├── bootstrap-datepicker.rs-latin.min.js
+│   │           │       ├── bootstrap-datepicker.rs.min.js
+│   │           │       ├── bootstrap-datepicker.ru.min.js
+│   │           │       ├── bootstrap-datepicker.si.min.js
+│   │           │       ├── bootstrap-datepicker.sk.min.js
+│   │           │       ├── bootstrap-datepicker.sl.min.js
+│   │           │       ├── bootstrap-datepicker.sq.min.js
+│   │           │       ├── bootstrap-datepicker.sr-latin.min.js
+│   │           │       ├── bootstrap-datepicker.sr.min.js
+│   │           │       ├── bootstrap-datepicker.sv.min.js
+│   │           │       ├── bootstrap-datepicker.sw.min.js
+│   │           │       ├── bootstrap-datepicker.ta.min.js
+│   │           │       ├── bootstrap-datepicker.tg.min.js
+│   │           │       ├── bootstrap-datepicker.th.min.js
+│   │           │       ├── bootstrap-datepicker.tk.min.js
+│   │           │       ├── bootstrap-datepicker.tr.min.js
+│   │           │       ├── bootstrap-datepicker.uk.min.js
+│   │           │       ├── bootstrap-datepicker.uz-cyrl.min.js
+│   │           │       ├── bootstrap-datepicker.uz-latn.min.js
+│   │           │       ├── bootstrap-datepicker.vi.min.js
+│   │           │       ├── bootstrap-datepicker.zh-CN.min.js
+│   │           │       └── bootstrap-datepicker.zh-TW.min.js
+│   │           ├── font-awesome
+│   │           │   ├── css
+│   │           │   │   ├── all.css
+│   │           │   │   ├── all.min.css
+│   │           │   │   ├── brands.css
+│   │           │   │   ├── brands.min.css
+│   │           │   │   ├── fontawesome.css
+│   │           │   │   ├── fontawesome.min.css
+│   │           │   │   ├── regular.css
+│   │           │   │   ├── regular.min.css
+│   │           │   │   ├── solid.css
+│   │           │   │   ├── solid.min.css
+│   │           │   │   ├── svg-with-js.css
+│   │           │   │   ├── svg-with-js.min.css
+│   │           │   │   ├── v4-shims.css
+│   │           │   │   └── v4-shims.min.css
+│   │           │   ├── js
+│   │           │   │   ├── all.js
+│   │           │   │   ├── all.min.js
+│   │           │   │   ├── brands.js
+│   │           │   │   ├── brands.min.js
+│   │           │   │   ├── fontawesome.js
+│   │           │   │   ├── fontawesome.min.js
+│   │           │   │   ├── regular.js
+│   │           │   │   ├── regular.min.js
+│   │           │   │   ├── solid.js
+│   │           │   │   ├── solid.min.js
+│   │           │   │   ├── v4-shims.js
+│   │           │   │   └── v4-shims.min.js
+│   │           │   ├── sprites
+│   │           │   │   ├── brands.svg
+│   │           │   │   ├── regular.svg
+│   │           │   │   └── solid.svg
+│   │           │   └── webfonts
+│   │           │       ├── fa-brands-400.eot
+│   │           │       ├── fa-brands-400.svg
+│   │           │       ├── fa-brands-400.ttf
+│   │           │       ├── fa-brands-400.woff
+│   │           │       ├── fa-brands-400.woff2
+│   │           │       ├── fa-regular-400.eot
+│   │           │       ├── fa-regular-400.svg
+│   │           │       ├── fa-regular-400.ttf
+│   │           │       ├── fa-regular-400.woff
+│   │           │       ├── fa-regular-400.woff2
+│   │           │       ├── fa-solid-900.eot
+│   │           │       ├── fa-solid-900.svg
+│   │           │       ├── fa-solid-900.ttf
+│   │           │       ├── fa-solid-900.woff
+│   │           │       └── fa-solid-900.woff2
+│   │           ├── jquery
+│   │           │   ├── dist
+│   │           │   │   ├── jquery.js
+│   │           │   │   ├── jquery.min.js
+│   │           │   │   └── jquery.min.map
+│   │           │   └── LICENSE.txt
+│   │           ├── jquery-validation
+│   │           │   ├── dist
+│   │           │   │   ├── additional-methods.js
+│   │           │   │   ├── additional-methods.min.js
+│   │           │   │   ├── jquery.validate.js
+│   │           │   │   └── jquery.validate.min.js
+│   │           │   └── LICENSE.md
+│   │           ├── jquery-validation-unobtrusive
+│   │           │   ├── jquery.validate.unobtrusive.js
+│   │           │   ├── jquery.validate.unobtrusive.min.js
+│   │           │   └── LICENSE.txt
+│   │           ├── moment
+│   │           │   ├── locale
+│   │           │   │   ├── af.js
+│   │           │   │   ├── ar-dz.js
+│   │           │   │   ├── ar.js
+│   │           │   │   ├── ar-kw.js
+│   │           │   │   ├── ar-ly.js
+│   │           │   │   ├── ar-ma.js
+│   │           │   │   ├── ar-sa.js
+│   │           │   │   ├── ar-tn.js
+│   │           │   │   ├── az.js
+│   │           │   │   ├── be.js
+│   │           │   │   ├── bg.js
+│   │           │   │   ├── bm.js
+│   │           │   │   ├── bn.js
+│   │           │   │   ├── bo.js
+│   │           │   │   ├── br.js
+│   │           │   │   ├── bs.js
+│   │           │   │   ├── ca.js
+│   │           │   │   ├── cs.js
+│   │           │   │   ├── cv.js
+│   │           │   │   ├── cy.js
+│   │           │   │   ├── da.js
+│   │           │   │   ├── de-at.js
+│   │           │   │   ├── de-ch.js
+│   │           │   │   ├── de.js
+│   │           │   │   ├── dv.js
+│   │           │   │   ├── el.js
+│   │           │   │   ├── en-au.js
+│   │           │   │   ├── en-ca.js
+│   │           │   │   ├── en-gb.js
+│   │           │   │   ├── en-ie.js
+│   │           │   │   ├── en-il.js
+│   │           │   │   ├── en-nz.js
+│   │           │   │   ├── en-SG.js
+│   │           │   │   ├── eo.js
+│   │           │   │   ├── es-do.js
+│   │           │   │   ├── es.js
+│   │           │   │   ├── es-us.js
+│   │           │   │   ├── et.js
+│   │           │   │   ├── eu.js
+│   │           │   │   ├── fa.js
+│   │           │   │   ├── fi.js
+│   │           │   │   ├── fo.js
+│   │           │   │   ├── fr-ca.js
+│   │           │   │   ├── fr-ch.js
+│   │           │   │   ├── fr.js
+│   │           │   │   ├── fy.js
+│   │           │   │   ├── ga.js
+│   │           │   │   ├── gd.js
+│   │           │   │   ├── gl.js
+│   │           │   │   ├── gom-latn.js
+│   │           │   │   ├── gu.js
+│   │           │   │   ├── he.js
+│   │           │   │   ├── hi.js
+│   │           │   │   ├── hr.js
+│   │           │   │   ├── hu.js
+│   │           │   │   ├── hy-am.js
+│   │           │   │   ├── id.js
+│   │           │   │   ├── is.js
+│   │           │   │   ├── it-ch.js
+│   │           │   │   ├── it.js
+│   │           │   │   ├── ja.js
+│   │           │   │   ├── jv.js
+│   │           │   │   ├── ka.js
+│   │           │   │   ├── kk.js
+│   │           │   │   ├── km.js
+│   │           │   │   ├── kn.js
+│   │           │   │   ├── ko.js
+│   │           │   │   ├── ku.js
+│   │           │   │   ├── ky.js
+│   │           │   │   ├── lb.js
+│   │           │   │   ├── lo.js
+│   │           │   │   ├── lt.js
+│   │           │   │   ├── lv.js
+│   │           │   │   ├── me.js
+│   │           │   │   ├── mi.js
+│   │           │   │   ├── mk.js
+│   │           │   │   ├── ml.js
+│   │           │   │   ├── mn.js
+│   │           │   │   ├── mr.js
+│   │           │   │   ├── ms.js
+│   │           │   │   ├── ms-my.js
+│   │           │   │   ├── mt.js
+│   │           │   │   ├── my.js
+│   │           │   │   ├── nb.js
+│   │           │   │   ├── ne.js
+│   │           │   │   ├── nl-be.js
+│   │           │   │   ├── nl.js
+│   │           │   │   ├── nn.js
+│   │           │   │   ├── pa-in.js
+│   │           │   │   ├── pl.js
+│   │           │   │   ├── pt-br.js
+│   │           │   │   ├── pt.js
+│   │           │   │   ├── ro.js
+│   │           │   │   ├── ru.js
+│   │           │   │   ├── sd.js
+│   │           │   │   ├── se.js
+│   │           │   │   ├── si.js
+│   │           │   │   ├── sk.js
+│   │           │   │   ├── sl.js
+│   │           │   │   ├── sq.js
+│   │           │   │   ├── sr-cyrl.js
+│   │           │   │   ├── sr.js
+│   │           │   │   ├── ss.js
+│   │           │   │   ├── sv.js
+│   │           │   │   ├── sw.js
+│   │           │   │   ├── ta.js
+│   │           │   │   ├── te.js
+│   │           │   │   ├── tet.js
+│   │           │   │   ├── tg.js
+│   │           │   │   ├── th.js
+│   │           │   │   ├── tlh.js
+│   │           │   │   ├── tl-ph.js
+│   │           │   │   ├── tr.js
+│   │           │   │   ├── tzl.js
+│   │           │   │   ├── tzm.js
+│   │           │   │   ├── tzm-latn.js
+│   │           │   │   ├── ug-cn.js
+│   │           │   │   ├── uk.js
+│   │           │   │   ├── ur.js
+│   │           │   │   ├── uz.js
+│   │           │   │   ├── uz-latn.js
+│   │           │   │   ├── vi.js
+│   │           │   │   ├── x-pseudo.js
+│   │           │   │   ├── yo.js
+│   │           │   │   ├── zh-cn.js
+│   │           │   │   ├── zh-hk.js
+│   │           │   │   └── zh-tw.js
+│   │           │   ├── moment.js
+│   │           │   ├── moment.min.js
+│   │           │   ├── moment-with-locales.js
+│   │           │   └── moment-with-locales.min.js
+│   │           ├── pnotify
+│   │           │   ├── pnotify.animate.js
+│   │           │   ├── pnotify.animate.js.map
+│   │           │   ├── pnotify.brighttheme.css
+│   │           │   ├── pnotify.buttons.css
+│   │           │   ├── pnotify.buttons.js
+│   │           │   ├── pnotify.buttons.js.map
+│   │           │   ├── pnotify.callbacks.js
+│   │           │   ├── pnotify.callbacks.js.map
+│   │           │   ├── pnotify.confirm.js
+│   │           │   ├── pnotify.confirm.js.map
+│   │           │   ├── pnotify.css
+│   │           │   ├── pnotify.desktop.js
+│   │           │   ├── pnotify.desktop.js.map
+│   │           │   ├── pnotify.history.css
+│   │           │   ├── pnotify.history.js
+│   │           │   ├── pnotify.history.js.map
+│   │           │   ├── pnotify.js
+│   │           │   ├── pnotify.js.map
+│   │           │   ├── pnotify.mobile.css
+│   │           │   ├── pnotify.mobile.js
+│   │           │   ├── pnotify.mobile.js.map
+│   │           │   ├── pnotify.nonblock.css
+│   │           │   ├── pnotify.nonblock.js
+│   │           │   └── pnotify.nonblock.js.map
+│   │           └── styles
+│   │               └── scss
+│   │                   └── app
+│   │                       ├── app.css
+│   │                       ├── app.min.css
+│   │                       ├── app.scss
+│   │                       ├── _media.scss
+│   │                       ├── _mixins.scss
+│   │                       └── _variables.scss
+│   ├── DB
+│   │   ├── _CloseConnections.sql
+│   │   ├── _CreateSchema.sql
+│   │   ├── database.ini
+│   │   ├── _DropDB.sql
+│   │   ├── _InitDB.sql
+│   │   ├── recreate_db.cmd
+│   │   ├── recreate_db.py
+│   │   └── _UpdateSchema.sql
+│   └── packages
+│       ├── Newtonsoft.Json.12.0.3
+│       │   ├── lib
+│       │   │   ├── net20
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   ├── net35
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   ├── net40
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   ├── net45
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   ├── netstandard1.0
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   ├── netstandard1.3
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   ├── netstandard2.0
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   ├── portable-net40+sl5+win8+wp8+wpa81
+│       │   │   │   ├── Newtonsoft.Json.dll
+│       │   │   │   └── Newtonsoft.Json.xml
+│       │   │   └── portable-net45+win8+wp8+wpa81
+│       │   │       ├── Newtonsoft.Json.dll
+│       │   │       └── Newtonsoft.Json.xml
+│       │   ├── LICENSE.md
+│       │   ├── Newtonsoft.Json.12.0.3.nupkg
+│       │   └── packageIcon.png
+│       ├── starksoft.aspen.1.1.8
+│       │   ├── lib
+│       │   │   └── net45
+│       │   │       ├── starksoft.aspen.dll
+│       │   │       ├── starksoft.aspen.pdb
+│       │   │       └── starksoft.aspen.xml
+│       │   └── starksoft.aspen.1.1.8.nupkg
+│       └── System.IO.Compression.ZipFile.4.3.0
+│           ├── dotnet_library_license.txt
+│           ├── lib
+│           │   ├── MonoAndroid10
+│           │   │   └── _._
+│           │   ├── MonoTouch10
+│           │   │   └── _._
+│           │   ├── net46
+│           │   │   └── System.IO.Compression.ZipFile.dll
+│           │   ├── netstandard1.3
+│           │   │   └── System.IO.Compression.ZipFile.dll
+│           │   ├── xamarinios10
+│           │   │   └── _._
+│           │   ├── xamarinmac20
+│           │   │   └── _._
+│           │   ├── xamarintvos10
+│           │   │   └── _._
+│           │   └── xamarinwatchos10
+│           │       └── _._
+│           ├── ref
+│           │   ├── MonoAndroid10
+│           │   │   └── _._
+│           │   ├── MonoTouch10
+│           │   │   └── _._
+│           │   ├── net46
+│           │   │   └── System.IO.Compression.ZipFile.dll
+│           │   ├── netstandard1.3
+│           │   │   ├── de
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   ├── es
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   ├── fr
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   ├── it
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   ├── ja
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   ├── ko
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   ├── ru
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   ├── System.IO.Compression.ZipFile.dll
+│           │   │   ├── System.IO.Compression.ZipFile.xml
+│           │   │   ├── zh-hans
+│           │   │   │   └── System.IO.Compression.ZipFile.xml
+│           │   │   └── zh-hant
+│           │   │       └── System.IO.Compression.ZipFile.xml
+│           │   ├── xamarinios10
+│           │   │   └── _._
+│           │   ├── xamarinmac20
+│           │   │   └── _._
+│           │   ├── xamarintvos10
+│           │   │   └── _._
+│           │   └── xamarinwatchos10
+│           │       └── _._
+│           ├── System.IO.Compression.ZipFile.4.3.0.nupkg
+│           └── ThirdPartyNotices.txt
+├── LICENSE
+└── README.md
+
+210 directories, 1001 files
+======================: README CONTENT :======================
+# Alduin-botnet
+![alt text](https://i.imgur.com/NhruoLf.png)
+## Release: https://github.com/mogyiii/Alduin-botnet/releases/tag/1.1
+## Install:
+1. Install Python and PostgreSQL
+2. Open DataBaseCreator and overwrite connect database in appsettings.json and copy to Panel.
+3. Import "Alduin/DataBaseCreator/DB/_CreateSchema.sql".
+4. Run "Alduin/DataBaseCreator/Alduin.DatabaseCreator.exe" and follow the instructions.
+5. Run "Alduin/Alduin.Web.exe" and Open "https://127.0.0.1:5001"
+6. Login and navigate to Tor settings edit torrc file and Restart Tor.
+7. Copy Onion Address and Open "Alduin/Bot/Config.Json" and pastle to "Address" and overwirte debug to "false".
+## Donation
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mogyiii)
+
+    XMR: 44SSGsjvMsv53LkD5pZSxb7NzPeSqceybQwzpSRcfc3sWVjhkbNgTm6HDaUkQDcGG9TCoUMx7FNDxXE5iRJymncSLPkEa8C
+
+## Desprition
+This is HTTP and TCP Tor based System management software.
+Support Multi-language.
+
+### **Developed**: C#/VB (.Net Core), SCSS, Jquery, PostgreSQL (ORM)
+
+## **Wiki**: https://github.com/mogyiii/Alduin-botnet/wiki
+
+Methods: 
+1. ImgSearch all disc.
+2. USBSpread,
+3. Tor Communication,
+4. Multi-language,
+5. Attacks: 
+   * SlowLoris, 
+   * ARME, 
+   * Hulk, 
+   * RUDY, 
+   * TCP and UDP, 
+   * ICMP, 
+   * HTTPBandWidth, 
+   * TORLoris.
+6. Monero minning,
+7. Execute file
+8. Open website
+9. ScreenShots
+10. Get Computer All hardware and deatils
+11. Send Message
+12. Seed Torrent
+13. Support fallback panel
+14. SourceCode/Git grabber
+15. FireFox, Chrome, FileZilla account grabber
+16. CMD executter
+17. Host file editor
+18. Process show and kill
+19. Ads miner
+20. Show attack speed
+## **Trello**: https://trello.com/b/brPnPlza/alduin
+
+
+
+
+====================== GIT HISTORY: ======================
+ad91601 HEAD@{0}: clone: from https://github.com/mogyiii/Alduin-botnet
+commit ad916011e680fbd9fb01482b013f357be46e3fcd
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Thu Sep 10 10:59:18 2020 +0200
+
+    Update README.md
+
+commit 5a1a89975dee33bbaffa5c402e8b4917e6502416
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Thu Sep 10 10:58:26 2020 +0200
+
+    Update README.md
+
+commit 619381f247a259b70d015e47936b45104e1ae722
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Wed Sep 9 17:33:57 2020 +0200
+
+    Update README.md
+
+commit 958ceb3436730e14cb90907fe9e4f487ba2c5e7b
+Merge: f25db89 7c20987
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Sep 9 17:25:31 2020 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit f25db897fae46d08ffd57c5864ed71127fd1cb5a
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Sep 9 17:25:09 2020 +0200
+
+    Fix to publish
+
+commit 7c2098775609ff3d5163a3cdd5e7b45747a60a11
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Wed Sep 9 17:19:18 2020 +0200
+
+    Update README.md
+
+commit fc6cf4e0fa9797d13a04374196478b721f4009f1
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Wed Sep 9 17:17:24 2020 +0200
+
+    Update README.md
+
+commit a6ce5e91fa041ccc7789229cf061cbc933a9c789
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Wed Sep 9 17:17:03 2020 +0200
+
+    Update README.md
+
+commit 7e4167e21999433fb0daac5e9ca9148a4d5a69b0
+Merge: 11d658d a3d0e82
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Jul 8 22:08:13 2020 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 11d658d94e9512013909dbf9cb561af2c2bf3230
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Jul 8 22:08:06 2020 +0200
+
+    Server Fix
+
+commit a3d0e827ccc3739e421ccfc58014fc546bcf18ae
+Author: Unknown <unknown@example.com>
+Date:   Wed Jul 8 14:30:42 2020 +0200
+
+    Floodbase Fixed
+
+commit 9e50273d5209b313b0f8f1593b3391e896734f2d
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Jul 8 10:27:24 2020 +0200
+
+    FloodBase update
+
+commit 932f502e33c152f9b63449c339875c3030805b77
+Merge: 9416b0a a3c4ef8
+Author: Unknown <unknown@example.com>
+Date:   Sat Jul 4 22:05:35 2020 +0200
+
+    Merge remote-tracking branch 'origin/master' into Dev
+
+commit 9416b0a2438b015b50f8308f541fc3a6c27b3838
+Author: Unknown <unknown@example.com>
+Date:   Sat Jul 4 22:05:26 2020 +0200
+
+    Fixing stump
+
+commit a3c4ef87fea684fe4707f026778659efb1d9590e
+Merge: 83fb41b 71a82ab
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jul 4 22:04:31 2020 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 83fb41b8a8b3a8cbf404f0ba865781ee8e013c38
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jul 4 22:04:21 2020 +0200
+
+    Fixing
+
+commit 71a82ab755deabac3e448764821d8d7f6eb0916c
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Sat Jul 4 14:40:32 2020 +0200
+
+    Update README.md
+
+commit 082d3b788408c88403c178e29a5ea4f453491bcc
+Merge: 47dd45d 8499462
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jul 4 14:29:55 2020 +0200
+
+    Merge branch 'HEAD'
+
+commit 47dd45df64eedcda802bd03928ec07781525d163
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jul 4 14:27:03 2020 +0200
+
+    Source code downloader
+
+commit 8499462dfdebac25ab40eb1527cd69d28176c56f
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jul 4 14:27:03 2020 +0200
+
+    Source code download
+
+commit 37a6972c7268f0dda651d96f4e0e6903490ac871
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Jul 3 22:45:41 2020 +0200
+
+    Show attack speed
+
+commit fbb62c81d92e4b43d213267a9551a4780587d651
+Merge: c4036ac dfa5aed
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Jul 2 21:27:12 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev'
+
+commit c4036ac4a65f4b619e833202b62141d87b077f20
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Jul 2 21:27:01 2020 +0200
+
+    Server Fixing
+
+commit dfa5aedae30ca7acb26b50d32347ec1b67c5d7a8
+Author: Unknown <unknown@example.com>
+Date:   Thu Jul 2 21:24:12 2020 +0200
+
+    Stump Fixing #2
+
+commit 0242c041fffa73a78478405d8065c6853ad2ba61
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Jul 2 13:35:47 2020 +0200
+
+    Stump Fixing
+
+commit b5fd9ce7bb4057d8a700f205603bc69f43dfc340
+Merge: 1e7dc0b 00998bf
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Jun 30 22:38:31 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev'
+
+commit 1e7dc0b450faa8e5c36b9b9b57132fe1cc62d270
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Jun 30 22:38:24 2020 +0200
+
+    Resurces update
+
+commit 00998bfdcc4c3a6324aeaee9948c54c5fb60b200
+Author: Unknown <unknown@example.com>
+Date:   Tue Jun 30 22:35:56 2020 +0200
+
+    Stump Test
+
+commit 78e0a9f1ba1a49bccf153086a8c298f77d4d9272
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Jun 29 22:07:35 2020 +0200
+
+    Wait Final Test
+
+commit 12560cd1b9b43ca63ceda0fbba4665e235199af3
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Jun 26 20:17:57 2020 +0200
+
+    Delete Bot images
+
+commit b01cb96fde2aed7386ebc2876a42589a492d2585
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Jun 26 20:16:12 2020 +0200
+
+    GitIgnore
+
+commit 60d3460254bac8a11612b3ce1a589f3d3fd7bd3e
+Merge: 2f8df89 6370f6a
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Jun 26 20:10:35 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev'
+
+commit 2f8df8915c49fcf7b2d93c10d87ce738c371dbbb
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Jun 26 19:59:35 2020 +0200
+
+    Image Downloader from Tor
+
+commit 6370f6a67f0bd15c6a26b6621b60440435ba8522
+Author: Unknown <unknown@example.com>
+Date:   Fri Jun 26 19:59:00 2020 +0200
+
+    stump
+
+commit 0712aa053645cf1ee2c8d23d80ecf984ea82aff4
+Merge: dfe8115 55ed073
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Jun 24 12:37:08 2020 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit dfe81150258cbbc9b1cc063f0c5bca3949c2ea56
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Jun 24 12:36:46 2020 +0200
+
+    Download Images to webserver and fixed kill process
+
+commit 55ed073bdcadc595fe75fe08b99d3a9dc0e570c1
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Tue Jun 23 23:19:33 2020 +0200
+
+    Update README.md
+
+commit 00b2ea5dc3df78753f3d1e63f34cf95a363f1070
+Merge: 2a115a8 cbcdf7f
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Jun 22 21:57:15 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev'
+
+commit 2a115a82901be922ae121b122bda647b670dfb5b
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Jun 22 21:38:45 2020 +0200
+
+    Command style and fix
+
+commit cbcdf7f90ad0089c7a5a8ed622fe550412993671
+Author: Unknown <unknown@example.com>
+Date:   Mon Jun 22 20:32:21 2020 +0200
+
+    Auto stash before merge of "Dev" and "origin/master"
+
+commit e78eba8e144303c85b848948029293905e2e6604
+Merge: b870458 fd55586
+Author: Unknown <unknown@example.com>
+Date:   Mon Jun 22 20:31:43 2020 +0200
+
+    Merge remote-tracking branch 'origin/master' into Dev
+
+commit b87045889a7016b4ed5b97a84dec090a6b6d933c
+Author: Unknown <unknown@example.com>
+Date:   Mon Jun 22 20:23:39 2020 +0200
+
+    Fix
+
+commit fd555860e8d0296047f1cdbe74a1627c3ba45b7e
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Jun 17 00:08:51 2020 +0200
+
+    Bot change Style
+
+commit 3b7e2888e0e08abd5a080013dd90c24446a91fe8
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Jun 16 13:46:21 2020 +0200
+
+    GitIgnore
+
+commit ec9dfa7b76bbe8ca92e41c0fa4da1e12f6c82db9
+Merge: 7ecc7cb 5ab111f
+Author: Unknown <unknown@example.com>
+Date:   Tue Jun 16 13:36:34 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev' into Dev
+
+commit 7ecc7cb8156a9fd5738bf502911e96631f620d93
+Author: Unknown <unknown@example.com>
+Date:   Tue Jun 16 13:26:24 2020 +0200
+
+    stub
+
+commit 5ab111f3e387d054f9f71a6fc6d4703e026855a7
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Jun 16 13:24:03 2020 +0200
+
+    Tor communication fix
+
+commit 9daa75f2cd8b4b1fbf37974846ad8b87559a8610
+Merge: bab789d 7e7575e
+Author: Unknown <unknown@example.com>
+Date:   Thu Jun 11 22:00:34 2020 +0200
+
+    Merge
+
+commit bab789d089637e475e80de5af7c2841f50b52571
+Author: Unknown <unknown@example.com>
+Date:   Thu Jun 11 21:51:07 2020 +0200
+
+    Stump Send Buffersize
+
+commit 7e7575e5204d69064936afd8c86c8f986fc48a9c
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Jun 11 21:39:04 2020 +0200
+
+    Send Deatils and Fix Long Message
+
+commit 7650f731fb713db2d5f8f02bde92f744aa63aa88
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Jun 9 16:27:56 2020 +0200
+
+    Process manager and Get Deatils
+
+commit c5091dfbef0d3c84aa607345eacd69957eb30754
+Merge: 6f13bdb 6b4c09a
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jun 6 20:16:17 2020 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 6f13bdb4a2da460c46b9464cad420079bab02d6f
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jun 6 20:08:24 2020 +0200
+
+    Get computer details
+
+commit 6b4c09a7adca33aa8a1bcfb1d7f3636ec59c3f11
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Wed Jun 3 19:09:17 2020 +0200
+
+    Update README.md
+
+commit 14f7ba276dbaafea30daf773b40971ddb6b0dd40
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Jun 3 14:17:01 2020 +0200
+
+    Monero Miner
+
+commit 6266c22c88e85fa799a7a6c08be8f3b42f99612b
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Jun 2 19:58:02 2020 +0200
+
+    Stream
+
+commit 87c87482aa461b2865bc9d057891b9b540dad4f5
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat May 30 19:58:36 2020 +0200
+
+    Image Viewer
+
+commit 3caf6f4330bda690d6cdc0dd980bbf2ff3cfc3f8
+Merge: 0c0b3ba 4940357
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu May 28 20:35:00 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev'
+
+commit 0c0b3ba86a09527da236480354ef170b0df7a8d6
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu May 28 20:28:16 2020 +0200
+
+    Images services and bot deatils
+
+commit 49403574aaf58a4892836424033b25da21127607
+Author: Unknown <unknown@example.com>
+Date:   Thu May 28 20:23:04 2020 +0200
+
+    Bot get all image on computer and screenshot handler
+
+commit fbc1c4444012c731b2fc315bc1804298643c934e
+Merge: e407fa2 d60f407
+Author: Unknown <unknown@example.com>
+Date:   Tue May 26 22:00:06 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev' into Dev
+
+commit e407fa2f3803eeeba44fbcde6903b3a06a3a6411
+Author: Unknown <unknown@example.com>
+Date:   Tue May 26 21:34:08 2020 +0200
+
+    Stump execute command fix and tor communication fixed
+
+commit d60f40760b16a8f75df287a5f24e41a2f13429a4
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue May 26 21:33:39 2020 +0200
+
+    Tor communication fixed
+
+commit bea208ca5cdc67c382776c14bb7ab25d3935cce0
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat May 23 10:28:38 2020 +0200
+
+    Stump and Web
+
+commit 56220012b4a4c94ee5c7fa9fdbd32854f1c0b520
+Author: Unknown <unknown@example.com>
+Date:   Wed May 20 15:33:57 2020 +0200
+
+    Update#2
+
+commit 96e1ef31d305abbb7287ba3183bce1c14f8d8208
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed May 20 18:05:13 2020 +0200
+
+    Merge update
+
+commit 3068618fb639f20affbae141766f93466d3c6d91
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed May 20 15:39:54 2020 +0200
+
+    update#3
+
+commit 10f7106e0430bc360bfd069dea5986799b3e9760
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue May 19 12:49:15 2020 +0200
+
+    update#1
+
+commit 1a43e03508719f958b96b5f2ffd6707a758deda9
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun May 17 22:36:23 2020 +0200
+
+    Stub commands (Flood, images)
+
+commit f5d9b9dd448cbfb0fd94d0053046a1c9e822e597
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu May 14 15:54:55 2020 +0200
+
+    Commands
+
+commit d4f65045015cb041334bac9be5b68d68383849ce
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed May 13 23:17:16 2020 +0200
+
+    Validators
+
+commit 4729ac9b1c9729eea0df635ab602365b3a1820fe
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue May 12 22:27:41 2020 +0200
+
+    Models and Commands
+
+commit e2a18d9bf367406e5923d1f7cd8111b7af45c555
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu May 7 18:23:34 2020 +0200
+
+    Add dev content to master
+
+commit fdd25ffd5e1bce952d7c3d8b882f7409f1ea0f9f
+Merge: 0c67d71 926847d
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu May 7 18:21:01 2020 +0200
+
+    Merge remote-tracking branch 'origin/Dev'
+
+commit 0c67d719be33b4b87d2b1d660641510a8435263b
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu May 7 18:18:11 2020 +0200
+
+    added website command
+
+commit 926847dcd47ba2140f4299208f0f5513d609865e
+Author: Unknown <unknown@example.com>
+Date:   Thu May 7 18:03:23 2020 +0200
+
+    OpenWebsite
+
+commit c7d362406dd5ba135bb5a296bd68598ff13a0e9b
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun May 3 18:56:45 2020 +0200
+
+    Fixing #3
+
+commit 067ee9fd3bac08b49a4a4d0e1a25f5701dd091ff
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Apr 29 22:13:06 2020 +0200
+
+    Styled, Fixed, added Websitte settings
+
+commit ff074ed06221021056c1a04b1f024e299183855b
+Author: Unknown <unknown@example.com>
+Date:   Wed Apr 29 18:20:12 2020 +0200
+
+    Change model #3
+
+commit 0ab7520e980b1951f365fb6a021968d6f7685232
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Apr 29 13:03:17 2020 +0200
+
+    change model #2
+
+commit 472ef3739880ccd119f16077e1cc2a96871318ce
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Apr 29 12:51:45 2020 +0200
+
+    change model
+
+commit 860f59ab01ca0b7c87bc0ba1cbb7772be34b2f7b
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Fri Apr 24 21:35:03 2020 +0200
+
+    Update README.md
+
+commit b563958c00d220608afb9f99e92caeb0a3f4385e
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Apr 24 21:31:10 2020 +0200
+
+    Add style home
+
+commit 47ebbd94501746b005bd9aed5996fb9097738310
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Apr 23 22:42:26 2020 +0200
+
+    Fix style and added close detector
+
+commit c0cd8081f73c67c10080c8a1da5471ed58e58fa7
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Apr 22 22:27:31 2020 +0200
+
+    Fix #1
+
+commit 7805986ddb359c0d859d658cdd7b5aa4b4617588
+Author: Unknown <unknown@example.com>
+Date:   Wed Apr 22 22:17:32 2020 +0200
+
+    Bot handle command from tor
+
+commit ad92c2d19a71cd6a2177ff065c61d2433bfce9bf
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Apr 21 23:45:14 2020 +0200
+
+    Transfer command
+
+commit 1b35d8cf854d9ffa12981bdcd00e34971023fabf
+Author: Unknown <unknown@example.com>
+Date:   Tue Apr 21 23:24:14 2020 +0200
+
+    Execute command
+
+commit e93fdc70b1dba21cc09c10e78860a34f2263b038
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Apr 17 22:29:36 2020 +0200
+
+    add Floods and System
+
+commit e80c0a35e92ea1696d4a35cb3b72532045ac6902
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Apr 14 13:32:43 2020 +0200
+
+    Added config file and debug mode. fix tor communication
+
+commit 47bb10b470d5f314239f141e7d05f950f0957e3e
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Apr 13 22:22:58 2020 +0200
+
+    Fix gate
+
+commit b71533e2d4054e3b3038d65d59898c4ee83e651c
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Apr 12 10:21:40 2020 +0200
+
+    Fixing #2
+
+commit 3c377f2c7f2c2fc5076f9dd6811430b47a0fa8eb
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Apr 8 21:37:37 2020 +0200
+
+    Fixing
+
+commit f2f33d0572a5b7f18e46e823bffcad47dc58fff9
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Apr 6 22:19:49 2020 +0200
+
+    FloodBase and Fix Claims
+
+commit d7e550d491a6a65219c8397c60ed4075eedd9e98
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Apr 1 23:41:56 2020 +0200
+
+    Claims
+
+commit 99a5bdce5fb1d1edad32a0ce115960c48d0e91df
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Tue Mar 31 22:46:22 2020 +0200
+
+    Create LICENSE
+
+commit df1c549a0a5f0c7f49be983fd3395a51dafa0839
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Tue Mar 31 10:27:40 2020 +0200
+
+    Update README.md
+
+commit 8e136553de3c587810d2a7d6c6bdf092a139910a
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Tue Mar 31 10:26:49 2020 +0200
+
+    Update README.md
+
+commit a87066eb199efb884d380166ec7e19472e64cbfc
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Tue Mar 31 10:26:13 2020 +0200
+
+    Update README.md
+
+commit 1356de5416bfde28f92746ca41d6a918336ad006
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Mar 29 12:38:25 2020 +0200
+
+    Save log and deatils to SQL
+
+commit 2bb8dd323bd451b70b8eafe234311f1dc1cb4b43
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Mar 27 19:04:38 2020 +0100
+
+    Bot communication to gate
+
+commit be9f5e1cab9886fc513893a4902b0f251b584a83
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Mar 26 15:00:19 2020 +0100
+
+    created gate
+
+commit 99d643f3946b6d330b869a18655a7bcccb705dfd
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Mar 24 13:28:34 2020 +0100
+
+    Image Scanner
+
+commit 97651d7245fb3fe0bb01245255994a7b827180b6
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Mar 20 22:59:11 2020 +0100
+
+    Notification model and details
+
+commit ec470cc052459791f97b6d3992edc9716023ea3b
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Mar 12 11:21:46 2020 +0100
+
+    Tor Communication
+
+commit 33317049a3ef39d8bd39d2ee5e9f44af747d05c8
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Mar 1 21:37:06 2020 +0100
+
+    Continuation Stub
+
+commit cf4d8bdfb610789d10b4dff60a5f61737237ecd2
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Feb 25 21:03:52 2020 +0100
+
+    stub
+
+commit 731ea8bf1d31753d6c4eff56692b8c90c8525d81
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Feb 21 19:35:09 2020 +0100
+
+    Bot list and Bot deatils begin working
+
+commit c14c8eafc73869f3c27f85049192c4eb79393808
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Feb 20 14:52:05 2020 +0100
+
+    Made Tcp  request handler with proxy
+
+commit 5b5adcf6a55a1362f6df10170c7d4e62e275c7b9
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Feb 19 20:40:48 2020 +0100
+
+    Unit testing #2
+
+commit 1d4ab53bb3358c95ebe6ddeb0292ba0fd0a21e44
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Feb 16 00:58:57 2020 +0100
+
+    Unit testing
+
+commit 281dd73114d1ec56376ef91c4e228280243818f3
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Feb 12 22:23:29 2020 +0100
+
+    Create Tcp handler
+
+commit 8c39bca8a8749707dc956a110cd07cc95881759a
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Feb 11 14:55:32 2020 +0100
+
+    Unit testing
+
+commit 060758138896348aabdad9f4e6fed7bc76125a05
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Feb 10 21:52:21 2020 +0100
+
+    Alduin.Server created Commands
+
+commit 1b6b17fb340da9fc62f4679e08eb46b5a9865f73
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Feb 10 19:47:00 2020 +0100
+
+    Created Alduin.Logic.Test and write simple testing methods
+
+commit 26e6d16d1beaa0d73419102b264008216541d818
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Feb 8 22:58:55 2020 +0100
+
+    Commit
+
+commit 64b4136226218c33d56b8acc807911829103d40a
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Feb 6 21:05:58 2020 +0100
+
+    Fixed Auth and Funalized Tor service
+
+commit c377957bd68d43c9d2065fc4343d6bca26225f70
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Feb 6 00:27:32 2020 +0100
+
+    Fixed Layout
+
+commit 08a7babc0fbd648c93bb394907c7fdd1a6f66615
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Feb 4 23:18:41 2020 +0100
+
+    Added Tor services
+
+commit 753aefa0a712f6d1aa9baf0b202b47548b3fb0cc
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Feb 3 23:03:47 2020 +0100
+
+    Started create Tor service settings
+
+commit 3fc005a99f6c8079f4fde66eb136b4d9cc734538
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Feb 2 12:28:56 2020 +0100
+
+    Torch File editor
+
+commit 755c5cab12b4dcad5f31e863b3537e147262a29e
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Feb 1 19:01:43 2020 +0100
+
+    Tor
+
+commit 25c0dfbbdfa51ba42c13510650b558a7c90e055e
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Feb 1 18:05:23 2020 +0100
+
+    Config Tor
+
+commit 1a48299fe15a5d3dd1f666df53d7818a8298a872
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jan 25 21:56:00 2020 +0100
+
+    Deleted stub
+
+commit 6d1dee63cd714e594f67a8d11eea37910b86af76
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jan 25 21:55:25 2020 +0100
+
+    Botinfo
+
+commit 830903bef213a9a64b35d2c520793db6f3902135
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Fri Jan 24 20:21:18 2020 +0100
+
+    Fix active style and Listing work
+
+commit 93937bcb2015a4a60808ca45b88db0a859bea480
+Merge: dec30c5 550a063
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Jan 19 23:26:15 2020 +0100
+
+    Merge branch 'master' of https://github.com/mogyiii/Alduin-botnet
+
+commit dec30c52a097d38b423ce22eef6d51476227d625
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Jan 19 23:26:10 2020 +0100
+
+    Foundation
+
+commit 550a063b4d001301e3df32fbc26dc70c579e5747
+Author: mogyiii <50268208+mogyiii@users.noreply.github.com>
+Date:   Sun Jan 19 00:31:47 2020 +0100
+
+    Update README.md
+
+commit 256056af2698b9f2e83e528de0adec67aa6ea52a
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jan 18 21:53:14 2020 +0100
+
+    Statics
+
+commit f1bfb0a5b4f18e9feb0264abf4b2a1655f358ec2
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Jan 16 18:43:56 2020 +0100
+
+    fixing
+
+commit 994458d6ea5933e8bd779eb0dab52fde45b219d5
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Jan 14 14:24:33 2020 +0100
+
+    fixing and create new bugs
+    
+    Invitation generate respond message  is not showing
+
+commit 5192613d5fea30791a23677bfcab2bbb04fae62a
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Mon Jan 13 14:55:57 2020 +0100
+
+    Create List and fixing Layout
+
+commit 2fd53d1abd30260f46b3195cc38edea5e7f31c16
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jan 11 22:53:52 2020 +0100
+
+    Responsive
+
+commit 25f6cad26344462eb78ecf0d93f8e0181ec816d1
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sat Jan 11 11:42:07 2020 +0100
+
+    Fixing
+
+commit 4ab1315e60ac620499d7ec69841418eedf4c3415
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Thu Jan 9 22:27:31 2020 +0100
+
+    Fixed Invitation registration, validate
+
+commit 88fbac7b980514e54792d7625c6bb202b5c7c179
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Jan 5 14:03:21 2020 +0100
+
+    0.0.4
+
+commit 41923ceae8768b56617181f4bb7aa637547a402b
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Sun Dec 29 11:32:54 2019 +0100
+
+    0.0.2
+    
+    Added Handlers and Language, Views, Controllers
+
+commit 3e4e777f4a47555475f75c4d912bade234911044
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Dec 17 23:50:52 2019 +0100
+
+    0.0.1
+
+commit d62c40337ba5abdcee321c11fe721c67449baf07
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Wed Dec 11 00:08:26 2019 +0100
+
+    Initial commit
+
+commit 95da95397ce989b491ba6bdb969d3190ebe7ef65
+Author: mogyiii <kankkaka@gmail.com>
+Date:   Tue Dec 10 22:34:01 2019 +0100
+
+    Initial commit

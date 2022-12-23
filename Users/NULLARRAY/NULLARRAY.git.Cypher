@@ -1,4 +1,34 @@
 ======================: FILES :======================
+Cypher
+├── bootlocker
+│   ├── boot.asm
+│   └── boot.bin
+├── CNC
+│   ├── CNC
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── __init__.pyc
+│   │   ├── login
+│   │   │   └── login.html
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   ├── views.py
+│   │   └── views.pyc
+│   ├── manage.py
+│   └── root_command
+│       ├── __init__.pyc
+│       ├── settings.py
+│       ├── settings.pyc
+│       ├── urls.py
+│       ├── urls.pyc
+│       ├── wsgi.py
+│       └── wsgi.pyc
+├── cyphermain.py
+├── decrypt.py
+├── LICENSE
+└── README.md
+
+5 directories, 22 files
 ======================: README CONTENT :======================
 # Cypher
 

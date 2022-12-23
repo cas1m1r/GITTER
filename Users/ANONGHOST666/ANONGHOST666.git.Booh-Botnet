@@ -1,4 +1,256 @@
 ======================: FILES :======================
+Booh-Botnet
+├── Panel
+│   ├── app
+│   │   ├── Bot.php
+│   │   ├── Connection.php
+│   │   ├── Console
+│   │   │   └── Kernel.php
+│   │   ├── Exceptions
+│   │   │   └── Handler.php
+│   │   ├── falsePanelKey.php
+│   │   ├── Http
+│   │   │   ├── Controllers
+│   │   │   │   ├── AccountsController.php
+│   │   │   │   ├── AjaxController.php
+│   │   │   │   ├── Api
+│   │   │   │   │   └── ApiController.php
+│   │   │   │   ├── Auth
+│   │   │   │   │   ├── ForgotPasswordController.php
+│   │   │   │   │   ├── LoginController.php
+│   │   │   │   │   ├── RegisterController.php
+│   │   │   │   │   └── ResetPasswordController.php
+│   │   │   │   ├── Auth_Controller.php
+│   │   │   │   ├── BoardController.php
+│   │   │   │   ├── BotsController.php
+│   │   │   │   ├── ConnectionsController.php
+│   │   │   │   ├── Controller.php
+│   │   │   │   ├── OrdersController.php
+│   │   │   │   └── ShopController.php
+│   │   │   ├── Kernel.php
+│   │   │   └── Middleware
+│   │   │       ├── admin.php
+│   │   │       ├── EncryptCookies.php
+│   │   │       ├── PublicGuard.php
+│   │   │       ├── RedirectIfAuthenticated.php
+│   │   │       ├── TrimStrings.php
+│   │   │       ├── TrustProxies.php
+│   │   │       └── VerifyCsrfToken.php
+│   │   ├── loginAttempt.php
+│   │   ├── Mail
+│   │   │   └── userMail.php
+│   │   ├── Obeyed.php
+│   │   ├── Order.php
+│   │   ├── panelCredential.php
+│   │   ├── Providers
+│   │   │   ├── AppServiceProvider.php
+│   │   │   ├── AuthServiceProvider.php
+│   │   │   ├── BroadcastServiceProvider.php
+│   │   │   ├── EventServiceProvider.php
+│   │   │   └── RouteServiceProvider.php
+│   │   ├── ShopRequest.php
+│   │   ├── User.php
+│   │   └── userStatus.php
+│   ├── artisan
+│   ├── bootstrap
+│   │   ├── app.php
+│   │   └── cache
+│   ├── composer.json
+│   ├── composer.lock
+│   ├── config
+│   │   ├── app.php
+│   │   ├── auth.php
+│   │   ├── broadcasting.php
+│   │   ├── cache.php
+│   │   ├── database.php
+│   │   ├── filesystems.php
+│   │   ├── mail.php
+│   │   ├── queue.php
+│   │   ├── services.php
+│   │   ├── session.php
+│   │   └── view.php
+│   ├── database
+│   │   ├── factories
+│   │   │   └── UserFactory.php
+│   │   ├── migrations
+│   │   │   ├── 2014_10_12_000000_create_users_table.php
+│   │   │   ├── 2017_12_14_164312_create_login_attempts_table.php
+│   │   │   ├── 2017_12_17_233137_create_orders_table.php
+│   │   │   ├── 2017_12_18_211240_create_bots_table.php
+│   │   │   ├── 2017_12_19_124531_create_connections_table.php
+│   │   │   ├── 2017_12_19_143318_create_obeyeds_table.php
+│   │   │   ├── 2017_12_23_175256_create_panel_credentials_table.php
+│   │   │   ├── 2017_12_23_190213_create_false_panel_keys_table.php
+│   │   │   ├── 2017_12_27_153239_create_user_statuses_table.php
+│   │   │   └── 2018_01_10_031556_create_shop_requests_table.php
+│   │   └── seeds
+│   │       └── DatabaseSeeder.php
+│   ├── phpunit.xml
+│   ├── public
+│   │   ├── css
+│   │   │   ├── app.css
+│   │   │   ├── main.css
+│   │   │   ├── mainMenu.css
+│   │   │   └── selectBoxLib.css
+│   │   ├── favicon.ico
+│   │   ├── img
+│   │   │   ├── 196849.png
+│   │   │   ├── 196849.svg
+│   │   │   ├── 218153.svg
+│   │   │   ├── 218206.png
+│   │   │   ├── 218206.svg
+│   │   │   ├── 218259.svg
+│   │   │   ├── 249385.svg
+│   │   │   ├── 252133.svg
+│   │   │   ├── 291056.png
+│   │   │   ├── 291056.svg
+│   │   │   ├── 321727.svg
+│   │   │   ├── 506840.png
+│   │   │   ├── 567536.svg
+│   │   │   ├── 594598.svg
+│   │   │   ├── 604145.png
+│   │   │   ├── 604145.svg
+│   │   │   ├── 60785.svg
+│   │   │   ├── Booh! .png
+│   │   │   ├── Booh!.png
+│   │   │   ├── Booh! v1.0 By “Droid!.png
+│   │   │   ├── Booh! v1.0 By Droid.png
+│   │   │   ├── Booh! v1.0.png
+│   │   │   ├── Booh!.xd
+│   │   │   ├── esta.png
+│   │   │   ├── ghost.gif
+│   │   │   ├── ghost.html
+│   │   │   ├── ghost.png
+│   │   │   ├── giphy.gif
+│   │   │   ├── hacker.png
+│   │   │   ├── loading.gif
+│   │   │   ├── loading.webp
+│   │   │   ├── Nova_Logo.png
+│   │   │   ├── PablosPepper.png
+│   │   │   ├── photo-1002729.png
+│   │   │   ├── Repeat Grid 1.png
+│   │   │   └── title.png
+│   │   ├── index.php
+│   │   ├── js
+│   │   │   ├── app.js
+│   │   │   └── libs
+│   │   │       ├── jquery-2.1.1.js
+│   │   │       ├── jqueryui-1.9.2.min.js
+│   │   │       ├── particles.js
+│   │   │       └── selectBoxLib.js
+│   │   └── robots.txt
+│   ├── resources
+│   │   ├── assets
+│   │   │   ├── js
+│   │   │   │   ├── app.js
+│   │   │   │   ├── bootstrap.js
+│   │   │   │   └── components
+│   │   │   │       └── ExampleComponent.vue
+│   │   │   └── sass
+│   │   │       ├── app.scss
+│   │   │       └── _variables.scss
+│   │   ├── lang
+│   │   │   └── en
+│   │   │       ├── auth.php
+│   │   │       ├── pagination.php
+│   │   │       ├── passwords.php
+│   │   │       └── validation.php
+│   │   └── views
+│   │       ├── Login_Admin
+│   │       │   └── Login.blade.php
+│   │       ├── Panel
+│   │       │   ├── Accounts.blade.php
+│   │       │   ├── Bots.blade.php
+│   │       │   ├── Connections.blade.php
+│   │       │   ├── Email
+│   │       │   │   └── buyRequestUser.blade.php
+│   │       │   ├── Home.blade.php
+│   │       │   ├── Master
+│   │       │   │   ├── Header.blade.php
+│   │       │   │   ├── Master.blade.php
+│   │       │   │   └── Nav.blade.php
+│   │       │   ├── Orders.blade.php
+│   │       │   ├── Shop.blade.php
+│   │       │   └── ShopModal
+│   │       │       ├── nova.blade.php
+│   │       │       └── requestPay.blade.php
+│   │       └── welcome.blade.php
+│   ├── routes
+│   │   ├── api.php
+│   │   ├── channels.php
+│   │   ├── console.php
+│   │   └── web.php
+│   ├── server.php
+│   ├── storage
+│   │   ├── app
+│   │   │   └── public
+│   │   ├── framework
+│   │   │   ├── cache
+│   │   │   ├── sessions
+│   │   │   ├── testing
+│   │   │   └── views
+│   │   └── logs
+│   ├── tests
+│   │   ├── CreatesApplication.php
+│   │   ├── Feature
+│   │   │   └── ExampleTest.php
+│   │   ├── TestCase.php
+│   │   └── Unit
+│   │       └── ExampleTest.php
+│   ├── webpack.mix.js
+│   └── yarn.lock
+├── Polymorphic_builder
+│   ├── a.out
+│   ├── configs.py
+│   ├── deadFunctionsObject.py
+│   ├── deadFunctionsObject.pyc
+│   ├── functionClass.py
+│   ├── functionClass.pyc
+│   ├── liveFunctionsObject.py
+│   ├── main.py
+│   ├── otherFunction.py
+│   ├── __pycache__
+│   │   ├── configs.cpython-36.pyc
+│   │   ├── deadFunctionsObject.cpython-36.pyc
+│   │   ├── functionClass.cpython-36.pyc
+│   │   ├── liveFunctionsObject.cpython-36.pyc
+│   │   └── otherFunction.cpython-36.pyc
+│   └── Server
+│       ├── Server
+│       │   ├── configsCpp.h
+│       │   ├── Debug
+│       │   │   ├── Server.log
+│       │   │   ├── Server.tlog
+│       │   │   │   ├── CL.command.1.tlog
+│       │   │   │   ├── CL.read.1.tlog
+│       │   │   │   ├── CL.write.1.tlog
+│       │   │   │   ├── link.command.1.tlog
+│       │   │   │   ├── link.read.1.tlog
+│       │   │   │   ├── link.write.1.tlog
+│       │   │   │   └── Server.lastbuildstate
+│       │   │   ├── Source.obj
+│       │   │   ├── source.obj.enc
+│       │   │   ├── vc141.idb
+│       │   │   └── vc141.pdb
+│       │   ├── encrypthCpp.h
+│       │   ├── header.h
+│       │   ├── libs
+│       │   │   ├── json
+│       │   │   │   ├── json-forwards.h
+│       │   │   │   └── json.h
+│       │   │   └── jsoncpp.cpp
+│       │   ├── otherSmall.h
+│       │   ├── Server.vcxproj
+│       │   ├── Server.vcxproj.filters
+│       │   ├── Source.cpp
+│       │   └── utils.h
+│       └── Server.sln
+├── README.md
+├── Screen Shot 2018-04-10 at 16.05.41.png
+├── Screen Shot 2018-04-10 at 17.png
+└── Screen Shot 2018-04-10 at 19.09.52.png
+
+57 directories, 192 files
 ======================: README CONTENT :======================
 # Booh-Botnet
 

@@ -1,4 +1,201 @@
 ======================: FILES :======================
+IPBan
+├── azure-pipelines.yml
+├── IPBan
+│   ├── app.manifest
+│   ├── CreatePackage.ps1
+│   ├── global.json
+│   ├── img
+│   │   └── WindowsCredSSP.png
+│   ├── IPBan.csproj
+│   ├── IPBanMain.cs
+│   ├── nlog.config
+│   └── settings.json
+├── IPBanCore
+│   ├── Core
+│   │   ├── Interfaces
+│   │   │   ├── IBannedIPAddressHandler.cs
+│   │   │   ├── IDnsLookup.cs
+│   │   │   ├── IDnsServerList.cs
+│   │   │   ├── IFirewallCreator.cs
+│   │   │   ├── IHttpRequestMaker.cs
+│   │   │   ├── IIPBanFilter.cs
+│   │   │   ├── IIPBanFirewall.cs
+│   │   │   ├── IIPBanService.cs
+│   │   │   └── IIsWhitelisted.cs
+│   │   ├── IPBan
+│   │   │   ├── IPBanBaseFirewall.cs
+│   │   │   ├── IPBanBlockIPAddressesUpdater.cs
+│   │   │   ├── IPBanConfig.cs
+│   │   │   ├── IPBanConfigReaderWriter.cs
+│   │   │   ├── IPBanConfigWindowsEventViewer.cs
+│   │   │   ├── IPBanDB.cs
+│   │   │   ├── IPBanDnsServerList.cs
+│   │   │   ├── IPBanFilter.cs
+│   │   │   ├── IPBanFirewallUtility.cs
+│   │   │   ├── IPBanIPThreatUploader.cs
+│   │   │   ├── IPBanLogFileManager.cs
+│   │   │   ├── IPBanLogFileScanner.cs
+│   │   │   ├── IPBanLogFileTester.cs
+│   │   │   ├── IPBanLogFileToParse.cs
+│   │   │   ├── IPBanMemoryFirewall.cs
+│   │   │   ├── IPBanNullFirewall.cs
+│   │   │   ├── IPBanService.cs
+│   │   │   ├── IPBanService_Fields.cs
+│   │   │   ├── IPBanService_Private.cs
+│   │   │   ├── IPBanServiceRunner.cs
+│   │   │   ├── IPBanService_Types.cs
+│   │   │   ├── IPBanUnblockIPAddressesUpdater.cs
+│   │   │   └── IPBanUriFirewallRule.cs
+│   │   └── Utility
+│   │       ├── ActionLockerAsync.cs
+│   │       ├── AsyncQueue.cs
+│   │       ├── AsyncReaderWriterLock.cs
+│   │       ├── BinaryExtensionMethods.cs
+│   │       ├── ByteArrayKey.cs
+│   │       ├── ExtensionMethods.cs
+│   │       ├── IPAddressRange.cs
+│   │       ├── IPV4Range.cs
+│   │       ├── IPV6Range.cs
+│   │       ├── JsonConverters.cs
+│   │       ├── LevenshteinUnsafe.cs
+│   │       ├── LocalizedDisplayName.cs
+│   │       ├── LockedEnumerable.cs
+│   │       ├── LogFileScanner.cs
+│   │       ├── Logger.cs
+│   │       ├── NetworkUtility.cs
+│   │       ├── OSUtility.cs
+│   │       ├── PortRange.cs
+│   │       ├── ProcessUtility.cs
+│   │       ├── SqliteDB.cs
+│   │       ├── StringSet.cs
+│   │       ├── UInt128.cs
+│   │       ├── UnitTestDetector.cs
+│   │       └── XmlCData.cs
+│   ├── ipban.config
+│   ├── IPBanCore.csproj
+│   ├── ipban.override.config
+│   ├── IPBanPlugin.cs
+│   ├── IPBanResources.Designer.cs
+│   ├── IPBanResources.resx
+│   ├── Linux
+│   │   ├── IPBanLinuxBaseFirewall.cs
+│   │   ├── IPBanLinuxFirewall.cs
+│   │   └── Scripts
+│   │       └── Install.sh
+│   ├── MAC
+│   │   └── IPBanMacFirewall.cs
+│   └── Windows
+│       ├── COM
+│       │   ├── ComClassProgIdAttribute.cs
+│       │   ├── ComHelper.cs
+│       │   ├── COM_License.txt
+│       │   ├── INetFwAuthorizedApplication.cs
+│       │   ├── INetFwAuthorizedApplications.cs
+│       │   ├── INetFwIcmpSettings.cs
+│       │   ├── INetFwMgr.cs
+│       │   ├── INetFwOpenPort.cs
+│       │   ├── INetFwOpenPorts.cs
+│       │   ├── INetFwPolicy2.cs
+│       │   ├── INetFwPolicy.cs
+│       │   ├── INetFwProduct.cs
+│       │   ├── INetFwProducts.cs
+│       │   ├── INetFwProfile.cs
+│       │   ├── INetFwRemoteAdminSettings.cs
+│       │   ├── INetFwRule2.cs
+│       │   ├── INetFwRule3.cs
+│       │   ├── INetFwRule.cs
+│       │   ├── INetFwRules.cs
+│       │   ├── INetFwService.cs
+│       │   ├── INetFwServiceRestriction.cs
+│       │   ├── INetFwServices.cs
+│       │   ├── NetFwAction.cs
+│       │   ├── NetFwIPProtocol.cs
+│       │   ├── NetFwIPVersion.cs
+│       │   ├── NetFwModifyState.cs
+│       │   ├── NetFwProfileType2.cs
+│       │   ├── NetFwProfileType.cs
+│       │   ├── NetFwRuleCategory.cs
+│       │   ├── NetFwRuleDirection.cs
+│       │   ├── NetFwScope.cs
+│       │   └── NetFwServiceType.cs
+│       ├── IPBanWindowsEventLog.cs
+│       ├── IPBanWindowsEventViewer.cs
+│       ├── IPBanWindowsFirewall.cs
+│       └── Scripts
+│           ├── install.cmd
+│           ├── install_latest.ps1
+│           └── uninstall.cmd
+├── ipban_favicon.ico
+├── IPBan.sln
+├── IPBanTests
+│   ├── IPAddressRangeTests.cs
+│   ├── IPBanAsyncQueueTests.cs
+│   ├── IPBanAsyncReaderWriterLockTests.cs
+│   ├── IPBanBanTests.cs
+│   ├── IPBanConfigTests.cs
+│   ├── IPBanDBTests.cs
+│   ├── IPBanDelegateTests.cs
+│   ├── IPBanEventViewerTests.cs
+│   ├── IPBanExtensionsTests.cs
+│   ├── IPBanFirewallTests.cs
+│   ├── IPBanLogFileIntegrationTests.cs
+│   ├── IPBanLogFileParserTests.cs
+│   ├── IPBanMemoryFirewallTests.cs
+│   ├── IPBanNetworkUtilityTests.cs
+│   ├── IPBanOSTests.cs
+│   ├── IPBanPortRangeTests.cs
+│   ├── IPBanStringSetTests.cs
+│   ├── IPBanTests.csproj
+│   ├── IPBanUriFirewallRuleTests.cs
+│   └── TestData
+│       ├── EventViewer
+│       │   └── EventViewerTests.txt
+│       └── LogFiles
+│           ├── Apache
+│           │   └── everything.log
+│           └── Exchange
+│               ├── smtp_auth_successful.log
+│               └── smtp_auth_unsuccessful.log
+├── ISSUE_TEMPLATE.md
+├── LICENSE.md
+├── README.md
+├── Recipes
+│   ├── Linux
+│   │   └── LogFile
+│   │       └── MSSQL.xml
+│   ├── Readme.txt
+│   ├── Universal
+│   │   ├── Filerun.xml
+│   │   ├── MyWorkDrive.xml
+│   │   └── Roundcube.xml
+│   └── Windows
+│       ├── EventViewer
+│       │   └── Readme.txt
+│       ├── Integrations
+│       │   ├── abuseipdb_com.xml
+│       │   ├── CloudflareBlock.ps1
+│       │   ├── CloudflareUnblock.ps1
+│       │   └── Domino.md
+│       └── LogFile
+│           ├── ApacheErrors.xml
+│           ├── AxigenMailServer.xml
+│           ├── CoreFTP.xml
+│           ├── Filezilla.xml
+│           ├── hMailServer.xml
+│           ├── IIS_FTP.xml
+│           ├── IIS.xml
+│           ├── Jellyfin.xml
+│           ├── JoomlaErrors.xml
+│           ├── MalwareBytes.xml
+│           ├── Nginx.xml
+│           ├── OpenVPN.xml
+│           ├── QBitTorrent.xml
+│           ├── SolarWinds.xml
+│           └── Sonarr.xml
+└── testEnvironments.json
+
+27 directories, 167 files
 ======================: README CONTENT :======================
 IPBan - Free software to block out attackers quickly and easily on Linux and Windows
 -----

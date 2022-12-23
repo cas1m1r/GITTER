@@ -1,0 +1,886 @@
+======================: FILES :======================
+hybrid-botnet
+├── environment.yml
+├── LICENSE
+├── memory
+│   ├── bibliography.bib
+│   ├── crop.sty
+│   ├── dissertation.pdf
+│   ├── dissertation.tex
+│   ├── geometry.sty
+│   ├── images
+│   │   ├── all_is_a_file.png
+│   │   ├── anonymizers-number.png
+│   │   ├── anonymizers.png
+│   │   ├── architecture.png
+│   │   ├── botnets.png
+│   │   ├── build_two_hops_circuit.png
+│   │   ├── connect-to-victim.png
+│   │   ├── ddosmap-index.png
+│   │   ├── demo-graph-2.png
+│   │   ├── demo-graph.png
+│   │   ├── dir-context.png
+│   │   ├── direct-connection.png
+│   │   ├── fops.png
+│   │   ├── fraud_victims.png
+│   │   ├── hidden-nodes-median.png
+│   │   ├── hide-example.png
+│   │   ├── hide-folder-code.png
+│   │   ├── hide-folder.png
+│   │   ├── hide-kallsyms.png
+│   │   ├── hide-lkm-netstat.png
+│   │   ├── hide-lkm.png
+│   │   ├── hide-lsmod.png
+│   │   ├── hide-ports-from-netstat.png
+│   │   ├── hide-process.png
+│   │   ├── hide-proc-fopr.png
+│   │   ├── hide-proc-modules.png
+│   │   ├── hide-ps.png
+│   │   ├── hide-sys-module.png
+│   │   ├── iterate-shared-prototype.png
+│   │   ├── kreb-on-security.png
+│   │   ├── ls-victim.png
+│   │   ├── necurs-size.png
+│   │   ├── not-so-random.png
+│   │   ├── original_pam.png
+│   │   ├── pam_backdoor.png
+│   │   ├── proc_dir.png
+│   │   ├── protection_ring.png
+│   │   ├── random-numbers.png
+│   │   ├── remote-code-results.png
+│   │   ├── root-map.png
+│   │   ├── social-engineering-results.png
+│   │   ├── tcp4-hooked.png
+│   │   ├── tcp-seq-file.png
+│   │   ├── update-command.png
+│   │   ├── updated-files.png
+│   │   ├── victim1-update.png
+│   │   ├── virtual_circuit.png
+│   │   ├── zoom-connection.png
+│   │   └── zoom.png
+│   ├── logo_upf.png
+│   ├── tesi_upf.cls
+│   └── vancouver.bst
+├── README.md
+├── scripts
+│   ├── build_demo.sh
+│   ├── exploit
+│   └── transform.sh
+├── setup.sh
+├── src
+│   ├── botnet
+│   │   ├── botnet_hybrid
+│   │   │   ├── __init__.py
+│   │   │   ├── message.py
+│   │   │   ├── operations.py
+│   │   │   └── security.py
+│   │   ├── client.py
+│   │   ├── generate_rsa_keys.py
+│   │   ├── server.py
+│   │   └── tests
+│   │       ├── auxiliar_files
+│   │       │   ├── node_list
+│   │       │   ├── nodes
+│   │       │   ├── private_key
+│   │       │   ├── private_key2
+│   │       │   └── public_key
+│   │       ├── __init__.py
+│   │       └── unit_tests
+│   │           ├── client
+│   │           │   ├── __init__.py
+│   │           │   └── test_client.py
+│   │           ├── __init__.py
+│   │           ├── message
+│   │           │   ├── __init__.py
+│   │           │   └── test_message.py
+│   │           ├── operations
+│   │           │   ├── __init__.py
+│   │           │   └── test_operations.py
+│   │           └── server
+│   │               ├── __init__.py
+│   │               └── test_server.py
+│   ├── http
+│   │   ├── download_server
+│   │   └── rootkit_demo.service
+│   └── rootkit
+│       ├── hide_folder.h
+│       ├── hide_netstat.h
+│       ├── hide_process.h
+│       ├── Makefile
+│       └── rootkit.c
+└── visual_media
+    ├── connection_through_anonymizers.mp4
+    ├── direct_connection.mp4
+    ├── hide.mp4
+    ├── init_botnet_two_victims.mp4
+    ├── node_list.png
+    ├── seed_directions.png
+    ├── seed_rootkit.png
+    ├── servers.png
+    └── update_malware.mp4
+
+16 directories, 102 files
+======================: README CONTENT :======================
+# Hybrid Botnet Over TOR
+
+This repository contains the code necessary to deploy a botnet targeting Linux machines to demonstrate what can be done with this type of systems. This was used for my final degree project on the study of espionage systems and the development of a botnet. You can see the memory en the "memory" folder or in https://repositori.upf.edu/handle/10230/45890.
+
+## Table of contents
+
+* [Development Environment](#development-environment)
+* [Code Content](#code-content)
+* [Assumptions](#assumptions)
+* [Set up the demo](#set-up-the-demo)
+  * [Set up the seed machine](#set-up-the-seed-machine)
+    * [Generate the Loadable Kernel Module File](#generate-the-loadable-kernel-module-file)
+    * [Generate code folder to copy in the seed](#generate-code-folder-to-copy-in-the-seed)
+    * [Set up tor and libraries](#set-up-tor-and-libraries)
+    * [Start seed code](#start-seed-code)
+  * [Set up the victim machine](#set-up-the-victim-machine)
+    * [Generate the text file to infect the victim](#generate-the-text-file-to-infect-the-victim)
+    * [Set up user account](#set-up-user-account)
+    * [Simulate a victim infection](#simulate-a-victim-infection)
+* [Connecting to victims](#connecting-to-victims)
+* [Video demonstration](#video-demonstration)
+* [Credits](#credits)
+* [Acknowledgements](#acknowledgements)
+* [Disclaimer](#disclaimer)
+
+
+## Development Environment
+
+We have done the research based on the requirements below. Some of this requirements could be modified (i.e., the Linux kernel version). However, we cannot assure the correct functioning of the demo if any version is modified.
+
+Ubuntu Distribution on a machine or VirtualBox with the following:
+
+- Linux kernel 5.3.0-45 generic
+- [Vim 8.1.13.6](https://www.unix-ninja.com/p/exploiting_vim_with_cve-2019-12735)
+- [Sudo version 1.8.21p2-3ubuntu1](https://blog.aquasec.com/cve-2019-14287-sudo-linux-vulnerability)
+
+You can use conda to replicate de developing environment just by running `. ./setup.sh` after cloning the repository. This script will create a conda environment, install the required libraries and execute the tests.
+
+## Code Content
+
+- Script to infect a machine developed in Python 3.7.6
+- Linux Rootkit using a Loadable Kernel Module (LKM)
+    - Hide files and directories
+    - Hide processes
+    - Hide himself
+    - Hide TCP4 connections
+    - Persistence (Loadable Kernel Module is loaded at boot up)
+    - Start hybrid Botnet code
+- Hybrid Botnet developed in Python 3.7.6
+    - Obtain a pseudo shell from any victim
+    - Use any victim as [anonymizer](https://en.wikipedia.org/wiki/Anonymizer)
+    - Update the code of every victim in the botnet
+
+## Assumptions
+
+- When sending a message over the botnet, all victims will be up
+- The user we want to infect have vim and sudo installed with the versions in the Research Environment section
+
+## Set up the Demo
+
+To execute the demo, you will need to set up a seed machine from where the victims will download the code to execute the hybrid server and client side logic. Some files will need to be created: the rootkit.ko to load a Loadable Kernel Module to the Linux kernel and a txt file that will infect the victim on the event that it is opened.
+
+At this point, clone the repository and enter to the main folder if you have not already. You should find yourself in `.../hybrid-botnet/`.
+
+### Set up the seed machine
+
+To prepare the seed machine we will need to performe some steps.
+
+#### Generate the Loadable Kernel Module File
+
+To use the rootkit we will first need to create the rootkit.ko file that will be loaded into the kernel.
+
+1. Copy the `src/rootkit/`  folder into the type of machine you want to infect (for the purposes of this demo we want to infect machines with an Ubuntu distribution installed on it and Linux kernel 5.3.0-45 generic as stated in the [Development Environment](#development-environment) section)
+
+#### Generate code folder to copy in the seed
+
+The relevant botnet client/server code must be saved in a folder along with
+the Loadable Kernel Module, the public key to be used by the botnet victims
+and the private key to be used by the master (so just the master of the botnet
+can access the victims).
+
+In a machine with the cloned repository:
+
+1. `./scripts/build_demo.sh`
+2. Copy `rootkit.ko` to `demo/rootkit_demo/public/source/`
+3. Now you should have a folder `demo/rootkit_demo/` with all the code necessary and a 
+private key `demo/private_key` that is paired with the public key the victims will have.
+
+#### Set up tor and libraries
+
+With all the required code and files generated, we can now start to prepare the seed machine.
+
+1. `sudo apt install tor python3-socks`
+2. `echo "HiddenServiceDir /var/lib/tor/hidden_download/" | sudo tee -a /etc/tor/torrc; echo "HiddenServicePort 40001 127.0.0.1:40000" | sudo tee -a /etc/tor/torrc; echo "HiddenServiceDir /var/lib/tor/hidden_communication/" | sudo tee -a /etc/tor/torrc; echo "HiddenServicePort 50001 127.0.0.1:50000" | sudo tee -a /etc/tor/torrc`
+3. `sudo systemctl restart tor`
+
+#### Start seed code
+
+1. Copy `demo/rootkit_demo/` into the folder `/etc/systemd/system/` 
+2. Fill peer lists with initial data (seed name, seed download onion and seed communication onion)
+    1. `echo seed0 $(sudo cat /var/lib/tor/hidden_download/hostname) $(sudo cat /var/lib/tor/hidden_communication/hostname) | sudo tee -a /etc/systemd/system/rootkit_demo/private/full_peer_list` 
+    2. `echo seed0 $(sudo cat /var/lib/tor/hidden_download/hostname) $(sudo cat /var/lib/tor/hidden_communication/hostname) | sudo tee -a /etc/systemd/system/rootkit_demo/public/peer_list`
+3. `sudo chown "user":"group" /etc/systemd/system/rootkit_demo -R` where user and group must be changed according to the user you are using on the machine.
+4. `cd /etc/systemd/system/rootkit_demo/public`
+5. `python3 -m http.server 40000`
+6. In a new terminal, `cd /etc/systemd/system/rootkit_demo/public/source`
+7. `sudo python3 server.py`
+
+
+![seed_rootkit](visual_media/seed_rootkit.png)
+
+If all was done correct, you should have up and running and http server and the botnet communication server.
+This machine can be seen as the first victim of the botnet.
+
+![servers](visual_media/servers.png)
+
+### Set up the victim machine
+
+To set up the victim machine we will just need to generate the file text that will
+execute the malicious code, and open when we decide to simulate an infection.
+
+#### Generate the text file to infect the victim
+
+1. `cd scripts`
+2. Modify the file called onion directions in the `exploit` file for the onion directions of your seed machine. You can execute `$(sudo cat /var/lib/tor/hidden_download/hostname) $(sudo cat /var/lib/tor/hidden_communication/hostname)` in the seed machine to obtain the onions directions.
+    1. `sed -i 's/kdq2tg4jedd5tqxs.onion/new download onion/g' exploit`
+    2. `sed -i 's/57yvvr2pfb46zull.onion/new communication onion/g' exploit`
+3. `bash transform.sh exploit`
+4. Inside scripts, a file called `poc.txt` will now appear. Save it, we will need it later
+
+#### Set up user account
+
+1. `sudo visudo` and add `"username" ALL=(ALL,!root) NOPASSWD: ALL
+2. Remove user from sudo group, if needed. `sudo deluser "username" sudo`
+3. Reboot
+
+We have a user prepared to exploit through privilege escalation.
+
+#### Simulate a victim infection
+
+1. Copy `poc.txt` to the victim machine
+2. `vim poc.txt`
+
+This will open a file and start a python script in the background that will install all the required libraries, set up TOR and start the download and communication for server in the victim machine. You can use `ps aux | grep malware` to see if the process is up and running.
+
+## Connecting to victims
+
+Once the seed machine and the victim are set up, you can interact with them through a client, it can be found in `src/botnet/client.py`.
+
+The only left detail is that you will need to store the seed and victim onions directly in the client code or in a text file to access them. Moreover, take into account that to be able to communicate with the victims you will need TOR. You can either install it or use a docker, this [guide](https://dev.to/boris/running-tor-using-docker-4d7h) may help you.
+
+In the previous section you modified the `exploit` with your own seed onions directions. You will need to repeat that process to modify the client. Repeat step 2 of *Generate the text file to infect the victim*.
+
+![seed_directions](visual_media/seed_directions.png)
+
+Moreover, if you have already some victims you will need to retrieve this data from seed or other peers of the network manually from `/etc/systemd/system/rootkit_demo/private/full_peer_list` or `/etc/systemd/system/rootkit_demo/public/peer_list`(since no feature in the client allows for the retrieve of this information). The file must contain lines with the following format: "name download_onion communication_onion". This information can be obtained from the full_peer_list or the peer_list
+
+![node_list](visual_media/node_list.png)
+
+Now you are good to go. Just execute`python3 /src/botnet/client.py` and a shell called chameleon will appear. You can type `help` to see the different commands and `"command" -h` to know what a command  works.
+
+## Video demonstration
+
+In this repository you will find some videos to demonstrate the different capabilities of this project inside `videos` folder.
+
+- init_botnet_two_victims.mp4 will show you have to start the servers on the seed machines (assuming you have already installed the required libraries and stored the code where it should)
+- direct_connection.mp4 will show you how to directly connect to a seed or victim machine and get a pseudoshell
+- connection_through_anonymizers.mp4 will show you the same as the previous video while using other victims and seed machines as anonymizers
+- update_malware.mp4 will show you how to update the malware
+- hide.mp4 will show you all the information that is hidden
+
+## Credits
+
+* [Xavier Salleras](https://github.com/xevisalle)
+
+## Acknowledgements
+
+I based some of my rootkit code and features on:
+
+* [nisay759/linux-rootkits](https://github.com/nisay759/linux-rootkits)
+* [ f0rb1dd3n/Reptile ](https://github.com/f0rb1dd3n/Reptile)
+
+## Disclaimer
+
+The use of this code is  your responsibility.
+
+**EVERY** file in this repository is for **ACADEMIC** or **RESEARCH** purposes. I take **NO** responsibility on any action performed by any individual using the whole or  a part of the code.
+====================== GIT HISTORY: ======================
+a1fa3c0 HEAD@{0}: clone: from https://github.com/danielorihuela/hybrid-botnet
+commit a1fa3c0e97704e6320db07b6f09cf33d85b722a0
+Author: dani <danielorihuelarodriguez@gmail.com>
+Date:   Sun Aug 1 21:23:06 2021 +0200
+
+    docs: memory
+
+commit cec5f16dbfe15726c69e179343a61dbf0a0de783
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Jul 5 23:34:39 2020 +0200
+
+    fix: change bad naming
+    
+    The architecture is not 100% p2p.
+    We changed the name to hybrid.
+    We forgot to change all its appearances
+    and we needed to do this commit.
+
+commit 985b77c7873cf1d0774485eea7a8811e747cd12d
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Jul 5 23:19:37 2020 +0200
+
+    refactor: folder name
+    
+    We had to change the script to build
+    the demo folder.
+
+commit 622cd8cbf9b1699939777578fcaef90286361af9
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Wed Jul 1 07:26:25 2020 +0000
+
+    docs: change p2p for hybrid
+
+commit 98e5afcf06f732b94131e8d4b69a908194c17fa6
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Jun 7 15:56:09 2020 +0200
+
+    chore: update video demonstration
+
+commit 1840baf8b74defdeccf3335cdee5293ff237443d
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Sat May 23 14:14:47 2020 +0000
+
+    docs: improve structure
+
+commit 001b68022da0f5b06ccdc9224e17f87ee8965abd
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Sat May 23 14:12:27 2020 +0000
+
+    docs: add readme
+
+commit 688ce5f0418eaa12840376731a81641d9ab83703
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sat May 9 22:11:58 2020 +0200
+
+    chore: add videos and images
+
+commit a26c6c3438267848a0b22f78bf103671f06fe06c
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sat May 9 22:10:48 2020 +0200
+
+    chore: delete unwanted files in the repo
+    
+    This files are not needed and are garbage
+    from previous runs.
+
+commit b1da0e9b6a2f9a7b765a02f3ae339978df3f4560
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sat May 9 21:37:25 2020 +0200
+
+    refactor: improve folder name
+    
+    Inside src could be find a folder with the python name.
+    This name is too generic, so I decided to change it
+    for botnet, that is a more specific name for the
+    content that can be found inside.
+
+commit 798cfc574afd4628e08018f1c6388cbbe8faebf5
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sat May 9 13:36:07 2020 +0200
+
+    docs: improve client commands explanations
+
+commit 181b246648bdcb5399464310e514f93cccb1f8a5
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sat May 9 13:33:45 2020 +0200
+
+    refactor: remove malware.py
+    
+    This file is no longer being used for the demo.
+    
+    At the beginning we directly executed it on the
+    victim machine, but since we figured out how to
+    combine the vim and sudo exploit. We decided to
+    design a special file to infect the victim.
+    
+    The file is /scripts/exploit
+
+commit 0b1ca4f3a9841b8417f2c1247a6e0c919a7f6b29
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri May 1 12:57:30 2020 +0200
+
+    fix: add file required for some tests
+
+commit cbdb1297c81c5496898dd50a59a4b903940d95f9
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri May 1 12:56:51 2020 +0200
+
+    feature: add script to generate exploit from file
+
+commit 2011a47b49418a4132841d0c6427614ee6fe8c4e
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri May 1 10:37:17 2020 +0200
+
+    feature: hide malware ports, but not TOR port
+    
+    We do not know if the victim had TOR installed,
+    so we better do not hide any of that.
+
+commit 390452ec37111fee4cdf8fe67baaaab9cd209588
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri May 1 10:36:19 2020 +0200
+
+    feature: malware files can be updated
+    
+    Now, we can update a file. After that we can upload
+    it into a seed machine for example.
+    In this moment we will we able to broadcast a
+    message to our all neighbours, that will themselves
+    broadcast the message to their neighbours.
+    All victims will end up updating the malware.
+
+commit 983d09d43fe5726249baa04987f1b9859de60cfa
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri May 1 10:31:03 2020 +0200
+
+    refactor: do not write seed direction in init malware
+    
+    When infecting a machine, this exploit is executed.
+    We deleted the line which writes name and directions
+    of the seed from which we downloaded the files.
+    Otherwise, a victim machine could end with a peer file
+    with just seed directions (since they can come from
+    the seed list that is downloaded).
+
+commit dbc40c0f796acecef9ac82e422aa226124adf8cc
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sat Apr 11 21:08:46 2020 +0200
+
+    refactor: clean up tests
+
+commit 3d806bb92851d8f38a016442c318a773452a8022
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri Apr 10 21:35:15 2020 +0200
+
+    fix: remove output folder
+
+commit 29f2e70b03e28297baa87d9a3201e3cb98d9c663
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri Apr 10 20:50:07 2020 +0200
+
+    feature: add loggers and clean the code a bit
+
+commit 89c7b85d68d3573b21ac9d8f174240bfbf8cb7ee
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Thu Apr 9 17:49:39 2020 +0200
+
+    fix: demo works
+    
+    This commit has some changes to make demo work.
+    Depmod is performed when the malware setup script
+    is executed in the victim machine.
+    Pids are correctly written to process file
+    to hide them.
+    It also contains a restructure of the code
+    organization and some minor changes.
+
+commit b8e1ae5560c35489cbf69234b9b5c7f5c796fab2
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Apr 7 00:06:10 2020 +0200
+
+    feature: add infection vector and download at boot
+
+commit 15fa17806880d43d7665ddba1c9607470917f639
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 29 16:31:50 2020 +0200
+
+    feature: client terminal application
+
+commit 4e41a53652912d6814e89b0667be738f00a9a7e2
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Wed Mar 25 23:22:29 2020 +0100
+
+    feature: add persistence
+
+commit a77868841ca882f46f4a6bc8ceb1f35af0e5a9c3
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Wed Mar 25 15:46:55 2020 +0100
+
+    fix: setup script
+
+commit c7e379964ba8a38e3e38d650f469b6b438d70acd
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Mon Mar 23 08:52:16 2020 +0100
+
+    feature: add client fast example
+
+commit 4905dd646c339f556d33fc0158569864af7d3d29
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Mon Mar 23 08:51:53 2020 +0100
+
+    refactor: fit to refactor botnet_p2p
+
+commit 1b014137235936dc05acfed8bd3f644fedc6e707
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Mon Mar 23 08:51:02 2020 +0100
+
+    feature: create private list, fit to refactor
+
+commit 00cb49eec2da7596991d6097e3a542330622c1c6
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Mon Mar 23 08:49:55 2020 +0100
+
+    refactor: copy botnet_p2p to demo
+
+commit bab27822d6bcf1ead6ebe63cb8d52201c8cb3966
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Mon Mar 23 08:48:25 2020 +0100
+
+    feature: add user of anonymizers
+
+commit 3799780441c6e4170962d0f0bb052b711fd178db
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Thu Mar 19 16:24:28 2020 +0100
+
+    fix: put functions above script
+
+commit d84e6c410bd948fe9b3c660ab8cad4d071ffa2b3
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Thu Mar 19 16:21:04 2020 +0100
+
+    refactor: add return type to function definitions
+
+commit 882a6af4b23e700143318d587bedebcdbc0c9d71
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Wed Mar 18 00:01:25 2020 +0100
+
+    refactor: logger in module, add logger to server
+
+commit fdb84940383298595114031c173192ec4f1362b2
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 17 23:49:05 2020 +0100
+
+    refactor: remove logging from server
+
+commit 8a9927705635610427338ab571d5ef804c9e1fac
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 17 23:48:42 2020 +0100
+
+    refactor: delete lacking test init
+
+commit 676b57edc46dba355ecc993fd29f7aa53a47b6a3
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 17 23:48:02 2020 +0100
+
+    refactor: update demo
+
+commit 4b2949cd01ea0a4bd780a022d717214734bc51e2
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 17 23:47:38 2020 +0100
+
+    feature: added logging messages to NodeP2P
+
+commit 7e4caeafa0fe2b028eb4ea76291c9fc6d187004b
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 17 23:46:50 2020 +0100
+
+    refactor: create class to handle Signed Messages
+
+commit 6c8db171f0ee5f80d84181edce65d1008fca3e9b
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 15 20:07:36 2020 +0100
+
+    chore: add botnet_p2p udpate to demo
+
+commit d0df438fd2ffff6408980b6e70bfa7f3a4877f03
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 15 20:07:06 2020 +0100
+
+    chore: add keys to demo
+
+commit b23ebbd5ce567004ad621551c03a325acfc9aeda
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 15 20:06:34 2020 +0100
+
+    feature: server execute commands
+
+commit 15de6ed888d056badf09aef565747d698987563b
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 15 20:05:27 2020 +0100
+
+    feature: send and receive encrypted messages
+
+commit f053da804d99c6991e87d6660c41444cca56f812
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 15 20:04:29 2020 +0100
+
+    refactor: move calculate_hash function
+
+commit 7fa7b42104927bd640f8a3078e9c2ca32a222b83
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 15 19:57:11 2020 +0100
+
+    test: refactor e2e test
+
+commit 4fa3a72bd532eb12038b1d2ba9f6db89b2db8122
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 15 18:51:21 2020 +0100
+
+    test: add test keys
+
+commit 593d2468b5b79f522c70d090eb4d0a71fbbd56a3
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri Mar 13 19:16:07 2020 +0100
+
+    fix: fix e2e test
+
+commit c9d924f984aab510eda28bafc4da4c18ee05e5c3
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri Mar 13 19:14:01 2020 +0100
+
+    feature: change ed25519 for RSA
+
+commit 7548a99805ac8f2da5a4231e75cf9b5100f41f48
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri Mar 13 19:13:07 2020 +0100
+
+    chore: change private key from ed25519 to RSA
+
+commit 85c6db82212762601d959616464fc2a865de94df
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Fri Mar 13 19:11:30 2020 +0100
+
+    feature: generate RSA keys instead of ED25519
+
+commit c47b2079323300f6e91f8b6e03e510d0f44f9181
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Wed Mar 11 21:29:48 2020 +0100
+
+    refactor: e2e tests goes through TOR
+
+commit 6a596391de0769863f261d8b28b6779338f3703d
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 23:22:09 2020 +0100
+
+    refactor: PEP8 style
+
+commit 020994ad49bad513496add8831ec6f0dc0c2f858
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 23:21:10 2020 +0100
+
+    feature: add execute command from string
+
+commit 646367bea3557e5446540ded32ff8819b8b6169e
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 22:47:03 2020 +0100
+
+    chore: copy botnet_p2p to demo
+
+commit f6c8221724478ccc267ae37476792714a7ef4af4
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 22:44:28 2020 +0100
+
+    feature: socket communications now go through tor
+
+commit 419acf72daba59fcfcb2f66d6b00d150df2d5c6a
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 22:13:34 2020 +0100
+
+    refactor: change default path
+
+commit 6a4cc462d69104f21b1e5c71f165244f8e8e8808
+Merge: 17f4699 1b4735d
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Tue Mar 10 22:10:43 2020 +0100
+
+    Merge pull request #10 from danielorihuela/fix/server-import
+    
+    Fix/server import
+
+commit 1b4735ddb711e4d99fa73f3c9b35977f015f2473
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 22:08:04 2020 +0100
+
+    fix: add lacking import
+
+commit 368159de71eb49e332725f0215e9293394de55b5
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 22:07:20 2020 +0100
+
+    refactor: default public key path
+
+commit 17f46997e01d0e6b8ee6a7779b1aeda87a936d20
+Merge: 777e599 e7e9869
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Tue Mar 10 21:41:47 2020 +0100
+
+    Merge pull request #9 from danielorihuela/feature/add-server
+    
+    refactor: let default paths
+
+commit e7e98696aa62c9c2e723731a189469fe9f4b97f7
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 21:33:02 2020 +0100
+
+    refactor: let default paths
+
+commit 777e5994a14d2188d42112d4bfb06857d56755a9
+Merge: d48acb2 d41d1c3
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Tue Mar 10 21:30:26 2020 +0100
+
+    Merge pull request #8 from danielorihuela/fix/NodeP2P-keys-paths
+    
+    Fix/node p2 p keys paths
+
+commit d41d1c309193790c627cba3d723186692d17e1b0
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 21:20:39 2020 +0100
+
+    fix: add default key paths
+
+commit f70bdcc41a37f60aa0c919735ed1e0582612db24
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 21:16:19 2020 +0100
+
+    refactor: change server socket name
+
+commit 6f84ae992dd7f690c0396eca3adccb969042bfd7
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 21:15:03 2020 +0100
+
+    feature: add server
+
+commit d48acb20860aa20b646c686242f5b68103b72866
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 21:09:06 2020 +0100
+
+    refactor: copy last botnet_p2p version to demo
+
+commit df6bf7a304ab2e8ad7fd939a86631584a13f5168
+Merge: a133d3e 5c17c44
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Tue Mar 10 20:09:18 2020 +0100
+
+    Merge pull request #7 from danielorihuela/feature/select-peer-list-paths
+    
+    feature: add function to change peer list location
+
+commit 5c17c44b00b496cc4457d884b4bec8b16f17187e
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 20:07:47 2020 +0100
+
+    feature: add function to change peer list location
+
+commit a133d3ec28286b6b27c9b4409396e0cfa8337c34
+Merge: bb37caf 410120c
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Tue Mar 10 19:22:29 2020 +0100
+
+    Merge pull request #6 from danielorihuela/feature/demo-structure
+    
+    Feature/demo structure
+
+commit 410120c3703e3f42a865c7142ca53c66d1adb9a9
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Tue Mar 10 19:20:59 2020 +0100
+
+    build: add vscode files to gitignore
+
+commit fe0e91164b8811643bcc256018eec2498a6512d8
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 22:39:54 2020 +0100
+
+    feature: add demo
+
+commit 801fbefbb58f65187f0f8853df12617b4430d829
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 22:39:35 2020 +0100
+
+    feature: add private key for demo
+
+commit ab9c9b45c78255f8b3c513dd21672df5c3224430
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 22:39:07 2020 +0100
+
+    chore: move rootkit to root folder
+
+commit bb37caf884bb9001487aa4987743ec6abd52b7c5
+Merge: 33e5e94 037b28a
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Sun Mar 8 22:05:09 2020 +0100
+
+    Merge pull request #5 from danielorihuela/feature/infect-victim-script
+    
+    feature: add setup victim script
+
+commit 33e5e943fb3098025a9f06e2aa9f0ce683b65f3f
+Merge: d32eff2 7bc5e28
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Sun Mar 8 22:04:49 2020 +0100
+
+    Merge pull request #4 from danielorihuela/feature/rootkit
+    
+    feature: add rootkit
+
+commit 037b28aef53405fb0fd0628f142fd6d11b04cb5f
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 22:04:11 2020 +0100
+
+    feature: add setup victim script
+
+commit 7bc5e28d74d7a7dc1a8ee5fdc8f252ff3c44a8bb
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 22:03:09 2020 +0100
+
+    feature: add rootkit
+
+commit d32eff241e531ff3c0411fc7dbc7e52d17a71c61
+Merge: 7d6870f 82666d5
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Sun Mar 8 21:55:50 2020 +0100
+
+    Merge pull request #2 from danielorihuela/feature/add-master-files
+    
+    feature: add script to generate asymmetric keys
+
+commit 7d6870f5cafb62466ab1bd1888b00cdb2b3b87cc
+Merge: c634f8c a8099c4
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Sun Mar 8 21:55:31 2020 +0100
+
+    Merge pull request #1 from danielorihuela/feature/add-botnet-backbone
+    
+    Feature/add botnet backbone
+
+commit 82666d5704ac5b52b4d54beb9dc1a8f4cf222f60
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 21:38:04 2020 +0100
+
+    feature: add script to generate asymmetric keys
+
+commit a8099c467798978b3296e15bec35362de35e85ed
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 21:35:02 2020 +0100
+
+    build: add conda environment and setup script
+
+commit bb53079d70662dd0f370a73c01653688844f8e98
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 21:34:11 2020 +0100
+
+    feature: add botnet backbone
+
+commit 55e5f50c9801309804aa3838f44140f52e05387e
+Author: danielorihuelarodriguez@gmail.com <danielorihuelarodriguez@gmail.com>
+Date:   Sun Mar 8 21:33:23 2020 +0100
+
+    build: add gitignore
+
+commit c634f8c83a8c75455cf33ee9b887c0a1bcfe0d8d
+Author: danielorihuela <danielorihuela@users.noreply.github.com>
+Date:   Sun Mar 8 21:32:13 2020 +0100
+
+    Initial commit

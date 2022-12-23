@@ -1,4 +1,267 @@
 ======================: FILES :======================
+botnet-manager
+├── botnet
+│   ├── botnet.sln
+│   ├── Delimon.Win32.IO.dll
+│   ├── ducky
+│   │   └── downloadexe.txt
+│   ├── icon.ico
+│   ├── Installer
+│   │   ├── App.config
+│   │   ├── icon.ico
+│   │   ├── Installer.cs
+│   │   ├── Installer.csproj
+│   │   ├── Installer.csproj.user
+│   │   └── Properties
+│   │       └── AssemblyInfo.cs
+│   ├── Program
+│   │   ├── App.config
+│   │   ├── FodyWeavers.xml
+│   │   ├── icon.ico
+│   │   ├── packages.config
+│   │   ├── Program.cs
+│   │   ├── Program.csproj
+│   │   ├── Program.csproj.user
+│   │   └── Properties
+│   │       └── AssemblyInfo.cs
+│   ├── Uninstaller
+│   │   ├── App.config
+│   │   ├── icon.ico
+│   │   ├── Properties
+│   │   │   └── AssemblyInfo.cs
+│   │   ├── Uninstaller.cs
+│   │   └── Uninstaller.csproj
+│   ├── Updater
+│   │   ├── App.config
+│   │   ├── icon.ico
+│   │   ├── Properties
+│   │   │   └── AssemblyInfo.cs
+│   │   ├── Updater.cs
+│   │   └── Updater.csproj
+│   └── Util
+│       ├── FileExt.cs
+│       ├── HardwareInfo.cs
+│       ├── KnownFolders.cs
+│       ├── Properties
+│       │   └── AssemblyInfo.cs
+│       ├── Util.csproj
+│       └── Utility.cs
+├── _config.yml
+├── LICENSE
+├── README.md
+├── screenshots
+│   ├── screenshot1.png
+│   ├── screenshot2.png
+│   ├── screenshot3.png
+│   ├── screenshot4.png
+│   └── screenshot5.png
+└── web-ui
+    ├── connect.php
+    ├── controlpanel
+    │   ├── botnet.php
+    │   ├── fileManager
+    │   │   ├── bower.json
+    │   │   ├── Changelog
+    │   │   ├── composer.json
+    │   │   ├── css
+    │   │   │   ├── elfinder.full.css
+    │   │   │   ├── elfinder.min.css
+    │   │   │   └── theme.css
+    │   │   ├── elfinder.legacy.html
+    │   │   ├── fileManager.php
+    │   │   ├── img
+    │   │   │   ├── arrows-active.png
+    │   │   │   ├── arrows-normal.png
+    │   │   │   ├── crop.gif
+    │   │   │   ├── dialogs.png
+    │   │   │   ├── edit_aceeditor.png
+    │   │   │   ├── edit_ckeditor5.png
+    │   │   │   ├── edit_ckeditor.png
+    │   │   │   ├── edit_codemirror.png
+    │   │   │   ├── edit_creativecloud.png
+    │   │   │   ├── edit_onlineconvert.png
+    │   │   │   ├── editor-icons.png
+    │   │   │   ├── edit_pixlreditor.png
+    │   │   │   ├── edit_pixlrexpress.png
+    │   │   │   ├── edit_simplemde.png
+    │   │   │   ├── edit_tinymce.png
+    │   │   │   ├── edit_tuiimgedit.png
+    │   │   │   ├── edit_zohooffice.png
+    │   │   │   ├── icons-big.png
+    │   │   │   ├── icons-big.svg
+    │   │   │   ├── icons-small.png
+    │   │   │   ├── logo.png
+    │   │   │   ├── progress.gif
+    │   │   │   ├── quicklook-bg.png
+    │   │   │   ├── quicklook-icons.png
+    │   │   │   ├── resize.png
+    │   │   │   ├── spinner-mini.gif
+    │   │   │   ├── toolbar.png
+    │   │   │   ├── trashmesh.png
+    │   │   │   ├── tui-icon-a.svg
+    │   │   │   ├── tui-icon-b.svg
+    │   │   │   ├── tui-icon-c.svg
+    │   │   │   ├── tui-icon-d.svg
+    │   │   │   ├── ui-icons_ffffff_256x240.png
+    │   │   │   ├── volume_icon_box.png
+    │   │   │   ├── volume_icon_box.svg
+    │   │   │   ├── volume_icon_dropbox.png
+    │   │   │   ├── volume_icon_dropbox.svg
+    │   │   │   ├── volume_icon_ftp.png
+    │   │   │   ├── volume_icon_ftp.svg
+    │   │   │   ├── volume_icon_googledrive.png
+    │   │   │   ├── volume_icon_googledrive.svg
+    │   │   │   ├── volume_icon_local.png
+    │   │   │   ├── volume_icon_local.svg
+    │   │   │   ├── volume_icon_network.png
+    │   │   │   ├── volume_icon_network.svg
+    │   │   │   ├── volume_icon_onedrive.png
+    │   │   │   ├── volume_icon_onedrive.svg
+    │   │   │   ├── volume_icon_sql.png
+    │   │   │   ├── volume_icon_sql.svg
+    │   │   │   ├── volume_icon_trash.png
+    │   │   │   ├── volume_icon_trash.svg
+    │   │   │   ├── volume_icon_zip.png
+    │   │   │   └── volume_icon_zip.svg
+    │   │   ├── js
+    │   │   │   ├── elfinder.full.js
+    │   │   │   ├── elfinder.min.js
+    │   │   │   ├── extras
+    │   │   │   │   ├── editors.default.js
+    │   │   │   │   ├── editors.default.min.js
+    │   │   │   │   ├── quicklook.googledocs.js
+    │   │   │   │   └── quicklook.googledocs.min.js
+    │   │   │   ├── i18n
+    │   │   │   │   ├── elfinder.ar.js
+    │   │   │   │   ├── elfinder.bg.js
+    │   │   │   │   ├── elfinder.ca.js
+    │   │   │   │   ├── elfinder.cs.js
+    │   │   │   │   ├── elfinder.da.js
+    │   │   │   │   ├── elfinder.de.js
+    │   │   │   │   ├── elfinder.el.js
+    │   │   │   │   ├── elfinder.es.js
+    │   │   │   │   ├── elfinder.fa.js
+    │   │   │   │   ├── elfinder.fallback.js
+    │   │   │   │   ├── elfinder.fo.js
+    │   │   │   │   ├── elfinder.fr.js
+    │   │   │   │   ├── elfinder.he.js
+    │   │   │   │   ├── elfinder.hr.js
+    │   │   │   │   ├── elfinder.hu.js
+    │   │   │   │   ├── elfinder.id.js
+    │   │   │   │   ├── elfinder.it.js
+    │   │   │   │   ├── elfinder.ja.js
+    │   │   │   │   ├── elfinder.ko.js
+    │   │   │   │   ├── elfinder.LANG.js
+    │   │   │   │   ├── elfinder.nl.js
+    │   │   │   │   ├── elfinder.no.js
+    │   │   │   │   ├── elfinder.pl.js
+    │   │   │   │   ├── elfinder.pt_BR.js
+    │   │   │   │   ├── elfinder.ro.js
+    │   │   │   │   ├── elfinder.ru.js
+    │   │   │   │   ├── elfinder.si.js
+    │   │   │   │   ├── elfinder.sk.js
+    │   │   │   │   ├── elfinder.sl.js
+    │   │   │   │   ├── elfinder.sr.js
+    │   │   │   │   ├── elfinder.sv.js
+    │   │   │   │   ├── elfinder.tr.js
+    │   │   │   │   ├── elfinder.ug_CN.js
+    │   │   │   │   ├── elfinder.uk.js
+    │   │   │   │   ├── elfinder.vi.js
+    │   │   │   │   ├── elfinder.zh_CN.js
+    │   │   │   │   ├── elfinder.zh_TW.js
+    │   │   │   │   └── help
+    │   │   │   │       ├── cs.html.js
+    │   │   │   │       ├── en.html.js
+    │   │   │   │       ├── es.html.js
+    │   │   │   │       ├── ja.html.js
+    │   │   │   │       ├── ko.html.js
+    │   │   │   │       ├── pl.html.js
+    │   │   │   │       ├── ru.html.js
+    │   │   │   │       └── sk.html.js
+    │   │   │   └── proxy
+    │   │   │       └── elFinderSupportVer1.js
+    │   │   ├── LICENSE.md
+    │   │   ├── main.default.js
+    │   │   ├── package.json
+    │   │   ├── php
+    │   │   │   ├── autoload.php
+    │   │   │   ├── connector.minimal.php-dist
+    │   │   │   ├── editors
+    │   │   │   │   ├── editor.php
+    │   │   │   │   ├── OnlineConvert
+    │   │   │   │   │   └── editor.php
+    │   │   │   │   ├── ZipArchive
+    │   │   │   │   │   └── editor.php
+    │   │   │   │   └── ZohoOffice
+    │   │   │   │       └── editor.php
+    │   │   │   ├── elFinder.class.php
+    │   │   │   ├── elFinderConnector.class.php
+    │   │   │   ├── elFinderFlysystemGoogleDriveNetmount.php
+    │   │   │   ├── elFinderPlugin.php
+    │   │   │   ├── elFinderSessionInterface.php
+    │   │   │   ├── elFinderSession.php
+    │   │   │   ├── elFinderVolumeBox.class.php
+    │   │   │   ├── elFinderVolumeDriver.class.php
+    │   │   │   ├── elFinderVolumeDropbox2.class.php
+    │   │   │   ├── elFinderVolumeDropbox.class.php
+    │   │   │   ├── elFinderVolumeFTP.class.php
+    │   │   │   ├── elFinderVolumeGoogleDrive.class.php
+    │   │   │   ├── elFinderVolumeGroup.class.php
+    │   │   │   ├── elFinderVolumeLocalFileSystem.class.php
+    │   │   │   ├── elFinderVolumeMySQL.class.php
+    │   │   │   ├── elFinderVolumeOneDrive.class.php
+    │   │   │   ├── elFinderVolumeTrash.class.php
+    │   │   │   ├── elFinderVolumeTrashMySQL.class.php
+    │   │   │   ├── libs
+    │   │   │   │   └── GdBmp.php
+    │   │   │   ├── mime.types
+    │   │   │   ├── MySQLStorage.sql
+    │   │   │   ├── plugins
+    │   │   │   │   ├── AutoResize
+    │   │   │   │   │   └── plugin.php
+    │   │   │   │   ├── AutoRotate
+    │   │   │   │   │   └── plugin.php
+    │   │   │   │   ├── Normalizer
+    │   │   │   │   │   └── plugin.php
+    │   │   │   │   ├── Sanitizer
+    │   │   │   │   │   └── plugin.php
+    │   │   │   │   └── Watermark
+    │   │   │   │       ├── logo.png
+    │   │   │   │       └── plugin.php
+    │   │   │   └── resources
+    │   │   │       ├── image.png
+    │   │   │       └── video.png
+    │   │   ├── README.md
+    │   │   └── sounds
+    │   │       └── rm.wav
+    │   ├── fileManager.php
+    │   ├── home.php
+    │   ├── images
+    │   │   ├── botnet.png
+    │   │   └── favicon
+    │   │       ├── android-chrome-192x192.png
+    │   │       ├── apple-touch-icon.png
+    │   │       ├── browserconfig.xml
+    │   │       ├── favicon-16x16.png
+    │   │       ├── favicon-32x32.png
+    │   │       ├── favicon.ico
+    │   │       ├── mstile-150x150.png
+    │   │       ├── safari-pinned-tab.svg
+    │   │       └── site.webmanifest
+    │   ├── index.php
+    │   ├── libs
+    │   │   └── jquery.js
+    │   ├── machine.php
+    │   ├── operations.php
+    │   └── styles.css
+    ├── db-init.sql
+    ├── disconnect.php
+    ├── hosts.txt
+    ├── index.php
+    ├── phpFunctions.php
+    └── robots.txt
+
+40 directories, 220 files
 ======================: README CONTENT :======================
 # Botnet Manager
 

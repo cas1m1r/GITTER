@@ -1,4 +1,109 @@
 ======================: FILES :======================
+Arsenal
+├── appspec.yml
+├── contrib
+│   ├── arsenal.service
+│   ├── arsenal-start
+│   ├── arsenal-status
+│   ├── arsenal-stop
+│   └── setup
+├── docker-compose.yml
+├── docs
+│   ├── agent_guide.md
+│   ├── api.md
+│   ├── c2_guide.md
+│   ├── events.md
+│   ├── objects.md
+│   └── user_guide.md
+├── install.sh
+├── LICENSE
+├── README.md
+└── teamserver
+    ├── bin
+    │   ├── docs.py
+    │   └── setup.py
+    ├── docker
+    │   └── teamserver
+    │       ├── entrypoint.sh
+    │       ├── nginx.conf
+    │       ├── slack_api
+    │       └── uwsgi.ini
+    ├── Dockerfile
+    ├── requirements
+    │   ├── dev.txt
+    │   └── prod.txt
+    ├── run.py
+    ├── run_tests.py
+    ├── teamserver
+    │   ├── api
+    │   │   ├── action.py
+    │   │   ├── agent.py
+    │   │   ├── auth.py
+    │   │   ├── group_action.py
+    │   │   ├── group.py
+    │   │   ├── __init__.py
+    │   │   ├── log.py
+    │   │   ├── session.py
+    │   │   ├── target.py
+    │   │   └── webhook.py
+    │   ├── config.py
+    │   ├── events
+    │   │   ├── __init__.py
+    │   │   └── worker.py
+    │   ├── exceptions.py
+    │   ├── __init__.py
+    │   ├── integrations
+    │   │   ├── changan.py
+    │   │   ├── __init__.py
+    │   │   ├── integration.py
+    │   │   ├── pwnboard.py
+    │   │   └── slack.py
+    │   ├── models
+    │   │   ├── action.py
+    │   │   ├── agent.py
+    │   │   ├── auth.py
+    │   │   ├── group_action.py
+    │   │   ├── group.py
+    │   │   ├── __init__.py
+    │   │   ├── log.py
+    │   │   ├── session.py
+    │   │   ├── target.py
+    │   │   └── webhook.py
+    │   ├── router.py
+    │   └── utils
+    │       ├── auth.py
+    │       ├── exceptions.py
+    │       ├── filters.py
+    │       ├── __init__.py
+    │       ├── logging.py
+    │       └── response.py
+    └── tests
+        ├── api
+        │   ├── action_test.py
+        │   ├── group_action_test.py
+        │   ├── group_test.py
+        │   ├── __init__.py
+        │   ├── log_test.py
+        │   ├── session_test.py
+        │   └── target_test.py
+        ├── general
+        │   ├── __init__.py
+        │   └── status_test.py
+        ├── __init__.py
+        ├── model
+        │   ├── action_test.py
+        │   ├── group_action_test.py
+        │   ├── group_test.py
+        │   ├── __init__.py
+        │   ├── session_test.py
+        │   └── target_test.py
+        └── testutils
+            ├── api.py
+            ├── database.py
+            ├── __init__.py
+            └── test_cases.py
+
+18 directories, 84 files
 ======================: README CONTENT :======================
 # Arsenal [![Build Status](https://travis-ci.org/KCarretto/Arsenal.svg?branch=master)](https://travis-ci.org/KCarretto/Arsenal) ![python 3.6](https://img.shields.io/badge/python-3.6-green.svg)
 Extensible Red Team Framework

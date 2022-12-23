@@ -1,0 +1,646 @@
+======================: FILES :======================
+imaginaryC2
+├── bin
+│   ├── http_decompress.py
+│   ├── imaginary_c2.py
+│   ├── redirect_to_imaginary_c2.py
+│   ├── server.pem
+│   ├── unpack_fiddler_archive.py
+│   └── unpack_pcap.py
+├── examples
+│   ├── use-case-10-CVE-2021-40444
+│   │   ├── CVE-2021-40444-imaginary-C2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 56a8d4f7009caf32c9e28f3df945a7826315254c_xor
+│   │   │       ├── e5f2089d95fd713ca3d4787fe53c0ec036135e92_xor
+│   │   │       └── xor_decode.py
+│   │   └── readme.md
+│   ├── use-case-1-TrickBot
+│   │   ├── readme.txt
+│   │   ├── traffic-capture-Fiddler
+│   │   │   └── trickbot.saz
+│   │   ├── trickbot-decoder-script
+│   │   │   └── trick_config_decoder.py
+│   │   └── trickbot-imaginary-c2
+│   │       ├── redirect_config.txt
+│   │       ├── requests_config.txt
+│   │       └── server_data
+│   │           ├── a40a13b45eb86bb3a80ec0d6e4efc9204b3a61ac
+│   │           ├── d99721a5284582a3ce835a232f46f320549979f1
+│   │           ├── default.html
+│   │           ├── dinj.314dfc04a8a2347fbc14235d6e7dd3a6cf968cd4
+│   │           ├── dpost.b6c75bc64bb68676570e96fd6312cd55888fc254
+│   │           ├── injectdll.440187b443703e3e0f265cd68292723d4e2bdacc
+│   │           ├── one.txt
+│   │           ├── sinj.d197a72f43414697a3754caeaae814ca894da31e
+│   │           ├── startinj.487e3b9cf2b2315eddba944853e2e996d0dfe7c0
+│   │           └── systeminfo.6335423e9fda0547fdd0914fac2be3783a65d23c
+│   ├── use-case-2-smokeloader
+│   │   ├── readme.txt
+│   │   ├── smokeloader-imaginary-c2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── default.txt
+│   │   │       └── ed8cdccf26276badc28cafa358c9dcc5fc30b35f
+│   │   └── traffic-capture-Fiddler
+│   │       └── smokeloader.saz
+│   ├── use-case-3-dridexloader
+│   │   ├── dridexloader-imaginary-c2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 0f6ed930dfae0b4f093a01cd1838b29756c9aa0c
+│   │   │       ├── 48e79c2413bd1090c3e99bce786bc4b33f0f632d
+│   │   │       ├── dfef1067c4c404be770adbfc4c7c23204b69d3bb
+│   │   │       └── recurring-path.py
+│   │   ├── readme.txt
+│   │   └── traffic-capture-Fiddler
+│   │       └── dridexloader.saz
+│   ├── use-case-4-hancitor
+│   │   ├── hancitor-imaginary-c2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 06547e5c3e4a960299e2e1530d0b7e60a7411f86
+│   │   │       ├── 4a727efe103e3aff6653e31c19b1963724680279_decoded
+│   │   │       ├── d9917dff1e131815d958b6068e0d2c98bd4cea8a
+│   │   │       ├── de72f385233291ad226609196b91128c16804828
+│   │   │       ├── default.txt
+│   │   │       └── f00073963c5c58b23da57024bcd4aaa010d19403
+│   │   ├── readme.txt
+│   │   └── traffic-capture-pcap
+│   │       └── hancitor_malware-traffic-analysis.net.pcap
+│   ├── use-case-5-gootkit
+│   │   ├── gootkit-imaginary-c2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 7ee4d847e92d31be98d24e449e7353823cf9b95c
+│   │   │       ├── 8dc8aba93c3e37cc0d2fa74caa139446ad56ea1b
+│   │   │       ├── 9f9af029585ba014e07cd3910ca976cf56160616
+│   │   │       ├── c9ba13a1ff99764e755ddd85523e18faed342dbc
+│   │   │       └── xor_decode.py
+│   │   ├── readme.txt
+│   │   └── traffic-capture-Fiddler
+│   │       └── gootkit.saz
+│   ├── use-case-6-azorult
+│   │   ├── azorult-imaginary-c2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── default.txt
+│   │   │       └── df2a25abfdc71d2346968740472a18ce603d1860_decoded
+│   │   ├── readme.txt
+│   │   └── traffic-capture-pcap
+│   │       └── azorult_any.run.pcap
+│   ├── use-case-7-bokbot_icedid
+│   │   ├── bokbot_icedid-imaginary-c2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 051f975d3e37ec6fc3eda5cfadc1b4aea7698a04
+│   │   │       ├── 098d59614766d7d90b0a642040e39e4874b8bbf3
+│   │   │       ├── 5ba93c9db0cff93f52b521d7420e43f6eda2784f
+│   │   │       ├── 633435c00a8909bc8482d4ef4461f2906d8dc006
+│   │   │       ├── 8430585244dbdef3d206ed381c71cc630883f55a
+│   │   │       ├── c2dee961378d690e795d9efb787d6146ac5f3889
+│   │   │       ├── c63437f5cea3a65f0b73decbcc2cb083d6e94f93
+│   │   │       ├── d6ae032fddb0af253710fee1908bd75d68332b4b
+│   │   │       ├── default.txt
+│   │   │       ├── e53c43b6c7df23abadb0bbbc273f9f03031f527d
+│   │   │       └── f03e7f657e887b5d7449c6748738b88c4ca9ed72
+│   │   ├── readme.txt
+│   │   └── traffic-capture-Fiddler
+│   │       └── bokbot_icedid.saz
+│   ├── use-case-8b_gozi_ursnif_RM3
+│   │   ├── imaginary-c2-contents
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 0856a03d6e14471eb88bc5de0d7e91a858ab6985
+│   │   │       ├── 30a4542ffbd8bed30f5451fb25c79f65f544f70a
+│   │   │       ├── 46f4f6d16c277b01926c731be2dc2881d00e49ef
+│   │   │       ├── 5345284d1071d0141c9d700e75a8abd41702fe17
+│   │   │       ├── 59eb4d92743a58d2adbfde25fa4aa797db93dfda
+│   │   │       ├── 6246ed828432911d04140ea6d8f5313ae7530c7e
+│   │   │       ├── 67326636c4e9f9875136da9455ca43b2b65a678f
+│   │   │       ├── a93fe153399477c1cfb00dc4ebcfb0a863623620
+│   │   │       ├── b21ebc2e521bd63cc63fc3ec81c8c93618c6f157
+│   │   │       ├── decryptbeacon.py
+│   │   │       ├── f0a3396abe48545d6bf0f973cb0a2c56c2c3d4b9
+│   │   │       └── recurring-path.py
+│   │   └── readme.txt
+│   ├── use-case-8c_gozi_ursnif_not_fileless
+│   │   ├── imaginary-c2-contents
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 1f38d7b1b8b30031d8ba15c2bf2efed1586f8e0e
+│   │   │       ├── 756d2110ba27edceeacd2fa4f8b33cafbfb4b44a
+│   │   │       ├── ddb5c02fc62defdc3efede27281b599e4443cdee
+│   │   │       └── recurring-path.py
+│   │   └── readme.txt
+│   ├── use-case-8-gozi_ursnif
+│   │   ├── gozi_ursnif-imaginary-c2
+│   │   │   ├── redirect_config.txt
+│   │   │   ├── requests_config.txt
+│   │   │   └── server_data
+│   │   │       ├── 458faaff4aa709014812a83f4e26a14cebd41609_decoded
+│   │   │       ├── a9a3ecc1a33dad7eab2cd765a61fb9e1f4316a53_decoded
+│   │   │       ├── b65b04239c32642c2cea14f297a56cc9648e81a2
+│   │   │       ├── default.txt
+│   │   │       └── recurring-path.py
+│   │   ├── readme.txt
+│   │   └── traffic-capture-pcap
+│   │       └── gozi_any.run.pcap
+│   ├── use-case-9-zloader
+│   │   ├── readme.md
+│   │   ├── traffic-capture-Fiddler
+│   │   │   └── zloader.saz
+│   │   └── zloader-imaginary-c2
+│   │       ├── redirect_config.txt
+│   │       ├── requests_config.txt
+│   │       └── server_data
+│   │           ├── 01_87d7c7c51ad37c91a6791dc851f21cf93a82cc50
+│   │           ├── 02_738e0c5096005c09f397a9feba932707e42d1c50
+│   │           ├── 03_06c0ef826d727b5226149b9363ccaeb85e9d6963
+│   │           ├── 04_3e40be7aded41a0252b40bc531c9ab30f3b27a55
+│   │           ├── 05_d617ad74dd081912476e0c31e19afc1f14b438b3
+│   │           ├── 06_94490a892acfe6efbb1e203057fff26458b53fb1
+│   │           ├── 07_c7a10cdb3b98c62c0f003d6f6eaca0479eeb03bd
+│   │           ├── 08_4828c8a85a32d7383118fe3db40a7c7001f10abb
+│   │           ├── 09_7d44bd7d83dace54b68f93ef16b7a70173dc9ccf
+│   │           ├── 10_bd7be5f05fb4c09c41f3591700ba407f8d46047a
+│   │           ├── 11_c0b4aafc9ade1afe236c60bdad13868f0996d68a
+│   │           ├── 12_9dd86771e19bfa3fc935ffe97c8a2a137604926c
+│   │           ├── 13_7b217ac76871ae02284b184f4c34d87651bfb6b6
+│   │           ├── 14_87e270d807e32ca2f765e8556d040f1b5785715c
+│   │           ├── 15_bca8ba1737c524daaca5f3226f0fa89a41b30ace
+│   │           ├── 16_3cd0c80c2b92366cb54d9c00e5ee7635cd716afe
+│   │           ├── 17_1362cb67b508447d90ec63fd3c8f91f7f3d7cbd3
+│   │           ├── default.txt
+│   │           └── recurring-path.py
+│   └── use-case-samples.zip
+├── launch_imaginary_c2_server.bat
+├── media
+│   ├── imaginary_c2_bokbot_icedid_simulation.gif
+│   ├── imaginary_c2_bokbot_icedid_simulation.mp4
+│   ├── imaginary_c2_CVE-2021-40444.GIF
+│   ├── imaginary_c2_CVE-2021-40444.MP4
+│   ├── imaginary_c2_dridex_simulation.MP4
+│   ├── imaginary_c2_hancitor_simulation.mp4
+│   ├── imaginary_c2.png
+│   ├── imaginary_c2_smokeloader_simulation.MP4
+│   ├── imaginary_c2_trickbot_simulation.gif
+│   ├── imaginary_c2_trickbot_simulation.mp4
+│   ├── imaginary_c2_zloader_simulation.png
+│   ├── pcap_extract.png
+│   └── trickbot_webinject_configuration.png
+├── readme.md
+├── redirect_config.txt
+├── redirect_to_imaginary_c2.bat
+├── requests_config.txt
+├── server_data
+│   ├── default.html
+│   ├── defaultImage.jpg
+│   ├── post-example.py
+│   └── time.py
+├── unpack_fiddler_archive.bat
+└── unpack_pcap.bat
+
+50 directories, 160 files
+======================: README CONTENT :======================
+====================== GIT HISTORY: ======================
+010cbc0 HEAD@{0}: clone: from https://github.com/felixweyne/imaginaryC2
+commit 010cbc0e133112c75016dface3e0f163d714d56d
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Wed Oct 26 12:23:03 2022 +0200
+
+    Update readme.txt
+
+commit ac91d35c21d44aded4508839cdd0e08c9b746c1c
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Wed Oct 26 12:20:11 2022 +0200
+
+    Update readme.txt
+
+commit 1e84846259f37ce5c0c6ada1c6f097d2b6a7e4f6
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Wed Oct 26 12:08:00 2022 +0200
+
+    Update readme.txt
+
+commit 37ed0a5ff2f01df593faf1ef4c24cb0bbc42854f
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Wed Oct 26 12:04:44 2022 +0200
+
+    Update readme.txt
+
+commit 0dd55a231c6055e0969d371cc968f56e8ae89838
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Wed Oct 26 12:04:26 2022 +0200
+
+    Update readme.txt
+
+commit c9e4a4b25d0dec1fd52017a938eca05c32f45c4d
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Wed Oct 26 12:03:05 2022 +0200
+
+    Update readme.txt
+
+commit 530504b98d7ee1fd5c8173cce9a647ef22cb46b2
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Mon Oct 24 20:06:51 2022 +0200
+
+    Update readme.txt
+
+commit 54ed273a7e3ab34ded1a7729ef4d108c6cda3740
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Mon Oct 24 18:12:22 2022 +0200
+
+    Update readme.txt
+
+commit 74d33261632aee641248ae83b56c0175245d5eaa
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Mon Oct 24 17:47:35 2022 +0200
+
+    Gozi RM3 flavour
+
+commit 0a26b2772d53fbbbeffc1b0474873789c8ab5d98
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Tue Jul 19 19:39:03 2022 +0200
+
+    Update readme.txt
+
+commit 76cb65a2934c88093b345340d6d2b0fede600ebe
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Fri Sep 10 09:54:00 2021 +0200
+
+    Update requests_config.txt
+
+commit f4aa177779d7821761e7a1df180244e61428c34c
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Thu Sep 9 18:33:58 2021 +0200
+
+    Update readme.md
+
+commit 7c1045c6c0c30a9681eefa4597222589e23e69d0
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Thu Sep 9 18:33:38 2021 +0200
+
+    Update readme.md
+
+commit 8084a1e812b079270a3ce1499256f2014809d7a7
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Thu Sep 9 18:33:08 2021 +0200
+
+    Update readme.md
+
+commit b7a2f467c2dece99b66e87181a014b2d51ac8d23
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Thu Sep 9 18:30:10 2021 +0200
+
+    Adding use case for cve-2021-40444
+
+commit 06988b98d11bd524ef017458b82b7a71604938a5
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Thu Sep 9 18:28:03 2021 +0200
+
+    Adding use case for cve-2021-40444
+
+commit f7daf490fec720bd75071960a7da8f1d4bb961fd
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 23:36:04 2020 +0200
+
+    Update readme.md
+
+commit 049559ece48c7936f75b35eae9de5fb23cb1f1a6
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 23:31:37 2020 +0200
+
+    Update readme.md
+
+commit 7086c401eea1238ff2ab286696e70ac3b43fdfc9
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:34:03 2020 +0200
+
+    Update readme.md
+
+commit a380ad3b83ce91c391ba347818a0bcfb5469430c
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:30:05 2020 +0200
+
+    Update readme.md
+
+commit 0e6e3817a4e920edb5db5d09fc81127b38c98f9d
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:28:04 2020 +0200
+
+    Update readme.md
+
+commit a96315035216390be784799225ab93f88778b9dc
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:27:39 2020 +0200
+
+    Update readme.md
+
+commit 3602f732f2a66b14694666b0a68aa0e8b2c2061e
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:26:46 2020 +0200
+
+    Update readme.md
+
+commit 529d0bd5d4bf3788fbdf883e0ad708dc990d0707
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:26:19 2020 +0200
+
+    Update readme.md
+
+commit 1ac0a05f4100238dbff611fa026a8bc567c32d54
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:23:19 2020 +0200
+
+    Update readme.md
+
+commit 027dbb6a702de016dc285c499a94a15c31cf147f
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:22:20 2020 +0200
+
+    Update readme.md
+
+commit 232d98ece74d02df9339e56f7f1d310eeda4b026
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:21:22 2020 +0200
+
+    Update readme.md
+
+commit 06e73781805ff79155f69ddbc83dabd593e2871b
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:20:13 2020 +0200
+
+    Update readme.md
+
+commit 6ed1b7d3581a88a0a6e6702e05159e47a9960429
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:19:15 2020 +0200
+
+    Update readme.md
+
+commit 9ddc60f132313daaa7e09836f1596a44ff5fc39f
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:18:36 2020 +0200
+
+    Adding image
+
+commit 33ccdd41813b83144c1d15c374215e41dd4669db
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:16:13 2020 +0200
+
+    Update readme.txt
+
+commit 642e82ff580e2955a3135ba68263e2ecfc572fd4
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:14:42 2020 +0200
+
+    Update readme.txt
+
+commit b4d0aacf2f7dc5102cdcdc6ed0a699866c2baa5b
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:13:17 2020 +0200
+
+    Update readme.txt
+
+commit c0308be9591b51a9a8376f6bd6ad050cc60a6ef9
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:11:37 2020 +0200
+
+    Update readme.txt
+
+commit da7319c47bf5f66a4aa0d191ad5d0f691c7a34df
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:11:14 2020 +0200
+
+    Update readme.txt
+
+commit 3fc828066bd6003ec405ba390287b98e07a6771e
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat May 23 16:08:16 2020 +0200
+
+    Adding use case for zloader banking trojan
+    
+    Adding use case for zloader banking trojan
+
+commit 737541838161743f7b5c752f011dc296f81ca198
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Tue Oct 29 18:13:35 2019 +0000
+
+    Include warning for potential newline character issue
+
+commit 7839ff92a0524960e378cefea3d2ee97be8d79f6
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat Aug 31 16:20:50 2019 +0100
+
+    Adding reference to packed and unpacked samples
+
+commit be679487cf76e9a29c9aa602122ae1913d1883be
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Fri Aug 30 15:14:22 2019 +0100
+
+    Adding unpacked samples
+
+commit fe7cbabae48dfb27134dcba537a894fba183d9ce
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Mon Aug 26 18:03:48 2019 +0100
+
+    Update readme.txt
+
+commit f8cb9ce5d136524c3e9ba1da2d27f8deacb318d0
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 25 16:19:41 2019 +0100
+
+    Gozi/Ursnif example use case
+    
+    Gozi/Ursnif example use case
+
+commit 16c916a7b3ba26f2ec1a4f70a3073e57229daaaf
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Wed Aug 21 22:43:27 2019 +0100
+
+    Adding media
+
+commit 3b6321410eaa1061e8326101494938255567f167
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 11 15:11:59 2019 +0100
+
+    Adding examples on how to replay packet captures from Dridex, SmokeLoader, Azorult, Gootkit, Hancitor and Bokbot
+    
+    Adding examples on how to replay packet captures from Dridex, SmokeLoader, Azorult, Gootkit, Hancitor and Bokbot
+
+commit cb7a96579ff458e7f5ba196158eaa5d10006de4d
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Fri Aug 2 21:41:06 2019 +0100
+
+    Update imaginary_c2.py
+
+commit 295a5fb779286761a0f64dbfb9fae4b52a50a268
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Fri Aug 2 21:38:47 2019 +0100
+
+    Adding support for HTTP1.1
+
+commit c8da5f40207c70b37758575f5e3c1394e0c424cb
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat Jul 27 15:00:10 2019 +0200
+
+    Update unpack_pcap.py
+    
+    Bugfix + Added debug mode
+
+commit a6cce9fcf3d4c5f3237bd3654591394a02ee39bd
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Tue Aug 28 18:53:31 2018 +0100
+
+    Update readme.md
+
+commit 09f4c2d06c16d5f859100d9070c479fc802a092e
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Tue Aug 28 18:53:17 2018 +0100
+
+    Update readme.md
+
+commit c84225b6cdedce92c1d4cd6a8d40d71aa113f019
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Mon Aug 27 20:23:48 2018 +0100
+
+    Update readme.md
+
+commit 4ba4e1f9df2729056aaa702b4bfa49eba4e0432a
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 26 19:32:04 2018 +0100
+
+    Update readme.md
+
+commit 6227d3cb55695e7242702dea4b08322c78c4cdea
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 26 18:56:13 2018 +0100
+
+    Update readme.md
+
+commit df3b74de157d1a94de72ee07ad0aafe4872895c5
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 26 12:49:18 2018 +0100
+
+    Update readme.md
+
+commit 4c2ac9686b155d8df1291c652577000cab6d89ff
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 26 11:31:05 2018 +0100
+
+    Intendation fix
+
+commit 458cf53a0807f13204a552f9ea2873e88e650cec
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat Aug 25 15:28:52 2018 +0100
+
+    update readme.md
+
+commit 61ab7b54f837b26a31e865d5b81787978109f1a7
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat Aug 25 15:17:07 2018 +0100
+
+    adding media for pcap extraction
+
+commit 5b145cab0d5fa42ed5a467888852b51edc86bb7c
+Merge: 64bcaec d6dfe87
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat Aug 25 15:12:23 2018 +0100
+
+    Merge branch 'master' of https://github.com/felixweyne/imaginaryC2
+
+commit 64bcaec05b82ebff51baaecde4217ca8d984437d
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sat Aug 25 15:12:14 2018 +0100
+
+    Initial commit
+
+commit d6dfe87a4de94eb74d706094de243a1531643571
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 21:49:58 2018 +0100
+
+    Update readme.md
+
+commit 99803ab581e7a4d1dcb50160b5936bfe47b5cc10
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 21:49:34 2018 +0100
+
+    Update readme.md
+
+commit 33ae044063f79319ee996dea1ef324172171daff
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 21:49:10 2018 +0100
+
+    Update readme.md
+
+commit 8a702679d2353031f1284c01fa0357876957f988
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 16:11:29 2018 +0100
+
+    Update readme.md
+
+commit c68506fc3cc6796e3b84d6796b4ab7b0bccce7e5
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 16:11:04 2018 +0100
+
+    Update readme.md
+
+commit 4c863159f478360f110ab9f00eddf806fab1fd6e
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 16:09:24 2018 +0100
+
+    Update readme.md
+
+commit 149f1cefba85e8081f81384b5ea01b80ca98188b
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 16:07:18 2018 +0100
+
+    Update readme.md
+
+commit 42631f1755fc99e99e2834a0938f26bfc30e9792
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 16:05:03 2018 +0100
+
+    Adding media
+
+commit 4d0e77b549e0be5d5252e7ed3d8675b0ddd4773e
+Merge: 06fa1cd 54e5942
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 14:35:29 2018 +0100
+
+    Merge branch 'master' of https://github.com/felixweyne/imaginaryC2
+
+commit 06fa1cd606251bc515722958325b8a85418a93df
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 14:35:04 2018 +0100
+
+    adding media
+
+commit 54e5942b47d5db43de0b066e1fd77480df0f9bcc
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 14:28:11 2018 +0100
+
+    Update readme.md
+
+commit e4afb56c0116c4eff653fbcddc5b76b1aad0f7be
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 14:26:15 2018 +0100
+
+    Update readme.md
+
+commit 52e98e39382a3ca69ab5097e21414f9592b5ad73
+Author: Felix Weyne <42514302+felixweyne@users.noreply.github.com>
+Date:   Sun Aug 19 14:24:12 2018 +0100
+
+    Initial readme

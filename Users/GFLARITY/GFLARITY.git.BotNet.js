@@ -1,4 +1,17 @@
 ======================: FILES :======================
+BotNet.js
+├── lib
+│   ├── botnet.js
+│   ├── client_event_emitter.js
+│   └── server_event_emitter.js
+├── README.md
+└── tls
+    ├── ca.cnf
+    ├── client.cnf
+    ├── generate_certs.sh
+    └── server.cnf
+
+2 directories, 8 files
 ======================: README CONTENT :======================
 BotNet is a distributed event system built with Node.js. It's designed to simplify the creation of distributed software. It uses TLS, EventEmitter2 and MsgPack.  ====================== GIT HISTORY: ======================
 0f7e065 HEAD@{0}: clone: from https://github.com/gflarity/BotNet.js

@@ -1,4 +1,154 @@
 ======================: FILES :======================
+instagram-botnet
+├── api.yaml
+├── benchmarks
+│   ├── memory.py
+│   ├── run_benchmarks.sh
+│   ├── support.py
+│   └── test.yml
+├── Dockerfile
+├── instabotnet
+│   ├── api
+│   │   ├── api.py
+│   │   ├── __init__.py
+│   │   └── instagram_private_api
+│   │       ├── client.py
+│   │       ├── compatpatch.py
+│   │       ├── compat.py
+│   │       ├── constants.py
+│   │       ├── endpoints
+│   │       │   ├── accounts.py
+│   │       │   ├── collections.py
+│   │       │   ├── common.py
+│   │       │   ├── discover.py
+│   │       │   ├── feed.py
+│   │       │   ├── friendships.py
+│   │       │   ├── highlights.py
+│   │       │   ├── igtv.py
+│   │       │   ├── __init__.py
+│   │       │   ├── live.py
+│   │       │   ├── locations.py
+│   │       │   ├── media.py
+│   │       │   ├── misc.py
+│   │       │   ├── tags.py
+│   │       │   ├── upload.py
+│   │       │   ├── users.py
+│   │       │   └── usertags.py
+│   │       ├── errors.py
+│   │       ├── http.py
+│   │       ├── __init__.py
+│   │       └── utils.py
+│   ├── assert_good_script.py
+│   ├── bot
+│   │   ├── bot.py
+│   │   ├── __init__.py
+│   │   ├── predicates.py
+│   │   ├── settings.py
+│   │   └── support.py
+│   ├── debug
+│   │   ├── __init__.py
+│   │   ├── memory_profile.py
+│   │   ├── network.py
+│   │   ├── play.py
+│   │   ├── safe_print.py
+│   │   └── unmask.py
+│   ├── direct_inbox_events.py
+│   ├── errors.py
+│   ├── evaluate.py
+│   ├── execute.py
+│   ├── handle_errors.py
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── make_bot.py
+│   ├── make_predicate.py
+│   ├── methods
+│   │   ├── author.py
+│   │   ├── comment.py
+│   │   ├── common.py
+│   │   ├── delete.py
+│   │   ├── edit_profile.py
+│   │   ├── evaluate.py
+│   │   ├── feed.py
+│   │   ├── filter.py
+│   │   ├── followers.py
+│   │   ├── following.py
+│   │   ├── follow.py
+│   │   ├── geotag_feed.py
+│   │   ├── geotag.py
+│   │   ├── geotag_stories.py
+│   │   ├── hashtag_feed.py
+│   │   ├── hashtags.py
+│   │   ├── hashtag_stories.py
+│   │   ├── __init__.py
+│   │   ├── like.py
+│   │   ├── likers.py
+│   │   ├── message.py
+│   │   ├── print.py
+│   │   ├── scrape.py
+│   │   ├── shuffle.py
+│   │   ├── sleep.py
+│   │   ├── stories.py
+│   │   ├── text.py
+│   │   ├── unfollow.py
+│   │   ├── upload_post.py
+│   │   ├── user_feed.py
+│   │   ├── user_stories.py
+│   │   └── usertags.py
+│   ├── nodes
+│   │   ├── arg.py
+│   │   ├── comment.py
+│   │   ├── comment.yaml
+│   │   ├── common.py
+│   │   ├── geotag.py
+│   │   ├── geotag.yaml
+│   │   ├── hashtag.py
+│   │   ├── __init__.py
+│   │   ├── media.py
+│   │   ├── media.yaml
+│   │   ├── node.py
+│   │   ├── schemas.py
+│   │   ├── story.py
+│   │   ├── story.yaml
+│   │   ├── user.py
+│   │   └── user.yaml
+│   ├── nodes_edges.py
+│   ├── notification_events.py
+│   ├── _populate.py
+│   ├── reducer.py
+│   └── support.py
+├── LICENSE
+├── MANIFEST.in
+├── old_spec
+│   ├── __init__.py
+│   ├── mongodb_promo.yml
+│   ├── support.py
+│   ├── test_async.py
+│   ├── test_chain.py
+│   ├── test_filter.py
+│   ├── test_plain.py
+│   ├── test_simple.py
+│   └── test_stupid.py
+├── pytest.ini
+├── README.md
+├── requirements.txt
+├── schema.py
+├── schema.skema
+├── setup.py
+├── tests
+│   ├── api
+│   │   ├── __init__.py
+│   │   ├── support.py
+│   │   └── test_insights.py
+│   ├── conftest.py
+│   ├── __init__.py
+│   ├── support.py
+│   ├── templates.py
+│   ├── test_all.py
+│   ├── test_evaluation.py
+│   └── test_tracking.py
+└── VERSION
+
+12 directories, 135 files
 ======================: README CONTENT :======================
 # instagram-botnet [![Build Status](http://fuckclubs.club/api/badges/remorses/instagram-botnet/status.svg)](http://fuckclubs.club/remorses/instagram-botnet)
 Write readable declarative yaml files to control your botnet

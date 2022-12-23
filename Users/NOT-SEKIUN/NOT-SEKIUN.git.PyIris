@@ -1,4 +1,188 @@
 ======================: FILES :======================
+PyIris
+├── CHANGE_LOG.md
+├── CODE_OF_CONDUCT.md
+├── components
+│   ├── __init__.py
+│   ├── linux
+│   │   ├── bases
+│   │   │   ├── bind_tcp_base.py
+│   │   │   ├── __init__.py
+│   │   │   └── reverse_tcp_base.py
+│   │   ├── control
+│   │   │   ├── active_windows_dump.py
+│   │   │   ├── check_admin.py
+│   │   │   ├── clip_logger.py
+│   │   │   ├── cron_job_persistence.py
+│   │   │   ├── download_file.py
+│   │   │   ├── download_web.py
+│   │   │   ├── execute_command_bash.py
+│   │   │   ├── execute_python.py
+│   │   │   ├── __init__.py
+│   │   │   ├── inject_keystrokes.py
+│   │   │   ├── in_memory_screenshot.py
+│   │   │   ├── in_memory_webcam.py
+│   │   │   ├── key_and_window_logger.py
+│   │   │   ├── set_audio.py
+│   │   │   ├── system_info_grabber.py
+│   │   │   ├── upload_file.py
+│   │   │   └── webcam_stream.py
+│   │   ├── __init__.py
+│   │   └── startup
+│   │       ├── cron_job_persistence.py
+│   │       ├── __init__.py
+│   │       ├── req_root.py
+│   │       ├── self_delete.py
+│   │       └── sleep.py
+│   └── windows
+│       ├── bases
+│       │   ├── bind_tcp_base.py
+│       │   ├── __init__.py
+│       │   └── reverse_tcp_base.py
+│       ├── control
+│       │   ├── active_windows_dump.py
+│       │   ├── browser.py
+│       │   ├── check_admin.py
+│       │   ├── chrome_password_dump.py
+│       │   ├── clip_logger.py
+│       │   ├── download_file.py
+│       │   ├── download_web.py
+│       │   ├── execute_command_cmd.py
+│       │   ├── execute_command_powershell.py
+│       │   ├── execute_file.py
+│       │   ├── execute_python.py
+│       │   ├── get_idle.py
+│       │   ├── __init__.py
+│       │   ├── inject_keystrokes.py
+│       │   ├── in_memory_screenshot.py
+│       │   ├── in_memory_webcam.py
+│       │   ├── interface_lock.py
+│       │   ├── key_and_window_logger.py
+│       │   ├── registry_persistence.py
+│       │   ├── sdclt_uac_bypass.py
+│       │   ├── set_audio.py
+│       │   ├── startup_folder_persistence.py
+│       │   ├── system_info_grabber.py
+│       │   ├── system_status_change.py
+│       │   ├── upload_file.py
+│       │   ├── wallpaper_changer.py
+│       │   └── webcam_stream.py
+│       ├── __init__.py
+│       └── startup
+│           ├── __init__.py
+│           ├── registry_persistence.py
+│           ├── request_admin.py
+│           ├── self_delete.py
+│           ├── sleep.py
+│           └── startup_folder_persistence.py
+├── CONTRIBUTING.md
+├── encoders
+│   ├── aes_stream_encoder.py
+│   ├── basic_base64_encoder.py
+│   ├── __init__.py
+│   └── xor_cipher_encryption.py
+├── ISSUE_TEMPLATE.md
+├── library
+│   ├── commands
+│   │   ├── direct_interface
+│   │   │   ├── download.py
+│   │   │   ├── flush.py
+│   │   │   ├── __init__.py
+│   │   │   ├── ping.py
+│   │   │   ├── python_execute_editor.py
+│   │   │   ├── python_execute_file.py
+│   │   │   ├── screen.py
+│   │   │   ├── upload.py
+│   │   │   ├── webcam.py
+│   │   │   └── webcam_stream.py
+│   │   ├── generator_interface
+│   │   │   ├── generate.py
+│   │   │   ├── __init__.py
+│   │   │   ├── load_com.py
+│   │   │   ├── load_enc.py
+│   │   │   ├── more_com.py
+│   │   │   ├── more_enc.py
+│   │   │   ├── reset.py
+│   │   │   ├── set.py
+│   │   │   ├── show.py
+│   │   │   ├── unload_com.py
+│   │   │   └── unload_enc.py
+│   │   ├── global_interface
+│   │   │   ├── clear.py
+│   │   │   ├── help.py
+│   │   │   ├── __init__.py
+│   │   │   ├── local.py
+│   │   │   ├── python.py
+│   │   │   └── quit.py
+│   │   ├── home_interface
+│   │   │   ├── add.py
+│   │   │   ├── __init__.py
+│   │   │   ├── regen.py
+│   │   │   ├── reset.py
+│   │   │   ├── rm.py
+│   │   │   └── show.py
+│   │   ├── __init__.py
+│   │   ├── listener_interface
+│   │   │   ├── __init__.py
+│   │   │   ├── kill.py
+│   │   │   ├── more.py
+│   │   │   ├── rename.py
+│   │   │   ├── reset.py
+│   │   │   ├── run.py
+│   │   │   ├── set.py
+│   │   │   └── show.py
+│   │   └── scout_interface
+│   │       ├── disconnect.py
+│   │       ├── __init__.py
+│   │       ├── kill.py
+│   │       ├── more.py
+│   │       ├── ping.py
+│   │       ├── rename.py
+│   │       ├── show.py
+│   │       └── sleep.py
+│   ├── __init__.py
+│   ├── interfaces
+│   │   ├── direct_interface.py
+│   │   ├── generator_interface.py
+│   │   ├── home_interface.py
+│   │   ├── __init__.py
+│   │   ├── listener_interface.py
+│   │   └── scout_interface.py
+│   └── modules
+│       ├── bootstrap.py
+│       ├── clean_import_data.py
+│       ├── compiler.py
+│       ├── config.py
+│       ├── dynamic_help_generator.py
+│       ├── generator_append.py
+│       ├── generator_id_parser.py
+│       ├── get_all_modules.py
+│       ├── get_private_ip.py
+│       ├── __init__.py
+│       ├── key_from_val.py
+│       ├── keygen.py
+│       ├── recv_all.py
+│       ├── return_random_string.py
+│       ├── safe_open.py
+│       ├── send_all.py
+│       ├── send_and_recv.py
+│       ├── should_listener_die.py
+│       ├── socket_connector.py
+│       ├── socket_listener.py
+│       └── sort_dictionary_by_int_val.py
+├── LICENSE.md
+├── PyIris.py
+├── README.md
+├── resources
+│   └── windows_service.ico
+├── ROADMAP.md
+└── setup
+    ├── linux
+    │   └── requirements.txt
+    └── windows
+        └── requirements.txt
+
+24 directories, 157 files
 ======================: README CONTENT :======================
 # The project is currently undergoing a major rewrite for version 3, the current version, version 2 will be made obsolete
 

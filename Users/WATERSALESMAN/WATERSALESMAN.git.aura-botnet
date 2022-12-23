@@ -1,4 +1,108 @@
 ======================: FILES :======================
+aura-botnet
+├── alt-clients
+│   ├── bash-client.sh
+│   ├── powershell-client
+│   │   ├── launcher.vbs
+│   │   └── powershell-client.ps1
+│   └── rust
+│       ├── rust-linux
+│       │   ├── Cargo.lock
+│       │   ├── Cargo.toml
+│       │   └── src
+│       │       └── main.rs
+│       └── rust-windows
+│           ├── Cargo.lock
+│           ├── Cargo.toml
+│           └── src
+│               └── main.rs
+├── appveyor.yml
+├── aura-client
+│   ├── aura.cc
+│   ├── authfile.cc
+│   ├── authfile.hh
+│   ├── bot.cc
+│   ├── bot.hh
+│   ├── CMakeLists.txt
+│   ├── constants.hh
+│   ├── installer.cc
+│   ├── installer.hh
+│   ├── request.cc
+│   ├── request.hh
+│   ├── sysinfo.cc
+│   ├── sysinfo.hh
+│   ├── tests
+│   │   ├── CMakeLists.txt
+│   │   ├── helper.hh
+│   │   ├── tests-authfile.cc
+│   │   ├── tests-bot.cc
+│   │   ├── tests-installer.cc
+│   │   ├── tests-main.cc
+│   │   └── tests-request.cc
+│   ├── util.cc
+│   └── util.hh
+├── aura-server
+│   ├── aura
+│   │   ├── __init__.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── convey
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views
+│   │       ├── cmd.py
+│   │       ├── index.py
+│   │       ├── __init__.py
+│   │       ├── register.py
+│   │       └── utils.py
+│   ├── groups.json
+│   ├── manage.py
+│   └── runserver.sh
+├── _config.yml
+├── docker
+│   ├── Dockerfile
+│   └── README.md
+├── docs
+│   ├── bot-client.md
+│   └── c2-server.md
+├── killswitch
+│   ├── linux-kill.sh
+│   └── powershell-kill.ps1
+├── LICENSE
+├── README.md
+├── static
+│   ├── 404.html
+│   ├── 50x.html
+│   ├── index.html
+│   └── welcome
+│       ├── linux
+│       │   ├── bash
+│       │   │   └── index.html
+│       │   ├── cpp
+│       │   │   └── index.html
+│       │   └── rust
+│       │       └── index.html
+│       └── windows
+│           ├── cpp
+│           │   └── index.html
+│           ├── powershell
+│           │   └── index.html
+│           └── rust
+│               └── index.html
+└── systemd
+    ├── d-bus.service
+    ├── d-bus.timer
+    └── root.d-bus.service
+
+28 directories, 73 files
 ======================: README CONTENT :======================
 # Aura Botnet
 

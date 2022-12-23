@@ -1,4 +1,558 @@
 ======================: FILES :======================
+PowerLoader
+├── panel
+│   ├── act
+│   │   ├── cron.php
+│   │   ├── files.php
+│   │   ├── settings.php
+│   │   ├── stats.php
+│   │   ├── tasksajax.php
+│   │   └── tasks.php
+│   ├── common.php
+│   ├── data.php
+│   ├── favicon.ico
+│   ├── geo
+│   │   ├── GeoIPCity.dat
+│   │   ├── geoipcity.inc
+│   │   ├── geoip.inc
+│   │   ├── geoipregionvars.php
+│   │   └── index.html
+│   ├── img
+│   │   ├── ajax.js
+│   │   ├── c
+│   │   │   ├── ad.gif
+│   │   │   ├── ae.gif
+│   │   │   ├── af.gif
+│   │   │   ├── ag.gif
+│   │   │   ├── ai.gif
+│   │   │   ├── al.gif
+│   │   │   ├── am.gif
+│   │   │   ├── an.gif
+│   │   │   ├── ao.gif
+│   │   │   ├── ar.gif
+│   │   │   ├── as.gif
+│   │   │   ├── at.gif
+│   │   │   ├── au.gif
+│   │   │   ├── aw.gif
+│   │   │   ├── ax.gif
+│   │   │   ├── az.gif
+│   │   │   ├── ba.gif
+│   │   │   ├── bb.gif
+│   │   │   ├── bd.gif
+│   │   │   ├── be.gif
+│   │   │   ├── bf.gif
+│   │   │   ├── bg.gif
+│   │   │   ├── bh.gif
+│   │   │   ├── bi.gif
+│   │   │   ├── bj.gif
+│   │   │   ├── bm.gif
+│   │   │   ├── bn.gif
+│   │   │   ├── bo.gif
+│   │   │   ├── br.gif
+│   │   │   ├── bs.gif
+│   │   │   ├── bt.gif
+│   │   │   ├── bv.gif
+│   │   │   ├── bw.gif
+│   │   │   ├── by.gif
+│   │   │   ├── bz.gif
+│   │   │   ├── ca.gif
+│   │   │   ├── catalonia.gif
+│   │   │   ├── cc.gif
+│   │   │   ├── cd.gif
+│   │   │   ├── cf.gif
+│   │   │   ├── cg.gif
+│   │   │   ├── ch.gif
+│   │   │   ├── ci.gif
+│   │   │   ├── ck.gif
+│   │   │   ├── cl.gif
+│   │   │   ├── cm.gif
+│   │   │   ├── cn.gif
+│   │   │   ├── co.gif
+│   │   │   ├── cr.gif
+│   │   │   ├── cs.gif
+│   │   │   ├── cu.gif
+│   │   │   ├── cv.gif
+│   │   │   ├── cx.gif
+│   │   │   ├── cy.gif
+│   │   │   ├── cz.gif
+│   │   │   ├── de.gif
+│   │   │   ├── dj.gif
+│   │   │   ├── dk.gif
+│   │   │   ├── dm.gif
+│   │   │   ├── do.gif
+│   │   │   ├── dz.gif
+│   │   │   ├── ec.gif
+│   │   │   ├── ee.gif
+│   │   │   ├── eg.gif
+│   │   │   ├── eh.gif
+│   │   │   ├── england.gif
+│   │   │   ├── er.gif
+│   │   │   ├── es.gif
+│   │   │   ├── et.gif
+│   │   │   ├── europeanunion.gif
+│   │   │   ├── fam.gif
+│   │   │   ├── fi.gif
+│   │   │   ├── fj.gif
+│   │   │   ├── fk.gif
+│   │   │   ├── fm.gif
+│   │   │   ├── fo.gif
+│   │   │   ├── fr.gif
+│   │   │   ├── ga.gif
+│   │   │   ├── gb.gif
+│   │   │   ├── gd.gif
+│   │   │   ├── ge.gif
+│   │   │   ├── gf.gif
+│   │   │   ├── gh.gif
+│   │   │   ├── gi.gif
+│   │   │   ├── gl.gif
+│   │   │   ├── gm.gif
+│   │   │   ├── gn.gif
+│   │   │   ├── gp.gif
+│   │   │   ├── gq.gif
+│   │   │   ├── gr.gif
+│   │   │   ├── gs.gif
+│   │   │   ├── gt.gif
+│   │   │   ├── gu.gif
+│   │   │   ├── gw.gif
+│   │   │   ├── gy.gif
+│   │   │   ├── hk.gif
+│   │   │   ├── hm.gif
+│   │   │   ├── hn.gif
+│   │   │   ├── hr.gif
+│   │   │   ├── ht.gif
+│   │   │   ├── hu.gif
+│   │   │   ├── id.gif
+│   │   │   ├── ie.gif
+│   │   │   ├── il.gif
+│   │   │   ├── in.gif
+│   │   │   ├── io.gif
+│   │   │   ├── iq.gif
+│   │   │   ├── ir.gif
+│   │   │   ├── is.gif
+│   │   │   ├── it.gif
+│   │   │   ├── jm.gif
+│   │   │   ├── jo.gif
+│   │   │   ├── jp.gif
+│   │   │   ├── ke.gif
+│   │   │   ├── kg.gif
+│   │   │   ├── kh.gif
+│   │   │   ├── ki.gif
+│   │   │   ├── km.gif
+│   │   │   ├── kn.gif
+│   │   │   ├── kp.gif
+│   │   │   ├── kr.gif
+│   │   │   ├── kw.gif
+│   │   │   ├── ky.gif
+│   │   │   ├── kz.gif
+│   │   │   ├── la.gif
+│   │   │   ├── lb.gif
+│   │   │   ├── lc.gif
+│   │   │   ├── li.gif
+│   │   │   ├── lk.gif
+│   │   │   ├── lr.gif
+│   │   │   ├── ls.gif
+│   │   │   ├── lt.gif
+│   │   │   ├── lu.gif
+│   │   │   ├── lv.gif
+│   │   │   ├── ly.gif
+│   │   │   ├── ma.gif
+│   │   │   ├── mc.gif
+│   │   │   ├── md.gif
+│   │   │   ├── me.gif
+│   │   │   ├── mg.gif
+│   │   │   ├── mh.gif
+│   │   │   ├── mix.gif
+│   │   │   ├── mk.gif
+│   │   │   ├── ml.gif
+│   │   │   ├── mm.gif
+│   │   │   ├── mn.gif
+│   │   │   ├── mo.gif
+│   │   │   ├── mp.gif
+│   │   │   ├── mq.gif
+│   │   │   ├── mr.gif
+│   │   │   ├── ms.gif
+│   │   │   ├── mt.gif
+│   │   │   ├── mu.gif
+│   │   │   ├── mv.gif
+│   │   │   ├── mw.gif
+│   │   │   ├── mx.gif
+│   │   │   ├── my.gif
+│   │   │   ├── mz.gif
+│   │   │   ├── na.gif
+│   │   │   ├── nc.gif
+│   │   │   ├── ne.gif
+│   │   │   ├── nf.gif
+│   │   │   ├── ng.gif
+│   │   │   ├── ni.gif
+│   │   │   ├── nl.gif
+│   │   │   ├── no.gif
+│   │   │   ├── np.gif
+│   │   │   ├── nr.gif
+│   │   │   ├── nu.gif
+│   │   │   ├── nz.gif
+│   │   │   ├── om.gif
+│   │   │   ├── pa.gif
+│   │   │   ├── pe.gif
+│   │   │   ├── pf.gif
+│   │   │   ├── pg.gif
+│   │   │   ├── ph.gif
+│   │   │   ├── pk.gif
+│   │   │   ├── pl.gif
+│   │   │   ├── pm.gif
+│   │   │   ├── pn.gif
+│   │   │   ├── pr.gif
+│   │   │   ├── ps.gif
+│   │   │   ├── pt.gif
+│   │   │   ├── pw.gif
+│   │   │   ├── py.gif
+│   │   │   ├── qa.gif
+│   │   │   ├── re.gif
+│   │   │   ├── ro.gif
+│   │   │   ├── rs.gif
+│   │   │   ├── ru.gif
+│   │   │   ├── rw.gif
+│   │   │   ├── sa.gif
+│   │   │   ├── sb.gif
+│   │   │   ├── sc.gif
+│   │   │   ├── scotland.gif
+│   │   │   ├── sd.gif
+│   │   │   ├── se.gif
+│   │   │   ├── sg.gif
+│   │   │   ├── sh.gif
+│   │   │   ├── si.gif
+│   │   │   ├── sj.gif
+│   │   │   ├── sk.gif
+│   │   │   ├── sl.gif
+│   │   │   ├── sm.gif
+│   │   │   ├── sn.gif
+│   │   │   ├── so.gif
+│   │   │   ├── sr.gif
+│   │   │   ├── st.gif
+│   │   │   ├── sv.gif
+│   │   │   ├── sy.gif
+│   │   │   ├── sz.gif
+│   │   │   ├── tc.gif
+│   │   │   ├── td.gif
+│   │   │   ├── tf.gif
+│   │   │   ├── tg.gif
+│   │   │   ├── th.gif
+│   │   │   ├── tj.gif
+│   │   │   ├── tk.gif
+│   │   │   ├── tl.gif
+│   │   │   ├── tm.gif
+│   │   │   ├── tn.gif
+│   │   │   ├── to.gif
+│   │   │   ├── tr.gif
+│   │   │   ├── tt.gif
+│   │   │   ├── tv.gif
+│   │   │   ├── tw.gif
+│   │   │   ├── tz.gif
+│   │   │   ├── ua.gif
+│   │   │   ├── ug.gif
+│   │   │   ├── um.gif
+│   │   │   ├── unknown.gif
+│   │   │   ├── us.gif
+│   │   │   ├── uy.gif
+│   │   │   ├── uz.gif
+│   │   │   ├── va.gif
+│   │   │   ├── vc.gif
+│   │   │   ├── ve.gif
+│   │   │   ├── vg.gif
+│   │   │   ├── vi.gif
+│   │   │   ├── vn.gif
+│   │   │   ├── vu.gif
+│   │   │   ├── wales.gif
+│   │   │   ├── wf.gif
+│   │   │   ├── ws.gif
+│   │   │   ├── ye.gif
+│   │   │   ├── yt.gif
+│   │   │   ├── za.gif
+│   │   │   ├── zm.gif
+│   │   │   └── zw.gif
+│   │   ├── footer.tpl
+│   │   ├── general.css
+│   │   ├── header.tpl
+│   │   ├── jquery-1.2.3.pack.js
+│   │   ├── table_light_bg.gif
+│   │   ├── tasks.js
+│   │   └── top_bg.gif
+│   ├── index.php
+│   └── install.php
+├── README.md
+└── src
+    ├── binhex
+    │   ├── Debug
+    │   │   ├── sdropper32-hex.h
+    │   │   └── sdropper64-hex.h
+    │   └── Release
+    │       ├── sdropper32-hex.h
+    │       └── sdropper64-hex.h
+    ├── builder
+    │   ├── builder.cpp
+    │   └── vcxproj
+    │       ├── builder.aps
+    │       ├── builder.rc
+    │       ├── builder.vcxproj
+    │       ├── builder.vcxproj.filters
+    │       ├── builder.vcxproj.user
+    │       ├── Debug
+    │       │   ├── builder_Debug.Build.CppClean.log
+    │       │   ├── builder.lastbuildstate
+    │       │   ├── builder.log
+    │       │   ├── builder.obj
+    │       │   ├── builder.res
+    │       │   ├── CL.2396.read.1.tlog
+    │       │   ├── CL.2396.write.1.tlog
+    │       │   ├── CL.2884.read.1.tlog
+    │       │   ├── CL.2884.write.1.tlog
+    │       │   ├── CL.4652.read.1.tlog
+    │       │   ├── CL.4652.write.1.tlog
+    │       │   ├── CL.5012.read.1.tlog
+    │       │   ├── CL.5012.write.1.tlog
+    │       │   ├── cl.command.1.tlog
+    │       │   ├── CL.read.1.tlog
+    │       │   ├── cl.write.1.tlog
+    │       │   ├── link.command.1.tlog
+    │       │   ├── link-cvtres.read.1.tlog
+    │       │   ├── link-cvtres.write.1.tlog
+    │       │   ├── link.read.1.tlog
+    │       │   ├── link.write.1.tlog
+    │       │   ├── peldr.obj
+    │       │   ├── rc.command.1.tlog
+    │       │   ├── rc.read.1.tlog
+    │       │   ├── rc.write.1.tlog
+    │       │   ├── seccfg.obj
+    │       │   ├── utils.obj
+    │       │   └── vc100.pdb
+    │       ├── icon1.ico
+    │       ├── Release
+    │       │   ├── builder.lastbuildstate
+    │       │   ├── builder.log
+    │       │   ├── builder.obj
+    │       │   ├── builder_Release.Build.CppClean.log
+    │       │   ├── builder.res
+    │       │   ├── CL.2716.read.1.tlog
+    │       │   ├── CL.2716.write.1.tlog
+    │       │   ├── CL.3052.read.1.tlog
+    │       │   ├── CL.3052.write.1.tlog
+    │       │   ├── CL.4484.read.1.tlog
+    │       │   ├── CL.4484.write.1.tlog
+    │       │   ├── CL.5560.read.1.tlog
+    │       │   ├── CL.5560.write.1.tlog
+    │       │   ├── cl.command.1.tlog
+    │       │   ├── CL.read.1.tlog
+    │       │   ├── cl.write.1.tlog
+    │       │   ├── link.command.1.tlog
+    │       │   ├── link-cvtres.read.1.tlog
+    │       │   ├── link-cvtres.write.1.tlog
+    │       │   ├── link.read.1.tlog
+    │       │   ├── link.write.1.tlog
+    │       │   ├── peldr.obj
+    │       │   ├── rc.command.1.tlog
+    │       │   ├── rc.read.1.tlog
+    │       │   ├── rc.write.1.tlog
+    │       │   ├── seccfg.obj
+    │       │   ├── utils.obj
+    │       │   └── vc100.pdb
+    │       └── resource.h
+    ├── _out
+    │   └── builder_Release.exe
+    ├── sdropper
+    │   ├── config.cpp
+    │   ├── config.h
+    │   ├── dropper.cpp
+    │   ├── dropper.h
+    │   ├── protect.cpp
+    │   ├── protect.h
+    │   ├── server.cpp
+    │   ├── server.h
+    │   ├── vcxproj32
+    │   │   ├── Debug
+    │   │   │   ├── cfgini.obj
+    │   │   │   ├── CL.1336.read.1.tlog
+    │   │   │   ├── CL.1336.write.1.tlog
+    │   │   │   ├── CL.1392.read.1.tlog
+    │   │   │   ├── CL.1392.write.1.tlog
+    │   │   │   ├── CL.3692.read.1.tlog
+    │   │   │   ├── CL.3692.write.1.tlog
+    │   │   │   ├── CL.4524.read.1.tlog
+    │   │   │   ├── CL.4524.write.1.tlog
+    │   │   │   ├── CL.6008.read.1.tlog
+    │   │   │   ├── CL.6008.write.1.tlog
+    │   │   │   ├── CL.6012.read.1.tlog
+    │   │   │   ├── CL.6012.write.1.tlog
+    │   │   │   ├── CL.696.read.1.tlog
+    │   │   │   ├── CL.696.write.1.tlog
+    │   │   │   ├── CL.876.read.1.tlog
+    │   │   │   ├── CL.876.write.1.tlog
+    │   │   │   ├── cl.command.1.tlog
+    │   │   │   ├── CL.read.1.tlog
+    │   │   │   ├── cl.write.1.tlog
+    │   │   │   ├── config.obj
+    │   │   │   ├── dropper.obj
+    │   │   │   ├── exploit.obj
+    │   │   │   ├── inject.obj
+    │   │   │   ├── link.command.1.tlog
+    │   │   │   ├── link.read.1.tlog
+    │   │   │   ├── link.write.1.tlog
+    │   │   │   ├── peldr.obj
+    │   │   │   ├── protect.obj
+    │   │   │   ├── sdropper32.Build.CppClean.log
+    │   │   │   ├── sdropper32.lastbuildstate
+    │   │   │   ├── sdropper32.log
+    │   │   │   ├── sdropper32.write.1.tlog
+    │   │   │   ├── seccfg.obj
+    │   │   │   ├── server.obj
+    │   │   │   ├── utils.obj
+    │   │   │   ├── vc100.pdb
+    │   │   │   └── x64utils.obj
+    │   │   ├── Release
+    │   │   │   ├── cfgini.obj
+    │   │   │   ├── CL.1860.read.1.tlog
+    │   │   │   ├── CL.1860.write.1.tlog
+    │   │   │   ├── CL.2068.read.1.tlog
+    │   │   │   ├── CL.2068.write.1.tlog
+    │   │   │   ├── CL.4308.read.1.tlog
+    │   │   │   ├── CL.4308.write.1.tlog
+    │   │   │   ├── CL.4412.read.1.tlog
+    │   │   │   ├── CL.4412.write.1.tlog
+    │   │   │   ├── CL.4716.read.1.tlog
+    │   │   │   ├── CL.4716.write.1.tlog
+    │   │   │   ├── CL.4748.read.1.tlog
+    │   │   │   ├── CL.4748.write.1.tlog
+    │   │   │   ├── CL.5724.read.1.tlog
+    │   │   │   ├── CL.5724.write.1.tlog
+    │   │   │   ├── CL.5796.read.1.tlog
+    │   │   │   ├── CL.5796.write.1.tlog
+    │   │   │   ├── cl.command.1.tlog
+    │   │   │   ├── CL.read.1.tlog
+    │   │   │   ├── cl.write.1.tlog
+    │   │   │   ├── config.obj
+    │   │   │   ├── dropper.obj
+    │   │   │   ├── inject.obj
+    │   │   │   ├── link.command.1.tlog
+    │   │   │   ├── link.read.1.tlog
+    │   │   │   ├── link.write.1.tlog
+    │   │   │   ├── peldr.obj
+    │   │   │   ├── protect.obj
+    │   │   │   ├── sdropper32.Build.CppClean.log
+    │   │   │   ├── sdropper32.lastbuildstate
+    │   │   │   ├── sdropper32.log
+    │   │   │   ├── sdropper32.write.1.tlog
+    │   │   │   ├── seccfg.obj
+    │   │   │   ├── server.obj
+    │   │   │   ├── utils.obj
+    │   │   │   ├── vc100.pdb
+    │   │   │   └── x64utils.obj
+    │   │   ├── sdropper32.vcxproj
+    │   │   ├── sdropper32.vcxproj.filters
+    │   │   └── sdropper32.vcxproj.user
+    │   └── vcxproj64
+    │       ├── Debug
+    │       │   ├── cfgini.obj
+    │       │   ├── CL.1176.read.1.tlog
+    │       │   ├── CL.1176.write.1.tlog
+    │       │   ├── CL.2396.read.1.tlog
+    │       │   ├── CL.2396.write.1.tlog
+    │       │   ├── CL.3720.read.1.tlog
+    │       │   ├── CL.3720.write.1.tlog
+    │       │   ├── CL.4680.read.1.tlog
+    │       │   ├── CL.4680.write.1.tlog
+    │       │   ├── CL.5012.read.1.tlog
+    │       │   ├── CL.5012.write.1.tlog
+    │       │   ├── CL.5252.read.1.tlog
+    │       │   ├── CL.5252.write.1.tlog
+    │       │   ├── CL.6020.read.1.tlog
+    │       │   ├── CL.6020.write.1.tlog
+    │       │   ├── CL.824.read.1.tlog
+    │       │   ├── CL.824.write.1.tlog
+    │       │   ├── cl.command.1.tlog
+    │       │   ├── CL.read.1.tlog
+    │       │   ├── cl.write.1.tlog
+    │       │   ├── config.obj
+    │       │   ├── dropper.obj
+    │       │   ├── exploit.obj
+    │       │   ├── inject.obj
+    │       │   ├── link.command.1.tlog
+    │       │   ├── link.read.1.tlog
+    │       │   ├── link.write.1.tlog
+    │       │   ├── peldr.obj
+    │       │   ├── protect.obj
+    │       │   ├── sdropper64.Build.CppClean.log
+    │       │   ├── sdropper64.lastbuildstate
+    │       │   ├── sdropper64.log
+    │       │   ├── sdropper64.write.1.tlog
+    │       │   ├── seccfg.obj
+    │       │   ├── server.obj
+    │       │   ├── utils.obj
+    │       │   └── vc100.pdb
+    │       ├── Release
+    │       │   ├── cfgini.obj
+    │       │   ├── CL.1400.read.1.tlog
+    │       │   ├── CL.1400.write.1.tlog
+    │       │   ├── CL.3840.read.1.tlog
+    │       │   ├── CL.3840.write.1.tlog
+    │       │   ├── CL.4204.read.1.tlog
+    │       │   ├── CL.4204.write.1.tlog
+    │       │   ├── CL.4920.read.1.tlog
+    │       │   ├── CL.4920.write.1.tlog
+    │       │   ├── CL.5072.read.1.tlog
+    │       │   ├── CL.5072.write.1.tlog
+    │       │   ├── CL.5164.read.1.tlog
+    │       │   ├── CL.5164.write.1.tlog
+    │       │   ├── CL.5264.read.1.tlog
+    │       │   ├── CL.5264.write.1.tlog
+    │       │   ├── CL.5744.read.1.tlog
+    │       │   ├── CL.5744.write.1.tlog
+    │       │   ├── cl.command.1.tlog
+    │       │   ├── CL.read.1.tlog
+    │       │   ├── cl.write.1.tlog
+    │       │   ├── config.obj
+    │       │   ├── dropper.obj
+    │       │   ├── inject.obj
+    │       │   ├── link.command.1.tlog
+    │       │   ├── link.read.1.tlog
+    │       │   ├── link.write.1.tlog
+    │       │   ├── peldr.obj
+    │       │   ├── protect.obj
+    │       │   ├── sdropper64.Build.CppClean.log
+    │       │   ├── sdropper64.lastbuildstate
+    │       │   ├── sdropper64.log
+    │       │   ├── sdropper64.write.1.tlog
+    │       │   ├── seccfg.obj
+    │       │   ├── server.obj
+    │       │   ├── utils.obj
+    │       │   └── vc100.pdb
+    │       ├── sdropper64.vcxproj
+    │       ├── sdropper64.vcxproj.filters
+    │       └── sdropper64.vcxproj.user
+    ├── share
+    │   ├── cfgini.cpp
+    │   ├── cfgini.h
+    │   ├── hde32
+    │   │   ├── hde32.cpp
+    │   │   ├── hde32.h
+    │   │   └── table32.h
+    │   ├── hde64
+    │   │   ├── hde64.cpp
+    │   │   ├── hde64.h
+    │   │   └── table64.h
+    │   ├── ntdll32.lib
+    │   ├── ntdll64.lib
+    │   ├── ntdll.h
+    │   ├── os_structs.h
+    │   ├── peldr.cpp
+    │   ├── peldr.h
+    │   ├── seccfg.cpp
+    │   ├── seccfg.h
+    │   └── stdint.h
+    ├── tools
+    │   └── bin2hex.exe
+    └── _vcxproj
+        ├── sdropper.sln
+        └── sdropper.suo
+
+26 directories, 525 files
 ======================: README CONTENT :======================
 # PowerLoader
 Power Loader botnet

@@ -1,4 +1,496 @@
 ======================: FILES :======================
+volatility
+├── AUTHORS.txt
+├── CHANGELOG.txt
+├── contrib
+│   ├── __init__.py
+│   ├── library_example
+│   │   ├── libapi.py
+│   │   └── pslist_json.py
+│   └── plugins
+│       ├── aspaces
+│       │   └── README.md
+│       ├── disablewarnings.py
+│       ├── example.py
+│       ├── __init__.py
+│       ├── malware
+│       │   └── README.md
+│       └── README.md
+├── CREDITS.txt
+├── LEGAL.txt
+├── LICENSE.txt
+├── Makefile
+├── MANIFEST.in
+├── PKG-INFO
+├── pyinstaller
+│   ├── hook-distorm3.py
+│   ├── hook-openpyxl.py
+│   ├── hook-volatility.py
+│   └── hook-yara.py
+├── pyinstaller.spec
+├── README.txt
+├── resources
+│   ├── volatility.ico
+│   └── volatility.svg
+├── setup.py
+├── tools
+│   ├── doxygen
+│   │   ├── config
+│   │   ├── d3
+│   │   │   ├── createtree.py
+│   │   │   └── tree.html
+│   │   └── vol.png
+│   ├── linux
+│   │   ├── kcore
+│   │   │   ├── elf.h
+│   │   │   ├── getkcore.c
+│   │   │   ├── getkcore.h
+│   │   │   └── Makefile
+│   │   ├── Makefile
+│   │   ├── Makefile.enterprise
+│   │   └── module.c
+│   ├── mac
+│   │   ├── convert.py
+│   │   ├── generate_profile_list.py
+│   │   ├── mac_create_all_profiles.py
+│   │   └── parse_pbzx2.py
+│   ├── vtype_diff.py
+│   └── windows
+│       └── parsesummary.py
+├── volatility
+│   ├── addrspace.py
+│   ├── cache.py
+│   ├── commands.py
+│   ├── conf.py
+│   ├── constants.py
+│   ├── debug.py
+│   ├── dwarf.py
+│   ├── exceptions.py
+│   ├── fmtspec.py
+│   ├── __init__.py
+│   ├── obj.py
+│   ├── plugins
+│   │   ├── addrspaces
+│   │   │   ├── amd64.py
+│   │   │   ├── arm.py
+│   │   │   ├── crashbmp.py
+│   │   │   ├── crash.py
+│   │   │   ├── elfcoredump.py
+│   │   │   ├── hibernate.py
+│   │   │   ├── hpak.py
+│   │   │   ├── ieee1394.py
+│   │   │   ├── __init__.py
+│   │   │   ├── intel.py
+│   │   │   ├── lime.py
+│   │   │   ├── macho.py
+│   │   │   ├── osxpmemelf.py
+│   │   │   ├── paged.py
+│   │   │   ├── standard.py
+│   │   │   ├── vmem.py
+│   │   │   └── vmware.py
+│   │   ├── bigpagepools.py
+│   │   ├── bioskbd.py
+│   │   ├── cmdline.py
+│   │   ├── common.py
+│   │   ├── connections.py
+│   │   ├── connscan.py
+│   │   ├── crashinfo.py
+│   │   ├── dlldump.py
+│   │   ├── drivermodule.py
+│   │   ├── dumpcerts.py
+│   │   ├── dumpfiles.py
+│   │   ├── envars.py
+│   │   ├── evtlogs.py
+│   │   ├── fileparam.py
+│   │   ├── filescan.py
+│   │   ├── getservicesids.py
+│   │   ├── getsids.py
+│   │   ├── gui
+│   │   │   ├── atoms.py
+│   │   │   ├── clipboard.py
+│   │   │   ├── constants.py
+│   │   │   ├── desktops.py
+│   │   │   ├── editbox.py
+│   │   │   ├── eventhooks.py
+│   │   │   ├── gahti.py
+│   │   │   ├── gditimers.py
+│   │   │   ├── __init__.py
+│   │   │   ├── messagehooks.py
+│   │   │   ├── screenshot.py
+│   │   │   ├── sessions.py
+│   │   │   ├── userhandles.py
+│   │   │   ├── vtypes
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── vista.py
+│   │   │   │   ├── win10.py
+│   │   │   │   ├── win2003.py
+│   │   │   │   ├── win7.py
+│   │   │   │   ├── win7_sp0_x64_vtypes_gui.py
+│   │   │   │   ├── win7_sp0_x86_vtypes_gui.py
+│   │   │   │   ├── win7_sp1_x64_vtypes_gui.py
+│   │   │   │   ├── win7_sp1_x86_vtypes_gui.py
+│   │   │   │   ├── win8.py
+│   │   │   │   └── xp.py
+│   │   │   ├── win32k_core.py
+│   │   │   ├── windows.py
+│   │   │   └── windowstations.py
+│   │   ├── handles.py
+│   │   ├── heaps.py
+│   │   ├── hibinfo.py
+│   │   ├── hpakinfo.py
+│   │   ├── iehistory.py
+│   │   ├── imagecopy.py
+│   │   ├── imageinfo.py
+│   │   ├── __init__.py
+│   │   ├── joblinks.py
+│   │   ├── kdbgscan.py
+│   │   ├── kpcrscan.py
+│   │   ├── linux
+│   │   │   ├── apihooks.py
+│   │   │   ├── arp.py
+│   │   │   ├── aslr_shift.py
+│   │   │   ├── banner.py
+│   │   │   ├── bash_hash.py
+│   │   │   ├── bash.py
+│   │   │   ├── check_afinfo.py
+│   │   │   ├── check_creds.py
+│   │   │   ├── check_evt_arm.py
+│   │   │   ├── check_fops.py
+│   │   │   ├── check_idt.py
+│   │   │   ├── check_inline_kernel.py
+│   │   │   ├── check_modules.py
+│   │   │   ├── check_syscall_arm.py
+│   │   │   ├── check_syscall.py
+│   │   │   ├── common.py
+│   │   │   ├── cpuinfo.py
+│   │   │   ├── dentry_cache.py
+│   │   │   ├── dmesg.py
+│   │   │   ├── dump_map.py
+│   │   │   ├── elfs.py
+│   │   │   ├── enumerate_files.py
+│   │   │   ├── find_file.py
+│   │   │   ├── flags.py
+│   │   │   ├── getcwd.py
+│   │   │   ├── hidden_modules.py
+│   │   │   ├── ifconfig.py
+│   │   │   ├── info_regs.py
+│   │   │   ├── __init__.py
+│   │   │   ├── iomem.py
+│   │   │   ├── kernel_opened_files.py
+│   │   │   ├── keyboard_notifiers.py
+│   │   │   ├── ld_env.py
+│   │   │   ├── ldrmodules.py
+│   │   │   ├── libc_env.py
+│   │   │   ├── librarydump.py
+│   │   │   ├── library_list.py
+│   │   │   ├── lime.py
+│   │   │   ├── linux_strings.py
+│   │   │   ├── linux_truecrypt.py
+│   │   │   ├── linux_volshell.py
+│   │   │   ├── linux_yarascan.py
+│   │   │   ├── list_raw.py
+│   │   │   ├── lsmod.py
+│   │   │   ├── lsof.py
+│   │   │   ├── malfind.py
+│   │   │   ├── mount_cache.py
+│   │   │   ├── mount.py
+│   │   │   ├── netfilter.py
+│   │   │   ├── netscan.py
+│   │   │   ├── netstat.py
+│   │   │   ├── pidhashtable.py
+│   │   │   ├── pkt_queues.py
+│   │   │   ├── plthook.py
+│   │   │   ├── procdump.py
+│   │   │   ├── process_hollow.py
+│   │   │   ├── process_info.py
+│   │   │   ├── process_stack.py
+│   │   │   ├── proc_maps.py
+│   │   │   ├── proc_maps_rb.py
+│   │   │   ├── psaux.py
+│   │   │   ├── psenv.py
+│   │   │   ├── pslist_cache.py
+│   │   │   ├── pslist.py
+│   │   │   ├── psscan.py
+│   │   │   ├── pstree.py
+│   │   │   ├── psxview.py
+│   │   │   ├── recover_filesystem.py
+│   │   │   ├── route_cache.py
+│   │   │   ├── sk_buff_cache.py
+│   │   │   ├── slab_info.py
+│   │   │   ├── threads.py
+│   │   │   ├── tmpfs.py
+│   │   │   ├── tty_check.py
+│   │   │   └── vma_cache.py
+│   │   ├── mac
+│   │   │   ├── adiummsgs.py
+│   │   │   ├── apihooks_kernel.py
+│   │   │   ├── apihooks.py
+│   │   │   ├── arp.py
+│   │   │   ├── bash_env.py
+│   │   │   ├── bash_hash.py
+│   │   │   ├── bash.py
+│   │   │   ├── calendar.py
+│   │   │   ├── check_fop.py
+│   │   │   ├── check_mig_table.py
+│   │   │   ├── check_syscall_shadow.py
+│   │   │   ├── check_syscall_table.py
+│   │   │   ├── check_sysctl.py
+│   │   │   ├── check_trap_table.py
+│   │   │   ├── classes.py
+│   │   │   ├── common.py
+│   │   │   ├── compressed_swap.py
+│   │   │   ├── contacts.py
+│   │   │   ├── dead_procs.py
+│   │   │   ├── dead_sockets.py
+│   │   │   ├── dead_vnodes.py
+│   │   │   ├── devfs.py
+│   │   │   ├── dlyd_maps.py
+│   │   │   ├── dmesg.py
+│   │   │   ├── dump_files.py
+│   │   │   ├── dump_map.py
+│   │   │   ├── find_aslr_shift.py
+│   │   │   ├── get_profile.py
+│   │   │   ├── gkextmap.py
+│   │   │   ├── ifconfig.py
+│   │   │   ├── __init__.py
+│   │   │   ├── interest_handlers.py
+│   │   │   ├── ip_filters.py
+│   │   │   ├── kevents.py
+│   │   │   ├── keychaindump.py
+│   │   │   ├── ldrmodules.py
+│   │   │   ├── librarydump.py
+│   │   │   ├── list_files.py
+│   │   │   ├── list_kauth_listeners.py
+│   │   │   ├── list_kauth_scopes.py
+│   │   │   ├── list_raw.py
+│   │   │   ├── list_zones.py
+│   │   │   ├── lsmod_iokit.py
+│   │   │   ├── lsmod.py
+│   │   │   ├── lsof.py
+│   │   │   ├── machine_info.py
+│   │   │   ├── mac_strings.py
+│   │   │   ├── mac_volshell.py
+│   │   │   ├── mac_yarascan.py
+│   │   │   ├── malfind.py
+│   │   │   ├── memdump.py
+│   │   │   ├── moddump.py
+│   │   │   ├── mount.py
+│   │   │   ├── netconns.py
+│   │   │   ├── netstat.py
+│   │   │   ├── notesapp.py
+│   │   │   ├── notifiers.py
+│   │   │   ├── orphan_threads.py
+│   │   │   ├── pgrp_hash_table.py
+│   │   │   ├── pid_hash_table.py
+│   │   │   ├── print_boot_cmdline.py
+│   │   │   ├── procdump.py
+│   │   │   ├── proc_maps.py
+│   │   │   ├── psaux.py
+│   │   │   ├── psenv.py
+│   │   │   ├── pslist.py
+│   │   │   ├── pstasks.py
+│   │   │   ├── pstree.py
+│   │   │   ├── psxview.py
+│   │   │   ├── recover_filesystem.py
+│   │   │   ├── route.py
+│   │   │   ├── session_hash_table.py
+│   │   │   ├── socket_filters.py
+│   │   │   ├── threads.py
+│   │   │   ├── threads_simple.py
+│   │   │   ├── timers.py
+│   │   │   ├── trustedbsd.py
+│   │   │   ├── version.py
+│   │   │   ├── vfsevents.py
+│   │   │   └── WKdm.py
+│   │   ├── machoinfo.py
+│   │   ├── malware
+│   │   │   ├── apihooks.py
+│   │   │   ├── callbacks.py
+│   │   │   ├── cmdhistory.py
+│   │   │   ├── devicetree.py
+│   │   │   ├── idt.py
+│   │   │   ├── impscan.py
+│   │   │   ├── __init__.py
+│   │   │   ├── malfind.py
+│   │   │   ├── psxview.py
+│   │   │   ├── servicediff.py
+│   │   │   ├── svcscan.py
+│   │   │   ├── threads.py
+│   │   │   └── timers.py
+│   │   ├── mbrparser.py
+│   │   ├── mftparser.py
+│   │   ├── moddump.py
+│   │   ├── modscan.py
+│   │   ├── modules.py
+│   │   ├── multiscan.py
+│   │   ├── netscan.py
+│   │   ├── notepad.py
+│   │   ├── objtypescan.py
+│   │   ├── overlays
+│   │   │   ├── basic.py
+│   │   │   ├── __init__.py
+│   │   │   ├── linux
+│   │   │   │   ├── elf.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── linux.py
+│   │   │   ├── mac
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── macho.py
+│   │   │   │   └── mac.py
+│   │   │   ├── native_types.py
+│   │   │   └── windows
+│   │   │       ├── crash_vtypes.py
+│   │   │       ├── hibernate_vtypes.py
+│   │   │       ├── __init__.py
+│   │   │       ├── kdbg_vtypes.py
+│   │   │       ├── kpcr_vtypes.py
+│   │   │       ├── pe_vtypes.py
+│   │   │       ├── ssdt_vtypes.py
+│   │   │       ├── tcpip_vtypes.py
+│   │   │       ├── vad_vtypes.py
+│   │   │       ├── vista.py
+│   │   │       ├── vista_sp0_x64_syscalls.py
+│   │   │       ├── vista_sp0_x64_vtypes.py
+│   │   │       ├── vista_sp0_x86_syscalls.py
+│   │   │       ├── vista_sp0_x86_vtypes.py
+│   │   │       ├── vista_sp12_x64_syscalls.py
+│   │   │       ├── vista_sp12_x86_syscalls.py
+│   │   │       ├── vista_sp1_x64_vtypes.py
+│   │   │       ├── vista_sp1_x86_vtypes.py
+│   │   │       ├── vista_sp2_x64_vtypes.py
+│   │   │       ├── vista_sp2_x86_vtypes.py
+│   │   │       ├── win10.py
+│   │   │       ├── win10_x64_10240_17770_vtypes.py
+│   │   │       ├── win10_x64_10586_syscalls.py
+│   │   │       ├── win10_x64_14393_syscalls.py
+│   │   │       ├── win10_x64_15063_syscalls.py
+│   │   │       ├── win10_x64_15063_vtypes.py
+│   │   │       ├── win10_x64_16299_syscalls.py
+│   │   │       ├── win10_x64_16299_vtypes.py
+│   │   │       ├── win10_x64_17134_vtypes.py
+│   │   │       ├── win10_x64_17763_vtypes.py
+│   │   │       ├── win10_x64_18362_vtypes.py
+│   │   │       ├── win10_x64_19041_vtypes.py
+│   │   │       ├── win10_x64_1AC738FB_vtypes.py
+│   │   │       ├── win10_x64_DD08DD42_vtypes.py
+│   │   │       ├── win10_x64_vtypes.py
+│   │   │       ├── win10_x86_10240_17770_vtypes.py
+│   │   │       ├── win10_x86_10586_syscalls.py
+│   │   │       ├── win10_x86_14393_syscalls.py
+│   │   │       ├── win10_x86_15063_syscalls.py
+│   │   │       ├── win10_x86_15063_vtypes.py
+│   │   │       ├── win10_x86_16299_syscalls.py
+│   │   │       ├── win10_x86_16299_vtypes.py
+│   │   │       ├── win10_x86_17134_vtypes.py
+│   │   │       ├── win10_x86_17763_vtypes.py
+│   │   │       ├── win10_x86_18362_vtypes.py
+│   │   │       ├── win10_x86_19041_vtypes.py
+│   │   │       ├── win10_x86_44B89EEA_vtypes.py
+│   │   │       ├── win10_x86_9619274A_vtypes.py
+│   │   │       ├── win10_x86_vtypes.py
+│   │   │       ├── win2003.py
+│   │   │       ├── win2003_sp0_x86_syscalls.py
+│   │   │       ├── win2003_sp0_x86_vtypes.py
+│   │   │       ├── win2003_sp12_x64_syscalls.py
+│   │   │       ├── win2003_sp12_x86_syscalls.py
+│   │   │       ├── win2003_sp1_x64_vtypes.py
+│   │   │       ├── win2003_sp1_x86_vtypes.py
+│   │   │       ├── win2003_sp2_x64_vtypes.py
+│   │   │       ├── win2003_sp2_x86_vtypes.py
+│   │   │       ├── win7.py
+│   │   │       ├── win7_sp01_x64_syscalls.py
+│   │   │       ├── win7_sp01_x86_syscalls.py
+│   │   │       ├── win7_sp0_x64_vtypes.py
+│   │   │       ├── win7_sp0_x86_vtypes.py
+│   │   │       ├── win7_sp1_x64_24000_vtypes.py
+│   │   │       ├── win7_sp1_x64_632B36E0_vtypes.py
+│   │   │       ├── win7_sp1_x64_vtypes.py
+│   │   │       ├── win7_sp1_x86_24000_vtypes.py
+│   │   │       ├── win7_sp1_x86_BBA98F40_vtypes.py
+│   │   │       ├── win7_sp1_x86_vtypes.py
+│   │   │       ├── win81_u1_x64_vtypes.py
+│   │   │       ├── win81_u1_x86_vtypes.py
+│   │   │       ├── win8_kdbg.py
+│   │   │       ├── win8.py
+│   │   │       ├── win8_sp0_x64_syscalls.py
+│   │   │       ├── win8_sp0_x64_vtypes.py
+│   │   │       ├── win8_sp0_x86_syscalls.py
+│   │   │       ├── win8_sp0_x86_vtypes.py
+│   │   │       ├── win8_sp1_x64_54B5A1C6_vtypes.py
+│   │   │       ├── win8_sp1_x64_syscalls.py
+│   │   │       ├── win8_sp1_x64_vtypes.py
+│   │   │       ├── win8_sp1_x86_syscalls.py
+│   │   │       ├── win8_sp1_x86_vtypes.py
+│   │   │       ├── windows64.py
+│   │   │       ├── windows.py
+│   │   │       ├── xp.py
+│   │   │       ├── xp_sp2_x86_syscalls.py
+│   │   │       ├── xp_sp2_x86_vtypes.py
+│   │   │       └── xp_sp3_x86_vtypes.py
+│   │   ├── patcher.py
+│   │   ├── patchguard.py
+│   │   ├── pooltracker.py
+│   │   ├── privileges.py
+│   │   ├── procdump.py
+│   │   ├── pstree.py
+│   │   ├── raw2dmp.py
+│   │   ├── registry
+│   │   │   ├── amcache.py
+│   │   │   ├── auditpol.py
+│   │   │   ├── dumpregistry.py
+│   │   │   ├── hivelist.py
+│   │   │   ├── hivescan.py
+│   │   │   ├── __init__.py
+│   │   │   ├── lsadump.py
+│   │   │   ├── printkey.py
+│   │   │   ├── registryapi.py
+│   │   │   ├── shellbags.py
+│   │   │   ├── shimcache.py
+│   │   │   ├── shutdown.py
+│   │   │   └── userassist.py
+│   │   ├── sockets.py
+│   │   ├── sockscan.py
+│   │   ├── ssdt.py
+│   │   ├── strings.py
+│   │   ├── taskmods.py
+│   │   ├── tcaudit.py
+│   │   ├── timeliner.py
+│   │   ├── vadinfo.py
+│   │   ├── vboxinfo.py
+│   │   ├── verinfo.py
+│   │   ├── vmwareinfo.py
+│   │   ├── volshell.py
+│   │   └── win10cookie.py
+│   ├── poolscan.py
+│   ├── protos.py
+│   ├── registry.py
+│   ├── renderers
+│   │   ├── basic.py
+│   │   ├── dot.py
+│   │   ├── html.py
+│   │   ├── __init__.py
+│   │   ├── sqlite.py
+│   │   ├── text.py
+│   │   └── xlsx.py
+│   ├── scan.py
+│   ├── timefmt.py
+│   ├── utils.py
+│   ├── validity.py
+│   └── win32
+│       ├── crashdump.py
+│       ├── domcachedump.py
+│       ├── hashdump.py
+│       ├── hive.py
+│       ├── __init__.py
+│       ├── lsasecrets.py
+│       ├── modules.py
+│       ├── network.py
+│       ├── rawreg.py
+│       ├── tasks.py
+│       └── xpress.py
+└── vol.py
+
+29 directories, 460 files
 ======================: README CONTENT :======================
 ====================== GIT HISTORY: ======================
 a438e768 HEAD@{0}: clone: from https://github.com/volatilityfoundation/volatility
