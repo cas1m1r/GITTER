@@ -1,0 +1,79 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# P2P-based Botnet Graphs
+This repository contains P2P overlay snaphots of the botnets Sality and ZeroAccess. The data was collected with our monitoring tool *Strobo-Crawler* and the overlay graphs have been reconstructed with *advanced reconstruction* methods.
+
+If you want to get more details about how these graphs have been created or if you use these graphs, please **refer to our paper [1]**.
+
+```
+[1] S. Haas, S. Karuppayah, S. Manickam, M. Mühlhäuser, M. Fischer. On the Resilience of P2P-based Botnet Graphs. IEEE Conference on Communications and Network Security (IEEE CNS), 2016
+```
+
+# Repository Structure
+We publish snapshots in two different categories. Individual snapshots can be found under **Individual Snapshots** and usually describe a certain situation. In addition we provide series of snapshots in fixed intervals.
+Currently we have data for two P2P botnets: Sality and ZeroAccess.
+## Graph Structure
+Graphs in this repository are provided as compressed GraphML files. IP addresses are anonymized and cannot be grouped into subnets. However, hased IP addresses are consitnet in all graphs.
+
+**File Naming Convention:**  
+Core: Only nodes/bots that have unfiltered internet access, i.e., superpeers  
+All: Core + nodes/bots with restricted internet access, i.e., non-superpeers (e.g. NATed or behind firewall)
+
+## Individual Snaphots
+Snapshot Name | Time | Description
+-------------------|--------|-----------------
+sality_v3_core_max | 2016-02-25 18:38:29 | Sality_V3 Core: Highest population
+sality_v3_core_min | 2016-02-24 03:34:02 | Sality_V3 Core: Lowest population
+za_16464_core_max | 2016-02-24 17:17:23 | ZeroAccess_16464 Core: Highest population
+za_16464_core_min | 2016-02-23 04:19:30 | ZeroAccess_16464 Core: Lowest population
+za_16464_all_max | 2016-02-24 13:52:11 | ZeroAccess_16464 All: Highest population
+za_16464_all_min | 2016-02-28 04:25:44 | ZeroAccess_16464 All: Lowest population
+ 
+## Snapshot Series
+Series Name | From | To | Interval
+------------------|---------|-----|------------
+ sality_v3_core_15x12h | 2016-02-13 00:00:00 | 2016-02-20 00:00:00 | 12 hours
+ sality_v3_core_25x1h | 2016-02-24 00:00:00 | 2016-02-25 00:00:00 | 1 hour
+====================== GIT HISTORY: ======================
+821e3b6 HEAD@{0}: clone: from https://github.com/iBigQ/botnet-graphs
+commit 821e3b6fe996b796c133330d87a7c9f84cde0961
+Author: Steffen Haas <haas@informatik.uni-hamburg.de>
+Date:   Tue Oct 11 17:20:26 2016 +0000
+
+    Update data
+
+commit a484930e732e02c7a9f9121bb80005c8e05916b7
+Author: Steffen <Steffen Haas>
+Date:   Tue Oct 11 18:55:32 2016 +0200
+
+    Update Readme
+
+commit 9057808237a5e96dfee60b9f1460cfd4e3c80794
+Author: Steffen <Steffen Haas>
+Date:   Tue Oct 11 18:19:12 2016 +0200
+
+    Update Readme
+
+commit 7f61f48397ce29081ba3c07d12a47dbea4e8f009
+Author: Steffen <Steffen Haas>
+Date:   Tue Oct 11 18:14:49 2016 +0200
+
+    Update Readme
+
+commit 2f0e67b790f5385cacbff3ecf558e840f474825d
+Author: Steffen <Steffen Haas>
+Date:   Tue Oct 11 18:13:37 2016 +0200
+
+    Update Readme
+
+commit 0ee31da35429e73b29d2bd89eba0b5afe2c6cc55
+Author: Steffen Haas <steffen.haas@uni-muenster.de>
+Date:   Tue Apr 26 18:42:59 2016 +0000
+
+    Add snapshots for min/max population
+
+commit cac8d5959c0c812dda881115eb5945bbab0aad12
+Author: iBigQ <Haas-Steffen@gmx.net>
+Date:   Tue Apr 26 11:55:15 2016 +0200
+
+    Initial commit

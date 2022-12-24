@@ -1,0 +1,414 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/lillypad/chrome-crusader/blob/master/LICENSE)
+[![Python 2](https://img.shields.io/badge/Python-2-brightgreen.svg)](https://github.com/lillypad/chrome-crusader/)
+[![Python 3](https://img.shields.io/badge/Python-3-brightgreen.svg)](https://github.com/lillypad/chrome-crusader/)
+[![PyPI](https://img.shields.io/pypi/v/nine.svg)](https://github.com/lillypad/chrome-crusader/)
+
+# Chrome Crusader
+
+Chrome Crusader is a Google Chrome browser extension malware / botnet.
+
+<p align="center">
+<img src="https://github.com/lillypad/chrome-crusader/raw/master/docs/presentation/atlseccon/img/chrome_pony_evil.png" alt="Chrome Crusader" width="415px" height="398px">
+</p>
+
+# Demo Video
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=6c-FcwwSqIs"><img src="https://img.youtube.com/vi/6c-FcwwSqIs/0.jpg"/></a>
+</p>
+
+# Interesting Facts
+
+In the words of Google:
+
+> When writing a content script, you should be aware of two security issues. First, be careful not to introduce security vulnerabilities into the web site your content script is injected into. For example, if your content script receives content from another web site (for example, by making an XMLHttpRequest), be careful to filter that content for cross-site scripting attacks before injecting the content into the current page. For example, prefer to inject content via innerText rather than innerHTML. Be especially careful when retrieving HTTP content on an HTTPS page because the HTTP content might have been corrupted by a network "man-in-the-middle" if the user is on a hostile network.
+
+:trollface: It's so easy to bypass cross-site scripting and security headers in this malware anyone can do it :trollface:
+
+# Screenshots
+![Chrome Crusader](https://github.com/lillypad/chrome-crusader/raw/develop/img/screenshot_0.png)
+
+# Building Chrome Crusader
+
+**Download Source**
+```bash
+git clone https://github.com/lillypad/chrome-crusader.git
+cd chrome-crusader/
+```
+
+**Building Chrome Extension**
+```bash
+./configure.sh
+make chrome
+```
+
+**Building Chromium Extension**
+```bash
+./configure.sh
+make chromium
+```
+
+**Building Documents**
+```bash
+make docs
+```
+
+**Installing CnC Server**
+```bash
+cd cnc-server/
+sudo python setup.py install
+ccserver.py
+```
+
+# Disclaimer
+
+By using this free software you indemnify and hold harmless it's creators and understand you are using this at your own risk.
+====================== GIT HISTORY: ======================
+c4a939e HEAD@{0}: clone: from https://github.com/lillypad/chrome-crusader
+commit c4a939ea30ce6839f2fdcd99d7f531f38157c465
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Wed Jun 19 14:17:22 2019 -0300
+
+    Update README.md
+
+commit a22f89c58851815f25c1736abac83e48f04f8e7d
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Wed Jun 19 14:16:41 2019 -0300
+
+    Update README.md
+
+commit 1a8a40a4f45692a7bef54006a9b55ac572ba443e
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Wed Jun 19 14:15:36 2019 -0300
+
+    Update README.md
+
+commit b33b2cf060d52c883d00e3eef94e996affb56a6c
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Wed Jun 19 14:14:50 2019 -0300
+
+    Update README.md
+
+commit 1c7b597c966a10023bf2bd58d58b795b2193865b
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Wed Jun 19 14:12:39 2019 -0300
+
+    Update README.md
+
+commit bd1d4ed17a8d2c38593d3102e4d93689d9788e2f
+Merge: 0859349 b204a54
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Tue May 1 11:23:25 2018 -0300
+
+    girlspowertech handout questions Merge branch 'develop'
+
+commit b204a54f20edbcef1f737976fe4fd776236ad65a
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Tue May 1 11:14:26 2018 -0300
+
+    update girlspowertech
+
+commit 08593495bac3ca1156aa73d27956970d71cc0f2b
+Merge: 5498547 b959468
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Fri Apr 27 14:47:36 2018 -0300
+
+    Merge pull request #5 from lillypad/develop
+    
+    fix
+
+commit b95946828c7aa9f7f45c1ea2d1e33507761b0fb8
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Fri Apr 27 14:46:54 2018 -0300
+
+    fix
+
+commit 5498547da6e74b56e156cdc6f11c0d3f219c52e9
+Merge: 1149f59 49ee47f
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Fri Apr 27 14:43:49 2018 -0300
+
+    Merge pull request #4 from lillypad/develop
+    
+    2018-04-27
+
+commit 49ee47f390175a7f338743ec47326cfdb0e92c91
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Fri Apr 27 14:42:25 2018 -0300
+
+    update
+
+commit 1149f597b311c7f4d3c9eb34b2a56e5af946ee53
+Merge: 59138f2 d9776c6
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:41:30 2018 -0300
+
+    Merge pull request #3 from lillypad/develop
+    
+    Fix Logo
+
+commit d9776c6a3085b2f58941a03b0a00c8e32d69f096
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:40:18 2018 -0300
+
+    rtfm
+
+commit 59138f2416d98eafe354efbf5a355ab4fc875517
+Merge: 9ba857c c2adcd5
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:38:26 2018 -0300
+
+    Merge pull request #2 from lillypad/develop
+    
+    2018-04-25
+
+commit c2adcd5928c715dca48c91691109b888ce7bdc89
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:34:49 2018 -0300
+
+    rtfm
+
+commit e1945473a45bd74fd50212508dd9c8e23125144c
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:33:57 2018 -0300
+
+    rtfm
+
+commit 83704cb81173103491c5ee1411ec319beaac8cbc
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:31:38 2018 -0300
+
+    screenshot
+
+commit e9c3c43595499acdbd1c24ecb9d3eda850623507
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:21:14 2018 -0300
+
+    update
+
+commit c8caaab1c3b6d29a8f7cd90c4ae3cadef9404296
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 14:15:58 2018 -0300
+
+    girlspowertech handout update
+
+commit ec067741eb5e4b5c79d25f9f6d4d55efec000b6e
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Wed Apr 25 10:21:23 2018 -0300
+
+    girlspowertech update
+
+commit 95e4ee1dec330b4623e26a96ec625828874ea148
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Fri Apr 20 16:43:10 2018 -0300
+
+    girlspowertech
+
+commit 645efa8c4e31d57ccf063556239deb1c1a85f1d5
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Thu Apr 19 15:39:45 2018 -0300
+
+    update girlspowertech
+
+commit 1921b27aaffddaa2a0d974cf110e4d2dc80ca5de
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Thu Apr 19 14:21:54 2018 -0300
+
+    girlspowertech
+
+commit a2ec5a6792cac4308d818848c16bf77a8bc7e5ec
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Thu Apr 19 11:59:33 2018 -0300
+
+    update presentation
+
+commit 9ba857c43273d840157b4f8e29be59f14b5fbf04
+Merge: f3ff701 39b2d26
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Thu Apr 19 09:16:39 2018 -0300
+
+    Merge pull request #1 from lillypad/develop
+    
+    2018-04-19
+
+commit 39b2d260f05a1cef2c82a42298260f01e49ff886
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Thu Apr 19 09:14:52 2018 -0300
+
+    rtfm
+
+commit 5e9f539844f4f7f2ba72f979f0da725dd1490406
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Thu Apr 19 09:12:52 2018 -0300
+
+    rtfm
+
+commit 3e634e1e3f0e6566e7540ec9abd1d12895d38e79
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Thu Apr 19 09:01:08 2018 -0300
+
+    tex update
+
+commit 9849c1f3ab986e74fee5537c356460c4b8d76592
+Author: Lilly Chalupowski <lchalupowski@gosecure.ca>
+Date:   Tue Apr 17 08:15:32 2018 -0300
+
+    update requirements
+
+commit f3ff701a418c450cf3cc52b29cd9e8c5d160b096
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 14:24:45 2018 -0300
+
+    bin
+
+commit 324ffa548884c804271f85e118cc4c390cc73ad4
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 14:22:44 2018 -0300
+
+    bin
+
+commit bbc053c13f18270275ae4602e6509a22bb1a54cc
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 13:58:13 2018 -0300
+
+    rtfm
+
+commit 9c2bf35ee698dfa807ebc3d4cf55aa6de2b394aa
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 13:52:30 2018 -0300
+
+    test
+
+commit 191dc238485e4892dd19272bddc9233464047481
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 13:51:17 2018 -0300
+
+    dos2unix
+
+commit 5df0b8d7bb56242160c6b1cebb764eb6d201f844
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 13:49:54 2018 -0300
+
+    presentation update
+
+commit 6f8a2fcfd1488e3bfa659b885bcd09bfb56b6035
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 10:34:01 2018 -0300
+
+    build update
+
+commit 41164084c97adc88ded1f2b73b994fcd9009399d
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 10:33:26 2018 -0300
+
+    build
+
+commit ca741265ecfaca12dea893f507dd0d8ec9bad6c8
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 09:50:07 2018 -0300
+
+    linting support
+
+commit f6377e9310bccab1825fa69f4465ff2ee6c82fb0
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sun Apr 15 08:59:32 2018 -0300
+
+    remove more security headers
+
+commit 03e51e38582a2ff58346064822dbfb7ea41a7bef
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 22:46:22 2018 -0300
+
+    nuke security headers
+
+commit ccae7f0ed34467dd273da947d10729ae4b78e036
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:43:49 2018 -0300
+
+    rtfm
+
+commit ee04cc36997d7045e86bc0200c4d1b83585d0e99
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:42:57 2018 -0300
+
+    resize
+
+commit 6d9baab282bc38819ef198fb3e6df217aa888ab4
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:42:18 2018 -0300
+
+    update
+
+commit 3cab8beb43b4a55d058b9bbc33cde47c41e06b37
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:41:12 2018 -0300
+
+    readme
+
+commit 15d3945ca1d508c73b990f0f5b088fdde822d55a
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:40:19 2018 -0300
+
+    image
+
+commit a82187abb02041abf0878e3e770080d13d8bf668
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:38:42 2018 -0300
+
+    image
+
+commit cbdf582396d485f26b34043ff1b2371e7a84a389
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:34:21 2018 -0300
+
+    readme
+
+commit 322397282a3ea6750c159a893d1795131bd11efa
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:33:16 2018 -0300
+
+    size
+
+commit 9ee2532d7884350b58fca06d2fad9c1ef97608aa
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:32:06 2018 -0300
+
+    image
+
+commit 119f22d8925b92fcde36d4a3711b0cb6742b7001
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:30:31 2018 -0300
+
+    image
+
+commit 8c95dc2b6c4e3fac15aa4a283f82b7d2f997eeea
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:28:35 2018 -0300
+
+    readme
+
+commit 17d05cf18eb20d42ec9a4cef2fe6b8a2b70a84e7
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:16:51 2018 -0300
+
+    license update
+
+commit 8341987bbd035639df693b1261dbf160c6351dac
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 16:16:01 2018 -0300
+
+    license
+
+commit 876444e3bb089345fdcddd62f3d1bfdb33e0268d
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 15:52:09 2018 -0300
+
+    update
+
+commit f1e5f9b3bbc39e470f7c38025c494a60a12a1fe4
+Author: lillypad <lchalupowski@gosecure.ca>
+Date:   Sat Apr 14 15:37:06 2018 -0300
+
+    First Commit

@@ -1,0 +1,331 @@
+======================: FILES :======================
+======================: README CONTENT :======================
+# Booh-Botnet
+
+ Booh! is a simple Http Botnet built by "Droid" which is a pseudonym of Filipe Borges with the aim of doing research in the area of digital security.
+ More info:
+ 
+ Landing page : https://filipeborges1993.github.io/Booh-Botnet , 
+ 
+ Panel : http://51.38.32.138/  (credentials $user-> **Droid**, $password-> **'123'**;
+ 
+
+ # How To Instal
+ * [Panel(Laravel)](#Panel)
+ * [Polymorphic_Builder](#Polymorphic_Builder)
+
+
+# Panel
+  This panel was created on Laravel framework, There is already a lot of documentation on how to install it on the internet, google it!
+
+  Any problem Send me Msg.
+
+
+# Polymorphic Builder
+
+  To use this builder you will need
+  * `**Visual studio 2017** `
+
+  * `**Python3** `
+
+
+  **First** - Create a panel user, for simplicity I created a route to do it
+
+   "www.Your-Panel-Ip.com/createUser/{username}/{password}"
+
+ ![alt text](https://raw.githubusercontent.com/FilipeBorges1993/Booh-Botnet/master/Screen%20Shot%202018-04-10%20at%2016.05.41.png)
+
+
+  This route can be disabled manually
+
+  * `Admin / routes / web.php`
+
+  Comment the line
+
+
+  ```php
+  Route :: get ('/ createUser / {username} / {password}', 'Auth_Controller @ createUser')
+  ```
+<<<<<<< HEAD
+ **Second** - Save the PanelKey and CrypthKey then you need to base64 encode your panel Ip/domain like that
+  
+   * ` http://You-Panel-ip/Api `
+
+   You can use "https://www.base64encode.org/" for it.
+
+   Than save your **Base64 encoded URl** to.
+
+   I added a feature that allows you to use a backup Url that uses the website www.pastebin.com. This feature premies that in    case of any problem with the primary url, the owner of the botnet panel can use the paste to update the url panel.
+
+   To use this you need to create an new paste on pastebin.com, base64 encode the raw version of the paste link like the main   panel url and save it with the other information.
+
+
+  **Third** - Go to polymorphic builder folder with terminal and use the command :
+
+  ```python
+     python3 main.py
+  ```
+
+   Than add the the previous saved information to the respective fields.
+
+   ![alt text](https://github.com/FilipeBorges1993/Booh-Botnet/raw/master/Screen%20Shot%202018-04-10%20at%2017.png)
+
+
+
+   **Four** - Now we just need to compile. To do it you need open the folder named "Server" and click on .sln file to open with Visual Studio 2017 then Compile.
+
+
+   ![alt text](https://github.com/FilipeBorges1993/Booh-Botnet/raw/master/Screen%20Shot%202018-04-10%20at%2019.09.52.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================== GIT HISTORY: ======================
+1352da4 HEAD@{0}: clone: from https://github.com/FilipeBorges1993/Booh-Botnet
+commit 1352da4f47530913d748eb2a577c41759d50e960
+Author: Filipe Borges <sonicidentification@gmail.com>
+Date:   Wed Nov 25 01:14:26 2020 +0000
+
+    Update README.md
+
+commit 893f01dee47743cbf87cd57fbad132135b4081fc
+Merge: 7c7508b 65f8550
+Author: FilipeBorges1993 <sonicidentification@gamil.com>
+Date:   Wed Nov 25 01:05:41 2020 +0000
+
+     asd
+
+commit 7c7508b075077539ac592faa1010f01e8dd62ddb
+Author: FilipeBorges1993 <sonicidentification@gamil.com>
+Date:   Wed Nov 25 01:02:08 2020 +0000
+
+    ok
+
+commit 65f8550eb457a111eaa05f979a569ac7516c3e32
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Wed Nov 4 17:04:50 2020 +0000
+
+    Update README.md
+
+commit 37468914ef19d50abc8903d23bdd4e040c1f8615
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Sat Feb 22 21:21:30 2020 +0000
+
+    Update README.md
+
+commit d5a92991f1027a19a5422ad81f5b328a8ae6a6a6
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Thu Dec 19 15:35:16 2019 +0000
+
+    Update README.md
+
+commit 30f443b0926ae2948ac66d8b2ce9c01882478092
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 17 03:50:29 2018 +0100
+
+    Update README.md
+
+commit ded859c5d06fdfd61e102212276478052163182c
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 17 03:48:31 2018 +0100
+
+    Update README.md
+
+commit 02122d0b87ecd6ca8af6d87aaddc1a02ace9a3c5
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 17 03:48:06 2018 +0100
+
+    Update README.md
+
+commit 6ab63501ddd7688f83c6d376e42807d02ab33f1c
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Mon Apr 16 18:03:45 2018 +0100
+
+    Update web.php
+
+commit ecfa4463107555ba0ccb2f6452a7ce94da19e732
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Wed Apr 11 19:22:53 2018 +0100
+
+    Update README.md
+
+commit dc7ffba387a61be62a0b1dfc0f445667077d2659
+Merge: a052475 cc1b93d
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Wed Apr 11 19:21:55 2018 +0100
+
+    README
+
+commit a0524751bf50c425a814433f98eb1d3631232c04
+Merge: e0df8c3 295daad
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Wed Apr 11 19:20:07 2018 +0100
+
+    README
+
+commit cc1b93d7f2b7093af7ebd63abac1a66c3bc0869e
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Wed Apr 11 19:19:04 2018 +0100
+
+    Delete README.md
+
+commit e0df8c310a20e1c1f801d4fc94bba46a90726f3b
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Wed Apr 11 19:16:39 2018 +0100
+
+    README
+
+commit 295daad4259430b2cd08906fa3fcaf5a2231cf96
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 22:40:53 2018 +0100
+
+    Update README.md
+
+commit 86a088763be52464efac306087acd04317e13259
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 22:39:47 2018 +0100
+
+    Add files via upload
+
+commit 87095b20a4985c09991dc81f3338ae25c48a6e7f
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 22:39:18 2018 +0100
+
+    Delete
+
+commit 857417b3add1498278159304ee5374b1198fc006
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 22:37:55 2018 +0100
+
+    Add files via upload
+
+commit be84228e682d30682fa915f5da027985d0068f60
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 22:37:05 2018 +0100
+
+    Delete Screen Shot 2018-04-10 at 17.35.46.png
+
+commit b4a064796a68f975da8de4dd0cdc410df306ff2d
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 22:36:25 2018 +0100
+
+    Add files via upload
+
+commit 71df2faf6b834717cee6f3ee386610502d2f668a
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 22:36:09 2018 +0100
+
+    Delete Screen Shot 2018-04-10 at 17.35.46.png
+
+commit a7cf0cd590e8bcfa6702b9b616f3b8c572dfaf0c
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 19:11:27 2018 +0100
+
+    Update README.md
+
+commit 5d3cda72c868539dcdda9cc11574f9d6d25d2f1f
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 19:10:24 2018 +0100
+
+    New file
+
+commit 77b38310f4e74d3b8aea8e01d39733664061d15e
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 17:44:58 2018 +0100
+
+    Update README.md
+
+commit e5f97f426531b3a9b7266ba81a7f4893d50fc1e0
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 17:44:18 2018 +0100
+
+    Update README.md
+
+commit 9cd1321eba8c25f8d7749738aa74e07e3d7f8f3c
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 17:36:14 2018 +0100
+
+    New File
+
+commit b333e1059a04b97db1151822ed08b27c65fa8c2b
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 16:14:22 2018 +0100
+
+    Update ReadMe.md
+
+commit 3d847a5e79aa5a867901fc616fd5cbf9338292fa
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 16:09:52 2018 +0100
+
+    New added
+
+commit 3af6cc715482061f33720af2eaa95a8a4ee4736c
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:49:17 2018 +0100
+
+    README
+
+commit ab27f942bc831b85145772bdb72621b8915358d8
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:47:39 2018 +0100
+
+    README
+
+commit de467353ba84772930c433a6932783c25e425a21
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:45:35 2018 +0100
+
+    README
+
+commit df011c67a3713920b72d0041580e2bef6e477ca8
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:43:37 2018 +0100
+
+    README
+
+commit 9ad9bbe500f4eac51a3eafa7298ccb4cd85b37c6
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:42:23 2018 +0100
+
+    README
+
+commit b8917dfd55d4edf13317c589a97b1761b7f079b2
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:25:30 2018 +0100
+
+    README
+
+commit 8bc2da4d7216a65c01957480f8de152403fcdd83
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:24:36 2018 +0100
+
+    README
+
+commit 611de54c5bbc343be6299c428f10cc8e858b1932
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Tue Apr 10 15:17:10 2018 +0100
+
+    README
+
+commit e9355d7401089a8f04c6bd76fc1f0ea8c3a0f084
+Author: FilipeBorges1993 <sonicidentification@gmail.com>
+Date:   Mon Apr 9 16:49:47 2018 +0100
+
+    Secound Commit
+
+commit a9817b2c40e358482d843bbd6c1f330473920ebe
+Author: Xeon <nowifafeji@1webmail.info>
+Date:   Mon Apr 9 16:23:02 2018 +0100
+
+    first commit
