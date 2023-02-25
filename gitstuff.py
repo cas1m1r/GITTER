@@ -7,7 +7,7 @@ import json
 import sys
 import re
 
-def search_git(query):
+def search_git(query, opts='forks'):
 	base = 'https://github.com'
 	browser = Firefox()
 	browser.get(base)
@@ -18,6 +18,12 @@ def search_git(query):
 	time.sleep(random.randint(1,2) + random.randint(0,3))
 	users = {}
 
+	if opts == 'forks':
+		browser.find_element(By.CSS_SELECTOR,'.select-menu-button').click()
+		time.sleep(random.randint(1,2) + random.randint(1,3))
+		browser.find_element(By.CSS_SELECTOR, 'a.select-menu-item:nth-child(4) > span:nth-child(2)').click()
+		time.sleep(random.randint(1,2) + random.randint(1,3))
+		# browser.find_element(By.CSS_SELECTOR,'.select-menu-button').click()
 	adding = True; pages = 0
 	while adding:
 		try:
